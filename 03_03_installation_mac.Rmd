@@ -1,0 +1,42 @@
+## Installationsanleitung MacOS
+
+Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
+
+1. R, die Programmiersprache
+
+2. RStudio, die Entwicklungsumgebung
+
+Zur Installation müssen Sie deshalb auch **beides nacheinander** installieren. 
+
+### Erster Schritt: R
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  [https://cran.r-project.org/](https://cran.r-project.org). Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
+
+<img src="images/screenshot_cran_homepage.png" alt="Screenshot CRAN Homepage" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
+
+Klicken Sie auf der [Homepage des CRAN](https://cran.r-project.org) auf "Download R for (Mac) OSX" und scrollen Sie bis zu den "Latest Releases". Unter dieser Überschrift wird Ihnen die aktuellste "stable" Version von R angezeigt. 
+
+Während diese Dokumentation geschrieben wurde, war dies die Version 4.0.2, wie der nachfolgende Screenshot zeigt:
+
+<img src="images/screenshot_cran_download_mac.png" alt="Screenshot CRAN Homepage" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
+
+Rechtsklicken Sie auf die Version und laden Sie sie herunter.
+
+Doppelklicken Sie auf die heruntergeladene Datei und folgen Sie der Installationsanleitung.
+
+
+<img src="images/screenshot_install_mac.png" alt="Screenshot CRAN Homepage" width="300px" style="border:1px solid grey; margin-right:550px">
+
+
+### Zweiter Schritt: RStudio
+
+RStudio, die Entwicklungsumgebung für R können Sie unter [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/) herunterladen.
+
+Wählen Sie die Version "RStudio Desktop - Free" und laden Sie die Datei herunter.
+
+<img src="images/screenshot_rstudio_free.png" alt="Screenshot Download RStudio" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
+
+Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und ziehen Sie sie in Ihre Applications.
+
+<img src="images/screenshot_install_rstudio_mac.png" alt="Screenshot Installation RStudio" width="300px" style="border:1px solid grey; margin-right:750px;margin-bottom:25px">
+
+Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.

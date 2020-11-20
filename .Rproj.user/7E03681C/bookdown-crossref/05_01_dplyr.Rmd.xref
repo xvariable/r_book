@@ -1,0 +1,12 @@
+h1:datenaufbereitung Datenaufbereitung
+h2:die-pipe Die Pipe
+h3:der-aufbau-im-detail Der Aufbau im Detail
+h3:schlechtere-alternativen-zur-pipe Schlechtere Alternativen zur Pipe
+h2:filter-fälle-auswählen Filter: Fälle auswählen
+h2:arrange-fälle-sortieren Arrange: Fälle sortieren
+h2:select-variablen-auswählen Select: Variablen auswählen
+h2:variablen-umcodieren Variablen umcodieren
+h2:mutate-variablen-berechnen Mutate: Variablen berechnen
+h3:variablen-unter-einer-bedingung-berechnen Variablen unter einer Bedingung berechnen
+h2:summary-daten-verdichten Summary: Daten verdichten
+

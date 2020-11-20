@@ -1,0 +1,152 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Chambers",
+                    "given": "John M."
+                }
+            ],
+            "edition": "3",
+            "id": "Chambers_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "publisher-place": "New York, NY",
+            "title": "Programming with data: A guide to the S language",
+            "title-short": "Programming with data",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1145/3386334",
+            "ISSN": "2475-1421",
+            "author": [
+                {
+                    "family": "Chambers",
+                    "given": "John M."
+                }
+            ],
+            "container-title": "Proceedings of the ACM on Programming Languages",
+            "id": "Chambers_2020",
+            "issue": "HOPL",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "1-17",
+            "title": "S, R, and data science",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "URL": "https://github.com/matloff/TidyverseSkeptic",
+            "author": [
+                {
+                    "family": "Matloff",
+                    "given": "Norm"
+                }
+            ],
+            "id": "Matloff_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "title": "TidyverseSkeptic",
+            "type": ""
+        },
+        {
+            "URL": "https://towardsdatascience.com/a-thousand-gadgets-my-thoughts-on-the-r-tidyverse-2441d8504433",
+            "author": [
+                {
+                    "family": "McChesney",
+                    "given": "Jasper"
+                }
+            ],
+            "container-title": "towards data science",
+            "id": "McChesney_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "title": "A Thousand Gadgets: My Thoughts on the R Tidyverse",
+            "title-short": "A Thousand Gadgets",
+            "type": ""
+        },
+        {
+            "author": [
+                {
+                    "family": "Munzert",
+                    "given": "Simon"
+                },
+                {
+                    "family": "Ruoba",
+                    "given": "Christin"
+                },
+                {
+                    "family": "Meiboner",
+                    "given": "Peter"
+                },
+                {
+                    "family": "Nyhuis",
+                    "given": "Dominic"
+                }
+            ],
+            "id": "Munzert_2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons",
+            "publisher-place": "Chichester, United Kingdom",
+            "title": "Automated Data Collection with R: A practical Guide to Web Scraping and Text Mining",
+            "title-short": "Automated Data Collection with R",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-1491910399",
+            "URL": "http://r4ds.had.co.nz/",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "Wickham_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "publisher": "O’Reilly UK Ltd",
+            "title": "R for Data Science: Import, tidy, transform, visualize, and model data",
+            "title-short": "R for Data Science",
+            "type": "book"
+        }
+    ],
+    "project_biblios": [
+        "book.bib"
+    ]
+}
