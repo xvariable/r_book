@@ -3,7 +3,8 @@
 pacman::p_load(tidyverse)
 # Einlesen der Daten
 data <- expss::read_labelled_csv2("data/ZA6738_v1-0-0_generation_z_labelled.csv") %>% 
-  mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23))
+  mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23)) %>% 
+  rename(zukunft_persoenlich = zukunftsperspektive_persoenlich)
 ```
 
 ### Tabellen
@@ -11,30 +12,30 @@ Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine 
 
 ```{r, freqencies_table}
 # Häufigkeitstabelle, absolute Zahlen
-table(data$zufriedenheit_leben)
+table(data$zukunft_persoenlich)
 ```
 
 Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument `useNA = "ifany"` mit ausgeben lassen:
 
 ```{r, freqencies_table_na}
 # Häufigkeitstabelle, absolute Zahlen
-table(data$zufriedenheit_leben, useNA = "ifany")
+table(data$zukunft_persoenlich, useNA = "ifany")
 ```
 
 Neben dem sehr schlichten `table()`-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion `tabyl()`aus dem Paket `janitor` vorstellen. Ich habe sie hier ausgewählt, weil ich das `janitor`-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.
 
-```{r, freqencies_table_tabyl_1}
+```{r, freqencies_table_tabyl_1, message=FALSE}
 library(janitor)
 
-tabyl(data$zukunftsperspektive_persoenlich)
+tabyl(data$zukunft_persoenlich)
 ```
 
 Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit `mutate()` aus dem Tidyverse leicht selbst berechnen. Zusätzlich brauchen wir Funktion `cumsum()`, welche kumulierte Summen bildet.
 
-```{r, freqencies_tabyl_2}
+```{r, freqencies_tabyl_2, message=FALSE}
 library(tidyverse)
 
-tabyl(data$zukunftsperspektive_persoenlich) %>% 
+tabyl(data$zukunft_persoenlich) %>% 
   # fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein
   mutate(cum_percent = cumsum(percent), 
          cum_valid_percent = cumsum(valid_percent)) 
@@ -43,21 +44,18 @@ tabyl(data$zukunftsperspektive_persoenlich) %>%
 Okay, es geht noch schöner. Der folgende Code führt jetzt ziemlich weit, enthält zusätzlich zu den neuen Spalten auch noch eine Spalte mit den Wertelabels und sortiert die Spalten so, wie ich das gerne hätte. 
 
 ```{r, freqencies_tabyl_3}
-library(janitor)
-library(tidyverse)
-
-tabyl(data$zukunftsperspektive_persoenlich) %>% 
+tabyl(data$zukunft_persoenlich) %>% 
   mutate(
          # fügt Spalte für kumulierte Prozent ein:
          cum_percent = cumsum(percent), 
          # fügt Spalte für kumulierte, gültige Prozent ein:
          cum_valid_percent = cumsum(valid_percent), 
          # kopiert die Spalte Werte:
-         value = `data$zukunftsperspektive_persoenlich`,  
+         value = `data$zukunft_persoenlich`,  
           # fügt in einer neuen Variable Wertelabels ein:
-         zukunftsperspektive_persoenlich = sjlabelled::get_labels(data$zukunftsperspektive_persoenlich))  %>%
+         zukunft_persoenlich = sjlabelled::get_labels(data$zukunft_persoenlich))  %>%
   # sortiert die Spalten neu:
-  select(zukunftsperspektive_persoenlich, value, n, percent, cum_percent, valid_percent, cum_valid_percent)
+  select(zukunft_persoenlich, value, n, percent, cum_percent, valid_percent, cum_valid_percent)
 ```
 
 ### Häufigkeitsdiagramm
@@ -66,10 +64,10 @@ Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqu
 
 Zur Erstellung von Plots ist das Paket `ggplot` aus dem Tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte lohnt es sich auf jeden Fall in ggplot einzusteigen und ich werde den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket `sjPlot` sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:
 
-```{r freq_plot}
+```{r freq_plot, message=FALSE}
 library(sjPlot)
 
-plot_frq(data$zukunftsperspektive_persoenlich)
+plot_frq(data$zukunft_persoenlich)
 ```
 
 Über die Funktion `plot_frq()` sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument `type` mit an die Funktion übergeben (z.B. `type = "line"` oder `type = "dot"`). Auch Histogramme sind möglich (`type = "histogram`), aber dazu später mehr.

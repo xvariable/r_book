@@ -1,15 +1,15 @@
 ## R-Projekte
 
-Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (*working directory*) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behät und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
+<img src="images/icon_rproject.png" alt="Rprotect Icon"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (*working directory*) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behät und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
 
 ### Arbeitsverzeichnis
-Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem "Arbeitsverzeichnis" heraus. 
+Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem "Arbeitsverzeichnis" heraus. 
 Möchte man jetzt etwas (z.B. einen Datensatz) in R laden muss man den gesamten Pfad "relativ" zu diesem Verzeichnis angeben oder aber den kompletten Dateipfad. Hier ein Beispiel:
 
 - Windows: C:/Users/julia/documents/data/my_data.xlsx
 - Unix und MacOS: /Users/julia/documents/my_data.xlsx
 
-Standardmäßig liegt das Arbeitsverzeichnis in den eigenen Dateien des Computers auf dem R installiert wurde.
+Standardmäßig liegt das Arbeitsverzeichnis in den *Eigenen Dateien* des Computers auf dem R installiert wurde.
 
 Mit dem Befehl `getwd()` kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. Mit `setwd("mein_pfad")` kann man das Arbeitsverzeichnis bestimmen. Das ist aber in der Regel gar nicht notwendig, wenn man mit R-Projekten arbeitet, weil diese das Arbeitsverzeichnis automatisch setzen.
 

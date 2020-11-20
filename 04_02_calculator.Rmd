@@ -24,15 +24,22 @@ Führt man diesen Code aus, wird in der Console nicht das Ergebnis ausgegeben. S
 <img src="images/screenshot_environment.png" alt="Screenshot Environment mit x = 3">
 
 Um das Objekt auch in der Console auszugeben kann man... 
-1. Den Befehl entweder in Klammern schreiben. - So wird er gleichzeitig ausgeführt und ausgegeben.
-2. Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer das R versucht diesen in der Console darzustellen
-3. Das Objekt x dem `print()`-Befehl übergeben. 
 
-Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert "3" zuweisen, wenn man ihn kennt ;)
+1. Den Befehl entweder in Klammern schreiben. - So wird er gleichzeitig ausgeführt und ausgegeben. -- Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert "3" zuweisen, wenn man ihn kennt ;)
 
 ```{r}
 (x <- 3)
+```
+
+2. Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer das R versucht diesen in der Console darzustellen.
+
+```{r}
 x
+```
+
+3. Das Objekt x dem `print()`-Befehl übergeben. 
+
+```{r}
 print(x)
 ```
 
@@ -43,12 +50,18 @@ Der Ausgabe in der Konsole stellt R immer eine eckige Klammer `[]` mit einer `1`
 Die Namen von Objekten kann man im Prinzip frei bestimmen, natürlich bietet es sich an, sprechende Namen zu verwenden, die man sich einigermaßen gut merken kann, die aber trotzdem einigermaßen kurz sind. Außerdem ist es schlau, bei Variablen die zusammengehörig sind das selbe Präfix zu verwenden (z.B. bei einer Skala zur Einstellung alle Variablen mit `attitude_` beginnen zu lassen).
 
 Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
+
 - Objektnamen können große und kleine Buchstaben, Zahlen und Punkte (.) und Unterstriche (_) enthalten. Andere Zeichen sind nicht erlaubt, insbesondere keine Leerzeichen.
+
 - Punkte und Unterstriche dürfen nicht am Anfang stehen.
+
 - Umlaute (z.B. ä, Ö oder ß), Sonderzeichen (z.B. %, & oder =) und Leerzeichen sind nicht erlaubt.
+
 - Objektnamen sind ein-eindeutig, d.h. es kann nur ein Objekt mit einem Namen geben und nicht zwei Objekte die bei "x" heißen.
+
 - Objektnamen sind "case sensitiv". Das bedeutet es kommt genau darauf an ob große oder kleine Buchstaben verwendet werden. Die Namen x und X sind unterschiedlich und deshalb kann es beide Objekte gleichzeitig geben. - Aber das wäre natürlich sehr verwirrend.
-- Man sollte keine Namen verwenden, die in R schon belegt sind (z.B. nicht "mean" für einen Mittelwert, weil es in R auch eine Funktion `mean()`gibt)
+
+- Man sollte keine Namen verwenden, die in R schon belegt sind (z.B. nicht "mean" für einen Mittelwert, weil es in R auch eine Funktion `mean()`gibt).
 
 Über diese Regeln hinaus gibt es Konventionen, an die man sich halten sollte, weil sie der Übersichtlichkeit dienen. Ich verwende z.B. gerne den snake_case, bei dem alle Objektnamen kleingeschreiben werden und unterschiedliche Namensbestandteile durch einen Unterstrich voneinander getrennt werden. Welcher Konvention man folgt ist natürlich Geschmackssache. 
 

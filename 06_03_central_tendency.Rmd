@@ -16,7 +16,7 @@ Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einf
 
 Alternativ gibt es noch eine `Mode()`-Funktion im `DescTools`-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: `Mode()` muss hier zwingend groß geschrieben werden!!
 
-```{r mode}
+```{r mode, message=FALSE}
 library(DescTools)
 
 Mode(data$vorbild_codiert, na.rm = TRUE)

@@ -18,7 +18,9 @@ mean(some_numbers)
 ```
 
 Argumente können von der Funktion zwingend vorausgesetzt werden oder optional sein. Die Funtion `mean()` benötigt zwangsläufig ihre Zahlenreihe, sonst kann logischerweise kein Mittelwert berechnet werden. Sie hat aber noch zwei weitere Argumente, die `trim` und `na.rm` heißen. Diese beiden Argumente müssen nicht unbedingt mit an die `mean`-Funktion übergeben werden. Die Programmierer von R haben für beide Argumente Standardwerte vordefiniert, die im Normalfall sinnvoll sind. Wenn man die Argumente benötigt, kann man sie aber zusätzlich mit übergeben.
+
 - Mit `trim` kann man statt dem normalen ein getrimmtes arithmetisches Mittel berechnen. Dabei werden die niedrigsten und höchsten x Prozent der Werte aus der Zahlenreihe entfernt. Die Berechnung wird so stabil gegenüber extremen Ausreißern.
+
 - Mit `na.rm` (für *NA remove*) wird definiert, wie mit fehlenden Werten innerhalb der Zahlenfolge umgegangen werden soll. Sind fehlende Werte (`NA`) enthalten, möchte man diese wahrscheinlich vor der Berechnung entfernen, denn einen fehlenden Wert kann R nicht interpretieren. Man muss deshalb das Argument `na.rm = TRUE` setzen. Der Standardwert ist `FALSE`.
 
 ```{r, trimed_mean_example}
@@ -41,6 +43,16 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 ```{r, sysdate}
 Sys.Date()
 ```
+
+### Funktionen verschachteln
+
+Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von außen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch `mean()` berechnete Mittelwert (= innere Funktion) durch die Funktion `round()` auf eine Stelle (zweites Argument `, 1`) gerundet:
+
+```{r, round_example}
+round(mean(some_numbers), 1)
+```
+
+Das Verschachteln ist bisweilen nützlich, jedoch kann es sehr schnell unübersichtlich werden. Deshalb sollte man sich beim Coden bemühen, maximal zwei Funktionen ineinander zu verschchteln. Wir lernen später noch eine übersichtlichere Möglichkeit kennen Code zu verketten, im Abschnitt zur [Pipe](#pipe).
 
 ### Hilfe für Funktionen
 
@@ -79,7 +91,9 @@ function_name <- function(argument_1 = default_value_1, ...){
 Nachdem der Code ausgeführt wurde erscheint die Funktion im Environment-Tab in RStudio. Funktionen sind in R ebenfalls Objekte.
 
 Funktionen können in der Regel mindestens eines der folgenden Dinge:
+
 - Eingabewerte (Argumente) in Ausgabewerte/Ergebnisse verwandeln
+
 - Nebeneffekte haben: Z.B. eine Meldung in die Konsole schreiben
 
 Eine Funktion gibt als Ergebnis standradmäßig das Objekt zurück, dass innerhalb des Codeblocks als letztes erzeugt wurde. Man kann kann über `return()` aber auch explizit festlegen, was die Funktion zurückgeben soll. Das ist insofern besser, als dass man sich als Coder dann bewusst macht, was die Funktion als Ergebnis liefert.
@@ -87,10 +101,8 @@ Eine Funktion gibt als Ergebnis standradmäßig das Objekt zurück, dass innerha
 Zum Abschluss folgt hier ein kleines Beispiel für eine Funktion, die einfach nur den Zweck hat eine Grußbotschaft zusammenzubauen. Man kann der Funktion optional einen Namen als Argument übergeben. Tut man dies nicht, wird ein Default-Wert eingesetzt:
 ```{r, hello_func}
 hello <- function(name = "Unbekannte:r"){
-  
   string <- paste0("Hallo ", name, "! Viel Spaß beim R lernen!" )
   return(string)
-  
 }
 ```
 

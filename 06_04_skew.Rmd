@@ -4,8 +4,9 @@ Weitere Kennwerte für die Form von Verteilungen sind die **Schiefe** (*skew*) u
 
 Im `psych`-Paket gibt es Funktionen für beides:
 
-```{r skew}
-psych::skew(data$alter, na.rm = TRUE)
+```{r skew, message=FALSE}
+library(psych)
+skew(data$alter, na.rm = TRUE)
 ```
 
 Zur Erinnerung: 
@@ -21,5 +22,5 @@ Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein we
 Hier noch der Code zur Berechnung der Kurtosis:
 
 ```{r kurtosi}
-psych::kurtosi(data$alter, na.rm = TRUE)
+kurtosi(data$alter, na.rm = TRUE)
 ```

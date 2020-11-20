@@ -670,11 +670,13 @@ Das man mit R rechnen kann, mag zwar im Einzelfall ganz nützlich sein, aber nat
 Führt man diesen Code aus, wird in der Console nicht das Ergebnis ausgegeben. Stattdessen gibt es aber oben rechts im Tab ``Environment'' ein neues Objekt x, das den Wert 3 enthält:
 
 Um das Objekt auch in der Console auszugeben kann man\ldots{}
-1. Den Befehl entweder in Klammern schreiben. - So wird er gleichzeitig ausgeführt und ausgegeben.
-2. Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer das R versucht diesen in der Console darzustellen
-3. Das Objekt x dem \texttt{print()}-Befehl übergeben.
 
-Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert ``3'' zuweisen, wenn man ihn kennt ;)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Den Befehl entweder in Klammern schreiben. - So wird er gleichzeitig ausgeführt und ausgegeben. -- Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert ``3'' zuweisen, wenn man ihn kennt ;)
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -686,6 +688,14 @@ Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuw
 ## [1] 3
 \end{verbatim}
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer das R versucht diesen in der Console darzustellen.
+\end{enumerate}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x}
@@ -695,6 +705,14 @@ Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuw
 \begin{verbatim}
 ## [1] 3
 \end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Das Objekt x dem \texttt{print()}-Befehl übergeben.
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -714,12 +732,21 @@ Der Ausgabe in der Konsole stellt R immer eine eckige Klammer \texttt{{[}{]}} mi
 Die Namen von Objekten kann man im Prinzip frei bestimmen, natürlich bietet es sich an, sprechende Namen zu verwenden, die man sich einigermaßen gut merken kann, die aber trotzdem einigermaßen kurz sind. Außerdem ist es schlau, bei Variablen die zusammengehörig sind das selbe Präfix zu verwenden (z.B. bei einer Skala zur Einstellung alle Variablen mit \texttt{attitude\_} beginnen zu lassen).
 
 Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
-- Objektnamen können große und kleine Buchstaben, Zahlen und Punkte (.) und Unterstriche (\_) enthalten. Andere Zeichen sind nicht erlaubt, insbesondere keine Leerzeichen.
-- Punkte und Unterstriche dürfen nicht am Anfang stehen.
-- Umlaute (z.B. ä, Ö oder ß), Sonderzeichen (z.B. \%, \& oder =) und Leerzeichen sind nicht erlaubt.
-- Objektnamen sind ein-eindeutig, d.h. es kann nur ein Objekt mit einem Namen geben und nicht zwei Objekte die bei ``x'' heißen.
-- Objektnamen sind ``case sensitiv''. Das bedeutet es kommt genau darauf an ob große oder kleine Buchstaben verwendet werden. Die Namen x und X sind unterschiedlich und deshalb kann es beide Objekte gleichzeitig geben. - Aber das wäre natürlich sehr verwirrend.
-- Man sollte keine Namen verwenden, die in R schon belegt sind (z.B. nicht ``mean'' für einen Mittelwert, weil es in R auch eine Funktion \texttt{mean()}gibt)
+
+\begin{itemize}
+\item
+  Objektnamen können große und kleine Buchstaben, Zahlen und Punkte (.) und Unterstriche (\_) enthalten. Andere Zeichen sind nicht erlaubt, insbesondere keine Leerzeichen.
+\item
+  Punkte und Unterstriche dürfen nicht am Anfang stehen.
+\item
+  Umlaute (z.B. ä, Ö oder ß), Sonderzeichen (z.B. \%, \& oder =) und Leerzeichen sind nicht erlaubt.
+\item
+  Objektnamen sind ein-eindeutig, d.h. es kann nur ein Objekt mit einem Namen geben und nicht zwei Objekte die bei ``x'' heißen.
+\item
+  Objektnamen sind ``case sensitiv''. Das bedeutet es kommt genau darauf an ob große oder kleine Buchstaben verwendet werden. Die Namen x und X sind unterschiedlich und deshalb kann es beide Objekte gleichzeitig geben. - Aber das wäre natürlich sehr verwirrend.
+\item
+  Man sollte keine Namen verwenden, die in R schon belegt sind (z.B. nicht ``mean'' für einen Mittelwert, weil es in R auch eine Funktion \texttt{mean()}gibt).
+\end{itemize}
 
 Über diese Regeln hinaus gibt es Konventionen, an die man sich halten sollte, weil sie der Übersichtlichkeit dienen. Ich verwende z.B. gerne den snake\_case, bei dem alle Objektnamen kleingeschreiben werden und unterschiedliche Namensbestandteile durch einen Unterstrich voneinander getrennt werden. Welcher Konvention man folgt ist natürlich Geschmackssache.
 
@@ -746,13 +773,11 @@ Hier ein paar Anwendungsbeispiele:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1] "Hello World!"
-\end{verbatim}
+Man kann Kommentare auch dazu benutzen Code, der noch nicht funktioniert (Bugs hat) auszukommentieren. Dabei setzt man einfach das \texttt{\#} vor den fehlerhaften Code. Optimalerweise errgänzt man noch eine Notiz, die möglichst präziese beschreibt, was das (vermutete) Problem ist.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Der folgende Code ist irgendwie buggy, muss noch repariert werden!}
+\CommentTok{\# Der folgende Code ist irgendwie buggy, muss noch repariert werden! }
 \CommentTok{\#print("Hello World!)}
 \end{Highlighting}
 \end{Shaded}
@@ -869,8 +894,13 @@ Häufig müssen die Argumente einer bestimmten Klasse angehören, damit die Funk
 \end{verbatim}
 
 Argumente können von der Funktion zwingend vorausgesetzt werden oder optional sein. Die Funtion \texttt{mean()} benötigt zwangsläufig ihre Zahlenreihe, sonst kann logischerweise kein Mittelwert berechnet werden. Sie hat aber noch zwei weitere Argumente, die \texttt{trim} und \texttt{na.rm} heißen. Diese beiden Argumente müssen nicht unbedingt mit an die \texttt{mean}-Funktion übergeben werden. Die Programmierer von R haben für beide Argumente Standardwerte vordefiniert, die im Normalfall sinnvoll sind. Wenn man die Argumente benötigt, kann man sie aber zusätzlich mit übergeben.
-- Mit \texttt{trim} kann man statt dem normalen ein getrimmtes arithmetisches Mittel berechnen. Dabei werden die niedrigsten und höchsten x Prozent der Werte aus der Zahlenreihe entfernt. Die Berechnung wird so stabil gegenüber extremen Ausreißern.
-- Mit \texttt{na.rm} (für \emph{NA remove}) wird definiert, wie mit fehlenden Werten innerhalb der Zahlenfolge umgegangen werden soll. Sind fehlende Werte (\texttt{NA}) enthalten, möchte man diese wahrscheinlich vor der Berechnung entfernen, denn einen fehlenden Wert kann R nicht interpretieren. Man muss deshalb das Argument \texttt{na.rm\ =\ TRUE} setzen. Der Standardwert ist \texttt{FALSE}.
+
+\begin{itemize}
+\item
+  Mit \texttt{trim} kann man statt dem normalen ein getrimmtes arithmetisches Mittel berechnen. Dabei werden die niedrigsten und höchsten x Prozent der Werte aus der Zahlenreihe entfernt. Die Berechnung wird so stabil gegenüber extremen Ausreißern.
+\item
+  Mit \texttt{na.rm} (für \emph{NA remove}) wird definiert, wie mit fehlenden Werten innerhalb der Zahlenfolge umgegangen werden soll. Sind fehlende Werte (\texttt{NA}) enthalten, möchte man diese wahrscheinlich vor der Berechnung entfernen, denn einen fehlenden Wert kann R nicht interpretieren. Man muss deshalb das Argument \texttt{na.rm\ =\ TRUE} setzen. Der Standardwert ist \texttt{FALSE}.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -912,6 +942,23 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 ## [1] "2020-11-20"
 \end{verbatim}
 
+\hypertarget{funktionen-verschachteln}{%
+\subsection{Funktionen verschachteln}\label{funktionen-verschachteln}}
+
+Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von außen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch \texttt{mean()} berechnete Mittelwert (= innere Funktion) durch die Funktion \texttt{round()} auf eine Stelle (zweites Argument \texttt{,\ 1}) gerundet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(some\_numbers), }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+Das Verschachteln ist bisweilen nützlich, jedoch kann es sehr schnell unübersichtlich werden. Deshalb sollte man sich beim Coden bemühen, maximal zwei Funktionen ineinander zu verschchteln. Wir lernen später noch eine übersichtlichere Möglichkeit kennen Code zu verketten, im Abschnitt zur \protect\hyperlink{pipe}{Pipe}.
+
 \hypertarget{hilfe-fuxfcr-funktionen}{%
 \subsection{Hilfe für Funktionen}\label{hilfe-fuxfcr-funktionen}}
 
@@ -952,8 +999,13 @@ Trotzdem, eine eigene Funktion zu schreiben ist gar nicht so schwer und deshalb 
 Nachdem der Code ausgeführt wurde erscheint die Funktion im Environment-Tab in RStudio. Funktionen sind in R ebenfalls Objekte.
 
 Funktionen können in der Regel mindestens eines der folgenden Dinge:
-- Eingabewerte (Argumente) in Ausgabewerte/Ergebnisse verwandeln
-- Nebeneffekte haben: Z.B. eine Meldung in die Konsole schreiben
+
+\begin{itemize}
+\item
+  Eingabewerte (Argumente) in Ausgabewerte/Ergebnisse verwandeln
+\item
+  Nebeneffekte haben: Z.B. eine Meldung in die Konsole schreiben
+\end{itemize}
 
 Eine Funktion gibt als Ergebnis standradmäßig das Objekt zurück, dass innerhalb des Codeblocks als letztes erzeugt wurde. Man kann kann über \texttt{return()} aber auch explizit festlegen, was die Funktion zurückgeben soll. Das ist insofern besser, als dass man sich als Coder dann bewusst macht, was die Funktion als Ergebnis liefert.
 
@@ -962,10 +1014,8 @@ Zum Abschluss folgt hier ein kleines Beispiel für eine Funktion, die einfach nu
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hello }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{name =} \StringTok{"Unbekannte:r"}\NormalTok{)\{}
-  
 \NormalTok{  string }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Hallo "}\NormalTok{, name, }\StringTok{"! Viel Spaß beim R lernen!"}\NormalTok{ )}
   \FunctionTok{return}\NormalTok{(string)}
-  
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1000,7 +1050,7 @@ Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Se
 \hypertarget{arbeitsverzeichnis}{%
 \subsection{Arbeitsverzeichnis}\label{arbeitsverzeichnis}}
 
-Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem ``Arbeitsverzeichnis'' heraus.
+Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem ``Arbeitsverzeichnis'' heraus.
 Möchte man jetzt etwas (z.B. einen Datensatz) in R laden muss man den gesamten Pfad ``relativ'' zu diesem Verzeichnis angeben oder aber den kompletten Dateipfad. Hier ein Beispiel:
 
 \begin{itemize}
@@ -1011,7 +1061,7 @@ Möchte man jetzt etwas (z.B. einen Datensatz) in R laden muss man den gesamten 
   Unix und MacOS: /Users/julia/documents/my\_data.xlsx
 \end{itemize}
 
-Standardmäßig liegt das Arbeitsverzeichnis in den eigenen Dateien des Computers auf dem R installiert wurde.
+Standardmäßig liegt das Arbeitsverzeichnis in den \emph{Eigenen Dateien} des Computers auf dem R installiert wurde.
 
 Mit dem Befehl \texttt{getwd()} kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. Mit \texttt{setwd("mein\_pfad")} kann man das Arbeitsverzeichnis bestimmen. Das ist aber in der Regel gar nicht notwendig, wenn man mit R-Projekten arbeitet, weil diese das Arbeitsverzeichnis automatisch setzen.
 
@@ -1063,7 +1113,7 @@ Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei ein
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Ausgabe der ersten 5 Zeilen und 7 Spalten}
+\CommentTok{\# Ausgabe der ersten 5 Zeilen und 7 Spalten (Beschränkung aus Darstellungsgründen)}
 \FunctionTok{head}\NormalTok{(data, }\AttributeTok{n =} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -1207,7 +1257,7 @@ Es gibt aber noch andere Möglichkeiten etwas mehr über den Datensatz zu erfahr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Anzeigen der ersten 10 Variablen{-}Namen}
+\CommentTok{\# Anzeigen der ersten 10 Variablen{-}Namen (Beschränkung aus Darstellungsgründen)}
 \FunctionTok{names}\NormalTok{(data)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -1755,8 +1805,8 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket \texttt{dplyr} au
   Das Ergebnis ist immer ein Dataframe.
 \end{itemize}
 
-\hypertarget{die-pipe}{%
-\section{Die Pipe}\label{die-pipe}}
+\hypertarget{pipe}{%
+\section{Die Pipe}\label{pipe}}
 
 Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die \emph{Pipe}. In R geschrieben durch die Zeichenfolge \texttt{\%\textgreater{}\%}. Eine Pipe kann man auch durch den Shortcut \texttt{Ctrl/Strg\ +\ Shift\ +\ m} einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!
 
@@ -1886,20 +1936,13 @@ Im folgenden Beispiel möchte ich einen Datensatz erstellen, der nur Fälle von 
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1634    23          1          7                   2                    1
-## 2 1636    24          2          6                  NA                    2
-## 3 1637    23          1          3                   2                    2
-## 4 1638    23          2          1                   2                    2
-## 5 1639    24          1          7                   3                    3
-## 6 1640    24          2          8                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1634    23          1          7                 2                    2
+## 2 1636    24          2          6                 2                    3
+## 3 1637    23          1          3                 2                    2
+## 4 1638    23          2          1                 2                    3
+## 5 1639    24          1          7                 3                    3
+## 6 1640    24          2          8                 4                    4
 \end{verbatim}
 
 Okay, der ursprüngliche Datensatz hat 1006 Zeilen (Befragte) und bei den Bundesländern gibt es gemischte Werte (z.B. 1, 3, 6 usw.).
@@ -1934,20 +1977,13 @@ Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1637    23          1          3                   2                    2
-## 2 1641    23          2          3                   4                    3
-## 3 1657    14          2          3                   2                    2
-## 4 1680    15          1          3                   2                    2
-## 5 1692    17          2          3                   3                    3
-## 6 1717    15          2          3                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        2                         3                    3
-## 3                        3                         2                    2
-## 4                        2                         1                    3
-## 5                        3                         2                    3
-## 6                        4                         3                    3
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1637    23          1          3                 2                    2
+## 2 1641    23          2          3                 3                    3
+## 3 1657    14          2          3                 2                    2
+## 4 1680    15          1          3                 1                   99
+## 5 1692    17          2          3                 2                    3
+## 6 1717    15          2          3                 3                    3
 \end{verbatim}
 
 Tatsächlich! Im Datensatz sind jetzt nur noch n = 107 Fälle und in der Variable \texttt{bundesland} haben alle Fälle den Wert 3.
@@ -1972,53 +2008,59 @@ Die Bedingung ``aus Niedersachsen oder Hamburg und jünger als 18 Jahre'' lässt
 \NormalTok{data\_filter }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{filter}\NormalTok{((bundesland }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{|}\NormalTok{ bundesland }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ alter }\SpecialCharTok{\textless{}} \DecValTok{18}\NormalTok{)}
 
+\FunctionTok{nrow}\NormalTok{(data\_filter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 49
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{head}\NormalTok{(data\_filter)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1657    14          2          3                   2                    2
-## 2 1659    15          1          2                   2                    2
-## 3 1680    15          1          3                   2                    2
-## 4 1685    16          2          2                   2                   NA
-## 5 1692    17          2          3                   3                    3
-## 6 1717    15          2          3                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        2                         2                    2
-## 3                        2                         1                    3
-## 4                       NA                         2                    2
-## 5                        3                         2                    3
-## 6                        4                         3                    3
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1657    14          2          3                 2                    2
+## 2 1659    15          1          2                 2                    2
+## 3 1680    15          1          3                 1                   99
+## 4 1685    16          2          2                 2                    2
+## 5 1692    17          2          3                 2                    3
+## 6 1717    15          2          3                 3                    3
 \end{verbatim}
 
-Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable \texttt{verbundenheit\_region} einen fehlenden Wert haben:
+Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable \texttt{verbundenheit\_europa} einen fehlenden Wert (hier als 99 = ``Weiß nicht'' codiert) haben:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{data\_filter\_na }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(verbundenheit\_region))}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(verbundenheit\_europa))}
 
+\FunctionTok{nrow}\NormalTok{(data\_filter\_na)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 951
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{head}\NormalTok{(data\_filter\_na)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1634    23          1          7                   2                    1
-## 2 1636    24          2          6                  NA                    2
-## 3 1637    23          1          3                   2                    2
-## 4 1638    23          2          1                   2                    2
-## 5 1639    24          1          7                   3                    3
-## 6 1640    24          2          8                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1634    23          1          7                 2                    2
+## 2 1636    24          2          6                 2                    3
+## 3 1637    23          1          3                 2                    2
+## 4 1638    23          2          1                 2                    3
+## 5 1639    24          1          7                 3                    3
+## 6 1640    24          2          8                 4                    4
 \end{verbatim}
 
 \hypertarget{arrange-fuxe4lle-sortieren}{%
@@ -2038,20 +2080,13 @@ Der Einsatz von \texttt{arrange()} ist sehr simpel. Man muss der Funktion nach d
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1657    14          2          3                   2                    2
-## 2 1662    14          2          7                   3                    2
-## 3 1734    14          1         11                   1                    1
-## 4 1748    14          1         13                   2                    2
-## 5 1753    14          1          2                   1                    3
-## 6 1757    14          1          8                   1                    2
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        3                         1                    1
-## 3                        1                         1                    1
-## 4                        2                         2                    2
-## 5                        2                         2                    2
-## 6                        2                         1                    2
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1657    14          2          3                 2                    2
+## 2 1662    14          2          7                 1                    1
+## 3 1734    14          1         11                 1                    1
+## 4 1748    14          1         13                 2                    2
+## 5 1753    14          1          2                 2                    2
+## 6 1757    14          1          8                 1                    2
 \end{verbatim}
 
 Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von \texttt{desc()}. das sieht dann so aus:
@@ -2066,20 +2101,13 @@ Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu err
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1636    24          2          6                  NA                    2
-## 2 1639    24          1          7                   3                    3
-## 3 1640    24          2          8                   4                    4
-## 4 1648    24          2         14                   2                    3
-## 5 1651    24          1          7                   3                    3
-## 6 1665    24          2          5                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                       NA                         2                    3
-## 2                        3                         3                    3
-## 3                        4                         4                    4
-## 4                        3                         2                    3
-## 5                        3                         2                    3
-## 6                        3                         2                    2
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1636    24          2          6                 2                    3
+## 2 1639    24          1          7                 3                    3
+## 3 1640    24          2          8                 4                    4
+## 4 1648    24          2         14                 2                    3
+## 5 1651    24          1          7                 2                    3
+## 6 1665    24          2          5                 2                    2
 \end{verbatim}
 
 Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei aufsteigende und absteigende Sortierung nach Belieben mischen:
@@ -2094,20 +2122,13 @@ Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei au
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 2308    14          2          1                   3                    3
-## 2 1696    15          2          1                   2                    3
-## 3 2080    15          2          1                   2                    2
-## 4 2300    15          2          1                   1                    2
-## 5 1929    15          1          1                   2                    3
-## 6 2112    15          1          1                   2                    2
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    3
-## 2                        3                         2                    2
-## 3                        2                         2                    2
-## 4                        2                         2                    2
-## 5                        3                         2                    3
-## 6                        2                         3                    2
+##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 2308    14          2          1                 2                    3
+## 2 1696    15          2          1                 2                    2
+## 3 2080    15          2          1                 2                    2
+## 4 2300    15          2          1                 2                    2
+## 5 1929    15          1          1                 2                    3
+## 6 2112    15          1          1                 3                    2
 \end{verbatim}
 
 \hypertarget{select-variablen-auswuxe4hlen}{%
@@ -2150,20 +2171,13 @@ Zudem kann \texttt{select()} auch dazu verwenden, die Variablen im Datensatz umz
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn bundesland alter geschlecht verbundenheit_stadt verbundenheit_region
-## 1 1634          7    23          1                   2                    1
-## 2 1636          6    24          2                  NA                    2
-## 3 1637          3    23          1                   2                    2
-## 4 1638          1    23          2                   2                    2
-## 5 1639          7    24          1                   3                    3
-## 6 1640          8    24          2                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4
+##   lfdn bundesland alter geschlecht verbundenheit_dtl verbundenheit_europa
+## 1 1634          7    23          1                 2                    2
+## 2 1636          6    24          2                 2                    3
+## 3 1637          3    23          1                 2                    2
+## 4 1638          1    23          2                 2                    3
+## 5 1639          7    24          1                 3                    3
+## 6 1640          8    24          2                 4                    4
 \end{verbatim}
 
 \hypertarget{variablen-umcodieren}{%
@@ -2203,7 +2217,6 @@ Die Funktion \texttt{rec()} erzeugt neue Variablen, die den gleichen Namen haben
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(sjmisc)}
 
-
 \NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{rec}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"verbundenheit\_"}\NormalTok{), }\AttributeTok{rec =} \StringTok{"Sehr verbunden = 4;}
 \StringTok{                                             Ziemlich verbunden = 3;}
@@ -2213,19 +2226,19 @@ Die Funktion \texttt{rec()} erzeugt neue Variablen, die den gleichen Namen haben
 
 \CommentTok{\# Beispielhaft die Variable verbundenheit\_europa inkl. recodierter Variante anzeigen:}
 \NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"verbundenheit\_europa"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"verbundenheit\_dtl"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   verbundenheit_europa verbundenheit_europa_r
-## 1                    2                      3
-## 2                    3                      2
-## 3                    2                      3
-## 4                    3                      2
-## 5                    3                      2
-## 6                    4                      1
+##   verbundenheit_dtl verbundenheit_dtl_r
+## 1                 2                   3
+## 2                 2                   3
+## 3                 2                   3
+## 4                 2                   3
+## 5                 3                   2
+## 6                 4                   1
 \end{verbatim}
 
 Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein ``nebeneinanderlegen'' der beiden Variablen.
@@ -2279,22 +2292,22 @@ Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenhe
 \begin{Highlighting}[]
 \CommentTok{\# Variable berechnen mit Bedingung}
 \NormalTok{data\_eu }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sieht\_sich\_als\_europaeer =} \FunctionTok{ifelse}\NormalTok{(verbundenheit\_europa }\SpecialCharTok{\textgreater{}}\NormalTok{ verbundenheit\_deutschland, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sieht\_sich\_als\_europaeer =} \FunctionTok{ifelse}\NormalTok{(verbundenheit\_europa }\SpecialCharTok{\textgreater{}}\NormalTok{ verbundenheit\_dtl, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }
 
 \CommentTok{\# Für die kontrolle relevante Variablen auswählen}
 \NormalTok{data\_eu }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(lfdn, verbundenheit\_europa, verbundenheit\_deutschland, sieht\_sich\_als\_europaeer) }\SpecialCharTok{\%\textgreater{}\%}   \FunctionTok{head}\NormalTok{()}
+  \FunctionTok{select}\NormalTok{(lfdn, verbundenheit\_europa, verbundenheit\_dtl, sieht\_sich\_als\_europaeer) }\SpecialCharTok{\%\textgreater{}\%}   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn verbundenheit_europa verbundenheit_deutschland sieht_sich_als_europaeer
-## 1 1634                    2                         2                        0
-## 2 1636                    3                         2                        1
-## 3 1637                    2                         2                        0
-## 4 1638                    3                         2                        1
-## 5 1639                    3                         3                        0
-## 6 1640                    4                         4                        0
+##   lfdn verbundenheit_europa verbundenheit_dtl sieht_sich_als_europaeer
+## 1 1634                    2                 2                        0
+## 2 1636                    3                 2                        1
+## 3 1637                    2                 2                        0
+## 4 1638                    3                 2                        1
+## 5 1639                    3                 3                        0
+## 6 1640                    4                 4                        0
 \end{verbatim}
 
 Artwork by Allison Horst
@@ -2353,10 +2366,18 @@ Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere
 \chapter{Deskriptive Statistik}\label{deskriptive-statistik}}
 
 In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen treffen über die Verteilung von Merkmalen in Stichproben. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:
-- Häufigkeitsverteilungen (inkl. Säulendiagram)
-- Maße der zentralen Tendenz und Streuung
-- Schiefe und Kurtosis
-- Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen
+
+\begin{itemize}
+\tightlist
+\item
+  Häufigkeitsverteilungen (inkl. Säulendiagram)
+\item
+  Maße der zentralen Tendenz und Streuung
+\item
+  Schiefe und Kurtosis
+\item
+  Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen
+\end{itemize}
 
 \hypertarget{huxe4ufigkeitsverteilung}{%
 \section{Häufigkeitsverteilung}\label{huxe4ufigkeitsverteilung}}
@@ -2369,14 +2390,14 @@ Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Häufigkeitstabelle, absolute Zahlen}
-\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zufriedenheit\_leben)}
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##      Sehr zufrieden           Zufrieden   Weniger zufrieden Gar nicht zufrieden 
-##                 209                 647                 131                   9
+##    Sehr gut         Gut Weniger gut    Schlecht 
+##         212         658          98          17
 \end{verbatim}
 
 Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument \texttt{useNA\ =\ "ifany"} mit ausgeben lassen:
@@ -2384,16 +2405,14 @@ Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absolute
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Häufigkeitstabelle, absolute Zahlen}
-\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zufriedenheit\_leben, }\AttributeTok{useNA =} \StringTok{"ifany"}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich, }\AttributeTok{useNA =} \StringTok{"ifany"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##      Sehr zufrieden           Zufrieden   Weniger zufrieden Gar nicht zufrieden 
-##                 209                 647                 131                   9 
-##                <NA> 
-##                  10
+##    Sehr gut         Gut Weniger gut    Schlecht        <NA> 
+##         212         658          98          17          21
 \end{verbatim}
 
 Neben dem sehr schlichten \texttt{table()}-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion \texttt{tabyl()}aus dem Paket \texttt{janitor} vorstellen. Ich habe sie hier ausgewählt, weil ich das \texttt{janitor}-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.
@@ -2402,17 +2421,17 @@ Neben dem sehr schlichten \texttt{table()}-Befehl gibt in vielen R-Paketen weite
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(janitor)}
 
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunftsperspektive\_persoenlich)}
+\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  data$zukunftsperspektive_persoenlich   n    percent valid_percent
-##                                     1 212 0.21073559    0.21522843
-##                                     2 658 0.65407555    0.66802030
-##                                     3  98 0.09741551    0.09949239
-##                                     4  17 0.01689861    0.01725888
-##                                    NA  21 0.02087475            NA
+##  data$zukunft_persoenlich   n    percent valid_percent
+##                         1 212 0.21073559    0.21522843
+##                         2 658 0.65407555    0.66802030
+##                         3  98 0.09741551    0.09949239
+##                         4  17 0.01689861    0.01725888
+##                        NA  21 0.02087475            NA
 \end{verbatim}
 
 Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit \texttt{mutate()} aus dem Tidyverse leicht selbst berechnen. Zusätzlich brauchen wir Funktion \texttt{cumsum()}, welche kumulierte Summen bildet.
@@ -2421,7 +2440,7 @@ Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalte
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(tidyverse)}
 
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunftsperspektive\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
   \CommentTok{\# fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein}
   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cum\_percent =} \FunctionTok{cumsum}\NormalTok{(percent), }
          \AttributeTok{cum\_valid\_percent =} \FunctionTok{cumsum}\NormalTok{(valid\_percent)) }
@@ -2429,12 +2448,12 @@ Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalte
 \end{Shaded}
 
 \begin{verbatim}
-##  data$zukunftsperspektive_persoenlich   n    percent valid_percent cum_percent
-##                                     1 212 0.21073559    0.21522843   0.2107356
-##                                     2 658 0.65407555    0.66802030   0.8648111
-##                                     3  98 0.09741551    0.09949239   0.9622266
-##                                     4  17 0.01689861    0.01725888   0.9791252
-##                                    NA  21 0.02087475            NA   1.0000000
+##  data$zukunft_persoenlich   n    percent valid_percent cum_percent
+##                         1 212 0.21073559    0.21522843   0.2107356
+##                         2 658 0.65407555    0.66802030   0.8648111
+##                         3  98 0.09741551    0.09949239   0.9622266
+##                         4  17 0.01689861    0.01725888   0.9791252
+##                        NA  21 0.02087475            NA   1.0000000
 ##  cum_valid_percent
 ##          0.2152284
 ##          0.8832487
@@ -2447,31 +2466,28 @@ Okay, es geht noch schöner. Der folgende Code führt jetzt ziemlich weit, enth�
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(janitor)}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunftsperspektive\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{mutate}\NormalTok{(}
          \CommentTok{\# fügt Spalte für kumulierte Prozent ein:}
          \AttributeTok{cum\_percent =} \FunctionTok{cumsum}\NormalTok{(percent), }
          \CommentTok{\# fügt Spalte für kumulierte, gültige Prozent ein:}
          \AttributeTok{cum\_valid\_percent =} \FunctionTok{cumsum}\NormalTok{(valid\_percent), }
          \CommentTok{\# kopiert die Spalte Werte:}
-         \AttributeTok{value =} \StringTok{\textasciigrave{}}\AttributeTok{data$zukunftsperspektive\_persoenlich}\StringTok{\textasciigrave{}}\NormalTok{,  }
+         \AttributeTok{value =} \StringTok{\textasciigrave{}}\AttributeTok{data$zukunft\_persoenlich}\StringTok{\textasciigrave{}}\NormalTok{,  }
           \CommentTok{\# fügt in einer neuen Variable Wertelabels ein:}
-         \AttributeTok{zukunftsperspektive\_persoenlich =}\NormalTok{ sjlabelled}\SpecialCharTok{::}\FunctionTok{get\_labels}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunftsperspektive\_persoenlich))  }\SpecialCharTok{\%\textgreater{}\%}
+         \AttributeTok{zukunft\_persoenlich =}\NormalTok{ sjlabelled}\SpecialCharTok{::}\FunctionTok{get\_labels}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich))  }\SpecialCharTok{\%\textgreater{}\%}
   \CommentTok{\# sortiert die Spalten neu:}
-  \FunctionTok{select}\NormalTok{(zukunftsperspektive\_persoenlich, value, n, percent, cum\_percent, valid\_percent, cum\_valid\_percent)}
+  \FunctionTok{select}\NormalTok{(zukunft\_persoenlich, value, n, percent, cum\_percent, valid\_percent, cum\_valid\_percent)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  zukunftsperspektive_persoenlich value   n    percent cum_percent valid_percent
-##                         Sehr gut     1 212 0.21073559   0.2107356    0.21522843
-##                              Gut     2 658 0.65407555   0.8648111    0.66802030
-##                      Weniger gut     3  98 0.09741551   0.9622266    0.09949239
-##                         Schlecht     4  17 0.01689861   0.9791252    0.01725888
-##                       Weiß nicht    NA  21 0.02087475   1.0000000            NA
+##  zukunft_persoenlich value   n    percent cum_percent valid_percent
+##             Sehr gut     1 212 0.21073559   0.2107356    0.21522843
+##                  Gut     2 658 0.65407555   0.8648111    0.66802030
+##          Weniger gut     3  98 0.09741551   0.9622266    0.09949239
+##             Schlecht     4  17 0.01689861   0.9791252    0.01725888
+##           Weiß nicht    NA  21 0.02087475   1.0000000            NA
 ##  cum_valid_percent
 ##          0.2152284
 ##          0.8832487
@@ -2491,7 +2507,7 @@ Zur Erstellung von Plots ist das Paket \texttt{ggplot} aus dem Tidyverse mittler
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(sjPlot)}
 
-\FunctionTok{plot\_frq}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunftsperspektive\_persoenlich)}
+\FunctionTok{plot\_frq}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2665,7 +2681,8 @@ Im \texttt{psych}-Paket gibt es Funktionen für beides:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{skew}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(psych)}
+\FunctionTok{skew}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2690,7 +2707,7 @@ Hier noch der Code zur Berechnung der Kurtosis:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{kurtosi}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{kurtosi}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2718,791 +2735,26 @@ Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch me
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(data)}
+\NormalTok{desc\_stats }\OtherTok{\textless{}{-}} \FunctionTok{describe}\NormalTok{(data)}
+\FunctionTok{head}\NormalTok{(desc\_stats)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##                                                   vars    n    mean     sd
-## za_nr                                                1 1006 6738.00   0.00
-## version*                                             2 1006     NaN     NA
-## doi*                                                 3 1006     NaN     NA
-## lfdn                                                 4 1006 2314.19 407.58
-## zufriedenheit_leben                                  5  996    1.94   0.61
-## zukunftsperspektive_persoenlich                      6  985    1.92   0.61
-## zukunftsperspektive_generation                       7  984    2.46   0.71
-## eltern_verhaeltnis                                   8 1004    1.53   0.72
-## eltern_unterstuetzung                                9  999    1.62   0.80
-## eltern_ratgeber                                     10  997    2.06   0.86
-## eltern_diskutieren                                  11  996    2.33   0.95
-## eltern_zuhoerer                                     12  996    1.79   0.82
-## bildung_vater                                       13  911    2.08   0.77
-## bildung_mutter                                      14  947    2.07   0.71
-## finanz_verzicht                                     15  998    2.27   0.84
-## geld_eigene_arbeit                                  16 1006    0.64   0.48
-## geld_eltern                                         17 1006    0.54   0.50
-## geld_staat                                          18 1006    0.15   0.35
-## geld_sonstige                                       19 1006    0.09   0.28
-## geld_weiss_nicht                                    20 1006    0.00   0.06
-## geld_hauptsaechlich                                 21  997    1.62   0.74
-## vorbild_ja                                          22  793    1.50   0.50
-## vorbild_welches                                     23  338    1.00   0.00
-## vorbild_codiert                                     24  334    3.43   2.77
-## fokus_leben_individualitaet                         25 1006    0.27   0.44
-## fokus_leben_freiheit                                26 1006    0.42   0.49
-## fokus_leben_hedonismus                              27 1006    0.53   0.50
-## fokus_leben_karriere                                28 1006    0.21   0.41
-## fokus_leben_altruismus                              29 1006    0.35   0.48
-## fokus_leben_verantwortung                           30 1006    0.21   0.41
-## fokus_leben_durchsetzung                            31 1006    0.07   0.26
-## fokus_leben_toleranz                                32 1006    0.15   0.35
-## fokus_leben_gesundheit                              33 1006    0.21   0.41
-## fokus_leben_umwelt                                  34 1006    0.24   0.43
-## fokus_leben_finanzen                                35 1006    0.59   0.49
-## fokus_leben_luxus                                   36 1006    0.30   0.46
-## fokus_leben_respekt                                 37 1006    0.16   0.37
-## fokus_leben_unangepasstheit                         38 1006    0.10   0.30
-## fokus_leben_vernatwortungsvoller_konsum             39 1006    0.09   0.29
-## fokus_leben_kein                                    40 1006    0.00   0.04
-## fokus_beruf_sicherheit                              41  998    1.64   0.77
-## fokus_beruf_einkommen                               42 1005    1.71   0.74
-## fokus_beruf_interesse                               43 1005    1.51   0.70
-## fokus_beruf_work_life_balance                       44  990    1.80   0.85
-## fokus_beruf_karriere                                45  992    2.38   0.96
-## fokus_beruf_verantwortung                           46  991    2.32   0.92
-## fokus_beruf_entwicklung                             47  994    2.09   0.88
-## werte_sicherheit_vs_privatsphaere                   48  973    3.85   1.81
-## werte_sm_provatsphaere_vs_sm_socialising            49  990    4.38   1.72
-## werte_moeglichkeiten_vs_ueberforderung              50  983    2.99   1.65
-## werte_gesundheit_vs_spass                           51  993    3.74   1.74
-## werte_individualitaet_vs_sozialitaet                52  989    4.06   1.86
-## werte_nachhaltigkeit_vs_konsum                      53  990    3.93   1.80
-## werte_leistung_vs_solidaritaet                      54  957    4.37   1.80
-## werte_chancengleichheit_vs_elite                    55  972    2.67   1.75
-## werte_zukunft_vs_vergangenheit                      56  986    3.09   1.91
-## werte_gleichstellungspolitik                        57  977    4.41   2.07
-## verbundenheit_stadt                                 58  986    2.38   0.84
-## verbundenheit_region                                59  978    2.34   0.84
-## verbundenheit_bundesland                            60  971    2.39   0.88
-## verbundenheit_deutschland                           61  974    2.08   0.82
-## verbundenheit_europa                                62  951    2.28   0.90
-## sm_nutzung                                          63 1005    2.09   0.88
-## sm_nutzung_rang_facebook                            64  997    1.37   1.65
-## sm_nutzung_rang_instagram                           65  997    1.30   1.05
-## sm_nutzung_rang_twitter                             66  997    0.76   1.74
-## sm_nutzung_rang_youtube                             67  997    1.89   1.32
-## sm_nutzung_rang_linked_in                           68  997    0.45   1.71
-## sm_nutzung_rang_xing                                69  997    0.51   1.80
-## sm_nutzung_rang_tumbler                             70  997    0.52   1.79
-## sm_nutzung_rang_reddit                              71  997    0.46   1.76
-## sm_nutzung_rang_snapchat                            72  997    1.63   1.89
-## sm_nutzung_rang_tiktok                              73  997    0.69   2.03
-## sm_nutzung_rang_twitch                              74  997    0.71   2.12
-## sm_nutzung_socializing                              75  997    0.66   0.47
-## sm_nutzung_tagesgeschehen                           76  997    0.53   0.50
-## sm_nutzung_neue_kontakte                            77  997    0.22   0.41
-## sm_nutzung_organisation                             78  997    0.42   0.49
-## sm_nutzung_promies                                  79  997    0.40   0.49
-## sm_nutzung_marken                                   80  997    0.26   0.44
-## sm_nutzung_zeitvertreib                             81  997    0.84   0.37
-## sm_nutzung_bildung                                  82  588    0.39   0.49
-## sm_nutzung_weiss_nicht                              83  997    0.01   0.07
-## politisches_interesse                               84  999    2.57   0.87
-## touchpoints_politik_arbeit_schule_uni               85  997    2.20   0.86
-## touchpoints_politik_freunde_familie                 86 1003    2.27   0.80
-## touchpoints_politik_soziale_netzwerke               87 1000    2.24   0.88
-## touchpoints_politik_freizeit                        88  986    2.98   0.88
-## touchpoints_politik_oeffentlicher_raum              89  994    2.71   0.85
-## touchpoints_politik_medien                          90  998    1.96   0.85
-## mediennutzung_politik                               91  992    2.99   1.24
-## infoquelle_tv_nachrichten                           92  893    0.40   0.49
-## infoquelle_talkshows                                93  893    0.07   0.26
-## infoquelle_websites_institutionen_behoerden         94  893    0.08   0.27
-## infoquelle_tv_satiere                               95  893    0.16   0.37
-## infoquelle_print                                    96  893    0.18   0.39
-## infoquelle_internet_nachrichten                     97  893    0.35   0.48
-## infoquelle_radio_podcast                            98  893    0.24   0.43
-## infoquelle_nachrichten_app                          99  893    0.25   0.43
-## infoquelle_politik_blog                            100  893    0.02   0.13
-## infoquelle_newsletter_messanger_abo                101  893    0.03   0.18
-## infoquelle_google                                  102  893    0.36   0.48
-## infoquelle_instagram                               103  893    0.15   0.36
-## infoquelle_youtube                                 104  893    0.26   0.44
-## infoquelle_twitter                                 105  893    0.05   0.22
-## infoquelle_facebook                                106  893    0.19   0.40
-## infoquelle_snapchat                                107  893    0.04   0.19
-## infoquelle_sonstige_offen                          108  893    0.02   0.14
-## vertrauen_medien_tv_nachrichten                    109  353    2.07   0.69
-## vertrauen_medien_talkshows                         110   60    2.12   0.76
-## vertrauen_medien_websites_institutionen_behoerden  111   68    1.93   0.78
-## vertrauen_medien_tv_satiere                        112  141    2.01   0.77
-## vertrauen_medien_print                             113  160    1.93   0.73
-## vertrauen_medien_internet_nachrichten              114  306    2.04   0.67
-## vertrauen_medien_radio_podcast                     115  211    2.03   0.66
-## vertrauen_medien_nachrichten_app                   116  217    1.72   0.73
-## vertrauen_medien_politik_blog                      117   15    2.40   0.63
-## vertrauen_medien_newsletter_messanger_abo          118   31    2.23   0.67
-## vertrauen_medien_google                            119  308    2.29   0.72
-## vertrauen_medien_instagram                         120  132    2.47   0.71
-## vertrauen_medien_youtube                           121  229    2.28   0.72
-## vertrauen_medien_twitter                           122   47    2.26   0.67
-## vertrauen_medien_facebook                          123  169    2.62   0.77
-## vertrauen_medien_snapchat                          124   33    2.85   0.71
-## vertrauen_medien_sonstige_offen                    125   13    2.00   0.91
-## politik_demokratie_zufriedenheit                   126  945    2.57   0.78
-## politik_demokratie_idee                            127  918    1.12   0.32
-## politik_reformbedarf                               128  924    1.87   0.60
-## politik_regierungszufriedenheit                    129  943    2.80   0.74
-## vertrauen_institutionen_justiz                     130  957    2.30   0.83
-## vertrauen_institutionen_ngos                       131  917    2.43   0.91
-## vertrauen_institutionen_vereine                    132  882    2.55   0.79
-## vertrauen_institutionen_bundesregierung            133  935    2.77   0.80
-## vertrauen_institutionen_parteien                   134  922    2.98   0.71
-## vertrauen_institutionen_bundestag                  135  914    2.77   0.81
-## vertrauen_institutionen_polizei                    136  987    2.12   0.81
-## vertrauen_institutionen_kirchen                    137  929    3.31   0.84
-## vertrauen_institutionen_schule_uni                 138  965    2.28   0.75
-## parteisympathie                                    139  685    5.64   2.33
-## einstellung_politiker_nehmen_sorgen_ernst          140  964    3.13   0.76
-## einstellung_politiker_verstaendlich                141  970    2.45   0.90
-## einstellung_politiker_kommunikationskanaele        142  932    2.19   0.88
-## einstellung_talkshows_junge_menchen                143  823    2.94   0.71
-## einstellung_entscheidungsprozess_undurchsichtig    144  954    2.21   0.80
-## einstellung_politik_wichtige_probleme              145  965    3.08   0.76
-## einstellung_politik_einflussmoeglichkeit           146  962    2.84   0.82
-## einstellung_keine_ueberzeugende_partei             147  923    2.37   0.93
-## einstellung_politik_lebensfern                     148  953    2.94   0.94
-## einstellung_politik_wirtschaftsinteressen          149  924    1.86   0.77
-## einstellung_widerspruch_klima_kapitalismus         150  828    2.34   0.88
-## einstellung_parteien_macht                         151  944    1.93   0.80
-## germany_first                                      152  926    2.27   0.85
-## meinung_eu_vorteile_deutschlend                    153  855    2.11   0.88
-## meinung_eu_wohlstand                               154  880    2.09   0.82
-## meinung_eu_anti_souveraenitaet                     155  882    2.54   0.90
-## meinung_eu_gute_idee_schlechte_umsetzung           156  893    2.10   0.77
-## meinung_eu_problemloesungsebene                    157  875    2.11   0.85
-## pol_partizipation_wahl                             158  650    0.70   0.46
-## pol_partizipation_petition                         159 1006    0.32   0.47
-## pol_partizipation_sm_kommentar                     160 1006    0.15   0.36
-## pol_partizipation_partei_veranstaltung             161 1006    0.08   0.28
-## pol_partizipation_demo                             162 1006    0.13   0.33
-## pol_partizipation_information                      163 1006    0.58   0.49
-## pol_partizipation_gespraech                        164 1006    0.63   0.48
-## pol_partizipation_produktboykott                   165 1006    0.26   0.44
-## pol_partizipation_parteiengagement                 166 1006    0.04   0.19
-## pol_partizipation_anderes_engagement               167 1006    0.05   0.21
-## pol_partizipation_nichts_davon                     168 1006    0.18   0.39
-## ehrenamt_allgemein                                 169  968    1.74   0.44
-## ehrenamt_spezifisch                                170  235    1.00   0.00
-## ehrenamt_codiert                                   171  234    4.07   2.76
-## fff_interesse                                      172  981    2.46   1.00
-## fff_teilnahme                                      173  991    4.36   0.92
-## reaktionen_fff_agendasetting                       174  963    1.86   0.81
-## reaktionen_fff_berichterstattung_positiv           175  859    2.44   0.75
-## reaktionen_fff_mangelnde_berichterstattung         176  916    2.60   0.99
-## reaktionen_fff_politiker_untaetigkeit              177  877    1.85   0.78
-## reaktionen_fff_schulzeit_aufmerksamkeit            178  946    2.21   1.10
-## reaktionen_fff_schulstreik_ungeeignet              179  949    2.58   1.08
-## reaktionen_fff_teilnehmer_schwaenzen               180  923    2.58   1.03
-## reaktionen_fff_konsumverzicht                      181  963    2.70   0.99
-## reaktionen_fff_elternunterstuetzung                182  118    1.86   0.82
-## alter                                              183 1006   19.13   3.18
-## geschlecht                                         184 1006    1.48   0.50
-## bundesland                                         185 1006    7.09   3.41
-## bildung_derzeit                                    186 1006    1.41   0.49
-## bildung_schule                                     187  593    3.57   1.16
-## bildung_abschluss                                  188  527    3.27   0.98
-## erwerbstaetigkeit                                  189  387    2.22   2.01
-## wohnsituation                                      190  986    1.33   0.47
-## gemeindegroesse                                    191  932    3.34   1.75
-## migrationshintergrund                              192  993    3.69   0.68
-## Gewicht                                            193 1006    1.00   0.18
-## filter_$                                           194 1006    0.89   0.32
-##                                                    median trimmed    mad
-## za_nr                                             6738.00 6738.00   0.00
-## version*                                               NA     NaN     NA
-## doi*                                                   NA     NaN     NA
-## lfdn                                              2309.00 2307.73 517.43
-## zufriedenheit_leben                                  2.00    1.91   0.00
-## zukunftsperspektive_persoenlich                      2.00    1.88   0.00
-## zukunftsperspektive_generation                       2.00    2.45   1.48
-## eltern_verhaeltnis                                   1.00    1.41   0.00
-## eltern_unterstuetzung                                1.00    1.47   0.00
-## eltern_ratgeber                                      2.00    1.98   1.48
-## eltern_diskutieren                                   2.00    2.29   1.48
-## eltern_zuhoerer                                      2.00    1.68   1.48
-## bildung_vater                                        2.00    2.10   1.48
-## bildung_mutter                                       2.00    2.09   1.48
-## finanz_verzicht                                      2.00    2.24   1.48
-## geld_eigene_arbeit                                   1.00    0.67   0.00
-## geld_eltern                                          1.00    0.55   0.00
-## geld_staat                                           0.00    0.06   0.00
-## geld_sonstige                                        0.00    0.00   0.00
-## geld_weiss_nicht                                     0.00    0.00   0.00
-## geld_hauptsaechlich                                  1.00    1.50   0.00
-## vorbild_ja                                           1.00    1.50   0.00
-## vorbild_welches                                      1.00    1.00   0.00
-## vorbild_codiert                                      2.00    3.04   1.48
-## fokus_leben_individualitaet                          0.00    0.21   0.00
-## fokus_leben_freiheit                                 0.00    0.40   0.00
-## fokus_leben_hedonismus                               1.00    0.54   0.00
-## fokus_leben_karriere                                 0.00    0.14   0.00
-## fokus_leben_altruismus                               0.00    0.32   0.00
-## fokus_leben_verantwortung                            0.00    0.13   0.00
-## fokus_leben_durchsetzung                             0.00    0.00   0.00
-## fokus_leben_toleranz                                 0.00    0.06   0.00
-## fokus_leben_gesundheit                               0.00    0.13   0.00
-## fokus_leben_umwelt                                   0.00    0.18   0.00
-## fokus_leben_finanzen                                 1.00    0.61   0.00
-## fokus_leben_luxus                                    0.00    0.25   0.00
-## fokus_leben_respekt                                  0.00    0.08   0.00
-## fokus_leben_unangepasstheit                          0.00    0.00   0.00
-## fokus_leben_vernatwortungsvoller_konsum              0.00    0.00   0.00
-## fokus_leben_kein                                     0.00    0.00   0.00
-## fokus_beruf_sicherheit                               1.00    1.53   0.00
-## fokus_beruf_einkommen                                2.00    1.62   1.48
-## fokus_beruf_interesse                                1.00    1.39   0.00
-## fokus_beruf_work_life_balance                        2.00    1.70   1.48
-## fokus_beruf_karriere                                 2.00    2.34   1.48
-## fokus_beruf_verantwortung                            2.00    2.27   1.48
-## fokus_beruf_entwicklung                              2.00    2.04   1.48
-## werte_sicherheit_vs_privatsphaere                    4.00    3.82   1.48
-## werte_sm_provatsphaere_vs_sm_socialising             5.00    4.45   1.48
-## werte_moeglichkeiten_vs_ueberforderung               3.00    2.82   1.48
-## werte_gesundheit_vs_spass                            4.00    3.72   1.48
-## werte_individualitaet_vs_sozialitaet                 4.00    4.07   2.97
-## werte_nachhaltigkeit_vs_konsum                       4.00    3.91   1.48
-## werte_leistung_vs_solidaritaet                       4.00    4.43   2.97
-## werte_chancengleichheit_vs_elite                     2.00    2.43   1.48
-## werte_zukunft_vs_vergangenheit                       2.00    2.89   1.48
-## werte_gleichstellungspolitik                         4.00    4.51   2.97
-## verbundenheit_stadt                                  2.00    2.35   1.48
-## verbundenheit_region                                 2.00    2.31   1.48
-## verbundenheit_bundesland                             2.00    2.37   1.48
-## verbundenheit_deutschland                            2.00    2.04   1.48
-## verbundenheit_europa                                 2.00    2.23   1.48
-## sm_nutzung                                           2.00    1.96   0.00
-## sm_nutzung_rang_facebook                             1.00    1.12   1.48
-## sm_nutzung_rang_instagram                            1.00    1.19   1.48
-## sm_nutzung_rang_twitter                              0.00    0.30   0.00
-## sm_nutzung_rang_youtube                              2.00    1.83   1.48
-## sm_nutzung_rang_linked_in                            0.00    0.00   0.00
-## sm_nutzung_rang_xing                                 0.00    0.00   0.00
-## sm_nutzung_rang_tumbler                              0.00    0.00   0.00
-## sm_nutzung_rang_reddit                               0.00    0.00   0.00
-## sm_nutzung_rang_snapchat                             1.00    1.36   1.48
-## sm_nutzung_rang_tiktok                               0.00    0.11   0.00
-## sm_nutzung_rang_twitch                               0.00    0.09   0.00
-## sm_nutzung_socializing                               1.00    0.70   0.00
-## sm_nutzung_tagesgeschehen                            1.00    0.54   0.00
-## sm_nutzung_neue_kontakte                             0.00    0.15   0.00
-## sm_nutzung_organisation                              0.00    0.40   0.00
-## sm_nutzung_promies                                   0.00    0.38   0.00
-## sm_nutzung_marken                                    0.00    0.20   0.00
-## sm_nutzung_zeitvertreib                              1.00    0.93   0.00
-## sm_nutzung_bildung                                   0.00    0.36   0.00
-## sm_nutzung_weiss_nicht                               0.00    0.00   0.00
-## politisches_interesse                                3.00    2.59   1.48
-## touchpoints_politik_arbeit_schule_uni                2.00    2.16   1.48
-## touchpoints_politik_freunde_familie                  2.00    2.26   1.48
-## touchpoints_politik_soziale_netzwerke                2.00    2.19   1.48
-## touchpoints_politik_freizeit                         3.00    3.06   1.48
-## touchpoints_politik_oeffentlicher_raum               3.00    2.73   1.48
-## touchpoints_politik_medien                           2.00    1.89   1.48
-## mediennutzung_politik                                3.00    2.98   1.48
-## infoquelle_tv_nachrichten                            0.00    0.37   0.00
-## infoquelle_talkshows                                 0.00    0.00   0.00
-## infoquelle_websites_institutionen_behoerden          0.00    0.00   0.00
-## infoquelle_tv_satiere                                0.00    0.08   0.00
-## infoquelle_print                                     0.00    0.10   0.00
-## infoquelle_internet_nachrichten                      0.00    0.31   0.00
-## infoquelle_radio_podcast                             0.00    0.17   0.00
-## infoquelle_nachrichten_app                           0.00    0.18   0.00
-## infoquelle_politik_blog                              0.00    0.00   0.00
-## infoquelle_newsletter_messanger_abo                  0.00    0.00   0.00
-## infoquelle_google                                    0.00    0.32   0.00
-## infoquelle_instagram                                 0.00    0.07   0.00
-## infoquelle_youtube                                   0.00    0.21   0.00
-## infoquelle_twitter                                   0.00    0.00   0.00
-## infoquelle_facebook                                  0.00    0.12   0.00
-## infoquelle_snapchat                                  0.00    0.00   0.00
-## infoquelle_sonstige_offen                            0.00    0.00   0.00
-## vertrauen_medien_tv_nachrichten                      2.00    2.06   0.00
-## vertrauen_medien_talkshows                           2.00    2.08   0.00
-## vertrauen_medien_websites_institutionen_behoerden    2.00    1.86   0.00
-## vertrauen_medien_tv_satiere                          2.00    1.97   1.48
-## vertrauen_medien_print                               2.00    1.88   0.00
-## vertrauen_medien_internet_nachrichten                2.00    2.04   0.00
-## vertrauen_medien_radio_podcast                       2.00    2.02   0.00
-## vertrauen_medien_nachrichten_app                     2.00    1.63   1.48
-## vertrauen_medien_politik_blog                        2.00    2.46   1.48
-## vertrauen_medien_newsletter_messanger_abo            2.00    2.28   0.00
-## vertrauen_medien_google                              2.00    2.33   1.48
-## vertrauen_medien_instagram                           3.00    2.55   0.00
-## vertrauen_medien_youtube                             2.00    2.32   1.48
-## vertrauen_medien_twitter                             2.00    2.31   1.48
-## vertrauen_medien_facebook                            3.00    2.64   0.00
-## vertrauen_medien_snapchat                            3.00    2.81   1.48
-## vertrauen_medien_sonstige_offen                      2.00    1.91   1.48
-## politik_demokratie_zufriedenheit                     2.00    2.53   1.48
-## politik_demokratie_idee                              1.00    1.03   0.00
-## politik_reformbedarf                                 2.00    1.83   0.00
-## politik_regierungszufriedenheit                      3.00    2.78   1.48
-## vertrauen_institutionen_justiz                       2.00    2.28   1.48
-## vertrauen_institutionen_ngos                         2.00    2.41   1.48
-## vertrauen_institutionen_vereine                      3.00    2.53   1.48
-## vertrauen_institutionen_bundesregierung              3.00    2.77   1.48
-## vertrauen_institutionen_parteien                     3.00    3.00   0.00
-## vertrauen_institutionen_bundestag                    3.00    2.78   1.48
-## vertrauen_institutionen_polizei                      2.00    2.08   0.00
-## vertrauen_institutionen_kirchen                      4.00    3.43   0.00
-## vertrauen_institutionen_schule_uni                   2.00    2.27   0.00
-## parteisympathie                                      7.00    5.85   1.48
-## einstellung_politiker_nehmen_sorgen_ernst            3.00    3.21   0.00
-## einstellung_politiker_verstaendlich                  2.00    2.43   1.48
-## einstellung_politiker_kommunikationskanaele          2.00    2.13   1.48
-## einstellung_talkshows_junge_menchen                  3.00    2.95   0.00
-## einstellung_entscheidungsprozess_undurchsichtig      2.00    2.19   1.48
-## einstellung_politik_wichtige_probleme                3.00    3.13   1.48
-## einstellung_politik_einflussmoeglichkeit             3.00    2.88   1.48
-## einstellung_keine_ueberzeugende_partei               2.00    2.34   1.48
-## einstellung_politik_lebensfern                       3.00    3.04   1.48
-## einstellung_politik_wirtschaftsinteressen            2.00    1.79   1.48
-## einstellung_widerspruch_klima_kapitalismus           2.00    2.31   1.48
-## einstellung_parteien_macht                           2.00    1.88   1.48
-## germany_first                                        3.00    2.34   0.00
-## meinung_eu_vorteile_deutschlend                      2.00    2.04   1.48
-## meinung_eu_wohlstand                                 2.00    2.04   0.00
-## meinung_eu_anti_souveraenitaet                       3.00    2.55   1.48
-## meinung_eu_gute_idee_schlechte_umsetzung             2.00    2.08   0.00
-## meinung_eu_problemloesungsebene                      2.00    2.06   1.48
-## pol_partizipation_wahl                               1.00    0.74   0.00
-## pol_partizipation_petition                           0.00    0.28   0.00
-## pol_partizipation_sm_kommentar                       0.00    0.06   0.00
-## pol_partizipation_partei_veranstaltung               0.00    0.00   0.00
-## pol_partizipation_demo                               0.00    0.03   0.00
-## pol_partizipation_information                        1.00    0.61   0.00
-## pol_partizipation_gespraech                          1.00    0.66   0.00
-## pol_partizipation_produktboykott                     0.00    0.20   0.00
-## pol_partizipation_parteiengagement                   0.00    0.00   0.00
-## pol_partizipation_anderes_engagement                 0.00    0.00   0.00
-## pol_partizipation_nichts_davon                       0.00    0.11   0.00
-## ehrenamt_allgemein                                   2.00    1.79   0.00
-## ehrenamt_spezifisch                                  1.00    1.00   0.00
-## ehrenamt_codiert                                     3.00    3.85   2.97
-## fff_interesse                                        2.00    2.45   1.48
-## fff_teilnahme                                        5.00    4.55   0.00
-## reaktionen_fff_agendasetting                         2.00    1.78   1.48
-## reaktionen_fff_berichterstattung_positiv             2.00    2.44   1.48
-## reaktionen_fff_mangelnde_berichterstattung           3.00    2.62   1.48
-## reaktionen_fff_politiker_untaetigkeit                2.00    1.77   1.48
-## reaktionen_fff_schulzeit_aufmerksamkeit              2.00    2.14   1.48
-## reaktionen_fff_schulstreik_ungeeignet                3.00    2.60   1.48
-## reaktionen_fff_teilnehmer_schwaenzen                 3.00    2.60   1.48
-## reaktionen_fff_konsumverzicht                        3.00    2.74   1.48
-## reaktionen_fff_elternunterstuetzung                  2.00    1.75   1.48
-## alter                                               19.00   19.15   4.45
-## geschlecht                                           1.00    1.48   0.00
-## bundesland                                           7.00    6.82   2.97
-## bildung_derzeit                                      1.00    1.39   0.00
-## bildung_schule                                       3.00    3.58   1.48
-## bildung_abschluss                                    3.00    3.22   1.48
-## erwerbstaetigkeit                                    1.00    1.79   0.00
-## wohnsituation                                        1.00    1.29   0.00
-## gemeindegroesse                                      3.00    3.30   2.97
-## migrationshintergrund                                4.00    3.88   0.00
-## Gewicht                                              0.99    0.99   0.15
-## filter_$                                             1.00    0.98   0.00
-##                                                       min     max   range  skew
-## za_nr                                             6738.00 6738.00    0.00   NaN
-## version*                                              Inf    -Inf    -Inf    NA
-## doi*                                                  Inf    -Inf    -Inf    NA
-## lfdn                                              1634.00 3082.00 1448.00  0.09
-## zufriedenheit_leben                                  1.00    4.00    3.00  0.27
-## zukunftsperspektive_persoenlich                      1.00    4.00    3.00  0.49
-## zukunftsperspektive_generation                       1.00    4.00    3.00  0.17
-## eltern_verhaeltnis                                   1.00    4.00    3.00  1.40
-## eltern_unterstuetzung                                1.00    4.00    3.00  1.31
-## eltern_ratgeber                                      1.00    4.00    3.00  0.60
-## eltern_diskutieren                                   1.00    4.00    3.00  0.23
-## eltern_zuhoerer                                      1.00    4.00    3.00  0.92
-## bildung_vater                                        1.00    3.00    2.00 -0.14
-## bildung_mutter                                       1.00    3.00    2.00 -0.10
-## finanz_verzicht                                      1.00    4.00    3.00  0.21
-## geld_eigene_arbeit                                   0.00    1.00    1.00 -0.57
-## geld_eltern                                          0.00    1.00    1.00 -0.15
-## geld_staat                                           0.00    1.00    1.00  2.00
-## geld_sonstige                                        0.00    1.00    1.00  2.92
-## geld_weiss_nicht                                     0.00    1.00    1.00 15.74
-## geld_hauptsaechlich                                  1.00    4.00    3.00  1.13
-## vorbild_ja                                           1.00    2.00    1.00  0.01
-## vorbild_welches                                      1.00    1.00    0.00   NaN
-## vorbild_codiert                                      1.00    9.00    8.00  0.82
-## fokus_leben_individualitaet                          0.00    1.00    1.00  1.06
-## fokus_leben_freiheit                                 0.00    1.00    1.00  0.33
-## fokus_leben_hedonismus                               0.00    1.00    1.00 -0.13
-## fokus_leben_karriere                                 0.00    1.00    1.00  1.39
-## fokus_leben_altruismus                               0.00    1.00    1.00  0.61
-## fokus_leben_verantwortung                            0.00    1.00    1.00  1.45
-## fokus_leben_durchsetzung                             0.00    1.00    1.00  3.23
-## fokus_leben_toleranz                                 0.00    1.00    1.00  1.99
-## fokus_leben_gesundheit                               0.00    1.00    1.00  1.45
-## fokus_leben_umwelt                                   0.00    1.00    1.00  1.21
-## fokus_leben_finanzen                                 0.00    1.00    1.00 -0.36
-## fokus_leben_luxus                                    0.00    1.00    1.00  0.86
-## fokus_leben_respekt                                  0.00    1.00    1.00  1.82
-## fokus_leben_unangepasstheit                          0.00    1.00    1.00  2.66
-## fokus_leben_vernatwortungsvoller_konsum              0.00    1.00    1.00  2.79
-## fokus_leben_kein                                     0.00    1.00    1.00 22.33
-## fokus_beruf_sicherheit                               1.00    5.00    4.00  0.98
-## fokus_beruf_einkommen                                1.00    4.00    3.00  0.70
-## fokus_beruf_interesse                                1.00    5.00    4.00  1.37
-## fokus_beruf_work_life_balance                        1.00    5.00    4.00  0.90
-## fokus_beruf_karriere                                 1.00    5.00    4.00  0.25
-## fokus_beruf_verantwortung                            1.00    5.00    4.00  0.34
-## fokus_beruf_entwicklung                              1.00    5.00    4.00  0.46
-## werte_sicherheit_vs_privatsphaere                    1.00    7.00    6.00  0.18
-## werte_sm_provatsphaere_vs_sm_socialising             1.00    7.00    6.00 -0.34
-## werte_moeglichkeiten_vs_ueberforderung               1.00    7.00    6.00  0.65
-## werte_gesundheit_vs_spass                            1.00    7.00    6.00  0.15
-## werte_individualitaet_vs_sozialitaet                 1.00    7.00    6.00 -0.05
-## werte_nachhaltigkeit_vs_konsum                       1.00    7.00    6.00  0.09
-## werte_leistung_vs_solidaritaet                       1.00    7.00    6.00 -0.26
-## werte_chancengleichheit_vs_elite                     1.00    7.00    6.00  0.89
-## werte_zukunft_vs_vergangenheit                       1.00    7.00    6.00  0.68
-## werte_gleichstellungspolitik                         1.00    7.00    6.00 -0.15
-## verbundenheit_stadt                                  1.00    4.00    3.00  0.15
-## verbundenheit_region                                 1.00    4.00    3.00  0.23
-## verbundenheit_bundesland                             1.00    4.00    3.00  0.07
-## verbundenheit_deutschland                            1.00    4.00    3.00  0.44
-## verbundenheit_europa                                 1.00    4.00    3.00  0.22
-## sm_nutzung                                           1.00    6.00    5.00  1.89
-## sm_nutzung_rang_facebook                             0.00   11.00   11.00  1.60
-## sm_nutzung_rang_instagram                            0.00    9.00    9.00  1.56
-## sm_nutzung_rang_twitter                              0.00   11.00   11.00  2.38
-## sm_nutzung_rang_youtube                              0.00    9.00    9.00  0.47
-## sm_nutzung_rang_linked_in                            0.00   11.00   11.00  4.04
-## sm_nutzung_rang_xing                                 0.00   11.00   11.00  3.74
-## sm_nutzung_rang_tumbler                              0.00   11.00   11.00  3.58
-## sm_nutzung_rang_reddit                               0.00   11.00   11.00  4.08
-## sm_nutzung_rang_snapchat                             0.00   11.00   11.00  1.29
-## sm_nutzung_rang_tiktok                               0.00   11.00   11.00  3.29
-## sm_nutzung_rang_twitch                               0.00   11.00   11.00  3.30
-## sm_nutzung_socializing                               0.00    1.00    1.00 -0.67
-## sm_nutzung_tagesgeschehen                            0.00    1.00    1.00 -0.14
-## sm_nutzung_neue_kontakte                             0.00    1.00    1.00  1.37
-## sm_nutzung_organisation                              0.00    1.00    1.00  0.34
-## sm_nutzung_promies                                   0.00    1.00    1.00  0.39
-## sm_nutzung_marken                                    0.00    1.00    1.00  1.08
-## sm_nutzung_zeitvertreib                              0.00    1.00    1.00 -1.87
-## sm_nutzung_bildung                                   0.00    1.00    1.00  0.47
-## sm_nutzung_weiss_nicht                               0.00    1.00    1.00 13.99
-## politisches_interesse                                1.00    4.00    3.00 -0.14
-## touchpoints_politik_arbeit_schule_uni                1.00    4.00    3.00  0.34
-## touchpoints_politik_freunde_familie                  1.00    4.00    3.00  0.24
-## touchpoints_politik_soziale_netzwerke                1.00    4.00    3.00  0.28
-## touchpoints_politik_freizeit                         1.00    4.00    3.00 -0.49
-## touchpoints_politik_oeffentlicher_raum               1.00    4.00    3.00 -0.18
-## touchpoints_politik_medien                           1.00    4.00    3.00  0.55
-## mediennutzung_politik                                1.00    5.00    4.00 -0.13
-## infoquelle_tv_nachrichten                            0.00    1.00    1.00  0.41
-## infoquelle_talkshows                                 0.00    1.00    1.00  3.35
-## infoquelle_websites_institutionen_behoerden          0.00    1.00    1.00  3.16
-## infoquelle_tv_satiere                                0.00    1.00    1.00  1.85
-## infoquelle_print                                     0.00    1.00    1.00  1.65
-## infoquelle_internet_nachrichten                      0.00    1.00    1.00  0.64
-## infoquelle_radio_podcast                             0.00    1.00    1.00  1.23
-## infoquelle_nachrichten_app                           0.00    1.00    1.00  1.18
-## infoquelle_politik_blog                              0.00    1.00    1.00  7.51
-## infoquelle_newsletter_messanger_abo                  0.00    1.00    1.00  5.08
-## infoquelle_google                                    0.00    1.00    1.00  0.60
-## infoquelle_instagram                                 0.00    1.00    1.00  1.92
-## infoquelle_youtube                                   0.00    1.00    1.00  1.07
-## infoquelle_twitter                                   0.00    1.00    1.00  4.00
-## infoquelle_facebook                                  0.00    1.00    1.00  1.54
-## infoquelle_snapchat                                  0.00    1.00    1.00  4.82
-## infoquelle_sonstige_offen                            0.00    1.00    1.00  7.03
-## vertrauen_medien_tv_nachrichten                      1.00    4.00    3.00  0.23
-## vertrauen_medien_talkshows                           1.00    4.00    3.00  0.49
-## vertrauen_medien_websites_institutionen_behoerden    1.00    4.00    3.00  0.68
-## vertrauen_medien_tv_satiere                          1.00    4.00    3.00  0.36
-## vertrauen_medien_print                               1.00    4.00    3.00  0.49
-## vertrauen_medien_internet_nachrichten                1.00    4.00    3.00  0.15
-## vertrauen_medien_radio_podcast                       1.00    4.00    3.00  0.26
-## vertrauen_medien_nachrichten_app                     1.00    4.00    3.00  0.76
-## vertrauen_medien_politik_blog                        1.00    3.00    2.00 -0.44
-## vertrauen_medien_newsletter_messanger_abo            1.00    3.00    2.00 -0.26
-## vertrauen_medien_google                              1.00    4.00    3.00 -0.13
-## vertrauen_medien_instagram                           1.00    4.00    3.00 -0.46
-## vertrauen_medien_youtube                             1.00    4.00    3.00 -0.06
-## vertrauen_medien_twitter                             1.00    3.00    2.00 -0.33
-## vertrauen_medien_facebook                            1.00    4.00    3.00 -0.33
-## vertrauen_medien_snapchat                            2.00    4.00    2.00  0.21
-## vertrauen_medien_sonstige_offen                      1.00    4.00    3.00  0.61
-## politik_demokratie_zufriedenheit                     1.00    4.00    3.00  0.23
-## politik_demokratie_idee                              1.00    2.00    1.00  2.34
-## politik_reformbedarf                                 1.00    3.00    2.00  0.06
-## politik_regierungszufriedenheit                      1.00    4.00    3.00  0.02
-## vertrauen_institutionen_justiz                       1.00    4.00    3.00  0.19
-## vertrauen_institutionen_ngos                         1.00    4.00    3.00  0.18
-## vertrauen_institutionen_vereine                      1.00    4.00    3.00  0.10
-## vertrauen_institutionen_bundesregierung              1.00    4.00    3.00 -0.12
-## vertrauen_institutionen_parteien                     1.00    4.00    3.00 -0.31
-## vertrauen_institutionen_bundestag                    1.00    4.00    3.00 -0.20
-## vertrauen_institutionen_polizei                      1.00    4.00    3.00  0.41
-## vertrauen_institutionen_kirchen                      1.00    4.00    3.00 -0.98
-## vertrauen_institutionen_schule_uni                   1.00    4.00    3.00  0.29
-## parteisympathie                                      1.00    9.00    8.00 -0.75
-## einstellung_politiker_nehmen_sorgen_ernst            1.00    4.00    3.00 -0.70
-## einstellung_politiker_verstaendlich                  1.00    4.00    3.00  0.13
-## einstellung_politiker_kommunikationskanaele          1.00    4.00    3.00  0.36
-## einstellung_talkshows_junge_menchen                  1.00    4.00    3.00 -0.33
-## einstellung_entscheidungsprozess_undurchsichtig      1.00    4.00    3.00  0.28
-## einstellung_politik_wichtige_probleme                1.00    4.00    3.00 -0.48
-## einstellung_politik_einflussmoeglichkeit             1.00    4.00    3.00 -0.37
-## einstellung_keine_ueberzeugende_partei               1.00    4.00    3.00  0.10
-## einstellung_politik_lebensfern                       1.00    4.00    3.00 -0.55
-## einstellung_politik_wirtschaftsinteressen            1.00    4.00    3.00  0.67
-## einstellung_widerspruch_klima_kapitalismus           1.00    4.00    3.00  0.04
-## einstellung_parteien_macht                           1.00    4.00    3.00  0.42
-## germany_first                                        1.00    3.00    2.00 -0.55
-## meinung_eu_vorteile_deutschlend                      1.00    4.00    3.00  0.45
-## meinung_eu_wohlstand                                 1.00    4.00    3.00  0.51
-## meinung_eu_anti_souveraenitaet                       1.00    4.00    3.00 -0.13
-## meinung_eu_gute_idee_schlechte_umsetzung             1.00    4.00    3.00  0.32
-## meinung_eu_problemloesungsebene                      1.00    4.00    3.00  0.40
-## pol_partizipation_wahl                               0.00    1.00    1.00 -0.85
-## pol_partizipation_petition                           0.00    1.00    1.00  0.76
-## pol_partizipation_sm_kommentar                       0.00    1.00    1.00  1.98
-## pol_partizipation_partei_veranstaltung               0.00    1.00    1.00  3.03
-## pol_partizipation_demo                               0.00    1.00    1.00  2.25
-## pol_partizipation_information                        0.00    1.00    1.00 -0.34
-## pol_partizipation_gespraech                          0.00    1.00    1.00 -0.52
-## pol_partizipation_produktboykott                     0.00    1.00    1.00  1.07
-## pol_partizipation_parteiengagement                   0.00    1.00    1.00  4.99
-## pol_partizipation_anderes_engagement                 0.00    1.00    1.00  4.29
-## pol_partizipation_nichts_davon                       0.00    1.00    1.00  1.63
-## ehrenamt_allgemein                                   1.00    2.00    1.00 -1.07
-## ehrenamt_spezifisch                                  1.00    1.00    0.00   NaN
-## ehrenamt_codiert                                     1.00    9.00    8.00  0.63
-## fff_interesse                                        1.00    4.00    3.00  0.05
-## fff_teilnahme                                        1.00    5.00    4.00 -1.57
-## reaktionen_fff_agendasetting                         1.00    4.00    3.00  0.71
-## reaktionen_fff_berichterstattung_positiv             1.00    4.00    3.00  0.11
-## reaktionen_fff_mangelnde_berichterstattung           1.00    4.00    3.00 -0.17
-## reaktionen_fff_politiker_untaetigkeit                1.00    4.00    3.00  0.77
-## reaktionen_fff_schulzeit_aufmerksamkeit              1.00    4.00    3.00  0.37
-## reaktionen_fff_schulstreik_ungeeignet                1.00    4.00    3.00 -0.11
-## reaktionen_fff_teilnehmer_schwaenzen                 1.00    4.00    3.00 -0.11
-## reaktionen_fff_konsumverzicht                        1.00    4.00    3.00 -0.18
-## reaktionen_fff_elternunterstuetzung                  1.00    4.00    3.00  0.91
-## alter                                               14.00   24.00   10.00 -0.06
-## geschlecht                                           1.00    3.00    2.00  0.09
-## bundesland                                           1.00   16.00   15.00  0.60
-## bildung_derzeit                                      1.00    2.00    1.00  0.36
-## bildung_schule                                       1.00    6.00    5.00  0.11
-## bildung_abschluss                                    1.00    6.00    5.00  0.55
-## erwerbstaetigkeit                                    1.00    7.00    6.00  1.57
-## wohnsituation                                        1.00    2.00    1.00  0.71
-## gemeindegroesse                                      1.00    6.00    5.00  0.18
-## migrationshintergrund                                1.00    4.00    3.00 -2.13
-## Gewicht                                              0.54    1.83    1.29  0.57
-## filter_$                                             0.00    1.00    1.00 -2.45
-##                                                   kurtosis    se
-## za_nr                                                  NaN  0.00
-## version*                                                NA    NA
-## doi*                                                    NA    NA
-## lfdn                                                 -1.17 12.85
-## zufriedenheit_leben                                   0.52  0.02
-## zukunftsperspektive_persoenlich                       1.30  0.02
-## zukunftsperspektive_generation                       -0.22  0.02
-## eltern_verhaeltnis                                    1.90  0.02
-## eltern_unterstuetzung                                 1.32  0.03
-## eltern_ratgeber                                      -0.19  0.03
-## eltern_diskutieren                                   -0.85  0.03
-## eltern_zuhoerer                                       0.33  0.03
-## bildung_vater                                        -1.29  0.03
-## bildung_mutter                                       -1.01  0.02
-## finanz_verzicht                                      -0.57  0.03
-## geld_eigene_arbeit                                   -1.68  0.02
-## geld_eltern                                          -1.98  0.02
-## geld_staat                                            2.00  0.01
-## geld_sonstige                                         6.51  0.01
-## geld_weiss_nicht                                    246.01  0.00
-## geld_hauptsaechlich                                   1.04  0.02
-## vorbild_ja                                           -2.00  0.02
-## vorbild_welches                                        NaN  0.00
-## vorbild_codiert                                      -0.69  0.15
-## fokus_leben_individualitaet                          -0.88  0.01
-## fokus_leben_freiheit                                 -1.89  0.02
-## fokus_leben_hedonismus                               -1.99  0.02
-## fokus_leben_karriere                                 -0.07  0.01
-## fokus_leben_altruismus                               -1.62  0.02
-## fokus_leben_verantwortung                             0.09  0.01
-## fokus_leben_durchsetzung                              8.47  0.01
-## fokus_leben_toleranz                                  1.96  0.01
-## fokus_leben_gesundheit                                0.09  0.01
-## fokus_leben_umwelt                                   -0.53  0.01
-## fokus_leben_finanzen                                 -1.87  0.02
-## fokus_leben_luxus                                    -1.27  0.01
-## fokus_leben_respekt                                   1.32  0.01
-## fokus_leben_unangepasstheit                           5.06  0.01
-## fokus_leben_vernatwortungsvoller_konsum               5.79  0.01
-## fokus_leben_kein                                    497.01  0.00
-## fokus_beruf_sicherheit                                0.27  0.02
-## fokus_beruf_einkommen                                -0.29  0.02
-## fokus_beruf_interesse                                 1.90  0.02
-## fokus_beruf_work_life_balance                         0.45  0.03
-## fokus_beruf_karriere                                 -0.53  0.03
-## fokus_beruf_verantwortung                            -0.20  0.03
-## fokus_beruf_entwicklung                              -0.29  0.03
-## werte_sicherheit_vs_privatsphaere                    -0.96  0.06
-## werte_sm_provatsphaere_vs_sm_socialising             -0.77  0.05
-## werte_moeglichkeiten_vs_ueberforderung               -0.48  0.05
-## werte_gesundheit_vs_spass                            -0.94  0.06
-## werte_individualitaet_vs_sozialitaet                 -1.22  0.06
-## werte_nachhaltigkeit_vs_konsum                       -1.06  0.06
-## werte_leistung_vs_solidaritaet                       -0.91  0.06
-## werte_chancengleichheit_vs_elite                     -0.26  0.06
-## werte_zukunft_vs_vergangenheit                       -0.72  0.06
-## werte_gleichstellungspolitik                         -1.31  0.07
-## verbundenheit_stadt                                  -0.55  0.03
-## verbundenheit_region                                 -0.49  0.03
-## verbundenheit_bundesland                             -0.71  0.03
-## verbundenheit_deutschland                            -0.30  0.03
-## verbundenheit_europa                                 -0.72  0.03
-## sm_nutzung                                            5.02  0.03
-## sm_nutzung_rang_facebook                              4.10  0.05
-## sm_nutzung_rang_instagram                             6.42  0.03
-## sm_nutzung_rang_twitter                               5.43  0.06
-## sm_nutzung_rang_youtube                               0.35  0.04
-## sm_nutzung_rang_linked_in                            16.45  0.05
-## sm_nutzung_rang_xing                                 13.69  0.06
-## sm_nutzung_rang_tumbler                              12.29  0.06
-## sm_nutzung_rang_reddit                               16.03  0.06
-## sm_nutzung_rang_snapchat                              2.37  0.06
-## sm_nutzung_rang_tiktok                               10.80  0.06
-## sm_nutzung_rang_twitch                               10.79  0.07
-## sm_nutzung_socializing                               -1.55  0.02
-## sm_nutzung_tagesgeschehen                            -1.98  0.02
-## sm_nutzung_neue_kontakte                             -0.13  0.01
-## sm_nutzung_organisation                              -1.89  0.02
-## sm_nutzung_promies                                   -1.85  0.02
-## sm_nutzung_marken                                    -0.83  0.01
-## sm_nutzung_zeitvertreib                               1.49  0.01
-## sm_nutzung_bildung                                   -1.79  0.02
-## sm_nutzung_weiss_nicht                              194.01  0.00
-## politisches_interesse                                -0.66  0.03
-## touchpoints_politik_arbeit_schule_uni                -0.49  0.03
-## touchpoints_politik_freunde_familie                  -0.39  0.03
-## touchpoints_politik_soziale_netzwerke                -0.62  0.03
-## touchpoints_politik_freizeit                         -0.57  0.03
-## touchpoints_politik_oeffentlicher_raum               -0.59  0.03
-## touchpoints_politik_medien                           -0.40  0.03
-## mediennutzung_politik                                -1.10  0.04
-## infoquelle_tv_nachrichten                            -1.84  0.02
-## infoquelle_talkshows                                  9.22  0.01
-## infoquelle_websites_institutionen_behoerden           8.00  0.01
-## infoquelle_tv_satiere                                 1.43  0.01
-## infoquelle_print                                      0.73  0.01
-## infoquelle_internet_nachrichten                      -1.59  0.02
-## infoquelle_radio_podcast                             -0.50  0.01
-## infoquelle_nachrichten_app                           -0.60  0.01
-## infoquelle_politik_blog                              54.42  0.00
-## infoquelle_newsletter_messanger_abo                  23.78  0.01
-## infoquelle_google                                    -1.64  0.02
-## infoquelle_instagram                                  1.69  0.01
-## infoquelle_youtube                                   -0.86  0.01
-## infoquelle_twitter                                   14.02  0.01
-## infoquelle_facebook                                   0.37  0.01
-## infoquelle_snapchat                                  21.25  0.01
-## infoquelle_sonstige_offen                            47.44  0.00
-## vertrauen_medien_tv_nachrichten                      -0.08  0.04
-## vertrauen_medien_talkshows                            0.09  0.10
-## vertrauen_medien_websites_institutionen_behoerden     0.28  0.09
-## vertrauen_medien_tv_satiere                          -0.37  0.06
-## vertrauen_medien_print                                0.09  0.06
-## vertrauen_medien_internet_nachrichten                -0.26  0.04
-## vertrauen_medien_radio_podcast                        0.12  0.05
-## vertrauen_medien_nachrichten_app                      0.18  0.05
-## vertrauen_medien_politik_blog                        -0.95  0.16
-## vertrauen_medien_newsletter_messanger_abo            -0.90  0.12
-## vertrauen_medien_google                              -0.54  0.04
-## vertrauen_medien_instagram                           -0.38  0.06
-## vertrauen_medien_youtube                             -0.48  0.05
-## vertrauen_medien_twitter                             -0.89  0.10
-## vertrauen_medien_facebook                            -0.25  0.06
-## vertrauen_medien_snapchat                            -1.09  0.12
-## vertrauen_medien_sonstige_offen                      -0.56  0.25
-## politik_demokratie_zufriedenheit                     -0.51  0.03
-## politik_demokratie_idee                               3.47  0.01
-## politik_reformbedarf                                 -0.35  0.02
-## politik_regierungszufriedenheit                      -0.61  0.02
-## vertrauen_institutionen_justiz                       -0.52  0.03
-## vertrauen_institutionen_ngos                         -0.78  0.03
-## vertrauen_institutionen_vereine                      -0.49  0.03
-## vertrauen_institutionen_bundesregierung              -0.55  0.03
-## vertrauen_institutionen_parteien                     -0.09  0.02
-## vertrauen_institutionen_bundestag                    -0.48  0.03
-## vertrauen_institutionen_polizei                      -0.23  0.03
-## vertrauen_institutionen_kirchen                       0.05  0.03
-## vertrauen_institutionen_schule_uni                   -0.15  0.02
-## parteisympathie                                      -0.58  0.09
-## einstellung_politiker_nehmen_sorgen_ernst             0.37  0.02
-## einstellung_politiker_verstaendlich                  -0.75  0.03
-## einstellung_politiker_kommunikationskanaele          -0.57  0.03
-## einstellung_talkshows_junge_menchen                   0.04  0.02
-## einstellung_entscheidungsprozess_undurchsichtig      -0.37  0.03
-## einstellung_politik_wichtige_probleme                -0.19  0.02
-## einstellung_politik_einflussmoeglichkeit             -0.34  0.03
-## einstellung_keine_ueberzeugende_partei               -0.86  0.03
-## einstellung_politik_lebensfern                       -0.62  0.03
-## einstellung_politik_wirtschaftsinteressen             0.19  0.03
-## einstellung_widerspruch_klima_kapitalismus           -0.78  0.03
-## einstellung_parteien_macht                           -0.59  0.03
-## germany_first                                        -1.38  0.03
-## meinung_eu_vorteile_deutschlend                      -0.51  0.03
-## meinung_eu_wohlstand                                 -0.13  0.03
-## meinung_eu_anti_souveraenitaet                       -0.77  0.03
-## meinung_eu_gute_idee_schlechte_umsetzung             -0.27  0.03
-## meinung_eu_problemloesungsebene                      -0.48  0.03
-## pol_partizipation_wahl                               -1.28  0.02
-## pol_partizipation_petition                           -1.43  0.01
-## pol_partizipation_sm_kommentar                        1.92  0.01
-## pol_partizipation_partei_veranstaltung                7.19  0.01
-## pol_partizipation_demo                                3.05  0.01
-## pol_partizipation_information                        -1.88  0.02
-## pol_partizipation_gespraech                          -1.73  0.02
-## pol_partizipation_produktboykott                     -0.85  0.01
-## pol_partizipation_parteiengagement                   22.93  0.01
-## pol_partizipation_anderes_engagement                 16.41  0.01
-## pol_partizipation_nichts_davon                        0.66  0.01
-## ehrenamt_allgemein                                   -0.86  0.01
-## ehrenamt_spezifisch                                    NaN  0.00
-## ehrenamt_codiert                                     -0.97  0.18
-## fff_interesse                                        -1.08  0.03
-## fff_teilnahme                                         1.98  0.03
-## reaktionen_fff_agendasetting                          0.00  0.03
-## reaktionen_fff_berichterstattung_positiv             -0.31  0.03
-## reaktionen_fff_mangelnde_berichterstattung           -1.01  0.03
-## reaktionen_fff_politiker_untaetigkeit                 0.39  0.03
-## reaktionen_fff_schulzeit_aufmerksamkeit              -1.22  0.04
-## reaktionen_fff_schulstreik_ungeeignet                -1.25  0.03
-## reaktionen_fff_teilnehmer_schwaenzen                 -1.14  0.03
-## reaktionen_fff_konsumverzicht                        -1.03  0.03
-## reaktionen_fff_elternunterstuetzung                   0.56  0.08
-## alter                                                -1.25  0.10
-## geschlecht                                           -1.93  0.02
-## bundesland                                            0.06  0.11
-## bildung_derzeit                                      -1.87  0.02
-## bildung_schule                                       -0.66  0.05
-## bildung_abschluss                                     0.86  0.04
-## erwerbstaetigkeit                                     0.95  0.10
-## wohnsituation                                        -1.49  0.02
-## gemeindegroesse                                      -1.34  0.06
-## migrationshintergrund                                 3.50  0.02
-## Gewicht                                               1.33  0.01
-## filter_$                                              4.02  0.01
+##                     vars    n    mean     sd median trimmed    mad  min  max
+## za_nr                  1 1006 6738.00   0.00   6738 6738.00   0.00 6738 6738
+## version*               2 1006     NaN     NA     NA     NaN     NA  Inf -Inf
+## doi*                   3 1006     NaN     NA     NA     NaN     NA  Inf -Inf
+## lfdn                   4 1006 2314.19 407.58   2309 2307.73 517.43 1634 3082
+## zufriedenheit_leben    5  996    1.94   0.61      2    1.91   0.00    1    4
+## zukunft_persoenlich    6  985    1.92   0.61      2    1.88   0.00    1    4
+##                     range skew kurtosis    se
+## za_nr                   0  NaN      NaN  0.00
+## version*             -Inf   NA       NA    NA
+## doi*                 -Inf   NA       NA    NA
+## lfdn                 1448 0.09    -1.17 12.85
+## zufriedenheit_leben     3 0.27     0.52  0.02
+## zukunft_persoenlich     3 0.49     1.30  0.02
 \end{verbatim}
 
 Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen sinnvoll sind. Die Variable \texttt{lfdn} gibt z.B. einfach die ID des Befragten an. Ein Mittelwert der Befragtennummer ist keine nützliche Angabe. R rechnet alle Statistiken einfach aus, ganz unabhängig davon, ob dies zulässig ist!

@@ -206,7 +206,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
-<li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.2</b> Hilfe für Funktionen</a></li>
+<li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
+<li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
@@ -236,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#die-pipe"><i class="fa fa-check"></i><b>5.1</b> Die Pipe</a>
+<li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.1</b> Die Pipe</a>
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.1.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.1.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.1.2</b> Schlechtere Alternativen zur Pipe</a></li>
@@ -305,17 +306,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Soll innerhalb der Funktionen auf Variablen aus dem Dataframe zugegriffen werden, kann man diese direkt ansprechen (also einfach nur <code>var_name</code> und <strong>nicht</strong> <code>data$var_name</code> oder <code>"var_name"</code>).</p></li>
 <li><p>Das Ergebnis ist immer ein Dataframe.</p></li>
 </ul>
-<div id="die-pipe" class="section level2" number="5.1">
+<div id="pipe" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Die Pipe</h2>
 <p><img src="http://hexb.in/hexagons/pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!</p>
 <p>Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfilten und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden.</p>
 <div id="der-aufbau-im-detail" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Der Aufbau im Detail</h3>
 <p>Hier der schematische Aufbau einer Datentransformation mit Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="datenaufbereitung.html#cb94-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb94-2"><a href="datenaufbereitung.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_1</span>(<span class="st">&quot;do something&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb94-3"><a href="datenaufbereitung.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_2</span>(<span class="st">&quot;do something else&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb94-4"><a href="datenaufbereitung.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_3</span>(<span class="st">&quot;do something else else&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="datenaufbereitung.html#cb95-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="datenaufbereitung.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_1</span>(<span class="st">&quot;do something&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="datenaufbereitung.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_2</span>(<span class="st">&quot;do something else&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-4"><a href="datenaufbereitung.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_3</span>(<span class="st">&quot;do something else else&quot;</span>) </span></code></pre></div>
 <p>Schauen wir uns mal zeilenweise an, was hier passiert:</p>
 <ol style="list-style-type: decimal">
 <li><p>Erste Zeile: Der Start</p>
@@ -374,46 +375,32 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 </div>
 <p><br /></p>
 <p>Im folgenden Beispiel möchte ich einen Datensatz erstellen, der nur Fälle von Personen enthält, die angegeben haben aus dem Bundesland Niedersachsen (Code 3) zu kommen. Bevor man einen Filter anwendet, sollte man sich aber zunächst einen Überblick über die Ausgangslage verschaffen. Ich lasse mir deshalb einmal die Anzahl der Zeilen im Datensatz ausgeben und schaue mir die ersten paar Fälle an:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="datenaufbereitung.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="datenaufbereitung.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data)</span></code></pre></div>
 <pre><code>## [1] 1006</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="datenaufbereitung.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1634    23          1          7                   2                    1
-## 2 1636    24          2          6                  NA                    2
-## 3 1637    23          1          3                   2                    2
-## 4 1638    23          2          1                   2                    2
-## 5 1639    24          1          7                   3                    3
-## 6 1640    24          2          8                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="datenaufbereitung.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1634    23          1          7                 2                    2
+## 2 1636    24          2          6                 2                    3
+## 3 1637    23          1          3                 2                    2
+## 4 1638    23          2          1                 2                    3
+## 5 1639    24          1          7                 3                    3
+## 6 1640    24          2          8                 4                    4</code></pre>
 <p>Okay, der ursprüngliche Datensatz hat 1006 Zeilen (Befragte) und bei den Bundesländern gibt es gemischte Werte (z.B. 1, 3, 6 usw.).</p>
 <p>Als nächstes muss eine Filterbedingung festgelegt werden. Die Filterbedingung ist nach den Daten das zweite und zwingende Argument, dass die <code>filter()</code>-Funktion benötigt. Hier kommt der Datentyp “logical” ins Spiel, den wir <a href="einführung-in-r-1.html#atomic_vector_types">hier</a> besprochen haben. Anhand der Filterbedingung prüft die Funktion <code>filter()</code> für jeden Fall im Datensatz, ob eine zuvor von uns definierte Bedingung <code>TRUE</code> oder <code>FALSE</code> ist. Ist das Ergebnis der Prüfung <code>TRUE</code> verbleibt der Fall im Datensatz. Ist es <code>FALSE</code> wird der Fall aus dem Datensatz entfernt. Die Prüfung erfolgt anhand der relationalen Operatoren (z.B. <code>==</code> für “ist gleich,” <code>!=</code> für “ist ungleich” oder <code>&lt;</code> für “ist kleiner als”).</p>
 <p>Im Beispiel wollen wir alle Niedersachsen in einem Datensatz abspeichern. Wir müssen also die Bedingung “Das Bundesland ist gleich Niedersachsen” so formulieren, dass R sie versteht. Wir wissen bereits, dass Niedersachsen den Code 3 hat also ist die Filterbedingung: <code>bundesland == 3</code>. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator <code>&lt;-</code> verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="datenaufbereitung.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data_nds <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb99-2"><a href="datenaufbereitung.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bundesland <span class="sc">==</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="datenaufbereitung.html#cb100-1" aria-hidden="true" tabindex="-1"></a>data_nds <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="datenaufbereitung.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bundesland <span class="sc">==</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die Fallzahl und den Datensatz genauer an:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="datenaufbereitung.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_nds)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="datenaufbereitung.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_nds)</span></code></pre></div>
 <pre><code>## [1] 107</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="datenaufbereitung.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_nds)</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1637    23          1          3                   2                    2
-## 2 1641    23          2          3                   4                    3
-## 3 1657    14          2          3                   2                    2
-## 4 1680    15          1          3                   2                    2
-## 5 1692    17          2          3                   3                    3
-## 6 1717    15          2          3                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        2                         3                    3
-## 3                        3                         2                    2
-## 4                        2                         1                    3
-## 5                        3                         2                    3
-## 6                        4                         3                    3</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="datenaufbereitung.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_nds)</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1637    23          1          3                 2                    2
+## 2 1641    23          2          3                 3                    3
+## 3 1657    14          2          3                 2                    2
+## 4 1680    15          1          3                 1                   99
+## 5 1692    17          2          3                 2                    3
+## 6 1717    15          2          3                 3                    3</code></pre>
 <p>Tatsächlich! Im Datensatz sind jetzt nur noch n = 107 Fälle und in der Variable <code>bundesland</code> haben alle Fälle den Wert 3.</p>
 <p>Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die aus Niedersachsen oder Hamburg kommen und jünger als 18 Jahre sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.</p>
 <p>Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind:</p>
@@ -423,112 +410,81 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <li><p><code>!</code> für “nicht”</p></li>
 </ul>
 <p>Die Bedingung “aus Niedersachsen oder Hamburg und jünger als 18 Jahre” lässt sich also wie folgt formulieren: <code>(bundesland = 3 | bundesland = 2) &amp; alter &lt; 18</code>. Hier kommt es haargeanau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise alle Niedersachen (egal welchen Alters) und alle Hamburger unter 18 in den Dataframe packen.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="datenaufbereitung.html#cb104-1" aria-hidden="true" tabindex="-1"></a>data_filter <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb104-2"><a href="datenaufbereitung.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>((bundesland <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> bundesland <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">&amp;</span> alter <span class="sc">&lt;</span> <span class="dv">18</span>)</span>
-<span id="cb104-3"><a href="datenaufbereitung.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-4"><a href="datenaufbereitung.html#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter)</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1657    14          2          3                   2                    2
-## 2 1659    15          1          2                   2                    2
-## 3 1680    15          1          3                   2                    2
-## 4 1685    16          2          2                   2                   NA
-## 5 1692    17          2          3                   3                    3
-## 6 1717    15          2          3                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        2                         2                    2
-## 3                        2                         1                    3
-## 4                       NA                         2                    2
-## 5                        3                         2                    3
-## 6                        4                         3                    3</code></pre>
-<p>Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable <code>verbundenheit_region</code> einen fehlenden Wert haben:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="datenaufbereitung.html#cb106-1" aria-hidden="true" tabindex="-1"></a>data_filter_na <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb106-2"><a href="datenaufbereitung.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(verbundenheit_region))</span>
-<span id="cb106-3"><a href="datenaufbereitung.html#cb106-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-4"><a href="datenaufbereitung.html#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter_na)</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1634    23          1          7                   2                    1
-## 2 1636    24          2          6                  NA                    2
-## 3 1637    23          1          3                   2                    2
-## 4 1638    23          2          1                   2                    2
-## 5 1639    24          1          7                   3                    3
-## 6 1640    24          2          8                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="datenaufbereitung.html#cb105-1" aria-hidden="true" tabindex="-1"></a>data_filter <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb105-2"><a href="datenaufbereitung.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>((bundesland <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> bundesland <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">&amp;</span> alter <span class="sc">&lt;</span> <span class="dv">18</span>)</span>
+<span id="cb105-3"><a href="datenaufbereitung.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="datenaufbereitung.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_filter)</span></code></pre></div>
+<pre><code>## [1] 49</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="datenaufbereitung.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter)</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1657    14          2          3                 2                    2
+## 2 1659    15          1          2                 2                    2
+## 3 1680    15          1          3                 1                   99
+## 4 1685    16          2          2                 2                    2
+## 5 1692    17          2          3                 2                    3
+## 6 1717    15          2          3                 3                    3</code></pre>
+<p>Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable <code>verbundenheit_europa</code> einen fehlenden Wert (hier als 99 = “Weiß nicht” codiert) haben:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="datenaufbereitung.html#cb109-1" aria-hidden="true" tabindex="-1"></a>data_filter_na <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="datenaufbereitung.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(verbundenheit_europa))</span>
+<span id="cb109-3"><a href="datenaufbereitung.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="datenaufbereitung.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_filter_na)</span></code></pre></div>
+<pre><code>## [1] 951</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="datenaufbereitung.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter_na)</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1634    23          1          7                 2                    2
+## 2 1636    24          2          6                 2                    3
+## 3 1637    23          1          3                 2                    2
+## 4 1638    23          2          1                 2                    3
+## 5 1639    24          1          7                 3                    3
+## 6 1640    24          2          8                 4                    4</code></pre>
 </div>
 <div id="arrange-fälle-sortieren" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Arrange: Fälle sortieren</h2>
 <p>Mit ´arrange()` lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.</p>
 <p>Der Einsatz von <code>arrange()</code> ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben nach der sortiert werden soll, hier z.B. nach dem Alter:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="datenaufbereitung.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aufsteigend sortieren</span></span>
-<span id="cb108-2"><a href="datenaufbereitung.html#cb108-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb108-3"><a href="datenaufbereitung.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(alter) <span class="sc">%&gt;%</span> </span>
-<span id="cb108-4"><a href="datenaufbereitung.html#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1657    14          2          3                   2                    2
-## 2 1662    14          2          7                   3                    2
-## 3 1734    14          1         11                   1                    1
-## 4 1748    14          1         13                   2                    2
-## 5 1753    14          1          2                   1                    3
-## 6 1757    14          1          8                   1                    2
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    2
-## 2                        3                         1                    1
-## 3                        1                         1                    1
-## 4                        2                         2                    2
-## 5                        2                         2                    2
-## 6                        2                         1                    2</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="datenaufbereitung.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aufsteigend sortieren</span></span>
+<span id="cb113-2"><a href="datenaufbereitung.html#cb113-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb113-3"><a href="datenaufbereitung.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(alter) <span class="sc">%&gt;%</span> </span>
+<span id="cb113-4"><a href="datenaufbereitung.html#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1657    14          2          3                 2                    2
+## 2 1662    14          2          7                 1                    1
+## 3 1734    14          1         11                 1                    1
+## 4 1748    14          1         13                 2                    2
+## 5 1753    14          1          2                 2                    2
+## 6 1757    14          1          8                 1                    2</code></pre>
 <p>Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von <code>desc()</code>. das sieht dann so aus:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="datenaufbereitung.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absteigend sortieren</span></span>
-<span id="cb110-2"><a href="datenaufbereitung.html#cb110-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb110-3"><a href="datenaufbereitung.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(alter))<span class="sc">%&gt;%</span> </span>
-<span id="cb110-4"><a href="datenaufbereitung.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 1636    24          2          6                  NA                    2
-## 2 1639    24          1          7                   3                    3
-## 3 1640    24          2          8                   4                    4
-## 4 1648    24          2         14                   2                    3
-## 5 1651    24          1          7                   3                    3
-## 6 1665    24          2          5                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                       NA                         2                    3
-## 2                        3                         3                    3
-## 3                        4                         4                    4
-## 4                        3                         2                    3
-## 5                        3                         2                    3
-## 6                        3                         2                    2</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="datenaufbereitung.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absteigend sortieren</span></span>
+<span id="cb115-2"><a href="datenaufbereitung.html#cb115-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb115-3"><a href="datenaufbereitung.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(alter))<span class="sc">%&gt;%</span> </span>
+<span id="cb115-4"><a href="datenaufbereitung.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 1636    24          2          6                 2                    3
+## 2 1639    24          1          7                 3                    3
+## 3 1640    24          2          8                 4                    4
+## 4 1648    24          2         14                 2                    3
+## 5 1651    24          1          7                 2                    3
+## 6 1665    24          2          5                 2                    2</code></pre>
 <p>Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei aufsteigende und absteigende Sortierung nach Belieben mischen:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="datenaufbereitung.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nach mehreren Variablen sortieren</span></span>
-<span id="cb112-2"><a href="datenaufbereitung.html#cb112-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb112-3"><a href="datenaufbereitung.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(bundesland, alter, <span class="fu">desc</span>(geschlecht))<span class="sc">%&gt;%</span> </span>
-<span id="cb112-4"><a href="datenaufbereitung.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_stadt verbundenheit_region
-## 1 2308    14          2          1                   3                    3
-## 2 1696    15          2          1                   2                    3
-## 3 2080    15          2          1                   2                    2
-## 4 2300    15          2          1                   1                    2
-## 5 1929    15          1          1                   2                    3
-## 6 2112    15          1          1                   2                    2
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        3                         2                    3
-## 2                        3                         2                    2
-## 3                        2                         2                    2
-## 4                        2                         2                    2
-## 5                        3                         2                    3
-## 6                        2                         3                    2</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="datenaufbereitung.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nach mehreren Variablen sortieren</span></span>
+<span id="cb117-2"><a href="datenaufbereitung.html#cb117-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb117-3"><a href="datenaufbereitung.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(bundesland, alter, <span class="fu">desc</span>(geschlecht))<span class="sc">%&gt;%</span> </span>
+<span id="cb117-4"><a href="datenaufbereitung.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
+## 1 2308    14          2          1                 2                    3
+## 2 1696    15          2          1                 2                    2
+## 3 2080    15          2          1                 2                    2
+## 4 2300    15          2          1                 2                    2
+## 5 1929    15          1          1                 2                    3
+## 6 2112    15          1          1                 3                    2</code></pre>
 </div>
 <div id="select-variablen-auswählen" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Select: Variablen auswählen</h2>
 <p>Die Funktion <code>select()</code> dient genau wie <code>filter()</code> dazu, den Datensatz zu verkleinern. Jedoch get es bei <code>select()</code> darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="datenaufbereitung.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen auswählen</span></span>
-<span id="cb114-2"><a href="datenaufbereitung.html#cb114-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb114-3"><a href="datenaufbereitung.html#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(alter, geschlecht, verbundenheit_europa) <span class="sc">%&gt;%</span> </span>
-<span id="cb114-4"><a href="datenaufbereitung.html#cb114-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="datenaufbereitung.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen auswählen</span></span>
+<span id="cb119-2"><a href="datenaufbereitung.html#cb119-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="datenaufbereitung.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(alter, geschlecht, verbundenheit_europa) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="datenaufbereitung.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   alter geschlecht verbundenheit_europa
 ## 1    23          1                    2
 ## 2    24          2                    3
@@ -539,36 +495,29 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Will man nur einzelne Variablen löschen, so geht dies mit einem <code>-</code> vor dem Variablennamen <code>select(data, -alter)</code> löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.</p>
 <p>Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit “vertaruen_medien_” beginnt. Die Syntax dafür ist <code>starts_with("vertaruen_medien_")</code>. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von <code>var_name_1</code> bis <code>var_name_x</code>. Dafür müsste man bspw. <code>alter:bundesland</code> eingeben.</p>
 <p>Zudem kann <code>select()</code> auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funtion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion <code>everything()</code> - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="datenaufbereitung.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen neu sortieren</span></span>
-<span id="cb116-2"><a href="datenaufbereitung.html#cb116-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb116-3"><a href="datenaufbereitung.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, bundesland, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb116-4"><a href="datenaufbereitung.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   lfdn bundesland alter geschlecht verbundenheit_stadt verbundenheit_region
-## 1 1634          7    23          1                   2                    1
-## 2 1636          6    24          2                  NA                    2
-## 3 1637          3    23          1                   2                    2
-## 4 1638          1    23          2                   2                    2
-## 5 1639          7    24          1                   3                    3
-## 6 1640          8    24          2                   4                    4
-##   verbundenheit_bundesland verbundenheit_deutschland verbundenheit_europa
-## 1                        2                         2                    2
-## 2                       NA                         2                    3
-## 3                        3                         2                    2
-## 4                        2                         2                    3
-## 5                        3                         3                    3
-## 6                        4                         4                    4</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="datenaufbereitung.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen neu sortieren</span></span>
+<span id="cb121-2"><a href="datenaufbereitung.html#cb121-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="datenaufbereitung.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, bundesland, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-4"><a href="datenaufbereitung.html#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   lfdn bundesland alter geschlecht verbundenheit_dtl verbundenheit_europa
+## 1 1634          7    23          1                 2                    2
+## 2 1636          6    24          2                 2                    3
+## 3 1637          3    23          1                 2                    2
+## 4 1638          1    23          2                 2                    3
+## 5 1639          7    24          1                 3                    3
+## 6 1640          8    24          2                 4                    4</code></pre>
 </div>
 <div id="variablen-umcodieren" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Variablen umcodieren</h2>
 <p>Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die “falsch herum” codiert wurden zu drehen: In unserem Mini-Datensatz sind beispielsweise die Variablen zu “Verbundenheit” unintutiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label “sehr verbunden,” der Wert 5 ist hingegen mit “überhaupt nicht verbunden” codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable <code>verbundenheit_europa</code>.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="datenaufbereitung.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb118-2"><a href="datenaufbereitung.html#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="datenaufbereitung.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Werten einer Variable erzeugen</span></span>
-<span id="cb118-4"><a href="datenaufbereitung.html#cb118-4" aria-hidden="true" tabindex="-1"></a>values <span class="ot">=</span> <span class="fu">get_values</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
-<span id="cb118-5"><a href="datenaufbereitung.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Labels einer Variable erzeugen</span></span>
-<span id="cb118-6"><a href="datenaufbereitung.html#cb118-6" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">=</span> <span class="fu">get_labels</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
-<span id="cb118-7"><a href="datenaufbereitung.html#cb118-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-8"><a href="datenaufbereitung.html#cb118-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(values, labels) <span class="co"># beide Vektoren zusammenbinden</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="datenaufbereitung.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb123-2"><a href="datenaufbereitung.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="datenaufbereitung.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Werten einer Variable erzeugen</span></span>
+<span id="cb123-4"><a href="datenaufbereitung.html#cb123-4" aria-hidden="true" tabindex="-1"></a>values <span class="ot">=</span> <span class="fu">get_values</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
+<span id="cb123-5"><a href="datenaufbereitung.html#cb123-5" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Labels einer Variable erzeugen</span></span>
+<span id="cb123-6"><a href="datenaufbereitung.html#cb123-6" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">=</span> <span class="fu">get_labels</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
+<span id="cb123-7"><a href="datenaufbereitung.html#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-8"><a href="datenaufbereitung.html#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(values, labels) <span class="co"># beide Vektoren zusammenbinden</span></span></code></pre></div>
 <pre><code>##      values labels                     
 ## [1,] &quot;1&quot;    &quot;Sehr verbunden&quot;           
 ## [2,] &quot;2&quot;    &quot;Ziemlich verbunden&quot;       
@@ -578,36 +527,26 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Intutiver währe es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gepabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl <code>rec()</code> aus dem Paket <code>sjmisc</code>. Der Befehl ist sehr stark an die Logik von SPSS angelehnt.</p>
 <p>Der <code>rec()</code>-Befehl fügt sich in die Tydiverse-Logik ein und erwartet als erstes Argument genau wie die <code>dplyr</code>-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argeument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit <code>verbundenheit_</code> beginnen. Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt <code>rec</code> und beinhaltet einen Text mit den Anweisungen in der Form <code>"werte_label = neuer_wert"</code>. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die “restlichen” Werte durch ein <code>"else=copy"</code> auffangen. Dadurch wird der Wert aus der urspründlichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = “weiß nicht.” Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.</p>
 <p>Die Funktion <code>rec()</code> erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein <code>_r</code> am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="datenaufbereitung.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;sjmisc&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     is_empty</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     replace_na</code></pre>
-<pre><code>## The following object is masked from &#39;package:tibble&#39;:
-## 
-##     add_case</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="datenaufbereitung.html#cb125-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb125-2"><a href="datenaufbereitung.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rec</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_&quot;</span>), <span class="at">rec =</span> <span class="st">&quot;Sehr verbunden = 4;</span></span>
-<span id="cb125-3"><a href="datenaufbereitung.html#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Ziemlich verbunden = 3;</span></span>
-<span id="cb125-4"><a href="datenaufbereitung.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Nicht sehr verbunden = 2; </span></span>
-<span id="cb125-5"><a href="datenaufbereitung.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Überhaupt nicht verbunden = 1;</span></span>
-<span id="cb125-6"><a href="datenaufbereitung.html#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                             else=copy&quot;</span>) </span>
-<span id="cb125-7"><a href="datenaufbereitung.html#cb125-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-8"><a href="datenaufbereitung.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispielhaft die Variable verbundenheit_europa inkl. recodierter Variante anzeigen:</span></span>
-<span id="cb125-9"><a href="datenaufbereitung.html#cb125-9" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb125-10"><a href="datenaufbereitung.html#cb125-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_europa&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb125-11"><a href="datenaufbereitung.html#cb125-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   verbundenheit_europa verbundenheit_europa_r
-## 1                    2                      3
-## 2                    3                      2
-## 3                    2                      3
-## 4                    3                      2
-## 5                    3                      2
-## 6                    4                      1</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="datenaufbereitung.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span>
+<span id="cb125-2"><a href="datenaufbereitung.html#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="datenaufbereitung.html#cb125-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb125-4"><a href="datenaufbereitung.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rec</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_&quot;</span>), <span class="at">rec =</span> <span class="st">&quot;Sehr verbunden = 4;</span></span>
+<span id="cb125-5"><a href="datenaufbereitung.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Ziemlich verbunden = 3;</span></span>
+<span id="cb125-6"><a href="datenaufbereitung.html#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Nicht sehr verbunden = 2; </span></span>
+<span id="cb125-7"><a href="datenaufbereitung.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Überhaupt nicht verbunden = 1;</span></span>
+<span id="cb125-8"><a href="datenaufbereitung.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="st">                                             else=copy&quot;</span>) </span>
+<span id="cb125-9"><a href="datenaufbereitung.html#cb125-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-10"><a href="datenaufbereitung.html#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispielhaft die Variable verbundenheit_europa inkl. recodierter Variante anzeigen:</span></span>
+<span id="cb125-11"><a href="datenaufbereitung.html#cb125-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb125-12"><a href="datenaufbereitung.html#cb125-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_dtl&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-13"><a href="datenaufbereitung.html#cb125-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   verbundenheit_dtl verbundenheit_dtl_r
+## 1                 2                   3
+## 2                 2                   3
+## 3                 2                   3
+## 4                 2                   3
+## 5                 3                   2
+## 6                 4                   1</code></pre>
 <p>Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein “nebeneinanderlegen” der beiden Variablen.</p>
 <p>Eine kleine Ergänzung noch: Selbstverständlich funktioniert <code>rec()</code> auch mit nicht-gelabelten Daten. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: <code>"1=4;2=3;3=2;4=1;else=copy"</code></p>
 </div>
@@ -638,18 +577,18 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenheit zu Europa größer ist als die zu Deutschland und ansonsten 0. Ich nenne sie <code>sieht_sich_als_europaeer</code>.</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenaufbereitung.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable berechnen mit Bedingung</span></span>
 <span id="cb129-2"><a href="datenaufbereitung.html#cb129-2" aria-hidden="true" tabindex="-1"></a>data_eu <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb129-3"><a href="datenaufbereitung.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sieht_sich_als_europaeer =</span> <span class="fu">ifelse</span>(verbundenheit_europa <span class="sc">&gt;</span> verbundenheit_deutschland, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
+<span id="cb129-3"><a href="datenaufbereitung.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sieht_sich_als_europaeer =</span> <span class="fu">ifelse</span>(verbundenheit_europa <span class="sc">&gt;</span> verbundenheit_dtl, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
 <span id="cb129-4"><a href="datenaufbereitung.html#cb129-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb129-5"><a href="datenaufbereitung.html#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Für die kontrolle relevante Variablen auswählen</span></span>
 <span id="cb129-6"><a href="datenaufbereitung.html#cb129-6" aria-hidden="true" tabindex="-1"></a>data_eu <span class="sc">%&gt;%</span> </span>
-<span id="cb129-7"><a href="datenaufbereitung.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, verbundenheit_europa, verbundenheit_deutschland, sieht_sich_als_europaeer) <span class="sc">%&gt;%</span>   <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   lfdn verbundenheit_europa verbundenheit_deutschland sieht_sich_als_europaeer
-## 1 1634                    2                         2                        0
-## 2 1636                    3                         2                        1
-## 3 1637                    2                         2                        0
-## 4 1638                    3                         2                        1
-## 5 1639                    3                         3                        0
-## 6 1640                    4                         4                        0</code></pre>
+<span id="cb129-7"><a href="datenaufbereitung.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, verbundenheit_europa, verbundenheit_dtl, sieht_sich_als_europaeer) <span class="sc">%&gt;%</span>   <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   lfdn verbundenheit_europa verbundenheit_dtl sieht_sich_als_europaeer
+## 1 1634                    2                 2                        0
+## 2 1636                    3                 2                        1
+## 3 1637                    2                 2                        0
+## 4 1638                    3                 2                        1
+## 5 1639                    3                 3                        0
+## 6 1640                    4                 4                        0</code></pre>
 <img src="images/ah_dplyr_mutate_blank.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
 <div style="color:grey;text-align:right">
 Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a>
@@ -732,7 +671,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["r_book.pdf", "r_book.epub"],
+"download": ["r_book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

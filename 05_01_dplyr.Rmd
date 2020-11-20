@@ -5,7 +5,10 @@ pacman::p_load(tidyverse, sjlabelled)
 # Einlesen der Daten
 data <- expss::read_labelled_csv2("data/ZA6738_v1-0-0_generation_z_labelled.csv") %>% 
   mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23)) %>% 
-  select(lfdn, alter, geschlecht, bundesland, starts_with("verbundenheit"))
+  select(lfdn, alter, geschlecht, bundesland, verbundenheit_dtl, verbundenheit_europa) %>% 
+  mutate(verbundenheit_europa = ifelse(lfdn == 1680, 99, verbundenheit_europa))
+
+data$verbundenheit_europa <- set_labels(data$verbundenheit_europa, labels = get_labels(data$verbundenheit_dtl))
 ```
 
 Datenaufbereitung (*data wrangling*) bezeichnet den Prozess, in dem Rohdaten so verändert, sortiert, umstrukturiert und ausgewählt werden, dass man sie für die anvisierte Analyse verwenden kann. 
@@ -36,7 +39,7 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem T
 
 - Das Ergebnis ist immer ein Dataframe.
 
-## Die Pipe
+## Die Pipe {#pipe}
 
 <img src="http://hexb.in/hexagons/pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!
 
@@ -165,15 +168,17 @@ Die Bedingung "aus Niedersachsen oder Hamburg und jünger als 18 Jahre" lässt s
 data_filter <- data %>% 
   filter((bundesland == 3 | bundesland == 2) & alter < 18)
 
+nrow(data_filter)
 head(data_filter)
 ```
 
-Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable `verbundenheit_region` einen fehlenden Wert haben:
+Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable `verbundenheit_europa` einen fehlenden Wert (hier als 99 = "Weiß nicht" codiert) haben:
 
 ```{r }
 data_filter_na <- data %>% 
-  filter(!is.na(verbundenheit_region))
+  filter(!is.na(verbundenheit_europa))
 
+nrow(data_filter_na)
 head(data_filter_na)
 ```
 
@@ -236,7 +241,7 @@ data %>%
 ## Variablen umcodieren
 Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die "falsch herum" codiert wurden zu drehen: In unserem Mini-Datensatz sind beispielsweise die Variablen zu "Verbundenheit" unintutiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label "sehr verbunden", der Wert 5 ist hingegen mit "überhaupt nicht verbunden" codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable `verbundenheit_europa`.
 
-```{r, messages = FALSE}
+```{r, messages=FALSE}
 library(sjlabelled)
 
 # einen Vektor mit den Werten einer Variable erzeugen
@@ -253,9 +258,8 @@ Der `rec()`-Befehl fügt sich in die Tydiverse-Logik ein und erwartet als erstes
 
 Die Funktion `rec()` erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein `_r` am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.
 
-```{r }
+```{r message=FALSE}
 library(sjmisc)
-
 
 data <- data %>% 
   rec(starts_with("verbundenheit_"), rec = "Sehr verbunden = 4;
@@ -266,7 +270,7 @@ data <- data %>%
 
 # Beispielhaft die Variable verbundenheit_europa inkl. recodierter Variante anzeigen:
 data %>% 
-  select(starts_with("verbundenheit_europa")) %>% 
+  select(starts_with("verbundenheit_dtl")) %>% 
   head()
 ```
 Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein "nebeneinanderlegen" der beiden Variablen.
@@ -300,11 +304,11 @@ Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenhe
 ```{r }
 # Variable berechnen mit Bedingung
 data_eu <- data %>% 
-  mutate(sieht_sich_als_europaeer = ifelse(verbundenheit_europa > verbundenheit_deutschland, 1, 0)) 
+  mutate(sieht_sich_als_europaeer = ifelse(verbundenheit_europa > verbundenheit_dtl, 1, 0)) 
 
 # Für die kontrolle relevante Variablen auswählen
 data_eu %>% 
-  select(lfdn, verbundenheit_europa, verbundenheit_deutschland, sieht_sich_als_europaeer) %>%   head()
+  select(lfdn, verbundenheit_europa, verbundenheit_dtl, sieht_sich_als_europaeer) %>%   head()
 ```
 
 <img src="images/ah_dplyr_mutate_blank.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">

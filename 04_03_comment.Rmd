@@ -8,13 +8,17 @@ Da Code nicht nur für Computer gemacht ist, sondern auch für menschliche Leser
 
 Hier ein paar Anwendungsbeispiele:
 
-```{r comments}
+```{r comments, results='hide'}
 # Dem Objekt x den Wert 3 zuweisen:
 x <- 3
 
 print("Hello World!") # muss noch übersetzt werden...
+```
 
-# Der folgende Code ist irgendwie buggy, muss noch repariert werden!
+Man kann Kommentare auch dazu benutzen Code, der noch nicht funktioniert (Bugs hat) auszukommentieren. Dabei setzt man einfach das `#` vor den fehlerhaften Code. Optimalerweise errgänzt man noch eine Notiz, die möglichst präziese beschreibt, was das (vermutete) Problem ist.
+
+```{r comments_2, results='hide'}
+# Der folgende Code ist irgendwie buggy, muss noch repariert werden! 
 #print("Hello World!)
 ```
 

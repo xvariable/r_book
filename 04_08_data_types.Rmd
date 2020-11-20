@@ -21,7 +21,7 @@ Nach dem Import finden sie das `data`-Objekt im Environment-Tab von RStudio. Sie
 Es gibt aber noch andere Möglichkeiten etwas mehr über den Datensatz zu erfahren. Hier kommen ein paar nützliche Funktionen:
 
 ```{r names_function}
-# Anzeigen der ersten 10 Variablen-Namen
+# Anzeigen der ersten 10 Variablen-Namen (Beschränkung aus Darstellungsgründen)
 names(data)[1:10]
 ```
 
