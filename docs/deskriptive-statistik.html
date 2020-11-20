@@ -135,7 +135,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
@@ -267,6 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>6.3</b> Schiefe und Kurtosis</a></li>
 <li class="chapter" data-level="6.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.4</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
@@ -484,6 +489,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. <code>skew = TRUE</code> oder <code>ranges = TRUE</code>). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen sinnvoll sind. Die Variable <code>lfdn</code> gibt z.B. einfach die ID des Befragten an. Ein Mittelwert der Befragtennummer ist keine nützliche Angabe. R rechnet alle Statistiken einfach aus, ganz unabhängig davon, ob dies zulässig ist!</p>
 
 </div>
+<div id="wichtige-funktionen-aus-diesem-kapitel" class="section level2 unnumbered">
+<h2>Wichtige Funktionen aus diesem Kapitel</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Funktion</th>
+<th>Paket</th>
+<th>Beschreibung</th>
+<th>Wichtige Argumente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>table()</code></td>
+<td>stats (base)</td>
+<td>Tabelle</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>median()</code></td>
+<td>stats (base)</td>
+<td>Standardabweichung</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>mean()</code></td>
+<td>base</td>
+<td>Arithmetisches Mittel</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>sd()</code></td>
+<td>stats (base)</td>
+<td>Standardabweichung</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+</tbody>
+</table>
+<p>t.b.c</p>
+
+</div>
 </div>
             </section>
 
@@ -535,7 +581,7 @@ gitbook.start({
 },
 "download": ["r_book.pdf"],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

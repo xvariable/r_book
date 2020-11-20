@@ -31,8 +31,15 @@ Die Hauptnavigation finden Sie links.
 Sie können mit den Pfeiltasten  vorwärts `→` und rückwärts  `←` durch die einzelnen Seiten blättern.
 -->
 
+## Dank {-}
 
-**Disclaimer**
+Ich bedanke mich beim Bundespresseamt für die Erlaubnis den hier benutzten Datensatz zum Zweck dieses Lehrbuchs verwenden zu dürfen. 
+
+Quellenangabe:
+
+Presse- und Informationsamt der Bundesregierung (2020). Generation Z. GESIS Datenarchiv, Köln. ZA6738 Datenfile Version 1.0.0 (2020), doi:10.4232/1.13446. 
+
+## Disclaimer {-}
 
 Das Buch Work in Progress! Ich habe im Wintersemester 2020 mit dem Aufbau des Kompeniums begonnen. Es ist ein ganz besonderes Semester, das zweite unter Corona-Bedingungen und diese Tatsache rückt noch einmal sehr in den Vordergrund, wie wichtig gute digitale Lernressourcen sind. 
 

@@ -1,0 +1,16 @@
+## Wichtige Funktionen aus diesem Kapitel {-}
+
+
+```{r}
+
+
+```
+
+| Funktion           | Paket        | Beschreibung                    | Wichtige Argumente    |
+|--------------------|--------------|---------------------------------|-----------------------|
+|`table()`           | stats (base) | einfache Tabelle                |                       |
+|`median()`          | stats (base) | Standardabweichung              | `na.rm = TRUE`        |
+|`mean()`            | base         | Arithmetisches Mittel           | `na.rm = TRUE`        |
+|`sd()`              | stats (base) | Standardabweichung              | `na.rm = TRUE`        |
+
+t.b.c

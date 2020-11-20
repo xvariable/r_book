@@ -143,7 +143,18 @@ R hat in den letzten Jahren innerhalb der Kommunikationswissenschaft stark an Be
 
 Digitale Daten sind ein bedeutender Wirtschaftsfaktor, der oft höher eingeschätzt wird als manifeste Güter. Vielfach handelt es sich bei den nun verfügbaren Daten um Kommunikationsdaten. Deshalb sind Expert:innen, die sowohl fundiertes Domänenwissen im Bereich Kommunikation und Medien, als auch die Kompetenz Daten fachgerecht auszuwerten mitbringen, in der Kommunikationspraxis sehr gefragt. Aber auch in den Sozialwissenschaften führt der ``Computational Turn'' zu deutlichen Veränderungen. Die Subdisziplin ``Computational Communication Science'' ist mittlerweile längst kein Trend mehr, sondern eine feste Größe der Forschungslandschaft. Verfahren aus dem Bereich der Informatik und der Statistik erweitern das traditionelle Methodenspektrum. Sie werden auch als ``Compuational Methods'' bezeichnet. Angesichts der ``Reproduktionskrise'' sind zudem die Anforderungen an die Transparenz und Reproduzierbarkeit von wissenschaftlichen Erkenntnissen gestiegen. Während die bisher eingesetzte proprietäre Statistiksoftware die neuen Anforderungen nicht oder nur unzureichend erfüllen kann, kommen Programmiersprachen diesen Bedarfen flexibel entgegen.
 
-\textbf{Disclaimer}
+\hypertarget{dank}{%
+\section*{Dank}\label{dank}}
+\addcontentsline{toc}{section}{Dank}
+
+Ich bedanke mich beim Bundespresseamt für die Erlaubnis den hier benutzten Datensatz zum Zweck dieses Lehrbuchs verwenden zu dürfen.
+
+Quellenangabe:
+Presse- und Informationsamt der Bundesregierung (2020). Generation Z. GESIS Datenarchiv, Köln. ZA6738 Datenfile Version 1.0.0 (2020), \url{doi:10.4232/1.13446}.
+
+\hypertarget{disclaimer}{%
+\section*{Disclaimer}\label{disclaimer}}
+\addcontentsline{toc}{section}{Disclaimer}
 
 Das Buch Work in Progress! Ich habe im Wintersemester 2020 mit dem Aufbau des Kompeniums begonnen. Es ist ein ganz besonderes Semester, das zweite unter Corona-Bedingungen und diese Tatsache rückt noch einmal sehr in den Vordergrund, wie wichtig gute digitale Lernressourcen sind.
 
@@ -2758,6 +2769,24 @@ Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch me
 \end{verbatim}
 
 Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen sinnvoll sind. Die Variable \texttt{lfdn} gibt z.B. einfach die ID des Befragten an. Ein Mittelwert der Befragtennummer ist keine nützliche Angabe. R rechnet alle Statistiken einfach aus, ganz unabhängig davon, ob dies zulässig ist!
+
+\hypertarget{wichtige-funktionen-aus-diesem-kapitel}{%
+\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel}}
+\addcontentsline{toc}{section}{Wichtige Funktionen aus diesem Kapitel}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Funktion & Paket & Beschreibung & Wichtige Argumente\tabularnewline
+\midrule
+\endhead
+\texttt{table()} & stats (base) & Tabelle &\tabularnewline
+\texttt{median()} & stats (base) & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{mean()} & base & Arithmetisches Mittel & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{sd()} & stats (base) & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\bottomrule
+\end{longtable}
+
+t.b.c
 
   \bibliography{book.bib}
 
