@@ -1,7 +1,0 @@
-# Deskriptive Statistik
-
-In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen treffen über die Verteilung von Merkmalen in Stichproben. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:
-- Häufigkeitsverteilungen (inkl. Säulendiagram)
-- Maße der zentralen Tendenz und Streuung
-- Schiefe und Kurtosis
-- Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen 
