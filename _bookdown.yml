@@ -1,5 +1,5 @@
 book_filename: "r_book"
-output_dir: "book-output"
+output_dir: "docs"
 delete_merged_file: true
 language:
   label:
