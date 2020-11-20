@@ -1,0 +1,10 @@
+book_filename: "r_book"
+delete_merged_file: true
+language:
+  label:
+    fig: "Abbildung "
+    tab: "Tabelle "
+  ui:
+    chapter_name: "Kapitel "
+    appendix_name: "Appendix "
+    reference_name: "Literaturquellen "

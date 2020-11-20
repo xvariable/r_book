@@ -1,0 +1,291 @@
+## Datenstrukturen
+
+Dieser Abschnitt beschäftigt sich mit den grundsätzlichen Datenstrukturen in R. Dabei fangen wir bei der größten Struktur (dem Datensatz oder auch Dataframe) an und arbeiten uns bis zur kleinsten, dem "atomic vector type" vor. Wir werden uns auch damit beschäftigen wie man zwischen verschiedenen Formaten konvertieren kann und auf fehlende Werte eingehen. Im Anschluss gibt es noch ein paar "Spezial"-Formate nämlich Faktoren und Listen.
+
+### Dataframes
+Wenn man einen Datensatz in R importiert, wie im letzten Kapitel besprochen, liegt dieser als Objekt vor. Wir haben das Datenobjekt Objekt im letzten Kapitel `data` genannt.
+
+Hier nochmal der Code zum einlesen der Daten:
+
+```{r dataframe_functions, echo = TRUE, results = "hide", warning=FALSE, message=FALSE}
+# Laden des Paketes
+library(tidyverse)
+
+# Einlesen der Daten
+data <- read_csv2("data/ZA6738_v1-0-0_generation_z.csv", na = "99")
+```
+
+
+Nach dem Import finden sie das `data`-Objekt im Environment-Tab von RStudio. Sie können darauf doppelklicken, dann wird Ihnen die Datentabelle angezeigt und Sie können durch die Daten scollen.
+
+Es gibt aber noch andere Möglichkeiten etwas mehr über den Datensatz zu erfahren. Hier kommen ein paar nützliche Funktionen:
+
+```{r names_function}
+# Anzeigen der ersten 10 Variablen-Namen
+names(data)[1:10]
+```
+
+```{r ncol_nrow}
+# Wieviele Spalten (Variablen) hat der Datensatz?
+ncol(data)
+
+# Wieviele Zeilen (Fälle) hat der Datensatz?
+nrow(data)
+```
+
+
+Mit der `class()` Funktion kann man sich die Klasse eines Objekts anzeigen lassen.
+
+```{r class_func}
+# Klasse ausgeben
+class(data)
+
+```
+
+Unser Datensatz gehört gleich zu mehreren Klassen. Wenig überraschend ist er ein `data.frame` (Dataframe). Das ist die Klasse, in der in R Datensätze abgespeichert werden. Der Datensatz gehört aber noch weiteren Klassen an. Unter anderem der Klasse `tbl_df`, die auch *Tibble* heißt. Es handelt sich dabei um eine spezielle Version eines R-Dataframes aus dem Tidyverse. Tibbles unterscheiden sich leicht von dem normalen Dataframes in R. Um Fehler beim Datenmanagement zu vermeiden gibt ein Tibble viel z.B. schneller Fehlermeldungen aus und er hat bewusst weniger Funktionen als der herkömmliche Dataframe von base-R. Unser Datensatz ist ein Tibble, weil wir ihn über ein Paket, das ebenfalls zum Tidyverse gehört, geladen haben.
+
+
+### Aufbau von Dataframes
+
+Ein Dataframe in R hat auf den ersten Blick Ähnlichkeiten zu einer Datentabelle in Excel und tatsächlich kann man eine Excel- oder CSV-Datei ja einfach nach R importieren. Es gibt jedoch einige Unterschiede und um zu verstehen, wie R diese Daten behandelt, ist es wichtig zu wissen, wie die Daten in Dataframe-Objekten organisiert sind:
+
+- Ein Dataframe in R besteht aus Variablen. Die Variablen werden in der Datenansicht als Spalten dargestellt.
+- Die Variablen sind in R "Vektoren" (*vector*). Ein Vektor ist eine Liste von Elementen, die alle den gleichen Typ haben. Z.B. sind alle Elemente eines Vektors Zahlen **oder** Texte. Einen Vektor in dem Zahlen **und** Texte gemeinsam vorkommen kann es nicht geben.
+- Die Vektoren sind alle gleich lang und sie sind gleich sortiert.
+- Jeder Vektor hat einen eigenen Namen. 
+
+Die folgende Abbildung veranschaulicht die Struktur:
+<img src="images/dataframe_with_vector.png" alt="Dataframe-Struktur" style="float:left;margin-right:350px;margin-bottom:25px;margin-top:10px">
+
+Im folgenden Skript wird ein kleiner Beispieldatensatz erstellt. Mit der Funtion `c()` (für *c*ombine) werden zunächst 4 Vektoren mit unterschiedlichen Datentypen erstellt. Es ist dabei genau darauf zu achten, dass alle Vektoren gleich lang und alle Daten jeweils in der richtigen Reihenfolge sind.
+
+```{r mini_data, warning = FALSE}
+# 4 Vektoren gleicher Länge definieren
+title        <- c("The Mandalorian", "The Good Fight", "Stranger Things", 
+                  "How To Sell Drugs Online (Fast)", "Game of Thrones",
+                  "Westworld", "Bad Banks", "The Handmaid's Tale")
+year         <- c(2019, 2017, 2016, 2019, 2011, 2017, 2018, 2017)
+imdb_rating  <- c(8.7, 8.3, 8.8, 7.9, 9.3, 8.7, 8.0, 8.5)
+on_netflix   <- c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, FALSE)
+
+# Vektoren in einem neuen Tibble zusammenfügen
+series_data <- new_tibble(list(title = title, 
+                          year = year, 
+                          imdb_rating = imdb_rating, 
+                          on_netflix = on_netflix),
+                          nrow = 8) 
+
+# Tibble anzeigen
+series_data
+```
+
+Mit der Function `str()` (für *str*ucture) kann man sich Strukturinformationen über den Datensatz anzeigen lassen. Die Funktion listet oben die Dimensionen des Datensatzes (Fallzahl x Variablenzahl) und die Klasse auf und dann folgt für jede Variable der Typ (z.B. `num`oder `chr`), dann folgt die Länge des Vektors (z.B. `[1:52]`) und zuletzt werden die ersten (bis zu zehn) Elemente des Vektors ausgegeben. So erhält man ienen guten ersten Einblick in die Daten.
+
+```{r str_function}
+# Informationen über die Vektoren im Datensatz anzeigen
+str(series_data)
+```
+
+Man kann die einzelnen Variablen/Vektoren über über ihren Namen ansprechen, dazu benutzt man die folgende Syntax: `data$var_name`
+
+```{r show_var}
+# Beispiel: Einen einzelnen Vektor ausgeben
+series_data$title
+```
+
+Über die Ordnungszal kann man auch auf die einzelnen Elemente innerhalb des Vektors zugreifen:
+
+```{r index_vector}
+# Beispiel: Das dritte Element eines Vektors ausgeben
+series_data$title[3]
+```
+Man kann auch auf mehrere Elemente zugreifen. Dazu verwendet man den Doppelpunkt `:`:
+```{r index_vector_2}
+# Beispiel: Das dritte bis fünfte Element eines Vektors ausgeben
+series_data$title[3:5]
+```
+
+Auch bei Dataframes/Tibbles kann man mit Indices arbeiten, z.B. wenn man den Variablennamen nicht kennt, aber weiß, dass es sich um die erste Variabele handelt. Die Syntax lautet dann wie folgt: [[Spalte, Zeile]]
+
+```{r index_df}
+# Beispiel: Das dritte Element des ersten Vektors in einem Dataframe ausgeben.
+series_data[[3, 1]]
+```
+
+Die doppelten eckigen Klammern `[[]]` dienen hier dazu, dass tatsächlich nur das Element und nicht ein Tibble zurückgegeben wird, der dieses eine Element enthält. Also: Nutzt man `[[]]` ist das zurückgegebene Element einfach ein Objekt mit dem Wert. Nutzt mn hingegen `[]` ist das zurückgegebene Element ein Dataframe/Tibble mit nur einer einzigen Zelle, die das Objekt mit dem Wert enthält. Im letzteren Fall ist der Wert quasi in einem Dataframe eingepackt. Der Unterschied ist klein aber fein und eine beliebte Fehlerquelle. An dieser Stelle ist der Unterschied jedoch nicht bedeutend.
+
+### Atomare Datentypen {#atomic_vector_types}
+Nun wissen wir schon, woraus Dataframes bestehen, nämlich aus Vektoren. Aber woraus bestehen Vektoren? Aus gleichartigen Elementen, die offenbar unterschiedliche Typen haben können. Auf unterster Ebene unterscheidet R sechs dieser Typen, so genannte *atomic vector types*. Sie heißen:
+
+| Atomic Vector Type | Beschreibung                                      |
+|--------------------|---------------------------------------------------|
+| integer            | ganze Zahlen                                      |
+| double             | Fließkommazahlen                                  |
+| character          | Textvariablen                                     |
+| logical            | Logische Ausdrücke, entweder `TRUE` oder `FALSE`  |
+| complex            | komplexe Zahlen                                   |
+| raw                | "rohe" Bites z.B. einer Datei                     |
+
+Die wichtigsten werden im Folgenden erläutert (das sind die ersten vier).
+
+
+#### Numerische Werte
+
+Die Typen `ìnteger` und `double` werden zusammengefasst auch als numerische Werte (`numeric`) bezeichnet. Mit `typeof()`kann man sich den Typ eines Vektors bzw. eines jeden Objekts ausgeben lassen. Probieren wir das mal aus:
+
+```{r numeric}
+my_numeric <- c(3, 3, 5, 1, 5)
+typeof(my_numeric)
+```
+
+Das ist jetzt ein wenig überraschend, schließlich sind 1, 3 und 5 ja ganze Zahlen! Allerdings kommen Fließkommazahlen so häufig vor, das R Zahlen im Speicher standardmäßig als `double` verwaltet und abspeichert.  
+Wenn man in R den Typ `ìnteger` zuweisen will muss man die explizit tun: Entweder, indem man bei der Zuweisung ein `L` hinter die Zahl schreibt, oder indem man den Wert durch die Funktion `as.integer()` in ein integer konvertiert:
+
+```{r integer}
+my_integer <- 3L
+typeof(my_integer)
+
+my_integer <- as.integer(3)
+typeof(my_integer)
+```
+
+Das Dezimaltrennzeichen ist in R übrigens standardmäßig ein Punkt und kein Komma. Klar, die ganze Programmiersprache basiert ja auf dem Englischen.
+
+```{r double}
+my_double <- 3.14
+typeof(my_double)
+```
+
+
+#### Text
+
+Der nächste Typ ist `character`, wird auch manchmal als "String" bezeichnet. Hiermit sind alle Objekte gemeint, die aus Text bestehen. Wenn man so ein Objekt zuweisen möchte, muss man den Text in Anführungszeichen schreiben, damit R weiß, dass es sich hier nicht um Programmcode, sondern um den Inhalt eines character-Objektes handelt. Man kann dabei entweder doppelte `"` oder  einfache `'` Anführungszeichen verwenden (aber nicht mixen!).
+
+```{r charcter}
+my_string <- "Hallo Welt!"
+typeof(my_string)
+```
+
+
+#### Logical
+
+Der letzte für uns interessante Typ heißt `logical` und wird manchmal auch boolean genannt. Es handelt sich dabei um logische Werte die entweder `TRUE` oder `FALSE` sein können. 
+
+Es gibt verschiedene "relationale Operatoren" mit denen man testen kann ob eine Bedingung entweder wahr oder falsch ist, z.B. ` 1 == 3` (1 ist gleich drei) ist `FALSE` und das Ergebnis eines solchen Tests kann mann natürlich auch in einem Objekt speichern und das wäre dann ein Objekt vom typ logical.
+
+```{r logical}
+my_logical <- 1 == 2
+my_logical
+```
+
+Hier ist eine Übersicht über die relationalen Operatoren:
+
+| Operator | Bedeutung               |Beispiel `TRUE` |Beispiel `FALSE`|
+|----------|-------------------------|----------------|----------------|
+| ==       | ist gleich              | `1 == 1`       |`1 == 2`        |
+| !=       | ist ungleich            | `1 != 2`       |`1 != 1`        |
+| <        | ist kleiner             | `1 < 2`        |`1 > 2`         |
+| <=       | ist kleiner oder gleich | `1 <= 2`       |`2 <= 1`        |
+| >        | ist größer              | `2 > 1`        |`1 > 2`         |  
+| >=       | ist größer oder gleich  | `1 >= 1`       |`1 >= 2`        |
+
+
+### Fehlende Werte
+
+Objekte können auch leer sein, also keinen Wert haben. Es gibt in R unterschiedliche Arten solcher "Missing Values". `NA` für "not available" ist davon der gebräuchlichste. Natürlich kann man einem Objekt auch einen fehlenden Wert zuweisen. Mit der Funktion `is.na()` kann man prüfen, ob ein Wert fehlend ist. Sie gibt `TRUE` zurück wenn dies der Fall ist und `FALSE` wenn das Objekt doch einen Wert hat.
+
+```{r na}
+my_na <- NA
+my_na
+is.na(my_na)
+```
+
+In SPSS ist es üblich, verschiedenen Arten von fehlenden Werten die Werte `98`, `99`, `-99` oder ähnlich zuzuweisen. Mit diesen Werten kann R von Haus aus nichts anfangen. Man muss R beim Import der Daten mitteilen, welche Werte als Fehlend gelten sollen. - In SPSS würde man diese ja auch über die Oberfläche als fehlend definieren. Auch der Wert `""` ist nicht per se ein fehlender Wert (sondern ein einfach ein leeres Character-Objekt).
+
+### Objekttypen konvertieren
+
+Manchmal muss man zwischen den verschiedenen Objekttypen hin und her konvertieren, z.B. weil ein Objekt im falschen Datenformat abgespeichert wurde. Beispielweise kann R die Addition `1 + "2"` nicht durchführen, weil der Wert `"2"` hier als Text eingegeben wurde und mit Texten kann man nun mal nicht rechnen. Es gibt aber Funktionen, mit denen man zwischen den einzelnen Typen hin und her konvertieren kann, z.B. die oben schon vorgestellte Funktion `as.integer()`. 
+
+```{r convert}
+x <- "2"
+1 + as.integer(x)
+```
+
+Analog dazu gibt es auch die Funktionen `as.numeric()`, `as.double()`, `as.character()` und `as.logical()`. Das funktioniert aber natürlich nur, wenn der Inhalt, der der Funktion übergeben wird auch tatsächlich sinnvoll umgewandelt werden kann. Folgendes wird kaum funktionieren: `as.numeric("Text Text Text")`.
+
+Bei der Konvertierung zwischen numerischen und logischen Werten wird die `0` übrigens als `FALSE` interpretiert und alle anderen Warte (auch negative) als `TRUE`. Das kann z.B. bei dichotomen 0/1-codierten Variablen sehr nützlich sein. 
+
+
+### Faktoren
+
+Es gibt noch eine spezielle Form von Variablen, die nicht zu den atomic vectors types gehört, aber dennoch sehr gebräuchlich ist. Es handelt sich um numerische Variablen, bei denen den Zahlenwerten Labels zugeordnet werden. Sie heißen in R Faktoren (*factor*). Ein Beispiel wäre eine Variable, die eine Skala repräsentiert, z.B. von 1 = "stimme überhaupt nicht zu" bis 5 = "stimme voll und ganz zu". 
+
+Der Vorteil des Faktors ist, dass man die Wertelabels direkt im Dataframe speichert und nicht in einem Codebuch oder im Fragebogen nachsehen muss, wenn man sie nicht auswendig gelernt hat. Auch bei der Erstellung von Grafiken und Berichten kann es hilfreich sein.
+
+Mit der Funktion `factor()`kann man einen Zahlen-Vektor in einen gelabelten Faktor umwandeln. Die Funktion benötigt dazu folgende Argumente:
+1. Den Zahlenvektor der umgewandelt werden soll.
+2. Eine Angabe darüber, welche Levels (= mögliche Ausprägungen) der Faktor haben soll.
+3. Die zu den Levels gehörigen Werte-Labels (Benennung der Ausprägungen), in der gleichen Reihenfolge  
+4. Optional: Angabe, ob R die Levels als geordnet behandeln soll oder nicht. Diese Angabe bezieht sich auf das Datenniveau: Ordinale und quasi-metrische Variablen haben eine Ordnung (`ordered = TRUE`), nominale nicht (`ordered = FALSE`). 
+
+
+```{r convert_to_factor}
+# einen Vektor mit Zahlen anlegen
+vec_of_numbers <- c(2, 4, 2, 1, 1, 5, 4, 5, 5, 3, 2, 4, 5, 1, 2, 5, 4, 3, 1)
+
+# den Vektor in einen Faktor konvertieren, die Levels festlegen und Labels zuweisen
+my_factor <- factor(vec_of_numbers, 
+             levels=c(1,2,3,4,5),
+             labels=c("stimme überhaupt nicht zu", 
+                      "stimme nicht zu", 
+                      "teils/teils", 
+                      "stimme zu", 
+                      "stimme voll und ganz zu"),
+              ordered = TRUE)
+                      
+# Faktor ansehen:
+str(my_factor)
+typeof(my_factor)
+```
+
+Wie im Beispiel zu sehen, weiß R nun, dass es sich um einen geordneten Faktor mit 5 Stufen handelt. Der atomic vector type ist aber nicht character, sondern bleibt integer.
+
+### Listen
+
+Zum Abschluss muss hier noch ein weiterer Objekttyp erwähnt werden: Die Liste (*list*). Oben wurde ja ziemlich darauf herumgeritten, dass ein Vektor immer nur *einen* Datentyp haben kann. Aber natürlich sind auch Datenformate Denkbar, bei denen dass nicht so ist. Beispielsweise könnten unsere Daten ja in einem zeilenweisen Format vorliegen, etwa so:
+
+`1;Apel;Susanne;NA;1.68;56...`<br />
+`2;Becker;Fritz;67;1.82;89...`<br />
+`3;Coşkun;Ediz;24;1.70,71..`<br />
+
+Diese zeilenweise Struktur, kann R natürlich auch abbilden und zwar als Liste:
+```{r list}
+# eine Liste anlegen
+person_1 <- list(1, "Apel", "Susanne", NA, 1.68, 56)
+
+# Liste ausgeben
+person_1
+```
+
+```{r list_type}
+# Welchen Typ hat die Liste?
+typeof(person_1)
+```
+
+```{r list_element_type}
+# Welchen Typ haben einzelne Elemente der Liste?
+typeof(person_1[[2]])
+typeof(person_1[[5]])
+```
+
+
+Genau wie bei einem Datensatz kann man die Elemente einer Liste auch benennen (das nennt man *named list*):
+```{r named_list}
+# eine Liste anlegen
+person_1 <- list(id = 1, last_name = "Apel", first_name = "Susanne", age = NA, height = 1.68, weight = 56)
+
+# Liste ausgeben
+person_1
+```
+
+Natürlich kann man auch mehrere Listen zu einem Dataframe kombinieren. Das geht z.B. mit der Funktion `rbind()`(für *row bind*). 

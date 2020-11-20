@@ -1,0 +1,57 @@
+## R-Pakete 
+Die Programmiersprache R ist modular aufgebaut. Den Kern bildet das Basispaket "base R". Es enthält die grundsätzlichen Funktionen bereits, aber richtig spannend und komfortabel wird es erst, wenn man sich weitere Pakete dazuholt. 
+
+Ein Packet ist eine Sammlung von Funktionen zu einem bestimmten Thema. Das Paket ggplot2 ein Paket zur Ausgabe von statistischen Diagrammen. Neben den Funktionen kann ein Paket außerdem eine Dokumentation und Datensätze enthalten.
+
+Im Prinzip kann jeder ein R-Paket schreiben und im Internet teilen. Für Pakete, die in CRAN gehostet werden, gelten aber besondere Anforderungen und Qualitätsstandards. Sie müssen z.B. zwingend eine Dokumentation enthalten. Dennoch, auch die Pakete auf CRAn variieren sehr stark in ihrem Umfang und ihrer Aktualität und darin wie prfessionell sie weiterentwicklet werden. Hinter einigen Paketen stehen nur einzelne Entwickler:innen, ander werden von ganzen Teams freiwilliger Helfer entwickelt und wieder andere werden von Firmen wir z.B. von RStudio selbst entwickelt. Ein Beispiel für letzteres ist die Paket-Gruppe "Tidyverse". 
+
+### R-Pakete anzeigen
+Welche Pakete bereits auf Ihrem System installiert sind, können Sie ganz leicht in RStudio, links unten im Tab "Packages" nachsehen.
+
+Bei mir sieht das im Moment so aus:
+<img src="images/screenshot_packages.png" alt="Screenshot Packages-Tab">
+
+Der Tab Packages zeigt eine Tabelle mit mehreren Spalten: 
+- Ganz vorne ist ein Kästchen, das anzeigt, ob ein Paket momentan nur installiert ist (= leeres Kästchen) oder ob es zusätzlich auch geladen ist (= Häkchen im Kästchen). Was das genau bedeutet, erläutere ich weiter unten. Auf jeden Fall sieht man in dem Screenshot, das momentan nur eins der angezeigten Pakete geladen ist, namlich "base", also das Kernpaket von R.
+- In der zweiten Spalte wird der Name des Paketes angezeigt. Er ist sogar verlinkt. Klickt man darauf, wird im Help-Tab die Hilfe zum entsprechenden Paket angezeigt. 
+- Nach dem Namen folt eine kurze Beschreibung, die erklärt, was das Paket macht. 
+- Dahinter folgt die Versionsnummer. Jedes Paket hat eine eigene Versionsnummer, weil es ganz unabhängig von R gepflegt und upgedatet wird. 
+- Am Ende der Tabelle stehen zwei Icons, wobei das erste einen Link beinhaltet, der zur entsprechenden Seite des Paketes auf dem CRAN führt. 
+- Mit dem X-Icon kann man ein Paket deinstallieren.
+
+
+### R-Pakete installieren
+Oben im Tab "Packages" sind mehrere Icons und ein Suchfeld.
+- Wenn Sie das Icon "Install" klicken, öffnet sich ein Popup, mit dem Sie das CRAN nach Paketnamen durchsuchen und die gefundenen Pakete auch direkt installieren können. Es gibt noch weitere Möglichkeiten Pakte zu installieren, auf die ich später hinweisen werde. Für das erste können Sie Pakete hier installieren.
+- Bei "Update" öffnet sich ebenfalls ein Pop-Up. Es zeigt an von welchem der installierten Pakete es bereits eine neuere Version gibt und bietet auch gleich die Möglichkeit diese upzudaten.
+- Das Icon "Packrat" ist zunächst nicht wichtig für uns.
+- Ganz hinten in der Leiste befindet sich noch ein Suchfeld, mit dem Sie die Liste der installierten Pakete durchsuchen können.
+
+<img src="images/screenshot_install_packages.png" alt="Screenshot Install Packages">
+
+
+### Pakete laden
+Damit man ein Paket einsetzen kann, muss es nicht nur installiert, sondern während einer R-Session auch geladen werden. Der Sinn dahinter ist, dass es durch die hohe Anzahl an PAketen sonst schnell zu überschneidungen kommen kann, weil 
+
+Es gibt zwei Möglichkeiten ein Paket zu laden:
+1. Durch anhaken in der Liste im Package-Tab
+2. Durch den Befehl `library(package_name)`. 
+
+
+**Tipp!**
+
+Wenn Sie ein längeres R-Skript schreiben und dazu die Befehle aus bestimmten Paketen verwenden, macht es sehr viel Sinn, die zweite Option zu nutzen. Am besten Sie schreiben die `library()`-Befehle gleich nach ganz oben in Ihr Skript.
+
+Das ist guter Stil, denn es macht gleich am Anfang deutlich, welche Pakete für ein Skript benötgt werden. Außerdem bewaht es Sie auch davor, dass Sie beim nächsten Öffnen Ihres Skriptes nicht mehr wissen, welche Pakete Sie anhakeln müssen.
+
+
+### Dokumentation
+Jedes Paket das über das CRAN gehostet wird, verfügt über eine Dokumentation. Sie kann durch Klick auf den Paketnamen in der Liste im Package-Tab aufgerufen werden oder durch den Befehl `?package_name`. Sie öffnet sich dann im Help-Tab.
+
+Außerdem haben manche Pakete eine Vignette. Das ist eine ausführlichere Dokumentation, häufig mit einführenden Worten und Anwendungsbespielen. Die Vignette kann durch den Befehl `vignette("name")` aufgerufen werden, allerdings müssen Sie dazu den Namen der Vignette kennen. Beachten Sie außerdem dabei die Anführungszeichen. Häufig heißen die Vignetten wie die Pakete. Mit `browseVignettes("suchwort")` können Sie außerdem nach Vignetten suchen.
+
+
+### Pakete finden
+Durch die schier unübersichtliche Anzahl an Paketen fällt es schwer, den Durchblick zu erlangen, welches Paket gerade für eine Aufgabe besonders gut geeignet ist. In vielen Fällen gibt es mehrere Pakete, die die gleichen Aufgaben erfüllen. Welches Paket das beste ist oder ob die Funktionalität immer exakt die gleiche ist, ist oft gar nicht so leicht herauszufinden. Ganz schön verwirrend am Anfang!
+
+In einem R-Kurs werden Ihnen die Dozierenden natürlich immer die erforderlichen Pakete nennen. Wenn Sie nach bestimmten Anwendungen suchen. hilft ihnen neben googeln auch [MetaCRAN](https://www.r-pkg.org/), eine Suchmaschine für R-Pakete. Es kann ein nützliches Kriterium bei der Auswahl sein, sich anzusehen, wann die letzte Version eines Paketes erscheinen ist. Mit der Zeit werden Sie sich einen Stamm nützlicher PAkete zusammensammeln.

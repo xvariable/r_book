@@ -1,1 +1,1 @@
-# r_book
+Das ist das R-Kompendium für das IJK!
