@@ -158,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#r-konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
+<li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
 <li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
@@ -288,19 +288,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">Kapitel 1</span> Einleitung</h1>
 <p>In diesem Einführungs-Kapitel gebe ich einen Überblick über das R-Universum, und führe in die Hintergründe und Philosophie der Sprache ein. Dabei kommen auch die vielen Vorzüge, die der Umstieg auf R für Kommunikationswissenschaftler:innen hat zur Sprache und es werden Alternativen angesprochen.</p>
-<p>Im Anschluss stelle ich die R-Konsole vor und danach RStudio, die beliebteste Entwicklungsumgebung für R. Ich gehe dabei vor allem auf die Oberfläche der IDE ein und stelle einige nützliche Features und Einstellungsmöglichkeiten heraus.</p>
-<p>Im Anschluß folgt eine Anleitung zum Download und zur Installation von R und R-Studio, jeweils separat für MacOS und Windows.</p>
 
 <div id="einführung-in-r" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Einführung in R</h2>
-<p>R ist eine Programmiersprache mit einem speziellen Fokus auf der Anwendung im Bereich Statistik und
-Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von
-R erläutern und ich begründe, warum wir in der Statistik- und Datenanalyse-Ausbildung auf
-R setzen.</p>
-<p>Die simpelste Antwort auf die Frage “Was ist eigentlich R?” lautet: “R ist ein Dialekt von S.”
+<p>R ist eine Programmiersprache mit einem speziellen Fokus auf der Anwendung im Bereich Statistik und Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von R erläutern.</p>
+<p>Die simpelste Antwort auf die Frage “Was ist eigentlich R?” lautet: “R ist ein Dialekt von S.” <span class="citation">(<a href="literaturverzeichnis.html#ref-Peng_2020" role="doc-biblioref">Peng 2020</a>)</span>
 Diese Antwort ist natürlich nicht sehr befriedigend und führt direkt zur Anschlussfrage
-“Und was ist S?” Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und
-etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren.
+“Und was ist S?” Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren.
 Dadurch wird deutlich, worin die Unterschiede zu anderen Programmiersprachen liegen, warum
 R von Informatikern und Programmierern häufig als “etwas seltsam” empfunden wird und weshalb R gerade
 für die Datenanalyse in der Kommunikationswissenschaft besonders gut geeignet ist.
@@ -315,7 +309,7 @@ Forscher der Bel Labs haben beispielsweise mehrere Nobelpreise und Turing-Awards
 Heute gehören die Bell Labs zu Nokia.</p>
 <p>Mitte der 1960er Jahre war die Rechentechnik soweit, dass die Bel Labs gemeinsam mit anderen
 Forschungseinrichtungen an einem Projekt zur Schaffung eines Mehrprozess- und Mehrbenutzerbetriebssystems arbeiteten (“Multics System,” Vorläufersystem von Unix).
-Die Möglichkeit Datenanalyse-Forschung auf Großrechnern ausführen zu können war aus Sicht der Bel Laboratories sehr relevant und obwohl sie sich später nicht mehr an der Schaffung des Multics-Systems beteiligten setzten sie die Entwicklung einer Statistiksprache fort.
+Die Möglichkeit dadurch auf Großrechnern Datenanalyse-Forschung ausführen zu können war aus Sicht der Bel Laboratories sehr relevant und obwohl sie sich später nicht mehr an der Schaffung des Multics-Systems beteiligten, setzten sie die Entwicklung einer Statistiksprache fort. Diese Sprache nannten sie S - vermutlich für <em>statistic</em>.
 Zu dieser Zeit war die Idee einer Programmiersprache für Statistik völlig neu.
 Für statistische Berechnungen war es bisher nötig, den Code direkt in FORTRAN (steht für FORmula TRANslation, das war die damals dazu genutzte Sprache) zu schreiben und zwar immer wieder aufs Neue, angepasst an die jeweilige Fragestellung.</p>
 <p>Die erste Version von S wurde 1976 nur intern veröffentlicht. In den Folgejahren fanden einige
@@ -330,16 +324,16 @@ Ihre Verbreitung ist aber sehr gering.</p>
 <h3><span class="header-section-number">1.1.2</span> Die Philosophie von S</h3>
 <p>Die neue Sprache S sollten bei der explorativen Datenanalyse und der Erstellung von Grafiken unterstützen
 und dabei schneller und möglichst flexibel sein.
-<span class="citation"><a href="literaturverzeichnis.html#ref-Chambers_2000" role="doc-biblioref">Chambers</a> (<a href="literaturverzeichnis.html#ref-Chambers_2000" role="doc-biblioref">2000</a>)</span> formuliert das Ziel von S so :
-&gt; “S is a programming language and environment for all kinds of computing involving data.
-&gt; It has a simple goal: To turn ideas into software, quickly and faithfully.”</p>
+<span class="citation"><a href="literaturverzeichnis.html#ref-Chambers_2000" role="doc-biblioref">Chambers</a> (<a href="literaturverzeichnis.html#ref-Chambers_2000" role="doc-biblioref">2000</a>)</span> formuliert das Ziel von S so :</p>
+<blockquote>
+<p>“S is a programming language and environment for all kinds of computing involving data. It has a simple goal: To turn ideas into software, quickly and faithfully.”</p>
+</blockquote>
 <p>Insbesondere die schnelle, explorative Übersetzung von Forschungsideen in Ergebnisse war wichtig, während statistische Analyse am Beginn noch nicht so sehr im Fokus stand.</p>
 <p>Zusätzlich zeichnet sich die Philosophie von S noch durch drei weitere Anforderungen aus, die
 während der Entwicklung an die Programmiersprache gestellt wurden <span class="citation">(<a href="literaturverzeichnis.html#ref-Chambers_2020" role="doc-biblioref">Chambers 2020</a>, S. 84:5)</span>:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Convenience:</strong> Der Aufruf von statistischen Routinen sollte möglichst “kompakt” sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output graphische und formatierte Ausgaben enthalten.</p></li>
-<li><p><strong>Completeness:</strong> Alle Zusammenfassungen, Modellierungen und Visualisierungen die in Fortran möglich
-waren, sollten auch in S möglich sein.</p></li>
+<li><p><strong>Completeness:</strong> Alle Zusammenfassungen, Modellierungen und Visualisierungen die in FORTRAN möglich waren, sollten auch in S möglich sein.</p></li>
 <li><p><strong>Extensibility:</strong> Bereits damals verstanden sich die Entwickler von S als Teil einer Datenanalyse- und
 Forschungs-Community.
 Deshalb sollte die Sprache grundsätzlich erweiterbar sein. Neue Techniken und Methoden sollten stets in S integrierbar sein.</p></li>
@@ -444,6 +438,11 @@ Wenn Sie bei einer Fragestellung feststecken, die Hilfe sie auch nicht weiterbri
 <li><p><strong>Beachten Sie die 15-Minuten-Regel.</strong><br />
 Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang, es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. <a href="https://stackoverflow.com/">stackoverflow</a>.</p></li>
 </ul>
+<img src="images/ah_r_rollercoaster.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
+<div style="color:grey;text-align:right">
+Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a>
+</div>
+<p><br /></p>
 
 </div>
 </div>

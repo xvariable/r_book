@@ -1,4 +1,4 @@
-# Installation
+# Installation {#installation}
 
 R ist für viele verschiedene Betriebssysteme verfügbar, man kann es sogar auf einem Android-Smartphone installieren. RStudio gibt es für Windows, MacOS und Linux sowie in eienr Variante für Server.
 

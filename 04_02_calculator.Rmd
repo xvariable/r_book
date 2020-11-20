@@ -1,8 +1,6 @@
 ## R-Syntax
 
-Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im Kapitel zur Benutzeroberfläche im Abschnitt über die Konsole haben Sie gesehen, dass R ein passabler Taschenrechner ist. 
-
-Jetzt möchten wir die R-Syntax genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
+Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im [Abschnitt](#konsole) haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
 
 ### Rechnen mit R
 

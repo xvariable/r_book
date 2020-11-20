@@ -1,6 +1,6 @@
 ## RStudio: IDE für R
 
-R ist eine Programmiersprache und sie kommt auch mit einer kleinen Umgebung, in der man R direkt ausführen kann: Die R-Konsole. Allerdings ist die Konsole sehr schlicht gehalten und das Arbeiten damit macht nicht wirklich Spaß. Stattdessen benutzen die meisten Entwickler einen Editor oder eine so genannte *IDE* (= Integrated Development Environment zu deutsch Entwicklungsumgebung), die eine grafische Oberfläche bietet und das Programmieren und das Datenmanagement erheblich erleichtert. 
+Statt der Konsole benutzen die meisten Entwickler einen Editor oder eine so genannte *IDE* (= Integrated Development Environment zu deutsch Entwicklungsumgebung), die eine grafische Oberfläche bietet und das Programmieren und das Datenmanagement erheblich erleichtert. 
 
 Die bekannteste und beliebteste IDE für R ist [RStudio](https://rstudio.com/).
 Wie der Name schon vermuten lässt wurde RStudio speziell für die Arbeit mit R entwickelt. Es ist genau auf die Bedürfnisse von R-Anwender:innen angepasst. Im folgenden Abschnitt stelle ich die Entwicklungsumgebung kurz vor, beschreibe einige Features und die Benutzeroberfläche.
@@ -28,5 +28,5 @@ Der/die Dozierende kann sich Ihre Versionen ansehen und so bei Fehlern und Frage
 
 ### Installation von RStudio
 Obwohl die RStudio-Cloud im Rahmen der Statistikausbildung sehr praktisch sein wird, brauchen Sie (später) eine eigene Instanz von R und RStudio auf Ihrem persönlichen Rechner. Zum einen für den Zweck des Übens, zum Anderen weil Sie es später zur Arbeit an eigenen (Studien-)Projekten benötigen werden.
-Die Anleitung zur Installation befindet weiter hinten in diesem Kapitel. 
+Die Anleitung zur Installation finden Sie im [nächsten Kapitel](#intallation). 
 Sie ist getrennt nach Windows und MacOS aufgeführt, da sich die Schritte die zur Installation nötig sind leicht unterscheiden.

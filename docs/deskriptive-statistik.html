@@ -158,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#r-konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
+<li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
 <li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
@@ -298,21 +298,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tabellen" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Tabellen</h3>
 <p>Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine Häufigkeitsverteilung ausgeben zu lassen. Die schnellste und einfachste Möglichkeit ist die Funktion <code>table()</code>, die in base R verfügbar ist. Man kann sie also nutzen, ohne zusätzliche Pakete zu laden. Als Argument benötigt die Funktion lediglich einen Verweis auf den Vektor, der tabuliert werden soll (also auf den Datensatz und die entsprechende Variable).</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="deskriptive-statistik.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
-<span id="cb142-2"><a href="deskriptive-statistik.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>zufriedenheit_leben)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="deskriptive-statistik.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
+<span id="cb136-2"><a href="deskriptive-statistik.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>zufriedenheit_leben)</span></code></pre></div>
 <pre><code>## 
 ##      Sehr zufrieden           Zufrieden   Weniger zufrieden Gar nicht zufrieden 
 ##                 209                 647                 131                   9</code></pre>
 <p>Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument <code>useNA = "ifany"</code> mit ausgeben lassen:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="deskriptive-statistik.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
-<span id="cb144-2"><a href="deskriptive-statistik.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="deskriptive-statistik.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
+<span id="cb138-2"><a href="deskriptive-statistik.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Sehr zufrieden           Zufrieden   Weniger zufrieden Gar nicht zufrieden 
 ##                 209                 647                 131                   9 
 ##                &lt;NA&gt; 
 ##                  10</code></pre>
 <p>Neben dem sehr schlichten <code>table()</code>-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion <code>tabyl()</code>aus dem Paket <code>janitor</code> vorstellen. Ich habe sie hier ausgewählt, weil ich das <code>janitor</code>-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="deskriptive-statistik.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="deskriptive-statistik.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;janitor&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:sjmisc&#39;:
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     chisq.test, fisher.test</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="deskriptive-statistik.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="deskriptive-statistik.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich)</span></code></pre></div>
 <pre><code>##  data$zukunftsperspektive_persoenlich   n    percent valid_percent
 ##                                     1 212 0.21073559    0.21522843
 ##                                     2 658 0.65407555    0.66802030
@@ -329,12 +329,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                                     4  17 0.01689861    0.01725888
 ##                                    NA  21 0.02087475            NA</code></pre>
 <p>Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit <code>mutate()</code> aus dem Tidyverse leicht selbst berechnen. Zusätzlich brauchen wir Funktion <code>cumsum()</code>, welche kumulierte Summen bildet.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="deskriptive-statistik.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb152-2"><a href="deskriptive-statistik.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-3"><a href="deskriptive-statistik.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich) <span class="sc">%&gt;%</span> </span>
-<span id="cb152-4"><a href="deskriptive-statistik.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein</span></span>
-<span id="cb152-5"><a href="deskriptive-statistik.html#cb152-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_percent =</span> <span class="fu">cumsum</span>(percent), </span>
-<span id="cb152-6"><a href="deskriptive-statistik.html#cb152-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_valid_percent =</span> <span class="fu">cumsum</span>(valid_percent)) </span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="deskriptive-statistik.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb146-2"><a href="deskriptive-statistik.html#cb146-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-3"><a href="deskriptive-statistik.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-4"><a href="deskriptive-statistik.html#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein</span></span>
+<span id="cb146-5"><a href="deskriptive-statistik.html#cb146-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_percent =</span> <span class="fu">cumsum</span>(percent), </span>
+<span id="cb146-6"><a href="deskriptive-statistik.html#cb146-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_valid_percent =</span> <span class="fu">cumsum</span>(valid_percent)) </span></code></pre></div>
 <pre><code>##  data$zukunftsperspektive_persoenlich   n    percent valid_percent cum_percent
 ##                                     1 212 0.21073559    0.21522843   0.2107356
 ##                                     2 658 0.65407555    0.66802030   0.8648111
@@ -348,21 +348,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##          1.0000000
 ##                 NA</code></pre>
 <p>Okay, es geht noch schöner. Der folgende Code führt jetzt ziemlich weit, enthält zusätzlich zu den neuen Spalten auch noch eine Spalte mit den Wertelabels und sortiert die Spalten so, wie ich das gerne hätte.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="deskriptive-statistik.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb154-2"><a href="deskriptive-statistik.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb154-3"><a href="deskriptive-statistik.html#cb154-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb154-4"><a href="deskriptive-statistik.html#cb154-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich) <span class="sc">%&gt;%</span> </span>
-<span id="cb154-5"><a href="deskriptive-statistik.html#cb154-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb154-6"><a href="deskriptive-statistik.html#cb154-6" aria-hidden="true" tabindex="-1"></a>         <span class="co"># fügt Spalte für kumulierte Prozent ein:</span></span>
-<span id="cb154-7"><a href="deskriptive-statistik.html#cb154-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_percent =</span> <span class="fu">cumsum</span>(percent), </span>
-<span id="cb154-8"><a href="deskriptive-statistik.html#cb154-8" aria-hidden="true" tabindex="-1"></a>         <span class="co"># fügt Spalte für kumulierte, gültige Prozent ein:</span></span>
-<span id="cb154-9"><a href="deskriptive-statistik.html#cb154-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_valid_percent =</span> <span class="fu">cumsum</span>(valid_percent), </span>
-<span id="cb154-10"><a href="deskriptive-statistik.html#cb154-10" aria-hidden="true" tabindex="-1"></a>         <span class="co"># kopiert die Spalte Werte:</span></span>
-<span id="cb154-11"><a href="deskriptive-statistik.html#cb154-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">`</span><span class="at">data$zukunftsperspektive_persoenlich</span><span class="st">`</span>,  </span>
-<span id="cb154-12"><a href="deskriptive-statistik.html#cb154-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># fügt in einer neuen Variable Wertelabels ein:</span></span>
-<span id="cb154-13"><a href="deskriptive-statistik.html#cb154-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">zukunftsperspektive_persoenlich =</span> sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich))  <span class="sc">%&gt;%</span></span>
-<span id="cb154-14"><a href="deskriptive-statistik.html#cb154-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sortiert die Spalten neu:</span></span>
-<span id="cb154-15"><a href="deskriptive-statistik.html#cb154-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(zukunftsperspektive_persoenlich, value, n, percent, cum_percent, valid_percent, cum_valid_percent)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="deskriptive-statistik.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb148-2"><a href="deskriptive-statistik.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb148-3"><a href="deskriptive-statistik.html#cb148-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-4"><a href="deskriptive-statistik.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich) <span class="sc">%&gt;%</span> </span>
+<span id="cb148-5"><a href="deskriptive-statistik.html#cb148-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb148-6"><a href="deskriptive-statistik.html#cb148-6" aria-hidden="true" tabindex="-1"></a>         <span class="co"># fügt Spalte für kumulierte Prozent ein:</span></span>
+<span id="cb148-7"><a href="deskriptive-statistik.html#cb148-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_percent =</span> <span class="fu">cumsum</span>(percent), </span>
+<span id="cb148-8"><a href="deskriptive-statistik.html#cb148-8" aria-hidden="true" tabindex="-1"></a>         <span class="co"># fügt Spalte für kumulierte, gültige Prozent ein:</span></span>
+<span id="cb148-9"><a href="deskriptive-statistik.html#cb148-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_valid_percent =</span> <span class="fu">cumsum</span>(valid_percent), </span>
+<span id="cb148-10"><a href="deskriptive-statistik.html#cb148-10" aria-hidden="true" tabindex="-1"></a>         <span class="co"># kopiert die Spalte Werte:</span></span>
+<span id="cb148-11"><a href="deskriptive-statistik.html#cb148-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">`</span><span class="at">data$zukunftsperspektive_persoenlich</span><span class="st">`</span>,  </span>
+<span id="cb148-12"><a href="deskriptive-statistik.html#cb148-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># fügt in einer neuen Variable Wertelabels ein:</span></span>
+<span id="cb148-13"><a href="deskriptive-statistik.html#cb148-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">zukunftsperspektive_persoenlich =</span> sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich))  <span class="sc">%&gt;%</span></span>
+<span id="cb148-14"><a href="deskriptive-statistik.html#cb148-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sortiert die Spalten neu:</span></span>
+<span id="cb148-15"><a href="deskriptive-statistik.html#cb148-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(zukunftsperspektive_persoenlich, value, n, percent, cum_percent, valid_percent, cum_valid_percent)</span></code></pre></div>
 <pre><code>##  zukunftsperspektive_persoenlich value   n    percent cum_percent valid_percent
 ##                         Sehr gut     1 212 0.21073559   0.2107356    0.21522843
 ##                              Gut     2 658 0.65407555   0.8648111    0.66802030
@@ -380,9 +380,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.1.2</span> Häufigkeitsdiagramm</h3>
 <p>Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqualität ausgegeben werden. Im späteren Kapitel Darstellung gehe ich nochmal genau darauf ein, wie man Grafiken hübsch machen kann. Darum geht es an dieser Stelle aber noch nicht. Denn im Rahmen der Exploration von Datensätzen ist es zunächst erstmal wichtig, dass Sie die Grafik dazu benutzen, sich einen Überblick zu verschaffen! Eine besonders ausgefeilte - und möglicherweise aufwendige Formatierung - ist an dieser Stelle nicht nötig.</p>
 <p>Zur Erstellung von Plots ist das Paket <code>ggplot</code> aus dem Tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte lohnt es sich auf jeden Fall in ggplot einzusteigen und ich werde den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket <code>sjPlot</code> sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="deskriptive-statistik.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code></pre></div>
-<pre><code>## Learn more about sjPlot with &#39;browseVignettes(&quot;sjPlot&quot;)&#39;.</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="deskriptive-statistik.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="deskriptive-statistik.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb150-2"><a href="deskriptive-statistik.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="deskriptive-statistik.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(data<span class="sc">$</span>zukunftsperspektive_persoenlich)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/freq_plot-1.png" width="672" /></p>
 <p>Über die Funktion <code>plot_frq()</code> sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument <code>type</code> mit an die Funktion übergeben (z.B. <code>type = "line"</code> oder <code>type = "dot"</code>). Auch Histogramme sind möglich (<code>type = "histogram</code>), aber dazu später mehr.</p>
 
@@ -394,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="nominale-daten" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Nominale Daten</h3>
 <p>Als Beispiel für eine nominale Variable verwende ich die Frage, aus welchem Personenkreis die Vorbilder der Befragten kommen, sofern sie Vorbilder haben. Die Variable hat die folgenden Ausprägungen:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="deskriptive-statistik.html#cb159-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(data<span class="sc">$</span>vorbild_codiert)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="deskriptive-statistik.html#cb151-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(data<span class="sc">$</span>vorbild_codiert)</span></code></pre></div>
 <pre><code>## [1] &quot;Eltern&quot;                    &quot;andere Familienangehörige&quot;
 ## [3] &quot;Musiker&quot;                   &quot;Sportler&quot;                 
 ## [5] &quot;religiöse Vorbilder&quot;       &quot;sonstige Promis&quot;          
@@ -403,13 +403,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Der <strong>Modus</strong> ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln.</p>
 <p>Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).</p>
 <p>Alternativ gibt es noch eine <code>Mode()</code>-Funktion im <code>DescTools</code>-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: <code>Mode()</code> muss hier zwingend groß geschrieben werden!!</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="deskriptive-statistik.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="deskriptive-statistik.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;DescTools&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:sjmisc&#39;:
 ## 
 ##     %nin%</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="deskriptive-statistik.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(data<span class="sc">$</span>vorbild_codiert, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="deskriptive-statistik.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(data<span class="sc">$</span>vorbild_codiert, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1
 ## attr(,&quot;freq&quot;)
 ## [1] 136</code></pre>
@@ -419,35 +419,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.2</span> Ordinale Daten</h3>
 <p>Der <strong>Median</strong> teilt die (sortierten) Fälle einer Variablen in zwei gleich große Hälften. Er kann für ordinale und metrische Daten berechnet werden.</p>
 <p>Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht <code>median()</code>. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären müssen sie vorab aus der Analyse entfernt werden, mit <code>na.rm = TRUE</code> (<em>NA remove</em>).</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="deskriptive-statistik.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="deskriptive-statistik.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Die <strong>Spannweite</strong> (<em>range</em>) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt also den höchsten und den niedrigsten Wert.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="deskriptive-statistik.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="deskriptive-statistik.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>zufriedenheit_leben, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1 4</code></pre>
 <p>Über die Funktionen <code>min()</code> und <code>max()</code> kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.</p>
 <p>Wie oben erwähnt teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind <strong>Quantile</strong> das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion <code>quantile()</code> standardmäßig die Grenzen der Quartile zurück.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="deskriptive-statistik.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="deskriptive-statistik.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##   0%  25%  50%  75% 100% 
 ##   14   16   19   22   24</code></pre>
 <p>Es handelt sich um 5 Grenzen, weil der niedrigste und der hächste Wert mit ausgegeben werden. Die Quartile befinden sich quasi “zwischen” diesen 5 Grenzpunkten.</p>
 <p>Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 16 und 22 Jahre (= 6 Jahre).</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="deskriptive-statistik.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="deskriptive-statistik.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 </div>
 <div id="metrische-daten" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Metrische Daten</h3>
 <p>Für metrische Variablen können haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz. Üblich ist aber vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="deskriptive-statistik.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="deskriptive-statistik.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 19.12823</code></pre>
 <p>Der Altersdurchschnitt im Sample beträgt also 19,1 Jahre.</p>
 <p>Bei dieser Variable ist es nicht sinnvoll, aber mit <code>mean()</code> kann man sich auch ein <strong>getrimmtes Mittel</strong> ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte (die es in dieser Variable nicht gibt).</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="deskriptive-statistik.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="deskriptive-statistik.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 19.15261</code></pre>
 <p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 19 Jahre) nur erreicht wird, weil alle . Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="deskriptive-statistik.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="deskriptive-statistik.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3.177417</code></pre>
 <p>Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="deskriptive-statistik.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="deskriptive-statistik.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 10.09598</code></pre>
 
 </div>
@@ -456,7 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.3</span> Schiefe und Kurtosis</h2>
 <p>Weitere Kennwerte für die Form von Verteilungen sind die <strong>Schiefe</strong> (<em>skew</em>) und <strong>Kurtosis</strong> (<em>kurtosis</em>). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus wie spitz (nach oben gewölbt) oder flach eine Verteilung ist.</p>
 <p>Im <code>psych</code>-Paket gibt es Funktionen für beides:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="deskriptive-statistik.html#cb182-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">skew</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="deskriptive-statistik.html#cb174-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">skew</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] -0.06328724</code></pre>
 <p>Zur Erinnerung:</p>
 <ul>
@@ -466,18 +466,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein wenig linksschief.</p>
 <p>Hier noch der Code zur Berechnung der Kurtosis:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="deskriptive-statistik.html#cb184-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">kurtosi</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="deskriptive-statistik.html#cb176-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">kurtosi</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] -1.250003</code></pre>
 
 </div>
 <div id="übersichts-funktionen" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Übersichts-Funktionen</h2>
 <p>Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion <code>summary()</code> aus dem base-Paket liefert zum Beispiel einen ersten guten Einblick:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="deskriptive-statistik.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>alter)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="deskriptive-statistik.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>alter)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   14.00   16.00   19.00   19.13   22.00   24.00</code></pre>
 <p>Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte <code>psych</code>-Paket hat z.B. eine <code>describe()</code>-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="deskriptive-statistik.html#cb188-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="deskriptive-statistik.html#cb180-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(data)</span></code></pre></div>
 <pre><code>##                                                   vars    n    mean     sd
 ## za_nr                                                1 1006 6738.00   0.00
 ## version*                                             2 1006     NaN     NA

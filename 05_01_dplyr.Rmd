@@ -1,7 +1,7 @@
 # Datenaufbereitung
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
-pacman::p_load(tidyverse)
+pacman::p_load(tidyverse, sjlabelled)
 # Einlesen der Daten
 data <- expss::read_labelled_csv2("data/ZA6738_v1-0-0_generation_z_labelled.csv") %>% 
   mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23)) %>% 
@@ -38,9 +38,9 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem T
 
 ## Die Pipe
 
-Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!
+<img src="http://hexb.in/hexagons/pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!
 
-Die Pipe macht etwas, das für Sie zunächst sehr unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfilten und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden. 
+Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfilten und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden. 
 
 
 ### Der Aufbau im Detail
@@ -120,6 +120,9 @@ Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien ve
     
     - alle Personen die YouTube oder Instagram regelmäßig nutzen 
 
+<img src="images/ah_dplyr_filter.jpg" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
+<div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
+
 Im folgenden Beispiel möchte ich einen Datensatz erstellen, der nur Fälle von Personen enthält, die angegeben haben aus dem Bundesland Niedersachsen (Code 3) zu kommen. Bevor man einen Filter anwendet, sollte man sich aber zunächst einen Überblick über die Ausgangslage verschaffen. Ich lasse mir deshalb einmal die Anzahl der Zeilen im Datensatz ausgeben und schaue mir die ersten paar Fälle an:
 
 ```{r }
@@ -149,25 +152,30 @@ Tatsächlich! Im Datensatz sind jetzt nur noch n = 107 Fälle und in der Variabl
 
 Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die aus Niedersachsen oder Hamburg kommen und jünger als 18 Jahre sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.
 
-Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind:  
-- & für “und”
-- | für “oder”
-- ! für “nicht”
+Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind: 
+
+- `&` für “und”
+
+- `|` für “oder”
+
+- `!` für “nicht”
 
 Die Bedingung "aus Niedersachsen oder Hamburg und jünger als 18 Jahre" lässt sich also wie folgt formulieren: `(bundesland = 3 | bundesland = 2) & alter < 18`. Hier kommt es haargeanau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise alle Niedersachen (egal welchen Alters) und alle Hamburger unter 18 in den Dataframe packen.
 ```{r }
-data %>% 
+data_filter <- data %>% 
   filter((bundesland == 3 | bundesland == 2) & alter < 18)
+
+head(data_filter)
 ```
 
 Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable `verbundenheit_region` einen fehlenden Wert haben:
 
 ```{r }
-data %>% 
+data_filter_na <- data %>% 
   filter(!is.na(verbundenheit_region))
+
+head(data_filter_na)
 ```
-
-
 
 
 ## Arrange: Fälle sortieren
@@ -177,7 +185,8 @@ Der Einsatz von `arrange()` ist sehr simpel. Man muss der Funktion nach dem Date
 ```{r }
 # aufsteigend sortieren
 data %>% 
-  arrange(alter)
+  arrange(alter) %>% 
+  head()
 ```
 
 Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von `desc()`. das sieht dann so aus:
@@ -185,7 +194,8 @@ Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu err
 ```{r }
 # absteigend sortieren
 data %>% 
-  arrange(desc(alter))
+  arrange(desc(alter))%>% 
+  head()
 ```
 
 
@@ -194,7 +204,8 @@ Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei au
 ```{r }
 # nach mehreren Variablen sortieren
 data %>% 
-  arrange(bundesland, alter, desc(geschlecht))
+  arrange(bundesland, alter, desc(geschlecht))%>% 
+  head()
 ```
 
 ## Select: Variablen auswählen
@@ -204,7 +215,8 @@ Die Funktion `select()` dient genau wie `filter()` dazu, den Datensatz zu verkle
 ```{r }
 # Variablen auswählen
 data %>% 
-  select(alter, geschlecht, verbundenheit_europa)
+  select(alter, geschlecht, verbundenheit_europa) %>% 
+  head()
 ```
 
 
@@ -217,7 +229,8 @@ Zudem kann `select()` auch dazu verwenden, die Variablen im Datensatz umzusortie
 ```{r }
 # Variablen neu sortieren
 data %>% 
-  select(lfdn, bundesland, everything())
+  select(lfdn, bundesland, everything()) %>% 
+  head()
 ```
 
 ## Variablen umcodieren
@@ -236,7 +249,7 @@ cbind(values, labels) # beide Vektoren zusammenbinden
 
 Intutiver währe es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gepabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl `rec()` aus dem Paket `sjmisc`. Der Befehl ist sehr stark an die Logik von SPSS angelehnt. 
 
-Der `rec()`-Befehl fügt sich in die Tydiverse-Logik ein und erwartet als erstes Argument genau wie die `dplyr`-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sher gut in der Pipe einsetzen. Das zweite Argeument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit `verbundenheit_` beginnen. Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt `rec` und beinhaltet einen Text mit den Anweisungen in der Form `"werte_label = neuer_wert"`. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die "restlichen" Werte durch ein `"else=copy"` auffangen. Dadurch wird der Wert aus der urspründlichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = "weiß nicht". Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
+Der `rec()`-Befehl fügt sich in die Tydiverse-Logik ein und erwartet als erstes Argument genau wie die `dplyr`-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argeument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit `verbundenheit_` beginnen. Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt `rec` und beinhaltet einen Text mit den Anweisungen in der Form `"werte_label = neuer_wert"`. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die "restlichen" Werte durch ein `"else=copy"` auffangen. Dadurch wird der Wert aus der urspründlichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = "weiß nicht". Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
 
 Die Funktion `rec()` erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein `_r` am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.
 
@@ -252,8 +265,9 @@ data <- data %>%
                                              else=copy") 
 
 # Beispielhaft die Variable verbundenheit_europa inkl. recodierter Variante anzeigen:
-data %>% select(starts_with("verbundenheit_europa"))
-
+data %>% 
+  select(starts_with("verbundenheit_europa")) %>% 
+  head()
 ```
 Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein "nebeneinanderlegen" der beiden Variablen.
 
@@ -269,7 +283,7 @@ new_data <- data %>%
   mutate(jahrgang = 2019 - alter) %>% 
   select(lfdn, alter, jahrgang)
 
-new_data
+head(new_data)
 ```
 
 ### Variablen unter einer Bedingung berechnen
@@ -288,10 +302,13 @@ Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenhe
 data_eu <- data %>% 
   mutate(sieht_sich_als_europaeer = ifelse(verbundenheit_europa > verbundenheit_deutschland, 1, 0)) 
 
-# Für die Anzeige relevante Variablen auswählen
+# Für die kontrolle relevante Variablen auswählen
 data_eu %>% 
-  select(lfdn, verbundenheit_europa, verbundenheit_deutschland, sieht_sich_als_europaeer)
+  select(lfdn, verbundenheit_europa, verbundenheit_deutschland, sieht_sich_als_europaeer) %>%   head()
 ```
+
+<img src="images/ah_dplyr_mutate_blank.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
+<div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
 
 ## Summary: Daten verdichten
 
