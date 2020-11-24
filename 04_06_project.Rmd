@@ -1,5 +1,7 @@
 ## R-Projekte
 
+**Kurze Info vorab:** Der Abschnitt Projekte ist nur für die Arbeit auf ihrem eigenen Rechner relevant. Wenn Sie in der RStudio-Cloud arbeiten, ist das Projekt bereits angelegt worden. Sie können dort keine eigenen Projekte anlegen. Das kann dort nur ihr Admin. 
+
 <img src="images/icon_rproject.png" alt="Rprotect Icon"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (*working directory*) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behät und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
 
 ### Arbeitsverzeichnis
@@ -17,15 +19,15 @@ Mit dem Befehl `getwd()` kann man sich das aktuelle Arbeitsverzeichnis anzeigen 
 
 Um ein R-Projekt anzulegen klicken Sie im Menü auf "File" > "New Project...". Sie werden durch den folgenden Dialog geleitet: 
 
-Im **ersten Schritt** müssen Sie entscheiden ob für das Projekt ein neues Verzeichnis auf Ihrem Computer angelegt werden soll oder ob Sie das Projekt in einem bereits bestehenden Verzeichnis anlegen möchten. Bei letzterer Option dürfen sich auch bereits schon Dateien in dem verzeichnis befinden (z.B. alte R-Skripte oder Daten). Der Normalfall ist aber ersteres:
+Im **ersten Schritt** müssen Sie entscheiden ob für das Projekt ein neues Verzeichnis auf Ihrem Computer angelegt werden soll oder ob Sie das Projekt in einem bereits bestehenden Verzeichnis anlegen möchten. Bei letzterer Option dürfen sich auch bereits schon Dateien in dem Verzeichnis befinden (z.B. alte R-Skripte oder Daten). Der Normalfall ist aber ersteres:
 
 <img src="images/screenshot_new_project.png" alt="Screenshot neues Projekt anlegen: Schritt 1" style="float:left;margin-right:300px;margin-bottom:25px;margin-top:10px">
 
-Im **zweiten Schritt** müssen Sie auswählen, um was für eine Art von Projekt es sich handeln soll. Es gibt unterschiedliche Typen, z.B. sind auch R-Pakete R-Projekte. Für den Anfang
+Im **zweiten Schritt** müssen Sie auswählen, um was für eine Art von Projekt es sich handeln soll. Es gibt unterschiedliche Typen, z.B. sind auch R-Pakete R-Projekte. Der Normalfall ist vermutlich, dass Sie ein neues Projekt mit einem leeren Ordner anlegen.
 
 <img src="images/screenshot_new_project_2.png" alt="Screenshot neues Projekt anlegen: Schritt 2" style="float:left;margin-right:300px;margin-bottom:25px;margin-top:10px">
 
-Im **dritten und letzten Schritt** müssen Sie den Namen für das R-Projekt und den Ordner, in dem es erstellt werden soll festlegen:
+Im **dritten und letzten Schritt** müssen Sie den Namen für das R-Projekt und den Ordner, in dem es erstellt werden soll, festlegen.
 
 <img src="images/screenshot_new_project_3.png" alt="Screenshot neues Projekt anlegen: Schritt 3" style="float:left;margin-right:300px;margin-bottom:25px;margin-top:10px">
 

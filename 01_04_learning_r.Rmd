@@ -1,7 +1,7 @@
 ## Tipps zum R lernen
 
 ### Der Anfang ist schwer
-R unterscheidet sich deutlich von der Software, mit der Kommunikationswissenschaftler:innen bisher gearbeitet haben. Es handelt sich nicht  um  ein proprietäres Programm, sondern um eine Programmiersprache. Dadurch werden die Grenzen dessen, was möglich ist, immens erweitert. Da fällt der Ein- bzw. Umstieg am Anfang vielleicht erstmal schwer und sicherlich gehört beim Erlernen einer neuen Kompetenz immer auch eine **gewisse Frustrationstoleranz** dazu. Das nicht alles von Anfang an klappt, ist ganz normal. Es ist sehr wichtig, sich diesen Umstand zu verdeutlichen. 
+R unterscheidet sich deutlich von der Software, mit der Kommunikationswissenschaftler:innen bisher gearbeitet haben. Es handelt sich nicht  um  ein proprietäres Programm, sondern um eine Programmiersprache. Dadurch werden die Grenzen dessen, was möglich ist, immens erweitert. Da fällt der Ein- bzw. Umstieg am Anfang vielleicht erstmal schwer und sicherlich gehört beim Erlernen einer neuen Kompetenz immer auch eine **gewisse Frustrationstoleranz** dazu. Das nicht alles von Anfang an klappt, ist ganz normal. Es ist sehr wichtig sich diesen Umstand zu verdeutlichen. 
 
 <img src="images/ah_at_first.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
 <div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
@@ -9,7 +9,7 @@ R unterscheidet sich deutlich von der Software, mit der Kommunikationswissenscha
 ### Nützliche Hinweise
 
 - **Holen Sie sich die Hilfe, die Sie brauchen!** <br />
-Welche Lern-Ressourcen für Sie die richtigen sind, können Sie selbst am besten entscheiden. Der eine lernt vielleicht leichter mit einem interaktiven Kurs, der andere mit einem Buch. Eine besonders hilfreiche Methode kann auch "Vier Augen / ein Rechner" sein, bei dem Sie mit einer/m Kommilitonen/in gemeinsam am Computer üben.
+Welche Lern-Ressourcen für Sie die richtigen sind, können Sie selbst am besten entscheiden. Eine Person lernt vielleicht leichter mit einem interaktiven Kurs, eine andere mit einem Buch. Das ist Geschmackssache. Eine besonders hilfreiche Methode kann auch "Vier Augen / ein Rechner" sein, bei dem Sie mit eine:r Kommiliton:in gemeinsam am Computer üben.
 
 - **Lesen Sie Fehlermeldungen aufmerksam durch.** <br />
 Falls ein Skript mal nicht wie erwartet funktioniert, liefert ihnen die Fehlermeldung oft einen ersten Hinweis darauf, woran es liegen könnte. Das gilt meistens - aber leider nicht immer. Denn nicht alle Autoren der unterschiedlichen R-Pakete schreiben Fehlermeldungen die auch für Einsteiger verständlich sind.

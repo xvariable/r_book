@@ -18,11 +18,11 @@ Dieser Umstand ist erwähnenswert, denn bei anderen IDEs öffnet sich bei Aufruf
 Das die Hilfe bei RStudio direkt integriert ist nimmt zwar etwas Platz auf dem Bildschirm weg, ist jedoch auch sehr anwenderfreundlich, gerade für Programmiereinsteiger:innen.
   
   
-**Automatisches Einrückungen**
+**Automatisches Einrücken**
 
 Wenn Codes länger werden und über mehrere Zeilen gehen bietet es sich an, diesen durch Einrückungen übersichtlich zu formatieren. Es kann so leicht kenntlich gemacht werden welche Teile einer längeren Kette von Befehlen unmittelbar zusammengehören.
 Bei einigen Programmiersprachen gehören solche Einrückungen sogar unmittelbar zur Syntax dazu (z.B. bei Python). Aber selbst wenn sie nicht unmittelbar Bestandteil einer Sprache sind (wie bei R), sind Einrückungen für die menschliche Anwender:in nützlich, um den Überblick zu behalten.
-RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, so dass die Anwender:in damit meist keine Arbeit hat.
+RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, sodass die Anwender:in damit meist keine Arbeit hat.
   
   
 **Syntaxhighlighting**
@@ -30,4 +30,4 @@ RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor,
 Syntaxhighlighting bedeutet, dass unterschiedliche Bestandteile des Codes in unterschiedlichen Farben dargestellt werden. Der folgende Screenshot demonstriert dies:
     
 <img src="images/screenshot_syntax_highlighting.png" alt="Screenshot Autovervollständigen" style="margin-bottom:25px;margin-right:600px" align="left">
-Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwenderin. 
+Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwender:in. 

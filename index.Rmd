@@ -37,7 +37,7 @@ Ich bedanke mich beim Bundespresseamt für die Erlaubnis den hier benutzten Date
 
 Quellenangabe:
 
-Presse- und Informationsamt der Bundesregierung (2020). Generation Z. GESIS Datenarchiv, Köln. ZA6738 Datenfile Version 1.0.0 (2020), doi:10.4232/1.13446. 
+Presse- und Informationsamt der Bundesregierung (2020). Generation Z. GESIS Datenarchiv, Köln. ZA6738 Datenfile Version 1.0.0 (2020), [doi:10.4232/1.13446](https://dbk.gesis.org/dbksearch/sdesc2.asp?no=6738&db=e&doi=10.4232/1.13446). 
 
 ## Disclaimer {-}
 

@@ -120,6 +120,25 @@
             "type": "book"
         },
         {
+            "URL": "https://bookdown.org/rdpeng/rprogdatascience/",
+            "author": [
+                {
+                    "family": "Peng",
+                    "given": "Roger"
+                }
+            ],
+            "id": "Peng_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "title": "R Programming for Data Science",
+            "type": ""
+        },
+        {
             "ISBN": "978-1491910399",
             "URL": "http://r4ds.had.co.nz/",
             "author": [

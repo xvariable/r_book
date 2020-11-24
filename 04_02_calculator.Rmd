@@ -53,7 +53,7 @@ Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
 
 - Objektnamen können große und kleine Buchstaben, Zahlen und Punkte (.) und Unterstriche (_) enthalten. Andere Zeichen sind nicht erlaubt, insbesondere keine Leerzeichen.
 
-- Punkte und Unterstriche dürfen nicht am Anfang stehen.
+- Zahlen, Punkte und Unterstriche dürfen nicht am Anfang stehen.
 
 - Umlaute (z.B. ä, Ö oder ß), Sonderzeichen (z.B. %, & oder =) und Leerzeichen sind nicht erlaubt.
 

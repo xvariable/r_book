@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-20" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="pipe" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Die Pipe</h2>
-<p><img src="http://hexb.in/hexagons/pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!</p>
+<p><img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!</p>
 <p>Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfilten und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden.</p>
 <div id="der-aufbau-im-detail" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Der Aufbau im Detail</h3>
@@ -331,13 +331,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Zweite Zeile: Wo landet das Objekt <code>new_data</code>? Ich habe eben geschrieben, dass das Objekt an die nächste Zeile übergeben wurde. Es ist vielleicht etwas irritierend, das es gar nicht mehr zu sehen ist. Also wo ist es?</p>
 <ul>
-<li><p>Es steckt in der Funktion dieser Zeile also in <code>transformation_1()</code> und zwar als erstes Argument. Durch die Pipe ist es quasi unsichtbar. Gedanklich kann man sich den Befehl in dieser Zeile so vorstellen: <code>transformation_1(new_data, "do something")</code> - nur, dass man <code>new_data</code> dort nicht extra erwähnen muss, weil durch die Pipe in der vorhergehenden Zeile klar ist, dass dieses Objet das erste Argument ist.</p></li>
+<li><p>Es steckt in der Funktion dieser Zeile, also im <code>transformation_1()</code> und zwar als erstes Argument. Durch die Pipe ist es quasi unsichtbar. Gedanklich kann man sich den Befehl in dieser Zeile so vorstellen: <code>transformation_1(new_data, "do something")</code> - nur, dass man <code>new_data</code> dort nicht extra erwähnen muss, weil durch die Pipe in der vorhergehenden Zeile klar ist, dass dieses Objet das erste Argument ist.</p></li>
 <li><p>Die Funktion <code>transformation_1</code> wird also mit den beiden Argumenten <code>new_data</code> und <code>"do something"</code> ausgeführt. Der Datensatz verändert sich entsprechend. Er behält aber den gleichen Namen.</p></li>
 <li><p>Am Ende der Zeile steht wieder eine Pipe <code>%&gt;%</code>. Auch sie leitet das Ergebnis der vorhergehenden Transformation an die nächste Zeile weiter.</p></li>
 </ul></li>
 <li><p>Dritte Zeile: …same procedere as every pipe…</p>
 <ul>
-<li><p>Wieder landet der (nun einmal transformierte) Dataframe <code>new_data</code> als erstes Arguement in einer Funktion, diesmal in <code>transformation_2()</code>.</p></li>
+<li><p>Wieder landet der (nun einmal transformierte) Dataframe <code>new_data</code> als erstes Argument in einer Funktion, diesmal in <code>transformation_2()</code>.</p></li>
 <li><p>Wieder wird der Dataframe irgendwie transformiert und heiß noch immer gleich.</p></li>
 <li><p>Wieder wird er durch die Pipe am Ende der Zeile an die nächste Zeile übergeben.</p></li>
 </ul></li>
@@ -458,7 +458,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 4 1748    14          1         13                 2                    2
 ## 5 1753    14          1          2                 2                    2
 ## 6 1757    14          1          8                 1                    2</code></pre>
-<p>Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von <code>desc()</code>. das sieht dann so aus:</p>
+<p>Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von <code>desc()</code>. Das sieht dann so aus:</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="datenaufbereitung.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absteigend sortieren</span></span>
 <span id="cb115-2"><a href="datenaufbereitung.html#cb115-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb115-3"><a href="datenaufbereitung.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(alter))<span class="sc">%&gt;%</span> </span>

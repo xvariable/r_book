@@ -30,7 +30,7 @@ Betrachtet man den Screenshot genauer, fallen einige Eigenschaften der Formatier
 - Vor jeder Ausgabe eines Ergebnisses findet sich eine `[1]`. Diese markiert, um das wievielte Element einer Ausgabe es sich handelt. 
 Im obigen Beispiel enthält jede Ausgabe nur ein Element, aber Ausgaben können durchaus auch mehrere Teile haben oder sogar ineinander verschachtelte Elemente aufweisen.
 
-Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (`↑` und `↓`) durch die bisher eingegebenen Befehle  wechseln. Drückt man bsp. `↑` wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.
+Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (`↑` und `↓`) durch die bisher eingegebenen Befehle  wechseln. Drückt man bspw. `↑` wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.
 
 Manchmal erscheint nach dem Ausführen eines Befehls nicht das erwartete Ergebnis, sondern die Konsole zeigt nur ein `+` an. In diesem Fall war der Befehl unvollständig. Tatsächlich kommt es bei der Arbeit mit R recht häufig zu unvollständigen Befehlen, etwa weil eine schließende `)` oder ein `"` vergessen wurde. Man kann in diesem Fall den fehlenden Teil entweder noch ergänzen oder die Ausführung mit der Esc-Taste abbrechen.
 

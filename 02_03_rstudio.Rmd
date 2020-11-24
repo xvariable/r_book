@@ -11,7 +11,7 @@ Das Programm ist sowohl für Desktop-Rechner als auch für Server verfügbar und
 Die Pro-Versionen unterscheiden sich vor allem dadurch, dass den Anwendern ein Priority-Support geboten wird.
 Seit Beginn 2020 firmiert RStudio als *Public Benefit Corporation* und hat sich damit dem Gemeinwohl verpflichtet.
 
-Das Unternehmen RStudio ist Teil des [R Consotium](https://www.r-consortium.org/), eines Zusammenschlusses von Unternehmen, die R in großem Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microosoft, Google und Oracle gehören dazu). 
+Das Unternehmen RStudio ist Teil des [R Consotium](https://www.r-consortium.org/), eines Zusammenschlusses von Unternehmen, die R in großem Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microsoft, Google und Oracle gehören dazu). 
 Gerade RStudio treibt sowohl die Verbreitung der Sprache R als auch ihre Weiterentwicklung und Standardisierung enorm voran und prägt damit ihre Ausgestaltung zusehens. 
 
 <img src="https://www.tidyverse.org/images/tidyverse-default.png" alt="Logo tidyverse" width="200px" align="left" style="margin-right:15px;margin-top:5px"> Allen voran ist hier das *Tidyverse* zu nennen. Es handelt sich dabei um eine Gruppe von Paketen die von den RStudio-Programmierern um *Hadley Wickham* (Chief Scientist bei RStudio) entwickelt wurden und die dazu dienen R einheitlicher und verständlicher zu gestalten sowie die Sprache noch besser auf die Bedürfnisse moderner Datenanalyse anzupassen. Auch in diesem Buch wird weitestgehend auf die Pakete und Funktionen des Tidyverse zurückgegriffen.

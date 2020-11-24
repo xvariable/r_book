@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-20" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="deskriptive-statistik" class="section level1" number="6">
 <h1><span class="header-section-number">Kapitel 6</span> Deskriptive Statistik</h1>
-<p>In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen treffen über die Verteilung von Merkmalen in Stichproben. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:</p>
+<p>In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen über die Verteilung von Merkmalen in Stichproben treffen. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:</p>
 <ul>
 <li>Häufigkeitsverteilungen (inkl. Säulendiagram)</li>
 <li>Maße der zentralen Tendenz und Streuung</li>
@@ -428,14 +428,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="metrische-daten" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Metrische Daten</h3>
-<p>Für metrische Variablen können haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz. Üblich ist aber vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
+<p>Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz. Üblich ist aber vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="deskriptive-statistik.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 19.12823</code></pre>
 <p>Der Altersdurchschnitt im Sample beträgt also 19,1 Jahre.</p>
 <p>Bei dieser Variable ist es nicht sinnvoll, aber mit <code>mean()</code> kann man sich auch ein <strong>getrimmtes Mittel</strong> ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte (die es in dieser Variable nicht gibt).</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="deskriptive-statistik.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>alter, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 19.15261</code></pre>
-<p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 19 Jahre) nur erreicht wird, weil alle . Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
+<p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 19 Jahre) nur erreicht wird, weil alle Befragten 19 Jahre alt sind, weil es sehr viele 14 und 24-Jährige im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="deskriptive-statistik.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>alter, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3.177417</code></pre>
 <p>Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:</p>
@@ -504,7 +504,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td><code>table()</code></td>
 <td>stats (base)</td>
-<td>Tabelle</td>
+<td>einfache Tabelle</td>
 <td></td>
 </tr>
 <tr class="even">

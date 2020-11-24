@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-20" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -321,7 +321,7 @@ Ich habe es bisher nicht definiert.</p></li>
 <li><p>Vor jeder Ausgabe eines Ergebnisses findet sich eine <code>[1]</code>. Diese markiert, um das wievielte Element einer Ausgabe es sich handelt.
 Im obigen Beispiel enthält jede Ausgabe nur ein Element, aber Ausgaben können durchaus auch mehrere Teile haben oder sogar ineinander verschachtelte Elemente aufweisen.</p></li>
 </ul>
-<p>Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (<code>↑</code> und <code>↓</code>) durch die bisher eingegebenen Befehle wechseln. Drückt man bsp. <code>↑</code> wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.</p>
+<p>Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (<code>↑</code> und <code>↓</code>) durch die bisher eingegebenen Befehle wechseln. Drückt man bspw. <code>↑</code> wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.</p>
 <p>Manchmal erscheint nach dem Ausführen eines Befehls nicht das erwartete Ergebnis, sondern die Konsole zeigt nur ein <code>+</code> an. In diesem Fall war der Befehl unvollständig. Tatsächlich kommt es bei der Arbeit mit R recht häufig zu unvollständigen Befehlen, etwa weil eine schließende <code>)</code> oder ein <code>"</code> vergessen wurde. Man kann in diesem Fall den fehlenden Teil entweder noch ergänzen oder die Ausführung mit der Esc-Taste abbrechen.</p>
 <p>Das ist alles schon ganz nett, aber auch ziemlich unkomfortabel. Um richtig mit R zu arbeiten, bietet es sich an auf eine Integrierte Entwicklungsumgebung (Integrated Development Environment, kurz IDE) zurückzugreifen.
 So eine IDE kann bspw. bei der Organisation von Dateien unterstützen, bietet Hilfe-Funktionen beim Coden, einen Überblick über die Objekte, die sich im Arbeitsspeicher befinden und vieles mehr.</p>
@@ -337,7 +337,7 @@ Die IDE RStudio ist seit 2011 auf dem Markt und wird von RStudio PBC entwickelt 
 Das Programm ist sowohl für Desktop-Rechner als auch für Server verfügbar und wird sowohl kostenlos als auch in einer kommerziellen Pro-Version vertrieben.
 Die Pro-Versionen unterscheiden sich vor allem dadurch, dass den Anwendern ein Priority-Support geboten wird.
 Seit Beginn 2020 firmiert RStudio als <em>Public Benefit Corporation</em> und hat sich damit dem Gemeinwohl verpflichtet.</p>
-<p>Das Unternehmen RStudio ist Teil des <a href="https://www.r-consortium.org/">R Consotium</a>, eines Zusammenschlusses von Unternehmen, die R in großem Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microosoft, Google und Oracle gehören dazu).
+<p>Das Unternehmen RStudio ist Teil des <a href="https://www.r-consortium.org/">R Consotium</a>, eines Zusammenschlusses von Unternehmen, die R in großem Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microsoft, Google und Oracle gehören dazu).
 Gerade RStudio treibt sowohl die Verbreitung der Sprache R als auch ihre Weiterentwicklung und Standardisierung enorm voran und prägt damit ihre Ausgestaltung zusehens.</p>
 <p><img src="https://www.tidyverse.org/images/tidyverse-default.png" alt="Logo tidyverse" width="200px" align="left" style="margin-right:15px;margin-top:5px"> Allen voran ist hier das <em>Tidyverse</em> zu nennen. Es handelt sich dabei um eine Gruppe von Paketen die von den RStudio-Programmierern um <em>Hadley Wickham</em> (Chief Scientist bei RStudio) entwickelt wurden und die dazu dienen R einheitlicher und verständlicher zu gestalten sowie die Sprache noch besser auf die Bedürfnisse moderner Datenanalyse anzupassen. Auch in diesem Buch wird weitestgehend auf die Pakete und Funktionen des Tidyverse zurückgegriffen.
 Obwohl die Entwicklung der Vereinheitlichung von R mit dem Tidyverse viele Anhänger gefunden hat und enorm zur Popularität der Sprache beigetragen haben dürfte, sei dennoch erwähnt, dass es auch Stimmen gibt, die diese Entwicklung kritisch betrachten <span class="citation">(<a href="literaturverzeichnis.html#ref-Matloff_2019" role="doc-biblioref">Matloff 2019</a>; <a href="literaturverzeichnis.html#ref-McChesney_2020" role="doc-biblioref">McChesney 2020</a>)</span>.</p>
@@ -368,7 +368,7 @@ Wenn Sie RStudio zum ersten Mal öffnen, sieht sie in etwa so aus:</p>
 <div id="environment" class="section level4" number="2.2.3.2">
 <h4><span class="header-section-number">2.2.3.2</span> Environment</h4>
 <p>Der Bereich rechts ist zweigeteilt. Oben findet sich die <strong>Environment</strong>, zu deutsch Arbeitsumgebung.
-Hier werden die Objekte angezeigt, die während der aktuellen R-Session erzeugt wurden. Ein Objekt kann dabei alles mögliche sein, z.B. ein Datensatz oder das Ergebnis einer Berechnung. Im Moment ist die Arbeitsumgebung natürlich noch leer. Auch dieser obere rechte Bereich hat mit <em>History</em>, <em>Connections</em> und <em>Git</em> oder auch <em>Build</em> weitere Tabs. Unter <strong>History</strong> werden alle Befehle der aktuellen R-Session protokolliert. Die anderen Bereiche sind zunächst nicht interessant für uns.</p>
+Hier werden die Objekte angezeigt, die während der aktuellen R-Session erzeugt wurden. Ein Objekt kann dabei alles Mögliche sein, z.B. ein Datensatz oder das Ergebnis einer Berechnung. Im Moment ist die Arbeitsumgebung natürlich noch leer. Auch dieser obere rechte Bereich hat mit <em>History</em>, <em>Connections</em> und <em>Git</em> oder auch <em>Build</em> weitere Tabs. Unter <strong>History</strong> werden alle Befehle der aktuellen R-Session protokolliert. Die anderen Bereiche sind zunächst nicht interessant für uns.</p>
 </div>
 <div id="files-plots-packages-help-viewer" class="section level4" number="2.2.3.3">
 <h4><span class="header-section-number">2.2.3.3</span> Files, Plots, Packages, Help &amp; Viewer</h4>
@@ -412,14 +412,14 @@ Außerdem kann man die Hilfe einer Funktion auch über den Befehl <code>?name_de
 <p>Der Tab “Help,” der weiter oben bereits vorgestellt wurde ist bei RStudio direkt in die Entwicklungsumgebung integriert.
 Dieser Umstand ist erwähnenswert, denn bei anderen IDEs öffnet sich bei Aufruf der Hilfefunktion häufig ein externer Browser.
 Das die Hilfe bei RStudio direkt integriert ist nimmt zwar etwas Platz auf dem Bildschirm weg, ist jedoch auch sehr anwenderfreundlich, gerade für Programmiereinsteiger:innen.</p>
-<p><strong>Automatisches Einrückungen</strong></p>
+<p><strong>Automatisches Einrücken</strong></p>
 <p>Wenn Codes länger werden und über mehrere Zeilen gehen bietet es sich an, diesen durch Einrückungen übersichtlich zu formatieren. Es kann so leicht kenntlich gemacht werden welche Teile einer längeren Kette von Befehlen unmittelbar zusammengehören.
 Bei einigen Programmiersprachen gehören solche Einrückungen sogar unmittelbar zur Syntax dazu (z.B. bei Python). Aber selbst wenn sie nicht unmittelbar Bestandteil einer Sprache sind (wie bei R), sind Einrückungen für die menschliche Anwender:in nützlich, um den Überblick zu behalten.
-RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, so dass die Anwender:in damit meist keine Arbeit hat.</p>
+RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, sodass die Anwender:in damit meist keine Arbeit hat.</p>
 <p><strong>Syntaxhighlighting</strong></p>
 <p>Syntaxhighlighting bedeutet, dass unterschiedliche Bestandteile des Codes in unterschiedlichen Farben dargestellt werden. Der folgende Screenshot demonstriert dies:</p>
 <p><img src="images/screenshot_syntax_highlighting.png" alt="Screenshot Autovervollständigen" style="margin-bottom:25px;margin-right:600px" align="left">
-Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwenderin.</p>
+Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwender:in.</p>
 
 </div>
 <div id="rstudio-anpassen" class="section level3" number="2.2.6">
