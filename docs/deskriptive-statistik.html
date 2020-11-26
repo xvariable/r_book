@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-24" />
+<meta name="date" content="2020-11-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -502,15 +502,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>table()</code></td>
-<td>stats (base)</td>
-<td>einfache Tabelle</td>
+<td><strong>Häufigkeiten</strong></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="even">
+<td><code>table()</code></td>
+<td>stats</td>
+<td>einfache Tabelle</td>
+<td><code>useNA = "ifany"</code></td>
+</tr>
+<tr class="odd">
+<td><code>tabyl()</code></td>
+<td>janitor</td>
+<td>Häufigkeitstabelle mit Prozent</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>plot_frq()</code></td>
+<td>sjPlot</td>
+<td>Säulendiagramm</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Maße der zentralen Tendenz &amp; Streuung</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Mode()</code></td>
+<td>DescTools</td>
+<td>Modus</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><code>median()</code></td>
-<td>stats (base)</td>
+<td>stats</td>
 <td>Standardabweichung</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>range()</code></td>
+<td>stats</td>
+<td>Range</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>quantile()</code></td>
+<td>stats</td>
+<td>Quantilgrenzen</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>IQR()</code></td>
+<td>stats</td>
+<td>Inter-Quartil-Range</td>
 <td><code>na.rm = TRUE</code></td>
 </tr>
 <tr class="odd">
@@ -521,13 +569,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td><code>sd()</code></td>
-<td>stats (base)</td>
+<td>stats</td>
 <td>Standardabweichung</td>
 <td><code>na.rm = TRUE</code></td>
 </tr>
+<tr class="odd">
+<td><code>var()</code></td>
+<td>stats</td>
+<td>Varianz</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><strong>Schiefe und Kurtosis</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>skew()</code></td>
+<td>psych</td>
+<td>Schiefe</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>kurtosi()</code></td>
+<td>psych</td>
+<td>Kurtosis</td>
+<td><code>na.rm = TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Übersichts-Funktionen</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>summary()</code></td>
+<td>stats</td>
+<td>Wichtige Verteilungsmerkmale</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>describe()</code></td>
+<td>sjPlot</td>
+<td>Tabelle deskriptiver Merkmale</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>t.b.c</p>
 
 </div>
 </div>

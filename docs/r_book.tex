@@ -124,7 +124,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2020-11-24}
+\date{2020-11-26}
 
 \begin{document}
 \maketitle
@@ -977,7 +977,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2020-11-24"
+## [1] "2020-11-26"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -2816,14 +2816,27 @@ Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und
 Funktion & Paket & Beschreibung & Wichtige Argumente\tabularnewline
 \midrule
 \endhead
-\texttt{table()} & stats (base) & einfache Tabelle &\tabularnewline
-\texttt{median()} & stats (base) & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\textbf{Häufigkeiten} & & &\tabularnewline
+\texttt{table()} & stats & einfache Tabelle & \texttt{useNA\ =\ "ifany"}\tabularnewline
+\texttt{tabyl()} & janitor & Häufigkeitstabelle mit Prozent &\tabularnewline
+\texttt{plot\_frq()} & sjPlot & Säulendiagramm &\tabularnewline
+\textbf{Maße der zentralen Tendenz \& Streuung} & & &\tabularnewline
+\texttt{Mode()} & DescTools & Modus &\tabularnewline
+\texttt{median()} & stats & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{range()} & stats & Range & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{quantile()} & stats & Quantilgrenzen & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{IQR()} & stats & Inter-Quartil-Range & \texttt{na.rm\ =\ TRUE}\tabularnewline
 \texttt{mean()} & base & Arithmetisches Mittel & \texttt{na.rm\ =\ TRUE}\tabularnewline
-\texttt{sd()} & stats (base) & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{sd()} & stats & Standardabweichung & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{var()} & stats & Varianz & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\textbf{Schiefe und Kurtosis} & & &\tabularnewline
+\texttt{skew()} & psych & Schiefe & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\texttt{kurtosi()} & psych & Kurtosis & \texttt{na.rm\ =\ TRUE}\tabularnewline
+\textbf{Übersichts-Funktionen} & & &\tabularnewline
+\texttt{summary()} & stats & Wichtige Verteilungsmerkmale &\tabularnewline
+\texttt{describe()} & sjPlot & Tabelle deskriptiver Merkmale &\tabularnewline
 \bottomrule
 \end{longtable}
-
-t.b.c
 
   \bibliography{book.bib}
 

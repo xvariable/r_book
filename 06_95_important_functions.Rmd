@@ -1,16 +1,23 @@
 ## Wichtige Funktionen aus diesem Kapitel {-}
 
-
-```{r}
-
-
-```
-
 | Funktion           | Paket        | Beschreibung                    | Wichtige Argumente    |
 |--------------------|--------------|---------------------------------|-----------------------|
-|`table()`           | stats (base) | einfache Tabelle                |                       |
-|`median()`          | stats (base) | Standardabweichung              | `na.rm = TRUE`        |
+| **Häufigkeiten**                                                                            |
+|`table()`           | stats        | einfache Tabelle                | `useNA = "ifany"`     |
+|`tabyl()`           | janitor      | Häufigkeitstabelle mit Prozent  |                       |
+|`plot_frq()`        | sjPlot       | Säulendiagramm                  |                       |
+| **Maße der zentralen Tendenz & Streuung**                                                   |
+|`Mode()`            | DescTools    | Modus                           |                       |
+|`median()`          | stats        | Standardabweichung              | `na.rm = TRUE`        |
+|`range()`           | stats        | Range                           | `na.rm = TRUE`        |
+|`quantile()`        | stats        | Quantilgrenzen                  | `na.rm = TRUE`        |
+|`IQR()`             | stats        | Inter-Quartil-Range             | `na.rm = TRUE`        |
 |`mean()`            | base         | Arithmetisches Mittel           | `na.rm = TRUE`        |
-|`sd()`              | stats (base) | Standardabweichung              | `na.rm = TRUE`        |
-
-t.b.c
+|`sd()`              | stats        | Standardabweichung              | `na.rm = TRUE`        |
+|`var()`             | stats        | Varianz                         | `na.rm = TRUE`        |
+| **Schiefe und Kurtosis**                                                                    |
+|`skew()`            | psych        | Schiefe                         | `na.rm = TRUE`        |
+|`kurtosi()`         | psych        | Kurtosis                        | `na.rm = TRUE`        |
+| **Übersichts-Funktionen**                                                                   |
+|`summary()`         | stats        | Wichtige Verteilungsmerkmale    |                       |
+|`describe()`        | sjPlot       | Tabelle deskriptiver Merkmale   |                       |
