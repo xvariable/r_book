@@ -36,7 +36,6 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover},
   pdfauthor={Julia Niemann-Lenz},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -122,12 +121,10 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2020-11-26}
+\date{2020-11-27}
 
 \begin{document}
-\maketitle
 
 {
 \setcounter{tocdepth}{1}
@@ -977,7 +974,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2020-11-26"
+## [1] "2020-11-27"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -2205,7 +2202,7 @@ Die Funktion \texttt{select()} dient genau wie \texttt{filter()} dazu, den Daten
 
 Will man nur einzelne Variablen löschen, so geht dies mit einem \texttt{-} vor dem Variablennamen \texttt{select(data,\ -alter)} löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.
 
-Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit ``vertaruen\_medien\_'' beginnt. Die Syntax dafür ist \texttt{starts\_with("vertaruen\_medien\_")}. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von \texttt{var\_name\_1} bis \texttt{var\_name\_x}. Dafür müsste man bspw. \texttt{alter:bundesland} eingeben.
+Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit ``vertaruen\_medien\_'' beginnt. Die Syntax dafür ist \texttt{starts\_with("vertrauen\_medien\_")}. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von \texttt{var\_name\_1} bis \texttt{var\_name\_x}. Dafür müsste man bspw. \texttt{alter:bundesland} eingeben.
 
 Zudem kann \texttt{select()} auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funtion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion \texttt{everything()} - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.
 
@@ -2833,8 +2830,8 @@ Funktion & Paket & Beschreibung & Wichtige Argumente\tabularnewline
 \texttt{skew()} & psych & Schiefe & \texttt{na.rm\ =\ TRUE}\tabularnewline
 \texttt{kurtosi()} & psych & Kurtosis & \texttt{na.rm\ =\ TRUE}\tabularnewline
 \textbf{Übersichts-Funktionen} & & &\tabularnewline
-\texttt{summary()} & stats & Wichtige Verteilungsmerkmale &\tabularnewline
-\texttt{describe()} & sjPlot & Tabelle deskriptiver Merkmale &\tabularnewline
+\texttt{summary()} & base & Wichtige Verteilungsmerkmale &\tabularnewline
+\texttt{describe()} & psych & Tabelle deskriptiver Merkmale &\tabularnewline
 \bottomrule
 \end{longtable}
 

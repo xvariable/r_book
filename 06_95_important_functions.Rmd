@@ -19,5 +19,5 @@
 |`skew()`            | psych        | Schiefe                         | `na.rm = TRUE`        |
 |`kurtosi()`         | psych        | Kurtosis                        | `na.rm = TRUE`        |
 | **Übersichts-Funktionen**                                                                   |
-|`summary()`         | stats        | Wichtige Verteilungsmerkmale    |                       |
-|`describe()`        | sjPlot       | Tabelle deskriptiver Merkmale   |                       |
+|`summary()`         | base         | Wichtige Verteilungsmerkmale    |                       |
+|`describe()`        | psych        | Tabelle deskriptiver Merkmale   |                       |

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 5 Datenaufbereitung | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-26" />
+<meta name="date" content="2020-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -507,7 +507,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 5    24          1                    3
 ## 6    24          2                    4</code></pre>
 <p>Will man nur einzelne Variablen löschen, so geht dies mit einem <code>-</code> vor dem Variablennamen <code>select(data, -alter)</code> löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.</p>
-<p>Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit “vertaruen_medien_” beginnt. Die Syntax dafür ist <code>starts_with("vertaruen_medien_")</code>. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von <code>var_name_1</code> bis <code>var_name_x</code>. Dafür müsste man bspw. <code>alter:bundesland</code> eingeben.</p>
+<p>Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit “vertaruen_medien_” beginnt. Die Syntax dafür ist <code>starts_with("vertrauen_medien_")</code>. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von <code>var_name_1</code> bis <code>var_name_x</code>. Dafür müsste man bspw. <code>alter:bundesland</code> eingeben.</p>
 <p>Zudem kann <code>select()</code> auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funtion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion <code>everything()</code> - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="datenaufbereitung.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen neu sortieren</span></span>
 <span id="cb121-2"><a href="datenaufbereitung.html#cb121-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
@@ -674,8 +674,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/xvariable/r_book/edit/main/05_01_dplyr.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
