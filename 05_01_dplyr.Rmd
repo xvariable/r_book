@@ -39,6 +39,16 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem T
 
 - Das Ergebnis ist immer ein Dataframe.
 
+
+## Datensatz für dieses Kapitel
+
+Als Datensatz dient in diesem Kapitel der "starwars"-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+
+```{r echo=FALSE}
+starwars
+```
+
+
 ## Die Pipe {#pipe}
 
 <img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!

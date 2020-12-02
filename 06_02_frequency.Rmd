@@ -12,14 +12,14 @@ Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine 
 
 ```{r, freqencies_table}
 # Häufigkeitstabelle, absolute Zahlen
-table(data$zukunft_persoenlich)
+table(starwars$sex)
 ```
 
 Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument `useNA = "ifany"` mit ausgeben lassen:
 
 ```{r, freqencies_table_na}
 # Häufigkeitstabelle, absolute Zahlen
-table(data$zukunft_persoenlich, useNA = "ifany")
+table(starwars$sex, useNA = "ifany")
 ```
 
 Neben dem sehr schlichten `table()`-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion `tabyl()`aus dem Paket `janitor` vorstellen. Ich habe sie hier ausgewählt, weil ich das `janitor`-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.
@@ -27,36 +27,20 @@ Neben dem sehr schlichten `table()`-Befehl gibt in vielen R-Paketen weitere Tabu
 ```{r, freqencies_table_tabyl_1, message=FALSE}
 library(janitor)
 
-tabyl(data$zukunft_persoenlich)
+tabyl(starwars$sex)
 ```
 
-Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit `mutate()` aus dem Tidyverse leicht selbst berechnen. Zusätzlich brauchen wir Funktion `cumsum()`, welche kumulierte Summen bildet.
+Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit `mutate()` aus dem Tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir Funktion `cumsum()`, welche kumulierte Summen bildet.
 
 ```{r, freqencies_tabyl_2, message=FALSE}
 library(tidyverse)
 
-tabyl(data$zukunft_persoenlich) %>% 
+tabyl(starwars$sex) %>% 
   # fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein
   mutate(cum_percent = cumsum(percent), 
          cum_valid_percent = cumsum(valid_percent)) 
 ```
 
-Okay, es geht noch schöner. Der folgende Code führt jetzt ziemlich weit, enthält zusätzlich zu den neuen Spalten auch noch eine Spalte mit den Wertelabels und sortiert die Spalten so, wie ich das gerne hätte. 
-
-```{r, freqencies_tabyl_3}
-tabyl(data$zukunft_persoenlich) %>% 
-  mutate(
-         # fügt Spalte für kumulierte Prozent ein:
-         cum_percent = cumsum(percent), 
-         # fügt Spalte für kumulierte, gültige Prozent ein:
-         cum_valid_percent = cumsum(valid_percent), 
-         # kopiert die Spalte Werte:
-         value = `data$zukunft_persoenlich`,  
-          # fügt in einer neuen Variable Wertelabels ein:
-         zukunft_persoenlich = sjlabelled::get_labels(data$zukunft_persoenlich))  %>%
-  # sortiert die Spalten neu:
-  select(zukunft_persoenlich, value, n, percent, cum_percent, valid_percent, cum_valid_percent)
-```
 
 ### Häufigkeitsdiagramm
 
@@ -67,7 +51,14 @@ Zur Erstellung von Plots ist das Paket `ggplot` aus dem Tidyverse mittlerweile e
 ```{r freq_plot, message=FALSE}
 library(sjPlot)
 
-plot_frq(data$zukunft_persoenlich)
+plot_frq(starwars$sex, sort.frq = "desc")
 ```
+Das Argument `sort.frq = "desc"` sorgt für eine absteigende sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
 
-Über die Funktion `plot_frq()` sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument `type` mit an die Funktion übergeben (z.B. `type = "line"` oder `type = "dot"`). Auch Histogramme sind möglich (`type = "histogram`), aber dazu später mehr.
+Über die Funktion `plot_frq()` sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument `type` mit an die Funktion übergeben (z.B. `type = "line"` oder `type = "dot"`). Auch Histogramme sind möglich (`type = "histogram`):
+
+```{r freq_plot2, message=FALSE}
+library(sjPlot)
+
+plot_frq(starwars$mass, type = "histogram")
+```

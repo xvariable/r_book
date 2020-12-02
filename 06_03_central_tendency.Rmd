@@ -1,29 +1,29 @@
 ## Maße der zentralen Tendenz & Streuung
 
-Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben. Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht. 
+Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben, falls diese mit Zahlen codiert wurde (bei reinen character-Variablen geht das selbstverständlich nicht). Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht. 
 
 ### Nominale Daten
 
-Als Beispiel für eine nominale Variable verwende ich die Frage, aus welchem Personenkreis die Vorbilder der Befragten kommen, sofern sie Vorbilder haben. Die Variable hat die folgenden Ausprägungen:
+Als Beispiel für eine nominale Variable verwende ich die Frage, welchses Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:
 
 ```{r get_labels}
-sjlabelled::get_labels(data$vorbild_codiert)
+sjlabelled::get_labels(starwars$sex)
 ```
 
 Der **Modus** ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln. 
 
 Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).
 
-Alternativ gibt es noch eine `Mode()`-Funktion im `DescTools`-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: `Mode()` muss hier zwingend groß geschrieben werden!!
+Alternativ gibt es noch eine `Mode()`-Funktion im `DescTools`-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: `Mode()` muss hier zwingend groß geschrieben werden!! Außerdem liefert die Funktion kein Ergebnis zurück, wenn es zwei gleich hohe höchste Ausprägungen gibt.
 
 ```{r mode, message=FALSE}
 library(DescTools)
 
-Mode(data$vorbild_codiert, na.rm = TRUE)
+Mode(starwars$sex, na.rm = TRUE)
 
 ```
 
-Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung "1" (Modus = 1). Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n). Aus der Liste der Wertelabels oben wissen wir, dass es sich bei 1 um die "Eltern" handelt. 
+Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung "male". Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).
 
 
 ### Ordinale Daten
@@ -32,13 +32,15 @@ Der **Median** teilt die (sortierten) Fälle einer Variablen in zwei gleich gro�
 
 Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht `median()`. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären müssen sie vorab aus der Analyse entfernt werden, mit `na.rm = TRUE` (*NA remove*).
 
+Im Datensatz gibt es keine echte ordinale Vraiable, deshalb nehme ich im folgenden die Größe in cm als Beispiel:
+
 ```{r median}
-median(data$zufriedenheit_leben, na.rm = TRUE)
+median(starwars$height, na.rm = TRUE)
 ```
 
 Die **Spannweite** (*range*) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt also den höchsten und den niedrigsten Wert.
 ```{r range}
-range(data$zufriedenheit_leben, na.rm = TRUE)
+range(starwars$height, na.rm = TRUE)
 ```
 
 Über die Funktionen `min()` und `max()` kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.
@@ -47,40 +49,42 @@ range(data$zufriedenheit_leben, na.rm = TRUE)
 Wie oben erwähnt teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind **Quantile** das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion `quantile()` standardmäßig die Grenzen der Quartile zurück. 
 
 ```{r quartils}
-quantile(data$alter, na.rm = TRUE)
+quantile(starwars$height, na.rm = TRUE)
 ```
 Es handelt sich um 5 Grenzen, weil der niedrigste und der hächste Wert mit ausgegeben werden. Die Quartile befinden sich quasi "zwischen" diesen 5 Grenzpunkten.
 
-Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 16 und 22 Jahre (= 6 Jahre).
+Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).
 
 ```{r iqr}
-IQR(data$alter, na.rm = TRUE)
+IQR(starwars$height, na.rm = TRUE)
 ```
 
 ### Metrische Daten
 
-Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz. Üblich ist aber vor allem das **"arithmetische Mittel"**, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion `mean()` habe ich in den Einführungskapiteln bereits als Beispiel genutzt.
+Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das **"arithmetische Mittel"**, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion `mean()` habe ich in den Einführungskapiteln bereits als Beispiel genutzt.
+
+Als Beispiel benutze ich hier dei Vraiable für das Gewicht.
 
 ```{r mean}
-mean(data$alter, na.rm = TRUE)
+mean(starwars$mass, na.rm = TRUE)
 ```
 
-Der Altersdurchschnitt im Sample beträgt also 19,1 Jahre. 
+Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?). 
 
-Bei dieser Variable ist es nicht sinnvoll, aber mit `mean()` kann man sich auch ein **getrimmtes Mittel** ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte (die es in dieser Variable nicht gibt).
+Man kann sich auch ein **getrimmtes Mittel** ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Character ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischers Bild:
 
 ```{r trimmed_mean}
-mean(data$alter, trim = 0.1, na.rm = TRUE)
+mean(starwars$mass, trim = 0.1, na.rm = TRUE)
 ```
 
-Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 19 Jahre) nur erreicht wird, weil alle Befragten 19 Jahre alt sind, weil es sehr viele 14 und 24-Jährige im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben **Streuungsmaße** Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die **Streuung** (*standard deviation*). 
+Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben **Streuungsmaße** Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die **Streuung** (*standard deviation*). 
 
 ```{r sd}
-sd(data$alter, na.rm = TRUE)
+sd(starwars$mass, na.rm = TRUE)
 ```
 
 Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:
 
 ```{r var}
-var(data$alter, na.rm = TRUE)
+var(starwars$mass, na.rm = TRUE)
 ```

@@ -641,7 +641,7 @@ Nachdem nun die ersten Details zum Hintergrund von R geklärt sind und Sie vermu
 
 Eine Programmiersprache zu lernen hat gewisse Ähnlichkeit damit, eine Fremdsprache zu erlernen. Man muss die Grammatik kennen und Vokabeln pauken um sich verständigen zu können. Und verständigen wollen Sie sich ja auch beim Schreiben von Code, nur eben nicht mit anderen Menschen, sondern mit einem Computer.
 
-Leider sind Computer bisweilen ganz besonders pingelige Gesprächspartner. Sie beharren z.B. sehr genau auf korrekte Ausdrucksweisen und haben auch bei der Grammatik nur einen gewissen Spielraum. Zum Glück unterstützt RSTudio das Lernen von R mit einigen Features, die uns die Verständigung leichter machen! Dadurch muss man z.B. nicht alle Vokabeln und die Syntax auswendig kennen um sich verständigen zu können. Trotzdem sollte man natürlich den grundlegenden Aufbau - die Syntax der Sprache - kennen.
+Leider sind Computer bisweilen ganz besonders pingelige Gesprächspartner. Sie beharren z.B. sehr genau auf korrekte Ausdrucksweisen und haben auch bei der Grammatik nur einen gewissen Spielraum. Zum Glück unterstützt RSTudio das Lernen von R mit einigen Features, die uns die Verständigung leichter machen! Dadurch muss man z.B. nicht alle Vokabeln und die Syntax auswendig kennen um sich verständigen zu können. Trotzdem sollte man natürlich den grundlegenden Aufbau -- die Syntax der Sprache -- kennen.
 
 \hypertarget{r-syntax}{%
 \section{R-Syntax}\label{r-syntax}}
@@ -984,12 +984,12 @@ Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(some\_numbers), }\DecValTok{1}\NormalTok{)}
+\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(some\_numbers, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] NA
+## [1] 94.4
 \end{verbatim}
 
 Das Verschachteln ist bisweilen nützlich, jedoch kann es sehr schnell unübersichtlich werden. Deshalb sollte man sich beim Coden bemühen, maximal zwei Funktionen ineinander zu verschachteln. Wir lernen später noch eine übersichtlichere Möglichkeit kennen Code zu verketten, im Abschnitt zur \protect\hyperlink{pipe}{Pipe}.
@@ -1898,6 +1898,29 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket \texttt{dplyr} au
   Das Ergebnis ist immer ein Dataframe.
 \end{itemize}
 
+\hypertarget{datensatz-fuxfcr-dieses-kapitel}{%
+\section{Datensatz für dieses Kapitel}\label{datensatz-fuxfcr-dieses-kapitel}}
+
+Als Datensatz dient in diesem Kapitel der ``starwars''-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+
+\begin{verbatim}
+## # A tibble: 87 x 14
+##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##    <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+##  1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+##  2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+##  3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+##  4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+##  5 Leia~    150    49 brown      light      brown           19   fema~ femin~
+##  6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+##  7 Beru~    165    75 brown      light      blue            47   fema~ femin~
+##  8 R5-D4     97    32 <NA>       white, red red             NA   none  mascu~
+##  9 Bigg~    183    84 black      light      brown           24   male  mascu~
+## 10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+## # ... with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
+## #   films <list>, vehicles <list>, starships <list>
+\end{verbatim}
+
 \hypertarget{pipe}{%
 \section{Die Pipe}\label{pipe}}
 
@@ -2472,6 +2495,35 @@ In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dies
   Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen
 \end{itemize}
 
+\hypertarget{datensatz-fuxfcr-dieses-kapitel-1}{%
+\section{Datensatz für dieses Kapitel}\label{datensatz-fuxfcr-dieses-kapitel-1}}
+
+Als Datensatz dient in diesem Kapitel wieder der ``starwars''-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 87 x 14
+##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##    <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+##  1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+##  2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+##  3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+##  4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+##  5 Leia~    150    49 brown      light      brown           19   fema~ femin~
+##  6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+##  7 Beru~    165    75 brown      light      blue            47   fema~ femin~
+##  8 R5-D4     97    32 <NA>       white, red red             NA   none  mascu~
+##  9 Bigg~    183    84 black      light      brown           24   male  mascu~
+## 10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+## # ... with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
+## #   films <list>, vehicles <list>, starships <list>
+\end{verbatim}
+
 \hypertarget{huxe4ufigkeitsverteilung}{%
 \section{Häufigkeitsverteilung}\label{huxe4ufigkeitsverteilung}}
 
@@ -2483,14 +2535,14 @@ Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Häufigkeitstabelle, absolute Zahlen}
-\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
+\FunctionTok{table}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##    Sehr gut         Gut Weniger gut    Schlecht 
-##         212         658          98          17
+##         female hermaphroditic           male           none 
+##             16              1             60              6
 \end{verbatim}
 
 Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument \texttt{useNA\ =\ "ifany"} mit ausgeben lassen:
@@ -2498,14 +2550,14 @@ Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absolute
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Häufigkeitstabelle, absolute Zahlen}
-\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich, }\AttributeTok{useNA =} \StringTok{"ifany"}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex, }\AttributeTok{useNA =} \StringTok{"ifany"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##    Sehr gut         Gut Weniger gut    Schlecht        <NA> 
-##         212         658          98          17          21
+##         female hermaphroditic           male           none           <NA> 
+##             16              1             60              6              4
 \end{verbatim}
 
 Neben dem sehr schlichten \texttt{table()}-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion \texttt{tabyl()}aus dem Paket \texttt{janitor} vorstellen. Ich habe sie hier ausgewählt, weil ich das \texttt{janitor}-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.
@@ -2514,26 +2566,26 @@ Neben dem sehr schlichten \texttt{table()}-Befehl gibt in vielen R-Paketen weite
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(janitor)}
 
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
+\FunctionTok{tabyl}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  data$zukunft_persoenlich   n    percent valid_percent
-##                         1 212 0.21073559    0.21522843
-##                         2 658 0.65407555    0.66802030
-##                         3  98 0.09741551    0.09949239
-##                         4  17 0.01689861    0.01725888
-##                        NA  21 0.02087475            NA
+##    starwars$sex  n    percent valid_percent
+##          female 16 0.18390805    0.19277108
+##  hermaphroditic  1 0.01149425    0.01204819
+##            male 60 0.68965517    0.72289157
+##            none  6 0.06896552    0.07228916
+##            <NA>  4 0.04597701            NA
 \end{verbatim}
 
-Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit \texttt{mutate()} aus dem Tidyverse leicht selbst berechnen. Zusätzlich brauchen wir Funktion \texttt{cumsum()}, welche kumulierte Summen bildet.
+Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit \texttt{mutate()} aus dem Tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir Funktion \texttt{cumsum()}, welche kumulierte Summen bildet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(tidyverse)}
 
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{tabyl}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex) }\SpecialCharTok{\%\textgreater{}\%} 
   \CommentTok{\# fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein}
   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cum\_percent =} \FunctionTok{cumsum}\NormalTok{(percent), }
          \AttributeTok{cum\_valid\_percent =} \FunctionTok{cumsum}\NormalTok{(valid\_percent)) }
@@ -2541,52 +2593,12 @@ Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalte
 \end{Shaded}
 
 \begin{verbatim}
-##  data$zukunft_persoenlich   n    percent valid_percent cum_percent
-##                         1 212 0.21073559    0.21522843   0.2107356
-##                         2 658 0.65407555    0.66802030   0.8648111
-##                         3  98 0.09741551    0.09949239   0.9622266
-##                         4  17 0.01689861    0.01725888   0.9791252
-##                        NA  21 0.02087475            NA   1.0000000
-##  cum_valid_percent
-##          0.2152284
-##          0.8832487
-##          0.9827411
-##          1.0000000
-##                 NA
-\end{verbatim}
-
-Okay, es geht noch schöner. Der folgende Code führt jetzt ziemlich weit, enthält zusätzlich zu den neuen Spalten auch noch eine Spalte mit den Wertelabels und sortiert die Spalten so, wie ich das gerne hätte.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{tabyl}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}
-         \CommentTok{\# fügt Spalte für kumulierte Prozent ein:}
-         \AttributeTok{cum\_percent =} \FunctionTok{cumsum}\NormalTok{(percent), }
-         \CommentTok{\# fügt Spalte für kumulierte, gültige Prozent ein:}
-         \AttributeTok{cum\_valid\_percent =} \FunctionTok{cumsum}\NormalTok{(valid\_percent), }
-         \CommentTok{\# kopiert die Spalte Werte:}
-         \AttributeTok{value =} \StringTok{\textasciigrave{}}\AttributeTok{data$zukunft\_persoenlich}\StringTok{\textasciigrave{}}\NormalTok{,  }
-          \CommentTok{\# fügt in einer neuen Variable Wertelabels ein:}
-         \AttributeTok{zukunft\_persoenlich =}\NormalTok{ sjlabelled}\SpecialCharTok{::}\FunctionTok{get\_labels}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich))  }\SpecialCharTok{\%\textgreater{}\%}
-  \CommentTok{\# sortiert die Spalten neu:}
-  \FunctionTok{select}\NormalTok{(zukunft\_persoenlich, value, n, percent, cum\_percent, valid\_percent, cum\_valid\_percent)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  zukunft_persoenlich value   n    percent cum_percent valid_percent
-##             Sehr gut     1 212 0.21073559   0.2107356    0.21522843
-##                  Gut     2 658 0.65407555   0.8648111    0.66802030
-##          Weniger gut     3  98 0.09741551   0.9622266    0.09949239
-##             Schlecht     4  17 0.01689861   0.9791252    0.01725888
-##           Weiß nicht    NA  21 0.02087475   1.0000000            NA
-##  cum_valid_percent
-##          0.2152284
-##          0.8832487
-##          0.9827411
-##          1.0000000
-##                 NA
+##    starwars$sex  n    percent valid_percent cum_percent cum_valid_percent
+##          female 16 0.18390805    0.19277108   0.1839080         0.1927711
+##  hermaphroditic  1 0.01149425    0.01204819   0.1954023         0.2048193
+##            male 60 0.68965517    0.72289157   0.8850575         0.9277108
+##            none  6 0.06896552    0.07228916   0.9540230         1.0000000
+##            <NA>  4 0.04597701            NA   1.0000000                NA
 \end{verbatim}
 
 \hypertarget{huxe4ufigkeitsdiagramm}{%
@@ -2600,59 +2612,67 @@ Zur Erstellung von Plots ist das Paket \texttt{ggplot} aus dem Tidyverse mittler
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(sjPlot)}
 
-\FunctionTok{plot\_frq}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zukunft\_persoenlich)}
+\FunctionTok{plot\_frq}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex, }\AttributeTok{sort.frq =} \StringTok{"desc"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{r_book_files/figure-latex/freq_plot-1.pdf}
+Das Argument \texttt{sort.frq\ =\ "desc"} sorgt für eine absteigende sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
 
-Über die Funktion \texttt{plot\_frq()} sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument \texttt{type} mit an die Funktion übergeben (z.B. \texttt{type\ =\ "line"} oder \texttt{type\ =\ "dot"}). Auch Histogramme sind möglich (\texttt{type\ =\ "histogram}), aber dazu später mehr.
+Über die Funktion \texttt{plot\_frq()} sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument \texttt{type} mit an die Funktion übergeben (z.B. \texttt{type\ =\ "line"} oder \texttt{type\ =\ "dot"}). Auch Histogramme sind möglich (\texttt{type\ =\ "histogram}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sjPlot)}
+
+\FunctionTok{plot\_frq}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{mass, }\AttributeTok{type =} \StringTok{"histogram"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/freq_plot2-1.pdf}
 
 \hypertarget{mauxdfe-der-zentralen-tendenz-streuung}{%
 \section{Maße der zentralen Tendenz \& Streuung}\label{mauxdfe-der-zentralen-tendenz-streuung}}
 
-Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben. Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht.
+Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben, falls diese mit Zahlen codiert wurde (bei reinen character-Variablen geht das selbstverständlich nicht). Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht.
 
 \hypertarget{nominale-daten}{%
 \subsection{Nominale Daten}\label{nominale-daten}}
 
-Als Beispiel für eine nominale Variable verwende ich die Frage, aus welchem Personenkreis die Vorbilder der Befragten kommen, sofern sie Vorbilder haben. Die Variable hat die folgenden Ausprägungen:
+Als Beispiel für eine nominale Variable verwende ich die Frage, welchses Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sjlabelled}\SpecialCharTok{::}\FunctionTok{get\_labels}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{vorbild\_codiert)}
+\NormalTok{sjlabelled}\SpecialCharTok{::}\FunctionTok{get\_labels}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Eltern"                    "andere Familienangehörige"
-## [3] "Musiker"                   "Sportler"                 
-## [5] "religiöse Vorbilder"       "sonstige Promis"          
-## [7] "Influencer"                "Sonstiges"                
-## [9] "Weiß nicht"
+## [1] "male"           "none"           "female"         "hermaphroditic"
+## [5] NA
 \end{verbatim}
 
 Der \textbf{Modus} ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln.
 
 Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).
 
-Alternativ gibt es noch eine \texttt{Mode()}-Funktion im \texttt{DescTools}-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: \texttt{Mode()} muss hier zwingend groß geschrieben werden!!
+Alternativ gibt es noch eine \texttt{Mode()}-Funktion im \texttt{DescTools}-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: \texttt{Mode()} muss hier zwingend groß geschrieben werden!! Außerdem liefert die Funktion kein Ergebnis zurück, wenn es zwei gleich hohe höchste Ausprägungen gibt.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(DescTools)}
 
-\FunctionTok{Mode}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{vorbild\_codiert, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{Mode}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{sex, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1
+## [1] "male"
 ## attr(,"freq")
-## [1] 136
+## [1] 60
 \end{verbatim}
 
-Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung ``1'' (Modus = 1). Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n). Aus der Liste der Wertelabels oben wissen wir, dass es sich bei 1 um die ``Eltern'' handelt.
+Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung ``male''. Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).
 
 \hypertarget{ordinale-daten}{%
 \subsection{Ordinale Daten}\label{ordinale-daten}}
@@ -2661,26 +2681,28 @@ Der \textbf{Median} teilt die (sortierten) Fälle einer Variablen in zwei gleich
 
 Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht \texttt{median()}. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären müssen sie vorab aus der Analyse entfernt werden, mit \texttt{na.rm\ =\ TRUE} (\emph{NA remove}).
 
+Im Datensatz gibt es keine echte ordinale Vraiable, deshalb nehme ich im folgenden die Größe in cm als Beispiel:
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{median}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zufriedenheit\_leben, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{median}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2
+## [1] 180
 \end{verbatim}
 
 Die \textbf{Spannweite} (\emph{range}) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt also den höchsten und den niedrigsten Wert.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{range}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{zufriedenheit\_leben, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{range}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 4
+## [1]  66 264
 \end{verbatim}
 
 Über die Funktionen \texttt{min()} und \texttt{max()} kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.
@@ -2689,80 +2711,82 @@ Wie oben erwähnt teilt der Median die Verteilung der Werte in zwei gleiche Häl
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{quantile}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{quantile}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##   0%  25%  50%  75% 100% 
-##   14   16   19   22   24
+##   66  167  180  191  264
 \end{verbatim}
 
 Es handelt sich um 5 Grenzen, weil der niedrigste und der hächste Wert mit ausgegeben werden. Die Quartile befinden sich quasi ``zwischen'' diesen 5 Grenzpunkten.
 
-Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 16 und 22 Jahre (= 6 Jahre).
+Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{IQR}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{IQR}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 6
+## [1] 24
 \end{verbatim}
 
 \hypertarget{metrische-daten}{%
 \subsection{Metrische Daten}\label{metrische-daten}}
 
-Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz. Üblich ist aber vor allem das \textbf{``arithmetische Mittel''}, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion \texttt{mean()} habe ich in den Einführungskapiteln bereits als Beispiel genutzt.
+Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das \textbf{``arithmetische Mittel''}, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion \texttt{mean()} habe ich in den Einführungskapiteln bereits als Beispiel genutzt.
+
+Als Beispiel benutze ich hier dei Vraiable für das Gewicht.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 19.12823
+## [1] 97.31186
 \end{verbatim}
 
-Der Altersdurchschnitt im Sample beträgt also 19,1 Jahre.
+Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?).
 
-Bei dieser Variable ist es nicht sinnvoll, aber mit \texttt{mean()} kann man sich auch ein \textbf{getrimmtes Mittel} ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte (die es in dieser Variable nicht gibt).
+Man kann sich auch ein \textbf{getrimmtes Mittel} ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Character ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischers Bild:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{mass, }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 19.15261
+## [1] 75.43673
 \end{verbatim}
 
-Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 19 Jahre) nur erreicht wird, weil alle Befragten 19 Jahre alt sind, weil es sehr viele 14 und 24-Jährige im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben \textbf{Streuungsmaße} Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die \textbf{Streuung} (\emph{standard deviation}).
+Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben \textbf{Streuungsmaße} Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die \textbf{Streuung} (\emph{standard deviation}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{sd}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3.177417
+## [1] 169.4572
 \end{verbatim}
 
 Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{var}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{var}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 10.09598
+## [1] 28715.73
 \end{verbatim}
 
 \hypertarget{schiefe-und-kurtosis}{%
@@ -2775,12 +2799,12 @@ Im \texttt{psych}-Paket gibt es Funktionen für beides:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(psych)}
-\FunctionTok{skew}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{skew}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.06328724
+## [1] -1.025488
 \end{verbatim}
 
 Zur Erinnerung:
@@ -2800,12 +2824,12 @@ Hier noch der Code zur Berechnung der Kurtosis:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{kurtosi}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{kurtosi}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.250003
+## [1] 1.776414
 \end{verbatim}
 
 \hypertarget{uxfcbersichts-funktionen}{%
@@ -2815,42 +2839,46 @@ Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgebe
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{summary}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{alter)}
+\FunctionTok{summary}\NormalTok{(starwars}\SpecialCharTok{$}\NormalTok{height)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   14.00   16.00   19.00   19.13   22.00   24.00
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    66.0   167.0   180.0   174.4   191.0   264.0       6
 \end{verbatim}
 
 Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte \texttt{psych}-Paket hat z.B. eine \texttt{describe()}-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz.
 
+In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (\texttt{{[},\ 1:11{]}}), weil die Funktion describe mit diesen Variablen nicht funktioniert.
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{desc\_stats }\OtherTok{\textless{}{-}} \FunctionTok{describe}\NormalTok{(data)}
+\NormalTok{desc\_stats }\OtherTok{\textless{}{-}} \FunctionTok{describe}\NormalTok{(starwars[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{11}\NormalTok{])}
 \FunctionTok{head}\NormalTok{(desc\_stats)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##                     vars    n    mean     sd median trimmed    mad  min  max
-## za_nr                  1 1006 6738.00   0.00   6738 6738.00   0.00 6738 6738
-## version*               2 1006     NaN     NA     NA     NaN     NA  Inf -Inf
-## doi*                   3 1006     NaN     NA     NA     NaN     NA  Inf -Inf
-## lfdn                   4 1006 2314.19 407.58   2309 2307.73 517.43 1634 3082
-## zufriedenheit_leben    5  996    1.94   0.61      2    1.91   0.00    1    4
-## zukunft_persoenlich    6  985    1.92   0.61      2    1.88   0.00    1    4
-##                     range skew kurtosis    se
-## za_nr                   0  NaN      NaN  0.00
-## version*             -Inf   NA       NA    NA
-## doi*                 -Inf   NA       NA    NA
-## lfdn                 1448 0.09    -1.17 12.85
-## zufriedenheit_leben     3 0.27     0.52  0.02
-## zukunft_persoenlich     3 0.49     1.30  0.02
+##             vars  n   mean     sd median trimmed   mad min  max range  skew
+## name*          1 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+## height         2 81 174.36  34.77    180  178.17 19.27  66  264   198 -1.03
+## mass           3 59  97.31 169.46     79   75.44 16.31  15 1358  1343  6.97
+## hair_color*    4 82    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+## skin_color*    5 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+## eye_color*     6 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+##             kurtosis    se
+## name*             NA    NA
+## height          1.78  3.86
+## mass           48.93 22.06
+## hair_color*       NA    NA
+## skin_color*       NA    NA
+## eye_color*        NA    NA
 \end{verbatim}
 
-Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen sinnvoll sind. Die Variable \texttt{lfdn} gibt z.B. einfach die ID des Befragten an. Ein Mittelwert der Befragtennummer ist keine nützliche Angabe. R rechnet alle Statistiken einfach aus, ganz unabhängig davon, ob dies zulässig ist!
+Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden, z.B. ``mad''). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen durchgeführt werden. Ein Mittelwert der Namen ist auch keine nützliche Angabe. Mit dem zusätzlichen Argument \texttt{omit\ =\ TRUE} kann man diese Zeilen ausblenden.
+
+Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.
 
 \hypertarget{wichtige-funktionen-aus-diesem-kapitel-1}{%
 \section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel-1}}

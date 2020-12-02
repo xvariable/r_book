@@ -6,7 +6,7 @@ Im `psych`-Paket gibt es Funktionen für beides:
 
 ```{r skew, message=FALSE}
 library(psych)
-skew(data$alter, na.rm = TRUE)
+skew(starwars$height, na.rm = TRUE)
 ```
 
 Zur Erinnerung: 
@@ -22,5 +22,5 @@ Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein we
 Hier noch der Code zur Berechnung der Kurtosis:
 
 ```{r kurtosi}
-kurtosi(data$alter, na.rm = TRUE)
+kurtosi(starwars$height, na.rm = TRUE)
 ```
