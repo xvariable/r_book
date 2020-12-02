@@ -1,0 +1,15 @@
+## Wichtige Funktionen aus diesem Kapitel {-}
+
+| Funktion           | Paket               | Beschreibung                    | Bemerkung             |
+|--------------------|---------------------|---------------------------------|-----------------------|
+|`%>%`               | tidyverse/magrittr  | Pipe-Operator                   |                       |
+|`filter`            | tidyverse/dplyr     | Fälle auswählen                 | Filterbedingung mitrelationalen und logischen Operatoren |
+|`arrange()`         | tidyverse/dplyr     | Sortieren                       |                       |
+|`arrange(desc())`   | tidyverse/dplyr     | Absteigend sortieren            |                       |
+|`select()`          | tidyverse/dplyr     | Variablen auswählen oder umsortieren | Selection Helpers |
+|`rec()`             | sjmisc              | Variablen recodieren            | Recodieranweisung als Text |
+|`row_sums()`        | sjmisc              | Summenindex berechnen           | n, var                |
+|`row_means()`       | sjmisc              | Mittelwertindex berechnen       | n, var                |
+|`mutate()`          | tidyverse/dplyr     | Variablen berechnen             |                       |
+|`summarize())`      | tidyverse/dplyr     | Daten aggregieren               |                       |
+|`group_by()`        | tidyverse/dplyr     | Daten aufteilen                 |                       |

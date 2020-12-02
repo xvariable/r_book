@@ -1876,7 +1876,7 @@ Im einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:
 \item
   \texttt{rec()} zum Umcodieren von Variablen
 \item
-  \texttt{mutate()} zum Anlegen und Berechnen neuer Variablen
+  \texttt{row\_means()} und \texttt{row\_sums()} sowie \texttt{mutate()} zum Anlegen und Berechnen neuer Variablen
 \item
   \texttt{select()} zur Auswahl von Variablen
 \item
@@ -2033,44 +2033,48 @@ Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien ve
 
 Artwork by Allison Horst
 
-Im folgenden Beispiel möchte ich einen Datensatz erstellen, der nur Fälle von Personen enthält, die angegeben haben aus dem Bundesland Niedersachsen (Code 3) zu kommen. Bevor man einen Filter anwendet, sollte man sich aber zunächst einen Überblick über die Ausgangslage verschaffen. Ich lasse mir deshalb einmal die Anzahl der Zeilen im Datensatz ausgeben und schaue mir die ersten paar Fälle an:
+Im folgenden Beispiel möchte ich einen Starwars-Datensatz erstellen, der nur Fälle von Figuren enthält, deren Körpergröße mindestens bei 200 cm liegt. Bevor man einen Filter anwendet, sollte man sich aber zunächst einen Überblick über die Ausgangslage verschaffen. Ich lasse mir deshalb einmal die Anzahl der Zeilen im Datensatz ausgeben und schaue mir die ersten paar Fälle an:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{nrow}\NormalTok{(data)}
+\FunctionTok{nrow}\NormalTok{(starwars)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1006
+## [1] 87
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(data)}
+\FunctionTok{head}\NormalTok{(starwars)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1634    23          1          7                 2                    2
-## 2 1636    24          2          6                 2                    3
-## 3 1637    23          1          3                 2                    2
-## 4 1638    23          2          1                 2                    3
-## 5 1639    24          1          7                 3                    3
-## 6 1640    24          2          8                 4                    4
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 5 Leia~    150    49 brown      light      brown           19   fema~ femin~
+## 6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
-Okay, der ursprüngliche Datensatz hat 1006 Zeilen (Befragte) und bei den Bundesländern gibt es gemischte Werte (z.B. 1, 3, 6 usw.).
+Okay, der ursprüngliche Datensatz hat 87 Zeilen (Starwars-Charactere) und bei der Körpergröße ``height'' gibt es gemischte Werte (über und unter 200 cm).
 
 Als nächstes muss eine Filterbedingung festgelegt werden. Die Filterbedingung ist nach den Daten das zweite und zwingende Argument, dass die \texttt{filter()}-Funktion benötigt. Hier kommt der Datentyp ``logical'' ins Spiel, den wir \protect\hyperlink{atomic_vector_types}{hier} besprochen haben. Anhand der Filterbedingung prüft die Funktion \texttt{filter()} für jeden Fall im Datensatz, ob eine zuvor von uns definierte Bedingung \texttt{TRUE} oder \texttt{FALSE} ist. Ist das Ergebnis der Prüfung \texttt{TRUE} verbleibt der Fall im Datensatz. Ist es \texttt{FALSE} wird der Fall aus dem Datensatz entfernt. Die Prüfung erfolgt anhand der relationalen Operatoren (z.B. \texttt{==} für ``ist gleich'', \texttt{!=} für ``ist ungleich'' oder \texttt{\textless{}} für ``ist kleiner als'').
 
-Im Beispiel wollen wir alle Niedersachsen in einem Datensatz abspeichern. Wir müssen also die Bedingung ``Das Bundesland ist gleich Niedersachsen'' so formulieren, dass R sie versteht. Wir wissen bereits, dass Niedersachsen den Code 3 hat also ist die Filterbedingung: \texttt{bundesland\ ==\ 3}. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator \texttt{\textless{}-} verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden.
+Im Beispiel wollen wir Starwarsfiguren die eine Mindestgröße von 200 überschreiten in einem Datensatz abspeichern. Wir müssen also die Bedingung ``Die Größe ist mindestens 200 cm'' so formulieren, dass R sie versteht. Das geht mit der Bedingung \texttt{height\ \textgreater{}=\ 200}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{data\_nds }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(bundesland }\SpecialCharTok{==} \DecValTok{3}\NormalTok{)}
+\NormalTok{data\_tall }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(height }\SpecialCharTok{\textgreater{}=} \DecValTok{200}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2078,33 +2082,78 @@ Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{nrow}\NormalTok{(data\_nds)}
+\FunctionTok{nrow}\NormalTok{(data\_tall)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 107
+## [1] 11
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(data\_nds)}
+\FunctionTok{head}\NormalTok{(data\_tall)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1637    23          1          3                 2                    2
-## 2 1641    23          2          3                 3                    3
-## 3 1657    14          2          3                 2                    2
-## 4 1680    15          1          3                 1                   99
-## 5 1692    17          2          3                 2                    3
-## 6 1717    15          2          3                 3                    3
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 2 Chew~    228   112 brown      unknown    blue           200   male  mascu~
+## 3 IG-88    200   140 none       metal      red             15   none  mascu~
+## 4 Roos~    224    82 none       grey       orange          NA   male  mascu~
+## 5 Rugo~    206    NA none       green      orange          NA   male  mascu~
+## 6 Yara~    264    NA none       white      yellow          NA   male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
-Tatsächlich! Im Datensatz sind jetzt nur noch n = 107 Fälle und in der Variable \texttt{bundesland} haben alle Fälle den Wert 3.
+Tatsächlich! Im Datensatz sind jetzt nur noch n = 14 Fälle und in der Variable \texttt{height} haben alle den Wert 200 oder einen höheren Wert.
 
-Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die aus Niedersachsen oder Hamburg kommen und jünger als 18 Jahre sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.
+Natürlich kann man in R auch auf nonminale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: \texttt{eye\_color\ ==\ "orange"}. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator \texttt{\textless{}-} verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir baruchen Sie, weil es sich um eine Text-Variable (character) handelt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data\_orange }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(eye\_color }\SpecialCharTok{==} \StringTok{"orange"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Und Kontrolle:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(data\_orange)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(data\_orange)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Jabb~    175  1358 <NA>       green-tan~ orange           600 herm~ mascu~
+## 2 Ackb~    180    83 none       brown mot~ orange            41 male  mascu~
+## 3 Jar ~    196    66 none       orange     orange            52 male  mascu~
+## 4 Roos~    224    82 none       grey       orange            NA male  mascu~
+## 5 Rugo~    206    NA none       green      orange            NA male  mascu~
+## 6 Sebu~    112    40 none       grey, red  orange            NA male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
+\end{verbatim}
+
+Perfekt! Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die orange oder gelbe Augen haben und größer als 200 cm sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.
 
 Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind:
 
@@ -2117,19 +2166,19 @@ Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig aussc
   \texttt{!} für ``nicht''
 \end{itemize}
 
-Die Bedingung ``aus Niedersachsen oder Hamburg und jünger als 18 Jahre'' lässt sich also wie folgt formulieren: \texttt{(bundesland\ =\ 3\ \textbar{}\ bundesland\ =\ 2)\ \&\ alter\ \textless{}\ 18}. Hier kommt es haargeanau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise alle Niedersachen (egal welchen Alters) und alle Hamburger unter 18 in den Dataframe packen.
+Die Bedingung ``orange oder gelbe Augen und von Tatooine'' lässt sich also wie folgt formulieren: \texttt{(eye\_color\ ==\ "orange"\ \textbar{}\ eye\_color\ ==\ "yellow")\ \&\ height\ \textgreater{}\ 200}. Hier kommt es haargeanau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise orange-äugigen (egal welche Körpergröße) und alle gelb-äugigen mit Körpergröße über 200 cm in den Dataframe packen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{data\_filter }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{((bundesland }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{|}\NormalTok{ bundesland }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ alter }\SpecialCharTok{\textless{}} \DecValTok{18}\NormalTok{)}
+\NormalTok{data\_filter }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{((eye\_color }\SpecialCharTok{==} \StringTok{"orange"} \SpecialCharTok{|}\NormalTok{ eye\_color }\SpecialCharTok{==} \StringTok{"yellow"}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ height }\SpecialCharTok{\textgreater{}} \DecValTok{200}\NormalTok{)}
 
 \FunctionTok{nrow}\NormalTok{(data\_filter)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 49
+## [1] 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -2139,28 +2188,30 @@ Die Bedingung ``aus Niedersachsen oder Hamburg und jünger als 18 Jahre'' lässt
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1657    14          2          3                 2                    2
-## 2 1659    15          1          2                 2                    2
-## 3 1680    15          1          3                 1                   99
-## 4 1685    16          2          2                 2                    2
-## 5 1692    17          2          3                 2                    3
-## 6 1717    15          2          3                 3                    3
+## # A tibble: 4 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 2 Roos~    224    82 none       grey       orange          NA   male  mascu~
+## 3 Rugo~    206    NA none       green      orange          NA   male  mascu~
+## 4 Yara~    264    NA none       white      yellow          NA   male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
-Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable \texttt{verbundenheit\_europa} einen fehlenden Wert (hier als 99 = ``Weiß nicht'' codiert) haben:
+Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable \texttt{height} einen fehlenden Wert (NA) haben:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{data\_filter\_na }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(verbundenheit\_europa))}
+\NormalTok{data\_filter\_na }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(height))}
 
 \FunctionTok{nrow}\NormalTok{(data\_filter\_na)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 951
+## [1] 81
 \end{verbatim}
 
 \begin{Shaded}
@@ -2170,13 +2221,17 @@ Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, is
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1634    23          1          7                 2                    2
-## 2 1636    24          2          6                 2                    3
-## 3 1637    23          1          3                 2                    2
-## 4 1638    23          2          1                 2                    3
-## 5 1639    24          1          7                 3                    3
-## 6 1640    24          2          8                 4                    4
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
+## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
+## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+## 5 Leia~    150    49 brown      light      brown           19   fema~ femin~
+## 6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
 \hypertarget{arrange-fuxe4lle-sortieren}{%
@@ -2184,25 +2239,29 @@ Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, is
 
 Mit ´arrange()` lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.
 
-Der Einsatz von \texttt{arrange()} ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben nach der sortiert werden soll, hier z.B. nach dem Alter:
+Der Einsatz von \texttt{arrange()} ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben nach der sortiert werden soll, hier z.B. nach der Körpergröße:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# aufsteigend sortieren}
-\NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(alter) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(height) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1657    14          2          3                 2                    2
-## 2 1662    14          2          7                 1                    1
-## 3 1734    14          1         11                 1                    1
-## 4 1748    14          1         13                 2                    2
-## 5 1753    14          1          2                 2                    2
-## 6 1757    14          1          8                 1                    2
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Yoda      66    17 white      green      brown            896 male  mascu~
+## 2 Ratt~     79    15 none       grey, blue unknown           NA male  mascu~
+## 3 Wick~     88    20 brown      brown      brown              8 male  mascu~
+## 4 Dud ~     94    45 none       blue, grey yellow            NA male  mascu~
+## 5 R2-D2     96    32 <NA>       white, bl~ red               33 none  mascu~
+## 6 R4-P~     96    NA none       silver, r~ red, blue         NA none  femin~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
 Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von \texttt{desc()}. Das sieht dann so aus:
@@ -2210,20 +2269,24 @@ Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu err
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# absteigend sortieren}
-\NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(alter))}\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(height))}\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 1636    24          2          6                 2                    3
-## 2 1639    24          1          7                 3                    3
-## 3 1640    24          2          8                 4                    4
-## 4 1648    24          2         14                 2                    3
-## 5 1651    24          1          7                 2                    3
-## 6 1665    24          2          5                 2                    2
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Yara~    264    NA none       white      yellow            NA male  mascu~
+## 2 Tarf~    234   136 brown      brown      blue              NA male  mascu~
+## 3 Lama~    229    88 none       grey       black             NA male  mascu~
+## 4 Chew~    228   112 brown      unknown    blue             200 male  mascu~
+## 5 Roos~    224    82 none       grey       orange            NA male  mascu~
+## 6 Grie~    216   159 none       brown, wh~ green, y~         NA male  mascu~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
 Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei aufsteigende und absteigende Sortierung nach Belieben mischen:
@@ -2231,20 +2294,24 @@ Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei au
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# nach mehreren Variablen sortieren}
-\NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(bundesland, alter, }\FunctionTok{desc}\NormalTok{(geschlecht))}\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(sex, hair\_color, }\FunctionTok{desc}\NormalTok{(height))}\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter geschlecht bundesland verbundenheit_dtl verbundenheit_europa
-## 1 2308    14          2          1                 2                    3
-## 2 1696    15          2          1                 2                    2
-## 3 2080    15          2          1                 2                    2
-## 4 2300    15          2          1                 2                    2
-## 5 1929    15          1          1                 2                    3
-## 6 2112    15          1          1                 3                    2
+## # A tibble: 6 x 14
+##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Mon ~    150  NA   auburn     fair       blue              48 fema~ femin~
+## 2 Lumi~    170  56.2 black      yellow     blue              58 fema~ femin~
+## 3 Barr~    166  50   black      yellow     blue              40 fema~ femin~
+## 4 Shmi~    163  NA   black      fair       brown             72 fema~ femin~
+## 5 Zam ~    168  55   blonde     fair, gre~ yellow            NA fema~ femin~
+## 6 Beru~    165  75   brown      light      blue              47 fema~ femin~
+## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
 \hypertarget{select-variablen-auswuxe4hlen}{%
@@ -2255,51 +2322,57 @@ Die Funktion \texttt{select()} dient genau wie \texttt{filter()} dazu, den Daten
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Variablen auswählen}
-\NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(alter, geschlecht, verbundenheit\_europa) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(name, homeworld, species) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   alter geschlecht verbundenheit_europa
-## 1    23          1                    2
-## 2    24          2                    3
-## 3    23          1                    2
-## 4    23          2                    3
-## 5    24          1                    3
-## 6    24          2                    4
+## # A tibble: 6 x 3
+##   name           homeworld species
+##   <chr>          <chr>     <chr>  
+## 1 Luke Skywalker Tatooine  Human  
+## 2 C-3PO          Tatooine  Droid  
+## 3 R2-D2          Naboo     Droid  
+## 4 Darth Vader    Tatooine  Human  
+## 5 Leia Organa    Alderaan  Human  
+## 6 Owen Lars      Tatooine  Human
 \end{verbatim}
 
-Will man nur einzelne Variablen löschen, so geht dies mit einem \texttt{-} vor dem Variablennamen \texttt{select(data,\ -alter)} löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.
+Will man nur einzelne Variablen löschen, so geht dies mit einem \texttt{-} vor dem Variablennamen \texttt{select(data,\ -birth\_year)} löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.
 
-Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit ``vertaruen\_medien\_'' beginnt. Die Syntax dafür ist \texttt{starts\_with("vertrauen\_medien\_")}. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von \texttt{var\_name\_1} bis \texttt{var\_name\_x}. Dafür müsste man bspw. \texttt{alter:bundesland} eingeben.
+Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit ``vertrauen\_medien\_'' beginnt. Die Syntax dafür ist \texttt{starts\_with("vertrauen\_medien\_")}. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von \texttt{var\_name\_1} bis \texttt{var\_name\_x}. Dafür müsste man bspw. \texttt{height:eye\_color} eingeben.
 
 Zudem kann \texttt{select()} auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funtion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion \texttt{everything()} - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Variablen neu sortieren}
-\NormalTok{data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(lfdn, bundesland, }\FunctionTok{everything}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(name, homeworld, }\FunctionTok{everything}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn bundesland alter geschlecht verbundenheit_dtl verbundenheit_europa
-## 1 1634          7    23          1                 2                    2
-## 2 1636          6    24          2                 2                    3
-## 3 1637          3    23          1                 2                    2
-## 4 1638          1    23          2                 2                    3
-## 5 1639          7    24          1                 3                    3
-## 6 1640          8    24          2                 4                    4
+## # A tibble: 6 x 14
+##   name  homeworld height  mass hair_color skin_color eye_color birth_year sex  
+##   <chr> <chr>      <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr>
+## 1 Luke~ Tatooine     172    77 blond      fair       blue            19   male 
+## 2 C-3PO Tatooine     167    75 <NA>       gold       yellow         112   none 
+## 3 R2-D2 Naboo         96    32 <NA>       white, bl~ red             33   none 
+## 4 Dart~ Tatooine     202   136 none       white      yellow          41.9 male 
+## 5 Leia~ Alderaan     150    49 brown      light      brown           19   fema~
+## 6 Owen~ Tatooine     178   120 brown, gr~ light      blue            52   male 
+## # ... with 5 more variables: gender <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 \end{verbatim}
 
 \hypertarget{variablen-umcodieren}{%
 \section{Variablen umcodieren}\label{variablen-umcodieren}}
 
-Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die ``falsch herum'' codiert wurden zu drehen: In unserem Mini-Datensatz sind beispielsweise die Variablen zu ``Verbundenheit'' unintutiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label ``sehr verbunden'', der Wert 5 ist hingegen mit ``überhaupt nicht verbunden'' codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable \texttt{verbundenheit\_europa}.
+Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die ``falsch herum'' codiert wurden zu drehen: In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu ``Verbundenheit'' unintutiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label ``sehr verbunden'', der Wert 5 ist hingegen mit ``überhaupt nicht verbunden'' codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable \texttt{verbundenheit\_europa}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2325,7 +2398,7 @@ Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodie
 
 Intutiver währe es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gepabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl \texttt{rec()} aus dem Paket \texttt{sjmisc}. Der Befehl ist sehr stark an die Logik von SPSS angelehnt.
 
-Der \texttt{rec()}-Befehl fügt sich in die Tydiverse-Logik ein und erwartet als erstes Argument genau wie die \texttt{dplyr}-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argeument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit \texttt{verbundenheit\_} beginnen. Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt \texttt{rec} und beinhaltet einen Text mit den Anweisungen in der Form \texttt{"werte\_label\ =\ neuer\_wert"}. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die ``restlichen'' Werte durch ein \texttt{"else=copy"} auffangen. Dadurch wird der Wert aus der urspründlichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = ``weiß nicht''. Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
+Der \texttt{rec()}-Befehl fügt sich in die Tidyverse-Logik ein und erwartet als erstes Argument genau wie die \texttt{dplyr}-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argeument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit \texttt{verbundenheit\_} beginnen. Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt \texttt{rec} und beinhaltet einen Text mit den Anweisungen in der Form \texttt{"werte\_label\ =\ neuer\_wert"}. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die ``restlichen'' Werte durch ein \texttt{"else=copy"} auffangen. Dadurch wird der Wert aus der urspründlichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = ``weiß nicht''. Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
 
 Die Funktion \texttt{rec()} erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein \texttt{\_r} am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.
 
@@ -2359,33 +2432,112 @@ Die Funktion \texttt{rec()} erzeugt neue Variablen, die den gleichen Namen haben
 
 Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein ``nebeneinanderlegen'' der beiden Variablen.
 
-Eine kleine Ergänzung noch: Selbstverständlich funktioniert \texttt{rec()} auch mit nicht-gelabelten Daten. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: \texttt{"1=4;2=3;3=2;4=1;else=copy"}
+Eine kleine Ergänzung noch. Ich habe den Datensatz hier über das sjlabelled-Paket in R hinein geladen: Selbstverständlich funktioniert \texttt{rec()} auch mit nicht-gelabelten Daten oder daten, die durch das haven-Paket eingelesen wurden. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: \texttt{"1=4;2=3;3=2;4=1;else=copy"}
 
-\hypertarget{mutate-variablen-berechnen}{%
-\section{Mutate: Variablen berechnen}\label{mutate-variablen-berechnen}}
-
-Mit \texttt{mutate()} kann man neue Variablen bilden. Die Syntax dazu folgt dem Schema \texttt{new\_var\_name\ =\ some\ calculation}. Im nächsten Code-Beispiel wird der Geburtsjahrgang anhand des Alters zum Zeitpunkt der Befragung berechnet. Damit wir die Daten schön vergleichen können, wähle ich die beiden Variablen anschließend aus.
+Hier noch ein Beispiel mit dem Starwars-DAtensatz, in dem die Variable für die Körpergröße in drei Gruppen eingeteilt wird:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Geburtsjahr berechnen}
-\NormalTok{new\_data }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{jahrgang =} \DecValTok{2019} \SpecialCharTok{{-}}\NormalTok{ alter) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(lfdn, alter, jahrgang)}
+\NormalTok{sw\_age\_grp }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rec}\NormalTok{(height, }\AttributeTok{rec =} \StringTok{"1:150 = small; }
+\StringTok{                     151:190 = medium; }
+\StringTok{                     190:900 = tall; }
+\StringTok{                     else=NA"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\FunctionTok{head}\NormalTok{(new\_data)}
+\hypertarget{variablen-berechnen}{%
+\section{Variablen berechnen}\label{variablen-berechnen}}
+
+Es gibt viele unterschiedliche Wege wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.
+
+Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das \texttt{sjmisc}-Paket und aus dem Tidyverse die Funktion \texttt{mutate()}.
+
+\hypertarget{summen-und-mittelwertindices}{%
+\subsection{Summen und Mittelwertindices}\label{summen-und-mittelwertindices}}
+
+Indices zu berechnen ist eine häufige Task bei der Datenaufbereitung. Zwei besonders häufige Formen sind:
+
+\begin{itemize}
+\item
+  Der \textbf{Summenindex}, bei dem die Werte mehrerer Variablen einfach aufsummiert werden (z.B. Anzahl genutzer Webseiten, Gesamtmediennutzungsdauer in Minuten)
+\item
+  Der \textbf{Mittelwertindex}, bei dem ein Mittelwert über mehrere Variablen hinweg gebildet wird.
+\end{itemize}
+
+Für diese beiden Index-Arten hält das \texttt{sjmisc}-Paket zwei interessante Funktionen bereit \texttt{row\_sums()} und \texttt{row\_means()}.
+Ich demonstriere im folgenden die \texttt{row\_means()}-Funktion, aber \texttt{row\_sums()} funktioniert vom Prinzip her gleich. Ich bleibe dazu beim Generation-Z-Datensatz. Ich möchte jetzt für die 5 Verbundenheits-Variablen einen Mittelwertindex berechnen (ob das inhaltlich super sinnvoll ist, sei mal dahingestellt\ldots).
+
+Der Einsatz der Funktion sieht wie folgt aus:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gen\_z\_df\_mean }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{row\_means}\NormalTok{(verbundenheit\_stadt\_r}\SpecialCharTok{:}\NormalTok{verbundenheit\_europa\_r, }\AttributeTok{n =} \DecValTok{4}\NormalTok{, }\AttributeTok{var =} \StringTok{"verbundenheit\_r\_mx"}\NormalTok{) }
+
+\FunctionTok{head}\NormalTok{(gen\_z\_df\_mean}\SpecialCharTok{$}\NormalTok{verbundenheit\_r\_mx)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   lfdn alter jahrgang
-## 1 1634    23     1996
-## 2 1636    24     1995
-## 3 1637    23     1996
-## 4 1638    23     1996
-## 5 1639    24     1995
-## 6 1640    24     1995
+## [1] 3.0  NA 2.6 3.0 2.2 1.6
 \end{verbatim}
+
+Neben dem Datensatz-Argument, welches hier wie gehabt über die Pipe übergeben wird, benötigt die Funktion \texttt{row\_means()} noch weitere Argumente:
+
+\begin{itemize}
+\item
+  Die Variablen, die in dem Index zusammengefasst werden sollen
+\item
+  das Argument \texttt{n\ =} in diesem Argument wird festgelegt, in wie vielen der Ursprungs-Variablen ein Fall einen gültigen Wert aufweisen muss, damit ein Index berechnet werden kann. Ich habe den Wert hier auf 4 gesetzt. Ein Befragter muss also mindestens 4 der 5 Variablen ausgefüllt haben, damit der Mittelwertindex berechnet wird.
+\item
+  Optional das Argument \texttt{var\ =}, das den Namen für den neuen Index in Anführungsstrichen enthält. Übergibt man dieses Argument nicht, wird der Index von R ``rowmeans'' genannt.
+\end{itemize}
+
+In der letzten Zeile lasse ich mir die ersten paar der errechneten Werte für die neue Variable/den neuen Mittelwertindex anzeigen.
+
+\hypertarget{berechnen-mit-dplyrmutate}{%
+\subsection{Berechnen mit dplyr::mutate()}\label{berechnen-mit-dplyrmutate}}
+
+Mit \texttt{mutate()} kann man neue Variablen bilden un zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema \texttt{new\_var\_name\ =\ some\ calculation}.
+
+Im nächsten Code-Beispiel wird der Bodymass-Index der Starwars-Figuren berechnet.
+
+Die Formel für den BMI ist:
+Gewicht durch Größe in Metern zum Quadrat.
+
+Da die Größe dafür in Metern angegeben sein muss, im Starwars-Datensatz aber nur cm erfasst sind, müssen wir zusätzlich auch noch die cm in Meter umrechnen.
+
+Damit wir die Daten im Anschluss an die Berechnung schön vergleichen können, wähle ich die beteiligten Variablen nach der Berechnung aus und sortiere nach dem BMI.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# BMI berechnen}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{bmi =}\NormalTok{ mass }\SpecialCharTok{/}\NormalTok{ (height}\SpecialCharTok{/}\DecValTok{100}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(name}\SpecialCharTok{:}\NormalTok{mass, bmi) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(bmi))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 87 x 4
+##    name                  height  mass   bmi
+##    <chr>                  <int> <dbl> <dbl>
+##  1 Jabba Desilijic Tiure    175  1358 443. 
+##  2 Dud Bolt                  94    45  50.9
+##  3 Yoda                      66    17  39.0
+##  4 Owen Lars                178   120  37.9
+##  5 IG-88                    200   140  35  
+##  6 R2-D2                     96    32  34.7
+##  7 Grievous                 216   159  34.1
+##  8 R5-D4                     97    32  34.0
+##  9 Jek Tono Porkins         180   110  34.0
+## 10 Darth Vader              202   136  33.3
+## # ... with 77 more rows
+\end{verbatim}
+
+Jetzt kennen Sie den BMI von Jabba the Hutt! Aber auch der BMI von Yoda ist ganz schön bedenklich\ldots{}
 
 \hypertarget{variablen-unter-einer-bedingung-berechnen}{%
 \subsection{Variablen unter einer Bedingung berechnen}\label{variablen-unter-einer-bedingung-berechnen}}
@@ -2428,39 +2580,41 @@ Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenhe
 
 Artwork by Allison Horst
 
-\hypertarget{summary-daten-verdichten}{%
-\section{Summary: Daten verdichten}\label{summary-daten-verdichten}}
+\hypertarget{summarize-daten-verdichten}{%
+\section{Summarize: Daten verdichten}\label{summarize-daten-verdichten}}
 
 Die letzte \texttt{dplyr}-Funktion auf die ich hier eingehen möchte ist \texttt{summarize()}. Im ersten Moment wirkt \texttt{summarize()} vielleicht ein bisschen wie eine komplizierte Art deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel "Deskriptive Statistiken vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis.
 
 Möglicherweise werden Sie die Funktion zunächst kaum benutzen, aber später wiederentdecken. Der Vollständigkeit halber wird sie trotzdem an dieser Stelle kurz erläutert.
 
-Im ersten Beispiel möchte ich den Mittelwert für die im vorigen Abschnitt berechnete Variable \texttt{sieht\_sich\_als\_europaeer} ausrechnen.
+Im ersten Beispiel möchte ich den Mittelwert für Körpergröße der Starwars-Figuren ausrechnen, das haben wir ja schon mal gemacht. Aber jetzt eben mit der \texttt{summarize()}-Funktion.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Test der summarize{-}Funktion}
-\NormalTok{data\_eu }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(sieht\_sich\_als\_europaeer, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##        mean
-## 1 0.3198725
+## # A tibble: 1 x 1
+##   mean_height
+##         <dbl>
+## 1        174.
 \end{verbatim}
 
-Das Ergebnis ist ein Datensatz, der eine neue Variable enthält die \texttt{mean} heißt und nur einen Fall hat. Soweit, so unspannend. Der Wert ist NA und darf als Anteilswert interpretiert werden, da die Variable 0/1-codiert ist. Knapp 32 Prozent der Befragten fühlen sich also stärker mit Europa als mit Deutschland verbunden.
+Das Ergebnis ist ein Datensatz, der eine neue Variable enthält die \texttt{mean\_height} heißt und nur einen Fall hat. Soweit, so unspannend.
 
-Das geschickte an \texttt{summarize()} ist, dass die Funktion perfekt mit \texttt{group\_by()} zusammenarbeitet. Mit \texttt{group\_by()} kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert bspw. ob regionale Unterschiede gibt. Vergleichen wir mal Hamburg (Wert 2) und Niedersachsen (Wert 3).
+Das geschickte an \texttt{summarize()} ist, dass die Funktion perfekt mit \texttt{group\_by()} zusammenarbeitet. Mit \texttt{group\_by()} kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert bspw. ob regionale Unterschiede bei der Größe der Charactere gibt. Vergleichen wir mal Tatooine und Naboo. Zusätzlich lasse ich noch die Fallzahl der Gruppen mit ausgeben (\texttt{n\ =\ n()}):
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# summarize mit filter \& group\_by}
-\NormalTok{data\_eu }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(bundesland }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{|}\NormalTok{ bundesland }\SpecialCharTok{==} \DecValTok{3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(bundesland) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(sieht\_sich\_als\_europaeer, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(homeworld }\SpecialCharTok{==} \StringTok{"Tatooine"} \SpecialCharTok{|}\NormalTok{ homeworld }\SpecialCharTok{==} \StringTok{"Naboo"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(homeworld) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2469,14 +2623,133 @@ Das geschickte an \texttt{summarize()} ist, dass die Funktion perfekt mit \textt
 \end{verbatim}
 
 \begin{verbatim}
-## # A tibble: 2 x 2
-##   bundesland  mean
-##   <labelled> <dbl>
-## 1 2          0.273
-## 2 3          0.375
+## # A tibble: 2 x 3
+##   homeworld  mean     n
+##   <chr>     <dbl> <int>
+## 1 Naboo      175.    11
+## 2 Tatooine   170.    10
 \end{verbatim}
 
-Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere Berechnungen wären hier denkbar.
+Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere Berechnungen wären hier denkbar. Einige nützliche Funktionen finden Sie in der Hilfe von \texttt{summarize()}.
+
+\hypertarget{wichtige-funktionen-aus-diesem-kapitel-1}{%
+\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel-1}}
+\addcontentsline{toc}{section}{Wichtige Funktionen aus diesem Kapitel}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\begin{minipage}[b]{0.20\columnwidth}\raggedright
+Funktion\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Paket\strut
+\end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\raggedright
+Beschreibung\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\raggedright
+Bemerkung\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{\%\textgreater{}\%}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/magrittr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Pipe-Operator\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{filter}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Fälle auswählen\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Filterbdingung mitrelationalen und logischen Operatoren\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{arrange()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Sortieren\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{arrange(desc())}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Absteigend sortieren\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{select()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Variablen auswählen oder umsortieren\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Selection Helpers\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{rec()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+sjmisc\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Variablen recodieren\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Recodieranweisung als Text\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{row\_sums()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+sjmisc\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Summenindex berechnen\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+n, var\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{row\_means()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+sjmisc\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Mittelwertindex berechnen\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+n, var\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{mutate()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Variablen berechnen\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{summarize())}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Daten aggregieren\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright
+\texttt{group\_by()}\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+tidyverse/dplyr\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+Daten aufteilen\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{deskriptive-statistik}{%
 \chapter{Deskriptive Statistik}\label{deskriptive-statistik}}
@@ -2880,8 +3153,8 @@ Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen
 
 Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.
 
-\hypertarget{wichtige-funktionen-aus-diesem-kapitel-1}{%
-\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel-1}}
+\hypertarget{wichtige-funktionen-aus-diesem-kapitel-2}{%
+\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel-2}}
 \addcontentsline{toc}{section}{Wichtige Funktionen aus diesem Kapitel}
 
 \begin{longtable}[]{@{}llll@{}}

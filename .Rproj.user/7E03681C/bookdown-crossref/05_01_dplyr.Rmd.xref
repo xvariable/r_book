@@ -7,7 +7,9 @@ h2:filter-fälle-auswählen Filter: Fälle auswählen
 h2:arrange-fälle-sortieren Arrange: Fälle sortieren
 h2:select-variablen-auswählen Select: Variablen auswählen
 h2:variablen-umcodieren Variablen umcodieren
-h2:mutate-variablen-berechnen Mutate: Variablen berechnen
+h2:variablen-berechnen Variablen berechnen
+h3:summen-und-mittelwertindices Summen und Mittelwertindices
+h3:berechnen-mit-dplyrmutate Berechnen mit dplyr::mutate()
 h3:variablen-unter-einer-bedingung-berechnen Variablen unter einer Bedingung berechnen
-h2:summary-daten-verdichten Summary: Daten verdichten
+h2:summarize-daten-verdichten Summarize: Daten verdichten
 
