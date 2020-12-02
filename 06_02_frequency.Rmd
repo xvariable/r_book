@@ -53,7 +53,8 @@ library(sjPlot)
 
 plot_frq(starwars$sex, sort.frq = "desc")
 ```
-Das Argument `sort.frq = "desc"` sorgt für eine absteigende sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
+
+Das Argument `sort.frq = "desc"` sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
 
 Über die Funktion `plot_frq()` sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument `type` mit an die Funktion übergeben (z.B. `type = "line"` oder `type = "dot"`). Auch Histogramme sind möglich (`type = "histogram`):
 
@@ -62,3 +63,4 @@ library(sjPlot)
 
 plot_frq(starwars$mass, type = "histogram")
 ```
+Das Histogramm offenbart in der Variable `mass` einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren. 

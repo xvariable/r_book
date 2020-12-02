@@ -13,7 +13,7 @@ Zur Erinnerung:
 
 - Ist die Schiefe > 0 so ist die Verteilung rechtsschief (Modus < Median < arithmetisches Mittel).
 
-- Ist die Schiefe = 0, so ist die Verteilung symetrisch  (Modus = Median = arithmetisches Mittel).
+- Ist die Schiefe = 0, so ist die Verteilung symmetrisch  (Modus = Median = arithmetisches Mittel).
 
 - Ist die Schiefe < 0 so ist die Verteilung linksschief (Modus > Median > arithmetisches Mittel).
 

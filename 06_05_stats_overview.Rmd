@@ -8,7 +8,7 @@ summary(starwars$height)
 
 Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte `psych`-Paket hat z.B. eine `describe()`-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz. 
 
-In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (`[, 1:11]`), weil die Funktion describe mit diesen Variablen nicht funktioniert.
+In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (`[, 1:11]`), weil die Funktion `describe()` mit diesen Variablen nicht funktioniert.
 
 ```{r describe, warning=FALSE}
 desc_stats <- describe(starwars[, 1:11])

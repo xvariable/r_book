@@ -292,7 +292,7 @@ data <- data %>%
                                              Überhaupt nicht verbunden = 1;
                                              else=copy") 
 
-# Beispielhaft die Variable verbundenheit_europa inkl. recodierter Variante anzeigen:
+# Beispielhaft die Variable verbundenheit_dtl inkl. recodierter Variante anzeigen:
 data %>% 
   select(starts_with("verbundenheit_dtl")) %>% 
   head()
