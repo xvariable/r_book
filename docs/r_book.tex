@@ -122,7 +122,7 @@
 \bibliographystyle{apalike}
 
 \author{Julia Niemann-Lenz}
-\date{2020-11-27}
+\date{2020-12-02}
 
 \begin{document}
 
@@ -974,7 +974,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2020-11-27"
+## [1] "2020-12-02"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -1812,6 +1812,54 @@ Genau wie bei einem Datensatz kann man die Elemente einer Liste auch benennen (d
 \end{verbatim}
 
 Natürlich kann man auch mehrere Listen zu einem Dataframe kombinieren. Das geht z.B. mit der Funktion \texttt{rbind()}(für \emph{row bind}).
+
+\hypertarget{wichtige-funktionen-aus-diesem-kapitel}{%
+\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel}}
+\addcontentsline{toc}{section}{Wichtige Funktionen aus diesem Kapitel}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Funktion & Paket & Beschreibung & Wichtige Argumente\tabularnewline
+\midrule
+\endhead
+\textbf{Grundsätzliches} & & &\tabularnewline
+\texttt{+}, \texttt{-}, \texttt{*},\texttt{/}, \texttt{\^{}} & base & einfache Rechenoperationen &\tabularnewline
+\texttt{\textless{}-} & base & einem Objekt einen Wert zuweisen &\tabularnewline
+\texttt{\$} & base & Über den Namen auf ein Element zugreifen & z.B. \texttt{df\$var}\tabularnewline
+\texttt{{[}{]}}, \texttt{{[}{[}{]}{]}} & base & Über den Index auf ein Element zugreifen & z.B. \texttt{{[}1,\ 4{]}}\tabularnewline
+\texttt{\#} & base & Kommentare schreiben &\tabularnewline
+\texttt{?}, \texttt{help()} & base & Hilfe aufrufen &\tabularnewline
+\texttt{vignette()} & base & Vignette aufrufen &\tabularnewline
+\texttt{getwd()} & base & Arbeitsverzeichnis ausgeben &\tabularnewline
+\texttt{setwd()} & base & Arbeitsverzeichnis setzen &\tabularnewline
+\textbf{Pakete} & & &\tabularnewline
+\texttt{install.packages()} & base & Pakete installieren &\tabularnewline
+\texttt{library()} & base & Pakete laden &\tabularnewline
+\textbf{Funktionen} & & &\tabularnewline
+\texttt{function()} & base & Funktionen schreiben &\tabularnewline
+\textbf{Daten importieren} & & &\tabularnewline
+\texttt{read\_csv2()} & tidyverse & Deutsche CSV-Dateien laden & Pfad, na\tabularnewline
+\texttt{write\_csv2()} & tidyverse & Deutsche CSV-Dateien speichern & Datenobjekt, Pfad\tabularnewline
+\texttt{read\_csv()} & tidyverse & Englische CSV-Dateien laden & Pfad, na\tabularnewline
+\texttt{write\_csv()} & tidyverse & Englische CSV-Dateien speichern & Datenobjekt, Pfad\tabularnewline
+\texttt{read\_excel()} & readxl & Excel-Dateien laden & Pfad, na\tabularnewline
+\texttt{read\_sav()} & haven & SPSS-Dateien laden & Pfad, na\tabularnewline
+\texttt{write\_sav()} & haven & SPSS-Dateien speichern & Datenobjekt, Pfad\tabularnewline
+\textbf{Daten erkunden} & & &\tabularnewline
+\texttt{head()} & utils & Kopf eines Dataframes ausgeben &\tabularnewline
+\texttt{names()} & base & Namen untergeordneter Objekte &\tabularnewline
+\texttt{ncol()} & base & Anzahl der Spalten &\tabularnewline
+\texttt{nrow()} & base & Anzahl der Zeilen &\tabularnewline
+\texttt{class()} & base & Klasse eines Objekts &\tabularnewline
+\texttt{typeof()} & base & Typ eines Objekts &\tabularnewline
+\textbf{Sonstiges} & & &\tabularnewline
+\texttt{c()} & base & Argumente kombinieren &\tabularnewline
+\texttt{new\_tibble()} & tidyverse & Tibble erstellen & Liste von Vektoren, n\tabularnewline
+\texttt{factor()} & base & Argumente kombinieren &\tabularnewline
+\texttt{list()} & base & Eine Liste anlegen &\tabularnewline
+\texttt{is.na()} & base & Prüft, ob ein Wert fehlend ist &\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{datenaufbereitung}{%
 \chapter{Datenaufbereitung}\label{datenaufbereitung}}
@@ -2804,8 +2852,8 @@ Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch me
 
 Da sind jetzt sogar einige dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen sinnvoll sind. Die Variable \texttt{lfdn} gibt z.B. einfach die ID des Befragten an. Ein Mittelwert der Befragtennummer ist keine nützliche Angabe. R rechnet alle Statistiken einfach aus, ganz unabhängig davon, ob dies zulässig ist!
 
-\hypertarget{wichtige-funktionen-aus-diesem-kapitel}{%
-\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel}}
+\hypertarget{wichtige-funktionen-aus-diesem-kapitel-1}{%
+\section*{Wichtige Funktionen aus diesem Kapitel}\label{wichtige-funktionen-aus-diesem-kapitel-1}}
 \addcontentsline{toc}{section}{Wichtige Funktionen aus diesem Kapitel}
 
 \begin{longtable}[]{@{}llll@{}}

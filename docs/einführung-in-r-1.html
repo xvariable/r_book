@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-11-27" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -247,6 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#faktoren"><i class="fa fa-check"></i><b>4.9.6</b> Faktoren</a></li>
 <li class="chapter" data-level="4.9.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#listen"><i class="fa fa-check"></i><b>4.9.7</b> Listen</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
 <ul>
@@ -280,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>6.3</b> Schiefe und Kurtosis</a></li>
 <li class="chapter" data-level="6.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.4</b> Übersichts-Funktionen</a></li>
-<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
@@ -473,7 +474,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Vielleicht haben Sie bemerkt, dass ich im Code bei der <code>mean()</code>- und der <code>print()</code>-Funktion das erste Argument nicht mit seinem Namen angesprochen habe. Natürlich hat auch dieses Argument einen Namen, es heißt <code>x</code>. Jedoch ist es sehr üblich, dass Daten-Objekte in Funktionen an vorderster Stelle übergeben werden. Es ist eine Konvention in diesem Fall den Namen doch wegzulassen.</p>
 <p>Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benötigen, wie etwa <code>Sys.Date()</code>. Diese Funktion gibt einfach nur das aktuelle Datum aus. Da sie dazu nur auf die Systemzeit des Computers zugreifen muss, braucht sie kein Argument.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="einführung-in-r-1.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2020-11-27&quot;</code></pre>
+<pre><code>## [1] &quot;2020-12-02&quot;</code></pre>
 </div>
 <div id="funktionen-verschachteln" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Funktionen verschachteln</h3>
@@ -994,6 +995,238 @@ Wenn man in R den Typ <code>ìnteger</code> zuweisen will muss man die explizit 
 <p>Natürlich kann man auch mehrere Listen zu einem Dataframe kombinieren. Das geht z.B. mit der Funktion <code>rbind()</code>(für <em>row bind</em>).</p>
 
 </div>
+</div>
+<div id="wichtige-funktionen-aus-diesem-kapitel" class="section level2 unnumbered">
+<h2>Wichtige Funktionen aus diesem Kapitel</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Funktion</th>
+<th>Paket</th>
+<th>Beschreibung</th>
+<th>Wichtige Argumente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Grundsätzliches</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>+</code>, <code>-</code>, <code>*</code>,<code>/</code>, <code>^</code></td>
+<td>base</td>
+<td>einfache Rechenoperationen</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;-</code></td>
+<td>base</td>
+<td>einem Objekt einen Wert zuweisen</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>base</td>
+<td>Über den Namen auf ein Element zugreifen</td>
+<td>z.B. <code>df$var</code></td>
+</tr>
+<tr class="odd">
+<td><code>[]</code>, <code>[[]]</code></td>
+<td>base</td>
+<td>Über den Index auf ein Element zugreifen</td>
+<td>z.B. <code>[1, 4]</code></td>
+</tr>
+<tr class="even">
+<td><code>#</code></td>
+<td>base</td>
+<td>Kommentare schreiben</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>?</code>, <code>help()</code></td>
+<td>base</td>
+<td>Hilfe aufrufen</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>vignette()</code></td>
+<td>base</td>
+<td>Vignette aufrufen</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>getwd()</code></td>
+<td>base</td>
+<td>Arbeitsverzeichnis ausgeben</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>setwd()</code></td>
+<td>base</td>
+<td>Arbeitsverzeichnis setzen</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Pakete</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>install.packages()</code></td>
+<td>base</td>
+<td>Pakete installieren</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>library()</code></td>
+<td>base</td>
+<td>Pakete laden</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Funktionen</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>function()</code></td>
+<td>base</td>
+<td>Funktionen schreiben</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Daten importieren</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>read_csv2()</code></td>
+<td>tidyverse</td>
+<td>Deutsche CSV-Dateien laden</td>
+<td>Pfad, na</td>
+</tr>
+<tr class="even">
+<td><code>write_csv2()</code></td>
+<td>tidyverse</td>
+<td>Deutsche CSV-Dateien speichern</td>
+<td>Datenobjekt, Pfad</td>
+</tr>
+<tr class="odd">
+<td><code>read_csv()</code></td>
+<td>tidyverse</td>
+<td>Englische CSV-Dateien laden</td>
+<td>Pfad, na</td>
+</tr>
+<tr class="even">
+<td><code>write_csv()</code></td>
+<td>tidyverse</td>
+<td>Englische CSV-Dateien speichern</td>
+<td>Datenobjekt, Pfad</td>
+</tr>
+<tr class="odd">
+<td><code>read_excel()</code></td>
+<td>readxl</td>
+<td>Excel-Dateien laden</td>
+<td>Pfad, na</td>
+</tr>
+<tr class="even">
+<td><code>read_sav()</code></td>
+<td>haven</td>
+<td>SPSS-Dateien laden</td>
+<td>Pfad, na</td>
+</tr>
+<tr class="odd">
+<td><code>write_sav()</code></td>
+<td>haven</td>
+<td>SPSS-Dateien speichern</td>
+<td>Datenobjekt, Pfad</td>
+</tr>
+<tr class="even">
+<td><strong>Daten erkunden</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>head()</code></td>
+<td>utils</td>
+<td>Kopf eines Dataframes ausgeben</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>names()</code></td>
+<td>base</td>
+<td>Namen untergeordneter Objekte</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>ncol()</code></td>
+<td>base</td>
+<td>Anzahl der Spalten</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>nrow()</code></td>
+<td>base</td>
+<td>Anzahl der Zeilen</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>class()</code></td>
+<td>base</td>
+<td>Klasse eines Objekts</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>typeof()</code></td>
+<td>base</td>
+<td>Typ eines Objekts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Sonstiges</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>c()</code></td>
+<td>base</td>
+<td>Argumente kombinieren</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>new_tibble()</code></td>
+<td>tidyverse</td>
+<td>Tibble erstellen</td>
+<td>Liste von Vektoren, n</td>
+</tr>
+<tr class="even">
+<td><code>factor()</code></td>
+<td>base</td>
+<td>Argumente kombinieren</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>list()</code></td>
+<td>base</td>
+<td>Eine Liste anlegen</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>is.na()</code></td>
+<td>base</td>
+<td>Prüft, ob ein Wert fehlend ist</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
             </section>
