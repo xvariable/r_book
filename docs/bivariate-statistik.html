@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
 <li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate verteilung</a></li>
+<li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramers V</a></li>
 </ul></li>
@@ -289,13 +289,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="bivariate-statistik" class="section level1">
 <h1><span class="header-section-number">Kapitel 7</span> Bivariate Statistik</h1>
-<p>In diesem Kapitel geht es um bivariate Verfahren, also die gemeinsame Variation von zwei Variablen. Im Detail behandeln wir hier die Kreztabelle und Chi-Quadrat sowie die Korrelation.</p>
+<p>In diesem Kapitel geht es um bivariate Verfahren, also die gemeinsame Variation von zwei Variablen. Im Detail behandeln wir hier die Kreuztabelle und Chi-Quadrat sowie die Korrelation.</p>
 
 <div id="kreuztabellen" class="section level2">
 <h2><span class="header-section-number">7.1</span> Kreuztabellen</h2>
-<p>Mit Kreuztabelle/Kontingenztabelle kann man den die Verteilung einer Variablen unter Berücksichtigun einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben.</p>
-<p>Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von Reihen- und Spaltenzahl sowie der Fallzahl unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramers V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variieiert. Über die Richtung von Zusammenhängen gibt aber auch Cramers V keine Auskunft. Dazu muss man in der Kreuztabelle nachssehen. Kreztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.</p>
-<p>Im folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zu politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die “0” bedeutet dabei, dass ein: Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und “1” bedeutet, dass sie mindestens einmal wahrgenommen wurde.</p>
+<p>Mit Kreuztabelle/Kontingenztabelle kann man den die Verteilung einer Variablen unter Berücksichtigung einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben.</p>
+<p>Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von Reihen- und Spaltenzahl sowie der Fallzahl unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramers V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramers V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.</p>
+<p>Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die “0” bedeutet dabei, dass ein: Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und “1” bedeutet, dass sie mindestens einmal wahrgenommen wurde.</p>
 <p>Außerdem enthält der Datensatz noch die Variable “alter_g3”, die ich in drei Gruppen eingeteilt habe (“14 bis 17 Jahre”, “18 bis 21 Jahre” und “22 bis 24 Jahre”).</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">head</span>(data)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 13
@@ -313,15 +313,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   pol_partizipation_parteiengagement &lt;dbl&gt;,
 ## #   pol_partizipation_anderes_engagement &lt;dbl&gt;,
 ## #   pol_partizipation_nichts_davon &lt;dbl&gt;</code></pre>
-<p>Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die da drinsteckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petiotionen.</p>
+<p>Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die da drinsteckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petitionen.</p>
 <p>Unsere H1 lautet also:</p>
-<p><em>Der Anteil derjenigen, die bereits eine Petition unterschieben haben, steigt mit zunehmendem Alter.</em></p>
-<p>Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, janitor für die Kreuztabellen und Chi-Quadrat und DescTools für Cramers V.</p>
+<p><em>Der Anteil derjenigen, die bereits eine Petition unterschrieben haben, steigt mit zunehmendem Alter.</em></p>
+<p>Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, <code>janitor</code> für die Kreuztabellen und Chi-Quadrat und <code>DescTools</code> für Cramers V.</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb187-2" data-line-number="2"><span class="kw">library</span>(janitor)</a>
 <a class="sourceLine" id="cb187-3" data-line-number="3"><span class="kw">library</span>(DescTools)</a></code></pre></div>
 <div id="vorbereitung-univariate-verteilung" class="section level3">
-<h3><span class="header-section-number">7.1.1</span> Vorbereitung: Univariate verteilung</h3>
+<h3><span class="header-section-number">7.1.1</span> Vorbereitung: Univariate Verteilung</h3>
 <p>Schauen wir uns zunächst einmal die univariate Verteilung der beiden Variablen an.
 Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln welche Verteilung wir erwarten würden.
 Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code></p>
@@ -342,7 +342,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 </div>
 <div id="kreuztabelle-ausgeben" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Kreuztabelle ausgeben</h3>
-<p>Mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code> kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden bei Kreutabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabellen hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dasnn passt sie unter Umständen besser in die zeilen.</p>
+<p>Mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code> kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.</p>
 <p>Wir halten uns im folgenden Code jedoch an die Konvention und übergeben zusätzlich noch das Argument <code>show_na = FALSE</code> um fehlende Werte aus der Analyse auszuschließen.</p>
 <p>Hier der Basis-Code für die Kreuztabelle mit <code>janitor::tabyl()</code>:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="co"># Kreuztabelle berechnen</span></a>
@@ -353,13 +353,13 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <pre><code>##  pol_partizipation_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre
 ##                           0             284             213             183
 ##                           1              72             141             112</code></pre>
-<p>Die Tabelle macht genau was sie soll, sie Tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoultuen Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das <code>janitor</code>-Paket die eine Reihe von Funktionen, die alle mit <code>adorn_</code> beginnen, z.B.:</p>
+<p>Die Tabelle macht genau was sie soll, sie Tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoluten Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das <code>janitor</code>-Paket die eine Reihe von Funktionen, die alle mit <code>adorn_</code> beginnen, z.B.:</p>
 <ul>
 <li><p><code>adorn_totals()</code> fügt Randhäufigkeiten hinzu. Mit dem Argument <code>where =</code> kann man noch bestimmen, ob dies in den Spalten (<code>&quot;col&quot;</code>), oder in den Reihen (<code>&quot;row&quot;</code>) oder in beidem <code>c(&quot;row&quot;, &quot;col&quot;)</code> geschehen soll.</p></li>
 <li><p><code>adorn_percentages()</code> berechnet die Prozentwerte. Mit dem Argument <code>denominator =</code> kann man noch bestimmen, ob dies in den Spalten (<code>&quot;col&quot;</code>), oder in den Reihen (<code>&quot;row&quot;</code>) oder in beidem <code>&quot;all&quot;</code> geschehen soll.</p></li>
 <li><p><code>adorn_pct_formatting()</code> dient der Formatierung der Prozentwerte. Über das Argument <code>digits =</code> kann man die Anzahl der Nachkommastellen festlegen.</p></li>
-<li><p><code>adorn_ns()</code> fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch ´adorn_percentages()` überschreiben.</p></li>
-<li><p><code>adorn_title()</code> dient zur Bescchriftung der Tabelle. Mit <code>placement = &quot;combined&quot;</code> kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre <code>placement = &quot;top&quot;</code>.</p></li>
+<li><p><code>adorn_ns()</code> fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch <code>adorn_percentages()</code> überschreiben.</p></li>
+<li><p><code>adorn_title()</code> dient zur Beschriftung der Tabelle. Mit <code>placement = &quot;combined&quot;</code> kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre <code>placement = &quot;top&quot;</code>.</p></li>
 </ul>
 <p>Probieren wir es aus:</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="co"># Kreuztabelle formatieren</span></a>
@@ -379,7 +379,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 ##       100% (295) 100% (1005)</code></pre>
 <p>Sehr hübsch! Durch die übersichtliche Formatierung mit den Prozentwerten können wir jetzt gut vergleichen, wie sich der Anteil derjenigen, die bereits Petitionen unterschreiben haben in den Altersgruppen unterscheidet. Zur Erinnerung, im Gesamten Sample waren es 32 Prozent, die diese Form der politischen Partizipation bereits genutzt haben (siehe auch Spalte “Total”).</p>
 <p>Vergleicht man nun die Altersgruppen sieht man deutliche Unterschiede:
-- Insbesondere die erste Gruppe der 14- bis 17-Jährigen hatt deutlich weniger Petitionen unterschrieben, als die anderen beiden Gruppen. Dies war erwartbar und entspricht im auch der Hypothese, die wir eingangs formuliert hatten. Möglicherweise spielt für diese Art der politischen Partizipation die Volljährigkeit eine besondere Rolle?</p>
+- Insbesondere die erste Gruppe der 14- bis 17-Jährigen hat deutlich weniger Petitionen unterschrieben, als die anderen beiden Gruppen. Dies war erwartbar und entspricht im auch der Hypothese, die wir eingangs formuliert hatten. Möglicherweise spielt für diese Art der politischen Partizipation die Volljährigkeit eine besondere Rolle?</p>
 <ul>
 <li>Zwischen den älteren beiden Altersgruppen ist hingegen kaum ein Unterschied. Der Prozentsatz sinkt sogar leicht ab, was unserer Hypothese nicht entsprechen würde. Allerdings ist die Differenz ohnehin sehr gering und kaum von Bedeutung.</li>
 </ul>
@@ -395,7 +395,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 ## 
 ## data:  my_crosstab
 ## X-squared = 37.226, df = 2, p-value = 8.249e-09</code></pre>
-<p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant”. Wir können deshalb davon ausgehen, das der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu stande gekommen ist. Die Daten unterstützen also die Hypothese H1.</p>
+<p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant”. Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also die Hypothese H1.</p>
 <p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramers V, quasi das standardisierte Chi-Quadrat.</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="co"># Cramer V</span></a>
 <a class="sourceLine" id="cb198-2" data-line-number="2">DescTools<span class="op">::</span><span class="kw">CramerV</span>(my_crosstab[, <span class="dv">-1</span>])</a></code></pre></div>
