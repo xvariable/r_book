@@ -1,0 +1,133 @@
+## Kreuztabellen
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
+pacman::p_load(tidyverse, janitor)
+# Einlesen der Daten
+data <- haven::read_sav("data/ZA6738_v1-0-0_generation_z_renamed.sav") %>% 
+  select(lfdn, geschlecht, alter, starts_with("pol_partizipation_")) %>% 
+  filter(geschlecht < 3) %>% 
+  mutate(alter_g3 = case_when(alter < 18 ~ "14 bis 17 Jahre",
+                              alter < 22 ~ "18 bis 21 Jahre",
+                              alter < 25 ~ "22 bis 24 Jahre")) %>% 
+  select(lfdn, alter_g3, starts_with("pol_partizipation_"))
+
+```
+
+Mit Kreuztabelle/Kontingenztabelle kann man den die Verteilung einer Variablen unter Berücksichtigun einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben. 
+
+Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von Reihen- und Spaltenzahl sowie der Fallzahl unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramers V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variieiert. Über die Richtung von Zusammenhängen gibt aber auch Cramers V keine Auskunft. Dazu muss man in der Kreuztabelle nachssehen. Kreztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.
+
+Im folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zu politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die "0" bedeutet dabei, dass ein: Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und "1" bedeutet, dass sie mindestens einmal wahrgenommen wurde.
+
+Außerdem enthält der Datensatz noch die Variable "alter_g3", die ich in drei Gruppen eingeteilt habe ("14 bis 17 Jahre", "18 bis 21 Jahre" und "22 bis 24 Jahre").
+
+```{r}
+head(data)
+```
+
+Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die da drinsteckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petiotionen. 
+
+Unsere H1 lautet also:
+
+*Der Anteil derjenigen, die bereits eine Petition unterschieben haben, steigt mit zunehmendem Alter.*
+
+Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, janitor für die Kreuztabellen und Chi-Quadrat und DescTools für Cramers V.
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(DescTools)
+```
+
+
+### Vorbereitung: Univariate verteilung
+
+Schauen wir uns zunächst einmal die univariate Verteilung der beiden Variablen an.
+Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln welche Verteilung wir erwarten würden.
+Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten mit dem Paket `janitor` und der Funktion `tabyl()`
+
+```{r}
+# Häufigkeitstabelle Altersgruppen
+tabyl(data$alter_g3)
+```
+
+Die drei Altersgruppen sind also alle etwa gleich stark besetzt, die älteste Altersgruppe ist ca. 5 Prozent kleiner als die anderen beiden.
+
+Jetzt noch die Beteiligung an Petitionen:
+
+```{r}
+# Häufigkeitstabelle Teilnahme Petitionen
+tabyl(data$pol_partizipation_petition)
+```
+
+Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen ware also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschreiben hat.
+
+### Kreuztabelle ausgeben
+
+Mit dem Paket `janitor` und der Funktion `tabyl()` kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden bei Kreutabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabellen hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dasnn passt sie unter Umständen besser in die zeilen.
+
+Wir halten uns im folgenden Code jedoch an die Konvention und übergeben zusätzlich noch das Argument `show_na = FALSE` um fehlende Werte aus der Analyse auszuschließen.
+
+Hier der Basis-Code für die Kreuztabelle mit `janitor::tabyl()`:
+
+```{r}
+# Kreuztabelle berechnen
+my_crosstab <- data %>%
+  janitor::tabyl(pol_partizipation_petition, alter_g3, show_na = FALSE) 
+
+my_crosstab
+```
+
+Die Tabelle macht genau was sie soll, sie Tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoultuen Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das `janitor`-Paket die eine Reihe von Funktionen, die alle mit `adorn_` beginnen, z.B.:
+
+- `adorn_totals()` fügt Randhäufigkeiten hinzu. Mit dem Argument `where = ` kann man noch bestimmen, ob dies in den Spalten (`"col"`), oder in den Reihen (`"row"`) oder in beidem `c("row", "col")` geschehen soll.
+
+- `adorn_percentages()` berechnet die Prozentwerte. Mit dem Argument `denominator = ` kann man noch bestimmen, ob dies in den Spalten (`"col"`), oder in den Reihen (`"row"`) oder in beidem `"all"` geschehen soll.
+
+- `adorn_pct_formatting()` dient der Formatierung der Prozentwerte. Über das Argument `digits =`  kann man die Anzahl der Nachkommastellen festlegen.
+
+- `adorn_ns()` fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch ´adorn_percentages()` überschreiben.
+
+- `adorn_title()` dient zur Bescchriftung der Tabelle. Mit `placement = "combined"` kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre `placement = "top"`.
+
+Probieren wir es aus:
+
+```{r}
+# Kreuztabelle formatieren
+my_crosstab %>% 
+  adorn_totals(where = c("row", "col")) %>%
+  adorn_percentages(denominator = "col") %>% 
+  adorn_pct_formatting(digits = 0) %>%
+  adorn_ns() %>%
+  adorn_title(placement = "combined")
+
+```
+
+Sehr hübsch! Durch die übersichtliche Formatierung mit den Prozentwerten können wir jetzt gut vergleichen, wie sich der Anteil derjenigen, die bereits Petitionen unterschreiben haben in den Altersgruppen unterscheidet. Zur Erinnerung, im Gesamten Sample waren es 32 Prozent, die diese Form der politischen Partizipation bereits genutzt haben (siehe auch Spalte "Total").
+
+Vergleicht man nun die Altersgruppen sieht man deutliche Unterschiede:
+- Insbesondere die erste Gruppe der 14- bis 17-Jährigen hatt deutlich weniger Petitionen unterschrieben, als die anderen beiden Gruppen. Dies war erwartbar und entspricht im auch der Hypothese, die wir eingangs formuliert hatten. Möglicherweise spielt für diese Art der politischen Partizipation die Volljährigkeit eine besondere Rolle? 
+
+- Zwischen den älteren beiden Altersgruppen ist hingegen kaum ein Unterschied. Der Prozentsatz sinkt sogar leicht ab, was unserer Hypothese nicht entsprechen würde. Allerdings ist die Differenz ohnehin sehr gering und kaum von Bedeutung.
+
+Nach dem Augenschein der Kreuztabelle, scheinen wir also insgesamt auf einen interessanten Zusammenhang gestoßen zu sein, der unserer Hypothese auch entspricht. Aber ist dieser Zusammenhang auch signifikant?
+
+### Chi-Quadrat & Cramers V
+
+Dazu ziehen wir im folgenden den Chi-Quadrat-Test heran, ebenfalls aus dem Paket `janitor`.
+
+```{r}
+# Chi-Quadrat berchnen
+janitor::chisq.test(my_crosstab)
+```
+
+Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p < .001 und damit "signifikant". Wir können deshalb davon ausgehen, das der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu stande gekommen ist. Die Daten unterstützen also die Hypothese H1.
+
+Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramers V, quasi das standardisierte Chi-Quadrat.
+
+```{r}
+# Cramer V
+DescTools::CramerV(my_crosstab[, -1])
+```
+
+Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen
