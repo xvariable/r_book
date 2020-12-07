@@ -9,7 +9,9 @@ data <- haven::read_sav("data/ZA6738_v1-0-0_generation_z_renamed.sav") %>%
   mutate(alter_g3 = case_when(alter < 18 ~ "14 bis 17 Jahre",
                               alter < 22 ~ "18 bis 21 Jahre",
                               alter < 25 ~ "22 bis 24 Jahre")) %>% 
-  select(lfdn, alter_g3, starts_with("pol_partizipation_"))
+  select(lfdn, alter_g3, pol_partizipation_wahl, pol_partizipation_petition) %>% 
+  rename(pol_part_petition = pol_partizipation_petition,
+         pol_part_wahl = pol_partizipation_wahl)
 
 ```
 
@@ -31,7 +33,7 @@ Unsere H1 lautet also:
 
 *Der Anteil derjenigen, die bereits eine Petition unterschrieben haben, steigt mit zunehmendem Alter.*
 
-Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, `janitor` für die Kreuztabellen und Chi-Quadrat und `DescTools` für Cramers V.
+Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, `janitor` für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und `DescTools` für Cramers V.
 
 ```{r}
 library(tidyverse)
@@ -57,7 +59,7 @@ Jetzt noch die Beteiligung an Petitionen:
 
 ```{r}
 # Häufigkeitstabelle Teilnahme Petitionen
-tabyl(data$pol_partizipation_petition)
+tabyl(data$pol_part_petition)
 ```
 
 Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen ware also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschreiben hat.
@@ -73,7 +75,7 @@ Hier der Basis-Code für die Kreuztabelle mit `janitor::tabyl()`:
 ```{r}
 # Kreuztabelle berechnen
 my_crosstab <- data %>%
-  janitor::tabyl(pol_partizipation_petition, alter_g3, show_na = FALSE) 
+  janitor::tabyl(pol_part_petition, alter_g3, show_na = FALSE) 
 
 my_crosstab
 ```
@@ -121,13 +123,15 @@ Dazu ziehen wir im folgenden den Chi-Quadrat-Test heran, ebenfalls aus dem Paket
 janitor::chisq.test(my_crosstab)
 ```
 
-Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p < .001 und damit "signifikant". Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also die Hypothese H1.
+Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p < .001 und damit "signifikant". Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.
 
-Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramers V, quasi das standardisierte Chi-Quadrat.
+Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramers V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im PAket `DescTools` und heißt `CramerV()`. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt `my_crosstab` gespeichert. Für die Berechnung von Cramers V muss noch die erste Spalte löschen, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting `[, -1]` können wir genau dies erreichen. Der Befahl sagt quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma `-1`).
 
 ```{r}
 # Cramer V
 DescTools::CramerV(my_crosstab[, -1])
 ```
 
-Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen
+Cramers V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen. 
+
+Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen. Stattdessen zeigt wird ein relevanter Anstieg beim Unterzeichnen von Petitionen offenbar durch das Erreichen der Volljährigkeit befördert. Spannend!

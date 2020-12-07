@@ -105,7 +105,7 @@ Man kann auch auf mehrere Elemente zugreifen. Dazu verwendet man den Doppelpunkt
 series_data$title[3:5]
 ```
 
-Auch bei Dataframes/Tibbles kann man mit Indices arbeiten, z.B. wenn man den Variablennamen nicht kennt, aber weiß, dass es sich um die erste Variabele handelt. Die Syntax lautet dann wie folgt: [[Spalte, Zeile]]
+Auch bei Dataframes/Tibbles kann man mit Indices arbeiten, z.B. wenn man den Variablennamen nicht kennt, aber weiß, dass es sich um die erste Variabele handelt. Die Syntax lautet dann wie folgt: [[Zeile, Spalte]]
 
 ```{r index_df}
 # Beispiel: Das dritte Element des ersten Vektors in einem Dataframe ausgeben.
