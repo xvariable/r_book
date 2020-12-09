@@ -163,7 +163,7 @@ nrow(data_tall)
 head(data_tall)
 ```
 
-Tatsächlich! Im Datensatz sind jetzt nur noch n = 14 Fälle und in der Variable `height` haben alle den Wert 200 oder einen höheren Wert.
+Tatsächlich! Im Datensatz sind jetzt nur noch n = `r nrow(data_tall)`  Fälle und in der Variable `height` haben alle den Wert 200 oder einen höheren Wert.
 
 Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: `eye_color == "orange"`. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator `<-` verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.
 

@@ -8,7 +8,7 @@
 |`plot_frq()`        | sjPlot       | Säulendiagramm                  |                       |
 | **Maße der zentralen Tendenz & Streuung**                                                   |
 |`Mode()`            | DescTools    | Modus                           |                       |
-|`median()`          | stats        | Standardabweichung              | `na.rm = TRUE`        |
+|`median()`          | stats        | Median                          | `na.rm = TRUE`        |
 |`range()`           | stats        | Range                           | `na.rm = TRUE`        |
 |`quantile()`        | stats        | Quantilgrenzen                  | `na.rm = TRUE`        |
 |`IQR()`             | stats        | Inter-Quartil-Range             | `na.rm = TRUE`        |

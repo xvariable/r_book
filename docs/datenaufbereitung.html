@@ -430,7 +430,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 6 Yara…    264    NA none       white      yellow          NA   male  mascu…
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-<p>Tatsächlich! Im Datensatz sind jetzt nur noch n = 14 Fälle und in der Variable <code>height</code> haben alle den Wert 200 oder einen höheren Wert.</p>
+<p>Tatsächlich! Im Datensatz sind jetzt nur noch n = 11 Fälle und in der Variable <code>height</code> haben alle den Wert 200 oder einen höheren Wert.</p>
 <p>Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: <code>eye_color == &quot;orange&quot;</code>. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator <code>&lt;-</code> verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">data_orange &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb106-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(eye_color <span class="op">==</span><span class="st"> &quot;orange&quot;</span>)</a></code></pre></div>
