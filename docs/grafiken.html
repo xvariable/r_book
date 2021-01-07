@@ -326,14 +326,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>geom_()</code>: Es gibt unterschiedliche <code>geom_()</code>-Funktionen. Ein Geom ist ein <em>geom</em>etisches Objekt, dass auf dem Plot platziert werden soll, z.B. ein Balkendiagramm (<code>geom_bar()</code>) oder eine horizontale Linie (<code>geom_hline()</code>). Eine statistische Grafik benötigt mindestens ein Geom, kann aber auch mehrere enthalten.</p>
 <p>Zusätzlich gibt es in ggplot noch eine Besonderheit: Der Operator <code>+</code> wird in diesem Paket dazu eingesetzt, um die einzelnen grafischen Elemente (oder Layer) zusammenzufügen. Das Pluszeichen steht immer nach einem Befehl, wenn ein Plot noch nicht beendet ist und noch ein weiteres Element hinzugefügt werden soll (so ähnlich wie die Pipe). Das <code>+</code> steht immer am Ende der Zeile, nie am Beginn.</p>
 <p>Im Zusammenspiel sieht das so aus (Pseudocode):</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> var_<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p>In Tidyverse-Schreibweise auch so:</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> var_<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
-<p>Und verkürzt kann man die Namen der Argumente weglassen. Routinierte R-Anwender tun dies häufig, deshalb sollten Sie das mal gesehen haben:</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(var_<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> var_<span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb224-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<p>Und verkürzt kann man die Namen der Argumente weglassen. Routinierte R-Anwender tun dies häufig, deshalb sollten Sie das mal gesehen haben:</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(var_<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb225-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p>Um explizit zu machen, was jeweils passiert, werden wir hier aber die ausführliche Schreibweise nutzen.</p>
 <p>Im Folgenden wollen wir uns natürlich ein paar Grafiken und Formatierungsmöglichkeiten anschauen. Allerdings ist <code>ggplot</code> so umfangreich, dass wir die Funktionen nicht annähernd durchgehen können. Für dieses Kapitel gilt daher im besonderen Maß: wenn Sie eine Formatierung vornehmen möchten, die hier nicht angesprochen wird, googeln Sie danach! Die Möglichkeiten der Gestaltung mit <code>ggplot2</code> sind schier unendlich.</p>
 <p>Als Datenbeispiel benutzen wir auch in diesem Kapitel den Generation Z-Datensatz. Die erste Grafik, die wir hier erstellen wollen thematisiert die politische Partizipation der Befragten und zwar getrennt für Jugendliche und junge Erwachsene. Ich werde anhand von diesem Beispiel auch noch einmal den Einsatz der drei „Basis-Funktionen“ beschreiben.</p>
@@ -341,32 +343,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="erste-funktion-plot-objekt-erstellen" class="section level2">
 <h2><span class="header-section-number">8.2</span> Erste Funktion: Plot-Objekt erstellen</h2>
 <p>Jede <code>ggplot2</code>-Grafik beginnt immer mit dieser Funktion und der Übergabe von einem Datenobjekt als erstem Argument. Dabei ist es egal, ob wir die Base-R oder die Tidyverse-Schreibweise wählen.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb226-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>()</a></code></pre></div>
 </div>
 <div id="zweite-funktion-aesthetik-mapping" class="section level2">
 <h2><span class="header-section-number">8.3</span> Zweite Funktion: Aesthetik Mapping</h2>
 <p>Die <code>ggplot()</code> kann noch ein zweites Argument haben, nämlich <code>mapping =</code>. Über dieses Argument wird das aesthteic mapping festgelegt. Wie bereits beschrieben, betrifft dies die Zuordnung von Daten im Datensatz zum Aussehen der fertigen Grafik. Man muss quasi beschreiben, wie die die Daten in Layout übersetzt werden sollen.</p>
 <p>Das Mapping geschieht über die Hilfsfunktion <code>aes()</code>. Diese Funktion benötigt Argumente, damit sie die Formatierung umsetzen kann:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb226-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
-<a class="sourceLine" id="cb226-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx))</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
+<a class="sourceLine" id="cb227-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx))</a></code></pre></div>
 <p><strong>Zwingende Argumente</strong></p>
 <p>In unserem Beispiel möchten wir die Gruppierungsvariable „Volljährigkeit“ auf der X-Achse darstellen und die metrische Variable „politische Partizipation“ auf der Y-Achse. Die beiden Argumente für die <code>aes()</code> heißen entsprechend x und y. Diese beiden Argumente für die Achsen werden von Geomen häufig vorausgesetzt, damit das entsprechende Geom überhaupt erzeugt werden kann (zwingende Argumente). Einige Geome benötigen aber auch nur das x-Argument (z.B. ganz einfache Häufigkeitsverteilungen von einzelnen Variablen).</p>
 <p><strong>Optionale Argumente</strong></p>
 <p>Die <code>aes()</code>-Funktion kann zusätzlich zu den zwingenden Argumenten für die Achsen auch optionale Argumente haben. Argumente wie <code>fill</code> (Farbe der Füllung), <code>color</code>, <code>size</code>, <code>shape</code>, <code>linetype</code> oder <code>group</code> kann man dazu benutzen, die Formatierung der Grafik zusätzlich durch Variablen zu verändern.</p>
 <p>In unserer Grafik bietet es sich an die Gruppenzugehörigkeit nicht nur durch die Anordnung der Gruppenvariable auf der X-Achse, sondern zusätzlich noch durch Farbe zu unterstreichen.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
-<a class="sourceLine" id="cb227-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx, </a>
-<a class="sourceLine" id="cb227-4" data-line-number="4">                       <span class="dt">color =</span> volljaehrigkeit))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb228-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
+<a class="sourceLine" id="cb228-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx, </a>
+<a class="sourceLine" id="cb228-4" data-line-number="4">                       <span class="dt">color =</span> volljaehrigkeit))</a></code></pre></div>
 <p>Das Mapping kann übrigens entweder gleich zu Beginn der Grafik in der Funktion <code>ggplot()</code> passieren, dann gilt es für den gesamten Plot. Oder es steht in einer <code>geom_()</code>-Funktion (nächster Schritt), dann gilt dieses Mapping nur für das spezifische Geom. Hat man nur ein Geom, ist es egal wo es steht.</p>
 </div>
 <div id="dritte-funktion-geom-hinzufügen" class="section level2">
 <h2><span class="header-section-number">8.4</span> Dritte Funktion: Geom hinzufügen</h2>
 <p>Das soeben erzeugte Objekt <code>p</code> ist leer. Zwar existiert schon eine Zuordnung der Daten zu den Achsen, aber eine Grafik wurde bisher nicht erzeugt:</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="co"># plot ausgeben</span></a>
-<a class="sourceLine" id="cb228-2" data-line-number="2">p </a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="co"># plot ausgeben</span></a>
+<a class="sourceLine" id="cb229-2" data-line-number="2">p </a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>Wie auch? Wir haben ja noch gar nicht festgelegt, um was für eine Art Grafik es sich handeln soll! Über den Operator <code>+</code> können wir dem Plot Geome hinzufügen. Wir addieren sozusagen geome zum Plot dazu: <code>p + geom_()</code>.</p>
 <div id="streudiagram" class="section level3">
@@ -374,20 +376,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Im ersten Schritt erstellen wir ein Streudiagramm mit <code>geom_point()</code>.</p>
 <p>Jedes Geom hat noch weitere (optionale) Argumente, die man entweder im aesthetic mapping verwenden kann um Variablen zuzuweisen oder man kann das allgemeine Layout dadurch verändern. Wir könnten beim Streudigramm z.B. zusätzlich zur Farbe auch die Größe der Punkte über <code>size</code> verändern oder ihre Form über <code>shape</code>.</p>
 <p>Im Beispiel nutzen wir das zusätzliche Argument <code>size = 5</code></p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="co"># Streudiagramm</span></a>
-<a class="sourceLine" id="cb229-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="co"># Streudiagramm</span></a>
+<a class="sourceLine" id="cb230-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 <p>Juhu, es hat funktioniert! Die Datenpunkte sind auf der Y-Achse angeordnet und in zwei Gruppen aufgeteilt. Die Darstellung ist jedoch suboptimal, denn die Punkte überlagern sich, sie werden vielfach übereinander geplottet. Dadurch kann man nicht wirklich gut sehen, wie sie sich verteilen.</p>
 </div>
 <div id="jitter-plot" class="section level3">
 <h3><span class="header-section-number">8.4.2</span> Jitter-Plot</h3>
 <p>Abhilfe schafft ein alternatives Geom, nämlich <code>geom_jitter()</code>. Beim Jitter-Plot wird jedem Punkt eine random Abweichung von den Achsen zugewiesen, so dass die Punkte zufällig streuen. Sie überlagern sich dadurch nicht mehr:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
-<a class="sourceLine" id="cb230-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
+<a class="sourceLine" id="cb231-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <p>Mit dem Argument <code>width</code> kann man die Breite dieser Streuung bestimmen und mit <code>alpha</code> die Transparenz der Punkte. Probieren wir es aus:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
-<a class="sourceLine" id="cb231-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
+<a class="sourceLine" id="cb232-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>)</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <p>Die Darstellung ist ganz schön, aber es gibt weitere Alternativen.</p>
 </div>
@@ -397,59 +399,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hier eine schematische Darstellung:
 <img src="images/boxplot_info.png" alt="Schematische Darstellung eines Boxplots" style="width:1000px;margin-bottom:5px;margin-top:15px"></p>
 <p>Und hier unser Boxplot:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co"># Boxplot</span></a>
-<a class="sourceLine" id="cb232-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co"># Boxplot</span></a>
+<a class="sourceLine" id="cb233-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 </div>
 <div id="violin-plot" class="section level3">
 <h3><span class="header-section-number">8.4.4</span> Violin-Plot</h3>
 <p>Eine weitere Variante um eine Verteilung darzustellen ist der Violin-Plot. Er ähnelt dem Boxplot, er zeigt aber nicht die Quartilgrenzen sondern die „Kerndichteschätzung“. Wenn man sich den Plot anguckt, sieht man sofort, wie unterschiedlich die Variable in den Gruppen verteilt ist:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co"># Violon-Plot</span></a>
-<a class="sourceLine" id="cb233-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="co"># Violon-Plot</span></a>
+<a class="sourceLine" id="cb234-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>()</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 </div>
 <div id="balkendiagramme" class="section level3">
 <h3><span class="header-section-number">8.4.5</span> Balkendiagramme</h3>
 <p>Für das Balkendiagramm wechseln wir jetzt mal die Variable. Balkendiagramme eignen sich ja sehr gut zur Darstellung selbst nominaler Variablen, aber ich nehme hier trotzdem mal die Lebenszufriedenheit, gemessen auf einer vierstufigen Skala.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="co"># Vorbereitung des Plots und des Mappings</span></a>
-<a class="sourceLine" id="cb234-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb234-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> zufriedenheit_leben))</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="co"># Vorbereitung des Plots und des Mappings</span></a>
+<a class="sourceLine" id="cb235-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb235-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> zufriedenheit_leben))</a></code></pre></div>
 <p>Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken so hässlich sind, färben wir sie über ´fill` in pink ein.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="co"># Einfaches Balkendiagramm</span></a>
-<a class="sourceLine" id="cb235-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="co"># Einfaches Balkendiagramm</span></a>
+<a class="sourceLine" id="cb236-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusätzliches Layer mitgibt, dass das Koordinatensystem modifiziert :</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="co"># horizontale Balken</span></a>
-<a class="sourceLine" id="cb236-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb236-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="co"># horizontale Balken</span></a>
+<a class="sourceLine" id="cb237-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb237-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Wenn man über <code>fill</code> eine zweite Variable mappt, bekommt man gestapelte Balken:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="co"># gestapelte Balken</span></a>
-<a class="sourceLine" id="cb237-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit)) </a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co"># gestapelte Balken</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit)) </a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>Und über das Zusatzargument <code>position = &quot;dodge&quot;</code> kann man die Balken nebeneinander anzeigen. Achtung, diese Argument wird heir außerhalb von <code>aes()</code> platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co"># Balken nebeneinander</span></a>
-<a class="sourceLine" id="cb238-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co"># Balken nebeneinander</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 </div>
 <div id="histogramme" class="section level3">
 <h3><span class="header-section-number">8.4.6</span> Histogramme</h3>
 <p>Balkendiagramme sind prima, aber sie sind nicht für die Darstellung der Verteilung einer metrischen Variablen mit sehr vielen Ausprägungen geeignet. Nehmen wir mal als Beispiel die Mediennutzung in Minuten. Würde man für jede mögliche Ausprägung z.B. für 400 Minuten, für 401 Minuten, 402 Minuten etc. einen einzelnen Balken anfertigen, ware das sehr unübersichtlich. Es wäre schöner, würde man die Balken z.B. in Viertelstunden zusammenfassen. Ein Histogramm macht genau das.</p>
 <p>Wir betrachten hier die Verteilung der Variable „politische Entfremdung“ (ein Mittelwertindex):</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co"># um Fehlermeldung zu vermeiden</span></a>
-<a class="sourceLine" id="cb239-2" data-line-number="2">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb239-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(pol_entfremdung_ix))</a></code></pre></div>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="co"># Plot vorbereiten</span></a>
-<a class="sourceLine" id="cb240-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> pol_entfremdung_ix))</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="co"># um Fehlermeldung zu vermeiden</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(pol_entfremdung_ix))</a></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="co"># Plot vorbereiten</span></a>
+<a class="sourceLine" id="cb241-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> pol_entfremdung_ix))</a></code></pre></div>
 <p>Und jetzt das Geom hinzufügen:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="co"># Histogramm</span></a>
-<a class="sourceLine" id="cb241-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="co"># Histogramm</span></a>
+<a class="sourceLine" id="cb242-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>) </a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <p>Ohje, sehr “löchrig”. Das ist genau das Problem, dass ich oben beschreiben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument <code>binwidth</code>, kann man zudem festlegen, in welchen Einheiten die Werte Zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="co"># Histogramm mit angepasster Balkenbreite</span></a>
-<a class="sourceLine" id="cb243-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.3</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="co"># Histogramm mit angepasster Balkenbreite</span></a>
+<a class="sourceLine" id="cb244-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.3</span>) </a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>Sieht doch gleich viel besser aus!</p>
 </div>
@@ -458,18 +460,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Zum Abschluss folgt noch ein Liniendiagramm. Im Beispiel möchte ich die Nutzung unterschiedlicher Informationsquellen nach Alter darstellen. Das ist zwar keine richtige zeitliche Entwicklung, aber der Datensatz enthält ja nunmal auch keine Zeitreihen.</p>
 <p>Ich möchte in dem Plot die Mittelwerte für die unterschiedlichen Informationsquellen je nach Alter darstellen. Zunächst muss der Datensatz so umgeformz werden, dass er diese Mittelwerte enthält. Ich brauche also einen kleinen Mini-Datensatz, den ich mit dplyr erzeuge.
 Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="co"># Mittelwerte Datensatz erstellen</span></a>
-<a class="sourceLine" id="cb244-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb244-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(alter, <span class="kw">starts_with</span>(<span class="st">&quot;infoquelle_&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(alter) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb244-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tv_news =</span> <span class="kw">mean</span>(infoquelle_tv_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb244-6" data-line-number="6">            <span class="dt">google =</span> <span class="kw">mean</span>(infoquelle_google, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb244-7" data-line-number="7">            <span class="dt">youtube =</span> <span class="kw">mean</span>(infoquelle_internet_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb244-8" data-line-number="8">            <span class="dt">print =</span> <span class="kw">mean</span>(infoquelle_print, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb244-9" data-line-number="9">            <span class="dt">tv_satire =</span> <span class="kw">mean</span>(infoquelle_tv_satiere, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># Mittelwerte Datensatz erstellen</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(alter, <span class="kw">starts_with</span>(<span class="st">&quot;infoquelle_&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(alter) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tv_news =</span> <span class="kw">mean</span>(infoquelle_tv_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb245-6" data-line-number="6">            <span class="dt">google =</span> <span class="kw">mean</span>(infoquelle_google, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb245-7" data-line-number="7">            <span class="dt">youtube =</span> <span class="kw">mean</span>(infoquelle_internet_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb245-8" data-line-number="8">            <span class="dt">print =</span> <span class="kw">mean</span>(infoquelle_print, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb245-9" data-line-number="9">            <span class="dt">tv_satire =</span> <span class="kw">mean</span>(infoquelle_tv_satiere, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) </a></code></pre></div>
 <p>Und so sieht der neue Datensatz jetzt aus:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># erste Zeilen ausgeben</span></a>
-<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="kw">head</span>(df_mean)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1"><span class="co"># erste Zeilen ausgeben</span></a>
+<a class="sourceLine" id="cb246-2" data-line-number="2"><span class="kw">head</span>(df_mean)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   alter tv_news google youtube  print tv_satire
 ##   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -481,12 +483,12 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 ## 6    19   0.417  0.417   0.542 0.0833    0.292</code></pre>
 <p>Für das Linendiagramm benötigen wir allerdings ein <em>Longformat</em>. Das bedeutet, dass die Mittelwerte der Variablen nicht neben, sondern übereinender in dem Datensatz angezeigt werden müssen. Also alle Mittelwerte werden in eine Spalte kopiert (aus fünf wird also eine Spalte). Allerdings brauchen wir dann noch eine zusätzliche Spalte/Variable, die angibt, aus welcher ursprünglichen Variable ein Mittelwert kommt.</p>
 <p>Diese Datenumformung erreichen wir über die <code>dplyr</code>-Funktion <code>pivot_longer()</code>. Sie benöotigt als Argument <code>cols</code> einen Vektor mit den Variablen die zusammengefasst werden sollen.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
-<a class="sourceLine" id="cb247-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb247-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">c</span>(tv_news, google, youtube, print, tv_satire))</a>
-<a class="sourceLine" id="cb247-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb247-5" data-line-number="5"><span class="co"># erste Zeilen ausgeben</span></a>
-<a class="sourceLine" id="cb247-6" data-line-number="6"><span class="kw">head</span>(df_mean)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
+<a class="sourceLine" id="cb248-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb248-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">c</span>(tv_news, google, youtube, print, tv_satire))</a>
+<a class="sourceLine" id="cb248-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb248-5" data-line-number="5"><span class="co"># erste Zeilen ausgeben</span></a>
+<a class="sourceLine" id="cb248-6" data-line-number="6"><span class="kw">head</span>(df_mean)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   alter name       value
 ##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
@@ -497,22 +499,22 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 ## 5    14 tv_satire 0.0513
 ## 6    15 tv_news   0.56</code></pre>
 <p>Genau so habe ich mir das vorgestellt. Die neuen Variablen heißen standardmäßig <code>name</code> und <code>value</code> und die Variable <code>alter</code> ist auch noch mit dabei. Genau diese Struktur und die drei Variablen brauchen wir. Jetzt kann es losgehen mit dem Liniendiagramm:</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
-<a class="sourceLine" id="cb249-2" data-line-number="2">df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb249-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> alter, <span class="dt">y =</span> value, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb249-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
+<a class="sourceLine" id="cb250-2" data-line-number="2">df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb250-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> alter, <span class="dt">y =</span> value, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb250-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 </div>
 </div>
 <div id="grafiken-speichern" class="section level2">
 <h2><span class="header-section-number">8.5</span> Grafiken speichern</h2>
 <p>Natürlich können Sie die Grafiken über den “Plot”-Tab in RStudio exportieren um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Dei Funktion heißt <code>ggsave()</code>. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit <code>units</code> die Einheit für die Abmessungen festgelegt werden (z.B. <code>units = cm</code>).</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="co"># den letzten angezeigten Plot speichern</span></a>
-<a class="sourceLine" id="cb250-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</a>
-<a class="sourceLine" id="cb250-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb250-4" data-line-number="4"><span class="co"># einen bestimmten Plot speichern</span></a>
-<a class="sourceLine" id="cb250-5" data-line-number="5"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot_2.png&quot;</span>,</a>
-<a class="sourceLine" id="cb250-6" data-line-number="6">       <span class="dt">plot =</span> p)</a></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="co"># den letzten angezeigten Plot speichern</span></a>
+<a class="sourceLine" id="cb251-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</a>
+<a class="sourceLine" id="cb251-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb251-4" data-line-number="4"><span class="co"># einen bestimmten Plot speichern</span></a>
+<a class="sourceLine" id="cb251-5" data-line-number="5"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot_2.png&quot;</span>,</a>
+<a class="sourceLine" id="cb251-6" data-line-number="6">       <span class="dt">plot =</span> p)</a></code></pre></div>
 
 </div>
 </div>

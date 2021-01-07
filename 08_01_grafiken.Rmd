@@ -57,7 +57,7 @@ data <- tibble(
 )
 ```
 
-```{r echo = FALSE, fig.show="hide"}
+```{r echo = TRUE, fig.show="hide"}
 ggplot(data = data, mapping = aes(x = var_1)) +
   geom_bar()
 ```
