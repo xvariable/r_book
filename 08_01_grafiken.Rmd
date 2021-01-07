@@ -31,7 +31,7 @@ Grafiken erfüllen bei der Datenanalyse zwei sehr wichtige Funktionen: Zum einen
 
 In den vorhergehenden Kapiteln haben wir erste Grafiken bereits kennengelernt (z.B. Balkendiagramme und Streudiagramme). In diesem Kapitel möchte ich aber detaillierter darauf eingehen, wie Grafiken mit R erzeugt werden können. – Wie so oft gibt es dazu verschiedene Wege. Auch base-R bietet einige Funktionen, mit denen Grafiken schnell erzeugt und individuell angepasst werden können. Leider ist dieses Anpassen in base-R für R-Anfänger gar nicht so einfach. Da das Anpassen einer Grafik aber nahezu immer nötig ist, gehe ich hier deshalb nicht auf die Base-R-Funktionen zum Erzeugen von Grafiken ein. 
 
-Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt `ggplot2`. Es beruht auf der *Grammar of Graphics*  (Mehr zum Hintergrund finden Sie hier http://vita.had.co.nz/papers/layered-grammar.pdf ). Die Idee dahinter ist, dass eine Grafik aus mehreren *Layern* zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.
+Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt `ggplot2`. Es beruht auf der *Grammar of Graphics*  (mehr zum Hintergrund finden Sie [hier](http://vita.had.co.nz/papers/layered-grammar.pdf)). Die Idee dahinter ist, dass eine Grafik aus mehreren *Layern* zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.
 
 Das Paket `ggplot2` ist sehr sensibel, was die Daten angeht, die als Input für die Grafiken dienen. Diese müssen auf jeden Fall `tidy` sein und bisweilen wird ein *long format* benötigt. Dazu später mehr.
 
@@ -176,6 +176,7 @@ Die Darstellung ist ganz schön, aber es gibt weitere Alternativen.
 Eine weiter Möglichkeit um die Verteilung von Variablen darzustellen ist der Boxplot.  Ein Boxplot gibt gleichzeitig Auskunft über Minimum, Maximum, die Quartilgrenzen und den Median der Verteilung einer Variablen. Das Mittlere Rechteck repräsentiert die mittleren 50 Prozent der Verteilung. Die „whiskers“ zeigen den 1,5-fachen Interquartilabstand. Ausreißer werden durch Punkte außerhalb der whiskers dargestellt.
 
 Hier eine schematische Darstellung:
+<img src="images/boxplot_info.png" alt="Schematische Darstellung eines Boxplots" style="width:1000px;margin-bottom:5px;margin-top:15px">
 
 Und hier unser Boxplot:
 
@@ -322,7 +323,8 @@ df_mean %>%
   ggplot(mapping = aes(x = alter, y = value, color = name)) + 
   geom_line()
 ```
-## Grafiken Speichern
+
+## Grafiken speichern
 
 Natürlich können Sie die Grafiken über den "Plot"-Tab in RStudio exportieren um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Dei Funktion heißt `ggsave()`. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit `units` die Einheit für die Abmessungen festgelegt werden (z.B. `units = cm`).
 

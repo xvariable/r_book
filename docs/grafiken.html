@@ -291,6 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>8.4.6</b> Histogramme</a></li>
 <li class="chapter" data-level="8.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>8.4.7</b> Liniendiagramme</a></li>
 </ul></li>
+<li class="chapter" data-level="8.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>8.5</b> Grafiken speichern</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
@@ -314,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 8</span> Grafiken</h1>
 <p>Grafiken erfüllen bei der Datenanalyse zwei sehr wichtige Funktionen: Zum einen dienen Sie der explorativen Analyse und helfen dabei, selbst ein besseres Verständnis für die eigenen Daten zu entwickeln. Zum anderen dienen Grafiken aber auch dazu, die Ergebnisse der eigenen Analyse darzustellen um sie anderen mitzuteilen.</p>
 <p>In den vorhergehenden Kapiteln haben wir erste Grafiken bereits kennengelernt (z.B. Balkendiagramme und Streudiagramme). In diesem Kapitel möchte ich aber detaillierter darauf eingehen, wie Grafiken mit R erzeugt werden können. – Wie so oft gibt es dazu verschiedene Wege. Auch base-R bietet einige Funktionen, mit denen Grafiken schnell erzeugt und individuell angepasst werden können. Leider ist dieses Anpassen in base-R für R-Anfänger gar nicht so einfach. Da das Anpassen einer Grafik aber nahezu immer nötig ist, gehe ich hier deshalb nicht auf die Base-R-Funktionen zum Erzeugen von Grafiken ein.</p>
-<p>Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt <code>ggplot2</code>. Es beruht auf der <em>Grammar of Graphics</em> (Mehr zum Hintergrund finden Sie hier <a href="http://vita.had.co.nz/papers/layered-grammar.pdf" class="uri">http://vita.had.co.nz/papers/layered-grammar.pdf</a> ). Die Idee dahinter ist, dass eine Grafik aus mehreren <em>Layern</em> zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.</p>
+<p>Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt <code>ggplot2</code>. Es beruht auf der <em>Grammar of Graphics</em> (mehr zum Hintergrund finden Sie <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">hier</a>). Die Idee dahinter ist, dass eine Grafik aus mehreren <em>Layern</em> zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.</p>
 <p>Das Paket <code>ggplot2</code> ist sehr sensibel, was die Daten angeht, die als Input für die Grafiken dienen. Diese müssen auf jeden Fall <code>tidy</code> sein und bisweilen wird ein <em>long format</em> benötigt. Dazu später mehr.</p>
 <div id="drei-basis-funktionen" class="section level2">
 <h2><span class="header-section-number">8.1</span> Drei Basis-Funktionen</h2>
@@ -393,7 +394,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="boxplot" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Boxplot</h3>
 <p>Eine weiter Möglichkeit um die Verteilung von Variablen darzustellen ist der Boxplot. Ein Boxplot gibt gleichzeitig Auskunft über Minimum, Maximum, die Quartilgrenzen und den Median der Verteilung einer Variablen. Das Mittlere Rechteck repräsentiert die mittleren 50 Prozent der Verteilung. Die „whiskers“ zeigen den 1,5-fachen Interquartilabstand. Ausreißer werden durch Punkte außerhalb der whiskers dargestellt.</p>
-<p>Hier eine schematische Darstellung:</p>
+<p>Hier eine schematische Darstellung:
+<img src="images/boxplot_info.png" alt="Schematische Darstellung eines Boxplots" style="width:1000px;margin-bottom:5px;margin-top:15px"></p>
 <p>Und hier unser Boxplot:</p>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co"># Boxplot</span></a>
 <a class="sourceLine" id="cb232-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
@@ -499,8 +501,11 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 <a class="sourceLine" id="cb249-2" data-line-number="2">df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb249-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> alter, <span class="dt">y =</span> value, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb249-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-82-1.png" width="672" />
-## Grafiken Speichern</p>
+<p><img src="r_book_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+</div>
+</div>
+<div id="grafiken-speichern" class="section level2">
+<h2><span class="header-section-number">8.5</span> Grafiken speichern</h2>
 <p>Natürlich können Sie die Grafiken über den “Plot”-Tab in RStudio exportieren um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Dei Funktion heißt <code>ggsave()</code>. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit <code>units</code> die Einheit für die Abmessungen festgelegt werden (z.B. <code>units = cm</code>).</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="co"># den letzten angezeigten Plot speichern</span></a>
 <a class="sourceLine" id="cb250-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</a>
@@ -509,7 +514,6 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 <a class="sourceLine" id="cb250-5" data-line-number="5"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot_2.png&quot;</span>,</a>
 <a class="sourceLine" id="cb250-6" data-line-number="6">       <span class="dt">plot =</span> p)</a></code></pre></div>
 
-</div>
 </div>
 </div>
             </section>
