@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2020-12-17" />
+<meta name="date" content="2021-01-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="deskriptive-statistik.html"/>
-<link rel="next" href="literaturverzeichnis.html"/>
+<link rel="next" href="grafiken.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -278,6 +278,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>8.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="8.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>8.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="8.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>8.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="8.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>8.4.7</b> Liniendiagramme</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -420,9 +434,11 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></a>
 <a class="sourceLine" id="cb200-2" data-line-number="2"><span class="kw">library</span>(psych)     <span class="co"># für Korrelationen</span></a>
 <a class="sourceLine" id="cb200-3" data-line-number="3"><span class="kw">library</span>(corrr)     <span class="co"># für Korrelationsmatrizen</span></a></code></pre></div>
-<p>Als Datenbeispiel dient wieder der Generation-Z-Datensatz. Ich habe in diesem Datensatz zwei Indices gebildet, deren Zusammenhang wir hier untersuchen wollen.
-- Für die <em>Politische Partizipation</em> habe ich einen Summenindex gebildet. Er zählt, wie viele von zehn möglichen Aktivitäten der politischen Partizipation eine Person bereits ausgeführt hat (z.B. Wählen gehen, Petitionen unterschreiben, demonstrieren oder Konsumboykott).
-- Für die <em>Politische Entfremdung</em> habe ich einen Mittelwertindex gebildet, der auf fünf Items beruht, welche jeweils auf einer 4er-Skala von 1 = <em>stimme überhaupt nicht zu</em> bis 4 = <em>stimme voll und ganz zu</em> gemessen wurden. (Hier drei Beispielitems: <em>Politik hat mit meinem Leben nichts zu tun</em>, <em>Entscheidungsprozesse in der Politik sind für mich meistens nicht nachvollziehbar</em> und <em>Den Parteien geht es nur um Macht</em>).</p>
+<p>Als Datenbeispiel dient wieder der Generation-Z-Datensatz. Ich habe in diesem Datensatz zwei Indices gebildet, deren Zusammenhang wir hier untersuchen wollen.</p>
+<ul>
+<li><p>Für die <em>Politische Partizipation</em> habe ich einen Summenindex gebildet. Er zählt, wie viele von zehn möglichen Aktivitäten der politischen Partizipation eine Person bereits ausgeführt hat (z.B. Wählen gehen, Petitionen unterschreiben, demonstrieren oder Konsumboykott).</p></li>
+<li><p>Für die <em>Politische Entfremdung</em> habe ich einen Mittelwertindex gebildet, der auf fünf Items beruht, welche jeweils auf einer 4er-Skala von 1 = <em>stimme überhaupt nicht zu</em> bis 4 = <em>stimme voll und ganz zu</em> gemessen wurden. (Hier drei Beispielitems: <em>Politik hat mit meinem Leben nichts zu tun</em>, <em>Entscheidungsprozesse in der Politik sind für mich meistens nicht nachvollziehbar</em> und <em>Den Parteien geht es nur um Macht</em>).</p></li>
+</ul>
 <p>Außerdem enthält der Datensatz noch die Variablen <code>lfdn</code> für die Fallnummer und das <code>alter</code> der Befragten.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
@@ -436,8 +452,8 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 ## 6  1640           5                2.8 24 [24 Jahre]</code></pre>
 <p>Im folgenden soll nun die folgende Hypothese getestet werden:</p>
 <p><em>H1: Zwischen politischer Partizipation und politischer Entfremdung besteht ein negativer Zusammenhang.</em></p>
-<p>Diese Alternativhypothese steht im Gegensatz zur folgenden Nullhypothese:
-<em>H0: Es gibt keinen (oder sogar einen positiven) Zusammenhang zwischen politischer Partizipation und politischer Entfremdung.</em></p>
+<p>Diese Alternativhypothese steht im Gegensatz zur folgenden Nullhypothese:</p>
+<p><em>H0: Es gibt keinen (oder sogar einen positiven) Zusammenhang zwischen politischer Partizipation und politischer Entfremdung.</em></p>
 <p>Die Nullhypothese müsste beibehalten werden, sofern wir bei der Berechnung der Korrelation einen Wert von <em>r</em> berechnen der größer oder gleich 0 ist <strong>oder</strong> wenn wir zwar ein negatives <em>r</em> berechnen, aber der p-Wert indiziert, dass dieses berechnete <em>r</em> sich nicht signifikant von Null unterschiedet. Andernfalls können wir davon ausgehen, dass in der Grundgesamtheit wohl eher die H1 zutrifft.</p>
 <div id="streudiagramm" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Streudiagramm</h3>
@@ -748,7 +764,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
         </div>
       </div>
 <a href="deskriptive-statistik.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literaturverzeichnis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grafiken.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
