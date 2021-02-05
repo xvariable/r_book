@@ -1,10 +1,10 @@
 ## Einführung in R
 
-R ist eine Programmiersprache mit einem speziellen Fokus auf der Anwendung im Bereich Statistik und Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von R erläutern.
+R ist eine Programmiersprache mit einem speziellen Fokus auf die Anwendung im Bereich Statistik und Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von R erläutern.
 
 Die simpelste Antwort auf die Frage "Was ist eigentlich R?" lautet: "R ist ein Dialekt von S." [@Peng_2020] 
 Diese Antwort ist natürlich nicht sehr befriedigend und führt direkt zur Anschlussfrage 
-"Und was ist S?" Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren. 
+"Und was ist S?". Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren. 
 Dadurch wird deutlich, worin die Unterschiede zu anderen Programmiersprachen liegen, warum
 R von Informatikern und Programmierern häufig als "etwas seltsam" empfunden wird und weshalb R gerade 
 für die Datenanalyse in der Kommunikationswissenschaft besonders gut geeignet ist.
@@ -19,9 +19,9 @@ Die Bell Labs waren damals Teil der Telefongesellschaft AT&T und ein bedeutendes
 Forscher der Bel Labs haben beispielsweise mehrere Nobelpreise und Turing-Awards gewonnen. 
 Heute gehören die Bell Labs zu Nokia.
 
-Mitte der 1960er Jahre war die Rechentechnik soweit, dass die Bel Labs gemeinsam mit anderen 
+Mitte der 1960er Jahre war die Rechentechnik so weit, dass die Bel Labs gemeinsam mit anderen 
 Forschungseinrichtungen an einem Projekt zur Schaffung eines Mehrprozess- und Mehrbenutzerbetriebssystems arbeiteten ("Multics System", Vorläufersystem von Unix). 
-Die Möglichkeit dadurch auf Großrechnern Datenanalyse-Forschung ausführen zu können, war aus Sicht der Bel Laboratories sehr relevant und obwohl sie sich später nicht mehr an der Schaffung des Multics-Systems beteiligten, setzten sie die Entwicklung einer Statistiksprache fort. Diese Sprache nannten sie S - vermutlich für *statistic*.
+Die Möglichkeit, dadurch auf Großrechnern Datenanalyse-Forschung ausführen zu können, war aus Sicht der Bel Laboratories sehr relevant und obwohl sie sich später nicht mehr an der Schaffung des Multics-Systems beteiligten, setzten sie die Entwicklung einer Statistiksprache fort. Diese Sprache nannten sie S - vermutlich für *statistic*.
 Zu dieser Zeit war die Idee einer Programmiersprache für Statistik völlig neu. 
 Für statistische Berechnungen war es bisher nötig, den Code direkt in FORTRAN (steht für FORmula TRANslation, das war die damals dazu genutzte Sprache) zu schreiben und zwar immer wieder aufs Neue, angepasst an die jeweilige Fragestellung.
 
@@ -38,16 +38,16 @@ Ihre Verbreitung ist aber sehr gering.
 
 Die neue Sprache S sollten bei der explorativen Datenanalyse und der Erstellung von Grafiken unterstützen 
 und dabei schneller und möglichst flexibel sein. 
-@Chambers_2000 formuliert das Ziel von S so : 
+@Chambers_2000 formuliert das Ziel von S so: 
 
 > “S is a programming language and environment for all kinds of computing involving data. It has a simple goal: To turn ideas into software, quickly and faithfully”.
 
-Insbesondere die schnelle, explorative Übersetzung von Forschungsideen in Ergebnisse war wichtig, während statistische Analyse am Beginn noch nicht so sehr im Fokus stand.
+Insbesondere die schnelle, explorative Übersetzung von Forschungsideen in Ergebnisse war wichtig, während die statistische Analyse am Beginn noch nicht so sehr im Fokus stand.
 
 Zusätzlich zeichnet sich die Philosophie von S noch durch drei weitere Anforderungen aus, die 
 während der Entwicklung an die Programmiersprache gestellt wurden [@Chambers_2020, S. 84:5]:
 
-1. **Convenience:** Der Aufruf von statistischen Routinen sollte möglichst "kompakt" sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output graphische und formatierte Ausgaben enthalten.
+1. **Convenience:** Der Aufruf von statistischen Routinen sollte möglichst "kompakt" sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
 
 2. **Completeness:** Alle Zusammenfassungen, Modellierungen und Visualisierungen die in FORTRAN möglich waren, sollten auch in S möglich sein.
 
@@ -66,7 +66,7 @@ Zudem lies sich der Quelltext gut für Lehrzwecke einsetzen.
 Nachdem Ithaka und Gentleman R zunächst nur in der Wissenschafts-Community verbreiteten und dafür 
 positives Feedback erhielten, entschieden Sie sich 1995 zur Veröffentlichung der Sprache unter einer 
 *General Public License* (GNU). 
-Das Basis-Paket von R (base R) wird seitdem on einem etwa 20-köpfigen Kernentwicklerteam um Ross Ihaka und Robert 
+Das Basis-Paket von R (base R) wird seitdem von einem etwa 20-köpfigen Kernentwicklerteam um Ross Ihaka und Robert 
 Gentleman weiterentwickelt (*R Core Team*). 
 Der gemeinnützige Verein *R Foundation for Statistical Computing* mit Sitz in Wien verwaltet das Urheberrecht an R 
 und dient dem Zweck, die Verbreitung der Sprache zu fördern. 
