@@ -13,7 +13,7 @@ data$verbundenheit_europa <- set_labels(data$verbundenheit_europa, labels = get_
 
 Datenaufbereitung (*data wrangling*) bezeichnet den Prozess, in dem Rohdaten so verändert, sortiert, umstrukturiert und ausgewählt werden, dass man sie für die anvisierte Analyse verwenden kann. 
 
-Im einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:
+Im Einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:
 
 - `filter()` zur Auswahl von Fällen
 
@@ -29,7 +29,7 @@ Im einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:
 
 Die letzte Funktion entfaltet besondere Stärken im Zusammenhang mit `group_by()`. Dadurch kann man Auswertungen oder bestimmte Datentransformationen nach Gruppen aufteilen. 
 
-Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem Tidyverse. Die einzige Ausnahme bildet `rec()` aus dem Paket `sjmisc`. Obwohl sie aus unterschiedlichen Paketen stammen folgen alle dem Tidyverse-Konzept und funktionieren auf ähnliche Weise [vgl. @Wickham_2017, Kap. 5.1.3]:
+Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem tidyverse. Die einzige Ausnahme bildet `rec()` aus dem Paket `sjmisc`. Obwohl sie aus unterschiedlichen Paketen stammen, folgen alle dem tidyverse-Konzept und funktionieren auf ähnliche Weise [vgl. @Wickham_2017, Kap. 5.1.3]:
 
 - Das erste Argument ist immer der Dataframe.
 
@@ -53,13 +53,13 @@ Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurüc
 
 ## Die Pipe {#pipe}
 
-<img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!
+<img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die *Pipe*. In R geschrieben durch die Zeichenfolge `%>%`. Eine Pipe kann man auch durch den Shortcut `Ctrl/Strg + Shift + m` einfügen. Merken Sie sich diesen Shortcut gut, Sie werden ihn oft brauchen!
 
-Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfiltern und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden. 
+Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möchte z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfiltern und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden. 
 
 
 ### Der Aufbau im Detail
-Hier der schematische Aufbau einer Datentransformation mit Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:
+Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:
 ```{r echo=FALSE}
 transformation_1 <- function(a, b){a}
 transformation_2 <- function(a, b){a}
@@ -80,7 +80,7 @@ Schauen wir uns mal zeilenweise an, was hier passiert:
 
     - Nachdem die Operation durchgeführt wurde, wird das Ergebnis dieser Operation (also das neue Objekt `new_data`) mit der Pipe `%>%` an die nächste Zeile übergeben.
 
-2. Zweite Zeile: Wo landet das Objekt `new_data`? Ich habe eben geschrieben, dass das Objekt an die nächste Zeile übergeben wurde. Es ist vielleicht etwas irritierend, das es gar nicht mehr zu sehen ist. Also wo ist es?
+2. Zweite Zeile: Wo landet das Objekt `new_data`? Ich habe eben geschrieben, dass das Objekt an die nächste Zeile übergeben wurde. Es ist vielleicht etwas irritierend, dass es gar nicht mehr zu sehen ist. Also wo ist es?
 
     - Es steckt in der Funktion dieser Zeile, also im `transformation_1()` und zwar als erstes Argument. Durch die Pipe ist es quasi unsichtbar. Gedanklich kann man sich den Befehl in dieser Zeile so vorstellen: `transformation_1(new_data, "do something")` - nur, dass man `new_data` dort nicht extra erwähnen muss, weil durch die Pipe in der vorhergehenden Zeile klar ist, dass dieses Objet das erste Argument ist.
   
@@ -88,17 +88,17 @@ Schauen wir uns mal zeilenweise an, was hier passiert:
   
     - Am Ende der Zeile steht wieder eine Pipe `%>%`. Auch sie leitet das Ergebnis der vorhergehenden Transformation an die nächste Zeile weiter.
 
-3. Dritte Zeile: ...same procedere as every pipe...
+3. Dritte Zeile: ...same procedure as every pipe...
 
     - Wieder landet der (nun einmal transformierte) Dataframe `new_data` als erstes Argument in einer Funktion, diesmal in `transformation_2()`.
   
-    - Wieder wird der Dataframe irgendwie transformiert und heiß noch immer gleich.
+    - Wieder wird der Dataframe irgendwie transformiert und heißt noch immer gleich.
   
     - Wieder wird er durch die Pipe am Ende der Zeile an die nächste Zeile übergeben.
   
 4. Vierte Zeile: Das Ende naht.
 
-    - Auch hier wieder das selbe Spiel wie zuvor: Der Datensatz landet als erstes Argument in der Funktion `transformation_3()`, die irgendwelche Operationen mit ihm durchführt.
+    - Auch hier wieder dasselbe Spiel wie zuvor: Der Datensatz landet als erstes Argument in der Funktion `transformation_3()`, die irgendwelche Operationen mit ihm durchführt.
   
     - Nach der Transformation ist allerdings Schluss, denn da ist keine weitere Pipe. Der nun dreifach transformierte Datensatz ist jetzt fertig und liegt als neues Objekt `new_data` vor. Sie finden es im Environment-Tab.
 
@@ -115,13 +115,13 @@ Schauen wir uns einmal an, was die Alternativen zur Arbeit mit der Pipe wären. 
 
 - Eine andere Option wäre es, jedes Mal ein neues Objekt zu erzeugen und die Objekte dann durchzunummerieren oder zu benennen (`data_1`, `data_2`, `data_3` oder `data_filtered`, `data_sorted`, `data_with_var_x`). Auch nicht sehr übersichtlich und ebenfalls fehleranfällig. 
 
-- Die dritte Möglichkeit wäre es, Funktionen ineinander zu verschachteln, etwa so: `fun1(fun2(fun3(arg1, arg2)), arg1, arg2)`. R würde diese dann von innen nach außen abarbeiten. Das ist zwar sehr kompakt, allerdings ist es sehr schwer hier den Überblick zu behalten und auch hier sind Fehler (etwa bei der Klammersetzung) vorprogrammiert.
+- Die dritte Möglichkeit wäre es, Funktionen ineinander zu verschachteln, etwa so: `fun1(fun2(fun3(arg1, arg2)), arg1, arg2)`. R würde diese dann von innen nach außen abarbeiten. Das ist zwar sehr kompakt, allerdings ist es sehr schwer, hier den Überblick zu behalten und auch hier sind Fehler (etwa bei der Klammersetzung) vorprogrammiert.
 
-Besser sie gewöhnen sich die Arbeit mit der Pipe direkt an. Gerade für den Bereich Datenaufbereitung macht die Pipe sehr viel Sinn, weil in den Funktionen das Datenargument immer an der ersten Stelle steht. Das kommt der Pipe sehr entgegen, weil man den Dataframe so quasi von oben nach unten durch die Pipe leiten und in jedem Schritt ein bisschen weiter umformen kann. Auch wenn die Pipes in diesem Kapitel noch nicht besonders lang sein werden verwende ich diese Schreibweise, einfach, damit Sie sich daran gewöhnen.
+Besser sie gewöhnen sich die Arbeit mit der Pipe direkt an. Gerade für den Bereich Datenaufbereitung macht die Pipe sehr viel Sinn, weil in den Funktionen das Datenargument immer an der ersten Stelle steht. Das kommt der Pipe sehr entgegen, weil man den Dataframe so quasi von oben nach unten durch die Pipe leiten und in jedem Schritt ein bisschen weiter umformen kann. Auch wenn die Pipes in diesem Kapitel noch nicht besonders lang sein werden, verwende ich diese Schreibweise – einfach, damit Sie sich daran gewöhnen.
 
 
 ## Filter: Fälle auswählen
-Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien verringern, also Fälle herausfiltert, die man nicht benötigt bzw. momentan nicht berücksichtigen möchte.
+Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien verringern, also Fälle herausfiltern, die man nicht benötigt bzw. momentan nicht berücksichtigen möchte.
 
 - Fälle entfernen, die man grundsätzlich nicht im Datensatz haben wollte, z.B. Minderjährige, wenn man nur Erwachsene befragen wollte.
 
@@ -149,7 +149,7 @@ Okay, der ursprüngliche Datensatz hat 87 Zeilen (Starwars-Charactere) und bei d
 
 Als nächstes muss eine Filterbedingung festgelegt werden. Die Filterbedingung ist nach den Daten das zweite und zwingende Argument, dass die `filter()`-Funktion benötigt. Hier kommt der Datentyp "logical" ins Spiel, den wir [hier](#atomic_vector_types) besprochen haben. Anhand der Filterbedingung prüft die Funktion `filter()` für jeden Fall im Datensatz, ob eine zuvor von uns definierte Bedingung `TRUE` oder `FALSE` ist. Ist das Ergebnis der Prüfung `TRUE` verbleibt der Fall im Datensatz. Ist es `FALSE` wird der Fall aus dem Datensatz entfernt. Die Prüfung erfolgt anhand der relationalen Operatoren (z.B. `==` für "ist gleich", `!=` für "ist ungleich" oder `<` für "ist kleiner als").
 
-Im Beispiel wollen wir Starwarsfiguren die eine Mindestgröße von 200 überschreiten in einem Datensatz abspeichern. Wir müssen also die Bedingung "Die Größe ist mindestens 200 cm" so formulieren, dass R sie versteht. Das geht mit der Bedingung `height >= 200`:
+Im Beispiel wollen wir Starwars-Figuren die eine Mindestgröße von 200 überschreiten in einem Datensatz abspeichern. Wir müssen also die Bedingung "Die Größe ist mindestens 200 cm" so formulieren, dass R sie versteht. Das geht mit der Bedingung `height >= 200`:
 
 ```{r }
 data_tall <- starwars %>% 
@@ -163,9 +163,9 @@ nrow(data_tall)
 head(data_tall)
 ```
 
-Tatsächlich! Im Datensatz sind jetzt nur noch n = `r nrow(data_tall)`  Fälle und in der Variable `height` haben alle den Wert 200 oder einen höheren Wert.
+Tatsächlich! Im Datensatz sind jetzt nur noch n = `r nrow(data_tall)` Fälle und in der Variable `height` haben alle den Wert 200 oder einen höheren Wert.
 
-Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: `eye_color == "orange"`. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator `<-` verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.
+Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: `eye_color == "orange"`. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator `<-` verstanden würde. Hier soll aber nichts zugewiesen, sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.
 
 ```{r }
 data_orange <- starwars %>% 
@@ -179,7 +179,7 @@ nrow(data_orange)
 head(data_orange)
 ```
 
-Perfekt! Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die orange oder gelbe Augen haben und größer als 200 cm sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.
+Perfekt! Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben, die orange oder gelbe Augen haben und größer als 200 cm sind. Um eine so komplexe Bedingung zu formulieren, braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.
 
 Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind: 
 
@@ -210,9 +210,9 @@ head(data_filter_na)
 
 
 ## Arrange: Fälle sortieren
-Mit ´arrange()` lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.
+Mit `arrange()` lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.
 
-Der Einsatz von `arrange()` ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben nach der sortiert werden soll, hier z.B. nach der Körpergröße:
+Der Einsatz von `arrange()` ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben, nach der sortiert werden soll, hier z.B. nach der Körpergröße:
 ```{r }
 # aufsteigend sortieren
 starwars %>% 
@@ -220,7 +220,7 @@ starwars %>%
   head()
 ```
 
-Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von `desc()`. Das sieht dann so aus:
+Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen, benötigen wir die Hilfe von `desc()`. Das sieht dann so aus:
 
 ```{r }
 # absteigend sortieren
@@ -241,7 +241,7 @@ starwars %>%
 
 ## Select: Variablen auswählen
 
-Die Funktion `select()` dient genau wie `filter()` dazu, den Datensatz zu verkleinern. Jedoch geht es bei `select()` darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.
+Die Funktion `select()` dient genau wie `filter()` dazu, den Datensatz zu verkleinern. Jedoch geht es bei `select()` darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen, einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.
 
 ```{r }
 # Variablen auswählen
@@ -251,11 +251,11 @@ starwars %>%
 ```
 
 
-Will man nur einzelne Variablen löschen, so geht dies mit einem `-` vor dem Variablennamen `select(data, -birth_year)` löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.
+Will man nur einzelne Variablen löschen, so geht dies mit einem `-` vor dem Variablennamen. `select(data, -birth_year)` löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.
 
-Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit "var_name_" beginnt. Die Syntax dafür ist `starts_with("var_name_")`. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von `var_name_1` bis `var_name_x`. Dafür müsste man bspw. `height:eye_color` eingeben.
+Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit "var_name_" beginnt. Die Syntax dafür ist `starts_with("var_name_")`. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von `var_name_1` bis `var_name_x`. Dafür müsste man beispielsweise `height:eye_color` eingeben.
 
-Zudem kann `select()` auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funktion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion `everything()` - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.
+Zudem kann man `select()` auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funktion. Beim Umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist beispielsweise die Funktion `everything()` - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.
 
 ```{r }
 # Variablen neu sortieren
@@ -265,7 +265,7 @@ starwars %>%
 ```
 
 ## Variablen umcodieren
-Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die "falsch herum" codiert wurden zu drehen: In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu "Verbundenheit" unintuitiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label "sehr verbunden", der Wert 5 ist hingegen mit "überhaupt nicht verbunden" codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable `verbundenheit_europa`.
+Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variablen damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen, die "falsch herum" codiert wurden und jetzt gedreht werden müssen. In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu "Verbundenheit" unintuitiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label "sehr verbunden", der Wert 5 ist hingegen mit "überhaupt nicht verbunden" codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable `verbundenheit_europa`.
 
 ```{r, messages=FALSE}
 library(sjlabelled)
@@ -278,10 +278,10 @@ labels = get_labels(data$verbundenheit_europa)
 cbind(values, labels) # beide Vektoren zusammenbinden
 ```
 
-Intutiver wäre es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gepabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl `rec()` aus dem Paket `sjmisc`. Ein Tipp für SPSS-Umsteiger: Der Befehl ist sehr stark an die Logik von SPSS angelehnt.
+Intutiver wäre es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gelabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl `rec()` aus dem Paket `sjmisc`. Ein Tipp für SPSS-Umsteiger: Der Befehl ist sehr stark an die Logik von SPSS angelehnt.
 
-Der `rec()`-Befehl fügt sich in die Tidyverse-Logik ein und erwartet als erstes Argument genau wie die `dplyr`-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit `verbundenheit_` beginnen. Ein kleiner Einschub: An dieser Stelle bereits deutlich, dass Variablennamen möglichst so zu vergeben sind, dass Variablen eines Konzeptes immer gleich benannt werden. Eine reine Nummerierung von Variablen würde den Befehl erheblich länger machen.
-Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt `rec` und beinhaltet einen Text mit den Anweisungen in der Form `"werte_label = neuer_wert"`. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die "restlichen" Werte durch ein `"else=copy"` auffangen. Dadurch wird der Wert aus der ursprünglichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = "weiß nicht". Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
+Der `rec()`-Befehl fügt sich in die tidyverse-Logik ein und erwartet als erstes Argument genau wie die `dplyr`-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere Variablen einsetzen, in unserem Fall alle die mit `verbundenheit_` beginnen. Ein kleiner Einschub: An dieser Stelle wird bereits deutlich, dass Variablennamen möglichst so zu vergeben sind, dass Variablen eines Konzeptes immer gleich benannt werden. Eine reine Nummerierung von Variablen würde den Befehl erheblich länger machen.
+Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt `rec` und beinhaltet einen Text mit den Anweisungen in der Form `"werte_label = neuer_wert"`. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Werte nicht von der Umcodierung betroffen sein, kann man die "restlichen" Werte durch ein `"else=copy"` auffangen. Dadurch wird der Wert aus der ursprünglichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = "weiß nicht". Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.
 
 Die Funktion `rec()` erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein `_r` am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.
 
@@ -295,7 +295,7 @@ data <- data %>%
                                              Überhaupt nicht verbunden = 1;
                                              else=copy") 
 
-# Beispielhaft die Variable verbundenheit_dtl inkl. recodierter Variante anzeigen:
+# Beispielhaft die Variable verbundenheit_dtl inklusive recodierter Variante anzeigen:
 data %>% 
   select(starts_with("verbundenheit_dtl")) %>% 
   head()
@@ -317,9 +317,9 @@ sw_age_grp <- starwars %>%
 
 ## Variablen berechnen
 
-Es gibt viele unterschiedliche Wege wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.
+Es gibt viele unterschiedliche Wege, wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.
 
-Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das `sjmisc`-Paket und aus dem Tidyverse die Funktion `mutate()`.
+Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das `sjmisc`-Paket und aus dem tidyverse die Funktion `mutate()`.
 
 ### Summen und Mittelwertindices
 
@@ -330,7 +330,7 @@ Indices zu berechnen ist eine häufige Task bei der Datenaufbereitung. Zwei beso
 - Der **Mittelwertindex**, bei dem ein Mittelwert über mehrere Variablen hinweg gebildet wird.
 
 Für diese beiden Index-Arten hält das `sjmisc`-Paket zwei interessante Funktionen bereit `row_sums()` und `row_means()`.
-Ich demonstriere im folgenden die `row_means()`-Funktion, aber `row_sums()` funktioniert vom Prinzip her gleich. Ich bleibe dazu beim Generation-Z-Datensatz. Ich möchte jetzt für die 5 Verbundenheits-Variablen einen Mittelwertindex berechnen (ob das inhaltlich super sinnvoll ist, sei mal dahingestellt...).
+Ich demonstriere im Folgenden die `row_means()`-Funktion, aber `row_sums()` funktioniert vom Prinzip her gleich. Ich bleibe dazu beim Generation-Z-Datensatz. Ich möchte jetzt für die 5 Verbundenheits-Variablen einen Mittelwertindex berechnen (ob das inhaltlich super sinnvoll ist, sei mal dahingestellt...).
 
 Der Einsatz der Funktion sieht wie folgt aus:
 
@@ -345,7 +345,7 @@ Neben dem Datensatz-Argument, welches hier wie gehabt über die Pipe übergeben 
 
 - Die Variablen, die in dem Index zusammengefasst werden sollen
 
-- das Argument `n =` in diesem Argument wird festgelegt, in wie vielen der Ursprungs-Variablen ein Fall einen gültigen Wert aufweisen muss, damit ein Index berechnet werden kann. Ich habe den Wert hier auf 4 gesetzt. Ein Befragter muss also mindestens 4 der 5 Variablen ausgefüllt haben, damit der Mittelwertindex berechnet wird.
+- Das Argument `n =`, in diesem Argument wird festgelegt, in wie vielen der Ursprungs-Variablen ein Fall einen gültigen Wert aufweisen muss, damit ein Index berechnet werden kann. Ich habe den Wert hier auf 4 gesetzt. Ein Befragter muss also mindestens 4 der 5 Variablen ausgefüllt haben, damit der Mittelwertindex berechnet wird.
 
 - Optional das Argument `var =`, das den Namen für den neuen Index in Anführungsstrichen enthält. Übergibt man dieses Argument nicht, wird der Index von R "rowmeans" genannt.
 
@@ -353,14 +353,14 @@ In der letzten Zeile lasse ich mir die ersten paar der errechneten Werte für di
 
 
 ### Berechnen mit dplyr::mutate()
-Mit `mutate()` kann man neue Variablen bilden un zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema `new_var_name = some calculation`. 
+Mit `mutate()` kann man neue Variablen bilden und zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema `new_var_name = some calculation`. 
 
 Im nächsten Code-Beispiel wird der Bodymass-Index der Starwars-Figuren berechnet. 
 
 Die Formel für den BMI ist:
 Gewicht durch Größe in Metern zum Quadrat.
 
-Da die Größe dafür in Metern angegeben sein muss, im Starwars-Datensatz aber nur cm erfasst sind, müssen wir zusätzlich auch noch die cm in Meter umrechnen.
+Da die Größe dafür in Metern angegeben sein muss, im Starwars-Datensatz aber nur cm erfasst sind, müssen wir zusätzlich auch noch die Zentimeter in Meter umrechnen.
 
 Damit wir die Daten im Anschluss an die Berechnung schön vergleichen können, wähle ich die beteiligten Variablen nach der Berechnung aus und sortiere nach dem BMI.
 
@@ -376,7 +376,7 @@ Jetzt kennen Sie den BMI von Jabba the Hutt! Aber auch der BMI von Yoda ist ganz
 
 
 ### Variablen unter einer Bedingung berechnen
-Man kann Natürlich auch Variablen anhand von logischen Ausdrücken berechnen, also eine Art Filterbedingung dafür zu Rate ziehen welchen Wert die Variable annehmen soll. Es muss dafür wieder mit logischen Ausdrücken gearbeitet werden und wir brauchen eine Funktion die `ìfelse()` heißt. Die Funktion bekommt drei Argumente:
+Man kann natürlich auch Variablen anhand von logischen Ausdrücken berechnen, also eine Art Filterbedingung dafür zu Rate ziehen, welchen Wert die Variable annehmen soll. Es muss dafür wieder mit logischen Ausdrücken gearbeitet werden und wir brauchen eine Funktion die `ìfelse()` heißt. Die Funktion bekommt drei Argumente:
 
 1. Den logischen Ausdruck bei dem für jeden Fall zu prüfen ist, ob er für diesen Fall `TRUE` oder `FALSE` ist.
 
@@ -384,14 +384,14 @@ Man kann Natürlich auch Variablen anhand von logischen Ausdrücken berechnen, a
 
 3. Einen Wert, den die Variable annehmen soll, wenn der Fall `FALSE` eintritt.
 
-Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenheit zu Europa größer ist als die zu Deutschland und ansonsten 0. Ich nenne sie `sieht_sich_als_europaeer`.
+Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenheit zu Europa größer ist, als die zu Deutschland und ansonsten 0. Ich nenne sie `sieht_sich_als_europaeer`.
 
 ```{r }
 # Variable berechnen mit Bedingung
 data_eu <- data %>% 
   mutate(sieht_sich_als_europaeer = ifelse(verbundenheit_europa > verbundenheit_dtl, 1, 0)) 
 
-# Für die kontrolle relevante Variablen auswählen
+# Für die Kontrolle relevante Variablen auswählen
 data_eu %>% 
   select(lfdn, verbundenheit_europa, verbundenheit_dtl, sieht_sich_als_europaeer) %>%   head()
 ```
@@ -401,7 +401,7 @@ data_eu %>%
 
 ## Summarize: Daten verdichten
 
-Die letzte `dplyr`-Funktion auf die ich hier eingehen möchte ist `summarize()`. Im ersten Moment wirkt `summarize()` vielleicht ein bisschen wie eine komplizierte Art deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel "Deskriptive Statistiken vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis. 
+Die letzte `dplyr`-Funktion, auf die ich hier eingehen möchte, ist `summarize()`. Im ersten Moment wirkt `summarize()` vielleicht ein bisschen wie eine komplizierte Art, deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel "Deskriptive Statistiken" vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis. 
 
 Möglicherweise werden Sie die Funktion zunächst kaum benutzen, aber später wiederentdecken. Der Vollständigkeit halber wird sie trotzdem an dieser Stelle kurz erläutert.
 
@@ -413,9 +413,9 @@ starwars %>%
   summarise(mean_height = mean(height, na.rm = TRUE))
 ```
 
-Das Ergebnis ist ein Datensatz, der eine neue Variable enthält die `mean_height` heißt und nur einen Fall hat. Soweit, so unspannend. 
+Das Ergebnis ist ein Datensatz, der eine neue Variable enthält, die `mean_height` heißt und nur einen Fall hat. Soweit so unspannend. 
 
-Das geschickte an `summarize()` ist, dass die Funktion perfekt mit `group_by()` zusammenarbeitet. Mit `group_by()` kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert bspw. ob regionale Unterschiede bei der Größe der Charaktere gibt. Vergleichen wir mal Tatooine und Naboo. Zusätzlich lasse ich noch die Fallzahl der Gruppen mit ausgeben (`n = n()`):
+Das Geschickte an `summarize()` ist, dass die Funktion perfekt mit `group_by()` zusammenarbeitet. Mit `group_by()` kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert beispielsweise, ob es regionale Unterschiede bei der Größe der Charaktere gibt. Vergleichen wir mal Tatooine und Naboo. Zusätzlich lasse ich noch die Fallzahl der Gruppen mit ausgeben (`n = n()`):
 
 
 ```{r }
