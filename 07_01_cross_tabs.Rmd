@@ -13,11 +13,11 @@ data <- haven::read_sav("data/ZA6738_v1-0-0_generation_z_renamed.sav") %>%
 
 ```
 
-Mit Kreuztabelle/Kontingenztabelle kann man den die Verteilung einer Variablen unter Berücksichtigung einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben. 
+Mit Kreuztabellen/Kontingenztabellen kann man die Verteilung einer Variable unter Berücksichtigung einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt, sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben. 
 
-Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von Reihen- und Spaltenzahl sowie der Fallzahl unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramer´s V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramer´s V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.
+Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von der Reihen- und Spaltenzahl, sowie der Fallzahl, unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramer´s V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramer´s V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.
 
-Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die "0" bedeutet dabei, dass ein: Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und "1" bedeutet, dass sie mindestens einmal wahrgenommen wurde.
+Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die "0" bedeutet dabei, dass ein:e Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und "1" bedeutet, dass sie mindestens einmal wahrgenommen wurde.
 
 Außerdem enthält der Datensatz noch die Variable "alter_g3", die ich in drei Gruppen eingeteilt habe ("14 bis 17 Jahre", "18 bis 21 Jahre" und "22 bis 24 Jahre").
 
@@ -25,13 +25,13 @@ Außerdem enthält der Datensatz noch die Variable "alter_g3", die ich in drei G
 head(data)
 ```
 
-Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die da drinsteckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petitionen. 
+Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben, zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die darin steckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petitionen. 
 
 Unsere H1 lautet also:
 
 *Der Anteil derjenigen, die bereits eine Petition unterschrieben haben, steigt mit zunehmendem Alter.*
 
-Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, `janitor` für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und `DescTools` für Cramer´s V.
+Bevor es mit dem Hypothesentest losgehen kann, müssen die erforderlichen Pakete geladen werden. Das tidyverse für die Pipe, `janitor` für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und `DescTools` für Cramer´s V.
 
 ```{r}
 library(tidyverse)
@@ -43,8 +43,8 @@ library(DescTools)
 ### Vorbereitung: Univariate Verteilung
 
 Schauen wir uns zunächst einmal die univariate Verteilung der beiden Variablen an.
-Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln welche Verteilung wir erwarten würden.
-Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten mit dem Paket `janitor` und der Funktion `tabyl()`
+Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln, welche Verteilung wir erwarten würden.
+Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten mit dem Paket `janitor` und der Funktion `tabyl()`.
 
 ```{r}
 # Häufigkeitstabelle Altersgruppen
@@ -60,11 +60,11 @@ Jetzt noch die Beteiligung an Petitionen:
 tabyl(data$pol_part_petition)
 ```
 
-Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen ware also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschreiben hat.
+Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen, wäre also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschrieben hat.
 
 ### Kreuztabelle ausgeben
 
-Mit dem Paket `janitor` und der Funktion `tabyl()` kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.
+Mit dem Paket `janitor` und der Funktion `tabyl()` kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte, einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird, steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden, bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.
 
 Wir halten uns im folgenden Code jedoch an die Konvention und übergeben zusätzlich noch das Argument `show_na = FALSE` um fehlende Werte aus der Analyse auszuschließen.
 
@@ -78,7 +78,7 @@ my_crosstab <- data %>%
 my_crosstab
 ```
 
-Die Tabelle macht genau was sie soll, sie Tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoluten Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das `janitor`-Paket die eine Reihe von Funktionen, die alle mit `adorn_` beginnen, z.B.:
+Die Tabelle macht genau was sie soll, sie tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoluten Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das `janitor`-Paket eine Reihe von Funktionen, die alle mit `adorn_` beginnen, z.B.:
 
 - `adorn_totals()` fügt Randhäufigkeiten hinzu. Mit dem Argument `where = ` kann man noch bestimmen, ob dies in den Spalten (`"col"`), oder in den Reihen (`"row"`) oder in beidem `c("row", "col")` geschehen soll.
 
@@ -123,7 +123,7 @@ janitor::chisq.test(my_crosstab)
 
 Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p < .001 und damit "signifikant". Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.
 
-Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im PAket `DescTools` und heißt `CramerV()`. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt `my_crosstab` gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte löschen, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting `[, -1]` können wir genau dies erreichen. Der Befahl sagt quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma `-1`).
+Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im Paket `DescTools` und heißt `CramerV()`. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt `my_crosstab` gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte gelöscht werden, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting `[, -1]` können wir genau dies erreichen. Der Befehl löscht quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma `-1`).
 
 ```{r}
 # Cramer´s V
@@ -132,4 +132,5 @@ DescTools::CramerV(my_crosstab[, -1])
 
 Cramer´s V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen. 
 
-Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen. Stattdessen zeigt wird ein relevanter Anstieg beim Unterzeichnen von Petitionen offenbar durch das Erreichen der Volljährigkeit befördert. Spannend!
+Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen.
+Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter Anstieg beim Unterzeichnen von Petitionen befördert. Spannend!
