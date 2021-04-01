@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 7 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 7 Bivariate Statistik | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 7 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 7 Bivariate Statistik | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 7 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 7 Bivariate Statistik | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-01-07" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="deskriptive-statistik.html"/>
 <link rel="next" href="grafiken.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -64,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -91,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,29 +142,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
 <li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a><ul>
+<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
-<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a><ul>
+<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
 <li class="chapter" data-level="2.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Installation von RStudio</a></li>
 <li class="chapter" data-level="2.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>2.2.3</b> RStudio Benutzeroberfläche</a></li>
@@ -173,52 +180,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>2.2.6</b> RStudio anpassen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a><ul>
-<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a><ul>
+<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>3.1.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a><ul>
+<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>3.2.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a><ul>
-<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a><ul>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
-<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperator"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperator</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
 <li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a><ul>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
 <li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a><ul>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
 <li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
 <li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a><ul>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
 <li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
 <li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
-<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a><ul>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
 <li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-im--und--export"><i class="fa fa-check"></i><b>4.8</b> Daten-Im- und -Export</a><ul>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
 <li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
 <li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
 <li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
 <li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
@@ -229,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a><ul>
+<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a><ul>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
 </ul></li>
@@ -239,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
 <li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a><ul>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
 <li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
 <li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
@@ -247,13 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a><ul>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
 <li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a><ul>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
 <li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
 <li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
@@ -262,13 +286,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
+<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a><ul>
+<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
 <li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
@@ -278,11 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
 <li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
 <li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
 <li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -311,17 +340,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bivariate-statistik" class="section level1">
+<div id="bivariate-statistik" class="section level1" number="7">
 <h1><span class="header-section-number">Kapitel 7</span> Bivariate Statistik</h1>
 <p>In diesem Kapitel geht es um bivariate Verfahren, also die gemeinsame Variation von zwei Variablen. Im Detail behandeln wir hier die Kreuztabelle und Chi-Quadrat sowie die Korrelation.</p>
 
-<div id="kreuztabellen" class="section level2">
+<div id="kreuztabellen" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Kreuztabellen</h2>
-<p>Mit Kreuztabelle/Kontingenztabelle kann man den die Verteilung einer Variablen unter Berücksichtigung einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben.</p>
-<p>Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von Reihen- und Spaltenzahl sowie der Fallzahl unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramer´s V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramer´s V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.</p>
-<p>Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die “0” bedeutet dabei, dass ein: Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und “1” bedeutet, dass sie mindestens einmal wahrgenommen wurde.</p>
-<p>Außerdem enthält der Datensatz noch die Variable “alter_g3”, die ich in drei Gruppen eingeteilt habe (“14 bis 17 Jahre”, “18 bis 21 Jahre” und “22 bis 24 Jahre”).</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">head</span>(data)</a></code></pre></div>
+<p>Mit Kreuztabellen/Kontingenztabellen kann man die Verteilung einer Variable unter Berücksichtigung einer anderen in den Blick nehmen. Damit die Tabelle übersichtlich bleibt, sollten beide Variablen eher wenige Ausprägungen haben, also eher nominales oder ordinales Datenniveau haben.</p>
+<p>Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von der Reihen- und Spaltenzahl, sowie der Fallzahl, unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramer´s V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramer´s V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.</p>
+<p>Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die “0” bedeutet dabei, dass ein:e Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und “1” bedeutet, dass sie mindestens einmal wahrgenommen wurde.</p>
+<p>Außerdem enthält der Datensatz noch die Variable “alter_g3,” die ich in drei Gruppen eingeteilt habe (“14 bis 17 Jahre,” “18 bis 21 Jahre” und “22 bis 24 Jahre”).</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="bivariate-statistik.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 13
 ##    lfdn alter_g3 pol_part_wahl pol_part_petiti… pol_part_sm_kom…
 ##   &lt;dbl&gt; &lt;chr&gt;        &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;
@@ -336,62 +365,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   pol_part_gespraech &lt;dbl+lbl&gt;, pol_part_produktboykott &lt;dbl+lbl&gt;,
 ## #   pol_part_parteiengagement &lt;dbl+lbl&gt;, pol_part_anderes_engagement &lt;dbl+lbl&gt;,
 ## #   pol_part_nichts_davon &lt;dbl+lbl&gt;</code></pre>
-<p>Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die da drinsteckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petitionen.</p>
+<p>Ziel des nachfolgenden Skriptes ist es zu eruieren, ob sich der Anteil derjenigen, die eine Partizipationsmöglichkeit wahrgenommen haben, zwischen den Altersgruppen unterscheidet. Die Vermutung (Hypothese), die darin steckt ist natürlich, dass bei zunehmendem Alter der Anteil derjenigen steigt, die diese Möglichkeit bereits wahrgenommen haben. Das Beispiel hier im Buch beschäftigt sich insbesondere mit dem Unterschreiben von Petitionen.</p>
 <p>Unsere H1 lautet also:</p>
 <p><em>Der Anteil derjenigen, die bereits eine Petition unterschrieben haben, steigt mit zunehmendem Alter.</em></p>
-<p>Bevor es mit dem Hypothesentest losgehen kann müssen die erforderlichen Pakete geladen werden. Das Tidyverse für die Pipe, <code>janitor</code> für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und <code>DescTools</code> für Cramer´s V.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb187-2" data-line-number="2"><span class="kw">library</span>(janitor)</a>
-<a class="sourceLine" id="cb187-3" data-line-number="3"><span class="kw">library</span>(DescTools)</a></code></pre></div>
-<div id="vorbereitung-univariate-verteilung" class="section level3">
+<p>Bevor es mit dem Hypothesentest losgehen kann, müssen die erforderlichen Pakete geladen werden. Das tidyverse für die Pipe, <code>janitor</code> für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und <code>DescTools</code> für Cramer´s V.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="bivariate-statistik.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb186-2"><a href="bivariate-statistik.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb186-3"><a href="bivariate-statistik.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
+<div id="vorbereitung-univariate-verteilung" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Vorbereitung: Univariate Verteilung</h3>
 <p>Schauen wir uns zunächst einmal die univariate Verteilung der beiden Variablen an.
-Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln welche Verteilung wir erwarten würden.
-Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code></p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co"># Häufigkeitstabelle Altersgruppen</span></a>
-<a class="sourceLine" id="cb188-2" data-line-number="2"><span class="kw">tabyl</span>(data<span class="op">$</span>alter_g3)</a></code></pre></div>
+Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln, welche Verteilung wir erwarten würden.
+Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code>.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="bivariate-statistik.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Altersgruppen</span></span>
+<span id="cb187-2"><a href="bivariate-statistik.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>alter_g3)</span></code></pre></div>
 <pre><code>##    data$alter_g3   n   percent
 ##  14 bis 17 Jahre 356 0.3542289
 ##  18 bis 21 Jahre 354 0.3522388
 ##  22 bis 24 Jahre 295 0.2935323</code></pre>
 <p>Die drei Altersgruppen sind also alle etwa gleich stark besetzt, die älteste Altersgruppe ist ca. 5 Prozent kleiner als die anderen beiden.</p>
 <p>Jetzt noch die Beteiligung an Petitionen:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="co"># Häufigkeitstabelle Teilnahme Petitionen</span></a>
-<a class="sourceLine" id="cb190-2" data-line-number="2"><span class="kw">tabyl</span>(data<span class="op">$</span>pol_part_petition)</a></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bivariate-statistik.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Teilnahme Petitionen</span></span>
+<span id="cb189-2"><a href="bivariate-statistik.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>pol_part_petition)</span></code></pre></div>
 <pre><code>##  data$pol_part_petition   n   percent
 ##                       0 680 0.6766169
 ##                       1 325 0.3233831</code></pre>
-<p>Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen ware also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschreiben hat.</p>
+<p>Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen, wäre also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschrieben hat.</p>
 </div>
-<div id="kreuztabelle-ausgeben" class="section level3">
+<div id="kreuztabelle-ausgeben" class="section level3" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Kreuztabelle ausgeben</h3>
-<p>Mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code> kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.</p>
+<p>Mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code> kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte, einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird, steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden, bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.</p>
 <p>Wir halten uns im folgenden Code jedoch an die Konvention und übergeben zusätzlich noch das Argument <code>show_na = FALSE</code> um fehlende Werte aus der Analyse auszuschließen.</p>
 <p>Hier der Basis-Code für die Kreuztabelle mit <code>janitor::tabyl()</code>:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="co"># Kreuztabelle berechnen</span></a>
-<a class="sourceLine" id="cb192-2" data-line-number="2">my_crosstab &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb192-3" data-line-number="3"><span class="st">  </span>janitor<span class="op">::</span><span class="kw">tabyl</span>(pol_part_petition, alter_g3, <span class="dt">show_na =</span> <span class="ot">FALSE</span>) </a>
-<a class="sourceLine" id="cb192-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb192-5" data-line-number="5">my_crosstab</a></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="bivariate-statistik.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle berechnen</span></span>
+<span id="cb191-2"><a href="bivariate-statistik.html#cb191-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb191-3"><a href="bivariate-statistik.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(pol_part_petition, alter_g3, <span class="at">show_na =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb191-4"><a href="bivariate-statistik.html#cb191-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-5"><a href="bivariate-statistik.html#cb191-5" aria-hidden="true" tabindex="-1"></a>my_crosstab</span></code></pre></div>
 <pre><code>##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre
 ##                  0             284             213             183
 ##                  1              72             141             112</code></pre>
-<p>Die Tabelle macht genau was sie soll, sie Tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoluten Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das <code>janitor</code>-Paket die eine Reihe von Funktionen, die alle mit <code>adorn_</code> beginnen, z.B.:</p>
+<p>Die Tabelle macht genau was sie soll, sie tabuliert die beiden Variablen im vorgegebenen Layout und gibt dabei die absoluten Häufigkeiten aus. Jetzt wäre es natürlich schön, wenn wir die Tabelle weiter formatieren können und z.B. Prozentwerte und auch Randspalten hinzufügen könnten. Das geht natürlich auch. Dazu beinhaltet das <code>janitor</code>-Paket eine Reihe von Funktionen, die alle mit <code>adorn_</code> beginnen, z.B.:</p>
 <ul>
-<li><p><code>adorn_totals()</code> fügt Randhäufigkeiten hinzu. Mit dem Argument <code>where =</code> kann man noch bestimmen, ob dies in den Spalten (<code>&quot;col&quot;</code>), oder in den Reihen (<code>&quot;row&quot;</code>) oder in beidem <code>c(&quot;row&quot;, &quot;col&quot;)</code> geschehen soll.</p></li>
-<li><p><code>adorn_percentages()</code> berechnet die Prozentwerte. Mit dem Argument <code>denominator =</code> kann man noch bestimmen, ob dies in den Spalten (<code>&quot;col&quot;</code>), oder in den Reihen (<code>&quot;row&quot;</code>) oder in beidem <code>&quot;all&quot;</code> geschehen soll.</p></li>
+<li><p><code>adorn_totals()</code> fügt Randhäufigkeiten hinzu. Mit dem Argument <code>where =</code> kann man noch bestimmen, ob dies in den Spalten (<code>"col"</code>), oder in den Reihen (<code>"row"</code>) oder in beidem <code>c("row", "col")</code> geschehen soll.</p></li>
+<li><p><code>adorn_percentages()</code> berechnet die Prozentwerte. Mit dem Argument <code>denominator =</code> kann man noch bestimmen, ob dies in den Spalten (<code>"col"</code>), oder in den Reihen (<code>"row"</code>) oder in beidem <code>"all"</code> geschehen soll.</p></li>
 <li><p><code>adorn_pct_formatting()</code> dient der Formatierung der Prozentwerte. Über das Argument <code>digits =</code> kann man die Anzahl der Nachkommastellen festlegen.</p></li>
 <li><p><code>adorn_ns()</code> fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch <code>adorn_percentages()</code> überschreiben.</p></li>
-<li><p><code>adorn_title()</code> dient zur Beschriftung der Tabelle. Mit <code>placement = &quot;combined&quot;</code> kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre <code>placement = &quot;top&quot;</code>.</p></li>
+<li><p><code>adorn_title()</code> dient zur Beschriftung der Tabelle. Mit <code>placement = "combined"</code> kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre <code>placement = "top"</code>.</p></li>
 </ul>
 <p>Probieren wir es aus:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="co"># Kreuztabelle formatieren</span></a>
-<a class="sourceLine" id="cb194-2" data-line-number="2">my_crosstab <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb194-3" data-line-number="3"><span class="st">  </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb194-4" data-line-number="4"><span class="st">  </span><span class="kw">adorn_percentages</span>(<span class="dt">denominator =</span> <span class="st">&quot;col&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb194-5" data-line-number="5"><span class="st">  </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb194-6" data-line-number="6"><span class="st">  </span><span class="kw">adorn_ns</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb194-7" data-line-number="7"><span class="st">  </span><span class="kw">adorn_title</span>(<span class="dt">placement =</span> <span class="st">&quot;combined&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="bivariate-statistik.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle formatieren</span></span>
+<span id="cb193-2"><a href="bivariate-statistik.html#cb193-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="sc">%&gt;%</span> </span>
+<span id="cb193-3"><a href="bivariate-statistik.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb193-4"><a href="bivariate-statistik.html#cb193-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">&quot;col&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb193-5"><a href="bivariate-statistik.html#cb193-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb193-6"><a href="bivariate-statistik.html#cb193-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb193-7"><a href="bivariate-statistik.html#cb193-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_title</span>(<span class="at">placement =</span> <span class="st">&quot;combined&quot;</span>)</span></code></pre></div>
 <pre><code>##  pol_part_petition/alter_g3 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre
 ##                           0       80% (284)       60% (213)       62% (183)
 ##                           1       20%  (72)       40% (141)       38% (112)
@@ -408,40 +437,41 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 </ul>
 <p>Nach dem Augenschein der Kreuztabelle, scheinen wir also insgesamt auf einen interessanten Zusammenhang gestoßen zu sein, der unserer Hypothese auch entspricht. Aber ist dieser Zusammenhang auch signifikant?</p>
 </div>
-<div id="chi-quadrat-cramers-v" class="section level3">
+<div id="chi-quadrat-cramers-v" class="section level3" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> Chi-Quadrat &amp; Cramer´s V</h3>
 <p>Dazu ziehen wir im folgenden den Chi-Quadrat-Test heran, ebenfalls aus dem Paket <code>janitor</code>.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="co"># Chi-Quadrat berchnen</span></a>
-<a class="sourceLine" id="cb196-2" data-line-number="2">janitor<span class="op">::</span><span class="kw">chisq.test</span>(my_crosstab)</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="bivariate-statistik.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-Quadrat berchnen</span></span>
+<span id="cb195-2"><a href="bivariate-statistik.html#cb195-2" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">chisq.test</span>(my_crosstab)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  my_crosstab
 ## X-squared = 37.226, df = 2, p-value = 8.249e-09</code></pre>
-<p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant”. Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.</p>
-<p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im PAket <code>DescTools</code> und heißt <code>CramerV()</code>. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt <code>my_crosstab</code> gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte löschen, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting <code>[, -1]</code> können wir genau dies erreichen. Der Befahl sagt quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma <code>-1</code>).</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="co"># Cramer´s V</span></a>
-<a class="sourceLine" id="cb198-2" data-line-number="2">DescTools<span class="op">::</span><span class="kw">CramerV</span>(my_crosstab[, <span class="dv">-1</span>])</a></code></pre></div>
+<p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant.” Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.</p>
+<p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im Paket <code>DescTools</code> und heißt <code>CramerV()</code>. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt <code>my_crosstab</code> gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte gelöscht werden, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting <code>[, -1]</code> können wir genau dies erreichen. Der Befehl löscht quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma <code>-1</code>).</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="bivariate-statistik.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cramer´s V</span></span>
+<span id="cb197-2"><a href="bivariate-statistik.html#cb197-2" aria-hidden="true" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">CramerV</span>(my_crosstab[, <span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.1924605</code></pre>
 <p>Cramer´s V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen.</p>
-<p>Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen. Stattdessen zeigt wird ein relevanter Anstieg beim Unterzeichnen von Petitionen offenbar durch das Erreichen der Volljährigkeit befördert. Spannend!</p>
+<p>Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen.
+Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter Anstieg beim Unterzeichnen von Petitionen befördert. Spannend!</p>
 
 </div>
 </div>
-<div id="korrelationen" class="section level2">
+<div id="korrelationen" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Korrelationen</h2>
 <p>Dieser Abschnitt ist den Zusammenhängen zwischen metrischen Variablen gewidmet. Dabei wird zunächst auf die grafische Analyse eingegangen und dann die Berechnung der Kovarianz und des Korrelationskoeffizienten <em>r</em> veranschaulicht. Dabei werden sowohl die Befehle aus base-R, als auch die entsprechenden Befehle aus dem Pakte <code>psych</code> verwendet. Zudem wird noch das Paket <code>corrr</code> vorgestellt, das zur explorativen, grafischen Analyse von Korrelationen dient.</p>
 <p>Zunächst werden die entsprechenden Pakete geladen.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></a>
-<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="kw">library</span>(psych)     <span class="co"># für Korrelationen</span></a>
-<a class="sourceLine" id="cb200-3" data-line-number="3"><span class="kw">library</span>(corrr)     <span class="co"># für Korrelationsmatrizen</span></a></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="bivariate-statistik.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></span>
+<span id="cb199-2"><a href="bivariate-statistik.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)     <span class="co"># für Korrelationen</span></span>
+<span id="cb199-3"><a href="bivariate-statistik.html#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)     <span class="co"># für Korrelationsmatrizen</span></span></code></pre></div>
 <p>Als Datenbeispiel dient wieder der Generation-Z-Datensatz. Ich habe in diesem Datensatz zwei Indices gebildet, deren Zusammenhang wir hier untersuchen wollen.</p>
 <ul>
 <li><p>Für die <em>Politische Partizipation</em> habe ich einen Summenindex gebildet. Er zählt, wie viele von zehn möglichen Aktivitäten der politischen Partizipation eine Person bereits ausgeführt hat (z.B. Wählen gehen, Petitionen unterschreiben, demonstrieren oder Konsumboykott).</p></li>
 <li><p>Für die <em>Politische Entfremdung</em> habe ich einen Mittelwertindex gebildet, der auf fünf Items beruht, welche jeweils auf einer 4er-Skala von 1 = <em>stimme überhaupt nicht zu</em> bis 4 = <em>stimme voll und ganz zu</em> gemessen wurden. (Hier drei Beispielitems: <em>Politik hat mit meinem Leben nichts zu tun</em>, <em>Entscheidungsprozesse in der Politik sind für mich meistens nicht nachvollziehbar</em> und <em>Den Parteien geht es nur um Macht</em>).</p></li>
 </ul>
 <p>Außerdem enthält der Datensatz noch die Variablen <code>lfdn</code> für die Fallnummer und das <code>alter</code> der Befragten.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">head</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="bivariate-statistik.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##    lfdn pol_part_sx pol_entfremdung_ix         alter
 ##   &lt;dbl&gt;       &lt;dbl&gt;              &lt;dbl&gt;     &lt;dbl+lbl&gt;
@@ -456,40 +486,40 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <p>Diese Alternativhypothese steht im Gegensatz zur folgenden Nullhypothese:</p>
 <p><em>H0: Es gibt keinen (oder sogar einen positiven) Zusammenhang zwischen politischer Partizipation und politischer Entfremdung.</em></p>
 <p>Die Nullhypothese müsste beibehalten werden, sofern wir bei der Berechnung der Korrelation einen Wert von <em>r</em> berechnen der größer oder gleich 0 ist <strong>oder</strong> wenn wir zwar ein negatives <em>r</em> berechnen, aber der p-Wert indiziert, dass dieses berechnete <em>r</em> sich nicht signifikant von Null unterschiedet. Andernfalls können wir davon ausgehen, dass in der Grundgesamtheit wohl eher die H1 zutrifft.</p>
-<div id="streudiagramm" class="section level3">
+<div id="streudiagramm" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Streudiagramm</h3>
 <p>Wir starten zunächst mit einem Streudiagram/Scatterplot und nutzen dazu das Paket <code>ggplot2</code> aus dem Tidyverse. Das Paket wird im nächsten Kapitel (ab Januar) noch ausführlicher erläutert werden. Die Funktion zum Anlegen eines Plots in ggplot2 ist <code>ggplot()</code>. Sie benötigt als erstes Argument den Datensatz und dann als zweites Argument eine Hilfsfunktion, die <code>aes()</code> heißt. Diese Funktion ist für die <em>Ästhetik</em>, also das Aussehen des Plots, verantwortlich. In unserem Fall sind das die beiden Variablen, welche wir auf der X- und der Y-Achse anordnen.</p>
 <p>Nach dem Anlegen des Plots müssen wir dem Plot noch ein <em>Geom</em> hinzufügen. Der Begriff steht für <em>geom</em>etrisches Objekt. Ein Geom ist im Prinzip eine Funktion für die Art der Grafik. Es beinhaltet z.B. statistische Transformationen die zur Darstellung der Grafik nötig sind und Default-Layout-Informationen. In unserem Fall möchten wir das Geom <code>geom_jitter</code> hinzufügen, also einen “zitternden” Scatterplot. Eine Übersicht über verschiedene Geome findet man <a href="https://rstudio.com/wp-content/uploads/2015/06/ggplot2-german.pdf">hier</a>. Das Geom wird mit dem Plot über ein <code>+</code> verknüpft. Diese Pluszeichen muss zwingend am Ende der vorigen Zeile stehen. Über das Pluszeichen kann man dem Plot auch noch weitere Veränderungen hinzufügen. Dazu später mehr.</p>
 <p>Alternativ zum oben beschriebenen Vorgehen kann man auch die <em>aes()</em>-Funktion in die <em>geom_</em>-Funktion einbauen, das macht optisch keinen Unterschied.</p>
 <p>Hier der Code für das zitternde Streudiagram:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> pol_part_sx, <span class="dt">y =</span> pol_entfremdung_ix)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb203-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_jitter</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="bivariate-statistik.html#cb202-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb202-2"><a href="bivariate-statistik.html#cb202-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pol_part_sx, <span class="at">y =</span> pol_entfremdung_ix)) <span class="sc">+</span></span>
+<span id="cb202-3"><a href="bivariate-statistik.html#cb202-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 <p>Betrachtet man den Output kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.</p>
 </div>
-<div id="kovarianz" class="section level3">
+<div id="kovarianz" class="section level3" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Kovarianz</h3>
 <p>Die Kovarianz ist die gemeinsame Variation der beiden Variablen, bzw. das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl <code>cov()</code> ausgeben lassen (Teil des <code>stats</code>-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">cov</span>(df<span class="op">$</span>pol_part_sx, df<span class="op">$</span>pol_entfremdung_ix)</a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="bivariate-statistik.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0.4992269</code></pre>
 <p>Im Beispiel ist die Kovarianz also -0.5. Das ist insofern gut, wel das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.</p>
 </div>
-<div id="korrelation-mit-base-rstats" class="section level3">
+<div id="korrelation-mit-base-rstats" class="section level3" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Korrelation mit <code>base R</code>/<code>stats</code></h3>
 <p>Der Korrelationskoeffizient <em>r</em> (auch Pearson´s r oder Produkt-Moment-Korrelation) berücksichtigt die Skalierung, weil er die Standardabweichungen der beiden Variablen mit einbezieht. Er beschreibt die Beziehung zwischen zwei metrischen Variablen in einem Wertebereich von -1 über 0 bis +1. Der Wert +1 steht dabei für eine perfekt positive und -1 für eine perfekt negative Beziehung.</p>
 <p>Auch der Korrelationskoeffizient lässt sich leicht mit dem <code>stats</code>-Paket berechnen:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">cor</span>(df<span class="op">$</span>pol_part_sx, df<span class="op">$</span>pol_entfremdung_ix)</a></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="bivariate-statistik.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0.3998827</code></pre>
-<p>Das Vorzeichen bleibt verglichen mit der Kovarianz selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 “gepresst”. Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von <em>r</em> = -0.4.</p>
+<p>Das Vorzeichen bleibt verglichen mit der Kovarianz selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 “gepresst.” Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von <em>r</em> = -0.4.</p>
 <p>Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem prüfen, ob ein Korrelationskoeffizient sich signifikant von Null unterschiedet (Inferenzstatistik). Die Funktion für den Signifikanztest lautet <code>cor.test()</code>. Neben den beiden Variablen, kann man der Funktion weitere Argumente mitgeben:</p>
 <ul>
 <li><p>Das Argument <code>use</code> bestimmt darüber wie mit fehlenden werten umgegangen werden soll. Es ist eigentlich nur dann relevant, wenn mehr als zwei Variablen korreliert werden sollen. Dann kann man darüber entscheiden, ob ein FAll für alle mögliche Korrelationen ausgeschlossen werden soll, wenn er bei einer Variable einen fehlenden Wert hat (listenweiser Fallausschluss) oder ob dieser Fall nur bei den Korrelationen ausgeschlossen werden soll, bei denen die Variable beteiligt ist (paarweiser Fallausschluss).</p></li>
 <li><p>Im Argument <code>alternative</code> kann man festlegen, um was für eine Alternativhypothese es sich handelt. Hiernach bestimmt sich, in welche <em>Richtung</em> der Signifikanztest durchgeführt werden soll und ob <em>einseitig</em> oder <em>zweiseitig</em> getestet werden soll. Man kann hier die Option <code>two.sided</code> für einen zweiseitigen Test festlegen, wenn man eine ungerichtete Hypothese aufgestellt hat. Für gerichtete Hypothesen stehen die Optionen <code>greater</code> (für positive Zusammenhänge) und <code>less</code> (für negative Zusammenhänge) zur Verfügung.</p></li>
 </ul>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="kw">cor.test</span>(df<span class="op">$</span>pol_part_sx, df<span class="op">$</span>pol_entfremdung_ix, </a>
-<a class="sourceLine" id="cb208-2" data-line-number="2">         <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>,</a>
-<a class="sourceLine" id="cb208-3" data-line-number="3">         <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="bivariate-statistik.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix, </span>
+<span id="cb207-2"><a href="bivariate-statistik.html#cb207-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>,</span>
+<span id="cb207-3"><a href="bivariate-statistik.html#cb207-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -503,13 +533,13 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 ## -0.3998827</code></pre>
 <p>Das Ergebnis ist ein kurzer “Bericht” über den Signifikanztest. Angegeben sind z.B. der p-Wert, das Konfidenzintervall und noch einmal der Korrelationskoeffizient. Aus dem p-Wert, der im Beispiel einen sehr niedrigen Wert (kleiner als die geforderten .05) aufweist, können wir schließen, dass der Wert <em>r</em> = -0.3998827 signifikant von Null abweicht, also mit einiger Wahrscheinlichkeit nicht zufällig zustande gekommen ist. Das spricht für unsere Hypothese und damit für die Existenz des vermuteten Zusammenhangs in der Grundgesamtheit. Wir können die Hypothese somit als durch die Daten bestätigt ansehen.</p>
 </div>
-<div id="korrelation-mit-psych" class="section level3">
+<div id="korrelation-mit-psych" class="section level3" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> Korrelation mit <code>psych</code></h3>
 <p>Den Korrelationskoeffizient kann man in R auch mit vielen anderen Paketen ausrechnen. Beispielhaft soll hier noch der Code für die Korrelation mit dem <code>psych</code>-Paket veranschaulicht werden. Dieses Paket benutzen wir ja auch für viele andere statistische Verfahren und man kann <code>psych</code> mit der Pipe benutzen (Tidyverse-Schreibweise). Der Output für die Korrelation sieht leicht anders aus.</p>
 <p>Die Funktion für die Korrelation in <code>psych</code> lautet <code>corr()</code> (mit 2 r). Sie benötigt als erstes Argument den Datensatz mit außschließlich den Variablen, die korreliert werden sollen. Diese können direkt vor der Funktion mit einem <code>select()</code>- Befehl ausgewählt werden. Neben dem Datenobjekt kann man weitere Argumente angeben, z.B. über <code>use</code> den listen- oder paarweisen Fallausschluss und über <code>method</code> die Art der Korrelation. Neben dem standardmäßig eingestellten Wert <code>pearson</code> für den Korrelationskoeffizienten (Pearson´s r) gibt es nämlich noch weitere Maßzahlen für spezielle Daten (z.B. <code>spearman</code> für Rangdaten oder <code>kendall</code> für ordinale Daten).</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(pol_part_sx, pol_entfremdung_ix) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb210-3" data-line-number="3"><span class="st">  </span>psych<span class="op">::</span><span class="kw">corr.test</span>(<span class="dt">use=</span><span class="st">&quot;pairwise&quot;</span>, <span class="dt">method=</span><span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="bivariate-statistik.html#cb209-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb209-2"><a href="bivariate-statistik.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pol_part_sx, pol_entfremdung_ix) <span class="sc">%&gt;%</span> </span>
+<span id="cb209-3"><a href="bivariate-statistik.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.test</span>(<span class="at">use=</span><span class="st">&quot;pairwise&quot;</span>, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.test(x = ., use = &quot;pairwise&quot;, method = &quot;pearson&quot;)
 ## Correlation matrix 
 ##                    pol_part_sx pol_entfremdung_ix
@@ -527,16 +557,16 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <ul>
 <li><p>Eine Matrix für die Korrelationskoeffizienten. Hier wird die Korrelation jeder Variablen mit jeder anderen im Datensatz dargestellt. In unserem Fall sind das ja nur zwei. Aber mit der Funktion könnten sie auch 3 oder noch mehr Variablen miteinander korrelieren. – Jeweils natürlich nur paarweise. In dieser Matrix ist jede Korrelation doppelt enthalten: Einmal über und einmal unter der mittleren Diagonalen. Das liegt daran, dass die Korrelation 2 Mal berechnet wird: Zunächst mit der ersten Variable an erster und der zweiten an zweiter Stelle. Danach wird die Position der Variablen getauscht. Für Pearson´s r macht es jedoch keinen Unterschied, welche Reihenfolge die Variablen haben. Deshalb steht dort zweimal die gleiche Zahl. In der Diagonalen finden Sie die Korrelation einer Variablen mit sich selbst. Sie ist logischerweise jeweils = 1, also ein perfekter positiver Zusammenhang.</p></li>
 <li><p>Der zweite Bereich gibt Aufschluss über die Sample-Größe. Er wird auch manchmal als Matrix dargestellt, nämlich dann, wenn die Fallzahl für die einzelnen Korrelationen unterschiedlich wäre. Das ist hier aber nicht der Fall.</p></li>
-<li><p>Der dritte wichtige Bereich beinhaltet die p-Werte der Korrelationen. Im Beispiel sind alle p-Werte ausgesprochen niedrig, deshalb wird hier “0” dargestellt. Das ist natürlich der Rundung geschuldet, denn selbstverständlich ist der p-Wert nie exakt “0”, da es sich um eine Wahrscheinlichkeit handelt. Er nähert sich lediglich dem Wert Null an.</p></li>
+<li><p>Der dritte wichtige Bereich beinhaltet die p-Werte der Korrelationen. Im Beispiel sind alle p-Werte ausgesprochen niedrig, deshalb wird hier “0” dargestellt. Das ist natürlich der Rundung geschuldet, denn selbstverständlich ist der p-Wert nie exakt “0,” da es sich um eine Wahrscheinlichkeit handelt. Er nähert sich lediglich dem Wert Null an.</p></li>
 </ul>
 </div>
-<div id="partialkorrelation" class="section level3">
+<div id="partialkorrelation" class="section level3" number="7.2.5">
 <h3><span class="header-section-number">7.2.5</span> Partialkorrelation</h3>
 <p>Bei der Partialkorrelation wird der Einfluss einer dritten Variable aus der Korrelation zwischen zwei Variablen herausgerechnet. Das geschieht über die Residuen (vgl. zukünftiges Kapitel zur Regression/SDA2). Im <code>psych</code>-Paket kann man die Partialkorrelation einfach berechnen. Zur besseren Übersichtlichkeit kann man vorab im <code>select()</code>-Befehl die Variablen auf eine spezielle Weise gruppieren (das kann man aber auch weglassen, dann muss man sich aber merken, welche Variable die Einflussvariable war). Im Anschluss erfolgt die Partialkorrelation durch die Funktion <code>partial.r()</code> und dann durch die Funktion <code>corr.p()</code> der entsprechende Signifikanztest:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb212-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="dt">x =</span> <span class="kw">c</span>(pol_part_sx, pol_entfremdung_ix), <span class="dt">y =</span> alter) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb212-3" data-line-number="3"><span class="st">  </span>psych<span class="op">::</span><span class="kw">partial.r</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb212-4" data-line-number="4"><span class="st">  </span>psych<span class="op">::</span><span class="kw">corr.p</span>(<span class="dt">n =</span><span class="dv">1003</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="bivariate-statistik.html#cb211-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb211-2"><a href="bivariate-statistik.html#cb211-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">x =</span> <span class="fu">c</span>(pol_part_sx, pol_entfremdung_ix), <span class="at">y =</span> alter) <span class="sc">%&gt;%</span> </span>
+<span id="cb211-3"><a href="bivariate-statistik.html#cb211-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">partial.r</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb211-4"><a href="bivariate-statistik.html#cb211-4" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.p</span>(<span class="at">n =</span><span class="dv">1003</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.p(r = ., n = 1003)
 ## Correlation matrix 
 ##       x1    x2     y
@@ -555,13 +585,13 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <p>Der Output sieht ähnlich aus wie zuvor, nur dass in den Zellen jetzt jeweils die Korrelation zwischen zwei Variablen dargestellt ist, bereinigt um die jeweils dritte. Für die uns interessierende Korrelation zwischen politischer Partizipation und politischer Entfremdung ist der Korrelationskoeffizient hier nur leicht gesunken. Er beträgt jetzt noch <em>r-partial</em> = -0.38. Der Einfluss des Alters auf unseren Zusammenhang war also vermutlich nicht besonders stark. Auch nach Kontrolle dieser Drittvariable hat unsere Alternativhypothese also Bestand.</p>
 <p>Man kann sogar in der Korrelations-Matrix oben sehen, dass das Alter lediglich mit der Variable <em>politische Partizipation</em> einen Zusammenhang hat, aber kaum mit <em>politischer Entfremdung</em>. Vermutlich wird ein Teil der Varianz in der politischen Partizipation durch das Alter erklärt. Das diese Variablen ebenfalls kovariieren macht inhaltlich sogar Sinn: Wer älter ist, hatte bereits mehr Gelegenheit zur politischen Partizipation und einige Partizipationsmöglichkeiten kann man sogar erst mit einem gewissen Alter ausüben, wie beispielsweise das Wählen.</p>
 </div>
-<div id="korrelationsmatrizen-darstellen" class="section level3">
+<div id="korrelationsmatrizen-darstellen" class="section level3" number="7.2.6">
 <h3><span class="header-section-number">7.2.6</span> Korrelationsmatrizen darstellen</h3>
 <p>Zum Abschluss dieses Teils möchte ich noch kurz darauf eingehen, dass man natürlich auch mehrere oder sogar viele Korrelationen in einer Matrix darstellen kann. R liefert sogar ganz schöne Grafiken die Zusammenhänge zwischen metrischen Variablen übersichtlich darstellen können. Ein Paket, welches dazu benutzt werden kann, ist <code>corrr</code>.</p>
 <p>Ich greife im folgenden auf einen anderen Datensatz zu, nämlich auf den Datensatz <code>mtcars</code> aus dem Tidyverse. In dem Datensatz sind Statistiken über verschiedene Automodelle gesammelt, aber der Inhalt ist an dieser Stelle nicht so wichtig.</p>
 <p>Die Funktion <code>correlate()</code> aus dem <code>corrr</code>-Paket liefert zunächst die Korrelationsmatrix der Daten. Signifikanztest liefert das Paket nicht, denn es ist eher für die explorative Vorgehensweise geeignet (= nicht inferenzstatistisch-Hypothesenprüfend).</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">mtcars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">correlate</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="bivariate-statistik.html#cb213-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb213-2"><a href="bivariate-statistik.html#cb213-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() </span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
@@ -581,23 +611,27 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 ## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656  -0.570  0.0575
 ## # … with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
 <p>Mit der Funktion <code>rplot()</code> kann man die Matrix in eine Korrelations-Grafik überführen:</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">mtcars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb217-2" data-line-number="2"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">correlate</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb217-3" data-line-number="3"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">rplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="bivariate-statistik.html#cb216-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb216-2"><a href="bivariate-statistik.html#cb216-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb216-3"><a href="bivariate-statistik.html#cb216-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
 <pre><code>## Don&#39;t know how to automatically pick scale for object of type noquote. Defaulting to continuous.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formetieren. Mit <code>rearrange()</code> kann man die Variablen in der Matrix nach der der Größe der Korrelation sortieren. Mit <code>shave</code> kann man die “doppelte” obere Hälfte des Plots abschneiden.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1">mtcars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb220-2" data-line-number="2"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">correlate</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb220-3" data-line-number="3"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">rearrange</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb220-4" data-line-number="4"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">shave</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb220-5" data-line-number="5"><span class="st">  </span>corrr<span class="op">::</span><span class="kw">rplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="bivariate-statistik.html#cb219-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb219-2"><a href="bivariate-statistik.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb219-3"><a href="bivariate-statistik.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb219-4"><a href="bivariate-statistik.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb219-5"><a href="bivariate-statistik.html#cb219-5" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;registry&#39;:
+##   method               from 
+##   print.registry_field proxy
+##   print.registry_entry proxy</code></pre>
 <pre><code>## Don&#39;t know how to automatically pick scale for object of type noquote. Defaulting to continuous.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <p>Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen sieht man auf den ersten Blick!</p>
@@ -638,13 +672,13 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <td><code>adorn_totals()</code></td>
 <td>janitor</td>
 <td>Randhäufigkeiten hinzufügen</td>
-<td><code>where = c(&quot;row&quot;, &quot;col&quot;)</code></td>
+<td><code>where = c("row", "col")</code></td>
 </tr>
 <tr class="even">
 <td><code>adorn_percentages</code></td>
 <td>janitor</td>
 <td>In Prozentwerte umwandeln</td>
-<td><code>denominator = &quot;col&quot;</code></td>
+<td><code>denominator = "col"</code></td>
 </tr>
 <tr class="odd">
 <td><code>adorn_pct_formatting</code></td>
@@ -662,7 +696,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschreiben) am schönsten 
 <td><code>adorn_titel()</code></td>
 <td>janitor</td>
 <td>Variablen in die erste Zelle schreiben</td>
-<td><code>placement = &quot;combined&quot;</code></td>
+<td><code>placement = "combined"</code></td>
 </tr>
 <tr class="even">
 <td><code>chisq.test()</code></td>

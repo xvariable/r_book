@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 8 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 8 Grafiken | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 8 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 8 Grafiken | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 8 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 8 Grafiken | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-01-07" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="bivariate-statistik.html"/>
 <link rel="next" href="literaturverzeichnis.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -64,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -91,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,29 +142,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
 <li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a><ul>
+<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
-<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a><ul>
+<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
 <li class="chapter" data-level="2.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Installation von RStudio</a></li>
 <li class="chapter" data-level="2.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>2.2.3</b> RStudio Benutzeroberfläche</a></li>
@@ -173,52 +180,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>2.2.6</b> RStudio anpassen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a><ul>
-<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a><ul>
+<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>3.1.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a><ul>
+<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>3.2.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a><ul>
-<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a><ul>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
-<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperator"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperator</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
 <li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a><ul>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
 <li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a><ul>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
 <li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
 <li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a><ul>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
 <li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
 <li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
-<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a><ul>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
 <li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-im--und--export"><i class="fa fa-check"></i><b>4.8</b> Daten-Im- und -Export</a><ul>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
 <li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
 <li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
 <li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
 <li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
@@ -229,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a><ul>
+<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a><ul>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
 </ul></li>
@@ -239,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
 <li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a><ul>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
 <li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
 <li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
@@ -247,13 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a><ul>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
 <li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a><ul>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
 <li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
 <li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
@@ -262,13 +286,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
+<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a><ul>
+<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
 <li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
@@ -278,11 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
 <li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
 <li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
 <li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -311,13 +340,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="grafiken" class="section level1">
+<div id="grafiken" class="section level1" number="8">
 <h1><span class="header-section-number">Kapitel 8</span> Grafiken</h1>
 <p>Grafiken erfüllen bei der Datenanalyse zwei sehr wichtige Funktionen: Zum einen dienen Sie der explorativen Analyse und helfen dabei, selbst ein besseres Verständnis für die eigenen Daten zu entwickeln. Zum anderen dienen Grafiken aber auch dazu, die Ergebnisse der eigenen Analyse darzustellen um sie anderen mitzuteilen.</p>
 <p>In den vorhergehenden Kapiteln haben wir erste Grafiken bereits kennengelernt (z.B. Balkendiagramme und Streudiagramme). In diesem Kapitel möchte ich aber detaillierter darauf eingehen, wie Grafiken mit R erzeugt werden können. – Wie so oft gibt es dazu verschiedene Wege. Auch base-R bietet einige Funktionen, mit denen Grafiken schnell erzeugt und individuell angepasst werden können. Leider ist dieses Anpassen in base-R für R-Anfänger gar nicht so einfach. Da das Anpassen einer Grafik aber nahezu immer nötig ist, gehe ich hier deshalb nicht auf die Base-R-Funktionen zum Erzeugen von Grafiken ein.</p>
 <p>Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt <code>ggplot2</code>. Es beruht auf der <em>Grammar of Graphics</em> (mehr zum Hintergrund finden Sie <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">hier</a>). Die Idee dahinter ist, dass eine Grafik aus mehreren <em>Layern</em> zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.</p>
 <p>Das Paket <code>ggplot2</code> ist sehr sensibel, was die Daten angeht, die als Input für die Grafiken dienen. Diese müssen auf jeden Fall <code>tidy</code> sein und bisweilen wird ein <em>long format</em> benötigt. Dazu später mehr.</p>
-<div id="drei-basis-funktionen" class="section level2">
+<div id="drei-basis-funktionen" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Drei Basis-Funktionen</h2>
 <p>Möchte man eine Grafik mit <code>ggplot2</code>erzeugen benötigt man mindestens die folgenden 3 Funktionen. Aber natürlich kann man jede Grafik noch komplexer machen und umgestalten, wenn man weitere Funktionen hinzufügt.</p>
 <p>Die Basis-Funktionen von <code>ggplot2</code> sind:</p>
@@ -326,152 +355,152 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>geom_()</code>: Es gibt unterschiedliche <code>geom_()</code>-Funktionen. Ein Geom ist ein <em>geom</em>etisches Objekt, dass auf dem Plot platziert werden soll, z.B. ein Balkendiagramm (<code>geom_bar()</code>) oder eine horizontale Linie (<code>geom_hline()</code>). Eine statistische Grafik benötigt mindestens ein Geom, kann aber auch mehrere enthalten.</p>
 <p>Zusätzlich gibt es in ggplot noch eine Besonderheit: Der Operator <code>+</code> wird in diesem Paket dazu eingesetzt, um die einzelnen grafischen Elemente (oder Layer) zusammenzufügen. Das Pluszeichen steht immer nach einem Befehl, wenn ein Plot noch nicht beendet ist und noch ein weiteres Element hinzugefügt werden soll (so ähnlich wie die Pipe). Das <code>+</code> steht immer am Ende der Zeile, nie am Beginn.</p>
 <p>Im Zusammenspiel sieht das so aus (Pseudocode):</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> var_<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="grafiken.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var_1)) <span class="sc">+</span></span>
+<span id="cb223-2"><a href="grafiken.html#cb223-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>In Tidyverse-Schreibweise auch so:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> var_<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb224-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="grafiken.html#cb224-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb224-2"><a href="grafiken.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var_1)) <span class="sc">+</span></span>
+<span id="cb224-3"><a href="grafiken.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>Und verkürzt kann man die Namen der Argumente weglassen. Routinierte R-Anwender tun dies häufig, deshalb sollten Sie das mal gesehen haben:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(var_<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="grafiken.html#cb225-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb225-2"><a href="grafiken.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(var_1)) <span class="sc">+</span></span>
+<span id="cb225-3"><a href="grafiken.html#cb225-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>Um explizit zu machen, was jeweils passiert, werden wir hier aber die ausführliche Schreibweise nutzen.</p>
 <p>Im Folgenden wollen wir uns natürlich ein paar Grafiken und Formatierungsmöglichkeiten anschauen. Allerdings ist <code>ggplot</code> so umfangreich, dass wir die Funktionen nicht annähernd durchgehen können. Für dieses Kapitel gilt daher im besonderen Maß: wenn Sie eine Formatierung vornehmen möchten, die hier nicht angesprochen wird, googeln Sie danach! Die Möglichkeiten der Gestaltung mit <code>ggplot2</code> sind schier unendlich.</p>
 <p>Als Datenbeispiel benutzen wir auch in diesem Kapitel den Generation Z-Datensatz. Die erste Grafik, die wir hier erstellen wollen thematisiert die politische Partizipation der Befragten und zwar getrennt für Jugendliche und junge Erwachsene. Ich werde anhand von diesem Beispiel auch noch einmal den Einsatz der drei „Basis-Funktionen“ beschreiben.</p>
 </div>
-<div id="erste-funktion-plot-objekt-erstellen" class="section level2">
+<div id="erste-funktion-plot-objekt-erstellen" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Erste Funktion: Plot-Objekt erstellen</h2>
 <p>Jede <code>ggplot2</code>-Grafik beginnt immer mit dieser Funktion und der Übergabe von einem Datenobjekt als erstem Argument. Dabei ist es egal, ob wir die Base-R oder die Tidyverse-Schreibweise wählen.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb226-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="grafiken.html#cb226-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb226-2"><a href="grafiken.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span></code></pre></div>
 </div>
-<div id="zweite-funktion-aesthetik-mapping" class="section level2">
+<div id="zweite-funktion-aesthetik-mapping" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Zweite Funktion: Aesthetik Mapping</h2>
 <p>Die <code>ggplot()</code> kann noch ein zweites Argument haben, nämlich <code>mapping =</code>. Über dieses Argument wird das aesthteic mapping festgelegt. Wie bereits beschrieben, betrifft dies die Zuordnung von Daten im Datensatz zum Aussehen der fertigen Grafik. Man muss quasi beschreiben, wie die die Daten in Layout übersetzt werden sollen.</p>
 <p>Das Mapping geschieht über die Hilfsfunktion <code>aes()</code>. Diese Funktion benötigt Argumente, damit sie die Formatierung umsetzen kann:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
-<a class="sourceLine" id="cb227-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx))</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="grafiken.html#cb227-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb227-2"><a href="grafiken.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> volljaehrigkeit,</span>
+<span id="cb227-3"><a href="grafiken.html#cb227-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> pol_part_sx))</span></code></pre></div>
 <p><strong>Zwingende Argumente</strong></p>
 <p>In unserem Beispiel möchten wir die Gruppierungsvariable „Volljährigkeit“ auf der X-Achse darstellen und die metrische Variable „politische Partizipation“ auf der Y-Achse. Die beiden Argumente für die <code>aes()</code> heißen entsprechend x und y. Diese beiden Argumente für die Achsen werden von Geomen häufig vorausgesetzt, damit das entsprechende Geom überhaupt erzeugt werden kann (zwingende Argumente). Einige Geome benötigen aber auch nur das x-Argument (z.B. ganz einfache Häufigkeitsverteilungen von einzelnen Variablen).</p>
 <p><strong>Optionale Argumente</strong></p>
 <p>Die <code>aes()</code>-Funktion kann zusätzlich zu den zwingenden Argumenten für die Achsen auch optionale Argumente haben. Argumente wie <code>fill</code> (Farbe der Füllung), <code>color</code>, <code>size</code>, <code>shape</code>, <code>linetype</code> oder <code>group</code> kann man dazu benutzen, die Formatierung der Grafik zusätzlich durch Variablen zu verändern.</p>
 <p>In unserer Grafik bietet es sich an die Gruppenzugehörigkeit nicht nur durch die Anordnung der Gruppenvariable auf der X-Achse, sondern zusätzlich noch durch Farbe zu unterstreichen.</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb228-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> volljaehrigkeit,</a>
-<a class="sourceLine" id="cb228-3" data-line-number="3">                       <span class="dt">y =</span> pol_part_sx, </a>
-<a class="sourceLine" id="cb228-4" data-line-number="4">                       <span class="dt">color =</span> volljaehrigkeit))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="grafiken.html#cb228-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb228-2"><a href="grafiken.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> volljaehrigkeit,</span>
+<span id="cb228-3"><a href="grafiken.html#cb228-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> pol_part_sx, </span>
+<span id="cb228-4"><a href="grafiken.html#cb228-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> volljaehrigkeit))</span></code></pre></div>
 <p>Das Mapping kann übrigens entweder gleich zu Beginn der Grafik in der Funktion <code>ggplot()</code> passieren, dann gilt es für den gesamten Plot. Oder es steht in einer <code>geom_()</code>-Funktion (nächster Schritt), dann gilt dieses Mapping nur für das spezifische Geom. Hat man nur ein Geom, ist es egal wo es steht.</p>
 </div>
-<div id="dritte-funktion-geom-hinzufügen" class="section level2">
+<div id="dritte-funktion-geom-hinzufügen" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Dritte Funktion: Geom hinzufügen</h2>
 <p>Das soeben erzeugte Objekt <code>p</code> ist leer. Zwar existiert schon eine Zuordnung der Daten zu den Achsen, aber eine Grafik wurde bisher nicht erzeugt:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="co"># plot ausgeben</span></a>
-<a class="sourceLine" id="cb229-2" data-line-number="2">p </a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="grafiken.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot ausgeben</span></span>
+<span id="cb229-2"><a href="grafiken.html#cb229-2" aria-hidden="true" tabindex="-1"></a>p </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>Wie auch? Wir haben ja noch gar nicht festgelegt, um was für eine Art Grafik es sich handeln soll! Über den Operator <code>+</code> können wir dem Plot Geome hinzufügen. Wir addieren sozusagen geome zum Plot dazu: <code>p + geom_()</code>.</p>
-<div id="streudiagram" class="section level3">
+<div id="streudiagram" class="section level3" number="8.4.1">
 <h3><span class="header-section-number">8.4.1</span> Streudiagram</h3>
 <p>Im ersten Schritt erstellen wir ein Streudiagramm mit <code>geom_point()</code>.</p>
 <p>Jedes Geom hat noch weitere (optionale) Argumente, die man entweder im aesthetic mapping verwenden kann um Variablen zuzuweisen oder man kann das allgemeine Layout dadurch verändern. Wir könnten beim Streudigramm z.B. zusätzlich zur Farbe auch die Größe der Punkte über <code>size</code> verändern oder ihre Form über <code>shape</code>.</p>
 <p>Im Beispiel nutzen wir das zusätzliche Argument <code>size = 5</code></p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="co"># Streudiagramm</span></a>
-<a class="sourceLine" id="cb230-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="grafiken.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Streudiagramm</span></span>
+<span id="cb230-2"><a href="grafiken.html#cb230-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 <p>Juhu, es hat funktioniert! Die Datenpunkte sind auf der Y-Achse angeordnet und in zwei Gruppen aufgeteilt. Die Darstellung ist jedoch suboptimal, denn die Punkte überlagern sich, sie werden vielfach übereinander geplottet. Dadurch kann man nicht wirklich gut sehen, wie sie sich verteilen.</p>
 </div>
-<div id="jitter-plot" class="section level3">
+<div id="jitter-plot" class="section level3" number="8.4.2">
 <h3><span class="header-section-number">8.4.2</span> Jitter-Plot</h3>
 <p>Abhilfe schafft ein alternatives Geom, nämlich <code>geom_jitter()</code>. Beim Jitter-Plot wird jedem Punkt eine random Abweichung von den Achsen zugewiesen, so dass die Punkte zufällig streuen. Sie überlagern sich dadurch nicht mehr:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
-<a class="sourceLine" id="cb231-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="grafiken.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jitter-Plot</span></span>
+<span id="cb231-2"><a href="grafiken.html#cb231-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <p>Mit dem Argument <code>width</code> kann man die Breite dieser Streuung bestimmen und mit <code>alpha</code> die Transparenz der Punkte. Probieren wir es aus:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co"># Jitter-Plot</span></a>
-<a class="sourceLine" id="cb232-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="grafiken.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jitter-Plot</span></span>
+<span id="cb232-2"><a href="grafiken.html#cb232-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <p>Die Darstellung ist ganz schön, aber es gibt weitere Alternativen.</p>
 </div>
-<div id="boxplot" class="section level3">
+<div id="boxplot" class="section level3" number="8.4.3">
 <h3><span class="header-section-number">8.4.3</span> Boxplot</h3>
 <p>Eine weiter Möglichkeit um die Verteilung von Variablen darzustellen ist der Boxplot. Ein Boxplot gibt gleichzeitig Auskunft über Minimum, Maximum, die Quartilgrenzen und den Median der Verteilung einer Variablen. Das Mittlere Rechteck repräsentiert die mittleren 50 Prozent der Verteilung. Die „whiskers“ zeigen den 1,5-fachen Interquartilabstand. Ausreißer werden durch Punkte außerhalb der whiskers dargestellt.</p>
 <p>Hier eine schematische Darstellung:
 <img src="images/boxplot_info.png" alt="Schematische Darstellung eines Boxplots" style="width:1000px;margin-bottom:5px;margin-top:15px"></p>
 <p>Und hier unser Boxplot:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co"># Boxplot</span></a>
-<a class="sourceLine" id="cb233-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="grafiken.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
+<span id="cb233-2"><a href="grafiken.html#cb233-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 </div>
-<div id="violin-plot" class="section level3">
+<div id="violin-plot" class="section level3" number="8.4.4">
 <h3><span class="header-section-number">8.4.4</span> Violin-Plot</h3>
 <p>Eine weitere Variante um eine Verteilung darzustellen ist der Violin-Plot. Er ähnelt dem Boxplot, er zeigt aber nicht die Quartilgrenzen sondern die „Kerndichteschätzung“. Wenn man sich den Plot anguckt, sieht man sofort, wie unterschiedlich die Variable in den Gruppen verteilt ist:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="co"># Violon-Plot</span></a>
-<a class="sourceLine" id="cb234-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="grafiken.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violon-Plot</span></span>
+<span id="cb234-2"><a href="grafiken.html#cb234-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 </div>
-<div id="balkendiagramme" class="section level3">
+<div id="balkendiagramme" class="section level3" number="8.4.5">
 <h3><span class="header-section-number">8.4.5</span> Balkendiagramme</h3>
 <p>Für das Balkendiagramm wechseln wir jetzt mal die Variable. Balkendiagramme eignen sich ja sehr gut zur Darstellung selbst nominaler Variablen, aber ich nehme hier trotzdem mal die Lebenszufriedenheit, gemessen auf einer vierstufigen Skala.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="co"># Vorbereitung des Plots und des Mappings</span></a>
-<a class="sourceLine" id="cb235-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb235-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> zufriedenheit_leben))</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="grafiken.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vorbereitung des Plots und des Mappings</span></span>
+<span id="cb235-2"><a href="grafiken.html#cb235-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb235-3"><a href="grafiken.html#cb235-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> zufriedenheit_leben))</span></code></pre></div>
 <p>Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken so hässlich sind, färben wir sie über ´fill` in pink ein.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="co"># Einfaches Balkendiagramm</span></a>
-<a class="sourceLine" id="cb236-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="grafiken.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Einfaches Balkendiagramm</span></span>
+<span id="cb236-2"><a href="grafiken.html#cb236-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusätzliches Layer mitgibt, dass das Koordinatensystem modifiziert :</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="co"># horizontale Balken</span></a>
-<a class="sourceLine" id="cb237-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb237-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="grafiken.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># horizontale Balken</span></span>
+<span id="cb237-2"><a href="grafiken.html#cb237-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb237-3"><a href="grafiken.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Wenn man über <code>fill</code> eine zweite Variable mappt, bekommt man gestapelte Balken:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co"># gestapelte Balken</span></a>
-<a class="sourceLine" id="cb238-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit)) </a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="grafiken.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gestapelte Balken</span></span>
+<span id="cb238-2"><a href="grafiken.html#cb238-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> volljaehrigkeit)) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
-<p>Und über das Zusatzargument <code>position = &quot;dodge&quot;</code> kann man die Balken nebeneinander anzeigen. Achtung, diese Argument wird heir außerhalb von <code>aes()</code> platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co"># Balken nebeneinander</span></a>
-<a class="sourceLine" id="cb239-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> volljaehrigkeit), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
+<p>Und über das Zusatzargument <code>position = "dodge"</code> kann man die Balken nebeneinander anzeigen. Achtung, diese Argument wird heir außerhalb von <code>aes()</code> platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="grafiken.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Balken nebeneinander</span></span>
+<span id="cb239-2"><a href="grafiken.html#cb239-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> volljaehrigkeit), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 </div>
-<div id="histogramme" class="section level3">
+<div id="histogramme" class="section level3" number="8.4.6">
 <h3><span class="header-section-number">8.4.6</span> Histogramme</h3>
 <p>Balkendiagramme sind prima, aber sie sind nicht für die Darstellung der Verteilung einer metrischen Variablen mit sehr vielen Ausprägungen geeignet. Nehmen wir mal als Beispiel die Mediennutzung in Minuten. Würde man für jede mögliche Ausprägung z.B. für 400 Minuten, für 401 Minuten, 402 Minuten etc. einen einzelnen Balken anfertigen, ware das sehr unübersichtlich. Es wäre schöner, würde man die Balken z.B. in Viertelstunden zusammenfassen. Ein Histogramm macht genau das.</p>
 <p>Wir betrachten hier die Verteilung der Variable „politische Entfremdung“ (ein Mittelwertindex):</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="co"># um Fehlermeldung zu vermeiden</span></a>
-<a class="sourceLine" id="cb240-2" data-line-number="2">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(pol_entfremdung_ix))</a></code></pre></div>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="co"># Plot vorbereiten</span></a>
-<a class="sourceLine" id="cb241-2" data-line-number="2">p &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> pol_entfremdung_ix))</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="grafiken.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um Fehlermeldung zu vermeiden</span></span>
+<span id="cb240-2"><a href="grafiken.html#cb240-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb240-3"><a href="grafiken.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(pol_entfremdung_ix))</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="grafiken.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot vorbereiten</span></span>
+<span id="cb241-2"><a href="grafiken.html#cb241-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb241-3"><a href="grafiken.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pol_entfremdung_ix))</span></code></pre></div>
 <p>Und jetzt das Geom hinzufügen:</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="co"># Histogramm</span></a>
-<a class="sourceLine" id="cb242-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="grafiken.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramm</span></span>
+<span id="cb242-2"><a href="grafiken.html#cb242-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>) </span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
-<p>Ohje, sehr “löchrig”. Das ist genau das Problem, dass ich oben beschreiben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument <code>binwidth</code>, kann man zudem festlegen, in welchen Einheiten die Werte Zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="co"># Histogramm mit angepasster Balkenbreite</span></a>
-<a class="sourceLine" id="cb244-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.3</span>) </a></code></pre></div>
+<p>Ohje, sehr “löchrig.” Das ist genau das Problem, dass ich oben beschreiben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument <code>binwidth</code>, kann man zudem festlegen, in welchen Einheiten die Werte Zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="grafiken.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramm mit angepasster Balkenbreite</span></span>
+<span id="cb244-2"><a href="grafiken.html#cb244-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.3</span>) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>Sieht doch gleich viel besser aus!</p>
 </div>
-<div id="liniendiagramme" class="section level3">
+<div id="liniendiagramme" class="section level3" number="8.4.7">
 <h3><span class="header-section-number">8.4.7</span> Liniendiagramme</h3>
 <p>Zum Abschluss folgt noch ein Liniendiagramm. Im Beispiel möchte ich die Nutzung unterschiedlicher Informationsquellen nach Alter darstellen. Das ist zwar keine richtige zeitliche Entwicklung, aber der Datensatz enthält ja nunmal auch keine Zeitreihen.</p>
 <p>Ich möchte in dem Plot die Mittelwerte für die unterschiedlichen Informationsquellen je nach Alter darstellen. Zunächst muss der Datensatz so umgeformz werden, dass er diese Mittelwerte enthält. Ich brauche also einen kleinen Mini-Datensatz, den ich mit dplyr erzeuge.
 Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># Mittelwerte Datensatz erstellen</span></a>
-<a class="sourceLine" id="cb245-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(alter, <span class="kw">starts_with</span>(<span class="st">&quot;infoquelle_&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb245-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(alter) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb245-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tv_news =</span> <span class="kw">mean</span>(infoquelle_tv_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb245-6" data-line-number="6">            <span class="dt">google =</span> <span class="kw">mean</span>(infoquelle_google, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb245-7" data-line-number="7">            <span class="dt">youtube =</span> <span class="kw">mean</span>(infoquelle_internet_nachrichten, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb245-8" data-line-number="8">            <span class="dt">print =</span> <span class="kw">mean</span>(infoquelle_print, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb245-9" data-line-number="9">            <span class="dt">tv_satire =</span> <span class="kw">mean</span>(infoquelle_tv_satiere, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="grafiken.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mittelwerte Datensatz erstellen</span></span>
+<span id="cb245-2"><a href="grafiken.html#cb245-2" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb245-3"><a href="grafiken.html#cb245-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(alter, <span class="fu">starts_with</span>(<span class="st">&quot;infoquelle_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb245-4"><a href="grafiken.html#cb245-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(alter) <span class="sc">%&gt;%</span> </span>
+<span id="cb245-5"><a href="grafiken.html#cb245-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tv_news =</span> <span class="fu">mean</span>(infoquelle_tv_nachrichten, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb245-6"><a href="grafiken.html#cb245-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">google =</span> <span class="fu">mean</span>(infoquelle_google, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb245-7"><a href="grafiken.html#cb245-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">youtube =</span> <span class="fu">mean</span>(infoquelle_internet_nachrichten, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb245-8"><a href="grafiken.html#cb245-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">print =</span> <span class="fu">mean</span>(infoquelle_print, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb245-9"><a href="grafiken.html#cb245-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">tv_satire =</span> <span class="fu">mean</span>(infoquelle_tv_satiere, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code></pre></div>
 <p>Und so sieht der neue Datensatz jetzt aus:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1"><span class="co"># erste Zeilen ausgeben</span></a>
-<a class="sourceLine" id="cb246-2" data-line-number="2"><span class="kw">head</span>(df_mean)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="grafiken.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># erste Zeilen ausgeben</span></span>
+<span id="cb246-2"><a href="grafiken.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mean)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   alter tv_news google youtube  print tv_satire
 ##   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -483,12 +512,12 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 ## 6    19   0.417  0.417   0.542 0.0833    0.292</code></pre>
 <p>Für das Linendiagramm benötigen wir allerdings ein <em>Longformat</em>. Das bedeutet, dass die Mittelwerte der Variablen nicht neben, sondern übereinender in dem Datensatz angezeigt werden müssen. Also alle Mittelwerte werden in eine Spalte kopiert (aus fünf wird also eine Spalte). Allerdings brauchen wir dann noch eine zusätzliche Spalte/Variable, die angibt, aus welcher ursprünglichen Variable ein Mittelwert kommt.</p>
 <p>Diese Datenumformung erreichen wir über die <code>dplyr</code>-Funktion <code>pivot_longer()</code>. Sie benöotigt als Argument <code>cols</code> einen Vektor mit den Variablen die zusammengefasst werden sollen.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
-<a class="sourceLine" id="cb248-2" data-line-number="2">df_mean &lt;-<span class="st"> </span>df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb248-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">c</span>(tv_news, google, youtube, print, tv_satire))</a>
-<a class="sourceLine" id="cb248-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb248-5" data-line-number="5"><span class="co"># erste Zeilen ausgeben</span></a>
-<a class="sourceLine" id="cb248-6" data-line-number="6"><span class="kw">head</span>(df_mean)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="grafiken.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># von wide in long konvertieren:</span></span>
+<span id="cb248-2"><a href="grafiken.html#cb248-2" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> df_mean <span class="sc">%&gt;%</span> </span>
+<span id="cb248-3"><a href="grafiken.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(tv_news, google, youtube, print, tv_satire))</span>
+<span id="cb248-4"><a href="grafiken.html#cb248-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-5"><a href="grafiken.html#cb248-5" aria-hidden="true" tabindex="-1"></a><span class="co"># erste Zeilen ausgeben</span></span>
+<span id="cb248-6"><a href="grafiken.html#cb248-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mean)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   alter name       value
 ##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
@@ -499,22 +528,22 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 ## 5    14 tv_satire 0.0513
 ## 6    15 tv_news   0.56</code></pre>
 <p>Genau so habe ich mir das vorgestellt. Die neuen Variablen heißen standardmäßig <code>name</code> und <code>value</code> und die Variable <code>alter</code> ist auch noch mit dabei. Genau diese Struktur und die drei Variablen brauchen wir. Jetzt kann es losgehen mit dem Liniendiagramm:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="co"># von wide in long konvertieren:</span></a>
-<a class="sourceLine" id="cb250-2" data-line-number="2">df_mean <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb250-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> alter, <span class="dt">y =</span> value, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb250-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="grafiken.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># von wide in long konvertieren:</span></span>
+<span id="cb250-2"><a href="grafiken.html#cb250-2" aria-hidden="true" tabindex="-1"></a>df_mean <span class="sc">%&gt;%</span> </span>
+<span id="cb250-3"><a href="grafiken.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> alter, <span class="at">y =</span> value, <span class="at">color =</span> name)) <span class="sc">+</span> </span>
+<span id="cb250-4"><a href="grafiken.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 </div>
 </div>
-<div id="grafiken-speichern" class="section level2">
+<div id="grafiken-speichern" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Grafiken speichern</h2>
 <p>Natürlich können Sie die Grafiken über den “Plot”-Tab in RStudio exportieren um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Dei Funktion heißt <code>ggsave()</code>. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit <code>units</code> die Einheit für die Abmessungen festgelegt werden (z.B. <code>units = cm</code>).</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="co"># den letzten angezeigten Plot speichern</span></a>
-<a class="sourceLine" id="cb251-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</a>
-<a class="sourceLine" id="cb251-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb251-4" data-line-number="4"><span class="co"># einen bestimmten Plot speichern</span></a>
-<a class="sourceLine" id="cb251-5" data-line-number="5"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;images/my_plot_2.png&quot;</span>,</a>
-<a class="sourceLine" id="cb251-6" data-line-number="6">       <span class="dt">plot =</span> p)</a></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="grafiken.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># den letzten angezeigten Plot speichern</span></span>
+<span id="cb251-2"><a href="grafiken.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</span>
+<span id="cb251-3"><a href="grafiken.html#cb251-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-4"><a href="grafiken.html#cb251-4" aria-hidden="true" tabindex="-1"></a><span class="co"># einen bestimmten Plot speichern</span></span>
+<span id="cb251-5"><a href="grafiken.html#cb251-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;images/my_plot_2.png&quot;</span>,</span>
+<span id="cb251-6"><a href="grafiken.html#cb251-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> p)</span></code></pre></div>
 
 </div>
 </div>

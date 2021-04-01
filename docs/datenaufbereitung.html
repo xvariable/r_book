@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 5 Datenaufbereitung | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 5 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-01-07" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="einführung-in-r-1.html"/>
 <link rel="next" href="deskriptive-statistik.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -64,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -91,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,29 +142,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
 <li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a><ul>
+<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
-<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a><ul>
+<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
 <li class="chapter" data-level="2.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Installation von RStudio</a></li>
 <li class="chapter" data-level="2.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>2.2.3</b> RStudio Benutzeroberfläche</a></li>
@@ -173,52 +180,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>2.2.6</b> RStudio anpassen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a><ul>
-<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a><ul>
+<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>3.1.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a><ul>
+<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>3.2.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a><ul>
-<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a><ul>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
-<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperator"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperator</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
 <li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a><ul>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
 <li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a><ul>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
 <li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
 <li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a><ul>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
 <li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
 <li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
-<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a><ul>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
 <li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-im--und--export"><i class="fa fa-check"></i><b>4.8</b> Daten-Im- und -Export</a><ul>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
 <li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
 <li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
 <li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
 <li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
@@ -229,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a><ul>
+<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a><ul>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
 </ul></li>
@@ -239,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
 <li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a><ul>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
 <li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
 <li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
@@ -247,13 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a><ul>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
 <li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a><ul>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
 <li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
 <li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
@@ -262,13 +286,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
+<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a><ul>
+<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
 <li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
@@ -278,11 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
 <li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
 <li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
 <li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -311,10 +340,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datenaufbereitung" class="section level1">
+<div id="datenaufbereitung" class="section level1" number="5">
 <h1><span class="header-section-number">Kapitel 5</span> Datenaufbereitung</h1>
 <p>Datenaufbereitung (<em>data wrangling</em>) bezeichnet den Prozess, in dem Rohdaten so verändert, sortiert, umstrukturiert und ausgewählt werden, dass man sie für die anvisierte Analyse verwenden kann.</p>
-<p>Im einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:</p>
+<p>Im Einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:</p>
 <ul>
 <li><p><code>filter()</code> zur Auswahl von Fällen</p></li>
 <li><p><code>arrange()</code> zur Sortierung von Fällen</p></li>
@@ -324,14 +353,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>summarize()</code> um Daten zu verdichten</p></li>
 </ul>
 <p>Die letzte Funktion entfaltet besondere Stärken im Zusammenhang mit <code>group_by()</code>. Dadurch kann man Auswertungen oder bestimmte Datentransformationen nach Gruppen aufteilen.</p>
-<p>Fast alle der hier vorgestellten Funktionen gehören zum Paket <code>dplyr</code> aus dem Tidyverse. Die einzige Ausnahme bildet <code>rec()</code> aus dem Paket <code>sjmisc</code>. Obwohl sie aus unterschiedlichen Paketen stammen folgen alle dem Tidyverse-Konzept und funktionieren auf ähnliche Weise <span class="citation">(vgl. Wickham and Grolemund <a href="#ref-Wickham_2017">2017</a>, Kap. 5.1.3)</span>:</p>
+<p>Fast alle der hier vorgestellten Funktionen gehören zum Paket <code>dplyr</code> aus dem tidyverse. Die einzige Ausnahme bildet <code>rec()</code> aus dem Paket <code>sjmisc</code>. Obwohl sie aus unterschiedlichen Paketen stammen, folgen alle dem tidyverse-Konzept und funktionieren auf ähnliche Weise <span class="citation">(vgl. <a href="literaturverzeichnis.html#ref-Wickham_2017" role="doc-biblioref">Wickham and Grolemund 2017</a>, Kap. 5.1.3)</span>:</p>
 <ul>
 <li><p>Das erste Argument ist immer der Dataframe.</p></li>
 <li><p>Die folgenden Argumente beschreiben, wie der Dataframe umgeformt werden soll (ohne Anführungsstriche).</p></li>
-<li><p>Soll innerhalb der Funktionen auf Variablen aus dem Dataframe zugegriffen werden, kann man diese direkt ansprechen (also einfach nur <code>var_name</code> und <strong>nicht</strong> <code>data$var_name</code> oder <code>&quot;var_name&quot;</code>).</p></li>
+<li><p>Soll innerhalb der Funktionen auf Variablen aus dem Dataframe zugegriffen werden, kann man diese direkt ansprechen (also einfach nur <code>var_name</code> und <strong>nicht</strong> <code>data$var_name</code> oder <code>"var_name"</code>).</p></li>
 <li><p>Das Ergebnis ist immer ein Dataframe.</p></li>
 </ul>
-<div id="datensatz-für-dieses-kapitel" class="section level2">
+<div id="datensatz-für-dieses-kapitel" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Datensatz für dieses Kapitel</h2>
 <p>Als Datensatz dient in diesem Kapitel der “starwars”-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:</p>
 <pre><code>## # A tibble: 87 x 14
@@ -351,17 +380,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser z.B. für das Umcodieren geeigneter ist.</p>
 </div>
-<div id="pipe" class="section level2">
+<div id="pipe" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Die Pipe</h2>
-<p><img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut. Sie werden ihn oft brauchen!</p>
-<p>Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möcht z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfiltern und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden.</p>
-<div id="der-aufbau-im-detail" class="section level3">
+<p><img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut, Sie werden ihn oft brauchen!</p>
+<p>Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möchte z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfiltern und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden.</p>
+<div id="der-aufbau-im-detail" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Der Aufbau im Detail</h3>
-<p>Hier der schematische Aufbau einer Datentransformation mit Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">new_data &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="st">  </span><span class="kw">transformation_1</span>(<span class="st">&quot;do something&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="st">  </span><span class="kw">transformation_2</span>(<span class="st">&quot;do something else&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb96-4" data-line-number="4"><span class="st">  </span><span class="kw">transformation_3</span>(<span class="st">&quot;do something else else&quot;</span>) </a></code></pre></div>
+<p>Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="datenaufbereitung.html#cb96-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb96-2"><a href="datenaufbereitung.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_1</span>(<span class="st">&quot;do something&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-3"><a href="datenaufbereitung.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_2</span>(<span class="st">&quot;do something else&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-4"><a href="datenaufbereitung.html#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_3</span>(<span class="st">&quot;do something else else&quot;</span>) </span></code></pre></div>
 <p>Schauen wir uns mal zeilenweise an, was hier passiert:</p>
 <ol style="list-style-type: decimal">
 <li><p>Erste Zeile: Der Start</p>
@@ -369,41 +398,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Zunächst wird ein neues Objekt <code>new_data</code> erzeugt, indem das alte Objekt <code>data</code> - also unser Datensatz - kopiert wird. Dieser Schritt ist immer dann nötig, wenn man mit dem Datensatz weiterarbeiten möchte.</p></li>
 <li><p>Nachdem die Operation durchgeführt wurde, wird das Ergebnis dieser Operation (also das neue Objekt <code>new_data</code>) mit der Pipe <code>%&gt;%</code> an die nächste Zeile übergeben.</p></li>
 </ul></li>
-<li><p>Zweite Zeile: Wo landet das Objekt <code>new_data</code>? Ich habe eben geschrieben, dass das Objekt an die nächste Zeile übergeben wurde. Es ist vielleicht etwas irritierend, das es gar nicht mehr zu sehen ist. Also wo ist es?</p>
+<li><p>Zweite Zeile: Wo landet das Objekt <code>new_data</code>? Ich habe eben geschrieben, dass das Objekt an die nächste Zeile übergeben wurde. Es ist vielleicht etwas irritierend, dass es gar nicht mehr zu sehen ist. Also wo ist es?</p>
 <ul>
-<li><p>Es steckt in der Funktion dieser Zeile, also im <code>transformation_1()</code> und zwar als erstes Argument. Durch die Pipe ist es quasi unsichtbar. Gedanklich kann man sich den Befehl in dieser Zeile so vorstellen: <code>transformation_1(new_data, &quot;do something&quot;)</code> - nur, dass man <code>new_data</code> dort nicht extra erwähnen muss, weil durch die Pipe in der vorhergehenden Zeile klar ist, dass dieses Objet das erste Argument ist.</p></li>
-<li><p>Die Funktion <code>transformation_1</code> wird also mit den beiden Argumenten <code>new_data</code> und <code>&quot;do something&quot;</code> ausgeführt. Der Datensatz verändert sich entsprechend. Er behält aber den gleichen Namen.</p></li>
+<li><p>Es steckt in der Funktion dieser Zeile, also im <code>transformation_1()</code> und zwar als erstes Argument. Durch die Pipe ist es quasi unsichtbar. Gedanklich kann man sich den Befehl in dieser Zeile so vorstellen: <code>transformation_1(new_data, "do something")</code> - nur, dass man <code>new_data</code> dort nicht extra erwähnen muss, weil durch die Pipe in der vorhergehenden Zeile klar ist, dass dieses Objet das erste Argument ist.</p></li>
+<li><p>Die Funktion <code>transformation_1</code> wird also mit den beiden Argumenten <code>new_data</code> und <code>"do something"</code> ausgeführt. Der Datensatz verändert sich entsprechend. Er behält aber den gleichen Namen.</p></li>
 <li><p>Am Ende der Zeile steht wieder eine Pipe <code>%&gt;%</code>. Auch sie leitet das Ergebnis der vorhergehenden Transformation an die nächste Zeile weiter.</p></li>
 </ul></li>
-<li><p>Dritte Zeile: …same procedere as every pipe…</p>
+<li><p>Dritte Zeile: …same procedure as every pipe…</p>
 <ul>
 <li><p>Wieder landet der (nun einmal transformierte) Dataframe <code>new_data</code> als erstes Argument in einer Funktion, diesmal in <code>transformation_2()</code>.</p></li>
-<li><p>Wieder wird der Dataframe irgendwie transformiert und heiß noch immer gleich.</p></li>
+<li><p>Wieder wird der Dataframe irgendwie transformiert und heißt noch immer gleich.</p></li>
 <li><p>Wieder wird er durch die Pipe am Ende der Zeile an die nächste Zeile übergeben.</p></li>
 </ul></li>
 <li><p>Vierte Zeile: Das Ende naht.</p>
 <ul>
-<li><p>Auch hier wieder das selbe Spiel wie zuvor: Der Datensatz landet als erstes Argument in der Funktion <code>transformation_3()</code>, die irgendwelche Operationen mit ihm durchführt.</p></li>
+<li><p>Auch hier wieder dasselbe Spiel wie zuvor: Der Datensatz landet als erstes Argument in der Funktion <code>transformation_3()</code>, die irgendwelche Operationen mit ihm durchführt.</p></li>
 <li><p>Nach der Transformation ist allerdings Schluss, denn da ist keine weitere Pipe. Der nun dreifach transformierte Datensatz ist jetzt fertig und liegt als neues Objekt <code>new_data</code> vor. Sie finden es im Environment-Tab.</p></li>
 </ul></li>
 </ol>
 <p>Insgesamt ist die Pipe-Schreibweise sehr übersichtlich, weil die einzelnen Transformationen schön untereinander aufgeführt werden. Man kann also sehr schnell erkennen, was mit dem Dataframe passiert.</p>
 <p>Noch eine kleine Anmerkung zur ersten Zeile: Dort habe ich durch <code>new_data &lt;- data</code> ein neues Objekt erzeugt. Das ist immer dann sinnvoll, wenn man nach der Transformation die Daten als Objekt vorliegen haben möchte, um damit z.B. verschiedene statistische Berechnungen durchzuführen. Manchmal benötigt man aber gar kein neues Objekt. Vielleicht möchte man nur temporär etwas ausgeben. In diesem Fall könnte man auch direkt mit <code>data %&gt;%</code> starten. In diesem Kapitel werde ich beides benutzen, da es mir hier auch nicht immer darum geht, den Datensatz tatsächlich zu transformieren.</p>
 </div>
-<div id="schlechtere-alternativen-zur-pipe" class="section level3">
+<div id="schlechtere-alternativen-zur-pipe" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Schlechtere Alternativen zur Pipe</h3>
 <p>Schauen wir uns einmal an, was die Alternativen zur Arbeit mit der Pipe wären. Es gibt 3:</p>
 <ul>
 <li><p>Selbstverständlich könnte man alle Datentransformationen nacheinander machen und dabei den Dataframe, den es zu bearbeiten gilt, immer wieder überschreiben. Das ist jedoch keine saubere Arbeitsweise, es ist sehr anfällig für Fehler.</p></li>
 <li><p>Eine andere Option wäre es, jedes Mal ein neues Objekt zu erzeugen und die Objekte dann durchzunummerieren oder zu benennen (<code>data_1</code>, <code>data_2</code>, <code>data_3</code> oder <code>data_filtered</code>, <code>data_sorted</code>, <code>data_with_var_x</code>). Auch nicht sehr übersichtlich und ebenfalls fehleranfällig.</p></li>
-<li><p>Die dritte Möglichkeit wäre es, Funktionen ineinander zu verschachteln, etwa so: <code>fun1(fun2(fun3(arg1, arg2)), arg1, arg2)</code>. R würde diese dann von innen nach außen abarbeiten. Das ist zwar sehr kompakt, allerdings ist es sehr schwer hier den Überblick zu behalten und auch hier sind Fehler (etwa bei der Klammersetzung) vorprogrammiert.</p></li>
+<li><p>Die dritte Möglichkeit wäre es, Funktionen ineinander zu verschachteln, etwa so: <code>fun1(fun2(fun3(arg1, arg2)), arg1, arg2)</code>. R würde diese dann von innen nach außen abarbeiten. Das ist zwar sehr kompakt, allerdings ist es sehr schwer, hier den Überblick zu behalten und auch hier sind Fehler (etwa bei der Klammersetzung) vorprogrammiert.</p></li>
 </ul>
-<p>Besser sie gewöhnen sich die Arbeit mit der Pipe direkt an. Gerade für den Bereich Datenaufbereitung macht die Pipe sehr viel Sinn, weil in den Funktionen das Datenargument immer an der ersten Stelle steht. Das kommt der Pipe sehr entgegen, weil man den Dataframe so quasi von oben nach unten durch die Pipe leiten und in jedem Schritt ein bisschen weiter umformen kann. Auch wenn die Pipes in diesem Kapitel noch nicht besonders lang sein werden verwende ich diese Schreibweise, einfach, damit Sie sich daran gewöhnen.</p>
+<p>Besser sie gewöhnen sich die Arbeit mit der Pipe direkt an. Gerade für den Bereich Datenaufbereitung macht die Pipe sehr viel Sinn, weil in den Funktionen das Datenargument immer an der ersten Stelle steht. Das kommt der Pipe sehr entgegen, weil man den Dataframe so quasi von oben nach unten durch die Pipe leiten und in jedem Schritt ein bisschen weiter umformen kann. Auch wenn die Pipes in diesem Kapitel noch nicht besonders lang sein werden, verwende ich diese Schreibweise – einfach, damit Sie sich daran gewöhnen.</p>
 </div>
 </div>
-<div id="filter-fälle-auswählen" class="section level2">
+<div id="filter-fälle-auswählen" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Filter: Fälle auswählen</h2>
-<p>Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien verringern, also Fälle herausfiltert, die man nicht benötigt bzw. momentan nicht berücksichtigen möchte.</p>
+<p>Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien verringern, also Fälle herausfiltern, die man nicht benötigt bzw. momentan nicht berücksichtigen möchte.</p>
 <ul>
 <li><p>Fälle entfernen, die man grundsätzlich nicht im Datensatz haben wollte, z.B. Minderjährige, wenn man nur Erwachsene befragen wollte.</p></li>
 <li><p>Dubletten entfernen (falls aus Versehen ein Fall doppelt eingegeben wurde)</p></li>
@@ -420,9 +449,9 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 </div>
 <p><br /></p>
 <p>Im folgenden Beispiel möchte ich einen Starwars-Datensatz erstellen, der nur Fälle von Figuren enthält, deren Körpergröße mindestens bei 200 cm liegt. Bevor man einen Filter anwendet, sollte man sich aber zunächst einen Überblick über die Ausgangslage verschaffen. Ich lasse mir deshalb einmal die Anzahl der Zeilen im Datensatz ausgeben und schaue mir die ersten paar Fälle an:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">nrow</span>(starwars)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="datenaufbereitung.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(starwars)</span></code></pre></div>
 <pre><code>## [1] 87</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">head</span>(starwars)</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="datenaufbereitung.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -435,14 +464,14 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Okay, der ursprüngliche Datensatz hat 87 Zeilen (Starwars-Charactere) und bei der Körpergröße “height” gibt es gemischte Werte (über und unter 200 cm).</p>
-<p>Als nächstes muss eine Filterbedingung festgelegt werden. Die Filterbedingung ist nach den Daten das zweite und zwingende Argument, dass die <code>filter()</code>-Funktion benötigt. Hier kommt der Datentyp “logical” ins Spiel, den wir <a href="einführung-in-r-1.html#atomic_vector_types">hier</a> besprochen haben. Anhand der Filterbedingung prüft die Funktion <code>filter()</code> für jeden Fall im Datensatz, ob eine zuvor von uns definierte Bedingung <code>TRUE</code> oder <code>FALSE</code> ist. Ist das Ergebnis der Prüfung <code>TRUE</code> verbleibt der Fall im Datensatz. Ist es <code>FALSE</code> wird der Fall aus dem Datensatz entfernt. Die Prüfung erfolgt anhand der relationalen Operatoren (z.B. <code>==</code> für “ist gleich”, <code>!=</code> für “ist ungleich” oder <code>&lt;</code> für “ist kleiner als”).</p>
-<p>Im Beispiel wollen wir Starwarsfiguren die eine Mindestgröße von 200 überschreiten in einem Datensatz abspeichern. Wir müssen also die Bedingung “Die Größe ist mindestens 200 cm” so formulieren, dass R sie versteht. Das geht mit der Bedingung <code>height &gt;= 200</code>:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">data_tall &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(height <span class="op">&gt;=</span><span class="st"> </span><span class="dv">200</span>)</a></code></pre></div>
+<p>Als nächstes muss eine Filterbedingung festgelegt werden. Die Filterbedingung ist nach den Daten das zweite und zwingende Argument, dass die <code>filter()</code>-Funktion benötigt. Hier kommt der Datentyp “logical” ins Spiel, den wir <a href="einführung-in-r-1.html#atomic_vector_types">hier</a> besprochen haben. Anhand der Filterbedingung prüft die Funktion <code>filter()</code> für jeden Fall im Datensatz, ob eine zuvor von uns definierte Bedingung <code>TRUE</code> oder <code>FALSE</code> ist. Ist das Ergebnis der Prüfung <code>TRUE</code> verbleibt der Fall im Datensatz. Ist es <code>FALSE</code> wird der Fall aus dem Datensatz entfernt. Die Prüfung erfolgt anhand der relationalen Operatoren (z.B. <code>==</code> für “ist gleich,” <code>!=</code> für “ist ungleich” oder <code>&lt;</code> für “ist kleiner als”).</p>
+<p>Im Beispiel wollen wir Starwars-Figuren die eine Mindestgröße von 200 überschreiten in einem Datensatz abspeichern. Wir müssen also die Bedingung “Die Größe ist mindestens 200 cm” so formulieren, dass R sie versteht. Das geht mit der Bedingung <code>height &gt;= 200</code>:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="datenaufbereitung.html#cb101-1" aria-hidden="true" tabindex="-1"></a>data_tall <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb101-2"><a href="datenaufbereitung.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(height <span class="sc">&gt;=</span> <span class="dv">200</span>)</span></code></pre></div>
 <p>Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die Fallzahl und den Datensatz genauer an:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">nrow</span>(data_tall)</a></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="datenaufbereitung.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_tall)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">head</span>(data_tall)</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="datenaufbereitung.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_tall)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -455,13 +484,13 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Tatsächlich! Im Datensatz sind jetzt nur noch n = 11 Fälle und in der Variable <code>height</code> haben alle den Wert 200 oder einen höheren Wert.</p>
-<p>Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: <code>eye_color == &quot;orange&quot;</code>. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator <code>&lt;-</code> verstanden würde. Hier soll aber nichts zugewiesen sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">data_orange &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb106-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(eye_color <span class="op">==</span><span class="st"> &quot;orange&quot;</span>)</a></code></pre></div>
+<p>Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: <code>eye_color == "orange"</code>. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator <code>&lt;-</code> verstanden würde. Hier soll aber nichts zugewiesen, sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="datenaufbereitung.html#cb106-1" aria-hidden="true" tabindex="-1"></a>data_orange <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb106-2"><a href="datenaufbereitung.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">&quot;orange&quot;</span>)</span></code></pre></div>
 <p>Und Kontrolle:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">nrow</span>(data_orange)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="datenaufbereitung.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_orange)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">head</span>(data_orange)</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="datenaufbereitung.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_orange)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -473,20 +502,20 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 6 Sebu…    112    40 none       grey, red  orange            NA male  mascu…
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-<p>Perfekt! Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben die orange oder gelbe Augen haben und größer als 200 cm sind. Um eine so komplexe Bedingung zu formulieren braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.</p>
+<p>Perfekt! Jetzt machen wir es komplizierter. Wir möchten jetzt alle Personen haben, die orange oder gelbe Augen haben und größer als 200 cm sind. Um eine so komplexe Bedingung zu formulieren, braucht man neben den relationalen Operatoren auch noch logische Operatoren und Klammer-Regeln.</p>
 <p>Mit logischen Operatoren kann man Bedingungen verknüpfen oder gegenseitig ausschließen. Die Wichtigsten sind:</p>
 <ul>
 <li><p><code>&amp;</code> für “und”</p></li>
 <li><p><code>|</code> für “oder”</p></li>
 <li><p><code>!</code> für “nicht”</p></li>
 </ul>
-<p>Die Bedingung “orange oder gelbe Augen und von Tatooine” lässt sich also wie folgt formulieren: <code>(eye_color == &quot;orange&quot; | eye_color == &quot;yellow&quot;) &amp; height &gt; 200</code>. Hier kommt es haargenau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise orange-äugigen (egal welche Körpergröße) und alle gelb-äugigen mit Körpergröße über 200 cm in den Dataframe packen.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">data_filter &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>((eye_color <span class="op">==</span><span class="st"> &quot;orange&quot;</span> <span class="op">|</span><span class="st"> </span>eye_color <span class="op">==</span><span class="st"> &quot;yellow&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>height <span class="op">&gt;</span><span class="st"> </span><span class="dv">200</span>)</a>
-<a class="sourceLine" id="cb111-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb111-4" data-line-number="4"><span class="kw">nrow</span>(data_filter)</a></code></pre></div>
+<p>Die Bedingung “orange oder gelbe Augen und von Tatooine” lässt sich also wie folgt formulieren: <code>(eye_color == "orange" | eye_color == "yellow") &amp; height &gt; 200</code>. Hier kommt es haargenau auf die Klammern an. Wären sie nicht gesetzt würde R möglicherweise orange-äugigen (egal welche Körpergröße) und alle gelb-äugigen mit Körpergröße über 200 cm in den Dataframe packen.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="datenaufbereitung.html#cb111-1" aria-hidden="true" tabindex="-1"></a>data_filter <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb111-2"><a href="datenaufbereitung.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>((eye_color <span class="sc">==</span> <span class="st">&quot;orange&quot;</span> <span class="sc">|</span> eye_color <span class="sc">==</span> <span class="st">&quot;yellow&quot;</span>) <span class="sc">&amp;</span> height <span class="sc">&gt;</span> <span class="dv">200</span>)</span>
+<span id="cb111-3"><a href="datenaufbereitung.html#cb111-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="datenaufbereitung.html#cb111-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_filter)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">head</span>(data_filter)</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="datenaufbereitung.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -497,12 +526,12 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, ist es, fehlende Werte aus den Daten herauszufiltern. Das folgende Codebeispiel sortiert Fälle aus, die in der Variable <code>height</code> einen fehlenden Wert (NA) haben:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">data_filter_na &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb115-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(height))</a>
-<a class="sourceLine" id="cb115-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb115-4" data-line-number="4"><span class="kw">nrow</span>(data_filter_na)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="datenaufbereitung.html#cb115-1" aria-hidden="true" tabindex="-1"></a>data_filter_na <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb115-2"><a href="datenaufbereitung.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height))</span>
+<span id="cb115-3"><a href="datenaufbereitung.html#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="datenaufbereitung.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(data_filter_na)</span></code></pre></div>
 <pre><code>## [1] 81</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">head</span>(data_filter_na)</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="datenaufbereitung.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_filter_na)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -515,14 +544,14 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="arrange-fälle-sortieren" class="section level2">
+<div id="arrange-fälle-sortieren" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Arrange: Fälle sortieren</h2>
-<p>Mit ´arrange()` lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.</p>
-<p>Der Einsatz von <code>arrange()</code> ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben nach der sortiert werden soll, hier z.B. nach der Körpergröße:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co"># aufsteigend sortieren</span></a>
-<a class="sourceLine" id="cb119-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb119-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(height) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb119-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<p>Mit <code>arrange()</code> lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.</p>
+<p>Der Einsatz von <code>arrange()</code> ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben, nach der sortiert werden soll, hier z.B. nach der Körpergröße:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="datenaufbereitung.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aufsteigend sortieren</span></span>
+<span id="cb119-2"><a href="datenaufbereitung.html#cb119-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="datenaufbereitung.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(height) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="datenaufbereitung.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -534,11 +563,11 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 6 R4-P…     96    NA none       silver, r… red, blue         NA none  femin…
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-<p>Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen benötigen wir die Hilfe von <code>desc()</code>. Das sieht dann so aus:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="co"># absteigend sortieren</span></a>
-<a class="sourceLine" id="cb121-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb121-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(height))<span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb121-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<p>Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu erreichen, benötigen wir die Hilfe von <code>desc()</code>. Das sieht dann so aus:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="datenaufbereitung.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absteigend sortieren</span></span>
+<span id="cb121-2"><a href="datenaufbereitung.html#cb121-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="datenaufbereitung.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(height))<span class="sc">%&gt;%</span> </span>
+<span id="cb121-4"><a href="datenaufbereitung.html#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -551,10 +580,10 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei aufsteigende und absteigende Sortierung nach Belieben mischen:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="co"># nach mehreren Variablen sortieren</span></a>
-<a class="sourceLine" id="cb123-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb123-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(sex, hair_color, <span class="kw">desc</span>(height))<span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb123-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="datenaufbereitung.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nach mehreren Variablen sortieren</span></span>
+<span id="cb123-2"><a href="datenaufbereitung.html#cb123-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb123-3"><a href="datenaufbereitung.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sex, hair_color, <span class="fu">desc</span>(height))<span class="sc">%&gt;%</span> </span>
+<span id="cb123-4"><a href="datenaufbereitung.html#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -567,13 +596,13 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="select-variablen-auswählen" class="section level2">
+<div id="select-variablen-auswählen" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Select: Variablen auswählen</h2>
-<p>Die Funktion <code>select()</code> dient genau wie <code>filter()</code> dazu, den Datensatz zu verkleinern. Jedoch geht es bei <code>select()</code> darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co"># Variablen auswählen</span></a>
-<a class="sourceLine" id="cb125-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb125-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(name, homeworld, species) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb125-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<p>Die Funktion <code>select()</code> dient genau wie <code>filter()</code> dazu, den Datensatz zu verkleinern. Jedoch geht es bei <code>select()</code> darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen, einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="datenaufbereitung.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen auswählen</span></span>
+<span id="cb125-2"><a href="datenaufbereitung.html#cb125-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb125-3"><a href="datenaufbereitung.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, homeworld, species) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-4"><a href="datenaufbereitung.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   name           homeworld species
 ##   &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  
@@ -583,13 +612,13 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 4 Darth Vader    Tatooine  Human  
 ## 5 Leia Organa    Alderaan  Human  
 ## 6 Owen Lars      Tatooine  Human</code></pre>
-<p>Will man nur einzelne Variablen löschen, so geht dies mit einem <code>-</code> vor dem Variablennamen <code>select(data, -birth_year)</code> löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.</p>
-<p>Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit “var_name_” beginnt. Die Syntax dafür ist <code>starts_with(&quot;var_name_&quot;)</code>. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von <code>var_name_1</code> bis <code>var_name_x</code>. Dafür müsste man bspw. <code>height:eye_color</code> eingeben.</p>
-<p>Zudem kann <code>select()</code> auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funktion. Beim umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist bspw. die Funktion <code>everything()</code> - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co"># Variablen neu sortieren</span></a>
-<a class="sourceLine" id="cb127-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb127-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(name, homeworld, <span class="kw">everything</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb127-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<p>Will man nur einzelne Variablen löschen, so geht dies mit einem <code>-</code> vor dem Variablennamen. <code>select(data, -birth_year)</code> löscht also das Alter, alle anderen Variablen würden aber erhalten bleiben.</p>
+<p>Es gibt auch die Möglichkeit, Variablen auszuwählen, die einem bestimmten Schema entsprechen, z.B. deren Name mit “var_name_” beginnt. Die Syntax dafür ist <code>starts_with("var_name_")</code>. Ähnlich kann man auch Variablen in einem bestimmten Bereich auswählen, also alle von <code>var_name_1</code> bis <code>var_name_x</code>. Dafür müsste man beispielsweise <code>height:eye_color</code> eingeben.</p>
+<p>Zudem kann man <code>select()</code> auch dazu verwenden, die Variablen im Datensatz umzusortieren. Dazu schreibt man die Variablen einfach in der neuen Reihenfolge in die Funktion. Beim Umsortieren gibt es ebenfalls einige nützliche Helfer. Einer ist beispielsweise die Funktion <code>everything()</code> - quasi ein Alias für alle Variablen die bis dahin noch nicht genannt wurden.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="datenaufbereitung.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen neu sortieren</span></span>
+<span id="cb127-2"><a href="datenaufbereitung.html#cb127-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb127-3"><a href="datenaufbereitung.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, homeworld, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb127-4"><a href="datenaufbereitung.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name  homeworld height  mass hair_color skin_color eye_color birth_year sex  
 ##   &lt;chr&gt; &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
@@ -602,40 +631,40 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: gender &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="variablen-umcodieren" class="section level2">
+<div id="variablen-umcodieren" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Variablen umcodieren</h2>
-<p>Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variable damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen die “falsch herum” codiert wurden zu drehen: In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu “Verbundenheit” unintuitiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label “sehr verbunden”, der Wert 5 ist hingegen mit “überhaupt nicht verbunden” codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable <code>verbundenheit_europa</code>.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">library</span>(sjlabelled)</a>
-<a class="sourceLine" id="cb129-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb129-3" data-line-number="3"><span class="co"># einen Vektor mit den Werten einer Variable erzeugen</span></a>
-<a class="sourceLine" id="cb129-4" data-line-number="4">values =<span class="st"> </span><span class="kw">get_values</span>(data<span class="op">$</span>verbundenheit_europa) </a>
-<a class="sourceLine" id="cb129-5" data-line-number="5"><span class="co"># einen Vektor mit den Labels einer Variable erzeugen</span></a>
-<a class="sourceLine" id="cb129-6" data-line-number="6">labels =<span class="st"> </span><span class="kw">get_labels</span>(data<span class="op">$</span>verbundenheit_europa) </a>
-<a class="sourceLine" id="cb129-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb129-8" data-line-number="8"><span class="kw">cbind</span>(values, labels) <span class="co"># beide Vektoren zusammenbinden</span></a></code></pre></div>
+<p>Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variablen damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen, die “falsch herum” codiert wurden und jetzt gedreht werden müssen. In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu “Verbundenheit” unintuitiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label “sehr verbunden,” der Wert 5 ist hingegen mit “überhaupt nicht verbunden” codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable <code>verbundenheit_europa</code>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenaufbereitung.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb129-2"><a href="datenaufbereitung.html#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-3"><a href="datenaufbereitung.html#cb129-3" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Werten einer Variable erzeugen</span></span>
+<span id="cb129-4"><a href="datenaufbereitung.html#cb129-4" aria-hidden="true" tabindex="-1"></a>values <span class="ot">=</span> <span class="fu">get_values</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
+<span id="cb129-5"><a href="datenaufbereitung.html#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="co"># einen Vektor mit den Labels einer Variable erzeugen</span></span>
+<span id="cb129-6"><a href="datenaufbereitung.html#cb129-6" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">=</span> <span class="fu">get_labels</span>(data<span class="sc">$</span>verbundenheit_europa) </span>
+<span id="cb129-7"><a href="datenaufbereitung.html#cb129-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-8"><a href="datenaufbereitung.html#cb129-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(values, labels) <span class="co"># beide Vektoren zusammenbinden</span></span></code></pre></div>
 <pre><code>##      values labels                     
 ## [1,] &quot;1&quot;    &quot;Sehr verbunden&quot;           
 ## [2,] &quot;2&quot;    &quot;Ziemlich verbunden&quot;       
 ## [3,] &quot;3&quot;    &quot;Nicht sehr verbunden&quot;     
 ## [4,] &quot;4&quot;    &quot;Überhaupt nicht verbunden&quot;
 ## [5,] &quot;99&quot;   &quot;Weiß nicht&quot;</code></pre>
-<p>Intutiver wäre es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gepabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl <code>rec()</code> aus dem Paket <code>sjmisc</code>. Ein Tipp für SPSS-Umsteiger: Der Befehl ist sehr stark an die Logik von SPSS angelehnt.</p>
-<p>Der <code>rec()</code>-Befehl fügt sich in die Tidyverse-Logik ein und erwartet als erstes Argument genau wie die <code>dplyr</code>-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere einsetzen, in unserem Fall alle die mit <code>verbundenheit_</code> beginnen. Ein kleiner Einschub: An dieser Stelle bereits deutlich, dass Variablennamen möglichst so zu vergeben sind, dass Variablen eines Konzeptes immer gleich benannt werden. Eine reine Nummerierung von Variablen würde den Befehl erheblich länger machen.
-Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt <code>rec</code> und beinhaltet einen Text mit den Anweisungen in der Form <code>&quot;werte_label = neuer_wert&quot;</code>. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Wert nicht von der Umcodierung betroffen sein, kann man die “restlichen” Werte durch ein <code>&quot;else=copy&quot;</code> auffangen. Dadurch wird der Wert aus der ursprünglichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = “weiß nicht”. Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.</p>
+<p>Intutiver wäre es, wenn mit einem hohen Zahlenwert auch eine große Verbundeheit einher ginge. Bei den gelabelten Daten, die hier vorliegen, geht das Umcodieren sehr gut über den Befehl <code>rec()</code> aus dem Paket <code>sjmisc</code>. Ein Tipp für SPSS-Umsteiger: Der Befehl ist sehr stark an die Logik von SPSS angelehnt.</p>
+<p>Der <code>rec()</code>-Befehl fügt sich in die tidyverse-Logik ein und erwartet als erstes Argument genau wie die <code>dplyr</code>-Funktionen den Dataframe. Deshalb kann man den Befehl ebenfalls sehr gut in der Pipe einsetzen. Das zweite Argument ist die Variable, die umcodiert werden soll. Man kann hier auch mehrere Variablen einsetzen, in unserem Fall alle die mit <code>verbundenheit_</code> beginnen. Ein kleiner Einschub: An dieser Stelle wird bereits deutlich, dass Variablennamen möglichst so zu vergeben sind, dass Variablen eines Konzeptes immer gleich benannt werden. Eine reine Nummerierung von Variablen würde den Befehl erheblich länger machen.
+Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es heißt <code>rec</code> und beinhaltet einen Text mit den Anweisungen in der Form <code>"werte_label = neuer_wert"</code>. Getrennt durch ein Semikolon kann man auch mehrere Anweisungen gleichzeitig übergeben. Jede geplante Umcodierung muss explizit genannt werden. Sollte ein oder mehrere Werte nicht von der Umcodierung betroffen sein, kann man die “restlichen” Werte durch ein <code>"else=copy"</code> auffangen. Dadurch wird der Wert aus der ursprünglichen Variable einfach in die neue kopiert. In unserem Beispiel betrifft das den Wert 99 = “weiß nicht.” Die 99 soll ganz unabhängig von der Umcodierung immer diesen Wert beibehalten.</p>
 <p>Die Funktion <code>rec()</code> erzeugt neue Variablen, die den gleichen Namen haben wie die ursprünglichen, ergänzt um ein <code>_r</code> am Ende. Diese Endung soll deutlich machen, dass es sich um die recodierte Variante der Variablen handelt.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">library</span>(sjmisc)</a>
-<a class="sourceLine" id="cb131-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb131-3" data-line-number="3">data &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-4" data-line-number="4"><span class="st">  </span><span class="kw">rec</span>(<span class="kw">starts_with</span>(<span class="st">&quot;verbundenheit_&quot;</span>), <span class="dt">rec =</span> <span class="st">&quot;Sehr verbunden = 4;</span></a>
-<a class="sourceLine" id="cb131-5" data-line-number="5"><span class="st">                                             Ziemlich verbunden = 3;</span></a>
-<a class="sourceLine" id="cb131-6" data-line-number="6"><span class="st">                                             Nicht sehr verbunden = 2; </span></a>
-<a class="sourceLine" id="cb131-7" data-line-number="7"><span class="st">                                             Überhaupt nicht verbunden = 1;</span></a>
-<a class="sourceLine" id="cb131-8" data-line-number="8"><span class="st">                                             else=copy&quot;</span>) </a>
-<a class="sourceLine" id="cb131-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb131-10" data-line-number="10"><span class="co"># Beispielhaft die Variable verbundenheit_dtl inkl. recodierter Variante anzeigen:</span></a>
-<a class="sourceLine" id="cb131-11" data-line-number="11">data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(<span class="kw">starts_with</span>(<span class="st">&quot;verbundenheit_dtl&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-13" data-line-number="13"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="datenaufbereitung.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span>
+<span id="cb131-2"><a href="datenaufbereitung.html#cb131-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="datenaufbereitung.html#cb131-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb131-4"><a href="datenaufbereitung.html#cb131-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rec</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_&quot;</span>), <span class="at">rec =</span> <span class="st">&quot;Sehr verbunden = 4;</span></span>
+<span id="cb131-5"><a href="datenaufbereitung.html#cb131-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Ziemlich verbunden = 3;</span></span>
+<span id="cb131-6"><a href="datenaufbereitung.html#cb131-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Nicht sehr verbunden = 2; </span></span>
+<span id="cb131-7"><a href="datenaufbereitung.html#cb131-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                             Überhaupt nicht verbunden = 1;</span></span>
+<span id="cb131-8"><a href="datenaufbereitung.html#cb131-8" aria-hidden="true" tabindex="-1"></a><span class="st">                                             else=copy&quot;</span>) </span>
+<span id="cb131-9"><a href="datenaufbereitung.html#cb131-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-10"><a href="datenaufbereitung.html#cb131-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispielhaft die Variable verbundenheit_dtl inklusive recodierter Variante anzeigen:</span></span>
+<span id="cb131-11"><a href="datenaufbereitung.html#cb131-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb131-12"><a href="datenaufbereitung.html#cb131-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;verbundenheit_dtl&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb131-13"><a href="datenaufbereitung.html#cb131-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   verbundenheit_dtl verbundenheit_dtl_r
 ## 1                 2                   3
 ## 2                 2                   3
@@ -644,19 +673,19 @@ Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es hei�
 ## 5                 3                   2
 ## 6                 4                   1</code></pre>
 <p>Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein “nebeneinanderlegen” der beiden Variablen.</p>
-<p>Eine kleine Ergänzung noch. Ich habe den Datensatz hier über das sjlabelled-Paket in R hinein geladen: Selbstverständlich funktioniert <code>rec()</code> auch mit nicht-gelabelten Daten oder Daten, die durch das haven-Paket eingelesen wurden. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: <code>&quot;1=4;2=3;3=2;4=1;else=copy&quot;</code></p>
+<p>Eine kleine Ergänzung noch. Ich habe den Datensatz hier über das sjlabelled-Paket in R hinein geladen: Selbstverständlich funktioniert <code>rec()</code> auch mit nicht-gelabelten Daten oder Daten, die durch das haven-Paket eingelesen wurden. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: <code>"1=4;2=3;3=2;4=1;else=copy"</code></p>
 <p>Hier noch ein Beispiel mit dem Starwars-Datensatz, in dem die Variable für die Körpergröße in drei Gruppen eingeteilt wird:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">sw_age_grp &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="st">  </span><span class="kw">rec</span>(height, <span class="dt">rec =</span> <span class="st">&quot;1:150 = small; </span></a>
-<a class="sourceLine" id="cb133-3" data-line-number="3"><span class="st">                     151:190 = medium; </span></a>
-<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="st">                     190:900 = tall; </span></a>
-<a class="sourceLine" id="cb133-5" data-line-number="5"><span class="st">                     else=NA&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="datenaufbereitung.html#cb133-1" aria-hidden="true" tabindex="-1"></a>sw_age_grp <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb133-2"><a href="datenaufbereitung.html#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rec</span>(height, <span class="at">rec =</span> <span class="st">&quot;1:150 = small; </span></span>
+<span id="cb133-3"><a href="datenaufbereitung.html#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="st">                     151:190 = medium; </span></span>
+<span id="cb133-4"><a href="datenaufbereitung.html#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="st">                     190:900 = tall; </span></span>
+<span id="cb133-5"><a href="datenaufbereitung.html#cb133-5" aria-hidden="true" tabindex="-1"></a><span class="st">                     else=NA&quot;</span>)</span></code></pre></div>
 </div>
-<div id="variablen-berechnen" class="section level2">
+<div id="variablen-berechnen" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Variablen berechnen</h2>
-<p>Es gibt viele unterschiedliche Wege wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.</p>
-<p>Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das <code>sjmisc</code>-Paket und aus dem Tidyverse die Funktion <code>mutate()</code>.</p>
-<div id="summen-und-mittelwertindices" class="section level3">
+<p>Es gibt viele unterschiedliche Wege, wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.</p>
+<p>Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das <code>sjmisc</code>-Paket und aus dem tidyverse die Funktion <code>mutate()</code>.</p>
+<div id="summen-und-mittelwertindices" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Summen und Mittelwertindices</h3>
 <p>Indices zu berechnen ist eine häufige Task bei der Datenaufbereitung. Zwei besonders häufige Formen sind:</p>
 <ul>
@@ -664,34 +693,34 @@ Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es hei�
 <li><p>Der <strong>Mittelwertindex</strong>, bei dem ein Mittelwert über mehrere Variablen hinweg gebildet wird.</p></li>
 </ul>
 <p>Für diese beiden Index-Arten hält das <code>sjmisc</code>-Paket zwei interessante Funktionen bereit <code>row_sums()</code> und <code>row_means()</code>.
-Ich demonstriere im folgenden die <code>row_means()</code>-Funktion, aber <code>row_sums()</code> funktioniert vom Prinzip her gleich. Ich bleibe dazu beim Generation-Z-Datensatz. Ich möchte jetzt für die 5 Verbundenheits-Variablen einen Mittelwertindex berechnen (ob das inhaltlich super sinnvoll ist, sei mal dahingestellt…).</p>
+Ich demonstriere im Folgenden die <code>row_means()</code>-Funktion, aber <code>row_sums()</code> funktioniert vom Prinzip her gleich. Ich bleibe dazu beim Generation-Z-Datensatz. Ich möchte jetzt für die 5 Verbundenheits-Variablen einen Mittelwertindex berechnen (ob das inhaltlich super sinnvoll ist, sei mal dahingestellt…).</p>
 <p>Der Einsatz der Funktion sieht wie folgt aus:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">gen_z_df_mean &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="st">  </span><span class="kw">row_means</span>(verbundenheit_stadt_r<span class="op">:</span>verbundenheit_europa_r, <span class="dt">n =</span> <span class="dv">4</span>, <span class="dt">var =</span> <span class="st">&quot;verbundenheit_r_mx&quot;</span>) </a>
-<a class="sourceLine" id="cb134-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb134-4" data-line-number="4"><span class="kw">head</span>(gen_z_df_mean<span class="op">$</span>verbundenheit_r_mx)</a></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="datenaufbereitung.html#cb134-1" aria-hidden="true" tabindex="-1"></a>gen_z_df_mean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb134-2"><a href="datenaufbereitung.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_means</span>(verbundenheit_stadt_r<span class="sc">:</span>verbundenheit_europa_r, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">var =</span> <span class="st">&quot;verbundenheit_r_mx&quot;</span>) </span>
+<span id="cb134-3"><a href="datenaufbereitung.html#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="datenaufbereitung.html#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gen_z_df_mean<span class="sc">$</span>verbundenheit_r_mx)</span></code></pre></div>
 <pre><code>## [1] 3.0  NA 2.6 3.0 2.2 1.6</code></pre>
 <p>Neben dem Datensatz-Argument, welches hier wie gehabt über die Pipe übergeben wird, benötigt die Funktion <code>row_means()</code> noch weitere Argumente:</p>
 <ul>
 <li><p>Die Variablen, die in dem Index zusammengefasst werden sollen</p></li>
-<li><p>das Argument <code>n =</code> in diesem Argument wird festgelegt, in wie vielen der Ursprungs-Variablen ein Fall einen gültigen Wert aufweisen muss, damit ein Index berechnet werden kann. Ich habe den Wert hier auf 4 gesetzt. Ein Befragter muss also mindestens 4 der 5 Variablen ausgefüllt haben, damit der Mittelwertindex berechnet wird.</p></li>
+<li><p>Das Argument <code>n =</code>, in diesem Argument wird festgelegt, in wie vielen der Ursprungs-Variablen ein Fall einen gültigen Wert aufweisen muss, damit ein Index berechnet werden kann. Ich habe den Wert hier auf 4 gesetzt. Ein Befragter muss also mindestens 4 der 5 Variablen ausgefüllt haben, damit der Mittelwertindex berechnet wird.</p></li>
 <li><p>Optional das Argument <code>var =</code>, das den Namen für den neuen Index in Anführungsstrichen enthält. Übergibt man dieses Argument nicht, wird der Index von R “rowmeans” genannt.</p></li>
 </ul>
 <p>In der letzten Zeile lasse ich mir die ersten paar der errechneten Werte für die neue Variable/den neuen Mittelwertindex anzeigen.</p>
 </div>
-<div id="berechnen-mit-dplyrmutate" class="section level3">
+<div id="berechnen-mit-dplyrmutate" class="section level3" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> Berechnen mit dplyr::mutate()</h3>
-<p>Mit <code>mutate()</code> kann man neue Variablen bilden un zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema <code>new_var_name = some calculation</code>.</p>
+<p>Mit <code>mutate()</code> kann man neue Variablen bilden und zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema <code>new_var_name = some calculation</code>.</p>
 <p>Im nächsten Code-Beispiel wird der Bodymass-Index der Starwars-Figuren berechnet.</p>
 <p>Die Formel für den BMI ist:
 Gewicht durch Größe in Metern zum Quadrat.</p>
-<p>Da die Größe dafür in Metern angegeben sein muss, im Starwars-Datensatz aber nur cm erfasst sind, müssen wir zusätzlich auch noch die cm in Meter umrechnen.</p>
+<p>Da die Größe dafür in Metern angegeben sein muss, im Starwars-Datensatz aber nur cm erfasst sind, müssen wir zusätzlich auch noch die Zentimeter in Meter umrechnen.</p>
 <p>Damit wir die Daten im Anschluss an die Berechnung schön vergleichen können, wähle ich die beteiligten Variablen nach der Berechnung aus und sortiere nach dem BMI.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="co"># BMI berechnen</span></a>
-<a class="sourceLine" id="cb136-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb136-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">bmi =</span> mass <span class="op">/</span><span class="st"> </span>(height<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb136-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(name<span class="op">:</span>mass, bmi) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb136-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(bmi))</a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="datenaufbereitung.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BMI berechnen</span></span>
+<span id="cb136-2"><a href="datenaufbereitung.html#cb136-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb136-3"><a href="datenaufbereitung.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bmi =</span> mass <span class="sc">/</span> (height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-4"><a href="datenaufbereitung.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name<span class="sc">:</span>mass, bmi) <span class="sc">%&gt;%</span> </span>
+<span id="cb136-5"><a href="datenaufbereitung.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bmi))</span></code></pre></div>
 <pre><code>## # A tibble: 87 x 4
 ##    name                  height  mass   bmi
 ##    &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -708,22 +737,22 @@ Gewicht durch Größe in Metern zum Quadrat.</p>
 ## # … with 77 more rows</code></pre>
 <p>Jetzt kennen Sie den BMI von Jabba the Hutt! Aber auch der BMI von Yoda ist ganz schön bedenklich…</p>
 </div>
-<div id="variablen-unter-einer-bedingung-berechnen" class="section level3">
+<div id="variablen-unter-einer-bedingung-berechnen" class="section level3" number="5.7.3">
 <h3><span class="header-section-number">5.7.3</span> Variablen unter einer Bedingung berechnen</h3>
-<p>Man kann Natürlich auch Variablen anhand von logischen Ausdrücken berechnen, also eine Art Filterbedingung dafür zu Rate ziehen welchen Wert die Variable annehmen soll. Es muss dafür wieder mit logischen Ausdrücken gearbeitet werden und wir brauchen eine Funktion die <code>ìfelse()</code> heißt. Die Funktion bekommt drei Argumente:</p>
+<p>Man kann natürlich auch Variablen anhand von logischen Ausdrücken berechnen, also eine Art Filterbedingung dafür zu Rate ziehen, welchen Wert die Variable annehmen soll. Es muss dafür wieder mit logischen Ausdrücken gearbeitet werden und wir brauchen eine Funktion die <code>ìfelse()</code> heißt. Die Funktion bekommt drei Argumente:</p>
 <ol style="list-style-type: decimal">
 <li><p>Den logischen Ausdruck bei dem für jeden Fall zu prüfen ist, ob er für diesen Fall <code>TRUE</code> oder <code>FALSE</code> ist.</p></li>
 <li><p>Einen Wert, den die Variable annehmen soll, wenn der Fall <code>TRUE</code> eintritt.</p></li>
 <li><p>Einen Wert, den die Variable annehmen soll, wenn der Fall <code>FALSE</code> eintritt.</p></li>
 </ol>
-<p>Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenheit zu Europa größer ist als die zu Deutschland und ansonsten 0. Ich nenne sie <code>sieht_sich_als_europaeer</code>.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co"># Variable berechnen mit Bedingung</span></a>
-<a class="sourceLine" id="cb138-2" data-line-number="2">data_eu &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb138-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sieht_sich_als_europaeer =</span> <span class="kw">ifelse</span>(verbundenheit_europa <span class="op">&gt;</span><span class="st"> </span>verbundenheit_dtl, <span class="dv">1</span>, <span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb138-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb138-5" data-line-number="5"><span class="co"># Für die kontrolle relevante Variablen auswählen</span></a>
-<a class="sourceLine" id="cb138-6" data-line-number="6">data_eu <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb138-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(lfdn, verbundenheit_europa, verbundenheit_dtl, sieht_sich_als_europaeer) <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">head</span>()</a></code></pre></div>
+<p>Als Beispiel möchte ich eine Variable berechnen die 1 ist, wenn die Verbundenheit zu Europa größer ist, als die zu Deutschland und ansonsten 0. Ich nenne sie <code>sieht_sich_als_europaeer</code>.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="datenaufbereitung.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable berechnen mit Bedingung</span></span>
+<span id="cb138-2"><a href="datenaufbereitung.html#cb138-2" aria-hidden="true" tabindex="-1"></a>data_eu <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb138-3"><a href="datenaufbereitung.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sieht_sich_als_europaeer =</span> <span class="fu">ifelse</span>(verbundenheit_europa <span class="sc">&gt;</span> verbundenheit_dtl, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
+<span id="cb138-4"><a href="datenaufbereitung.html#cb138-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-5"><a href="datenaufbereitung.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Für die Kontrolle relevante Variablen auswählen</span></span>
+<span id="cb138-6"><a href="datenaufbereitung.html#cb138-6" aria-hidden="true" tabindex="-1"></a>data_eu <span class="sc">%&gt;%</span> </span>
+<span id="cb138-7"><a href="datenaufbereitung.html#cb138-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, verbundenheit_europa, verbundenheit_dtl, sieht_sich_als_europaeer) <span class="sc">%&gt;%</span>   <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   lfdn verbundenheit_europa verbundenheit_dtl sieht_sich_als_europaeer
 ## 1 1634                    2                 2                        0
 ## 2 1636                    3                 2                        1
@@ -738,29 +767,28 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p><br /></p>
 </div>
 </div>
-<div id="summarize-daten-verdichten" class="section level2">
+<div id="summarize-daten-verdichten" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Summarize: Daten verdichten</h2>
-<p>Die letzte <code>dplyr</code>-Funktion auf die ich hier eingehen möchte ist <code>summarize()</code>. Im ersten Moment wirkt <code>summarize()</code> vielleicht ein bisschen wie eine komplizierte Art deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel &quot;Deskriptive Statistiken vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis.</p>
+<p>Die letzte <code>dplyr</code>-Funktion, auf die ich hier eingehen möchte, ist <code>summarize()</code>. Im ersten Moment wirkt <code>summarize()</code> vielleicht ein bisschen wie eine komplizierte Art, deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel “Deskriptive Statistiken” vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis.</p>
 <p>Möglicherweise werden Sie die Funktion zunächst kaum benutzen, aber später wiederentdecken. Der Vollständigkeit halber wird sie trotzdem an dieser Stelle kurz erläutert.</p>
 <p>Im ersten Beispiel möchte ich den Mittelwert für Körpergröße der Starwars-Figuren ausrechnen, das haben wir ja schon mal gemacht. Aber jetzt eben mit der <code>summarize()</code>-Funktion.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co"># Test der summarize-Funktion</span></a>
-<a class="sourceLine" id="cb140-2" data-line-number="2">starwars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb140-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_height =</span> <span class="kw">mean</span>(height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="datenaufbereitung.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test der summarize-Funktion</span></span>
+<span id="cb140-2"><a href="datenaufbereitung.html#cb140-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb140-3"><a href="datenaufbereitung.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 1
 ##   mean_height
 ##         &lt;dbl&gt;
 ## 1        174.</code></pre>
-<p>Das Ergebnis ist ein Datensatz, der eine neue Variable enthält die <code>mean_height</code> heißt und nur einen Fall hat. Soweit, so unspannend.</p>
-<p>Das geschickte an <code>summarize()</code> ist, dass die Funktion perfekt mit <code>group_by()</code> zusammenarbeitet. Mit <code>group_by()</code> kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert bspw. ob regionale Unterschiede bei der Größe der Charaktere gibt. Vergleichen wir mal Tatooine und Naboo. Zusätzlich lasse ich noch die Fallzahl der Gruppen mit ausgeben (<code>n = n()</code>):</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co"># summarize mit filter &amp; group_by</span></a>
-<a class="sourceLine" id="cb142-2" data-line-number="2">starwars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb142-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(homeworld <span class="op">==</span><span class="st"> &quot;Tatooine&quot;</span> <span class="op">|</span><span class="st"> </span>homeworld <span class="op">==</span><span class="st"> &quot;Naboo&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(homeworld) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb142-5" data-line-number="5"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<p>Das Ergebnis ist ein Datensatz, der eine neue Variable enthält, die <code>mean_height</code> heißt und nur einen Fall hat. Soweit so unspannend.</p>
+<p>Das Geschickte an <code>summarize()</code> ist, dass die Funktion perfekt mit <code>group_by()</code> zusammenarbeitet. Mit <code>group_by()</code> kann man einen Dataframe aufteilen, so dass er dann wie mehrere getrennte Datensätze behandelt wird. Wir könnten also Gruppen bilden und die Anteile in diesen Gruppen rein deskriptiv vergleichen. Mich interessiert beispielsweise, ob es regionale Unterschiede bei der Größe der Charaktere gibt. Vergleichen wir mal Tatooine und Naboo. Zusätzlich lasse ich noch die Fallzahl der Gruppen mit ausgeben (<code>n = n()</code>):</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="datenaufbereitung.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize mit filter &amp; group_by</span></span>
+<span id="cb142-2"><a href="datenaufbereitung.html#cb142-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb142-3"><a href="datenaufbereitung.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">&quot;Tatooine&quot;</span> <span class="sc">|</span> homeworld <span class="sc">==</span> <span class="st">&quot;Naboo&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb142-4"><a href="datenaufbereitung.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(homeworld) <span class="sc">%&gt;%</span> </span>
+<span id="cb142-5"><a href="datenaufbereitung.html#cb142-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 3
 ##   homeworld  mean     n
-##   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+## * &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
 ## 1 Naboo      175.    11
 ## 2 Tatooine   170.    10</code></pre>
 <p>Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere Berechnungen wären hier denkbar. Einige nützliche Funktionen finden Sie in der Hilfe von <code>summarize()</code>.</p>
@@ -853,12 +881,6 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 </tbody>
 </table>
 
-</div>
-</div>
-<h3>Literaturverzeichnis</h3>
-<div id="refs" class="references">
-<div id="ref-Wickham_2017">
-<p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O’Reilly UK Ltd. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
 </div>
 </div>
             </section>

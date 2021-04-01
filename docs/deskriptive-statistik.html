@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 6 Deskriptive Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 6 Deskriptive Statistik | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 6 Deskriptive Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 6 Deskriptive Statistik | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 6 Deskriptive Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 6 Deskriptive Statistik | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-01-07" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="datenaufbereitung.html"/>
 <link rel="next" href="bivariate-statistik.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -64,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -91,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,29 +142,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
 <li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a><ul>
+<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
-<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a><ul>
+<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
 <li class="chapter" data-level="2.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Installation von RStudio</a></li>
 <li class="chapter" data-level="2.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>2.2.3</b> RStudio Benutzeroberfläche</a></li>
@@ -173,52 +180,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>2.2.6</b> RStudio anpassen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a><ul>
-<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a><ul>
+<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>3.1.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a><ul>
+<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>3.2.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a><ul>
-<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a><ul>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
-<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperator"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperator</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
 <li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a><ul>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
 <li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a><ul>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
 <li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
 <li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a><ul>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
 <li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
 <li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
-<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a><ul>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
 <li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-im--und--export"><i class="fa fa-check"></i><b>4.8</b> Daten-Im- und -Export</a><ul>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
 <li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
 <li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
 <li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
 <li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
@@ -229,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a><ul>
+<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a><ul>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
 </ul></li>
@@ -239,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
 <li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a><ul>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
 <li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
 <li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
@@ -247,13 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a><ul>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
 <li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a><ul>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
 <li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
 <li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
@@ -262,13 +286,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
+<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a><ul>
+<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
 <li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
@@ -278,11 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
 <li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
 <li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
 <li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -311,19 +340,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deskriptive-statistik" class="section level1">
+<div id="deskriptive-statistik" class="section level1" number="6">
 <h1><span class="header-section-number">Kapitel 6</span> Deskriptive Statistik</h1>
-<p>In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen über die Verteilung von Merkmalen in Stichproben treffen. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:</p>
+<p>In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen über die Verteilung von Merkmalen in Stichproben treffen. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll, sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:</p>
 <ul>
 <li>Häufigkeitsverteilungen (inkl. Säulendiagram)</li>
 <li>Maße der zentralen Tendenz und Streuung</li>
 <li>Schiefe und Kurtosis</li>
 <li>Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen</li>
 </ul>
-<div id="datensatz-für-dieses-kapitel-1" class="section level2">
+<div id="datensatz-für-dieses-kapitel-1" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Datensatz für dieses Kapitel</h2>
 <p>Als Datensatz dient in diesem Kapitel wieder der “starwars”-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1">starwars</a></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="deskriptive-statistik.html#cb144-1" aria-hidden="true" tabindex="-1"></a>starwars</span></code></pre></div>
 <pre><code>## # A tibble: 87 x 14
 ##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
 ##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -341,39 +370,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 
 </div>
-<div id="häufigkeitsverteilung" class="section level2">
+<div id="häufigkeitsverteilung" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Häufigkeitsverteilung</h2>
-<div id="tabellen" class="section level3">
+<div id="tabellen" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Tabellen</h3>
 <p>Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine Häufigkeitsverteilung ausgeben zu lassen. Die schnellste und einfachste Möglichkeit ist die Funktion <code>table()</code>, die in base R verfügbar ist. Man kann sie also nutzen, ohne zusätzliche Pakete zu laden. Als Argument benötigt die Funktion lediglich einen Verweis auf den Vektor, der tabuliert werden soll (also auf den Datensatz und die entsprechende Variable).</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></a>
-<a class="sourceLine" id="cb147-2" data-line-number="2"><span class="kw">table</span>(starwars<span class="op">$</span>sex)</a></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="deskriptive-statistik.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
+<span id="cb146-2"><a href="deskriptive-statistik.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## 
 ##         female hermaphroditic           male           none 
 ##             16              1             60              6</code></pre>
-<p>Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument <code>useNA = &quot;ifany&quot;</code> mit ausgeben lassen:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></a>
-<a class="sourceLine" id="cb149-2" data-line-number="2"><span class="kw">table</span>(starwars<span class="op">$</span>sex, <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</a></code></pre></div>
+<p>Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument <code>useNA = "ifany"</code> mit ausgeben lassen:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="deskriptive-statistik.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
+<span id="cb148-2"><a href="deskriptive-statistik.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex, <span class="at">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##         female hermaphroditic           male           none           &lt;NA&gt; 
 ##             16              1             60              6              4</code></pre>
-<p>Neben dem sehr schlichten <code>table()</code>-Befehl gibt in vielen R-Paketen weitere Tabullierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion <code>tabyl()</code>aus dem Paket <code>janitor</code> vorstellen. Ich habe sie hier ausgewählt, weil ich das <code>janitor</code>-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">library</span>(janitor)</a>
-<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb151-3" data-line-number="3"><span class="kw">tabyl</span>(starwars<span class="op">$</span>sex)</a></code></pre></div>
+<p>Neben dem sehr schlichten <code>table()</code>-Befehl gibt in vielen R-Paketen weitere Tabulierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben lassen kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion <code>tabyl()</code>aus dem Paket <code>janitor</code> vorstellen. Ich habe sie hier ausgewählt, weil ich das <code>janitor</code>-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="deskriptive-statistik.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb150-2"><a href="deskriptive-statistik.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="deskriptive-statistik.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>##    starwars$sex  n    percent valid_percent
 ##          female 16 0.18390805    0.19277108
 ##  hermaphroditic  1 0.01149425    0.01204819
 ##            male 60 0.68965517    0.72289157
 ##            none  6 0.06896552    0.07228916
 ##            &lt;NA&gt;  4 0.04597701            NA</code></pre>
-<p>Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit <code>mutate()</code> aus dem Tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir Funktion <code>cumsum()</code>, welche kumulierte Summen bildet.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb153-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb153-3" data-line-number="3"><span class="kw">tabyl</span>(starwars<span class="op">$</span>sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb153-4" data-line-number="4"><span class="st">  </span><span class="co"># fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein</span></a>
-<a class="sourceLine" id="cb153-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cum_percent =</span> <span class="kw">cumsum</span>(percent), </a>
-<a class="sourceLine" id="cb153-6" data-line-number="6">         <span class="dt">cum_valid_percent =</span> <span class="kw">cumsum</span>(valid_percent)) </a></code></pre></div>
+<p>Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit <code>mutate()</code> aus dem tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir die Funktion <code>cumsum()</code>, welche kumulierte Summen bildet.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="deskriptive-statistik.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb152-2"><a href="deskriptive-statistik.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="deskriptive-statistik.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(starwars<span class="sc">$</span>sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb152-4"><a href="deskriptive-statistik.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein</span></span>
+<span id="cb152-5"><a href="deskriptive-statistik.html#cb152-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_percent =</span> <span class="fu">cumsum</span>(percent), </span>
+<span id="cb152-6"><a href="deskriptive-statistik.html#cb152-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">cum_valid_percent =</span> <span class="fu">cumsum</span>(valid_percent)) </span></code></pre></div>
 <pre><code>##    starwars$sex  n    percent valid_percent cum_percent cum_valid_percent
 ##          female 16 0.18390805    0.19277108   0.1839080         0.1927711
 ##  hermaphroditic  1 0.01149425    0.01204819   0.1954023         0.2048193
@@ -381,89 +410,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##            none  6 0.06896552    0.07228916   0.9540230         1.0000000
 ##            &lt;NA&gt;  4 0.04597701            NA   1.0000000                NA</code></pre>
 </div>
-<div id="häufigkeitsdiagramm" class="section level3">
+<div id="häufigkeitsdiagramm" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Häufigkeitsdiagramm</h3>
-<p>Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqualität ausgegeben werden. Im späteren Kapitel Darstellung gehe ich nochmal genau darauf ein, wie man Grafiken hübsch machen kann. Darum geht es an dieser Stelle aber noch nicht. Denn im Rahmen der Exploration von Datensätzen ist es zunächst erstmal wichtig, dass Sie die Grafik dazu benutzen, sich einen Überblick zu verschaffen! Eine besonders ausgefeilte - und möglicherweise aufwendige Formatierung - ist an dieser Stelle nicht nötig.</p>
-<p>Zur Erstellung von Plots ist das Paket <code>ggplot</code> aus dem Tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte lohnt es sich auf jeden Fall in ggplot einzusteigen und ich werde den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket <code>sjPlot</code> sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">library</span>(sjPlot)</a>
-<a class="sourceLine" id="cb155-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb155-3" data-line-number="3"><span class="kw">plot_frq</span>(starwars<span class="op">$</span>sex, <span class="dt">sort.frq =</span> <span class="st">&quot;desc&quot;</span>)</a></code></pre></div>
+<p>Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqualität ausgegeben werden. Im späteren Kapitel “Darstellung” gehe ich nochmal genau darauf ein, wie man Grafiken hübsch machen kann. Darum geht es an dieser Stelle aber noch nicht. Denn im Rahmen der Exploration von Datensätzen ist es zunächst erstmal wichtig, dass Sie die Grafik dazu benutzen, sich einen Überblick zu verschaffen! Eine besonders ausgefeilte - und möglicherweise aufwendige Formatierung - ist an dieser Stelle nicht nötig.</p>
+<p>Zur Erstellung von Plots ist das Paket <code>ggplot</code> aus dem tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte, lohnt es sich auf jeden Fall in ggplot einzusteigen. Ich werde Ihnen den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket <code>sjPlot</code> sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="deskriptive-statistik.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb154-2"><a href="deskriptive-statistik.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="deskriptive-statistik.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>sex, <span class="at">sort.frq =</span> <span class="st">&quot;desc&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/freq_plot-1.png" width="672" /></p>
-<p>Das Argument <code>sort.frq = &quot;desc&quot;</code> sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.</p>
-<p>Über die Funktion <code>plot_frq()</code> sind noch weitere Darstellungsformen möglich, wie bspw. ein Linien-Diagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument <code>type</code> mit an die Funktion übergeben (z.B. <code>type = &quot;line&quot;</code> oder <code>type = &quot;dot&quot;</code>). Auch Histogramme sind möglich (<code>type = &quot;histogram</code>):</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">library</span>(sjPlot)</a>
-<a class="sourceLine" id="cb156-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="kw">plot_frq</span>(starwars<span class="op">$</span>mass, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>)</a></code></pre></div>
+<p>Das Argument <code>sort.frq = "desc"</code> sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.</p>
+<p>Über die Funktion <code>plot_frq()</code> sind noch weitere Darstellungsformen möglich, wie beispielsweise ein Liniendiagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument <code>type</code> mit an die Funktion übergeben (z.B. <code>type = "line"</code> oder <code>type = "dot"</code>). Auch Histogramme sind möglich (<code>type = "histogram</code>):</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="deskriptive-statistik.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb155-2"><a href="deskriptive-statistik.html#cb155-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-3"><a href="deskriptive-statistik.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>mass, <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/freq_plot2-1.png" width="672" />
 Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren.</p>
 
 </div>
 </div>
-<div id="maße-der-zentralen-tendenz-streuung" class="section level2">
+<div id="maße-der-zentralen-tendenz-streuung" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Maße der zentralen Tendenz &amp; Streuung</h2>
 <p>Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben, falls diese mit Zahlen codiert wurde (bei reinen character-Variablen geht das selbstverständlich nicht). Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht.</p>
-<div id="nominale-daten" class="section level3">
+<div id="nominale-daten" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Nominale Daten</h3>
-<p>Als Beispiel für eine nominale Variable verwende ich die Frage, welchses Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1">sjlabelled<span class="op">::</span><span class="kw">get_labels</span>(starwars<span class="op">$</span>sex)</a></code></pre></div>
+<p>Als Beispiel für eine nominale Variable verwende ich die Frage, welches Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="deskriptive-statistik.html#cb156-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## [1] &quot;male&quot;           &quot;none&quot;           &quot;female&quot;         &quot;hermaphroditic&quot;
 ## [5] NA</code></pre>
 <p>Der <strong>Modus</strong> ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln.</p>
 <p>Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).</p>
 <p>Alternativ gibt es noch eine <code>Mode()</code>-Funktion im <code>DescTools</code>-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: <code>Mode()</code> muss hier zwingend groß geschrieben werden!! Außerdem liefert die Funktion kein Ergebnis zurück, wenn es zwei gleich hohe höchste Ausprägungen gibt.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">library</span>(DescTools)</a>
-<a class="sourceLine" id="cb159-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="kw">Mode</span>(starwars<span class="op">$</span>sex, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="deskriptive-statistik.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb158-2"><a href="deskriptive-statistik.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="deskriptive-statistik.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(starwars<span class="sc">$</span>sex, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;male&quot;
 ## attr(,&quot;freq&quot;)
 ## [1] 60</code></pre>
-<p>Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung “male”. Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).</p>
+<p>Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung “male.” Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).</p>
 </div>
-<div id="ordinale-daten" class="section level3">
+<div id="ordinale-daten" class="section level3" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> Ordinale Daten</h3>
 <p>Der <strong>Median</strong> teilt die (sortierten) Fälle einer Variablen in zwei gleich große Hälften. Er kann für ordinale und metrische Daten berechnet werden.</p>
-<p>Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht <code>median()</code>. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären müssen sie vorab aus der Analyse entfernt werden, mit <code>na.rm = TRUE</code> (<em>NA remove</em>).</p>
+<p>Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht <code>median()</code>. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären, müssen sie vorab aus der Analyse entfernt werden, mit <code>na.rm = TRUE</code> (<em>NA remove</em>).</p>
 <p>Im Datensatz gibt es keine ordinale Variable, deshalb nehme ich im folgenden die Größe in cm (metrisch) als Beispiel:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">median</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="deskriptive-statistik.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 180</code></pre>
-<p>Die <strong>Spannweite</strong> (<em>range</em>) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt also den höchsten und den niedrigsten Wert.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="kw">range</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Die <strong>Spannweite</strong> (<em>range</em>) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt, also den höchsten und den niedrigsten Wert.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="deskriptive-statistik.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1]  66 264</code></pre>
 <p>Über die Funktionen <code>min()</code> und <code>max()</code> kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.</p>
-<p>Wie oben erwähnt teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte, sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind <strong>Quantile</strong> das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion <code>quantile()</code> standardmäßig die Grenzen der Quartile zurück.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">quantile</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Wie oben erwähnt, teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte, sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind <strong>Quantile</strong> das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion <code>quantile()</code> standardmäßig die Grenzen der Quartile zurück.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="deskriptive-statistik.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##   0%  25%  50%  75% 100% 
 ##   66  167  180  191  264</code></pre>
 <p>Es handelt sich um 5 Grenzen, weil der niedrigste und der höchste Wert mit ausgegeben werden. Die Quartile befinden sich quasi “zwischen” diesen 5 Grenzpunkten.</p>
-<p>Der **Interquartil-Abstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, Also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">IQR</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Der **Interquartilsabstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="deskriptive-statistik.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
 </div>
-<div id="metrische-daten" class="section level3">
+<div id="metrische-daten" class="section level3" number="6.3.3">
 <h3><span class="header-section-number">6.3.3</span> Metrische Daten</h3>
 <p>Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
 <p>Als Beispiel benutze ich hier die Variable für das Gewicht.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="kw">mean</span>(starwars<span class="op">$</span>mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="deskriptive-statistik.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 97.31186</code></pre>
 <p>Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?).</p>
-<p>Man kann sich auch ein <strong>getrimmtes Mittel</strong> ausgeben lassen, bei dem die oberen uns niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Character ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischeres Bild:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">mean</span>(starwars<span class="op">$</span>mass, <span class="dt">trim =</span> <span class="fl">0.1</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Man kann sich auch ein <strong>getrimmtes Mittel</strong> ausgeben lassen, bei dem die oberen und niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Charakter ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischeres Bild:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="deskriptive-statistik.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 75.43673</code></pre>
-<p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">sd</span>(starwars<span class="op">$</span>mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte, ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="deskriptive-statistik.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 169.4572</code></pre>
 <p>Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">var</span>(starwars<span class="op">$</span>mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="deskriptive-statistik.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 28715.73</code></pre>
 
 </div>
 </div>
-<div id="schiefe-und-kurtosis" class="section level2">
+<div id="schiefe-und-kurtosis" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Schiefe und Kurtosis</h2>
-<p>Weitere Kennwerte für die Form von Verteilungen sind die <strong>Schiefe</strong> (<em>skew</em>) und <strong>Kurtosis</strong> (<em>kurtosis</em>). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus wie spitz (nach oben gewölbt) oder flach eine Verteilung ist.</p>
+<p>Weitere Kennwerte für die Form von Verteilungen sind die <strong>Schiefe</strong> (<em>skew</em>) und <strong>Kurtosis</strong> (<em>kurtosis</em>). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus, wie spitz (nach oben gewölbt) oder flach eine Verteilung ist.</p>
 <p>Im <code>psych</code>-Paket gibt es Funktionen für beides:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb177-2" data-line-number="2"><span class="kw">skew</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="deskriptive-statistik.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb176-2"><a href="deskriptive-statistik.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skew</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] -1.025488</code></pre>
 <p>Zur Erinnerung:</p>
 <ul>
@@ -473,34 +502,34 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 </ul>
 <p>Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein wenig linksschief.</p>
 <p>Hier noch der Code zur Berechnung der Kurtosis:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">kurtosi</span>(starwars<span class="op">$</span>height, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="deskriptive-statistik.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosi</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1.776414</code></pre>
 
 </div>
-<div id="übersichts-funktionen" class="section level2">
+<div id="übersichts-funktionen" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Übersichts-Funktionen</h2>
-<p>Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion <code>summary()</code> aus dem base-Paket liefert zum Beispiel einen ersten guten Einblick:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">summary</span>(starwars<span class="op">$</span>height)</a></code></pre></div>
+<p>Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion <code>summary()</code> aus dem base-Paket liefert zum Beispiel einen guten ersten Einblick:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="deskriptive-statistik.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>height)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    66.0   167.0   180.0   174.4   191.0   264.0       6</code></pre>
 <p>Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte <code>psych</code>-Paket hat z.B. eine <code>describe()</code>-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz.</p>
 <p>In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (<code>[, 1:11]</code>), weil die Funktion <code>describe()</code> mit diesen Variablen nicht funktioniert.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">desc_stats &lt;-<span class="st"> </span><span class="kw">describe</span>(starwars[, <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>])</a>
-<a class="sourceLine" id="cb183-2" data-line-number="2"><span class="kw">head</span>(desc_stats)</a></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="deskriptive-statistik.html#cb182-1" aria-hidden="true" tabindex="-1"></a>desc_stats <span class="ot">&lt;-</span> <span class="fu">describe</span>(starwars[, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>])</span>
+<span id="cb182-2"><a href="deskriptive-statistik.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(desc_stats)</span></code></pre></div>
 <pre><code>##             vars  n   mean     sd median trimmed   mad min  max range  skew
-## name*          1 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+## name*          1 87  44.00  25.26     44   44.00 32.62   1   87    86  0.00
 ## height         2 81 174.36  34.77    180  178.17 19.27  66  264   198 -1.03
 ## mass           3 59  97.31 169.46     79   75.44 16.31  15 1358  1343  6.97
-## hair_color*    4 82    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
-## skin_color*    5 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
-## eye_color*     6 87    NaN     NA     NA     NaN    NA Inf -Inf  -Inf    NA
+## hair_color*    4 82   7.94   2.70     10    8.12  2.97   1   12    11 -0.58
+## skin_color*    5 87  13.62   8.26     13   13.15  8.90   1   31    30  0.47
+## eye_color*     6 87   6.25   4.83      4    5.86  4.45   1   15    14  0.67
 ##             kurtosis    se
-## name*             NA    NA
+## name*          -1.24  2.71
 ## height          1.78  3.86
 ## mass           48.93 22.06
-## hair_color*       NA    NA
-## skin_color*       NA    NA
-## eye_color*        NA    NA</code></pre>
+## hair_color*    -0.83  0.30
+## skin_color*    -0.93  0.89
+## eye_color*     -1.04  0.52</code></pre>
 <p>Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden, z.B. “mad”). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. <code>skew = TRUE</code> oder <code>ranges = TRUE</code>). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen durchgeführt werden. Ein Mittelwert der Namen ist auch keine nützliche Angabe. Mit dem zusätzlichen Argument <code>omit = TRUE</code> kann man diese Zeilen ausblenden.</p>
 <p>Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.</p>
 
@@ -527,7 +556,7 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <td><code>table()</code></td>
 <td>stats</td>
 <td>einfache Tabelle</td>
-<td><code>useNA = &quot;ifany&quot;</code></td>
+<td><code>useNA = "ifany"</code></td>
 </tr>
 <tr class="odd">
 <td><code>tabyl()</code></td>

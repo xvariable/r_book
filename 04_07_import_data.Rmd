@@ -29,7 +29,7 @@ data <- read_csv2("data/ZA6738_v1-0-0_generation_z.csv", na = "99")
 
 ```{r, show_head}
 # Ausgabe der ersten 5 Zeilen und 7 Spalten (Beschränkung aus Darstellungsgründen)
-head(data, n = c(5, 7))
+head(data[5, 7])
 
 ```
 
@@ -57,7 +57,7 @@ library(readxl)
 data <- read_excel("data/ZA6738_v1-0-0_generation_z.xlsx", na = "99")
 
 # Ausgabe der ersten 5 Zeilen und 7 Spalten
-head(data, n = c(5, 7))
+head(data[5, 7])
 ```
 
 ### SPSS-Dateien importieren
@@ -72,7 +72,7 @@ library(haven)
 spss_data <- read_sav("data/ZA6738_v1-0-0_generation_z.sav", user_na = TRUE)
 
 # Ausgabe der ersten 5 Zeilen und 7 Spalten
-head(spss_data, n = c(5, 7))
+head(spss_data[5, 7])
 ```
 
 Aus SPSS importierte Daten unterscheiden sich etwas von denen aus CSV oder Excel. SPSS bietet die Möglichkeit, Variablen mit Labels zu versehen. Dabei handelt es sich um textliche Beschreibungen der Variablen. Auch die einzelnen Ausprägungen einer Variable können mit Werte-Lables versehen sein (z.B. 1 = "sehr gut", 2 = "gut", ...). Solche Labels bleiben beim Import in R erhalten, sie stehen bei der Arbeit in R aber weniger im Vordergrund. Mehr zur Arbeit mit gelabelten Daten [hier](#work_labelled).

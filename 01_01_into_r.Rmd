@@ -4,7 +4,7 @@ R ist eine Programmiersprache mit einem speziellen Fokus auf die Anwendung im Be
 
 Die simpelste Antwort auf die Frage "Was ist eigentlich R?" lautet: "R ist ein Dialekt von S." [@Peng_2020] 
 Diese Antwort ist natürlich nicht sehr befriedigend und führt direkt zur Anschlussfrage 
-"Und was ist S?". Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren. 
+"Und was ist S?" Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren. 
 Dadurch wird deutlich, worin die Unterschiede zu anderen Programmiersprachen liegen, warum
 R von Informatikern und Programmierern häufig als "etwas seltsam" empfunden wird und weshalb R gerade 
 für die Datenanalyse in der Kommunikationswissenschaft besonders gut geeignet ist.

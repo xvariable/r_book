@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 2 Benutzeroberflächen | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <title>Kapitel 2 Benutzeroberflächen | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 2 Benutzeroberflächen | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:title" content="Kapitel 2 Benutzeroberflächen | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 2 Benutzeroberflächen | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta name="twitter:title" content="Kapitel 2 Benutzeroberflächen | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-01-07" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="installation.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -64,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -91,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,29 +142,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Kompendium</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
 <li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a><ul>
+<li class="chapter" data-level="2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>2</b> Benutzeroberflächen</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>2.1</b> R Konsole</a></li>
-<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a><ul>
+<li class="chapter" data-level="2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>2.2</b> RStudio: IDE für R</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.2.1</b> RStudio-Cloud</a></li>
 <li class="chapter" data-level="2.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Installation von RStudio</a></li>
 <li class="chapter" data-level="2.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>2.2.3</b> RStudio Benutzeroberfläche</a></li>
@@ -173,52 +180,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>2.2.6</b> RStudio anpassen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a><ul>
-<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a><ul>
+<li class="chapter" data-level="3" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>3.1</b> Installationsanleitung Windows</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>3.1.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a><ul>
+<li class="chapter" data-level="3.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>3.2</b> Installationsanleitung MacOS</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Erster Schritt: R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>3.2.2</b> Zweiter Schritt: RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a><ul>
-<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a><ul>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
-<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperator"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperator</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
 <li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a><ul>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
 <li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a><ul>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
 <li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
 <li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a><ul>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
 <li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
 <li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
 <li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
-<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a><ul>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
 <li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-im--und--export"><i class="fa fa-check"></i><b>4.8</b> Daten-Im- und -Export</a><ul>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
 <li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
 <li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
 <li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
 <li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
 <li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
@@ -229,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a><ul>
+<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a><ul>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
 <li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
 </ul></li>
@@ -239,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
 <li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a><ul>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
 <li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
 <li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
@@ -247,13 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a><ul>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
 <li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a><ul>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
 <li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
 <li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
@@ -262,13 +286,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a><ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a><ul>
+<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
 <li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
 <li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a><ul>
+<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
 <li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
@@ -278,11 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a><ul>
+<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
 <li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
 <li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a><ul>
+<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
 <li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -311,138 +340,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="benutzeroberflächen" class="section level1">
+<div id="benutzeroberflächen" class="section level1" number="2">
 <h1><span class="header-section-number">Kapitel 2</span> Benutzeroberflächen</h1>
-<p>In diesem Abschnitt finden Sie alles, was Sie zum Start über die Benutzeroberfläche von R und RStudio wissen müssen. Dabei gehe ich zu nächst auf die R-Konsole ein, ein Tool, dass bereits beim Download von R mitgeliefert wird und in dem Sie die Sprache bereits ausführen können. - Wenngleich dies wenig komfortabel ist. Die R-Konsole ist aber auch ein Teil von RStudio. Im Anschluss gehe ich deshalb auf die IDE und ein paar ausgewählte Features genauer ein.</p>
+<p>In diesem Abschnitt finden Sie alles, was Sie zum Start über die Benutzeroberfläche von R und RStudio wissen müssen. Dabei gehe ich zu nächst auf die R-Konsole ein: Ein Tool, dass bereits beim Download von R mitgeliefert wird und in dem Sie die Sprache bereits ausführen können - wenngleich dies wenig komfortabel ist. Die R-Konsole ist aber auch ein Teil von RStudio. Im Anschluss gehe ich deshalb auf die IDE und ein paar ausgewählte Features genauer ein.</p>
 
-<div id="konsole" class="section level2">
+<div id="konsole" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> R Konsole</h2>
 <p>Wenn man sich R heruntergeladen und installiert hat, kann man die Sprache bereits ausführen.
 Nach einem Doppelklick auf das R-Icon öffnen sich die <em>R-Konsole</em>.
-In dem Fenster wird nach dem Öffnen direkt ein längerer in schwarz formatierter Text angezeigt.
+In dem Fenster wird nach dem Öffnen direkt ein längerer in Schwarz formatierter Text angezeigt.
 Er enthält einige Informationen über R, wie z.B. die Versionsnummer, einen Warnhinweis und ein paar grundlegende Befehle.</p>
-<p>Unter diesem schwarzem Text folgt ein lila-fabiges “&gt;” hinter dem in blau ein “|” blinkt.
-Dies bedeutet, das R nun bereit ist für die Eingabe von Befehlen. Nachdem ein Befehl eingegeben wurde kann man ihn mit Drücken der Eingabetaste (Enter) ausführen.</p>
+<p>Unter diesem schwarzem Text folgt ein lila-fabiges “&gt;” hinter dem in Blau ein “|” blinkt.
+Dies bedeutet, dass R nun bereit ist für die Eingabe von Befehlen. Nachdem ein Befehl eingegeben wurde, kann man ihn mit Drücken der Eingabetaste (Enter) ausführen.</p>
 <p>Der folgenden Screenshot zeigt, wie ich drei Befehle eingegeben und ausgeführt habe:</p>
 <p><img src="images/screenshot_rconsole.png" alt="Screenshot R Konsole" style="width:50%;border:1px solid grey; margin-right:550px;margin-bottom:25px"></p>
 <ol style="list-style-type: decimal">
-<li><p>Der Befehl <code>print()</code> nimmt eine Zeichenfolge und gibt sie in der Konsole aus, in diesem Fall die Zeichenfolge <code>&quot;Hello world!&quot;</code>.
+<li><p>Der Befehl <code>print()</code> nimmt eine Zeichenfolge und gibt sie in der Konsole aus, in diesem Fall die Zeichenfolge <code>"Hello world!"</code>.
 Dieser als “Hello World-Programm” bezeichnete Befehl ist ein häufig gewähltes erste Programmierbeispiel in der Einführungsliteratur für Programmiersprachen. Fun-Fact: Auch die Tradition des “Hello world!”-Programms stammt ursprünglich aus den Bell Laboratories.</p></li>
 <li><p>Im zweiten Befehl <code>2^8</code> habe ich R eine Berechnung durchführen lassen, nämlich 2 hoch 8.
 R liefert nach einem Druck auf Enter das Ergebnis 256 zurück.</p></li>
 <li><p>Im dritten Befehl sollte ebenfalls eine Berechnung durchgeführt werden <code>3+x</code>.
-Hier kommt jedoch kein Ergebnis zurück, sondern nur die Fehlermeldung “Objekt ‘x’ nicht gefunden”.
+Hier kommt jedoch kein Ergebnis zurück, sondern nur die Fehlermeldung “Objekt ‘x’ nicht gefunden.”
 R kann die Berechnung nicht durchführen, weil es den Wert für ´x´ nicht kennt.
 Ich habe es bisher nicht definiert.</p></li>
 </ol>
 <p>Betrachtet man den Screenshot genauer, fallen einige Eigenschaften der Formatierung auf:</p>
 <ul>
-<li><p>Der selbstgeschriebene Text wird in blau dargestellt. So ist er leichter von den in schwarz dargestellten Ausgaben zu unterscheiden. Fehlermeldungen erscheinen in rot und sind damit besonders auffällig.</p></li>
+<li><p>Der selbst geschriebene Text wird in Blau dargestellt. So ist er leichter von den in Schwarz dargestellten Ausgaben zu unterscheiden. Fehlermeldungen erscheinen in Rot und sind damit besonders auffällig.</p></li>
 <li><p>Vor jeder Ausgabe eines Ergebnisses findet sich eine <code>[1]</code>. Diese markiert, um das wievielte Element einer Ausgabe es sich handelt.
 Im obigen Beispiel enthält jede Ausgabe nur ein Element, aber Ausgaben können durchaus auch mehrere Teile haben oder sogar ineinander verschachtelte Elemente aufweisen.</p></li>
 </ul>
-<p>Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (<code>↑</code> und <code>↓</code>) durch die bisher eingegebenen Befehle wechseln. Drückt man bspw. <code>↑</code> wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.</p>
-<p>Manchmal erscheint nach dem Ausführen eines Befehls nicht das erwartete Ergebnis, sondern die Konsole zeigt nur ein <code>+</code> an. In diesem Fall war der Befehl unvollständig. Tatsächlich kommt es bei der Arbeit mit R recht häufig zu unvollständigen Befehlen, etwa weil eine schließende <code>)</code> oder ein <code>&quot;</code> vergessen wurde. Man kann in diesem Fall den fehlenden Teil entweder noch ergänzen oder die Ausführung mit der Esc-Taste abbrechen.</p>
-<p>Das ist alles schon ganz nett, aber auch ziemlich unkomfortabel. Um richtig mit R zu arbeiten, bietet es sich an auf eine Integrierte Entwicklungsumgebung (Integrated Development Environment, kurz IDE) zurückzugreifen.
-So eine IDE kann bspw. bei der Organisation von Dateien unterstützen, bietet Hilfe-Funktionen beim Coden, einen Überblick über die Objekte, die sich im Arbeitsspeicher befinden und vieles mehr.</p>
+<p>Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (<code>↑</code> und <code>↓</code>) durch die bisher eingegebenen Befehle wechseln. Drückt man beispielsweise <code>↑</code> wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.</p>
+<p>Manchmal erscheint nach dem Ausführen eines Befehls nicht das erwartete Ergebnis, sondern die Konsole zeigt nur ein <code>+</code> an. In diesem Fall war der Befehl unvollständig. Tatsächlich kommt es bei der Arbeit mit R recht häufig zu unvollständigen Befehlen, etwa weil eine schließende <code>)</code> oder ein <code>"</code> vergessen wurde. Man kann in diesem Fall den fehlenden Teil entweder noch ergänzen oder die Ausführung mit der Esc-Taste abbrechen.</p>
+<p>Das ist alles schon ganz nett, aber auch ziemlich unkomfortabel. Um richtig mit R zu arbeiten, bietet es sich an, auf eine integrierte Entwicklungsumgebung (Integrated Development Environment, kurz IDE) zurückzugreifen.
+So eine IDE kann beispielsweise bei der Organisation von Dateien unterstützen, sie bietet Hilfe-Funktionen beim Coden und gibt einen Überblick über die Objekte, die sich im Arbeitsspeicher befinden und vieles mehr.</p>
 
 </div>
-<div id="rstudio-ide-für-r" class="section level2">
+<div id="rstudio-ide-für-r" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> RStudio: IDE für R</h2>
 <p>Statt der Konsole benutzen die meisten Entwickler einen Editor oder eine so genannte <em>IDE</em> (= Integrated Development Environment zu deutsch Entwicklungsumgebung), die eine grafische Oberfläche bietet und das Programmieren und das Datenmanagement erheblich erleichtert.</p>
 <p>Die bekannteste und beliebteste IDE für R ist <a href="https://rstudio.com/">RStudio</a>.
-Wie der Name schon vermuten lässt wurde RStudio speziell für die Arbeit mit R entwickelt. Es ist genau auf die Bedürfnisse von R-Anwender:innen angepasst. Im folgenden Abschnitt stelle ich die Entwicklungsumgebung kurz vor, beschreibe einige Features und die Benutzeroberfläche.</p>
+Wie der Name schon vermuten lässt, wurde RStudio speziell für die Arbeit mit R entwickelt. Es ist genau auf die Bedürfnisse von R-Anwender:innen angepasst. Im folgenden Abschnitt stelle ich die Entwicklungsumgebung kurz vor, beschreibe einige Features und die Benutzeroberfläche.</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" alt="Logo RStudio" width="150px" align="left" style="border-right:15px solid white">
 Die IDE RStudio ist seit 2011 auf dem Markt und wird von RStudio PBC entwickelt und vertrieben.
 Das Programm ist sowohl für Desktop-Rechner als auch für Server verfügbar und wird sowohl kostenlos als auch in einer kommerziellen Pro-Version vertrieben.
-Die Pro-Versionen unterscheiden sich vor allem dadurch, dass den Anwendern ein Priority-Support geboten wird.
+Die Pro-Versionen unterscheiden sich vor allem dadurch, dass den Anwender:innen ein Priority-Support geboten wird.
 Seit Beginn 2020 firmiert RStudio als <em>Public Benefit Corporation</em> und hat sich damit dem Gemeinwohl verpflichtet.</p>
-<p>Das Unternehmen RStudio ist Teil des <a href="https://www.r-consortium.org/">R Consotium</a>, eines Zusammenschlusses von Unternehmen, die R in großem Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microsoft, Google und Oracle gehören dazu).
-Gerade RStudio treibt sowohl die Verbreitung der Sprache R als auch ihre Weiterentwicklung und Standardisierung enorm voran und prägt damit ihre Ausgestaltung zusehens.</p>
-<p><img src="https://www.tidyverse.org/images/tidyverse-default.png" alt="Logo tidyverse" width="200px" align="left" style="margin-right:15px;margin-top:5px"> Allen voran ist hier das <em>Tidyverse</em> zu nennen. Es handelt sich dabei um eine Gruppe von Paketen die von den RStudio-Programmierern um <em>Hadley Wickham</em> (Chief Scientist bei RStudio) entwickelt wurden und die dazu dienen R einheitlicher und verständlicher zu gestalten sowie die Sprache noch besser auf die Bedürfnisse moderner Datenanalyse anzupassen. Auch in diesem Buch wird weitestgehend auf die Pakete und Funktionen des Tidyverse zurückgegriffen.
-Obwohl die Entwicklung der Vereinheitlichung von R mit dem Tidyverse viele Anhänger gefunden hat und enorm zur Popularität der Sprache beigetragen haben dürfte, sei dennoch erwähnt, dass es auch Stimmen gibt, die diese Entwicklung kritisch betrachten <span class="citation">(Matloff <a href="#ref-Matloff_2019">2019</a>; McChesney <a href="#ref-McChesney_2020">2020</a>)</span>.</p>
-<div id="rstudio-cloud" class="section level3">
+<p>Das Unternehmen RStudio ist Teil des <a href="https://www.r-consortium.org/">R Consotium</a>, einem Zusammenschluss von Unternehmen, die R im großen Stil einsetzen oder für ihre Geschäftsmodelle nutzen (auch Microsoft, Google und Oracle gehören dazu).
+Gerade RStudio treibt sowohl die Verbreitung der Sprache R, als auch ihre Weiterentwicklung und Standardisierung enorm voran und prägt damit ihre Ausgestaltung zusehends.</p>
+<p><img src="https://www.tidyverse.org/images/tidyverse-default.png" alt="Logo tidyverse" width="200px" align="left" style="margin-right:15px;margin-top:5px"> Allen voran ist hier das <em>tidyverse</em> zu nennen. Es handelt sich dabei um eine Gruppe von Paketen, die von den RStudio-Programmierern um <em>Hadley Wickham</em> (Chief Scientist bei RStudio) entwickelt wurden und die dazu dienen, R einheitlicher und verständlicher zu gestalten sowie die Sprache noch besser auf die Bedürfnisse moderner Datenanalyse anzupassen. Auch in diesem Buch wird weitestgehend auf die Pakete und Funktionen des tidyverse zurückgegriffen.
+Obwohl die Entwicklung der Vereinheitlichung von R mit dem Tidyverse viele Anhänger gefunden hat und enorm zur Popularität der Sprache beigetragen haben dürfte, sei dennoch erwähnt, dass es auch Stimmen gibt, die diese Entwicklung kritisch betrachten <span class="citation">(<a href="literaturverzeichnis.html#ref-Matloff_2019" role="doc-biblioref">Matloff 2019</a>; <a href="literaturverzeichnis.html#ref-McChesney_2020" role="doc-biblioref">McChesney 2020</a>)</span>.</p>
+<div id="rstudio-cloud" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> RStudio-Cloud</h3>
-<p>Wie oben erwähnt, gibt es sowohl eine Server- als auch eine Desktopversion von RStudio.
+<p>Wie oben erwähnt gibt es sowohl eine Server- als auch eine Desktopversion von RStudio.
 Für den Zweck der Statistik-Ausbildung arbeiten wir hier am IJK mit einer Serverversion, nämlich der <a href="https://rstudio.cloud/">RStudio Cloud</a>.
 Dies hat die Vorteile, dass die Studierenden zunächst nichts auf ihren Rechnern installieren müssen und dass die Entwicklungsumgebung mit allen Übungsskripten bereits vorliegt.
-Sie können sich sehr leicht selbst eine eigene Version der Verwendeten Skripte erstellen und so an den Übungen teilnehmen.
+Sie können sich sehr leicht selbst eine eigene Version der verwendeten Skripte erstellen und so an den Übungen teilnehmen.
 Der/die Dozierende kann sich Ihre Versionen ansehen und so bei Fehlern und Fragen leicht helfen.</p>
 </div>
-<div id="installation-von-rstudio" class="section level3">
+<div id="installation-von-rstudio" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Installation von RStudio</h3>
 <p>Obwohl die RStudio-Cloud im Rahmen der Statistikausbildung sehr praktisch sein wird, brauchen Sie (später) eine eigene Instanz von R und RStudio auf Ihrem persönlichen Rechner. Zum einen für den Zweck des Übens, zum Anderen weil Sie es später zur Arbeit an eigenen (Studien-)Projekten benötigen werden.
 Die Anleitung zur Installation finden Sie im <a href="#intallation">nächsten Kapitel</a>.
 Sie ist getrennt nach Windows und MacOS aufgeführt, da sich die Schritte die zur Installation nötig sind leicht unterscheiden.</p>
 
 </div>
-<div id="rstudio-benutzeroberfläche" class="section level3">
+<div id="rstudio-benutzeroberfläche" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> RStudio Benutzeroberfläche</h3>
 <p>Die Benutzeroberfläche von RStudio gliedert sich in verschiedene Bereiche.
 Wenn Sie RStudio zum ersten Mal öffnen, sieht sie in etwa so aus:</p>
 <p><img src="images/screenshot_rstudio_without_script.png" alt="Screenshot RStudio nach dem Öffnen" style="border:1px solid grey;margin-bottom:25px"></p>
-<div id="console" class="section level4">
+<div id="console" class="section level4" number="2.2.3.1">
 <h4><span class="header-section-number">2.2.3.1</span> Console</h4>
-<p>Links finden Sie die bereits bekannte <strong>K/Console</strong>, sie schreibt sich hier mit “C”, weil die Benutzeroberfläche von RStudio nur in Englisch verfügbar ist. Hier werden die Ergebnisse von Berechnungen ausgegeben und man kann auch wie bereits im Abschnitt <a href="benutzeroberflächen.html#konsole">Konsole</a> beschreiben Befehle eingeben. Der linke Bereich enthält neben der Console noch weitere Tabs (<em>Terminal</em> und <em>Jobs</em>). Diese benötigen wir jedoch momentan nicht.</p>
+<p>Links finden Sie die bereits bekannte <strong>K/Console</strong>, sie schreibt sich hier mit “C,” weil die Benutzeroberfläche von RStudio nur in Englisch verfügbar ist. Hier werden die Ergebnisse von Berechnungen ausgegeben und man kann auch, wie bereits im Abschnitt <a href="benutzeroberflächen.html#konsole">Konsole</a> beschrieben, Befehle eingeben. Der linke Bereich enthält neben der Console noch weitere Tabs (<em>Terminal</em> und <em>Jobs</em>). Diese benötigen wir jedoch momentan nicht.</p>
 </div>
-<div id="environment" class="section level4">
+<div id="environment" class="section level4" number="2.2.3.2">
 <h4><span class="header-section-number">2.2.3.2</span> Environment</h4>
 <p>Der Bereich rechts ist zweigeteilt. Oben findet sich die <strong>Environment</strong>, zu deutsch Arbeitsumgebung.
 Hier werden die Objekte angezeigt, die während der aktuellen R-Session erzeugt wurden. Ein Objekt kann dabei alles Mögliche sein, z.B. ein Datensatz oder das Ergebnis einer Berechnung. Im Moment ist die Arbeitsumgebung natürlich noch leer. Auch dieser obere rechte Bereich hat mit <em>History</em>, <em>Connections</em> und <em>Git</em> oder auch <em>Build</em> weitere Tabs. Unter <strong>History</strong> werden alle Befehle der aktuellen R-Session protokolliert. Die anderen Bereiche sind zunächst nicht interessant für uns.</p>
 </div>
-<div id="files-plots-packages-help-viewer" class="section level4">
+<div id="files-plots-packages-help-viewer" class="section level4" number="2.2.3.3">
 <h4><span class="header-section-number">2.2.3.3</span> Files, Plots, Packages, Help &amp; Viewer</h4>
 <p>Im unteren rechten Bereich finden sich ebenfalls verschiedene Tabs.</p>
 <p>Der erste heißt <strong>Files</strong>. Wenig überraschend findet sich dort ein Dateibrowser, in dem Ihr Arbeitsverzeichnis und die sich darin befindlichen Dateien angezeigt werden.
 Mit den Icons im Bereich können Sie durch Ihr Filesystem navigieren.
 Sind im Arbeitsverzeichnis bereits Dateien abgelegt, können Sie diese durch Doppelklick auch direkt in RStudio öffnen.</p>
 <p>Im zweiten Tab <strong>Plots</strong> werden Grafiken, die Sie mit R erzeugt haben angezeigt.
-Auch der letzte Tab Im <strong>Viewer</strong> dient zur Anzeige von in R erzeugten Inhalten.</p>
+Auch der letzte Tab im <strong>Viewer</strong> dient zur Anzeige von in R erzeugten Inhalten.</p>
 <p>Im Tab <strong>Packages</strong> sehen sie die R-Pakete, die auf Ihrem Rechner bereits installiert sind.
-Über den Button <em>Install</em> können Sie CRAN nach weiteren Packeten suchen und diese installieren.
-Um ein Paket in einer Session benutzen zu können muss es aber nicht nur installiert sein, es muss auch “aktiviert” bzw. geladen werden. Wie das genau geht behandeln wir später noch einmal im Detail.
-Im Tab Packeges kann man an dem Kästchen vor den einzelnen Paketen sehen, ob ein Paket in der aktuellen Arbeitssession bereits geladen wurde (dann würde hier ein Häkchen angezeigt werden).</p>
+Über den Button <em>Install</em> können Sie CRAN nach weiteren Paketen durchsuchen und diese installieren.
+Um ein Paket in einer Session benutzen zu können, muss es aber nicht nur installiert sein, es muss auch “aktiviert” beziehungsweise geladen werden. Wie das genau geht, behandeln wir später noch einmal im Detail.
+Im Tab Packages kann man an dem Kästchen vor den einzelnen Paketen sehen, ob ein Paket in der aktuellen Arbeitssession bereits geladen wurde (dann würde hier ein Häkchen angezeigt werden).</p>
 <p>Der Tab <strong>Help</strong> beinhaltet die Hilfe und Anleitungen für die einzelnen Funktionen von R.
-Man kann die Hilfe aufrufen indem man ein Suchwort in das Suchfeld ganz links eingibt. Alternativ kann man auch innerhalb des Quelltextes den Cursor auf eine Funktion setzen und dann die Funktionstaste <em>F1</em> drücken.
+Man kann die Hilfe aufrufen, indem man ein Suchwort in das Suchfeld ganz links eingibt. Alternativ kann man auch innerhalb des Quelltextes den Cursor auf eine Funktion setzen und dann die Funktionstaste <em>F1</em> drücken.
 Außerdem kann man die Hilfe einer Funktion auch über den Befehl <code>?name_der_funktion()</code> aufrufen. Gibt man diesen Befehl ein, öffnet sich automatisch der Help-Tab mit dem gesuchten Inhalt.</p>
 </div>
 </div>
-<div id="r-skripte" class="section level3">
+<div id="r-skripte" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> R-Skripte</h3>
 <p>Mit RStudio kann man natürlich nicht nur Befehle in der Konsole ausführen, sondern seine Arbeit auch in Dateien speichern. Das Basis-Dateiformat von R hat die Dateiendung <em>.R</em>. Es gibt drei Möglichkeiten eine neue R-Datei anzulegen:
 - Über das Menü “File &gt; New File &gt; R Skript”
-- Über das kleine Icon mit dem weißen Rechteck und dem grünen Pluszeichen links oben unter im Menü.
+- Über das kleine Icon mit dem weißen Rechteck und dem grünen Pluszeichen links oben unter dem Menü.
 - Über das Tastenkürzel <code>Strg/Cmd + Shift + N</code></p>
-<p>Sobald die erste R-Datei angelegt oder geöffnet wurde öffnet sich in RStudio auch ein neuer Bereich, der die R-Datei enthält. Dieser Bereich kann in unterschiedlichen Tabs auch verschiedene R-Skripte beinhalten. Er sieht in etwa so aus:</p>
+<p>Sobald die erste R-Datei angelegt oder geöffnet wurde, öffnet sich in RStudio auch ein neuer Bereich, der die R-Datei enthält. Dieser Bereich kann in unterschiedlichen Tabs auch verschiedene R-Skripte beinhalten. Er sieht in etwa so aus:</p>
 <p><img src="images/screenshot_rstudio.png" alt="Screenshot RStudio mit .R-Skript" style="border:1px solid grey;margin-bottom:25px"></p>
-<p>Wenn Sie ein neues R-Skript angelegt haben, empfiehlt es sich, dieses zunächst einmal unter einem sinnvollen Namen zu speichern. Das geht ebenfalls entweder über das Menü, das Speicher-Icon oder die übliche Tastenkombination <code>Strg/Cmd + S</code>. Der Name eines gespeicherten Skripts wird im Tab oben übrigens in schwarz dargestellt. Skripte, die Änderungen enthalten, welche noch nicht abgespeichert wurden werden in rot angezeigt.</p>
-<p>Genau wie in der Konsole, können Sie im R-Skript Befehle eintippen. Allerdings werden sie nicht ausgeführt, wenn man <code>Eingabe/Enter</code> drückt - dann springt der Cursor lediglich in die nächste Zeile (genau wie in jeder anderen Textverarbeitungs-Software). Zum Ausführen des R-Skriptes können Sie entweder oben den Button <em>Run</em> benutzen oder den Shortcut <code>Strg/Cmd + Eingabe/Enter</code>. R führt dann die Zeile aus, in der sich der Curser befindet oder auch mehrere Code-Teile, die Sie zuvor gemeinsam markiert haben.</p>
+<p>Wenn Sie ein neues R-Skript angelegt haben, empfiehlt es sich, dieses zunächst einmal unter einem sinnvollen Namen zu speichern. Das geht ebenfalls entweder über das Menü, das Speicher-Icon oder die übliche Tastenkombination <code>Strg/Cmd + S</code>. Der Name eines gespeicherten Skripts wird im Tab oben übrigens in Schwarz dargestellt. Skripte, die Änderungen enthalten, welche noch nicht abgespeichert wurden, werden in Rot angezeigt.</p>
+<p>Genau wie in der Konsole können Sie im R-Skript Befehle eintippen. Allerdings werden sie nicht ausgeführt, wenn man <code>Eingabe/Enter</code> drückt - dann springt der Cursor lediglich in die nächste Zeile (genau wie in jeder anderen Textverarbeitungssoftware). Zum Ausführen des R-Skriptes können Sie entweder oben den Button <em>Run</em> benutzen oder den Shortcut <code>Strg/Cmd + Eingabe/Enter</code>. R führt dann die Zeile aus, in der sich der Curser befindet oder auch mehrere Code-Teile, die Sie zuvor gemeinsam markiert haben.</p>
 <p><strong>Tipp!</strong></p>
 <p>Am besten Sie gewöhnen sich die Tastenkombi <code>Strg/Cmd + Eingabe/Enter</code> zum Ausführen von Befehlen direkt an. Das spart sehr viel Zeit!</p>
 
 </div>
-<div id="features-von-rstudio" class="section level3">
+<div id="features-von-rstudio" class="section level3" number="2.2.5">
 <h3><span class="header-section-number">2.2.5</span> Features von RStudio</h3>
 <p>RStudio ist eine umfangreiche IDE, die die Anwender:innen mit umfangreichen Funktionen unterstützt. Ein paar davon möchte ich an dieser Stelle explizit hervorheben.</p>
 <p><strong>Autovervollständigen</strong></p>
-<p>Während man in RStudio Text schreibt, macht die IDE Vorschläge, wie sich das bisher geschriebene sinnvoll vervollständigen lässt. Dieses Feature ist besonders hilfreich, wenn man von einem Befehl nur den Anfang kennt und nicht genau weiß, wie er geschrieben wird und welche Elemente er beinhaltet.</p>
+<p>Während man in RStudio Text schreibt, macht die IDE Vorschläge, wie sich das bisher Geschriebene sinnvoll vervollständigen lässt. Dieses Feature ist besonders hilfreich, wenn man von einem Befehl nur den Anfang kennt und nicht genau weiß, wie er geschrieben wird und welche Elemente er beinhaltet.</p>
 <p><img src="images/screenshot_autocomplete.png" alt="Screenshot Autovervollständigen" style="width:500px;margin-bottom:25px;margin-right:10px" align="left"></p>
-<p>Der Screenshot zeigt, wie nach Tippen der Buchstaben <code>prin</code> Funktionen angezeigt werden, die mit diesen Buchstaben beginnen. Aus den Vorschlägen kann man mit der Maus oder über die Pfeiltasten und Drücken der Entertaste den richtigen auswählen, ohne dass man den Befehl selbst zu Ende schreiben müsste. Das spart viel Zeit und ist außerdem gerade dann hilfreich, wenn man die Befehle noch nicht auswendig kennt. Neben dem Autocomplete wird außerdem in gelb ein Hinweis zur Syntax und der Beginn der entsprechenden Hilfe-Datei angezeigt. Zu beachten ist, dass über das Autocomplete nur Funktionen aus Paketen angezeigt werden, welche während der aktuellen Session bereits geladen wurden.</p>
+<p>Der Screenshot zeigt, wie nach Tippen der Buchstaben <code>prin</code> Funktionen angezeigt werden, die mit diesen Buchstaben beginnen. Aus den Vorschlägen kann man mit der Maus oder über die Pfeiltasten und Drücken der Entertaste den Richtigen auswählen, ohne dass man den Befehl selbst zu Ende schreiben müsste. Das spart viel Zeit und ist außerdem gerade dann hilfreich, wenn man die Befehle noch nicht auswendig kennt. Neben dem Autocomplete wird außerdem in Gelb ein Hinweis zur Syntax und der Beginn der entsprechenden Hilfe-Datei angezeigt. Zu beachten ist, dass über das Autocomplete nur Funktionen aus Paketen angezeigt werden, welche während der aktuellen Session bereits geladen wurden.</p>
 <p><strong>Aufrufen der Hilfe-Funktion</strong></p>
-<p>Der Tab “Help”, der weiter oben bereits vorgestellt wurde ist bei RStudio direkt in die Entwicklungsumgebung integriert.
+<p>Der Tab “Help,” der weiter oben bereits vorgestellt wurde, ist bei RStudio direkt in die Entwicklungsumgebung integriert.
 Dieser Umstand ist erwähnenswert, denn bei anderen IDEs öffnet sich bei Aufruf der Hilfefunktion häufig ein externer Browser.
-Das die Hilfe bei RStudio direkt integriert ist nimmt zwar etwas Platz auf dem Bildschirm weg, ist jedoch auch sehr anwenderfreundlich, gerade für Programmiereinsteiger:innen.</p>
+Dass die Hilfe bei RStudio direkt integriert ist, nimmt zwar etwas Platz auf dem Bildschirm weg, ist jedoch auch sehr anwenderfreundlich, gerade für Programmiereinsteiger:innen.</p>
 <p><strong>Automatisches Einrücken</strong></p>
-<p>Wenn Codes länger werden und über mehrere Zeilen gehen bietet es sich an, diesen durch Einrückungen übersichtlich zu formatieren. Es kann so leicht kenntlich gemacht werden welche Teile einer längeren Kette von Befehlen unmittelbar zusammengehören.
-Bei einigen Programmiersprachen gehören solche Einrückungen sogar unmittelbar zur Syntax dazu (z.B. bei Python). Aber selbst wenn sie nicht unmittelbar Bestandteil einer Sprache sind (wie bei R), sind Einrückungen für die menschliche Anwender:in nützlich, um den Überblick zu behalten.
-RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, sodass die Anwender:in damit meist keine Arbeit hat.</p>
+<p>Wenn Codes länger werden und über mehrere Zeilen gehen, bietet es sich an, diesen durch Einrückungen übersichtlich zu formatieren. Es kann so leicht kenntlich gemacht werden, welche Teile einer längeren Kette von Befehlen unmittelbar zusammengehören.
+Bei einigen Programmiersprachen gehören solche Einrückungen sogar unmittelbar zur Syntax dazu (z.B. bei Python). Aber selbst wenn sie nicht unmittelbar Bestandteil einer Sprache sind (wie bei R), sind Einrückungen für die menschlichen Anwender:innen nützlich, um den Überblick zu behalten.
+RStudio schlägt während des Programmierens selbst sinnvolle Einrückungen vor, sodass die Anwender:innen damit meist keine Arbeit haben.</p>
 <p><strong>Syntaxhighlighting</strong></p>
 <p>Syntaxhighlighting bedeutet, dass unterschiedliche Bestandteile des Codes in unterschiedlichen Farben dargestellt werden. Der folgende Screenshot demonstriert dies:</p>
 <p><img src="images/screenshot_syntax_highlighting.png" alt="Screenshot Autovervollständigen" style="margin-bottom:25px;margin-right:600px" align="left">
 Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwender:in.</p>
 
 </div>
-<div id="rstudio-anpassen" class="section level3">
+<div id="rstudio-anpassen" class="section level3" number="2.2.6">
 <h3><span class="header-section-number">2.2.6</span> RStudio anpassen</h3>
 <p>Über das Menü <strong>Tools &gt; Global Options</strong> können Sie RStudio Ihren Vorlieben entsprechend anpassen.</p>
 <p><img src="images/screenshot_rstudio_options.png" alt="Screenshot RStudio Optionen"  style="width:400px;margin-right:550px;margin-bottom:25px;margin-top:25px"></p>
@@ -451,19 +480,10 @@ Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwen
 <li><p><img src="images/screenshot_rstudio_options_workspace.png" alt="Screenshot RStudio Optionen für den Workspace"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Im Bereich <strong>General</strong> unter <strong>Workspace</strong>: Entfernen Sie bitte das Häckchen bei <em>Restore .RData into workspace at startup</em> und stellen Sie die Option <em>Save workspace to .RData on exit</em> auf <em>Never</em>. Diese Optionen sorgen dafür, dass die Arbeitsumgebung von R bei jedem Schließen gespeichert wird und beim neuen Öffnen wieder geladen wird. Das betrifft zum Beispiel alle Objekte, die Sie in einer R-Session erstellt haben. Es hört sich zwar erstmal nach einer tollen und zeitsparenden Idee an, die ganzen Objekte nicht erneut erstellen zu müssen und direkt an der Stelle weitermachen zu können, an der man aufgehört hat. In der Praxis ist das aber eine ganz furchtbare Idee! Zwischen zwei R-Sessions hat man sehr wahrscheinlich vergessen, wo genau man aufgehört hat, welche Transformationen mit einem R-Objekt bereits durchgeführt wurden und welche noch folgen sollen. Das kann in totalem Chaos enden! Es ist daher besser mit einem frischen, leeren Workspace zu starten und ggf. das Skript – welches man natürlich abspeichern sollte – von oben nach unten erneut auszuführen. <br /><br /></p></li>
 <li><p>Unter <strong>Appearance</strong> können Sie das Farbschema für das Syntaxhighlighting anpassen. Sie können zwischen sehr vielen unterschiedlichen Varianten wählen. Einige davon haben einen dunklen Hintergrund. So ein <em>Dark Mode</em> hilft beim Energiesparen und ist vielleicht auch angenehmer für die Augen. Probieren Sie es ruhig aus!
 <img src="images/screenshot_rstudio_options_appearance.png" alt="Screenshot RStudio Optionen Appearance" style="width:400px;margin-right:550px;margin-bottom:25px;margin-top:25px"></p></li>
-<li><p>Ich habe über <strong>Code &gt; Display &gt; General &gt; Show margin</strong> noch eine senkrechte Linie bei 80-Zeichen eingeblendet. Sie erinnert mich daran, nicht zu lange Codezeilen zu produzieren und lieber den Code an sinnvollen Stellen zu umbrechen oder ihn ggf. umzuschreiben. Das dient der Übersichtlichkeit.</p></li>
+<li><p>Ich habe über <strong>Code &gt; Display &gt; General &gt; Show margin</strong> noch eine senkrechte Linie bei 80-Zeichen eingeblendet. Sie erinnert mich daran, nicht zu lange Codezeilen zu produzieren und lieber den Code an sinnvollen Stellen umzubrechen oder ihn ggf. umzuschreiben. Das dient der Übersichtlichkeit.</p></li>
 </ol>
 
 </div>
-</div>
-</div>
-<h3>Literaturverzeichnis</h3>
-<div id="refs" class="references">
-<div id="ref-Matloff_2019">
-<p>Matloff, Norm. 2019. “TidyverseSkeptic.” <a href="https://github.com/matloff/TidyverseSkeptic">https://github.com/matloff/TidyverseSkeptic</a>.</p>
-</div>
-<div id="ref-McChesney_2020">
-<p>McChesney, Jasper. 2020. “A Thousand Gadgets: My Thoughts on the R Tidyverse.” <em>Towards Data Science</em>. <a href="https://towardsdatascience.com/a-thousand-gadgets-my-thoughts-on-the-r-tidyverse-2441d8504433">https://towardsdatascience.com/a-thousand-gadgets-my-thoughts-on-the-r-tidyverse-2441d8504433</a>.</p>
 </div>
 </div>
             </section>

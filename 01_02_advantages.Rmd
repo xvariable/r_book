@@ -8,7 +8,7 @@ Man kann natürlich fragen, warum nun gerade R die optimale Wahl für die Statis
 
 3. **R ist umfangreich, aktuell und zukunftssicher.** Durch den modularen Aufbau in Pakete ist es einfach, R um Funktionalität zu erweitern. Bereits jetzt existiert eine Vielzahl an Paketen, die den Funktionsumfang weit über den proprietärer Statistiksoftware hinaus erweitern. Eine aktive Entwicklercommunity arbeitet beständig daran, R noch umfangreicher und besser zu machen. 
 
-4. **R hat eine große, aktive Community.** Weil sowohl die Entwickler- als auch die Anwendercommunity groß und aktiv ist, gibt es sowohl online als auch in Form von Büchern jede Menge Hilfestellungen. Sollte sich eine Frage nicht durch Googeln lösen lassen, ist es gar nicht unwahrscheinlich, dass eine ins Netz gepostete Frage schnell und kompetent beantwortet wird.
+4. **R hat eine große, aktive Community.** Weil sowohl Entwickler- als auch Anwendercommunity groß und aktiv sind, gibt es sowohl online als auch in Form von Büchern jede Menge Hilfestellungen. Sollte sich eine Frage nicht durch Googeln lösen lassen, ist es gar nicht unwahrscheinlich, dass eine ins Netz gepostete Frage schnell und kompetent beantwortet wird.
 
 5. **R unterstützt lösungsorientiertes Denken.** Anders als "Point-and-click"-Software rückt R den Prozess der Datenanalyse in den Mittelpunkt und hilft dabei, ihn in kleine Teile herunterzubrechen. Das fördert die Problemlösekompetenz. 
 
