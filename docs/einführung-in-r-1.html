@@ -416,8 +416,10 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="einführung-in-r-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Der folgende Code ist irgendwie buggy, muss noch repariert werden! </span></span>
 <span id="cb11-2"><a href="einführung-in-r-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(&quot;Hello World!)</span></span></code></pre></div>
 <p>Leider kann man in R bisher keine mehrzeiligen Kommentare machen. Man muss also in jeder Zeile das <code>#</code> voranstellen.</p>
+<div id="hint_short_cut" class="box thumb">
 <p><strong>Tipp!</strong></p>
 <p>Grundsätzlich gilt: Kommentieren Sie lieber zu viel als zu wenig und schreiben Sie Ihre Kommentare so, dass alle Personen, mit denen Sie ihr R-Skript teilen, den Code verstehen können. Denken Sie dabei vor allem an sich selbst! Werden Sie den Code nachvollziehen können, wenn Sie in 2 Jahren daraus etwas für Ihre Bachelorarbeit wiederverwenden wollen?</p>
+</div>
 </div>
 <div id="sections" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Sections</h3>
@@ -603,7 +605,7 @@ Möchte man jetzt etwas (z.B. einen Datensatz) in R laden, muss man den gesamten
 <div id="datenimport-und-datenexport" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Datenimport und Datenexport</h2>
 <p>Um mit R Statistiken berechnen zu können, müssen natürlich zunächst die Daten in R geladen werden. Mit R kann man ganz unterschiedliche Datenformate öffnen, darunter natürlich das R-eigene Datenformat .RData, aber auch .csv-Dateien und Dateien aus anderen Programmen wie Excel oder SPSS.</p>
-<p>Gerade beim Import dieser für SPSS “fremden” Dateiformate gibt es unterschiedliche Pakete, die beim Import unterstützen können.</p>
+<p>Gerade beim Import dieser für R “fremden” Dateiformate gibt es unterschiedliche Pakete, die beim Import unterstützen können.</p>
 <div id="csv-dateien-importieren" class="section level3" number="4.8.1">
 <h3><span class="header-section-number">4.8.1</span> CSV-Dateien importieren</h3>
 <p>Das CSV-Format (CSV für comma-separated values) ist ein sehr übliches Dateiformat, das von vielen Programmen gelesen werden kann. Die Daten werden dabei so gespeichert, dass jede Zeile einen Fall darstellt und jede Spalte eine Variable. Die einzelnen Werte werden durch ein Trennzeichen separiert. Im Englischen ist das Komma, im Deutschen meist ein Semikolon. Die erste Zeile der Datei enthält die Namen der Variablen. Würde man eine CSV-Datei in einem Texteditor öffnen, würde sie in etwa so aussehen:</p>

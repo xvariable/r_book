@@ -2,7 +2,7 @@
 
 Um mit R Statistiken berechnen zu können, müssen natürlich zunächst die Daten in R geladen werden. Mit R kann man ganz unterschiedliche Datenformate öffnen, darunter natürlich das R-eigene Datenformat .RData, aber auch .csv-Dateien und Dateien aus anderen Programmen wie Excel oder SPSS. 
 
-Gerade beim Import dieser für SPSS "fremden" Dateiformate gibt es unterschiedliche Pakete, die beim Import unterstützen können. 
+Gerade beim Import dieser für R "fremden" Dateiformate gibt es unterschiedliche Pakete, die beim Import unterstützen können. 
 
 
 ### CSV-Dateien importieren

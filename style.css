@@ -12,3 +12,61 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+.box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 85%;
+  font-size: 80%;
+  padding: 10px;
+  padding-left: 60px;
+  border-radius: 0px;
+}
+
+.info {
+  border: 2px solid #5588ff;
+  background-image: url("images/icon_info.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}
+
+.idea {
+  border: 2px solid #ffdd00;
+  background-image: url("images/icon_idea.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}
+
+.thumb {
+  border: 2px solid #33cc00;
+  background-image: url("images/icon_thumb.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}
+
+.warning {
+  border: 2px solid #ffbb00;
+  background-image: url("images/icon_warning.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}
+
+.danger {
+  border: 2px solid #cc0000;
+  background-image: url("images/icon_danger.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}
+
+.death {
+  border: 2px solid #000000;
+  background-image: url("images/icon_deathr.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 10px 10px;
+}

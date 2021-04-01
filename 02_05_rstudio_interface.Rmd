@@ -47,7 +47,9 @@ Sobald die erste R-Datei angelegt oder geöffnet wurde, öffnet sich in RStudio 
 Wenn Sie ein neues R-Skript angelegt haben, empfiehlt es sich, dieses zunächst einmal unter einem sinnvollen Namen zu speichern. Das geht ebenfalls entweder über das Menü, das Speicher-Icon oder die übliche Tastenkombination `Strg/Cmd + S`. Der Name eines gespeicherten Skripts wird im Tab oben übrigens in Schwarz dargestellt. Skripte, die Änderungen enthalten, welche noch nicht abgespeichert wurden, werden in Rot angezeigt.
 
 Genau wie in der Konsole können Sie im R-Skript Befehle eintippen. Allerdings werden sie nicht ausgeführt, wenn man `Eingabe/Enter` drückt - dann springt der Cursor lediglich in die nächste Zeile (genau wie in jeder anderen Textverarbeitungssoftware). Zum Ausführen des R-Skriptes können Sie entweder oben den Button *Run* benutzen oder den Shortcut `Strg/Cmd + Eingabe/Enter`. R führt dann die Zeile aus, in der sich der Curser befindet oder auch mehrere Code-Teile, die Sie zuvor gemeinsam markiert haben. 
-  
+
+::: {#hint_short_cut .box .thumb}
 **Tipp!**
 
 Am besten Sie gewöhnen sich die Tastenkombi `Strg/Cmd + Eingabe/Enter` zum Ausführen von Befehlen direkt an. Das spart sehr viel Zeit!
+:::

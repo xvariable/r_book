@@ -371,7 +371,10 @@ Ich habe es bisher nicht definiert.</p></li>
 Im obigen Beispiel enthält jede Ausgabe nur ein Element, aber Ausgaben können durchaus auch mehrere Teile haben oder sogar ineinander verschachtelte Elemente aufweisen.</p></li>
 </ul>
 <p>Beim Eingeben von Befehlen in die Konsole kann man mit den Cursortasten (<code>↑</code> und <code>↓</code>) durch die bisher eingegebenen Befehle wechseln. Drückt man beispielsweise <code>↑</code> wird der letzte eingegebene Befehl erneut in die Konsole geschrieben.</p>
+<div id="warning_non_complete" class="box warning">
+<p><strong>Achtung</strong></p>
 <p>Manchmal erscheint nach dem Ausführen eines Befehls nicht das erwartete Ergebnis, sondern die Konsole zeigt nur ein <code>+</code> an. In diesem Fall war der Befehl unvollständig. Tatsächlich kommt es bei der Arbeit mit R recht häufig zu unvollständigen Befehlen, etwa weil eine schließende <code>)</code> oder ein <code>"</code> vergessen wurde. Man kann in diesem Fall den fehlenden Teil entweder noch ergänzen oder die Ausführung mit der Esc-Taste abbrechen.</p>
+</div>
 <p>Das ist alles schon ganz nett, aber auch ziemlich unkomfortabel. Um richtig mit R zu arbeiten, bietet es sich an, auf eine integrierte Entwicklungsumgebung (Integrated Development Environment, kurz IDE) zurückzugreifen.
 So eine IDE kann beispielsweise bei der Organisation von Dateien unterstützen, sie bietet Hilfe-Funktionen beim Coden und gibt einen Überblick über die Objekte, die sich im Arbeitsspeicher befinden und vieles mehr.</p>
 
@@ -446,8 +449,10 @@ Außerdem kann man die Hilfe einer Funktion auch über den Befehl <code>?name_de
 <p><img src="images/screenshot_rstudio.png" alt="Screenshot RStudio mit .R-Skript" style="border:1px solid grey;margin-bottom:25px"></p>
 <p>Wenn Sie ein neues R-Skript angelegt haben, empfiehlt es sich, dieses zunächst einmal unter einem sinnvollen Namen zu speichern. Das geht ebenfalls entweder über das Menü, das Speicher-Icon oder die übliche Tastenkombination <code>Strg/Cmd + S</code>. Der Name eines gespeicherten Skripts wird im Tab oben übrigens in Schwarz dargestellt. Skripte, die Änderungen enthalten, welche noch nicht abgespeichert wurden, werden in Rot angezeigt.</p>
 <p>Genau wie in der Konsole können Sie im R-Skript Befehle eintippen. Allerdings werden sie nicht ausgeführt, wenn man <code>Eingabe/Enter</code> drückt - dann springt der Cursor lediglich in die nächste Zeile (genau wie in jeder anderen Textverarbeitungssoftware). Zum Ausführen des R-Skriptes können Sie entweder oben den Button <em>Run</em> benutzen oder den Shortcut <code>Strg/Cmd + Eingabe/Enter</code>. R führt dann die Zeile aus, in der sich der Curser befindet oder auch mehrere Code-Teile, die Sie zuvor gemeinsam markiert haben.</p>
+<div id="hint_short_cut" class="box thumb">
 <p><strong>Tipp!</strong></p>
 <p>Am besten Sie gewöhnen sich die Tastenkombi <code>Strg/Cmd + Eingabe/Enter</code> zum Ausführen von Befehlen direkt an. Das spart sehr viel Zeit!</p>
+</div>
 
 </div>
 <div id="features-von-rstudio" class="section level3" number="2.2.5">

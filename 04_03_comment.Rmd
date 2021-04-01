@@ -24,9 +24,11 @@ Man kann Kommentare auch dazu benutzen, Code, der noch nicht funktioniert (Bugs 
 
 Leider kann man in R bisher keine mehrzeiligen Kommentare machen. Man muss also in jeder Zeile das `#` voranstellen.
 
+::: {#hint_short_cut .box .thumb}
 **Tipp!**
 
 Grundsätzlich gilt: Kommentieren Sie lieber zu viel als zu wenig und schreiben Sie Ihre Kommentare so, dass alle Personen, mit denen Sie ihr R-Skript teilen, den Code verstehen können. Denken Sie dabei vor allem an sich selbst! Werden Sie den Code nachvollziehen können, wenn Sie in 2 Jahren daraus etwas für Ihre Bachelorarbeit wiederverwenden wollen?
+:::
 
 ### Sections
 
