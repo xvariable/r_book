@@ -1,11 +1,11 @@
 ## Datenstrukturen
 
-Dieser Abschnitt beschäftigt sich mit den grundsätzlichen Datenstrukturen in R. Dabei fangen wir bei der größten Struktur (dem Datensatz oder auch Dataframe) an und arbeiten uns bis zur kleinsten, dem "atomic vector type" vor. Wir werden uns auch damit beschäftigen wie man zwischen verschiedenen Formaten konvertieren kann und auf fehlende Werte eingehen. Im Anschluss gibt es noch ein paar "Spezial"-Formate nämlich Faktoren und Listen.
+Dieser Abschnitt beschäftigt sich mit den grundsätzlichen Datenstrukturen in R. Dabei fangen wir bei der größten Struktur (dem Datensatz oder auch Dataframe) an und arbeiten uns bis zur kleinsten, dem "atomic vector type" vor. Wir werden uns auch damit beschäftigen, wie man zwischen verschiedenen Formaten konvertieren kann und auf fehlende Werte eingehen. Im Anschluss gibt es noch ein paar "Spezial"-Formate, nämlich Faktoren und Listen.
 
 ### Dataframes
-Wenn man einen Datensatz in R importiert, wie im letzten Kapitel besprochen, liegt dieser als Objekt vor. Wir haben das Datenobjekt Objekt im letzten Kapitel `data` genannt.
+Wenn man einen Datensatz in R importiert, wie im letzten Kapitel besprochen, liegt dieser als Objekt vor. Wir haben das Datenobjekt im letzten Kapitel `data` genannt.
 
-Hier nochmal der Code zum einlesen der Daten:
+Hier noch mal der Code zum Einlesen der Daten:
 
 ```{r dataframe_functions, echo = TRUE, results = "hide", warning=FALSE, message=FALSE}
 # Laden des Paketes
@@ -16,9 +16,9 @@ data <- read_csv2("data/ZA6738_v1-0-0_generation_z.csv", na = "99")
 ```
 
 
-Nach dem Import finden sie das `data`-Objekt im Environment-Tab von RStudio. Sie können darauf doppelklicken, dann wird Ihnen die Datentabelle angezeigt und Sie können durch die Daten scollen.
+Nach dem Import finden Sie das `data`-Objekt im Environment-Tab von RStudio. Sie können darauf doppelklicken, dann wird Ihnen die Datentabelle angezeigt und Sie können durch die Daten scrollen.
 
-Es gibt aber noch andere Möglichkeiten etwas mehr über den Datensatz zu erfahren. Hier kommen ein paar nützliche Funktionen:
+Es gibt aber noch andere Möglichkeiten, etwas mehr über den Datensatz zu erfahren. Hier kommen ein paar nützliche Funktionen:
 
 ```{r names_function}
 # Anzeigen der ersten 10 Variablen-Namen (Beschränkung aus Darstellungsgründen)
@@ -42,15 +42,15 @@ class(data)
 
 ```
 
-Unser Datensatz gehört gleich zu mehreren Klassen. Wenig überraschend ist er ein `data.frame` (Dataframe). Das ist die Klasse, in der in R Datensätze abgespeichert werden. Der Datensatz gehört aber noch weiteren Klassen an. Unter anderem der Klasse `tbl_df`, die auch *Tibble* heißt. Es handelt sich dabei um eine spezielle Version eines R-Dataframes aus dem Tidyverse. Tibbles unterscheiden sich leicht von dem normalen Dataframes in R. Um Fehler beim Datenmanagement zu vermeiden gibt ein Tibble viel z.B. schneller Fehlermeldungen aus und er hat bewusst weniger Funktionen als der herkömmliche Dataframe von base-R. Unser Datensatz ist ein Tibble, weil wir ihn über ein Paket, das ebenfalls zum Tidyverse gehört, geladen haben.
+Unser Datensatz gehört gleich zu mehreren Klassen. Wenig überraschend ist er ein `data.frame` (Dataframe). Das ist die Klasse, in der in R Datensätze abgespeichert werden. Der Datensatz gehört aber noch weiteren Klassen an. Unter anderem der Klasse `tbl_df`, die auch *tibble* heißt. Es handelt sich dabei um eine spezielle Version eines R-Dataframes aus dem tidyverse. Tibbles unterscheiden sich leicht von dem normalen Dataframes in R. Um Fehler beim Datenmanagement zu vermeiden, gibt ein Tibble z.B. viel schneller Fehlermeldungen aus und er hat bewusst weniger Funktionen als der herkömmliche Dataframe von base-R. Unser Datensatz ist ein Tibble, weil wir ihn über ein Paket, das ebenfalls zum tidyverse gehört, geladen haben.
 
 
 ### Aufbau von Dataframes
 
-Ein Dataframe in R hat auf den ersten Blick Ähnlichkeiten zu einer Datentabelle in Excel und tatsächlich kann man eine Excel- oder CSV-Datei ja einfach nach R importieren. Es gibt jedoch einige Unterschiede und um zu verstehen, wie R diese Daten behandelt, ist es wichtig zu wissen, wie die Daten in Dataframe-Objekten organisiert sind:
+Ein Dataframe in R hat auf den ersten Blick Ähnlichkeiten zu einer Datentabelle in Excel und tatsächlich kann man eine Excel- oder CSV-Datei einfach nach R importieren. Es gibt jedoch einige Unterschiede und um zu verstehen, wie R diese Daten behandelt, ist es wichtig zu wissen, wie die Daten in Dataframe-Objekten organisiert sind:
 
 - Ein Dataframe in R besteht aus Variablen. Die Variablen werden in der Datenansicht als Spalten dargestellt.
-- Die Variablen sind in R "Vektoren" (*vector*). Ein Vektor ist eine Liste von Elementen, die alle den gleichen Typ haben. Z.B. sind alle Elemente eines Vektors Zahlen **oder** Texte. Einen Vektor in dem Zahlen **und** Texte gemeinsam vorkommen kann es nicht geben.
+- Die Variablen sind in R "Vektoren" (*vector*). Ein Vektor ist eine Liste von Elementen, die alle den gleichen Typ haben. Z.B. sind alle Elemente eines Vektors Zahlen **oder** Texte. Einen Vektor, in dem Zahlen **und** Texte gemeinsam vorkommen, kann es nicht geben.
 - Die Vektoren sind alle gleich lang und sie sind gleich sortiert.
 - Jeder Vektor hat einen eigenen Namen. 
 
@@ -86,14 +86,14 @@ Mit der Function `str()` (für *str*ucture) kann man sich Strukturinformationen 
 str(series_data)
 ```
 
-Man kann die einzelnen Variablen/Vektoren über über ihren Namen ansprechen, dazu benutzt man die folgende Syntax: `data$var_name`
+Man kann die einzelnen Variablen/Vektoren auch über ihren Namen ansprechen, dazu benutzt man die folgende Syntax: `data$var_name`
 
 ```{r show_var}
 # Beispiel: Einen einzelnen Vektor ausgeben
 series_data$title
 ```
 
-Über die Ordnungszal kann man auch auf die einzelnen Elemente innerhalb des Vektors zugreifen:
+Über die Ordnungszahl kann man auch auf die einzelnen Elemente innerhalb des Vektors zugreifen:
 
 ```{r index_vector}
 # Beispiel: Das dritte Element eines Vektors ausgeben
@@ -122,16 +122,16 @@ Nun wissen wir schon, woraus Dataframes bestehen, nämlich aus Vektoren. Aber wo
 | integer            | ganze Zahlen                                      |
 | double             | Fließkommazahlen                                  |
 | character          | Textvariablen                                     |
-| logical            | Logische Ausdrücke, entweder `TRUE` oder `FALSE`  |
+| logical            | logische Ausdrücke, entweder `TRUE` oder `FALSE`  |
 | complex            | komplexe Zahlen                                   |
 | raw                | "rohe" Bites z.B. einer Datei                     |
 
-Die wichtigsten werden im Folgenden erläutert (das sind die ersten vier).
+Die Wichtigsten werden im Folgenden erläutert (das sind die ersten vier).
 
 
 #### Numerische Werte
 
-Die Typen `ìnteger` und `double` werden zusammengefasst auch als numerische Werte (`numeric`) bezeichnet. Mit `typeof()`kann man sich den Typ eines Vektors bzw. eines jeden Objekts ausgeben lassen. Probieren wir das mal aus:
+Die Typen `integer` und `double` werden zusammengefasst auch als numerische Werte (`numeric`) bezeichnet. Mit `typeof()`kann man sich den Typ eines Vektors bzw. eines jeden Objekts ausgeben lassen. Probieren wir das mal aus:
 
 ```{r numeric}
 my_numeric <- c(3, 3, 5, 1, 5)
@@ -139,7 +139,7 @@ typeof(my_numeric)
 ```
 
 Das ist jetzt ein wenig überraschend, schließlich sind 1, 3 und 5 ja ganze Zahlen! Allerdings kommen Fließkommazahlen so häufig vor, das R Zahlen im Speicher standardmäßig als `double` verwaltet und abspeichert.  
-Wenn man in R den Typ `ìnteger` zuweisen will muss man die explizit tun: Entweder, indem man bei der Zuweisung ein `L` hinter die Zahl schreibt, oder indem man den Wert durch die Funktion `as.integer()` in ein integer konvertiert:
+Wenn man in R den Typ `integer` zuweisen will, muss man dies explizit tun: Entweder, indem man bei der Zuweisung ein `L` hinter die Zahl schreibt, oder indem man den Wert durch die Funktion `as.integer()` in ein integer konvertiert:
 
 ```{r integer}
 my_integer <- 3L
@@ -159,7 +159,7 @@ typeof(my_double)
 
 #### Text
 
-Der nächste Typ ist `character`, wird auch manchmal als "String" bezeichnet. Hiermit sind alle Objekte gemeint, die aus Text bestehen. Wenn man so ein Objekt zuweisen möchte, muss man den Text in Anführungszeichen schreiben, damit R weiß, dass es sich hier nicht um Programmcode, sondern um den Inhalt eines character-Objektes handelt. Man kann dabei entweder doppelte `"` oder  einfache `'` Anführungszeichen verwenden (aber nicht mixen!).
+Der nächste Typ ist `character` und wird auch manchmal als "string" bezeichnet. Hiermit sind alle Objekte gemeint, die aus Text bestehen. Wenn man so ein Objekt zuweisen möchte, muss man den Text in Anführungszeichen schreiben, damit R weiß, dass es sich hier nicht um Programmcode, sondern um den Inhalt eines character-Objektes handelt. Man kann dabei entweder doppelte `"` oder  einfache `'` Anführungszeichen verwenden (aber nicht mixen!).
 
 ```{r charcter}
 my_string <- "Hallo Welt!"
@@ -169,9 +169,9 @@ typeof(my_string)
 
 #### Logical
 
-Der letzte für uns interessante Typ heißt `logical` und wird manchmal auch boolean genannt. Es handelt sich dabei um logische Werte die entweder `TRUE` oder `FALSE` sein können. 
+Der letzte für uns interessante Typ heißt `logical` und wird manchmal auch boolean genannt. Es handelt sich dabei um logische Werte, die entweder `TRUE` oder `FALSE` sein können. 
 
-Es gibt verschiedene "relationale Operatoren" mit denen man testen kann ob eine Bedingung entweder wahr oder falsch ist, z.B. ` 1 == 3` (1 ist gleich drei) ist `FALSE` und das Ergebnis eines solchen Tests kann mann natürlich auch in einem Objekt speichern und das wäre dann ein Objekt vom typ logical.
+Es gibt verschiedene "relationale Operatoren" mit denen man testen kann, ob eine Bedingung entweder wahr oder falsch ist, z.B. ` 1 == 3` (1 ist gleich drei) ist `FALSE`. Das Ergebnis eines solchen Tests kann mann natürlich auch in einem Objekt speichern – das wäre dann ein Objekt vom Typ logical.
 
 ```{r logical}
 my_logical <- 1 == 2
@@ -192,7 +192,7 @@ Hier ist eine Übersicht über die relationalen Operatoren:
 
 ### Fehlende Werte
 
-Objekte können auch leer sein, also keinen Wert haben. Es gibt in R unterschiedliche Arten solcher "Missing Values". `NA` für "not available" ist davon der gebräuchlichste. Natürlich kann man einem Objekt auch einen fehlenden Wert zuweisen. Mit der Funktion `is.na()` kann man prüfen, ob ein Wert fehlend ist. Sie gibt `TRUE` zurück wenn dies der Fall ist und `FALSE` wenn das Objekt doch einen Wert hat.
+Objekte können auch leer sein, also keinen Wert haben. Es gibt in R unterschiedliche Arten solcher "Missing Values". `NA` für "not available" ist davon der Gebräuchlichste. Natürlich kann man einem Objekt auch einen fehlenden Wert zuweisen. Mit der Funktion `is.na()` kann man prüfen, ob ein Wert fehlend ist. Sie gibt `TRUE` zurück, wenn dies der Fall ist und `FALSE`, wenn das Objekt doch einen Wert hat.
 
 ```{r na}
 my_na <- NA
@@ -200,7 +200,7 @@ my_na
 is.na(my_na)
 ```
 
-In SPSS ist es üblich, verschiedenen Arten von fehlenden Werten die Werte `98`, `99`, `-99` oder ähnlich zuzuweisen. Mit diesen Werten kann R von Haus aus nichts anfangen. Man muss R beim Import der Daten mitteilen, welche Werte als Fehlend gelten sollen. - In SPSS würde man diese ja auch über die Oberfläche als fehlend definieren. Auch der Wert `""` ist nicht per se ein fehlender Wert (sondern ein einfach ein leeres Character-Objekt).
+In SPSS ist es üblich, verschiedenen Arten von fehlenden Werten die Werte `98`, `99`, `-99` oder ähnlich zuzuweisen. Mit diesen Werten kann R von Haus aus nichts anfangen. Man muss R beim Import der Daten mitteilen, welche Werte als fehlend gelten sollen. - In SPSS würde man diese ja auch über die Oberfläche als fehlend definieren. Auch der Wert `""` ist nicht per se ein fehlender Wert (sondern ein einfach ein leeres Character-Objekt).
 
 ### Objekttypen konvertieren
 
@@ -211,16 +211,16 @@ x <- "2"
 1 + as.integer(x)
 ```
 
-Analog dazu gibt es auch die Funktionen `as.numeric()`, `as.double()`, `as.character()` und `as.logical()`. Das funktioniert aber natürlich nur, wenn der Inhalt, der der Funktion übergeben wird auch tatsächlich sinnvoll umgewandelt werden kann. Folgendes wird kaum funktionieren: `as.numeric("Text Text Text")`.
+Analog dazu gibt es auch die Funktionen `as.numeric()`, `as.double()`, `as.character()` und `as.logical()`. Das funktioniert aber natürlich nur, wenn der Inhalt, der der Funktion übergeben, wird auch tatsächlich sinnvoll umgewandelt werden kann. Folgendes wird kaum funktionieren: `as.numeric("Text Text Text")`.
 
-Bei der Konvertierung zwischen numerischen und logischen Werten wird die `0` übrigens als `FALSE` interpretiert und alle anderen Warte (auch negative) als `TRUE`. Das kann z.B. bei dichotomen 0/1-codierten Variablen sehr nützlich sein. 
+Bei der Konvertierung zwischen numerischen und logischen Werten wird die `0` übrigens als `FALSE` interpretiert und alle anderen Werte (auch negative) als `TRUE`. Das kann z.B. bei dichotomen 0/1-codierten Variablen sehr nützlich sein. 
 
 
 ### Faktoren
 
 Es gibt noch eine spezielle Form von Variablen, die nicht zu den atomic vectors types gehört, aber dennoch sehr gebräuchlich ist. Es handelt sich um numerische Variablen, bei denen den Zahlenwerten Labels zugeordnet werden. Sie heißen in R Faktoren (*factor*). Ein Beispiel wäre eine Variable, die eine Skala repräsentiert, z.B. von 1 = "stimme überhaupt nicht zu" bis 5 = "stimme voll und ganz zu". 
 
-Der Vorteil des Faktors ist, dass man die Wertelabels direkt im Dataframe speichert und nicht in einem Codebuch oder im Fragebogen nachsehen muss, wenn man sie nicht auswendig gelernt hat. Auch bei der Erstellung von Grafiken und Berichten kann es hilfreich sein.
+Der Vorteil des Faktors ist, dass man die Wertelabels direkt im Dataframe speichert und nicht in einem Codebuch oder im Fragebogen nachsehen muss, wenn man sie nicht auswendig gelernt hat. Auch bei der Erstellung von Grafiken und Berichten kann das hilfreich sein.
 
 Mit der Funktion `factor()`kann man einen Zahlen-Vektor in einen gelabelten Faktor umwandeln. Die Funktion benötigt dazu folgende Argumente:
 
@@ -256,7 +256,7 @@ Wie im Beispiel zu sehen, weiß R nun, dass es sich um einen geordneten Faktor m
 
 ### Listen
 
-Zum Abschluss muss hier noch ein weiterer Objekttyp erwähnt werden: Die Liste (*list*). Oben wurde ja ziemlich darauf herumgeritten, dass ein Vektor immer nur *einen* Datentyp haben kann. Aber natürlich sind auch Datenformate Denkbar, bei denen dass nicht so ist. Beispielsweise könnten unsere Daten ja in einem zeilenweisen Format vorliegen, etwa so:
+Zum Abschluss muss hier noch ein weiterer Objekttyp erwähnt werden: Die Liste (*list*). Oben wurde ja ziemlich darauf herumgeritten, dass ein Vektor immer nur *einen* Datentyp haben kann. Aber natürlich sind auch Datenformate denkbar, bei denen das nicht so ist. Beispielsweise könnten unsere Daten ja in einem zeilenweisen Format vorliegen, etwa so:
 
 `1;Apel;Susanne;NA;1.68;56...`<br />
 `2;Becker;Fritz;67;1.82;89...`<br />

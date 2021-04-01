@@ -1,14 +1,14 @@
 ## Alternativen zu R
 Das R eine Programmiersprache ist, die sich besonders zur Datenanalyse und zur Berechnung von 
 Statistiken eignet, kam bereits mehrfach zur Sprache. Selbstverständlich gibt es aber auch noch
-andere Software die diesen Zweck erfüllen kann. 
+andere Software, die diesen Zweck erfüllen kann. 
 Einerseits gibt es eine Reihe (proprietärer) Anwendungen, die ebenfalls zur statistischen Analyse verwendet werden, wie beispielsweise SAS, Stata, MatLab oder SPSS. 
-Andererseits gibt es natürlich auch andere Programmiersprachen, die gut geeignet sind um statistische
+Andererseits gibt es natürlich auch andere Programmiersprachen, die gut geeignet sind, um statistische
 Berechnungen anzustellen. 
 Zu nennen sind an dieser Stelle vor allem Python und Julia.
 
 In der Kommunikationswissenschaft war bisher SPSS von IBM das am weitesten verbreitete Tool. 
-SPSS ist eine Statistiksoftware mit einer Benutzeroberfläche und man sich die Ausgabe von Statistiken quasi "zusammenklicken". 
+SPSS ist eine Statistiksoftware mit einer Benutzeroberfläche und man kann sich die Ausgabe von Statistiken quasi "zusammenklicken". 
 Man muss die dahinterliegende Programmiersprache, welche SPSS-Syntax heißt, dazu nicht im Detail kennen. 
 Allerdings nimmt die Verbreitung von SPSS in der Wissenschaft und in der Wirtschaft momentan 
 deutlich ab. 

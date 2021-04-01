@@ -10,10 +10,10 @@ OK, als *Taschen*rechner ist R vielleicht etwas unpraktisch. Trotzdem, rechnen i
 1 + (2 - 3 * 4) / 5 
 ```
 
-Wenn Sie diese Zeile ausführen, z.B. über den Button "Run" oder durch den Shortcut `Cmd/Ctrl + Enter/Eingabe` erhalten Sie umgehend das Ergebnis.
+Wenn Sie diese Zeile ausführen, z.B. über den Button "Run" oder durch den Shortcut `Cmd/Ctrl + Enter/Eingabe`, erhalten Sie umgehend das Ergebnis.
 
-### Zuweisungsoperator
-Das man mit R rechnen kann, mag zwar im Einzelfall ganz nützlich sein, aber natürlich kann R viel mehr. Es würde z.B. Sinn machen, das Ergebnis von so einer Berechnung abzuspeichern, so dass wir zu einem späteren Zeitpunkt wieder darauf zugreifen können. Dazu gibt es in R den Zuweisungsoperator `<-` Mit diesem Pfel, der aus der spitzen Klammer und dem Bindestrich besteht, kann man einem Objekt einen Wert zuweisen. Den Namen des Objektes muss man selbst festlegen. Ich habe im folgenden ein Objekt erzeugt, dass ich `x` genannt habe und ihm den Wert der Berechnung `1 + 2` zugewiesen:
+### Zuweisungsoperatoren
+Dass man mit R rechnen kann, mag zwar im Einzelfall ganz nützlich sein, aber natürlich kann R viel mehr. Es würde z.B. Sinn machen, das Ergebnis von so einer Berechnung abzuspeichern, so dass wir zu einem späteren Zeitpunkt wieder darauf zugreifen können. Dazu gibt es in R den Zuweisungsoperator `<-` Mit diesem Pfeil, der aus der spitzen Klammer und dem Bindestrich besteht, kann man einem Objekt einen Wert zuweisen. Den Namen des Objektes muss man selbst festlegen. Ich habe im folgenden ein Objekt erzeugt, dass ich `x` genannt habe und ihm den Wert der Berechnung `1 + 2` zugewiesen:
 
 ```{r}
 x <- 1 + 2
@@ -23,15 +23,15 @@ Führt man diesen Code aus, wird in der Console nicht das Ergebnis ausgegeben. S
 
 <img src="images/screenshot_environment.png" alt="Screenshot Environment mit x = 3">
 
-Um das Objekt auch in der Console auszugeben kann man... 
+Um das Objekt auch in der Console auszugeben kann man ... 
 
-1. Den Befehl entweder in Klammern schreiben. - So wird er gleichzeitig ausgeführt und ausgegeben. -- Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert "3" zuweisen, wenn man ihn kennt ;)
+1. Den Befehl entweder in Klammern schreiben - so wird er gleichzeitig ausgeführt und ausgegeben. Man muss außerdem natürlich keine Rechenoperation auf die rechte Seite des Zuweisungsoperators schreiben, sondern kann direkt den Wert "3" zuweisen, wenn man ihn kennt ;)
 
 ```{r}
 (x <- 3)
 ```
 
-2. Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer das R versucht diesen in der Console darzustellen.
+2. Einfach nach der Zuweisung nochmal ein x schreiben. Der Name des Objekts bewirkt immer, dass R versucht diesen in der Console darzustellen.
 
 ```{r}
 x
@@ -47,7 +47,7 @@ Der Ausgabe in der Konsole stellt R immer eine eckige Klammer `[]` mit einer `1`
 
 ### Objektnamen
 
-Die Namen von Objekten kann man im Prinzip frei bestimmen, natürlich bietet es sich an, sprechende Namen zu verwenden, die man sich einigermaßen gut merken kann, die aber trotzdem einigermaßen kurz sind. Außerdem ist es schlau, bei Variablen die zusammengehörig sind das selbe Präfix zu verwenden (z.B. bei einer Skala zur Einstellung alle Variablen mit `attitude_` beginnen zu lassen).
+Die Namen von Objekten kann man im Prinzip frei bestimmen. Natürlich bietet es sich an, sprechende Namen zu verwenden, die man sich einigermaßen gut merken kann, die aber trotzdem einigermaßen kurz sind. Außerdem ist es schlau, bei Variablen, die zusammengehörig sind, dasselbe Präfix zu verwenden (z.B. bei einer Skala zur Einstellung alle Variablen mit `attitude_` beginnen zu lassen).
 
 Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
 
@@ -57,13 +57,13 @@ Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
 
 - Umlaute (z.B. ä, Ö oder ß), Sonderzeichen (z.B. %, & oder =) und Leerzeichen sind nicht erlaubt.
 
-- Objektnamen sind ein-eindeutig, d.h. es kann nur ein Objekt mit einem Namen geben und nicht zwei Objekte die bei "x" heißen.
+- Objektnamen sind ein-eindeutig, das heißt es kann nur ein Objekt mit einem Namen geben und nicht zwei Objekte die beide "x" heißen.
 
-- Objektnamen sind "case sensitiv". Das bedeutet es kommt genau darauf an ob große oder kleine Buchstaben verwendet werden. Die Namen x und X sind unterschiedlich und deshalb kann es beide Objekte gleichzeitig geben. - Aber das wäre natürlich sehr verwirrend.
+- Objektnamen sind "case sensitiv". Das bedeutet, es kommt genau darauf an, ob große oder kleine Buchstaben verwendet werden. Die Namen x und X sind unterschiedlich und deshalb kann es beide Objekte gleichzeitig geben. Aber das wäre natürlich sehr verwirrend.
 
 - Man sollte keine Namen verwenden, die in R schon belegt sind (z.B. nicht "mean" für einen Mittelwert, weil es in R auch eine Funktion `mean()`gibt).
 
-Über diese Regeln hinaus gibt es Konventionen, an die man sich halten sollte, weil sie der Übersichtlichkeit dienen. Ich verwende z.B. gerne den snake_case, bei dem alle Objektnamen kleingeschreiben werden und unterschiedliche Namensbestandteile durch einen Unterstrich voneinander getrennt werden. Welcher Konvention man folgt ist natürlich Geschmackssache. 
+Über diese Regeln hinaus gibt es Konventionen, an die man sich halten sollte, weil sie der Übersichtlichkeit dienen. Ich verwende z.B. gerne den snake_case, bei dem alle Objektnamen kleingeschrieben werden und unterschiedliche Namensbestandteile durch einen Unterstrich voneinander getrennt werden. Welcher Konvention man folgt, ist natürlich Geschmackssache. 
 
 <img src="images/ah_in_that_case.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
 <div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />

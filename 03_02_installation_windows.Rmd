@@ -9,7 +9,7 @@ Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio
 Zur Installation müssen Sie deshalb auch **beides nacheinander** installieren. 
 
 ### Erster Schritt: R
-Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  [https://cran.r-project.org/](https://cran.r-project.org). Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  [https://cran.r-project.org/](https://cran.r-project.org). Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellen R-Versionen:
 
 <img src="images/screenshot_cran_homepage.png" alt="Screenshot CRAN Homepage" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
 
