@@ -1,0 +1,276 @@
+---
+title: ""
+output: 
+  html_document:
+    includes:
+       in_header: google_analytics.html
+---
+# Deskriptive Statistik
+
+In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen über die Verteilung von Merkmalen in Stichproben treffen. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll, sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:
+
+- Häufigkeitsverteilungen (inkl. Säulendiagram)
+- Maße der zentralen Tendenz und Streuung
+- Schiefe und Kurtosis
+- Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen 
+
+## Datensatz für dieses Kapitel
+
+Als Datensatz dient in diesem Kapitel wieder der "starwars"-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+
+```{r}
+starwars
+```
+
+---
+# SECTION: Frequency --------------------------------------------------------
+--- 
+
+## Häufigkeitsverteilung
+```{r, freq_lib, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
+pacman::p_load(tidyverse)
+# Einlesen der Daten
+data <- expss::read_labelled_csv2("data/ZA6738_v1-0-0_generation_z_labelled.csv") %>% 
+  mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23)) %>% 
+  rename(zukunft_persoenlich = zukunftsperspektive_persoenlich)
+```
+
+### Tabellen
+Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine Häufigkeitsverteilung ausgeben zu lassen. Die schnellste und einfachste Möglichkeit ist die Funktion `table()`, die in base R verfügbar ist. Man kann sie also nutzen, ohne zusätzliche Pakete zu laden. Als Argument benötigt die Funktion lediglich einen Verweis auf den Vektor, der tabuliert werden soll (also auf den Datensatz und die entsprechende Variable). 
+
+```{r, freqencies_table}
+# Häufigkeitstabelle, absolute Zahlen
+table(starwars$sex)
+```
+
+Das Ergebnis ist wirklich sehr basic. Es werden standardmäßig nur die absoluten Häufigkeiten ausgegeben und fehlende Werte werden weggelassen. Letztere kann man über das Argument `useNA = "ifany"` mit ausgeben lassen:
+
+```{r, freqencies_table_na}
+# Häufigkeitstabelle, absolute Zahlen
+table(starwars$sex, useNA = "ifany")
+```
+
+Neben dem sehr schlichten `table()`-Befehl gibt in vielen R-Paketen weitere Tabulierungs-Funktionen, mit denen man sich umfangreichere und übersichtlichere Häufigkeitstabellen ausgeben lassen kann. Diese Funktionen unterscheiden sich jeweils leicht in den Informationen, die sie anzeigen. An dieser Stelle möchte ich beispielhaft die Funktion `tabyl()`aus dem Paket `janitor` vorstellen. Ich habe sie hier ausgewählt, weil ich das `janitor`-Paket zum Datenmanagement ohnehin häufig nutze und weil hier die Prozentwerte einmal mit und einmal ohne fehlende Werte ausgegeben werden.
+
+```{r, freqencies_table_tabyl_1, message=FALSE}
+library(janitor)
+
+tabyl(starwars$sex)
+```
+
+Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit `mutate()` aus dem tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir die Funktion `cumsum()`, welche kumulierte Summen bildet.
+
+```{r, freqencies_tabyl_2, message=FALSE}
+library(tidyverse)
+
+tabyl(starwars$sex) %>% 
+  # fügt Spalte für kumulierte Prozent und eine für kumulierte, gültige Prozent ein
+  mutate(cum_percent = cumsum(percent), 
+         cum_valid_percent = cumsum(valid_percent)) 
+```
+
+
+### Häufigkeitsdiagramm
+
+Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqualität ausgegeben werden. Im späteren Kapitel "Darstellung" gehe ich nochmal genau darauf ein, wie man Grafiken hübsch machen kann. Darum geht es an dieser Stelle aber noch nicht. Denn im Rahmen der Exploration von Datensätzen ist es zunächst erstmal wichtig, dass Sie die Grafik dazu benutzen, sich einen Überblick zu verschaffen! Eine besonders ausgefeilte - und möglicherweise aufwendige Formatierung - ist an dieser Stelle nicht nötig.
+
+Zur Erstellung von Plots ist das Paket `ggplot` aus dem tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte, lohnt es sich auf jeden Fall in ggplot einzusteigen. Ich werde Ihnen den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket `sjPlot` sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:
+
+```{r freq_plot, message=FALSE}
+library(sjPlot)
+
+plot_frq(starwars$sex, sort.frq = "desc")
+```
+
+Das Argument `sort.frq = "desc"` sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
+
+Über die Funktion `plot_frq()` sind noch weitere Darstellungsformen möglich, wie beispielsweise ein Liniendiagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument `type` mit an die Funktion übergeben (z.B. `type = "line"` oder `type = "dot"`). Auch Histogramme sind möglich (`type = "histogram`):
+
+```{r freq_plot2, message=FALSE}
+library(sjPlot)
+
+plot_frq(starwars$mass, type = "histogram")
+```
+Das Histogramm offenbart in der Variable `mass` einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren. 
+
+---
+# SECTION: Central Tendency --------------------------------------------------------
+--- 
+
+## Maße der zentralen Tendenz & Streuung
+
+Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben, falls diese mit Zahlen codiert wurde (bei reinen character-Variablen geht das selbstverständlich nicht). Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht. 
+
+### Nominale Daten
+
+Als Beispiel für eine nominale Variable verwende ich die Frage, welches Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:
+
+```{r get_labels}
+sjlabelled::get_labels(starwars$sex)
+```
+
+Der **Modus** ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln. 
+
+Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).
+
+Alternativ gibt es noch eine `Mode()`-Funktion im `DescTools`-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: `Mode()` muss hier zwingend groß geschrieben werden!! Außerdem liefert die Funktion kein Ergebnis zurück, wenn es zwei gleich hohe höchste Ausprägungen gibt.
+
+```{r mode, message=FALSE}
+library(DescTools)
+
+Mode(starwars$sex, na.rm = TRUE)
+
+```
+
+Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung "male". Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).
+
+
+### Ordinale Daten
+
+Der **Median** teilt die (sortierten) Fälle einer Variablen in zwei gleich große Hälften. Er kann für ordinale und metrische Daten berechnet werden.
+
+Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht `median()`. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären, müssen sie vorab aus der Analyse entfernt werden, mit `na.rm = TRUE` (*NA remove*).
+
+Im Datensatz gibt es keine ordinale Variable, deshalb nehme ich im folgenden die Größe in cm (metrisch) als Beispiel:
+
+```{r median}
+median(starwars$height, na.rm = TRUE)
+```
+
+Die **Spannweite** (*range*) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt, also den höchsten und den niedrigsten Wert.
+```{r range}
+range(starwars$height, na.rm = TRUE)
+```
+
+Über die Funktionen `min()` und `max()` kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.
+
+
+Wie oben erwähnt, teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte, sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind **Quantile** das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion `quantile()` standardmäßig die Grenzen der Quartile zurück. 
+
+```{r quartils}
+quantile(starwars$height, na.rm = TRUE)
+```
+Es handelt sich um 5 Grenzen, weil der niedrigste und der höchste Wert mit ausgegeben werden. Die Quartile befinden sich quasi "zwischen" diesen 5 Grenzpunkten.
+
+Der **Interquartilsabstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).
+
+```{r iqr}
+IQR(starwars$height, na.rm = TRUE)
+```
+
+### Metrische Daten
+
+Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das **"arithmetische Mittel"**, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion `mean()` habe ich in den Einführungskapiteln bereits als Beispiel genutzt.
+
+Als Beispiel benutze ich hier die Variable für das Gewicht.
+
+```{r mean}
+mean(starwars$mass, na.rm = TRUE)
+```
+
+Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?). 
+
+Man kann sich auch ein **getrimmtes Mittel** ausgeben lassen, bei dem die oberen und niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Charakter ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischeres Bild:
+
+```{r trimmed_mean}
+mean(starwars$mass, trim = 0.1, na.rm = TRUE)
+```
+
+Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben **Streuungsmaße** Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte, ist die **Streuung** (*standard deviation*). 
+
+```{r sd}
+sd(starwars$mass, na.rm = TRUE)
+```
+
+Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:
+
+```{r var}
+var(starwars$mass, na.rm = TRUE)
+```
+
+---
+# SECTION: Skew & Kurtosis --------------------------------------------------------
+--- 
+
+## Schiefe und Kurtosis
+
+Weitere Kennwerte für die Form von Verteilungen sind die **Schiefe** (*skew*) und **Kurtosis** (*kurtosis*). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus, wie spitz (nach oben gewölbt) oder flach eine Verteilung ist. 
+
+Im `psych`-Paket gibt es Funktionen für beides:
+
+```{r skew, message=FALSE}
+library(psych)
+skew(starwars$height, na.rm = TRUE)
+```
+
+Zur Erinnerung: 
+
+- Ist die Schiefe > 0 so ist die Verteilung rechtsschief (Modus < Median < arithmetisches Mittel).
+
+- Ist die Schiefe = 0, so ist die Verteilung symmetrisch  (Modus = Median = arithmetisches Mittel).
+
+- Ist die Schiefe < 0 so ist die Verteilung linksschief (Modus > Median > arithmetisches Mittel).
+
+Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein wenig linksschief.
+
+Hier noch der Code zur Berechnung der Kurtosis:
+
+```{r kurtosi}
+kurtosi(starwars$height, na.rm = TRUE)
+```
+
+
+---
+# SECTION: Stats Overview --------------------------------------------------------
+--- 
+
+## Übersichts-Funktionen
+
+Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion `summary()` aus dem base-Paket liefert zum Beispiel einen guten ersten Einblick:
+
+```{r summary}
+summary(starwars$height)
+```
+
+Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte `psych`-Paket hat z.B. eine `describe()`-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz. 
+
+In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (`[, 1:11]`), weil die Funktion `describe()` mit diesen Variablen nicht funktioniert.
+
+```{r describe, warning=FALSE}
+desc_stats <- describe(starwars[, 1:11])
+head(desc_stats)
+```
+
+Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden, z.B. "mad"). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. `skew = TRUE` oder `ranges = TRUE`). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen durchgeführt werden. Ein Mittelwert der Namen ist auch keine nützliche Angabe. Mit dem zusätzlichen Argument `omit = TRUE` kann man diese Zeilen ausblenden.
+
+Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.
+
+
+---
+# SECTION: Important functions --------------------------------------------------------
+--- 
+
+## Wichtige Funktionen aus diesem Kapitel {-}
+
+| Funktion           | Paket        | Beschreibung                    | Wichtige Argumente    |
+|--------------------|--------------|---------------------------------|-----------------------|
+| **Häufigkeiten**                                                                            |
+|`table()`           | stats        | einfache Tabelle                | `useNA = "ifany"`     |
+|`tabyl()`           | janitor      | Häufigkeitstabelle mit Prozent  |                       |
+|`plot_frq()`        | sjPlot       | Säulendiagramm                  |                       |
+| **Maße der zentralen Tendenz & Streuung**                                                   |
+|`Mode()`            | DescTools    | Modus                           |                       |
+|`median()`          | stats        | Median                          | `na.rm = TRUE`        |
+|`range()`           | stats        | Range                           | `na.rm = TRUE`        |
+|`quantile()`        | stats        | Quantilgrenzen                  | `na.rm = TRUE`        |
+|`IQR()`             | stats        | Inter-Quartil-Range             | `na.rm = TRUE`        |
+|`mean()`            | base         | Arithmetisches Mittel           | `na.rm = TRUE`        |
+|`sd()`              | stats        | Standardabweichung              | `na.rm = TRUE`        |
+|`var()`             | stats        | Varianz                         | `na.rm = TRUE`        |
+| **Schiefe und Kurtosis**                                                                    |
+|`skew()`            | psych        | Schiefe                         | `na.rm = TRUE`        |
+|`kurtosi()`         | psych        | Kurtosis                        | `na.rm = TRUE`        |
+| **Übersichts-Funktionen**                                                                   |
+|`summary()`         | base         | Wichtige Verteilungsmerkmale    |                       |
+|`describe()`        | psych        | Tabelle deskriptiver Merkmale   |                       |
+

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 6 Deskriptive Statistik | r_book.utf8</title>
+  <title>Kapitel 7 Deskriptive Statistik | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 6 Deskriptive Statistik | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 7 Deskriptive Statistik | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 6 Deskriptive Statistik | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 7 Deskriptive Statistik | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -247,80 +247,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<li class="chapter" data-level="5" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<li class="chapter" data-level="5.1" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-workflow"><i class="fa fa-check"></i><b>5.1</b> RMarkdown Workflow</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
-<li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+<li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#erster-schritt-rmarkdown-anlegen"><i class="fa fa-check"></i><b>5.1.1</b> Erster Schritt: RMarkdown anlegen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rmarkdown.html"><a href="rmarkdown.html#zweiter-schritt-inhalt-der-rmarkdown-datei"><i class="fa fa-check"></i><b>5.1.2</b> Zweiter Schritt: Inhalt der RMarkdown-Datei</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rmarkdown.html"><a href="rmarkdown.html#dritter-schritt-output-erzeugen"><i class="fa fa-check"></i><b>5.1.3</b> Dritter Schritt: Output erzeugen</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>5.3</b> Filter: Fälle auswählen</a></li>
-<li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
-<li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
-<li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
-<ul>
-<li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
-<li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
-<li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#formatierungen-optionen"><i class="fa fa-check"></i><b>5.2</b> Formatierungen &amp; Optionen</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#weiterführende-links-2"><i class="fa fa-check"></i><b>5.3</b> Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
+<li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>6.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>6.3</b> Filter: Fälle auswählen</a></li>
+<li class="chapter" data-level="6.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>6.4</b> Arrange: Fälle sortieren</a></li>
+<li class="chapter" data-level="6.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>6.5</b> Select: Variablen auswählen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>6.6</b> Variablen umcodieren</a></li>
+<li class="chapter" data-level="6.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>6.7</b> Variablen berechnen</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>6.7.1</b> Summen und Mittelwertindices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>6.7.2</b> Berechnen mit dplyr::mutate()</a></li>
+<li class="chapter" data-level="6.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>6.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>6.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
-<li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
+<li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
+<li class="chapter" data-level="7.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>7.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<li class="chapter" data-level="7.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>7.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
-<li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
-<li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
+<li class="chapter" data-level="7.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>7.3.1</b> Nominale Daten</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>7.3.2</b> Ordinale Daten</a></li>
+<li class="chapter" data-level="7.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>7.3.3</b> Metrische Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>6.4</b> Schiefe und Kurtosis</a></li>
-<li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="7.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>7.4</b> Schiefe und Kurtosis</a></li>
+<li class="chapter" data-level="7.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>7.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<li class="chapter" data-level="8" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>8</b> Bivariate Statistik</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<li class="chapter" data-level="8.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#section-correlation"><i class="fa fa-check"></i><b>8.1</b> # SECTION: Correlation ——————————————–</a></li>
+<li class="chapter" data-level="8.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>8.2</b> Korrelationen</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
-<li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
-<li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
-<li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
-<li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
-<li class="chapter" data-level="7.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>7.2.4</b> Korrelation mit <code>psych</code></a></li>
-<li class="chapter" data-level="7.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>7.2.5</b> Partialkorrelation</a></li>
-<li class="chapter" data-level="7.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>7.2.6</b> Korrelationsmatrizen darstellen</a></li>
+<li class="chapter" data-level="8.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>8.2.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>8.2.2</b> Kovarianz</a></li>
+<li class="chapter" data-level="8.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>8.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>8.2.4</b> Korrelation mit <code>psych</code></a></li>
+<li class="chapter" data-level="8.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>8.2.5</b> Partialkorrelation</a></li>
+<li class="chapter" data-level="8.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>8.2.6</b> Korrelationsmatrizen darstellen</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<li class="chapter" data-level="9" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>9</b> Grafiken</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
-<li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
-<li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<li class="chapter" data-level="9.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>9.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="9.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>9.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
-<li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
-<li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
-<li class="chapter" data-level="8.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>8.4.4</b> Violin-Plot</a></li>
-<li class="chapter" data-level="8.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>8.4.5</b> Balkendiagramme</a></li>
-<li class="chapter" data-level="8.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>8.4.6</b> Histogramme</a></li>
-<li class="chapter" data-level="8.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>8.4.7</b> Liniendiagramme</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="9.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>9.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="9.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>9.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="9.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>9.4.7</b> Liniendiagramme</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>8.5</b> Grafiken speichern</a></li>
+<li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
@@ -340,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deskriptive-statistik" class="section level1" number="6">
-<h1><span class="header-section-number">Kapitel 6</span> Deskriptive Statistik</h1>
+<div id="deskriptive-statistik" class="section level1" number="7">
+<h1><span class="header-section-number">Kapitel 7</span> Deskriptive Statistik</h1>
 <p>In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dieser Art von Statistik kann man Aussagen über die Verteilung von Merkmalen in Stichproben treffen. Zum Testen von Hypothesen ist sie nicht geeignet, aber es ist in jedem Fall sinnvoll, sich zunächst einen Überblick über die Verteilung von Variablen im Datensatz zu machen. Dazu ist deskriptive Statistik sehr hilfreich. In diesem Abschnitt werden deshalb die folgenden Themen behandelt:</p>
 <ul>
 <li>Häufigkeitsverteilungen (inkl. Säulendiagram)</li>
@@ -349,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Schiefe und Kurtosis</li>
 <li>Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen</li>
 </ul>
-<div id="datensatz-für-dieses-kapitel-1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Datensatz für dieses Kapitel</h2>
+<div id="datensatz-für-dieses-kapitel-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Datensatz für dieses Kapitel</h2>
 <p>Als Datensatz dient in diesem Kapitel wieder der “starwars”-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="deskriptive-statistik.html#cb144-1" aria-hidden="true" tabindex="-1"></a>starwars</span></code></pre></div>
 <pre><code>## # A tibble: 87 x 14
@@ -368,12 +374,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Obi-…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
 ## # … with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Frequency ——————————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="häufigkeitsverteilung" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Häufigkeitsverteilung</h2>
-<div id="tabellen" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Tabellen</h3>
+<div id="häufigkeitsverteilung" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Häufigkeitsverteilung</h2>
+<div id="tabellen" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Tabellen</h3>
 <p>Es gibt in den unterschiedlichen R-Paketen sehr viele Möglichkeiten, sich eine Häufigkeitsverteilung ausgeben zu lassen. Die schnellste und einfachste Möglichkeit ist die Funktion <code>table()</code>, die in base R verfügbar ist. Man kann sie also nutzen, ohne zusätzliche Pakete zu laden. Als Argument benötigt die Funktion lediglich einen Verweis auf den Vektor, der tabuliert werden soll (also auf den Datensatz und die entsprechende Variable).</p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="deskriptive-statistik.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle, absolute Zahlen</span></span>
 <span id="cb146-2"><a href="deskriptive-statistik.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
@@ -410,8 +422,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##            none  6 0.06896552    0.07228916   0.9540230         1.0000000
 ##            &lt;NA&gt;  4 0.04597701            NA   1.0000000                NA</code></pre>
 </div>
-<div id="häufigkeitsdiagramm" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Häufigkeitsdiagramm</h3>
+<div id="häufigkeitsdiagramm" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Häufigkeitsdiagramm</h3>
 <p>Statistische Grafiken/Plots sind in R flexibel gestaltbar und können in Druckqualität ausgegeben werden. Im späteren Kapitel “Darstellung” gehe ich nochmal genau darauf ein, wie man Grafiken hübsch machen kann. Darum geht es an dieser Stelle aber noch nicht. Denn im Rahmen der Exploration von Datensätzen ist es zunächst erstmal wichtig, dass Sie die Grafik dazu benutzen, sich einen Überblick zu verschaffen! Eine besonders ausgefeilte - und möglicherweise aufwendige Formatierung - ist an dieser Stelle nicht nötig.</p>
 <p>Zur Erstellung von Plots ist das Paket <code>ggplot</code> aus dem tidyverse mittlerweile ein ziemlicher Standard. Leider ist die Syntax etwas ungelenk und es ist etwas herausfordernd, damit tatsächlich schöne Grafiken zu bauen. Wenn man Grafiken später in einen Forschungsbericht einbauen möchte, lohnt es sich auf jeden Fall in ggplot einzusteigen. Ich werde Ihnen den Umgang mit dem Paket in einem späteren Kapitel auch noch vorstellen. Für die explorative Analyse und den schnellen Überblick eignet sich das Paket <code>sjPlot</code> sehr gut, weil es ohne viele Befehle akzeptable Grafiken produziert. Es basiert im Hintergrund auf ggplot2, übernimmt aber das Formatieren vollautomatisch. Die Syntax für ein Säulendiagramm, wie wir es für unsere Häufigkeitsauszählung benötigen ist deshalb sehr simpel:</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="deskriptive-statistik.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
@@ -425,14 +437,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb155-3"><a href="deskriptive-statistik.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>mass, <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/freq_plot2-1.png" width="672" />
 Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren.</p>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Central Tendency ——————————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="maße-der-zentralen-tendenz-streuung" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Maße der zentralen Tendenz &amp; Streuung</h2>
+<div id="maße-der-zentralen-tendenz-streuung" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Maße der zentralen Tendenz &amp; Streuung</h2>
 <p>Neben Häufigkeitsauszählungen dienen Maße der zentralen Tendenz und Streuung dazu, die Eigenschaften von Variablen sehr kompakt zu beschreiben. Ich ordne die Maßzahlen hier nach Datenniveau, beginnend bei niedrigsten bis zum höchsten. Selbstverständlich können Sie die Maße für ein niedrigeres Datenniveau auch für höhere Datenniveaus anwenden. Umgekehrt ist das jedoch nicht sinnvoll! Allerdings kennt R das Datenniveau der Variablen nicht. Es wird also ohne Probleme und Fehlermeldung auch ein arithmetisches Mittel für eine nominale Variable ausgeben, falls diese mit Zahlen codiert wurde (bei reinen character-Variablen geht das selbstverständlich nicht). Das Denken kann uns R an dieser Stelle also leider nicht abnehmen. Wir müssen immer selbst vorab beurteilen, ob eine Berechnung sinnvoll ist oder nicht.</p>
-<div id="nominale-daten" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Nominale Daten</h3>
+<div id="nominale-daten" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Nominale Daten</h3>
 <p>Als Beispiel für eine nominale Variable verwende ich die Frage, welches Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="deskriptive-statistik.html#cb156-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## [1] &quot;male&quot;           &quot;none&quot;           &quot;female&quot;         &quot;hermaphroditic&quot;
@@ -448,8 +466,8 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 ## [1] 60</code></pre>
 <p>Die Funktion liefert gleich zwei Ergebnisse zurück: Zum einen den Wert, der die meisten Ausprägungen auf sich vereint, in diesem Fall die Ausprägung “male.” Zum anderen die absolute Häufigkeit, die diese Ausprägung hat (n = 60).</p>
 </div>
-<div id="ordinale-daten" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> Ordinale Daten</h3>
+<div id="ordinale-daten" class="section level3" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Ordinale Daten</h3>
 <p>Der <strong>Median</strong> teilt die (sortierten) Fälle einer Variablen in zwei gleich große Hälften. Er kann für ordinale und metrische Daten berechnet werden.</p>
 <p>Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht <code>median()</code>. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären, müssen sie vorab aus der Analyse entfernt werden, mit <code>na.rm = TRUE</code> (<em>NA remove</em>).</p>
 <p>Im Datensatz gibt es keine ordinale Variable, deshalb nehme ich im folgenden die Größe in cm (metrisch) als Beispiel:</p>
@@ -468,8 +486,8 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="deskriptive-statistik.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
 </div>
-<div id="metrische-daten" class="section level3" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Metrische Daten</h3>
+<div id="metrische-daten" class="section level3" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Metrische Daten</h3>
 <p>Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
 <p>Als Beispiel benutze ich hier die Variable für das Gewicht.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="deskriptive-statistik.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -484,11 +502,17 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <p>Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="deskriptive-statistik.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 28715.73</code></pre>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Skew &amp; Kurtosis ——————————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="schiefe-und-kurtosis" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Schiefe und Kurtosis</h2>
+<div id="schiefe-und-kurtosis" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Schiefe und Kurtosis</h2>
 <p>Weitere Kennwerte für die Form von Verteilungen sind die <strong>Schiefe</strong> (<em>skew</em>) und <strong>Kurtosis</strong> (<em>kurtosis</em>). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus, wie spitz (nach oben gewölbt) oder flach eine Verteilung ist.</p>
 <p>Im <code>psych</code>-Paket gibt es Funktionen für beides:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="deskriptive-statistik.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
@@ -504,10 +528,16 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <p>Hier noch der Code zur Berechnung der Kurtosis:</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="deskriptive-statistik.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosi</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1.776414</code></pre>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Stats Overview ——————————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="übersichts-funktionen" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Übersichts-Funktionen</h2>
+<div id="übersichts-funktionen" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Übersichts-Funktionen</h2>
 <p>Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion <code>summary()</code> aus dem base-Paket liefert zum Beispiel einen guten ersten Einblick:</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="deskriptive-statistik.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>height)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
@@ -532,7 +562,13 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 ## eye_color*     -1.04  0.52</code></pre>
 <p>Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden, z.B. “mad”). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. <code>skew = TRUE</code> oder <code>ranges = TRUE</code>). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen durchgeführt werden. Ein Mittelwert der Namen ist auch keine nützliche Angabe. Mit dem zusätzlichen Argument <code>omit = TRUE</code> kann man diese Zeilen ausblenden.</p>
 <p>Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.</p>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Important functions ——————————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="wichtige-funktionen-aus-diesem-kapitel-2" class="section level2 unnumbered">
 <h2>Wichtige Funktionen aus diesem Kapitel</h2>
@@ -702,7 +738,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xvariable/r_book/edit/main/06_01_desc_stats.Rmd",
+"link": "https://github.com/xvariable/r_book/edit/main/070_desc_stats.Rmd",
 "text": "Edit"
 },
 "history": {

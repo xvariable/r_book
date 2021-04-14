@@ -67,6 +67,13 @@ fehlende-werte
 objekttypen-konvertieren
 faktoren
 listen
+rmarkdown
+rmarkdown-workflow
+erster-schritt-rmarkdown-anlegen
+zweiter-schritt-inhalt-der-rmarkdown-datei
+dritter-schritt-output-erzeugen
+formatierungen-optionen
+weiterführende-links-2
 datenaufbereitung
 datensatz-für-dieses-kapitel
 pipe
@@ -93,10 +100,7 @@ metrische-daten
 schiefe-und-kurtosis
 übersichts-funktionen
 bivariate-statistik
-kreuztabellen
-vorbereitung-univariate-verteilung
-kreuztabelle-ausgeben
-chi-quadrat-cramers-v
+section-correlation
 korrelationen
 streudiagramm
 kovarianz

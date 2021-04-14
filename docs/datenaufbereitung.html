@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 5 Datenaufbereitung | r_book.utf8</title>
+  <title>Kapitel 6 Datenaufbereitung | r_book.utf8</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 6 Datenaufbereitung | r_book.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 5 Datenaufbereitung | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 6 Datenaufbereitung | r_book.utf8" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="einführung-in-r-1.html"/>
+<link rel="prev" href="rmarkdown.html"/>
 <link rel="next" href="deskriptive-statistik.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -247,80 +247,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung</a>
+<li class="chapter" data-level="5" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>5.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>5.2</b> Die Pipe</a>
+<li class="chapter" data-level="5.1" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-workflow"><i class="fa fa-check"></i><b>5.1</b> RMarkdown Workflow</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>5.2.1</b> Der Aufbau im Detail</a></li>
-<li class="chapter" data-level="5.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>5.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+<li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#erster-schritt-rmarkdown-anlegen"><i class="fa fa-check"></i><b>5.1.1</b> Erster Schritt: RMarkdown anlegen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rmarkdown.html"><a href="rmarkdown.html#zweiter-schritt-inhalt-der-rmarkdown-datei"><i class="fa fa-check"></i><b>5.1.2</b> Zweiter Schritt: Inhalt der RMarkdown-Datei</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rmarkdown.html"><a href="rmarkdown.html#dritter-schritt-output-erzeugen"><i class="fa fa-check"></i><b>5.1.3</b> Dritter Schritt: Output erzeugen</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>5.3</b> Filter: Fälle auswählen</a></li>
-<li class="chapter" data-level="5.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>5.4</b> Arrange: Fälle sortieren</a></li>
-<li class="chapter" data-level="5.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>5.5</b> Select: Variablen auswählen</a></li>
-<li class="chapter" data-level="5.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>5.6</b> Variablen umcodieren</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>5.7</b> Variablen berechnen</a>
-<ul>
-<li class="chapter" data-level="5.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>5.7.1</b> Summen und Mittelwertindices</a></li>
-<li class="chapter" data-level="5.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>5.7.2</b> Berechnen mit dplyr::mutate()</a></li>
-<li class="chapter" data-level="5.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>5.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#formatierungen-optionen"><i class="fa fa-check"></i><b>5.2</b> Formatierungen &amp; Optionen</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#weiterführende-links-2"><i class="fa fa-check"></i><b>5.3</b> Weiterführende Links</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>5.8</b> Summarize: Daten verdichten</a></li>
+<li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>6.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>6.3</b> Filter: Fälle auswählen</a></li>
+<li class="chapter" data-level="6.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>6.4</b> Arrange: Fälle sortieren</a></li>
+<li class="chapter" data-level="6.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>6.5</b> Select: Variablen auswählen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>6.6</b> Variablen umcodieren</a></li>
+<li class="chapter" data-level="6.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>6.7</b> Variablen berechnen</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>6.7.1</b> Summen und Mittelwertindices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>6.7.2</b> Berechnen mit dplyr::mutate()</a></li>
+<li class="chapter" data-level="6.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>6.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>6.8</b> Summarize: Daten verdichten</a></li>
 <li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>6.2</b> Häufigkeitsverteilung</a>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>6.2.1</b> Tabellen</a></li>
-<li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>6.2.2</b> Häufigkeitsdiagramm</a></li>
+<li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
+<li class="chapter" data-level="7.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>7.2.2</b> Häufigkeitsdiagramm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>6.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<li class="chapter" data-level="7.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>7.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>6.3.1</b> Nominale Daten</a></li>
-<li class="chapter" data-level="6.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>6.3.2</b> Ordinale Daten</a></li>
-<li class="chapter" data-level="6.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>6.3.3</b> Metrische Daten</a></li>
+<li class="chapter" data-level="7.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>7.3.1</b> Nominale Daten</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>7.3.2</b> Ordinale Daten</a></li>
+<li class="chapter" data-level="7.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>7.3.3</b> Metrische Daten</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>6.4</b> Schiefe und Kurtosis</a></li>
-<li class="chapter" data-level="6.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>6.5</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="7.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>7.4</b> Schiefe und Kurtosis</a></li>
+<li class="chapter" data-level="7.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>7.5</b> Übersichts-Funktionen</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7</b> Bivariate Statistik</a>
+<li class="chapter" data-level="8" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>8</b> Bivariate Statistik</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>7.1</b> Kreuztabellen</a>
+<li class="chapter" data-level="8.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#section-correlation"><i class="fa fa-check"></i><b>8.1</b> # SECTION: Correlation ——————————————–</a></li>
+<li class="chapter" data-level="8.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>8.2</b> Korrelationen</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>7.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
-<li class="chapter" data-level="7.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>7.1.2</b> Kreuztabelle ausgeben</a></li>
-<li class="chapter" data-level="7.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>7.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>7.2</b> Korrelationen</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>7.2.1</b> Streudiagramm</a></li>
-<li class="chapter" data-level="7.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>7.2.2</b> Kovarianz</a></li>
-<li class="chapter" data-level="7.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>7.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
-<li class="chapter" data-level="7.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>7.2.4</b> Korrelation mit <code>psych</code></a></li>
-<li class="chapter" data-level="7.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>7.2.5</b> Partialkorrelation</a></li>
-<li class="chapter" data-level="7.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>7.2.6</b> Korrelationsmatrizen darstellen</a></li>
+<li class="chapter" data-level="8.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>8.2.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>8.2.2</b> Kovarianz</a></li>
+<li class="chapter" data-level="8.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>8.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>8.2.4</b> Korrelation mit <code>psych</code></a></li>
+<li class="chapter" data-level="8.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>8.2.5</b> Partialkorrelation</a></li>
+<li class="chapter" data-level="8.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>8.2.6</b> Korrelationsmatrizen darstellen</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>8</b> Grafiken</a>
+<li class="chapter" data-level="9" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>9</b> Grafiken</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>8.1</b> Drei Basis-Funktionen</a></li>
-<li class="chapter" data-level="8.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>8.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
-<li class="chapter" data-level="8.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>8.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
-<li class="chapter" data-level="8.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>8.4</b> Dritte Funktion: Geom hinzufügen</a>
+<li class="chapter" data-level="9.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>9.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="9.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>9.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>8.4.1</b> Streudiagram</a></li>
-<li class="chapter" data-level="8.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>8.4.2</b> Jitter-Plot</a></li>
-<li class="chapter" data-level="8.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>8.4.3</b> Boxplot</a></li>
-<li class="chapter" data-level="8.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>8.4.4</b> Violin-Plot</a></li>
-<li class="chapter" data-level="8.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>8.4.5</b> Balkendiagramme</a></li>
-<li class="chapter" data-level="8.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>8.4.6</b> Histogramme</a></li>
-<li class="chapter" data-level="8.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>8.4.7</b> Liniendiagramme</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="9.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>9.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="9.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>9.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="9.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>9.4.7</b> Liniendiagramme</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>8.5</b> Grafiken speichern</a></li>
+<li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
@@ -340,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datenaufbereitung" class="section level1" number="5">
-<h1><span class="header-section-number">Kapitel 5</span> Datenaufbereitung</h1>
+<div id="datenaufbereitung" class="section level1" number="6">
+<h1><span class="header-section-number">Kapitel 6</span> Datenaufbereitung</h1>
 <p>Datenaufbereitung (<em>data wrangling</em>) bezeichnet den Prozess, in dem Rohdaten so verändert, sortiert, umstrukturiert und ausgewählt werden, dass man sie für die anvisierte Analyse verwenden kann.</p>
 <p>Im Einzelnen werden in diesem Kapitel die folgenden Funktionen erklärt:</p>
 <ul>
@@ -360,8 +366,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Soll innerhalb der Funktionen auf Variablen aus dem Dataframe zugegriffen werden, kann man diese direkt ansprechen (also einfach nur <code>var_name</code> und <strong>nicht</strong> <code>data$var_name</code> oder <code>"var_name"</code>).</p></li>
 <li><p>Das Ergebnis ist immer ein Dataframe.</p></li>
 </ul>
-<div id="datensatz-für-dieses-kapitel" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Datensatz für dieses Kapitel</h2>
+<div id="datensatz-für-dieses-kapitel" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Datensatz für dieses Kapitel</h2>
 <p>Als Datensatz dient in diesem Kapitel der “starwars”-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:</p>
 <pre><code>## # A tibble: 87 x 14
 ##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
@@ -380,12 +386,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser z.B. für das Umcodieren geeigneter ist.</p>
 </div>
-<div id="pipe" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Die Pipe</h2>
+<div id="pipe" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Die Pipe</h2>
 <p><img src="images/hex_pipe.png" alt="Hexsticker pipe"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Bevor es mit den einzelnen Schritten der Datenaufbereitung losgeht, wird an dieser Stelle noch ein neuer Operator eingeführt, die <em>Pipe</em>. In R geschrieben durch die Zeichenfolge <code>%&gt;%</code>. Eine Pipe kann man auch durch den Shortcut <code>Ctrl/Strg + Shift + m</code> einfügen. Merken Sie sich diesen Shortcut gut, Sie werden ihn oft brauchen!</p>
 <p>Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: Sie leitet das Ergebnis einer Funktion als Argument an die nächste Funktion weiter. Gerade bei der Datenaufbereitung ist das jedoch sehr praktisch, weil man häufig mehrere Funktionen hintereinanderschalten muss: Man möchte z.B. zunächst ein paar Fälle herausfiltern, dann eine neue Variable bilden, alte Variablen löschen, andere Variablen umcodieren, dann Variablen auswählen, den Datensatz neu sortieren und schließlich nochmal ein paar Fälle herausfiltern und zum Schluss eine Analyse machen. Zusammengefasst: Es sollen sehr viele Transformationen eines Datensatzes hintereinander geschaltet werden.</p>
-<div id="der-aufbau-im-detail" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Der Aufbau im Detail</h3>
+<div id="der-aufbau-im-detail" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Der Aufbau im Detail</h3>
 <p>Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="datenaufbereitung.html#cb96-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
 <span id="cb96-2"><a href="datenaufbereitung.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transformation_1</span>(<span class="st">&quot;do something&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -419,8 +425,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Insgesamt ist die Pipe-Schreibweise sehr übersichtlich, weil die einzelnen Transformationen schön untereinander aufgeführt werden. Man kann also sehr schnell erkennen, was mit dem Dataframe passiert.</p>
 <p>Noch eine kleine Anmerkung zur ersten Zeile: Dort habe ich durch <code>new_data &lt;- data</code> ein neues Objekt erzeugt. Das ist immer dann sinnvoll, wenn man nach der Transformation die Daten als Objekt vorliegen haben möchte, um damit z.B. verschiedene statistische Berechnungen durchzuführen. Manchmal benötigt man aber gar kein neues Objekt. Vielleicht möchte man nur temporär etwas ausgeben. In diesem Fall könnte man auch direkt mit <code>data %&gt;%</code> starten. In diesem Kapitel werde ich beides benutzen, da es mir hier auch nicht immer darum geht, den Datensatz tatsächlich zu transformieren.</p>
 </div>
-<div id="schlechtere-alternativen-zur-pipe" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Schlechtere Alternativen zur Pipe</h3>
+<div id="schlechtere-alternativen-zur-pipe" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Schlechtere Alternativen zur Pipe</h3>
 <p>Schauen wir uns einmal an, was die Alternativen zur Arbeit mit der Pipe wären. Es gibt 3:</p>
 <ul>
 <li><p>Selbstverständlich könnte man alle Datentransformationen nacheinander machen und dabei den Dataframe, den es zu bearbeiten gilt, immer wieder überschreiben. Das ist jedoch keine saubere Arbeitsweise, es ist sehr anfällig für Fehler.</p></li>
@@ -430,8 +436,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Besser sie gewöhnen sich die Arbeit mit der Pipe direkt an. Gerade für den Bereich Datenaufbereitung macht die Pipe sehr viel Sinn, weil in den Funktionen das Datenargument immer an der ersten Stelle steht. Das kommt der Pipe sehr entgegen, weil man den Dataframe so quasi von oben nach unten durch die Pipe leiten und in jedem Schritt ein bisschen weiter umformen kann. Auch wenn die Pipes in diesem Kapitel noch nicht besonders lang sein werden, verwende ich diese Schreibweise – einfach, damit Sie sich daran gewöhnen.</p>
 </div>
 </div>
-<div id="filter-fälle-auswählen" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Filter: Fälle auswählen</h2>
+<div id="filter-fälle-auswählen" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Filter: Fälle auswählen</h2>
 <p>Mit Filtern kann man die Fallzahl eines Datensatzes nach bestimmten Kriterien verringern, also Fälle herausfiltern, die man nicht benötigt bzw. momentan nicht berücksichtigen möchte.</p>
 <ul>
 <li><p>Fälle entfernen, die man grundsätzlich nicht im Datensatz haben wollte, z.B. Minderjährige, wenn man nur Erwachsene befragen wollte.</p></li>
@@ -544,8 +550,8 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="arrange-fälle-sortieren" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Arrange: Fälle sortieren</h2>
+<div id="arrange-fälle-sortieren" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Arrange: Fälle sortieren</h2>
 <p>Mit <code>arrange()</code> lassen sich Fälle in einem Datensatz sortieren. Die Sortierung sollte zwar auf statistische Analysen keinen Einfluss haben, aber dennoch ist dieses Feature nützlich, wenn man z.B. Tabellen hübsch formatieren möchte.</p>
 <p>Der Einsatz von <code>arrange()</code> ist sehr simpel. Man muss der Funktion nach dem Datensatz lediglich die Variable übergeben, nach der sortiert werden soll, hier z.B. nach der Körpergröße:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="datenaufbereitung.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aufsteigend sortieren</span></span>
@@ -596,8 +602,8 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="select-variablen-auswählen" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Select: Variablen auswählen</h2>
+<div id="select-variablen-auswählen" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Select: Variablen auswählen</h2>
 <p>Die Funktion <code>select()</code> dient genau wie <code>filter()</code> dazu, den Datensatz zu verkleinern. Jedoch geht es bei <code>select()</code> darum, Variablen auszuwählen. Dazu muss man die Variablen, die im Datensatz verbleiben sollen, einfach an die Funktion übergeben. Alle anderen Variablen, die nicht vorkommen, werden gelöscht.</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="datenaufbereitung.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variablen auswählen</span></span>
 <span id="cb125-2"><a href="datenaufbereitung.html#cb125-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
@@ -631,8 +637,8 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## # … with 5 more variables: gender &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
-<div id="variablen-umcodieren" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Variablen umcodieren</h2>
+<div id="variablen-umcodieren" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Variablen umcodieren</h2>
 <p>Eine häufige Aufgabe bei der Datenaufbereitung ist das Umcodieren. Beim Umcodieren wird das Wertespektrum einer Variable verändert oder verdichtet. Ein Anwendungsfall wäre es, stetige Variablen damit in Kategorien einteilen (z.B. Altersgruppen bilden). Ein weiterer Anwendungsfall sind Variablen, die “falsch herum” codiert wurden und jetzt gedreht werden müssen. In dem Generation-Z-Datensatz sind beispielsweise die Variablen zu “Verbundenheit” unintuitiv codiert: Ein niedriger Zahlenwert entspricht einer hohen Verbundenheit. Der Wert 1 hat das Werte-Label “sehr verbunden,” der Wert 5 ist hingegen mit “überhaupt nicht verbunden” codiert. Sie können das im Codebuch sehen, aber das folgende Skript verdeutlicht diesen Umstand an der Variable <code>verbundenheit_europa</code>.</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenaufbereitung.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
 <span id="cb129-2"><a href="datenaufbereitung.html#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -681,12 +687,12 @@ Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es hei�
 <span id="cb133-4"><a href="datenaufbereitung.html#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="st">                     190:900 = tall; </span></span>
 <span id="cb133-5"><a href="datenaufbereitung.html#cb133-5" aria-hidden="true" tabindex="-1"></a><span class="st">                     else=NA&quot;</span>)</span></code></pre></div>
 </div>
-<div id="variablen-berechnen" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Variablen berechnen</h2>
+<div id="variablen-berechnen" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Variablen berechnen</h2>
 <p>Es gibt viele unterschiedliche Wege, wie man in R neue Variablen berechnen kann. Wenn man Berechnungen nur unter bestimmten Bedingungen durchführen möchte, dann kann das Ganze auch ziemlich schnell sehr komplex werden.</p>
 <p>Für den Einstieg habe ich hier zwei Wege herausgesucht. Einmal zur Bildung von Indices das <code>sjmisc</code>-Paket und aus dem tidyverse die Funktion <code>mutate()</code>.</p>
-<div id="summen-und-mittelwertindices" class="section level3" number="5.7.1">
-<h3><span class="header-section-number">5.7.1</span> Summen und Mittelwertindices</h3>
+<div id="summen-und-mittelwertindices" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Summen und Mittelwertindices</h3>
 <p>Indices zu berechnen ist eine häufige Task bei der Datenaufbereitung. Zwei besonders häufige Formen sind:</p>
 <ul>
 <li><p>Der <strong>Summenindex</strong>, bei dem die Werte mehrerer Variablen einfach aufsummiert werden (z.B. Anzahl genutzer Webseiten, Gesamtmediennutzungsdauer in Minuten)</p></li>
@@ -708,8 +714,8 @@ Ich demonstriere im Folgenden die <code>row_means()</code>-Funktion, aber <code>
 </ul>
 <p>In der letzten Zeile lasse ich mir die ersten paar der errechneten Werte für die neue Variable/den neuen Mittelwertindex anzeigen.</p>
 </div>
-<div id="berechnen-mit-dplyrmutate" class="section level3" number="5.7.2">
-<h3><span class="header-section-number">5.7.2</span> Berechnen mit dplyr::mutate()</h3>
+<div id="berechnen-mit-dplyrmutate" class="section level3" number="6.7.2">
+<h3><span class="header-section-number">6.7.2</span> Berechnen mit dplyr::mutate()</h3>
 <p>Mit <code>mutate()</code> kann man neue Variablen bilden und zwar nach beliebigen Formeln. Die Syntax dazu folgt dem Schema <code>new_var_name = some calculation</code>.</p>
 <p>Im nächsten Code-Beispiel wird der Bodymass-Index der Starwars-Figuren berechnet.</p>
 <p>Die Formel für den BMI ist:
@@ -737,8 +743,8 @@ Gewicht durch Größe in Metern zum Quadrat.</p>
 ## # … with 77 more rows</code></pre>
 <p>Jetzt kennen Sie den BMI von Jabba the Hutt! Aber auch der BMI von Yoda ist ganz schön bedenklich…</p>
 </div>
-<div id="variablen-unter-einer-bedingung-berechnen" class="section level3" number="5.7.3">
-<h3><span class="header-section-number">5.7.3</span> Variablen unter einer Bedingung berechnen</h3>
+<div id="variablen-unter-einer-bedingung-berechnen" class="section level3" number="6.7.3">
+<h3><span class="header-section-number">6.7.3</span> Variablen unter einer Bedingung berechnen</h3>
 <p>Man kann natürlich auch Variablen anhand von logischen Ausdrücken berechnen, also eine Art Filterbedingung dafür zu Rate ziehen, welchen Wert die Variable annehmen soll. Es muss dafür wieder mit logischen Ausdrücken gearbeitet werden und wir brauchen eine Funktion die <code>ìfelse()</code> heißt. Die Funktion bekommt drei Argumente:</p>
 <ol style="list-style-type: decimal">
 <li><p>Den logischen Ausdruck bei dem für jeden Fall zu prüfen ist, ob er für diesen Fall <code>TRUE</code> oder <code>FALSE</code> ist.</p></li>
@@ -767,8 +773,8 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p><br /></p>
 </div>
 </div>
-<div id="summarize-daten-verdichten" class="section level2" number="5.8">
-<h2><span class="header-section-number">5.8</span> Summarize: Daten verdichten</h2>
+<div id="summarize-daten-verdichten" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Summarize: Daten verdichten</h2>
 <p>Die letzte <code>dplyr</code>-Funktion, auf die ich hier eingehen möchte, ist <code>summarize()</code>. Im ersten Moment wirkt <code>summarize()</code> vielleicht ein bisschen wie eine komplizierte Art, deskriptiven Statistiken zu berechnen. Die Funktion kann aber viel mehr und das Entscheidende ist, dass sie nicht wie die im Kapitel “Deskriptive Statistiken” vorgestellten Funktionen einfach nur einen Kennwert zurückgibt, sondern einen Datensatz mit dem Ergebnis.</p>
 <p>Möglicherweise werden Sie die Funktion zunächst kaum benutzen, aber später wiederentdecken. Der Vollständigkeit halber wird sie trotzdem an dieser Stelle kurz erläutert.</p>
 <p>Im ersten Beispiel möchte ich den Mittelwert für Körpergröße der Starwars-Figuren ausrechnen, das haben wir ja schon mal gemacht. Aber jetzt eben mit der <code>summarize()</code>-Funktion.</p>
@@ -792,7 +798,13 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 ## 1 Naboo      175.    11
 ## 2 Tatooine   170.    10</code></pre>
 <p>Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere Berechnungen wären hier denkbar. Einige nützliche Funktionen finden Sie in der Hilfe von <code>summarize()</code>.</p>
-
+<table>
+<tbody>
+<tr class="odd">
+<td># SECTION: Important funktions ——————————————–</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="wichtige-funktionen-aus-diesem-kapitel-1" class="section level2 unnumbered">
 <h2>Wichtige Funktionen aus diesem Kapitel</h2>
@@ -888,7 +900,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
           </div>
         </div>
       </div>
-<a href="einführung-in-r-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="deskriptive-statistik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -920,7 +932,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xvariable/r_book/edit/main/05_01_dplyr.Rmd",
+"link": "https://github.com/xvariable/r_book/edit/main/060_dplyr.Rmd",
 "text": "Edit"
 },
 "history": {

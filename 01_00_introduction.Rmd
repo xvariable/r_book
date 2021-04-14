@@ -1,3 +1,0 @@
-# Einleitung {#intro}
-
-In diesem Einführungs-Kapitel gebe ich einen Überblick über das R-Universum und führe in die Hintergründe und Philosophie der Sprache ein. Dabei kommen auch die vielen Vorzüge, die der Umstieg auf R für Kommunikationswissenschaftler:innen hat, zur Sprache und es werden Alternativen angesprochen.

@@ -1,0 +1,189 @@
+# Einleitung {#intro}
+
+In diesem Einführungs-Kapitel gebe ich einen Überblick über das R-Universum und führe in die Hintergründe und Philosophie der Sprache ein. Dabei kommen auch die vielen Vorzüge, die der Umstieg auf R für Kommunikationswissenschaftler:innen hat, zur Sprache und es werden Alternativen angesprochen.
+
+---
+# SECTION: Into R --------------------------------------------------------
+--- 
+
+## Einführung in R
+
+R ist eine Programmiersprache mit einem speziellen Fokus auf die Anwendung im Bereich Statistik und Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von R erläutern.
+
+Die simpelste Antwort auf die Frage "Was ist eigentlich R?" lautet: "R ist ein Dialekt von S." [@Peng_2020] 
+Diese Antwort ist natürlich nicht sehr befriedigend und führt direkt zur Anschlussfrage 
+"Und was ist S?" Tatsächlich ist es interessant, die Entstehungsgeschichte von S und R zu kennen und etwas übr die zugrundeliegende Philosophie der Sprachen zu erfahren. 
+Dadurch wird deutlich, worin die Unterschiede zu anderen Programmiersprachen liegen, warum
+R von Informatikern und Programmierern häufig als "etwas seltsam" empfunden wird und weshalb R gerade 
+für die Datenanalyse in der Kommunikationswissenschaft besonders gut geeignet ist.
+Deshalb hole ich an dieser Stelle etwas weiter aus.
+
+### S ist die Mutter von R
+
+<img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Bell_Labs_logo%2C_1984-1995.png" alt="Logo Bell Laboratories"  style="float: right;margin-left:15px;margin-bottom:15px">
+Die Programmiersprache S hat ihre Wurzeln in den 1970er Jahren und wurde von John Chambers, 
+Allan R. Wilks und Kollegen als internes Tool in den "Bell Telephone Laboratories" entwickelt.
+Die Bell Labs waren damals Teil der Telefongesellschaft AT&T und ein bedeutendes Forschungszentrum. 
+Forscher der Bel Labs haben beispielsweise mehrere Nobelpreise und Turing-Awards gewonnen. 
+Heute gehören die Bell Labs zu Nokia.
+
+Mitte der 1960er Jahre war die Rechentechnik so weit, dass die Bel Labs gemeinsam mit anderen 
+Forschungseinrichtungen an einem Projekt zur Schaffung eines Mehrprozess- und Mehrbenutzerbetriebssystems arbeiteten ("Multics System", Vorläufersystem von Unix). 
+Die Möglichkeit, dadurch auf Großrechnern Datenanalyse-Forschung ausführen zu können, war aus Sicht der Bel Laboratories sehr relevant und obwohl sie sich später nicht mehr an der Schaffung des Multics-Systems beteiligten, setzten sie die Entwicklung einer Statistiksprache fort. Diese Sprache nannten sie S - vermutlich für *statistic*.
+Zu dieser Zeit war die Idee einer Programmiersprache für Statistik völlig neu. 
+Für statistische Berechnungen war es bisher nötig, den Code direkt in FORTRAN (steht für FORmula TRANslation, das war die damals dazu genutzte Sprache) zu schreiben und zwar immer wieder aufs Neue, angepasst an die jeweilige Fragestellung.
+
+Die erste Version von S wurde 1976 nur intern veröffentlicht. In den Folgejahren fanden einige 
+Veränderungen an der Sprache statt, z.B. wurde sie nun mit C als Basis und als objektorientierte 
+Programmiersprache weiterentwickelt. In den 1980er Jahren vergab AT&T erstmals Lizenzen von S für 
+kommerzielle Zwecke und für Bildungseinrichtungen. 
+Nach der Aufteilung von AT&T wurde S an das Unternehmen Statistical Science verkauft, welches eine kommerzielle Version von S entwickelte. 
+Diese Implementierung ist auch heute noch unter dem Namen *S-Plus* verfügbar.
+Ihre Verbreitung ist aber sehr gering.
+
+
+### Die Philosophie von S
+
+Die neue Sprache S sollten bei der explorativen Datenanalyse und der Erstellung von Grafiken unterstützen 
+und dabei schneller und möglichst flexibel sein. 
+@Chambers_2000 formuliert das Ziel von S so: 
+
+> “S is a programming language and environment for all kinds of computing involving data. It has a simple goal: To turn ideas into software, quickly and faithfully”.
+
+Insbesondere die schnelle, explorative Übersetzung von Forschungsideen in Ergebnisse war wichtig, während die statistische Analyse am Beginn noch nicht so sehr im Fokus stand.
+
+Zusätzlich zeichnet sich die Philosophie von S noch durch drei weitere Anforderungen aus, die 
+während der Entwicklung an die Programmiersprache gestellt wurden [@Chambers_2020, S. 84:5]:
+
+1. **Convenience:** Der Aufruf von statistischen Routinen sollte möglichst "kompakt" sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
+
+2. **Completeness:** Alle Zusammenfassungen, Modellierungen und Visualisierungen die in FORTRAN möglich waren, sollten auch in S möglich sein.
+
+3. **Extensibility:** Bereits damals verstanden sich die Entwickler von S als Teil einer Datenanalyse- und 
+Forschungs-Community. 
+Deshalb sollte die Sprache grundsätzlich erweiterbar sein. Neue Techniken und Methoden sollten stets in S integrierbar sein.
+
+
+### Die Entwicklung von R
+
+Parallel zur Entstehung von S-Plus entwickelten die Statistiker Ross Ihaka und Robert Gentleman 
+an der Universität Auckland R nach dem Vorbild von S. Die Bezeichnung *R* nimmt zum einen Bezug auf das Vorbild und geht zum anderen auf die Vornamen der beiden Entwickler zurück.
+Neben der Beseitigung einiger Mängel (z.B. bei der Speicherverwaltung) war es das Ziel der beiden Statistiker neue Verfahren schneller in die Programmiersprache implementieren zu können, ohne dabei auf das Entwicklerteam von S angewiesen zu sein. 
+Zudem lies sich der Quelltext gut für Lehrzwecke einsetzen. 
+
+Nachdem Ithaka und Gentleman R zunächst nur in der Wissenschafts-Community verbreiteten und dafür 
+positives Feedback erhielten, entschieden Sie sich 1995 zur Veröffentlichung der Sprache unter einer 
+*General Public License* (GNU). 
+Das Basis-Paket von R (base R) wird seitdem von einem etwa 20-köpfigen Kernentwicklerteam um Ross Ihaka und Robert 
+Gentleman weiterentwickelt (*R Core Team*). 
+Der gemeinnützige Verein *R Foundation for Statistical Computing* mit Sitz in Wien verwaltet das Urheberrecht an R 
+und dient dem Zweck, die Verbreitung der Sprache zu fördern. 
+Dieses Bemühen kann als sehr erfolgreich beurteilt werden.
+Trotz des eingeschränkten Anwendungsfokus ist R heute laut TIOBE-Index eine der beliebtesten Programmiersprachen überhaupt. Im Oktober 2020 belegt R Platz 9 des Rankings.
+
+Aktuelles R-Logo:
+
+<img src="images/rlogo.svg" alt="R Logo" style="width:150px">
+
+### Weiterführende Links {-}
+- [Wikipedia-Artikel zu R](https://de.wikipedia.org/wiki/R_(Programmiersprache))
+- [CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/)
+- [R Foundation](https://www.r-project.org/foundation/)
+- [TIOBE-Ranking](https://www.tiobe.com/tiobe-index/)
+
+---
+# SECTION: Advantages --------------------------------------------------------
+--- 
+
+## Vorteile von R
+
+Man kann natürlich fragen, warum nun gerade R die optimale Wahl für die Statistik- und Datenanalyseausbildung in der Kommunikationswissenschaft und im Medienmanagment ist. Für R sprechen aus meiner Perspektive die folgenden zehn Gründe:
+
+1. **R ist einfach.** Als erste Programmiersprache ist R gerade für Personen, die das Interesse "Datenanalyse" verfolgen, gut geeignet.
+
+2. **R skaliert.** Man kann mit R sowohl kurze Ad-Hoc Auswertungen machen, als auch sehr komplexe Programme schreiben. Der Übergang ist fließend und so kann man vom Anwender zum Entwickler werden, ohne eine große Hürde überwinden zu müssen.
+
+3. **R ist umfangreich, aktuell und zukunftssicher.** Durch den modularen Aufbau in Pakete ist es einfach, R um Funktionalität zu erweitern. Bereits jetzt existiert eine Vielzahl an Paketen, die den Funktionsumfang weit über den proprietärer Statistiksoftware hinaus erweitern. Eine aktive Entwicklercommunity arbeitet beständig daran, R noch umfangreicher und besser zu machen. 
+
+4. **R hat eine große, aktive Community.** Weil sowohl Entwickler- als auch Anwendercommunity groß und aktiv sind, gibt es sowohl online als auch in Form von Büchern jede Menge Hilfestellungen. Sollte sich eine Frage nicht durch Googeln lösen lassen, ist es gar nicht unwahrscheinlich, dass eine ins Netz gepostete Frage schnell und kompetent beantwortet wird.
+
+5. **R unterstützt lösungsorientiertes Denken.** Anders als "Point-and-click"-Software rückt R den Prozess der Datenanalyse in den Mittelpunkt und hilft dabei, ihn in kleine Teile herunterzubrechen. Das fördert die Problemlösekompetenz. 
+
+6. **R begleitet den gesamten Forschungsprozess** -- von der Datensammlung über die Datenspeicherung in Datenbanken, der Datenaufbereitung und -analyse bis hin zur Visualisierung und Kommunikation.
+
+7. **R macht Forschung transparenter und reproduzierbar.** Durch die Arbeit in einer Programmiersprache ist man quasi gezwungen, die einzelnen Schritte schriftlich niederzulegen -- mindestens in Form von Code. Aber auch darüber hinaus bietet R viele weitere Funktionen und Tools zur Verbesserung der Nachvollziehbarkeit und für Open Science.
+
+8. **R ist eine relevante Kompetenz auf dem Arbeitsmarkt.** - Das gilt auch und gerade für Sozial- und Kommunikationswissenschaftler:innen!
+
+9. **R macht Spaß!** Programmieren ist eine kreative Tätigkeit, die durchaus auch Flow-Erlebnisse hervorrufen kann.
+
+10. **R ist Open Source & kostenlos für viele Plattformen verfügbar.** Dadurch wird nicht nur der persönliche Geldbeutel geschont, R trägt damit auch zur Liberalisierung von Wissen insgesamt bei und bietet die Möglichkeit, sich selbst an der Entwicklung der Software zu beteiligen. 
+
+Trotz der vielen soeben herausgestellten Vorteile ist R natürlich kein Wundermittel und keine eierlegende Wollmilchsau. Eine Programmiersprache, die allen Ansprüchen genügt und dabei keine Einschränkungen hat, gibt es nicht. An dieser Stelle soll nicht unerwähnt bleiben, dass Anwender:innen die einen Hintergrund in der Informationswissenschaft oder bereits Erfahrungen mit anderen Programmiersprachen haben, R bisweilen als kompliziert, unübersichtlich oder langsam beurteilen. Zudem gilt R als "unsicher", wenn es darum geht, Webapplikationen zu bauen.
+
+Aus Perspektive der (sozialwissenschaftlichen) Methodenlehre überwiegen dennoch die Vorzüge. 
+R kann ein guter Einstieg in die Welt des Programmierens sein. Obwohl sich R in einigen Punkten von anderen Programmiersprachen unterscheidet, sind viele Konzepte gleich und können übertragen werden, sodass es später leichter fällt, weitere Programmiersprachen zu lernen.
+
+
+---
+# SECTION: Alternatives --------------------------------------------------------
+--- 
+
+## Alternativen zu R
+Das R eine Programmiersprache ist, die sich besonders zur Datenanalyse und zur Berechnung von 
+Statistiken eignet, kam bereits mehrfach zur Sprache. Selbstverständlich gibt es aber auch noch
+andere Software, die diesen Zweck erfüllen kann. 
+Einerseits gibt es eine Reihe (proprietärer) Anwendungen, die ebenfalls zur statistischen Analyse verwendet werden, wie beispielsweise SAS, Stata, MatLab oder SPSS. 
+Andererseits gibt es natürlich auch andere Programmiersprachen, die gut geeignet sind, um statistische
+Berechnungen anzustellen. 
+Zu nennen sind an dieser Stelle vor allem Python und Julia.
+
+
+::: {#info_spss .box .info}
+**SPSS**
+
+In der Kommunikationswissenschaft war bisher SPSS von IBM das am weitesten verbreitete Tool. 
+SPSS ist eine Statistiksoftware mit einer Benutzeroberfläche und man kann sich die Ausgabe von Statistiken quasi "zusammenklicken". 
+Man muss die dahinterliegende Programmiersprache, welche SPSS-Syntax heißt, dazu nicht im Detail kennen. 
+Allerdings nimmt die Verbreitung von SPSS in der Wissenschaft und in der Wirtschaft momentan 
+deutlich ab. 
+Gegen SPSS sprechen beispielsweise die hohen Lizenzkosten, die langsame Implementierung neuer Verfahren und die sinkende Verbreitung.
+:::
+ 
+### Weiterführende Links {-}
+- [Vergleich Statistik-Software  1](https://www.inwt-statistics.de/blog-artikel-lesen/Statistik-Software-R_Python_SAS_SPSS_STATA_im_Vergleich.html)
+- [Vergleich Statistik-Software 2](https://novustat.com/statistik-blog/statistikprogramm-ueberblick.html)
+- [Popularität von Statistik-Software](http://r4stats.com/articles/popularity/)
+
+
+---
+# SECTION: Learning R --------------------------------------------------------
+--- 
+
+## Tipps zum R lernen
+
+### Der Anfang ist schwer
+R unterscheidet sich deutlich von der Software, mit der Kommunikationswissenschaftler:innen bisher gearbeitet haben. Es handelt sich nicht  um  ein proprietäres Programm, sondern um eine Programmiersprache. Dadurch werden die Grenzen dessen, was möglich ist, immens erweitert. Da fällt der Ein- bzw. Umstieg am Anfang vielleicht erstmal schwer und sicherlich gehört beim Erlernen einer neuen Kompetenz immer auch eine **gewisse Frustrationstoleranz** dazu. Das nicht alles von Anfang an klappt, ist ganz normal. Es ist sehr wichtig, sich diesen Umstand zu verdeutlichen. 
+
+<img src="images/ah_at_first.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
+<div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
+
+### Nützliche Hinweise
+
+- **Holen Sie sich die Hilfe, die Sie brauchen!** <br />
+Welche Lern-Ressourcen für Sie die richtigen sind, können Sie selbst am besten entscheiden. Eine Person lernt vielleicht leichter mit einem interaktiven Kurs, eine andere mit einem Buch. Das ist Geschmackssache. Eine besonders hilfreiche Methode kann auch "Vier Augen / ein Rechner" sein, bei dem Sie mit eine:r Kommiliton:in gemeinsam am Computer üben.
+
+- **Lesen Sie Fehlermeldungen aufmerksam durch.** <br />
+Falls ein Skript mal nicht wie erwartet funktioniert, liefert Ihnen die Fehlermeldung oft einen ersten Hinweis darauf, woran es liegen könnte. Das gilt meistens - aber leider nicht immer. Denn nicht alle Autoren der unterschiedlichen R-Pakete schreiben Fehlermeldungen, die auch für Einsteiger verständlich sind.
+
+- **Schauen Sie genau hin**. <br />
+Achten Sie genau auf die Syntax: Häufige Fehler sind vergessene oder doppelte Klammern `{[()]}`, Anführungszeichen `"`oder Kommata `,`.
+
+- **Googeln ist eine Kompetenz und ausdrücklich erwünscht!** <br />
+Wenn Sie bei einer Fragestellung feststecken und die Hilfe Sie auch nicht weiterbringt, versuchen Sie Ihre Fehlermeldung oder Ihre Fragestellung zu ergoogeln. Sie sind womöglich nicht der/die Erste, der/die vor diesem Problem steht.
+
+- **Beachten Sie die 15-Minuten-Regel.**<br />
+Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen, können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. [stackoverflow](https://stackoverflow.com/). 
+
+<img src="images/ah_r_rollercoaster.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
+<div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
