@@ -34,7 +34,7 @@ RMarkdown-Dateien wurden so gestaltet, dass Sie unterschiedlich genutzt werden k
 
 - In der Kollaboration mit Kolleg_innen und die nicht nur an Ihren Schlussfolgerungen und Gedanken, sondern auch am Code interessiert sind.
 
-- Zur Kommunikation mit Entscheidungsträgern und anderem Publikum, dass nicht am Code interessiert ist und sich nur für die Ergebnisse und Ihre Interpretation interessiert.
+- Zur Kommunikation mit Entscheidungsträgern und anderem Publikum, dass keinen Code sehen und sich nur über die Ergebnisse und ihre Interpretation informieren möchte.
 
 
 ## RMarkdown Workflow
@@ -102,11 +102,16 @@ Achtung, wenn Sie mit dem RMarkdown ein PDF erzeugen möchten, benötigen Sie da
 
 ## Formatierungen & Optionen
 
-Natürlich gibt es noch viel mehr Formatierungsmöglichkeiten als die oben genannten. Selbstverständlich können Sie Tabellen zeichnen, Bilder einbinden, Kursivstellung oder Versalien beutzen, Farbe einsetzen usw. Außerdem können Sie über Templates oder eigene Stylesheets die Formatierung ihres Dokumentes ändern und z.B. andere Schriftarten wählen.
+Natürlich gibt es noch viel mehr Formatierungsmöglichkeiten als die oben genannten. Selbstverständlich können Sie Tabellen zeichnen, Bilder einbinden, Kursivstellung oder Versalien beutzen, Farbe einsetzen usw. Außerdem können Sie über Templates oder eigene Stylesheets die Formatierung ihres Dokumentes ändern und z.B. andere Schriftarten wählen. Auch Zitationen und Literaturverzeichnisse können über Bibtex eingefügt werden.
 
 Mit den Optionen für die Code-Chunks können Sie darüber bestimmen, ob und welche Inhalte im Output angezeigt werden sollen. Möchten sie z.B. die Informationen, die beim Laden von Paketen in der Console ausgegeben werden im Output zeigen oder lieber verbergen?
 
-Dieser Bereich im R-Kompendium soll zukünftig ausgebaut werden, aber leider kann ich das Thema RMarkdown momentan nicht vertiefen. Unten sind ein paar weiterführende Links aufgelistet, bei denen Sie mehr Informationen finden.
+Seit Version 1.4 beinhaltet RStudio auch einen **visuellen Markdown-Editor**, den man über ein Icon im Skript-Bereich (siehe unten) oder den Shorcut `Cmd+ Shift + F4` (Mac) bzw `Alt + Shift + F4` einschalten kann. Mit diesem Editor können verschiedene Gestaltungselemente eingebaut werden, ohne dass die Syntax von RMarkdown beherrscht werden muss. Selbstverständlich empfiehlt es sich trotz allem, ein rudimentäres Verständnis für die Syntax zu entwickeln.
+
+<img src="images/visual_rmd_editor.png" alt="visuellen RMarkdown-Editor einblenden" style="margin-top:5px;margin-bottom:5px">
+
+
+Dieser Bereich zu Formatierungen und Optionen im R-Kompendium soll zukünftig ausgebaut werden, aber leider kann ich das Thema RMarkdown momentan nicht vertiefen. Unten sind ein paar weiterführende Links aufgelistet, bei denen Sie mehr Informationen finden.
 
 
 ::: {#info_html .box .info}
