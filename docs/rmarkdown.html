@@ -389,16 +389,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/new_rmd.png" alt="RMarkdown anlegen Dialogfeld" style="width:60%;margin-top:5px;margin-bottom:5px"></p>
 <p>Klickt man in dem Dialog auf “okay” offnet sich eine Datei, die auch schon Beispiel-Content und damit die wesentlichen Inhalte eine RMarkdown-Datei enthält:</p>
 <p><img src="images/rmd_example.png" alt="RMarkdown Beispiel-Content" style="width:60%;margin-top:5px;margin-bottom:5px"></p>
-<p>Diese wesentlichen Bestandteile sind:</p>
+</div>
+<div id="zweiter-schritt-inhalt-der-rmarkdown-datei" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Zweiter Schritt: Inhalt der RMarkdown-Datei</h3>
+<p>Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Gruppen zuordnen:</p>
 <ol style="list-style-type: decimal">
 <li><p>Der Header</p></li>
 <li><p>R-Code-Chunks</p></li>
 <li><p>Text mit Formatierungen</p></li>
 </ol>
 <p>Diese Bestandteile werden im Folgenden kurz beschrieben.</p>
-</div>
-<div id="zweiter-schritt-inhalt-der-rmarkdown-datei" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Zweiter Schritt: Inhalt der RMarkdown-Datei</h3>
 <p><strong>Der Header</strong> ist begrenzt durch je ein einleitendes und ein schließendes <code>---</code>. Er enthält Metainformationen zum Dokument, die entweder nicht in der Ausgabe enthalten sind oder bei der Erzeugung des Outputs zur Titelgestaltung genutzt werden.</p>
 <p><strong>R-Code-Chunks: </strong> Nach dem Header folgt ein grau hinterlegter Block, der durch ``` eingeleitet und geschlossen wird. Dies ist ein Bereich, in dem ausführbarer R-Code seinen Platz findet, eine so genannte Code-Chunk. Das <code>r</code> in der geschweiften Klammer macht dabei deutlich, dass es sich um R-Code handelt. Möglich wäre auch Code in anderen Programmiersprachen. Innerhalb der geschweiften Klammer stehen außerdem der Name der R-Chunk (hier <code>setup</code>) sowie Optionen für die Code-Chunk (hier bspw. <code>include=FALSE</code>, was bedeutet, dass dieser Block nicht in den Output integriert werden soll). Diese beiden Angaben sind optional. Nach der geschweiften Klammer folgt R-Code. In diesem Fall ist er aber nicht besonders spannend. Er setzt nur eine Optionen für das Paket <code>knitr</code>, welches am Ende dafür zuständig, ist aus dem Markdown-Dokument output zu erzeugen. Etwas interessanter sind die zweite und die dritte Code-Chunk im Beispieldokument. hier werden mit Base-R-Funktionen informationen über den <code>cars</code>- Datensatz angezeigt und ein Plot erzeugt.</p>
 <p>Diese Chunks können Sie auch einzeln ausführen, und zwar über die kleinen grünen Pfeil-Icons auf Hohe der Chunks. Der Output wird ihnen dann direkt unter der Chunk angezeigt:
@@ -434,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">RMarkdown CheatSheet</a></p></li>
 <li><p><a href="https://r4ds.had.co.nz/r-markdown.html">RMarkdown Kapitel aus dem Buch R4DS</a>, Wickham &amp; Grolemund</p></li>
-<li><p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>, Xie,Allaire &amp; Grolemund</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>, Xie, Allaire &amp; Grolemund</p></li>
 </ul>
 
 </div>

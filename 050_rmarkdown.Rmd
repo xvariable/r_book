@@ -61,7 +61,10 @@ Klickt man in dem Dialog auf "okay" offnet sich eine Datei, die auch schon Beisp
 
 <img src="images/rmd_example.png" alt="RMarkdown Beispiel-Content" style="width:60%;margin-top:5px;margin-bottom:5px">
 
-Diese wesentlichen Bestandteile sind:
+
+### Zweiter Schritt: Inhalt der RMarkdown-Datei
+
+Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Gruppen zuordnen:
 
 1. Der Header
 
@@ -71,7 +74,6 @@ Diese wesentlichen Bestandteile sind:
 
 Diese Bestandteile werden im Folgenden kurz beschrieben.
 
-### Zweiter Schritt: Inhalt der RMarkdown-Datei
 
 **Der Header** ist begrenzt durch je ein einleitendes und ein schließendes `---`. Er enthält Metainformationen zum Dokument, die entweder nicht in der Ausgabe enthalten sind oder bei der Erzeugung des Outputs zur Titelgestaltung genutzt werden.
 
@@ -127,4 +129,4 @@ In `.Rmd`-Dokumnten können Sie nicht nur die Beschreibungssprache RMarkdown ver
 
 - [RMarkdown Kapitel aus dem Buch R4DS](https://r4ds.had.co.nz/r-markdown.html), Wickham & Grolemund
 
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), Xie,Allaire & Grolemund
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), Xie, Allaire & Grolemund
