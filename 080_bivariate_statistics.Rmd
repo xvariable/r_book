@@ -2,9 +2,7 @@
 
 In diesem Kapitel geht es um bivariate Verfahren, also die gemeinsame Variation von zwei Variablen. Im Detail behandeln wir hier die Kreuztabelle und Chi-Quadrat sowie die Korrelation.
 
----
-# SECTION: Cross Tabs --------------------------------------------
---- 
+
 ## Kreuztabellen
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
@@ -143,10 +141,6 @@ Cramer´s V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusa
 Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen.
 Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter Anstieg beim Unterzeichnen von Petitionen befördert. Spannend!
 
-
----
-# SECTION: Correlation --------------------------------------------
---- 
 
 ## Korrelationen
 
@@ -346,10 +340,6 @@ mtcars %>%
 
 Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen sieht man auf den ersten Blick!
 
-
----
-# SECTION: Important funktions --------------------------------------------
---- 
 
 ## Wichtige Funktionen aus diesem Kapitel {-}
 

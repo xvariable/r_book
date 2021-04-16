@@ -6,10 +6,6 @@ Auf den folgenden Seiten finden Sie Installationsanleitungen für MacOS und Wind
 Da die Installation auf beiden Betriebssystemen etwas unterschiedlich ist (insbesondere beim Download von R), sind die Wege auf zwei getrennten Seiten aufgeteilt. 
 
 
----
-# SECTION: Windows --------------------------------------------------------
---- 
-
 ## Installationsanleitung Windows
 
 Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
@@ -49,10 +45,6 @@ Nun werden sie weitergeleitet und klicken auf „Download RStudio for Windows“
 
 Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und folgen erneut der Installationsanleitung. Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.
 
-
----
-# SECTION: MacOS --------------------------------------------------------
---- 
 
 ## Installationsanleitung MacOS
 

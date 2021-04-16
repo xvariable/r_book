@@ -2,10 +2,6 @@
 
 In diesem Abschnitt finden Sie alles, was Sie zum Start über die Benutzeroberfläche von R und RStudio wissen müssen. Dabei gehe ich zu nächst auf die R-Konsole ein: Ein Tool, dass bereits beim Download von R mitgeliefert wird und in dem Sie die Sprache bereits ausführen können - wenngleich dies wenig komfortabel ist. Die R-Konsole ist aber auch ein Teil von RStudio. Im Anschluss gehe ich deshalb auf die IDE und ein paar ausgewählte Features genauer ein. 
 
----
-# SECTION: Console --------------------------------------------------------
---- 
-
 ## R Konsole {#konsole}
 
 Wenn man sich R heruntergeladen und installiert hat, kann man die Sprache bereits ausführen. 
@@ -50,10 +46,6 @@ Das ist alles schon ganz nett, aber auch ziemlich unkomfortabel. Um richtig mit 
 So eine IDE kann beispielsweise bei der Organisation von Dateien unterstützen, sie bietet Hilfe-Funktionen beim Coden und gibt einen Überblick über die Objekte, die sich im Arbeitsspeicher befinden und vieles mehr.
 
 
----
-# SECTION: RStudio --------------------------------------------------------
---- 
-
 ## RStudio: IDE für R
 
 Statt der Konsole benutzen die meisten Entwickler einen Editor oder eine so genannte *IDE* (= Integrated Development Environment zu deutsch Entwicklungsumgebung), die eine grafische Oberfläche bietet und das Programmieren und das Datenmanagement erheblich erleichtert. 
@@ -87,9 +79,6 @@ Obwohl die RStudio-Cloud im Rahmen der Statistikausbildung sehr praktisch sein w
 Die Anleitung zur Installation finden Sie im [nächsten Kapitel](#intallation). 
 Sie ist getrennt nach Windows und MacOS aufgeführt, da sich die Schritte die zur Installation nötig sind leicht unterscheiden.
 
----
-# SECTION: RStudio Interface --------------------------------------------------------
---- 
 
 ### RStudio Benutzeroberfläche 
 Die Benutzeroberfläche von RStudio gliedert sich in verschiedene Bereiche.
@@ -148,10 +137,6 @@ Am besten Sie gewöhnen sich die Tastenkombi `Strg/Cmd + Eingabe/Enter` zum Ausf
 :::
 
 
----
-# SECTION: RStudio Features --------------------------------------------------------
---- 
-
 ### Features von RStudio
   
 RStudio ist eine umfangreiche IDE, die die Anwender:innen mit umfangreichen Funktionen unterstützt. Ein paar davon möchte ich an dieser Stelle explizit hervorheben.
@@ -187,9 +172,6 @@ Syntaxhighlighting bedeutet, dass unterschiedliche Bestandteile des Codes in unt
 Auch Syntaxhighlighting dient der Übersichtlichkeit für die menschlichen Anwender:in. 
 
 
----
-# SECTION: RStudio Options --------------------------------------------------------
---- 
 
 ### RStudio anpassen
 

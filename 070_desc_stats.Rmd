@@ -22,10 +22,6 @@ Als Datensatz dient in diesem Kapitel wieder der "starwars"-Datensatz, der im Pa
 starwars
 ```
 
----
-# SECTION: Frequency --------------------------------------------------------
---- 
-
 ## Häufigkeitsverteilung
 ```{r, freq_lib, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
 pacman::p_load(tidyverse)
@@ -93,9 +89,6 @@ plot_frq(starwars$mass, type = "histogram")
 ```
 Das Histogramm offenbart in der Variable `mass` einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren. 
 
----
-# SECTION: Central Tendency --------------------------------------------------------
---- 
 
 ## Maße der zentralen Tendenz & Streuung
 
@@ -188,9 +181,6 @@ Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch u
 var(starwars$mass, na.rm = TRUE)
 ```
 
----
-# SECTION: Skew & Kurtosis --------------------------------------------------------
---- 
 
 ## Schiefe und Kurtosis
 
@@ -220,10 +210,6 @@ kurtosi(starwars$height, na.rm = TRUE)
 ```
 
 
----
-# SECTION: Stats Overview --------------------------------------------------------
---- 
-
 ## Übersichts-Funktionen
 
 Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion `summary()` aus dem base-Paket liefert zum Beispiel einen guten ersten Einblick:
@@ -245,10 +231,6 @@ Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen
 
 Kleine Warnung: Die RStudio-Cloud verhält sich in Bezug auf die describe()-Funktion leicht anders. Warum das so ist, weiß ich nicht.
 
-
----
-# SECTION: Important functions --------------------------------------------------------
---- 
 
 ## Wichtige Funktionen aus diesem Kapitel {-}
 

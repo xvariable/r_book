@@ -428,9 +428,6 @@ starwars %>%
 
 Natürlich funktioniert das nicht nur mit dem arithmetischen Mittel. Auch andere Berechnungen wären hier denkbar. Einige nützliche Funktionen finden Sie in der Hilfe von `summarize()`.
 
----
-# SECTION: Important funktions --------------------------------------------
---- 
 
 ## Wichtige Funktionen aus diesem Kapitel {-}
 

@@ -100,7 +100,10 @@ metrische-daten
 schiefe-und-kurtosis
 übersichts-funktionen
 bivariate-statistik
-section-correlation
+kreuztabellen
+vorbereitung-univariate-verteilung
+kreuztabelle-ausgeben
+chi-quadrat-cramers-v
 korrelationen
 streudiagramm
 kovarianz

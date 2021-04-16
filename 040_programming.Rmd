@@ -78,10 +78,6 @@ Außerdem gibt es einige Regeln, an die man sich bei der Benennung halten muss:
 <div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
 
 
----
-# SECTION: Comment --------------------------------------------------------
---- 
-
 ## Kommentare
 
 ### Einfache Kommentare
@@ -123,9 +119,6 @@ In R Studio kann man neben normalen Kommentaren über das Tastenkürzel `Cmd/Ctr
 print("Hello World!")
 ```
 
----
-# SECTION: Packages --------------------------------------------------------
---- 
 
 ## R-Pakete 
 Die Programmiersprache R ist modular aufgebaut. Den Kern bildet das Basispaket "base R". Es enthält bereits die grundsätzlichen Funktionen, aber richtig spannend und komfortabel wird es erst, wenn man sich weitere Pakete dazu holt. 
@@ -198,9 +191,6 @@ Durch die schier unübersichtliche Anzahl an Paketen fällt es schwer, den Durch
 In einem R-Kurs werden Ihnen die Dozierenden natürlich immer die erforderlichen Pakete nennen. Wenn Sie nach bestimmten Anwendungen suchen, hilft ihnen neben googeln auch [MetaCRAN](https://www.r-pkg.org/), eine Suchmaschine für R-Pakete. Es kann ein Kriterium bei der Auswahl sein, sich anzusehen, wann die letzte Version eines Paketes erscheinen ist. Mit der Zeit werden Sie sich einen Stamm nützlicher Pakete zusammensammeln.
 
 
----
-# SECTION: Functions --------------------------------------------------------
---- 
 
 ## Funktionen
 
@@ -324,9 +314,6 @@ hello("Du")
 Natürlich gibt es noch viel mehr über das Programmieren von Funktionen zu wissen. Für den Einstieg sollten Sie sich aber erstmal mitnehmen, dass das gar nicht so schwer ist!
 
 
----
-# SECTION: Project --------------------------------------------------------
---- 
 
 ## R-Projekte
 
@@ -367,9 +354,6 @@ Nachdem Sie das Projekt angelegt haben, erzeugt RStudio die **.RProject-Datei** 
 Für alle R-Dateien, die angelegt werden, solange das Projekt geöffnet ist, wird  der Projektordner als Speicherort angeboten. Man kann aber davon abweichen und z.B. auch Unterordner zur besseren Organisation anlegen.
 
 
----
-# SECTION: Import Data --------------------------------------------------------
---- 
 
 ## Datenimport und Datenexport
 
@@ -475,9 +459,6 @@ Hat man fürher mit SPSS gearbeitet und versucht jetzt alte Datensätze nach R z
 Wenn man mit gelabelten Daten arbeitet, ist außerdem die Funktion `view_df()` aus dem Paket `sjPlot` recht nützlich. Darüber kann man sich eine Übersicht über den Datensatz anzeigen lassen, die dann im Viewer-Tab von RStudio angezeigt wird. Man kann über zusätzliche Argumente sogar noch weitere Informationen anziegen lassen, wie z.B. den Anteil an fehlenden Werten.
 
 
----
-# SECTION: Data Types --------------------------------------------------------
---- 
 
 ## Datenstrukturen
 
@@ -776,9 +757,6 @@ person_1
 Natürlich kann man auch mehrere Listen zu einem Dataframe kombinieren. Das geht z.B. mit der Funktion `rbind()`(für *row bind*). 
 
 
----
-# SECTION: Important Functions --------------------------------------------------------
---- 
 
 ## Wichtige Funktionen aus diesem Kapitel {-}
 

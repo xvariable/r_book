@@ -2,10 +2,6 @@
 
 In diesem Einführungs-Kapitel gebe ich einen Überblick über das R-Universum und führe in die Hintergründe und Philosophie der Sprache ein. Dabei kommen auch die vielen Vorzüge, die der Umstieg auf R für Kommunikationswissenschaftler:innen hat, zur Sprache und es werden Alternativen angesprochen.
 
----
-# SECTION: Into R --------------------------------------------------------
---- 
-
 ## Einführung in R
 
 R ist eine Programmiersprache mit einem speziellen Fokus auf die Anwendung im Bereich Statistik und Data-Science. In diesem Abschnitt werde ich kurz die Hintergründe und die Entstehungsgeschichte von R erläutern.
@@ -91,10 +87,6 @@ Aktuelles R-Logo:
 - [R Foundation](https://www.r-project.org/foundation/)
 - [TIOBE-Ranking](https://www.tiobe.com/tiobe-index/)
 
----
-# SECTION: Advantages --------------------------------------------------------
---- 
-
 ## Vorteile von R
 
 Man kann natürlich fragen, warum nun gerade R die optimale Wahl für die Statistik- und Datenanalyseausbildung in der Kommunikationswissenschaft und im Medienmanagment ist. Für R sprechen aus meiner Perspektive die folgenden zehn Gründe:
@@ -125,10 +117,6 @@ Aus Perspektive der (sozialwissenschaftlichen) Methodenlehre überwiegen dennoch
 R kann ein guter Einstieg in die Welt des Programmierens sein. Obwohl sich R in einigen Punkten von anderen Programmiersprachen unterscheidet, sind viele Konzepte gleich und können übertragen werden, sodass es später leichter fällt, weitere Programmiersprachen zu lernen.
 
 
----
-# SECTION: Alternatives --------------------------------------------------------
---- 
-
 ## Alternativen zu R
 Das R eine Programmiersprache ist, die sich besonders zur Datenanalyse und zur Berechnung von 
 Statistiken eignet, kam bereits mehrfach zur Sprache. Selbstverständlich gibt es aber auch noch
@@ -155,10 +143,6 @@ Gegen SPSS sprechen beispielsweise die hohen Lizenzkosten, die langsame Implemen
 - [Vergleich Statistik-Software 2](https://novustat.com/statistik-blog/statistikprogramm-ueberblick.html)
 - [Popularität von Statistik-Software](http://r4stats.com/articles/popularity/)
 
-
----
-# SECTION: Learning R --------------------------------------------------------
---- 
 
 ## Tipps zum R lernen
 
