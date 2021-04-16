@@ -4,7 +4,7 @@ RMarkdown ist ein Dateiformat, mit dem es möglich ist, dynamische Dokumente dir
 
 Das ist natürlich sehr praktisch für Berichte und Hausarbeiten, aber auch Artikel in Fachzeitschriften. Auch ganze Bücher oder sogar interaktive Apps können mit RMarkdown produziert werden. Wenig überraschend: Auch dieses Buch wurde in RMarkdown geschrieben :)
 
-<img src="images/ah_rmarkdown.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:5px">
+<img src="images/ah_rmarkdown.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:5px"><div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
 
 Bevor wir uns mit den Details der Sprache beschäftigen und ich einen ersten Einblick in die Features gebe, möchte ich noch einmal kurz deutlich machen, warum RMarkdown mehr ist, als einfach nur eine Möglichkeit, Statistiken und Grafiken aus R heraus zu exportieren: RMarkdown verknüpft folgende Elemente miteinander:
 

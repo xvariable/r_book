@@ -16,7 +16,7 @@ Deshalb hole ich an dieser Stelle etwas weiter aus.
 
 ### S ist die Mutter von R
 
-<img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Bell_Labs_logo%2C_1984-1995.png" alt="Logo Bell Laboratories"  style="float: right;margin-left:15px;margin-bottom:15px">
+<img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Bell_Labs_logo%2C_1984-1995.png" alt="Logo Bell Laboratories"  style="float: right;margin-left:15px;margin-bottom:25px">
 Die Programmiersprache S hat ihre Wurzeln in den 1970er Jahren und wurde von John Chambers, 
 Allan R. Wilks und Kollegen als internes Tool in den "Bell Telephone Laboratories" entwickelt.
 Die Bell Labs waren damals Teil der Telefongesellschaft AT&T und ein bedeutendes Forschungszentrum. 
