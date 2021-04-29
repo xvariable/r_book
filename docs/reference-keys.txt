@@ -116,7 +116,7 @@ drei-basis-funktionen
 erste-funktion-plot-objekt-erstellen
 zweite-funktion-aesthetik-mapping
 dritte-funktion-geom-hinzufügen
-streudiagram
+streudiagramm-1
 jitter-plot
 boxplot
 violin-plot

@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 5 RMarkdown | r_book.utf8</title>
+  <title>Kapitel 5 RMarkdown | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 5 RMarkdown | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 5 RMarkdown | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
   
   <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="xvariable/r_book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 5 RMarkdown | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 5 RMarkdown | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
 <li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
 <li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
@@ -343,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
           </h1>
         </div>
 
@@ -355,7 +355,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 5</span> RMarkdown</h1>
 <p>RMarkdown ist ein Dateiformat, mit dem es möglich ist, dynamische Dokumente direkt aus R heraus zu erzeugen, wie bspw. Word- oder PDF-Dateien oder auch HTML-Seiten. Dabei wird nicht nur der R-Code oder die Ergebnisse exportiert. Es ist zusätzlich möglich Text einzubetten. Ganz im Sinne des “literate programming,” kann man also die den R-Code und die Dokumentation des Codes verknüpfen. Aber auch darüber hinaus kann man seine eigenen Gedanken und Interpretationen festhalten oder auch längere Texte schreiben. Mit dem fertigen RMarkdown-Dokument kann im Anschluss ganz unterschiedliche Output-Dokumente erzeugen, wie bspw. Word- oder PDF-Dateien, Präsentationen oder HTML für Webseiten.</p>
 <p>Das ist natürlich sehr praktisch für Berichte und Hausarbeiten, aber auch Artikel in Fachzeitschriften. Auch ganze Bücher oder sogar interaktive Apps können mit RMarkdown produziert werden. Wenig überraschend: Auch dieses Buch wurde in RMarkdown geschrieben :)</p>
-<p><img src="images/ah_rmarkdown.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:5px"></p>
+<img src="images/ah_rmarkdown.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:5px">
+<div style="color:grey;text-align:right">
+Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a>
+</div>
+<p><br /></p>
 <p>Bevor wir uns mit den Details der Sprache beschäftigen und ich einen ersten Einblick in die Features gebe, möchte ich noch einmal kurz deutlich machen, warum RMarkdown mehr ist, als einfach nur eine Möglichkeit, Statistiken und Grafiken aus R heraus zu exportieren: RMarkdown verknüpft folgende Elemente miteinander:</p>
 <ol style="list-style-type: decimal">
 <li><p>Die Datenanalyse, also den R-Code</p></li>
@@ -397,9 +401,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="zweiter-schritt-inhalt-der-rmarkdown-datei" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Zweiter Schritt: Inhalt der RMarkdown-Datei</h3>
-<p>Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Gruppen zuordnen:</p>
+<p>Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Typen zuordnen:</p>
 <ol style="list-style-type: decimal">
-<li><p>Der Header</p></li>
+<li><p>Header</p></li>
 <li><p>R-Code-Chunks</p></li>
 <li><p>Text mit Formatierungen</p></li>
 </ol>

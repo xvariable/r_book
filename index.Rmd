@@ -8,10 +8,11 @@ documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: xvariable/r_book
+url: 'https\://bookdown.org/yihui/rmarkdown-cookbook/'
 description: "Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht."
 header-includes:
-  - \AtBeginDocument{\renewcommand{\chaptername}{Kapitel}}
+  - \usepackage{titling}
 ---
 
 # Herzlich Willkommen! {-}

@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 6 Datenaufbereitung | r_book.utf8</title>
+  <title>Kapitel 6 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 6 Datenaufbereitung | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 6 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
   
   <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="xvariable/r_book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 6 Datenaufbereitung | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 6 Datenaufbereitung | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
 <li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
 <li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
@@ -343,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
           </h1>
         </div>
 
@@ -683,7 +683,7 @@ Das letzte und entscheidende Argument ist die Anweisung zur Umcodierung. Es hei�
 ## 4                 2                   3
 ## 5                 3                   2
 ## 6                 4                   1</code></pre>
-<p>Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen oder wie hier durch ein “nebeneinanderlegen” der beiden Variablen.</p>
+<p>Es ist immer ratsam, im Anschluss zu kontrollieren, ob die Umcodierung auch wie erwartet funktioniert hat. Dies kann z.B. über eine Kreuztabelle geschehen (vgl. Kapitel <a href="bivariate-statistik.html#kreuztabellen">Kreuztabellen</a>) oder wie hier durch ein “nebeneinanderlegen” der beiden Variablen.</p>
 <p>Eine kleine Ergänzung noch. Ich habe den Datensatz hier über das sjlabelled-Paket in R hinein geladen: Selbstverständlich funktioniert <code>rec()</code> auch mit nicht-gelabelten Daten oder Daten, die durch das haven-Paket eingelesen wurden. In diesem Fall wären einfach die ursprünglichen Werte statt der (nicht vorhandenen) Wertelabels einzutragen: <code>"1=4;2=3;3=2;4=1;else=copy"</code></p>
 <p>Hier noch ein Beispiel mit dem Starwars-Datensatz, in dem die Variable für die Körpergröße in drei Gruppen eingeteilt wird:</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="datenaufbereitung.html#cb133-1" aria-hidden="true" tabindex="-1"></a>sw_age_grp <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>

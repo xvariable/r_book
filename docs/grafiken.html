@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 9 Grafiken | r_book.utf8</title>
+  <title>Kapitel 9 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 9 Grafiken | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 9 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
   
   <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="xvariable/r_book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 9 Grafiken | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 9 Grafiken | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
 <li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
 <li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
@@ -343,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
           </h1>
         </div>
 
@@ -354,21 +354,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="grafiken" class="section level1" number="9">
 <h1><span class="header-section-number">Kapitel 9</span> Grafiken</h1>
 <p>Grafiken erfüllen bei der Datenanalyse zwei sehr wichtige Funktionen: Zum einen dienen Sie der explorativen Analyse und helfen dabei, selbst ein besseres Verständnis für die eigenen Daten zu entwickeln. Zum anderen dienen Grafiken aber auch dazu, die Ergebnisse der eigenen Analyse darzustellen um sie anderen mitzuteilen.</p>
-<p>In den vorhergehenden Kapiteln haben wir erste Grafiken bereits kennengelernt (z.B. Balkendiagramme und Streudiagramme). In diesem Kapitel möchte ich aber detaillierter darauf eingehen, wie Grafiken mit R erzeugt werden können. – Wie so oft gibt es dazu verschiedene Wege. Auch base-R bietet einige Funktionen, mit denen Grafiken schnell erzeugt und individuell angepasst werden können. Leider ist dieses Anpassen in base-R für R-Anfänger gar nicht so einfach. Da das Anpassen einer Grafik aber nahezu immer nötig ist, gehe ich hier deshalb nicht auf die Base-R-Funktionen zum Erzeugen von Grafiken ein.</p>
-<p>Selbstverständlich gibt es auch über das Tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt <code>ggplot2</code>. Es beruht auf der <em>Grammar of Graphics</em> (mehr zum Hintergrund finden Sie <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">hier</a>). Die Idee dahinter ist, dass eine Grafik aus mehreren <em>Layern</em> zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.</p>
+<p>In den vorhergehenden Kapiteln haben wir erste Grafiken bereits kennengelernt (z.B. Balkendiagramme und Streudiagramme). In diesem Kapitel möchte ich aber detaillierter darauf eingehen, wie Grafiken mit R erzeugt werden können. Wie so oft gibt es dazu verschiedene Wege. Auch base-R bietet einige Funktionen, mit denen Grafiken schnell erzeugt und individuell angepasst werden können. Leider ist dieses Anpassen in base-R für R-Anfänger gar nicht so einfach. Da das Anpassen einer Grafik aber nahezu immer nötig ist, gehe ich hier deshalb nicht auf die base-R-Funktionen zum Erzeugen von Grafiken ein.</p>
+<p>Selbstverständlich gibt es auch über das tidyverse einen Weg, statistische Grafiken herzustellen. Das entsprechende Paket heißt <code>ggplot2</code>. Es beruht auf der <em>Grammar of Graphics</em> (mehr zum Hintergrund finden Sie <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">hier</a>). Die Idee dahinter ist, dass eine Grafik aus mehreren <em>Layern</em> zusammengesetzt ist. Das kann man sich einerseits ein bisschen so wie bei einem Overhead-Projektor (kennen Sie solche Geräte noch?) vorstellen, bei dem man mehrere transparente Folien übereinanderlegt und dann ein gemeinsames Bild erzeugt – oder wie die Ebenen bei Photoshop. Andererseits sind Layer auch die „Stellschrauben“ mit denen man am Aussehen einer Grafik drehen kann.</p>
 <p>Das Paket <code>ggplot2</code> ist sehr sensibel, was die Daten angeht, die als Input für die Grafiken dienen. Diese müssen auf jeden Fall <code>tidy</code> sein und bisweilen wird ein <em>long format</em> benötigt. Dazu später mehr.</p>
 <div id="drei-basis-funktionen" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Drei Basis-Funktionen</h2>
-<p>Möchte man eine Grafik mit <code>ggplot2</code>erzeugen benötigt man mindestens die folgenden 3 Funktionen. Aber natürlich kann man jede Grafik noch komplexer machen und umgestalten, wenn man weitere Funktionen hinzufügt.</p>
+<p>Möchte man eine Grafik mit `ggplot2 erzeugen benötigt man mindestens die folgenden drei Funktionen. Aber natürlich kann man jede Grafik noch komplexer machen und umgestalten, wenn man weitere Funktionen hinzufügt.</p>
 <p>Die Basis-Funktionen von <code>ggplot2</code> sind:</p>
-<p><code>ggplot()</code>: Diese Funktion ist immer der erste Schritt. Durch die Funktion wird einen so genanntes <em>Plot</em>-Objekt angelegt, also die Grafik an sich. Die Funktion erhält als erstes Argument das Datenobjekt, auf dem die Grafik basieren soll. Zu Beginn ist der Plot leer.</p>
-<p><code>aes()</code>: Mit dieser Hilfsfunktion, wird das <em>aesthetic mapping</em> definiert. Über das *aesthtic mapping können wir bestimmen, wie Daten/Variablen in Formatierung übersetzt werden sollen.</p>
+<p><code>ggplot()</code>: Diese Funktion ist immer der erste Schritt. Durch die Funktion wird einen sogenanntes <em>Plot</em>-Objekt angelegt, also die Grafik an sich. Die Funktion erhält als erstes Argument das Datenobjekt, auf dem die Grafik basieren soll. Zu Beginn ist der Plot leer.</p>
+<p><code>aes()</code>: Mit dieser Hilfsfunktion wird das <em>aesthetic mapping</em> definiert. Über das *aesthtic mapping können wir bestimmen, wie Daten/Variablen in Formatierung übersetzt werden sollen.</p>
 <p><code>geom_()</code>: Es gibt unterschiedliche <code>geom_()</code>-Funktionen. Ein Geom ist ein <em>geom</em>etisches Objekt, dass auf dem Plot platziert werden soll, z.B. ein Balkendiagramm (<code>geom_bar()</code>) oder eine horizontale Linie (<code>geom_hline()</code>). Eine statistische Grafik benötigt mindestens ein Geom, kann aber auch mehrere enthalten.</p>
 <p>Zusätzlich gibt es in ggplot noch eine Besonderheit: Der Operator <code>+</code> wird in diesem Paket dazu eingesetzt, um die einzelnen grafischen Elemente (oder Layer) zusammenzufügen. Das Pluszeichen steht immer nach einem Befehl, wenn ein Plot noch nicht beendet ist und noch ein weiteres Element hinzugefügt werden soll (so ähnlich wie die Pipe). Das <code>+</code> steht immer am Ende der Zeile, nie am Beginn.</p>
 <p>Im Zusammenspiel sieht das so aus (Pseudocode):</p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="grafiken.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var_1)) <span class="sc">+</span></span>
 <span id="cb223-2"><a href="grafiken.html#cb223-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p>In Tidyverse-Schreibweise auch so:</p>
+<p>In tidyverse-Schreibweise auch so:</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="grafiken.html#cb224-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb224-2"><a href="grafiken.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var_1)) <span class="sc">+</span></span>
 <span id="cb224-3"><a href="grafiken.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
@@ -377,12 +377,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb225-2"><a href="grafiken.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(var_1)) <span class="sc">+</span></span>
 <span id="cb225-3"><a href="grafiken.html#cb225-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>Um explizit zu machen, was jeweils passiert, werden wir hier aber die ausführliche Schreibweise nutzen.</p>
-<p>Im Folgenden wollen wir uns natürlich ein paar Grafiken und Formatierungsmöglichkeiten anschauen. Allerdings ist <code>ggplot</code> so umfangreich, dass wir die Funktionen nicht annähernd durchgehen können. Für dieses Kapitel gilt daher im besonderen Maß: wenn Sie eine Formatierung vornehmen möchten, die hier nicht angesprochen wird, googeln Sie danach! Die Möglichkeiten der Gestaltung mit <code>ggplot2</code> sind schier unendlich.</p>
-<p>Als Datenbeispiel benutzen wir auch in diesem Kapitel den Generation Z-Datensatz. Die erste Grafik, die wir hier erstellen wollen thematisiert die politische Partizipation der Befragten und zwar getrennt für Jugendliche und junge Erwachsene. Ich werde anhand von diesem Beispiel auch noch einmal den Einsatz der drei „Basis-Funktionen“ beschreiben.</p>
+<p>Im Folgenden wollen wir uns natürlich ein paar Grafiken und Formatierungsmöglichkeiten anschauen. Allerdings ist <code>ggplot</code> so umfangreich, dass wir die Funktionen nicht annähernd durchgehen können. Für dieses Kapitel gilt daher im besonderen Maß: Wenn Sie eine Formatierung vornehmen möchten, die hier nicht angesprochen wird, googeln Sie danach! Die Möglichkeiten der Gestaltung mit <code>ggplot2</code> sind schier unendlich.</p>
+<p>Als Datenbeispiel benutzen wir auch in diesem Kapitel den Generation Z-Datensatz. Die erste Grafik, die wir hier erstellen wollen, thematisiert die politische Partizipation der Befragten und zwar getrennt für Jugendliche und junge Erwachsene. Ich werde anhand von diesem Beispiel auch noch einmal den Einsatz der drei „Basis-Funktionen“ beschreiben.</p>
 </div>
 <div id="erste-funktion-plot-objekt-erstellen" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Erste Funktion: Plot-Objekt erstellen</h2>
-<p>Jede <code>ggplot2</code>-Grafik beginnt immer mit dieser Funktion und der Übergabe von einem Datenobjekt als erstem Argument. Dabei ist es egal, ob wir die Base-R oder die Tidyverse-Schreibweise wählen.</p>
+<p>Jede <code>ggplot2</code>-Grafik beginnt immer mit dieser Funktion und der Übergabe von einem Datenobjekt als erstem Argument. Dabei ist es egal, ob wir die Base-R oder die tidyverse-Schreibweise wählen.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="grafiken.html#cb226-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
 <span id="cb226-2"><a href="grafiken.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span></code></pre></div>
 </div>
@@ -397,7 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In unserem Beispiel möchten wir die Gruppierungsvariable „Volljährigkeit“ auf der X-Achse darstellen und die metrische Variable „politische Partizipation“ auf der Y-Achse. Die beiden Argumente für die <code>aes()</code> heißen entsprechend x und y. Diese beiden Argumente für die Achsen werden von Geomen häufig vorausgesetzt, damit das entsprechende Geom überhaupt erzeugt werden kann (zwingende Argumente). Einige Geome benötigen aber auch nur das x-Argument (z.B. ganz einfache Häufigkeitsverteilungen von einzelnen Variablen).</p>
 <p><strong>Optionale Argumente</strong></p>
 <p>Die <code>aes()</code>-Funktion kann zusätzlich zu den zwingenden Argumenten für die Achsen auch optionale Argumente haben. Argumente wie <code>fill</code> (Farbe der Füllung), <code>color</code>, <code>size</code>, <code>shape</code>, <code>linetype</code> oder <code>group</code> kann man dazu benutzen, die Formatierung der Grafik zusätzlich durch Variablen zu verändern.</p>
-<p>In unserer Grafik bietet es sich an die Gruppenzugehörigkeit nicht nur durch die Anordnung der Gruppenvariable auf der X-Achse, sondern zusätzlich noch durch Farbe zu unterstreichen.</p>
+<p>In unserer Grafik bietet es sich an, die Gruppenzugehörigkeit nicht nur durch die Anordnung der Gruppenvariable auf der X-Achse, sondern zusätzlich noch durch Farbe zu unterstreichen.</p>
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="grafiken.html#cb228-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
 <span id="cb228-2"><a href="grafiken.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> volljaehrigkeit,</span>
 <span id="cb228-3"><a href="grafiken.html#cb228-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> pol_part_sx, </span>
@@ -411,8 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb229-2"><a href="grafiken.html#cb229-2" aria-hidden="true" tabindex="-1"></a>p </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>Wie auch? Wir haben ja noch gar nicht festgelegt, um was für eine Art Grafik es sich handeln soll! Über den Operator <code>+</code> können wir dem Plot Geome hinzufügen. Wir addieren sozusagen geome zum Plot dazu: <code>p + geom_()</code>.</p>
-<div id="streudiagram" class="section level3" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> Streudiagram</h3>
+<div id="streudiagramm-1" class="section level3" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Streudiagramm</h3>
 <p>Im ersten Schritt erstellen wir ein Streudiagramm mit <code>geom_point()</code>.</p>
 <p>Jedes Geom hat noch weitere (optionale) Argumente, die man entweder im aesthetic mapping verwenden kann um Variablen zuzuweisen oder man kann das allgemeine Layout dadurch verändern. Wir könnten beim Streudigramm z.B. zusätzlich zur Farbe auch die Größe der Punkte über <code>size</code> verändern oder ihre Form über <code>shape</code>.</p>
 <p>Im Beispiel nutzen wir das zusätzliche Argument <code>size = 5</code></p>
@@ -435,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="boxplot" class="section level3" number="9.4.3">
 <h3><span class="header-section-number">9.4.3</span> Boxplot</h3>
-<p>Eine weiter Möglichkeit um die Verteilung von Variablen darzustellen ist der Boxplot. Ein Boxplot gibt gleichzeitig Auskunft über Minimum, Maximum, die Quartilgrenzen und den Median der Verteilung einer Variablen. Das Mittlere Rechteck repräsentiert die mittleren 50 Prozent der Verteilung. Die „whiskers“ zeigen den 1,5-fachen Interquartilabstand. Ausreißer werden durch Punkte außerhalb der whiskers dargestellt.</p>
+<p>Eine weitere Möglichkeit, um die Verteilung von Variablen darzustellen, ist der Boxplot. Ein Boxplot gibt gleichzeitig Auskunft über Minimum, Maximum, die Quartilgrenzen und den Median der Verteilung einer Variable. Das mittlere Rechteck repräsentiert die mittleren 50 Prozent der Verteilung. Die „whiskers“ zeigen den 1,5-fachen Interquartilabstand. Ausreißer werden durch Punkte außerhalb der whiskers dargestellt.</p>
 <p>Hier eine schematische Darstellung:
 <img src="images/boxplot_info.png" alt="Schematische Darstellung eines Boxplots" style="width:1000px;margin-bottom:5px;margin-top:15px"></p>
 <p>Und hier unser Boxplot:</p>
@@ -445,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="violin-plot" class="section level3" number="9.4.4">
 <h3><span class="header-section-number">9.4.4</span> Violin-Plot</h3>
-<p>Eine weitere Variante um eine Verteilung darzustellen ist der Violin-Plot. Er ähnelt dem Boxplot, er zeigt aber nicht die Quartilgrenzen sondern die „Kerndichteschätzung“. Wenn man sich den Plot anguckt, sieht man sofort, wie unterschiedlich die Variable in den Gruppen verteilt ist:</p>
+<p>Eine weitere Variante, um eine Verteilung darzustellen, ist der Violin-Plot. Er ähnelt dem Boxplot, er zeigt aber nicht die Quartilgrenzen, sondern die „Kerndichteschätzung“. Wenn man sich den Plot anguckt, sieht man sofort, wie unterschiedlich die Variable in den Gruppen verteilt ist:</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="grafiken.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violon-Plot</span></span>
 <span id="cb234-2"><a href="grafiken.html#cb234-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
@@ -456,7 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="grafiken.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vorbereitung des Plots und des Mappings</span></span>
 <span id="cb235-2"><a href="grafiken.html#cb235-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
 <span id="cb235-3"><a href="grafiken.html#cb235-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> zufriedenheit_leben))</span></code></pre></div>
-<p>Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken so hässlich sind, färben wir sie über ´fill` in pink ein.</p>
+<p>Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken so hässlich sind, färben wir sie über ´fill´ in pink ein.</p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="grafiken.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Einfaches Balkendiagramm</span></span>
 <span id="cb236-2"><a href="grafiken.html#cb236-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
@@ -469,7 +469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="grafiken.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gestapelte Balken</span></span>
 <span id="cb238-2"><a href="grafiken.html#cb238-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> volljaehrigkeit)) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
-<p>Und über das Zusatzargument <code>position = "dodge"</code> kann man die Balken nebeneinander anzeigen. Achtung, diese Argument wird heir außerhalb von <code>aes()</code> platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.</p>
+<p>Und über das Zusatzargument <code>position = "dodge"</code> kann man die Balken nebeneinander anzeigen. Achtung, dieses Argument wird hier außerhalb von <code>aes()</code> platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="grafiken.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Balken nebeneinander</span></span>
 <span id="cb239-2"><a href="grafiken.html#cb239-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> volljaehrigkeit), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
@@ -489,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb242-2"><a href="grafiken.html#cb242-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>) </span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
-<p>Ohje, sehr “löchrig.” Das ist genau das Problem, dass ich oben beschreiben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument <code>binwidth</code>, kann man zudem festlegen, in welchen Einheiten die Werte Zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.</p>
+<p>Ohje, sehr “löchrig.” Das ist genau das Problem, dass ich oben beschrieben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument <code>binwidth</code> kann man zudem festlegen, in welchen Einheiten die Werte zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.</p>
 <div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="grafiken.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramm mit angepasster Balkenbreite</span></span>
 <span id="cb244-2"><a href="grafiken.html#cb244-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.3</span>) </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
@@ -498,7 +498,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="liniendiagramme" class="section level3" number="9.4.7">
 <h3><span class="header-section-number">9.4.7</span> Liniendiagramme</h3>
 <p>Zum Abschluss folgt noch ein Liniendiagramm. Im Beispiel möchte ich die Nutzung unterschiedlicher Informationsquellen nach Alter darstellen. Das ist zwar keine richtige zeitliche Entwicklung, aber der Datensatz enthält ja nunmal auch keine Zeitreihen.</p>
-<p>Ich möchte in dem Plot die Mittelwerte für die unterschiedlichen Informationsquellen je nach Alter darstellen. Zunächst muss der Datensatz so umgeformz werden, dass er diese Mittelwerte enthält. Ich brauche also einen kleinen Mini-Datensatz, den ich mit dplyr erzeuge.
+<p>Ich möchte in dem Plot die Mittelwerte für die unterschiedlichen Informationsquellen je nach Alter darstellen. Zunächst muss der Datensatz so umgeformt werden, dass er diese Mittelwerte enthält. Ich brauche also einen kleinen Mini-Datensatz, den ich mit dplyr erzeuge.
 Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="grafiken.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mittelwerte Datensatz erstellen</span></span>
 <span id="cb245-2"><a href="grafiken.html#cb245-2" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
@@ -521,8 +521,8 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 ## 4    17   0.55   0.15    0.35  0.2       0.2   
 ## 5    18   0.462  0.385   0.308 0.385     0.231 
 ## 6    19   0.417  0.417   0.542 0.0833    0.292</code></pre>
-<p>Für das Linendiagramm benötigen wir allerdings ein <em>Longformat</em>. Das bedeutet, dass die Mittelwerte der Variablen nicht neben, sondern übereinender in dem Datensatz angezeigt werden müssen. Also alle Mittelwerte werden in eine Spalte kopiert (aus fünf wird also eine Spalte). Allerdings brauchen wir dann noch eine zusätzliche Spalte/Variable, die angibt, aus welcher ursprünglichen Variable ein Mittelwert kommt.</p>
-<p>Diese Datenumformung erreichen wir über die <code>dplyr</code>-Funktion <code>pivot_longer()</code>. Sie benöotigt als Argument <code>cols</code> einen Vektor mit den Variablen die zusammengefasst werden sollen.</p>
+<p>Für das Linendiagramm benötigen wir allerdings ein <em>Longformat</em>. Das bedeutet, dass die Mittelwerte der Variablen nicht neben, sondern übereinender in dem Datensatz angezeigt werden müssen. Also alle Mittelwerte werden in einer Spalte kopiert (aus fünf wird also eine Spalte). Allerdings brauchen wir dann noch eine zusätzliche Spalte/Variable, die angibt, aus welcher ursprünglichen Variable ein Mittelwert kommt.</p>
+<p>Diese Datenumformung erreichen wir über die <code>dplyr</code>-Funktion <code>pivot_longer()</code>. Sie benöotigt als Argument <code>cols</code>, einen Vektor, mit den die Variablen die zusammengefasst werden sollen.</p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="grafiken.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># von wide in long konvertieren:</span></span>
 <span id="cb248-2"><a href="grafiken.html#cb248-2" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> df_mean <span class="sc">%&gt;%</span> </span>
 <span id="cb248-3"><a href="grafiken.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(tv_news, google, youtube, print, tv_satire))</span>
@@ -548,7 +548,7 @@ Beginnen wir mit der Nutzung von TV-Nachrichten.</p>
 </div>
 <div id="grafiken-speichern" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Grafiken speichern</h2>
-<p>Natürlich können Sie die Grafiken über den “Plot”-Tab in RStudio exportieren um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Dei Funktion heißt <code>ggsave()</code>. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit <code>units</code> die Einheit für die Abmessungen festgelegt werden (z.B. <code>units = cm</code>).</p>
+<p>Natürlich können Sie die Grafiken über den “Plot”-Tab in RStudio exportieren, um Sie in andere Programme einzufügen. Zum Abschluss möchte ich Ihnen noch eine Funktion zeigen, mit der Sie das auch direkt im Skript machen können. Die Funktion heißt <code>ggsave()</code>. Als Argumente nimmt sie beispielsweise den Dateipfad, den Namen des Plots und weitere Angaben, wie die gewünschte Höhe und Breite oder die DPI-Zahl. Außerdem kann mit <code>units</code> die Einheit für die Abmessungen festgelegt werden (z.B. <code>units = cm</code>).</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="grafiken.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># den letzten angezeigten Plot speichern</span></span>
 <span id="cb251-2"><a href="grafiken.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;images/my_plot.png&quot;</span>)</span>
 <span id="cb251-3"><a href="grafiken.html#cb251-3" aria-hidden="true" tabindex="-1"></a></span>

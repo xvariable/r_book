@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 8 Bivariate Statistik | r_book.utf8</title>
+  <title>Kapitel 8 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 8 Bivariate Statistik | r_book.utf8" />
+  <meta property="og:title" content="Kapitel 8 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
   
   <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="xvariable/r_book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 8 Bivariate Statistik | r_book.utf8" />
+  <meta name="twitter:title" content="Kapitel 8 Bivariate Statistik | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   
   <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
 <li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagram"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagram</a></li>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
 <li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
 <li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
 <li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
@@ -343,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
           </h1>
         </div>
 
@@ -458,7 +458,7 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 ## data:  my_crosstab
 ## X-squared = 37.226, df = 2, p-value = 8.249e-09</code></pre>
 <p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant.” Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.</p>
-<p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im Paket <code>DescTools</code> und heißt <code>CramerV()</code>. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt <code>my_crosstab</code> gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte gelöscht werden, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting <code>[, -1]</code> können wir genau dies erreichen. Der Befehl löscht quasi alle Zeilen (durch das Weglassen der Angabe vor dem Komma) und alle Spalten bis auf die erste (nach dem Komma <code>-1</code>).</p>
+<p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im Paket <code>DescTools</code> und heißt <code>CramerV()</code>. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt <code>my_crosstab</code> gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte gelöscht werden, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting <code>[, -1]</code> können wir genau dies erreichen. Der Befehl besagt quasi: Gib alle Zeilen aus (durch das Weglassen der Angabe vor dem Komma - wenn man hier nichts schreibt, bdeutet das “keine Enischränkung”) und alle Spalten bis auf die erste (nach dem Komma <code>-1</code>).</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="bivariate-statistik.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cramer´s V</span></span>
 <span id="cb197-2"><a href="bivariate-statistik.html#cb197-2" aria-hidden="true" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">CramerV</span>(my_crosstab[, <span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.1924605</code></pre>
@@ -469,7 +469,7 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 </div>
 <div id="korrelationen" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Korrelationen</h2>
-<p>Dieser Abschnitt ist den Zusammenhängen zwischen metrischen Variablen gewidmet. Dabei wird zunächst auf die grafische Analyse eingegangen und dann die Berechnung der Kovarianz und des Korrelationskoeffizienten <em>r</em> veranschaulicht. Dabei werden sowohl die Befehle aus base-R, als auch die entsprechenden Befehle aus dem Pakte <code>psych</code> verwendet. Zudem wird noch das Paket <code>corrr</code> vorgestellt, das zur explorativen, grafischen Analyse von Korrelationen dient.</p>
+<p>Dieser Abschnitt ist den Zusammenhängen zwischen metrischen Variablen gewidmet. Dabei wird zunächst auf die grafische Analyse eingegangen und dann die Berechnung der Kovarianz und des Korrelationskoeffizienten <em>r</em> veranschaulicht. Dabei werden sowohl die Befehle aus base-R als auch die entsprechenden Befehle aus dem Paket <code>psych</code> verwendet. Zudem wird noch das Paket <code>corrr</code> vorgestellt, das zur explorativen grafischen Analyse von Korrelationen dient.</p>
 <p>Zunächst werden die entsprechenden Pakete geladen.</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="bivariate-statistik.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></span>
 <span id="cb199-2"><a href="bivariate-statistik.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)     <span class="co"># für Korrelationen</span></span>
@@ -494,25 +494,25 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <p><em>H1: Zwischen politischer Partizipation und politischer Entfremdung besteht ein negativer Zusammenhang.</em></p>
 <p>Diese Alternativhypothese steht im Gegensatz zur folgenden Nullhypothese:</p>
 <p><em>H0: Es gibt keinen (oder sogar einen positiven) Zusammenhang zwischen politischer Partizipation und politischer Entfremdung.</em></p>
-<p>Die Nullhypothese müsste beibehalten werden, sofern wir bei der Berechnung der Korrelation einen Wert von <em>r</em> berechnen der größer oder gleich 0 ist <strong>oder</strong> wenn wir zwar ein negatives <em>r</em> berechnen, aber der p-Wert indiziert, dass dieses berechnete <em>r</em> sich nicht signifikant von Null unterschiedet. Andernfalls können wir davon ausgehen, dass in der Grundgesamtheit wohl eher die H1 zutrifft.</p>
+<p>Die Nullhypothese müsste beibehalten werden, sofern wir bei der Berechnung der Korrelation einen Wert von <em>r</em> berechnen, der größer oder gleich 0 ist <strong>oder</strong> wenn wir zwar ein negatives <em>r</em> berechnen, aber der p-Wert indiziert, dass dieses berechnete <em>r</em> sich nicht signifikant von 0 unterscheidet. Andernfalls können wir davon ausgehen, dass in der Grundgesamtheit wohl eher die H1 zutrifft.</p>
 <div id="streudiagramm" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Streudiagramm</h3>
-<p>Wir starten zunächst mit einem Streudiagram/Scatterplot und nutzen dazu das Paket <code>ggplot2</code> aus dem Tidyverse. Das Paket wird im nächsten Kapitel (ab Januar) noch ausführlicher erläutert werden. Die Funktion zum Anlegen eines Plots in ggplot2 ist <code>ggplot()</code>. Sie benötigt als erstes Argument den Datensatz und dann als zweites Argument eine Hilfsfunktion, die <code>aes()</code> heißt. Diese Funktion ist für die <em>Ästhetik</em>, also das Aussehen des Plots, verantwortlich. In unserem Fall sind das die beiden Variablen, welche wir auf der X- und der Y-Achse anordnen.</p>
-<p>Nach dem Anlegen des Plots müssen wir dem Plot noch ein <em>Geom</em> hinzufügen. Der Begriff steht für <em>geom</em>etrisches Objekt. Ein Geom ist im Prinzip eine Funktion für die Art der Grafik. Es beinhaltet z.B. statistische Transformationen die zur Darstellung der Grafik nötig sind und Default-Layout-Informationen. In unserem Fall möchten wir das Geom <code>geom_jitter</code> hinzufügen, also einen “zitternden” Scatterplot. Eine Übersicht über verschiedene Geome findet man <a href="https://rstudio.com/wp-content/uploads/2015/06/ggplot2-german.pdf">hier</a>. Das Geom wird mit dem Plot über ein <code>+</code> verknüpft. Diese Pluszeichen muss zwingend am Ende der vorigen Zeile stehen. Über das Pluszeichen kann man dem Plot auch noch weitere Veränderungen hinzufügen. Dazu später mehr.</p>
+<p>Wir starten zunächst mit einem Streudiagramm/Scatterplot und nutzen dazu das Paket <code>ggplot2</code> aus dem tidyverse. Das Paket wird im nächsten Kapitel (ab Januar) noch ausführlicher erläutert werden. Die Funktion zum Anlegen eines Plots in ggplot2 ist <code>ggplot()</code>. Sie benötigt als erstes Argument den Datensatz und dann als zweites Argument eine Hilfsfunktion, die <code>aes()</code> heißt. Diese Funktion ist für die <em>Ästhetik</em>, also das Aussehen des Plots, verantwortlich. In unserem Fall sind das die beiden Variablen, welche wir auf der X- und der Y-Achse anordnen.</p>
+<p>Nach dem Anlegen des Plots müssen wir dem Plot noch ein <em>Geom</em> hinzufügen. Der Begriff steht für <em>geom</em>etrisches Objekt. Ein Geom ist im Prinzip eine Funktion für die Art der Grafik. Es beinhaltet z.B. statistische Transformationen, die zur Darstellung der Grafik nötig sind und außerdem Default-Layout-Informationen. In unserem Fall möchten wir das Geom <code>geom_jitter</code> hinzufügen, also einen “zitternden” Scatterplot. Eine Übersicht über verschiedene Geome findet man <a href="https://rstudio.com/wp-content/uploads/2015/06/ggplot2-german.pdf">hier</a>. Das Geom wird mit dem Plot über ein <code>+</code> verknüpft. Dieses Pluszeichen muss zwingend am Ende der vorigen Zeile stehen. Über das Pluszeichen kann man dem Plot auch noch weitere Veränderungen hinzufügen. Dazu später mehr.</p>
 <p>Alternativ zum oben beschriebenen Vorgehen kann man auch die <em>aes()</em>-Funktion in die <em>geom_</em>-Funktion einbauen, das macht optisch keinen Unterschied.</p>
-<p>Hier der Code für das zitternde Streudiagram:</p>
+<p>Hier der Code für das zitternde Streudiagramm:</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="bivariate-statistik.html#cb202-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
 <span id="cb202-2"><a href="bivariate-statistik.html#cb202-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pol_part_sx, <span class="at">y =</span> pol_entfremdung_ix)) <span class="sc">+</span></span>
 <span id="cb202-3"><a href="bivariate-statistik.html#cb202-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
-<p>Betrachtet man den Output kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.</p>
+<p>Betrachtet man den Output, kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es ist zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.</p>
 </div>
 <div id="kovarianz" class="section level3" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Kovarianz</h3>
-<p>Die Kovarianz ist die gemeinsame Variation der beiden Variablen, bzw. das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl <code>cov()</code> ausgeben lassen (Teil des <code>stats</code>-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll:</p>
+<p>Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl <code>cov()</code> ausgeben lassen (Teil des <code>stats</code>-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll:</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="bivariate-statistik.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0.4992269</code></pre>
-<p>Im Beispiel ist die Kovarianz also -0.5. Das ist insofern gut, wel das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.</p>
+<p>Im Beispiel ist die Kovarianz also -0.5. Das ist insofern gut, weil das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.</p>
 </div>
 <div id="korrelation-mit-base-rstats" class="section level3" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Korrelation mit <code>base R</code>/<code>stats</code></h3>
@@ -520,10 +520,10 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <p>Auch der Korrelationskoeffizient lässt sich leicht mit dem <code>stats</code>-Paket berechnen:</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="bivariate-statistik.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0.3998827</code></pre>
-<p>Das Vorzeichen bleibt verglichen mit der Kovarianz selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 “gepresst.” Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von <em>r</em> = -0.4.</p>
-<p>Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem prüfen, ob ein Korrelationskoeffizient sich signifikant von Null unterschiedet (Inferenzstatistik). Die Funktion für den Signifikanztest lautet <code>cor.test()</code>. Neben den beiden Variablen, kann man der Funktion weitere Argumente mitgeben:</p>
+<p>Das Vorzeichen bleibt, verglichen mit der Kovarianz, selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 “gepresst.” Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von <em>r</em> = -0.4.</p>
+<p>Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem prüfen, ob ein Korrelationskoeffizient sich signifikant von 0 unterscheidet (Inferenzstatistik). Die Funktion für den Signifikanztest lautet <code>cor.test()</code>. Neben den beiden Variablen kann man der Funktion weitere Argumente mitgeben:</p>
 <ul>
-<li><p>Das Argument <code>use</code> bestimmt darüber wie mit fehlenden werten umgegangen werden soll. Es ist eigentlich nur dann relevant, wenn mehr als zwei Variablen korreliert werden sollen. Dann kann man darüber entscheiden, ob ein FAll für alle mögliche Korrelationen ausgeschlossen werden soll, wenn er bei einer Variable einen fehlenden Wert hat (listenweiser Fallausschluss) oder ob dieser Fall nur bei den Korrelationen ausgeschlossen werden soll, bei denen die Variable beteiligt ist (paarweiser Fallausschluss).</p></li>
+<li><p>Das Argument <code>use</code> bestimmt darüber, wie mit fehlenden Werten umgegangen werden soll. Es ist eigentlich nur dann relevant, wenn mehr als zwei Variablen korreliert werden sollen. Dann kann man darüber entscheiden, ob ein Fall für alle mögliche Korrelationen ausgeschlossen werden soll, wenn er bei einer Variable einen fehlenden Wert hat (listenweiser Fallausschluss) oder ob dieser Fall nur bei den Korrelationen ausgeschlossen werden soll, bei denen die Variable beteiligt ist (paarweiser Fallausschluss).</p></li>
 <li><p>Im Argument <code>alternative</code> kann man festlegen, um was für eine Alternativhypothese es sich handelt. Hiernach bestimmt sich, in welche <em>Richtung</em> der Signifikanztest durchgeführt werden soll und ob <em>einseitig</em> oder <em>zweiseitig</em> getestet werden soll. Man kann hier die Option <code>two.sided</code> für einen zweiseitigen Test festlegen, wenn man eine ungerichtete Hypothese aufgestellt hat. Für gerichtete Hypothesen stehen die Optionen <code>greater</code> (für positive Zusammenhänge) und <code>less</code> (für negative Zusammenhänge) zur Verfügung.</p></li>
 </ul>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="bivariate-statistik.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix, </span>
@@ -540,12 +540,12 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ## sample estimates:
 ##        cor 
 ## -0.3998827</code></pre>
-<p>Das Ergebnis ist ein kurzer “Bericht” über den Signifikanztest. Angegeben sind z.B. der p-Wert, das Konfidenzintervall und noch einmal der Korrelationskoeffizient. Aus dem p-Wert, der im Beispiel einen sehr niedrigen Wert (kleiner als die geforderten .05) aufweist, können wir schließen, dass der Wert <em>r</em> = -0.3998827 signifikant von Null abweicht, also mit einiger Wahrscheinlichkeit nicht zufällig zustande gekommen ist. Das spricht für unsere Hypothese und damit für die Existenz des vermuteten Zusammenhangs in der Grundgesamtheit. Wir können die Hypothese somit als durch die Daten bestätigt ansehen.</p>
+<p>Das Ergebnis ist ein kurzer “Bericht” über den Signifikanztest. Angegeben sind z.B. der p-Wert, das Konfidenzintervall und noch einmal der Korrelationskoeffizient. Aus dem p-Wert, der im Beispiel einen sehr niedrigen Wert (kleiner als die geforderten .05) aufweist, können wir schließen, dass der Wert <em>r</em> = -0.3998827 signifikant von 0 abweicht, also mit einiger Wahrscheinlichkeit nicht zufällig zustande gekommen ist. Das spricht für unsere Hypothese und damit für die Existenz des vermuteten Zusammenhangs in der Grundgesamtheit. Wir können die Hypothese somit als durch die Daten bestätigt ansehen.</p>
 </div>
 <div id="korrelation-mit-psych" class="section level3" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Korrelation mit <code>psych</code></h3>
-<p>Den Korrelationskoeffizient kann man in R auch mit vielen anderen Paketen ausrechnen. Beispielhaft soll hier noch der Code für die Korrelation mit dem <code>psych</code>-Paket veranschaulicht werden. Dieses Paket benutzen wir ja auch für viele andere statistische Verfahren und man kann <code>psych</code> mit der Pipe benutzen (Tidyverse-Schreibweise). Der Output für die Korrelation sieht leicht anders aus.</p>
-<p>Die Funktion für die Korrelation in <code>psych</code> lautet <code>corr()</code> (mit 2 r). Sie benötigt als erstes Argument den Datensatz mit außschließlich den Variablen, die korreliert werden sollen. Diese können direkt vor der Funktion mit einem <code>select()</code>- Befehl ausgewählt werden. Neben dem Datenobjekt kann man weitere Argumente angeben, z.B. über <code>use</code> den listen- oder paarweisen Fallausschluss und über <code>method</code> die Art der Korrelation. Neben dem standardmäßig eingestellten Wert <code>pearson</code> für den Korrelationskoeffizienten (Pearson´s r) gibt es nämlich noch weitere Maßzahlen für spezielle Daten (z.B. <code>spearman</code> für Rangdaten oder <code>kendall</code> für ordinale Daten).</p>
+<p>Den Korrelationskoeffizient kann man in R auch mit vielen anderen Paketen ausrechnen. Beispielhaft soll hier noch der Code für die Korrelation mit dem <code>psych</code>-Paket veranschaulicht werden. Dieses Paket benutzen wir ja auch für viele andere statistische Verfahren und man kann <code>psych</code> mit der Pipe benutzen (tidyverse-Schreibweise). Der Output für die Korrelation sieht leicht anders aus.</p>
+<p>Die Funktion für die Korrelation in <code>psych</code> lautet <code>corr()</code> (mit 2 r). Sie benötigt als erstes Argument den Datensatz mit ausschließlich den Variablen, die korreliert werden sollen. Diese können direkt vor der Funktion mit einem <code>select()</code>- Befehl ausgewählt werden. Neben dem Datenobjekt kann man weitere Argumente angeben, z.B. über <code>use</code> den listen- oder paarweisen Fallausschluss und über <code>method</code> die Art der Korrelation. Neben dem standardmäßig eingestellten Wert <code>pearson</code> für den Korrelationskoeffizienten (Pearson´s r) gibt es nämlich noch weitere Maßzahlen für spezielle Daten (z.B. <code>spearman</code> für Rangdaten oder <code>kendall</code> für ordinale Daten).</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="bivariate-statistik.html#cb209-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb209-2"><a href="bivariate-statistik.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pol_part_sx, pol_entfremdung_ix) <span class="sc">%&gt;%</span> </span>
 <span id="cb209-3"><a href="bivariate-statistik.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.test</span>(<span class="at">use=</span><span class="st">&quot;pairwise&quot;</span>, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
@@ -564,9 +564,9 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
 <p>Der Output sieht leicht anders aus als der oben dargestellte aus dem <code>stats</code>-Paket. Er hat drei wichtige Bereiche:</p>
 <ul>
-<li><p>Eine Matrix für die Korrelationskoeffizienten. Hier wird die Korrelation jeder Variablen mit jeder anderen im Datensatz dargestellt. In unserem Fall sind das ja nur zwei. Aber mit der Funktion könnten sie auch 3 oder noch mehr Variablen miteinander korrelieren. – Jeweils natürlich nur paarweise. In dieser Matrix ist jede Korrelation doppelt enthalten: Einmal über und einmal unter der mittleren Diagonalen. Das liegt daran, dass die Korrelation 2 Mal berechnet wird: Zunächst mit der ersten Variable an erster und der zweiten an zweiter Stelle. Danach wird die Position der Variablen getauscht. Für Pearson´s r macht es jedoch keinen Unterschied, welche Reihenfolge die Variablen haben. Deshalb steht dort zweimal die gleiche Zahl. In der Diagonalen finden Sie die Korrelation einer Variablen mit sich selbst. Sie ist logischerweise jeweils = 1, also ein perfekter positiver Zusammenhang.</p></li>
+<li><p>Eine Matrix für die Korrelationskoeffizienten. Hier wird die Korrelation jeder Variablen mit jeder anderen im Datensatz dargestellt. In unserem Fall sind das ja nur zwei. Aber mit der Funktion könnten sie auch drei oder noch mehr Variablen miteinander korrelieren. – Jeweils natürlich nur paarweise. In dieser Matrix ist jede Korrelation doppelt enthalten: Einmal über und einmal unter der mittleren Diagonalen. Das liegt daran, dass die Korrelation zweimal berechnet wird: Zunächst mit der ersten Variable an erster und der zweiten an zweiter Stelle. Danach wird die Position der Variablen getauscht. Für Pearson´s r macht es jedoch keinen Unterschied, welche Reihenfolge die Variablen haben. Deshalb steht dort zweimal die gleiche Zahl. In der Diagonalen finden Sie die Korrelation einer Variablen mit sich selbst. Sie ist logischerweise jeweils = 1, also ein perfekter positiver Zusammenhang.</p></li>
 <li><p>Der zweite Bereich gibt Aufschluss über die Sample-Größe. Er wird auch manchmal als Matrix dargestellt, nämlich dann, wenn die Fallzahl für die einzelnen Korrelationen unterschiedlich wäre. Das ist hier aber nicht der Fall.</p></li>
-<li><p>Der dritte wichtige Bereich beinhaltet die p-Werte der Korrelationen. Im Beispiel sind alle p-Werte ausgesprochen niedrig, deshalb wird hier “0” dargestellt. Das ist natürlich der Rundung geschuldet, denn selbstverständlich ist der p-Wert nie exakt “0,” da es sich um eine Wahrscheinlichkeit handelt. Er nähert sich lediglich dem Wert Null an.</p></li>
+<li><p>Der dritte wichtige Bereich beinhaltet die p-Werte der Korrelationen. Im Beispiel sind alle p-Werte ausgesprochen niedrig, deshalb wird hier “0” dargestellt. Das ist natürlich der Rundung geschuldet, denn selbstverständlich ist der p-Wert nie exakt “0,” da es sich um eine Wahrscheinlichkeit handelt. Er nähert sich lediglich dem Wert 0 an.</p></li>
 </ul>
 </div>
 <div id="partialkorrelation" class="section level3" number="8.2.5">
@@ -592,13 +592,13 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ## 
 ##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
 <p>Der Output sieht ähnlich aus wie zuvor, nur dass in den Zellen jetzt jeweils die Korrelation zwischen zwei Variablen dargestellt ist, bereinigt um die jeweils dritte. Für die uns interessierende Korrelation zwischen politischer Partizipation und politischer Entfremdung ist der Korrelationskoeffizient hier nur leicht gesunken. Er beträgt jetzt noch <em>r-partial</em> = -0.38. Der Einfluss des Alters auf unseren Zusammenhang war also vermutlich nicht besonders stark. Auch nach Kontrolle dieser Drittvariable hat unsere Alternativhypothese also Bestand.</p>
-<p>Man kann sogar in der Korrelations-Matrix oben sehen, dass das Alter lediglich mit der Variable <em>politische Partizipation</em> einen Zusammenhang hat, aber kaum mit <em>politischer Entfremdung</em>. Vermutlich wird ein Teil der Varianz in der politischen Partizipation durch das Alter erklärt. Das diese Variablen ebenfalls kovariieren macht inhaltlich sogar Sinn: Wer älter ist, hatte bereits mehr Gelegenheit zur politischen Partizipation und einige Partizipationsmöglichkeiten kann man sogar erst mit einem gewissen Alter ausüben, wie beispielsweise das Wählen.</p>
+<p>Man kann sogar in der Korrelations-Matrix oben sehen, dass das Alter lediglich mit der Variable <em>politische Partizipation</em> einen Zusammenhang hat, aber kaum mit <em>politischer Entfremdung</em>. Vermutlich wird ein Teil der Varianz in der politischen Partizipation durch das Alter erklärt. Dass diese Variablen ebenfalls kovariieren, macht inhaltlich sogar Sinn: Wer älter ist, hatte bereits mehr Gelegenheit zur politischen Partizipation und einige Partizipationsmöglichkeiten kann man sogar erst mit einem gewissen Alter ausüben, wie beispielsweise das Wählen.</p>
 </div>
 <div id="korrelationsmatrizen-darstellen" class="section level3" number="8.2.6">
 <h3><span class="header-section-number">8.2.6</span> Korrelationsmatrizen darstellen</h3>
-<p>Zum Abschluss dieses Teils möchte ich noch kurz darauf eingehen, dass man natürlich auch mehrere oder sogar viele Korrelationen in einer Matrix darstellen kann. R liefert sogar ganz schöne Grafiken die Zusammenhänge zwischen metrischen Variablen übersichtlich darstellen können. Ein Paket, welches dazu benutzt werden kann, ist <code>corrr</code>.</p>
-<p>Ich greife im folgenden auf einen anderen Datensatz zu, nämlich auf den Datensatz <code>mtcars</code> aus dem Tidyverse. In dem Datensatz sind Statistiken über verschiedene Automodelle gesammelt, aber der Inhalt ist an dieser Stelle nicht so wichtig.</p>
-<p>Die Funktion <code>correlate()</code> aus dem <code>corrr</code>-Paket liefert zunächst die Korrelationsmatrix der Daten. Signifikanztest liefert das Paket nicht, denn es ist eher für die explorative Vorgehensweise geeignet (= nicht inferenzstatistisch-Hypothesenprüfend).</p>
+<p>Zum Abschluss dieses Teils möchte ich noch kurz darauf eingehen, dass man natürlich auch mehrere oder sogar viele Korrelationen in einer Matrix darstellen kann. R liefert sogar ganz schöne Grafiken, die Zusammenhänge zwischen metrischen Variablen übersichtlich darstellen können. Ein Paket, welches dazu benutzt werden kann, ist <code>corrr</code>.</p>
+<p>Ich greife im Folgenden auf einen anderen Datensatz zu, nämlich auf den Datensatz <code>mtcars</code> aus dem tidyverse. In dem Datensatz sind Statistiken über verschiedene Automodelle gesammelt, aber der Inhalt ist an dieser Stelle nicht so wichtig.</p>
+<p>Die Funktion <code>correlate()</code> aus dem <code>corrr</code>-Paket liefert zunächst die Korrelationsmatrix der Daten. Signifikanztests liefert das Paket nicht, denn es ist eher für die explorative Vorgehensweise geeignet (= nicht inferenzstatistisch-Hypothesenprüfend).</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="bivariate-statistik.html#cb213-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb213-2"><a href="bivariate-statistik.html#cb213-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() </span></code></pre></div>
 <pre><code>## 
@@ -628,7 +628,7 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
 <pre><code>## Don&#39;t know how to automatically pick scale for object of type noquote. Defaulting to continuous.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
-<p>Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formetieren. Mit <code>rearrange()</code> kann man die Variablen in der Matrix nach der der Größe der Korrelation sortieren. Mit <code>shave</code> kann man die “doppelte” obere Hälfte des Plots abschneiden.</p>
+<p>Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formatieren. Mit <code>rearrange()</code> kann man die Variablen in der Matrix nach der Größe der Korrelation sortieren. Mit <code>shave</code> kann man die “doppelte” obere Hälfte des Plots abschneiden.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="bivariate-statistik.html#cb219-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb219-2"><a href="bivariate-statistik.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb219-3"><a href="bivariate-statistik.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span></span>
@@ -643,7 +643,7 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ##   print.registry_entry proxy</code></pre>
 <pre><code>## Don&#39;t know how to automatically pick scale for object of type noquote. Defaulting to continuous.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
-<p>Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen sieht man auf den ersten Blick!</p>
+<p>Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen, sieht man auf den ersten Blick!</p>
 </div>
 </div>
 <div id="wichtige-funktionen-aus-diesem-kapitel-3" class="section level2 unnumbered">

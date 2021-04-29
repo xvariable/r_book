@@ -64,9 +64,9 @@ Klickt man in dem Dialog auf "okay" offnet sich eine Datei, die auch schon Beisp
 
 ### Zweiter Schritt: Inhalt der RMarkdown-Datei
 
-Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Gruppen zuordnen:
+Diese wesentlichen Bestandteile der RMarkdown-Datei lassen sich drei Typen zuordnen:
 
-1. Der Header
+1. Header
 
 2. R-Code-Chunks
 
