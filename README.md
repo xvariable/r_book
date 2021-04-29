@@ -5,6 +5,7 @@ In this repository you will find the source code of the "R Kompendium". This R b
 The book is available at:
 https://xvariable.github.io/r_book
 
-Licence:
-[https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de]![licence: CC BY-NC-SA 4.0](https://wb-web.de/_Resources/Persistent/f/0/8/a/f08a44ca8180af1aa60593109216869c0561f082/CC%20BY%20NC%20SA-149x52.png)
+License:
 
+[<img alt = " licence: CC BY-NC-SA 4.0" src =  "https://wb-web.de/_Resources/Persistent/f/0/8/a/f08a44ca8180af1aa60593109216869c0561f082/CC%20BY%20NC%20SA-149x52.png">]
+(https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de)
