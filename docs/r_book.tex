@@ -1117,7 +1117,7 @@ Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Se
 \hypertarget{arbeitsverzeichnis}{%
 \subsection{Arbeitsverzeichnis}\label{arbeitsverzeichnis}}
 
-Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja klar, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die ``Adresse'' kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem ``Verweis'' auf eine andere Datei kann man entweder den \emph{absoluten} oder den \emph{relativen} Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch ``slash'') \texttt{/} getrennt.
+Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja logisch, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die ``Adresse'' kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem ``Verweis'' auf eine andere Datei kann man entweder den \emph{absoluten} oder den \emph{relativen} Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch ``slash'', also \texttt{/}) getrennt.
 
 \textbf{Absolut} heißt ein Pfad immer dann, wenn der komplette Pfad (ausgehend von dem ``root''-Verzeichnis der Festplatte) angegeben wird. Eine Datei könnte z.B. hier liegen:
 
@@ -1131,9 +1131,9 @@ Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Ex
 \leavevmode\hypertarget{info_windows_path}{}%
 \textbf{Achtung: Pfade bei Windows}
 
-Windows trennt die Ordner im Dateipfad üblicherweise mit Backslashes \texttt{\textbackslash{}}, z.B. wenn sie über Rechtsklick ``Adresse als Text kopieren'' in die Zwischenablage gespeichert werden. Unix-Systeme wie MacOs nutzen den normalen Slash und auch R verwendet den normalen Slash. Windows-Nutzer:innen müssen hier also aufpassen und kopierte Pfade ggf. so umschreiben, dass sie normale Slashes \texttt{/} enthalten!
+Windows trennt die Ordner im Dateipfad üblicherweise mit Backslashes \texttt{\textbackslash{}}, z.B. wenn sie über Rechtsklick ``Adresse als Text kopieren'' in die Zwischenablage gespeichert werden. Unix-Systeme wie MacOs nutzen den normalen Slash und auch R erwartet den normalen Slash. Windows-Nutzer:innen müssen hier also aufpassen und kopierte Pfade ggf. so umschreiben, dass sie normale Slashes \texttt{/} enthalten!
 
-Ein \textbf{relativer} Pfad ist meistens kürzer als ein absoluter. Beim relativen Pfad muss nicht die ``komplette Anschrift'' angegeben werden, sondern nur der Pfad relativ gesehen zu der Adresse, von der R aus gerade operiert. R hat nämlich auch einen Ordner im Dateisystem, von dem aus es operiert. Dieses Verzeichnis nennt man \emph{Arbeitsverzeichnis}. Standardmäßig wird das Arbeitsverzeichnis bei der Installation auf den Ordner ``Eigenen Dateien'' gesetzt. Beispiel:
+Ein \textbf{relativer} Pfad ist meistens kürzer als ein absoluter. Beim relativen Pfad muss nicht die ``komplette Anschrift'' angegeben werden, sondern nur der Pfad relativ gesehen zu der Adresse, von der R aus gerade operiert. R hat nämlich auch einen Ordner im Dateisystem, von dem aus es ``arbeitet''. Dieses Verzeichnis nennt man naheliegenderweise \emph{Arbeitsverzeichnis}. Standardmäßig wird das Arbeitsverzeichnis bei der Installation von R auf den Ordner ``Eigenen Dateien'' gesetzt, man kann das aber auch anpassen. Beispiel-Arbeitsverzeichnis-Pfad:
 
 \begin{itemize}
 \item
@@ -1142,7 +1142,7 @@ Ein \textbf{relativer} Pfad ist meistens kürzer als ein absoluter. Beim relativ
   Unix und MacOS: \texttt{/Users/julia/}
 \end{itemize}
 
-Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichnis heraus R arbeitet. Das geht über diese Befehle:
+Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichnis heraus R operiert. Das geht über diese Befehle:
 
 \begin{itemize}
 \item
@@ -1151,30 +1151,30 @@ Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichn
   Mit \texttt{setwd("mein\_pfad")} kann man das Arbeitsverzeichnis bestimmen (``setzen'').
 \end{itemize}
 
-Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man mit R-Projekten arbeitet. Denn auch die \texttt{.RProject}-Datei verändert das Arbeitsverzeichnis. Wenn R über einen Doppelklick auf eine \texttt{.RProject}-Datei geöffnet wird, setzt R in der aktuellen Session das Arbeitsverzeichnis auf den Ordner, in dem die Datei liegt. Das ist sehr praktisch (siehe Best-Practice-Box).
+Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man R-Projekte verwendet. Denn auch die \texttt{.RProject}-Datei verändert das Arbeitsverzeichnis. Wenn R über einen Doppelklick auf eine \texttt{.RProject}-Datei geöffnet wird, setzt R in der aktuellen Session das Arbeitsverzeichnis auf den Ordner, in dem die Datei liegt. Das ist sehr praktisch (siehe Best-Practice-Box).
 
-Will man jetzt vom Arbeitsverzeichnis \texttt{C:/Users/julia/} aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur \texttt{my\_project/data/my\_data.xlsx} angibt.
+Will man jetzt vom Arbeitsverzeichnis \texttt{C:/Users/julia/} aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen absoluten Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur \texttt{my\_project/data/my\_data.xlsx} angibt.
 
-Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich in Hamburg anrufen, dann müssen sie die Vorwahl wählen (also den kompletten Pfad). Möchten sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
+Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich im Home-Office in Hamburg anrufen, dann müssen Sie die Vorwahl von Hamburg + meine Telefonnummer wählen (also den kompletten Pfad). Möchten Sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass Sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
 
 \leavevmode\hypertarget{info_best_practice_rproj}{}%
 \textbf{Best Practice: Relative Pfade und R-Projekte!}
 
 Relative Pfade haben gegenüber absoluten Pfaden einen entscheidenden Vorteil, den ich hier an einem konkreten Beispiel illustrieren möchte:
 
-Stellen Sie sich vor, sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad \texttt{C:/Users/julia/my\_project/} als \texttt{my\_script.R} abgelegt. In diesem Ordner haben Sie einen Unterordner \texttt{data} angelegt, der die Datei \texttt{my\_data.xlsx} enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus: \texttt{C:/Users/julia/my\_project/data/my\_data.xlsx}.
+Stellen Sie sich vor, Sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad \texttt{C:/Users/julia/my\_project/} als \texttt{my\_script.R} abgelegt. In diesem Ordner haben Sie einen Unterordner \texttt{data} angelegt, der die Datei \texttt{my\_data.xlsx} enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus: \texttt{C:/Users/julia/my\_project/data/my\_data.xlsx}.
 
 Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. - Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die ``Adresse'') geändert hat. Sie müssen den Pfad im Skript aktualisieren!
 
-Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem \emph{relativen Pfad} können Sie diese Arbeit vermeiden.
+Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben, ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem \emph{relativen Pfad} können Sie diese Arbeit vermeiden.
 
-Der relative Pfad ist auch dann hilfreich, wenn sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. \texttt{C:/Users/sophie/my\_project/}).
+Der relative Pfad ist auch dann hilfreich, wenn Sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. \texttt{C:/Users/sophie/my\_project/}).
 
-Es ist deshalb \textbf{Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen}. Auf der obersten Ebene in diesem Ordner sollte die \texttt{.RProject}-Datei liegen. Das Projekt \textbf{sollte immer über Doppelklick auf die .RProject`-Datei geöffnet} werden, weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden.
+Es ist deshalb \textbf{Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen}. Auf der obersten Ebene in diesem Ordner sollte die \texttt{.RProject}-Datei liegen. Das Projekt \textbf{sollte immer über die .RProject`-Datei geöffnet werden} (per Doppelklick oder über das RStudio-Menü), weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden.
 
-Zudem empfiehlt es sich, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu wählen (z.B. Unterordner ``data'' für Daten, ``plots'' für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn ein Datum im Dateinamen verwendet werden soll dann immer im ISO-Format 2021-09-29).
+Zudem ist es empfehlenswert, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu verwenden (z.B. Unterordner ``data'' für Daten, ``plots'' für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn einDatum im Dateinamen verwendet werden soll, dann immer im ISO-Format ``2021-09-29'', weil dieses chronologisch sortiert wird).
 
-Nicht verwirren lassen: In den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis -- je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelt oder das Verzeichnis, was die \texttt{.RProjekt}-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl \texttt{getwd()} um schnell einmal nachzusehen.
+Nicht verwirren lassen: Das Arbeisverzeichnis kann in jeder R-Session ein anderes sein (je nach Analyseprojekt) und auch in den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis -- je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelte oder das Verzeichnis, was die \texttt{.RProjekt}-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl \texttt{getwd()} um schnell einmal nachzusehen.
 
 \hypertarget{r-projekte-anlegen}{%
 \subsection{R-Projekte anlegen}\label{r-projekte-anlegen}}

@@ -57,17 +57,17 @@
 \contentsline {subsection}{\numberline {4.7.2}R-Projekte anlegen}{39}{subsection.4.7.2}%
 \contentsline {section}{\numberline {4.8}Datenimport und Datenexport}{39}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}CSV-Dateien importieren}{39}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Excel-Dateien importieren}{40}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.2}Excel-Dateien importieren}{41}{subsection.4.8.2}%
 \contentsline {subsection}{\numberline {4.8.3}SPSS-Dateien importieren}{41}{subsection.4.8.3}%
 \contentsline {subsection}{\numberline {4.8.4}Daten exportieren (abspeichern)}{42}{subsection.4.8.4}%
 \contentsline {subsection}{\numberline {4.8.5}Arbeit mit gelabelten Daten}{42}{subsection.4.8.5}%
-\contentsline {section}{\numberline {4.9}Datenstrukturen}{42}{section.4.9}%
+\contentsline {section}{\numberline {4.9}Datenstrukturen}{43}{section.4.9}%
 \contentsline {subsection}{\numberline {4.9.1}Dataframes}{43}{subsection.4.9.1}%
 \contentsline {subsection}{\numberline {4.9.2}Aufbau von Dataframes}{44}{subsection.4.9.2}%
 \contentsline {subsection}{\numberline {4.9.3}Atomare Datentypen}{46}{subsection.4.9.3}%
-\contentsline {subsubsection}{\numberline {4.9.3.1}Numerische Werte}{46}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}Numerische Werte}{47}{subsubsection.4.9.3.1}%
 \contentsline {subsubsection}{\numberline {4.9.3.2}Text}{47}{subsubsection.4.9.3.2}%
-\contentsline {subsubsection}{\numberline {4.9.3.3}Logical}{47}{subsubsection.4.9.3.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.3}Logical}{48}{subsubsection.4.9.3.3}%
 \contentsline {subsection}{\numberline {4.9.4}Fehlende Werte}{48}{subsection.4.9.4}%
 \contentsline {subsection}{\numberline {4.9.5}Objekttypen konvertieren}{49}{subsection.4.9.5}%
 \contentsline {subsection}{\numberline {4.9.6}Faktoren}{49}{subsection.4.9.6}%
