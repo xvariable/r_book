@@ -2,8 +2,8 @@
 
 R ist für viele verschiedene Betriebssysteme verfügbar, man kann es sogar auf einem Android-Smartphone installieren. RStudio gibt es für Windows, MacOS und Linux sowie in einer Variante für Server.
 
-Auf den folgenden Seiten finden Sie Installationsanleitungen für MacOS und Windows.
-Da die Installation auf beiden Betriebssystemen etwas unterschiedlich ist (insbesondere beim Download von R), sind die Wege auf zwei getrennten Seiten aufgeteilt. 
+Auf den folgenden Seiten finden Sie Installationsanleitungen von R und RStudio für MacOS und Windows. Sie benötigen beide Programme (vgl. Kapitel [Benutzeroberflächen]).
+Da die Installation auf beiden Betriebssystemen etwas unterschiedlich ist (insbesondere beim Download von R), sind die Wege in zwei Unterkapiteln beschreiben. 
 
 
 ## Installationsanleitung Windows
@@ -17,7 +17,7 @@ Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio
 Zur Installation müssen Sie deshalb auch **beides nacheinander** installieren. 
 
 ### Erster Schritt: R
-Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  [https://cran.r-project.org/](https://cran.r-project.org). Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellen R-Versionen:
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  <a href = "https://cran.r-project.org/" target = "_blanc">https://cran.r-project.org</a>. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellen R-Versionen:
 
 <img src="images/screenshot_cran_homepage.png" alt="Screenshot CRAN Homepage" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
 
@@ -33,7 +33,7 @@ Nun klicken Sie auf den Download-Link für die aktuelle Version. Doppelklicken S
 
 ### Zweiter Schritt: RStudio
 
-RStudio, die Entwicklungsumgebung für R können Sie unter https://rstudio.com/products/rstudio/download/ herunterladen.
+RStudio, die Entwicklungsumgebung für R können Sie unter <a href = "https://rstudio.com/products/rstudio/download/" target = "_blanc">https://rstudio.com/products/rstudio/download/</a> herunterladen.
 Wählen Sie die Version “RStudio Desktop - Free”.
 
 <img src="images/screenshot_rstudio_free.png" alt="Screenshot Download RStudio" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
@@ -57,11 +57,11 @@ Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio
 Zur Installation müssen Sie deshalb auch **beides nacheinander** installieren. 
 
 ### Erster Schritt: R
-Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  [https://cran.r-project.org/](https://cran.r-project.org). Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet:  <a href = "https://cran.r-project.org/" target = "_blanc">https://cran.r-project.org</a>. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
 
 <img src="images/screenshot_cran_homepage.png" alt="Screenshot CRAN Homepage" width="600px" style="border:1px solid grey; margin-right:550px;margin-bottom:25px">
 
-Klicken Sie auf der [Homepage des CRAN](https://cran.r-project.org) auf "Download R for (Mac) OSX" und scrollen Sie bis zu den "Latest Releases". Unter dieser Überschrift wird Ihnen die aktuellste "stable" Version von R angezeigt. 
+Klicken Sie auf der <a href = "https://cran.r-project.org/" target = "_blanc">https://cran.r-project.org</a> auf "Download R for (Mac) OSX" und scrollen Sie bis zu den "Latest Releases". Unter dieser Überschrift wird Ihnen die aktuellste "stable" Version von R angezeigt. 
 
 Während diese Dokumentation geschrieben wurde, war dies die Version 4.0.2, wie der nachfolgende Screenshot zeigt:
 
@@ -77,7 +77,7 @@ Doppelklicken Sie auf die heruntergeladene Datei und folgen Sie der Installation
 
 ### Zweiter Schritt: RStudio
 
-RStudio, die Entwicklungsumgebung für R können Sie unter [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/) herunterladen.
+RStudio, die Entwicklungsumgebung für R können Sie unter <a href = "https://rstudio.com/products/rstudio/download/" target =‚ "_blanc">https://rstudio.com/products/rstudio/download/</a> herunterladen.
 
 Wählen Sie die Version "RStudio Desktop - Free" und laden Sie die Datei herunter.
 

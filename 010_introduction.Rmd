@@ -51,7 +51,7 @@ Insbesondere die schnelle, explorative Übersetzung von Forschungsideen in Ergeb
 Zusätzlich zeichnet sich die Philosophie von S noch durch drei weitere Anforderungen aus, die 
 während der Entwicklung an die Programmiersprache gestellt wurden [@Chambers_2020, S. 84:5]:
 
-1. **Convenience:** Der Aufruf von statistischen Routinen sollte möglichst "kompakt" sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
+1. **Convenience:** Der Aufruf von statistischen Routinen sollte möglichst "kompakt" sein. Die Anwender:innen sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
 
 2. **Completeness:** Alle Zusammenfassungen, Modellierungen und Visualisierungen die in FORTRAN möglich waren, sollten auch in S möglich sein.
 
@@ -93,7 +93,7 @@ Man kann natürlich fragen, warum nun gerade R die optimale Wahl für die Statis
 
 1. **R ist einfach.** Als erste Programmiersprache ist R gerade für Personen, die das Interesse "Datenanalyse" verfolgen, gut geeignet.
 
-2. **R skaliert.** Man kann mit R sowohl kurze Ad-Hoc Auswertungen machen, als auch sehr komplexe Programme schreiben. Der Übergang ist fließend und so kann man vom Anwender zum Entwickler werden, ohne eine große Hürde überwinden zu müssen.
+2. **R skaliert.** Man kann mit R sowohl kurze Ad-Hoc Auswertungen machen, als auch sehr komplexe Programme schreiben. Der Übergang ist fließend und so kann man von Anwender:in zu Entwickler:in werden, ohne eine große Hürde überwinden zu müssen.
 
 3. **R ist umfangreich, aktuell und zukunftssicher.** Durch den modularen Aufbau in Pakete ist es einfach, R um Funktionalität zu erweitern. Bereits jetzt existiert eine Vielzahl an Paketen, die den Funktionsumfang weit über den proprietärer Statistiksoftware hinaus erweitern. Eine aktive Entwicklercommunity arbeitet beständig daran, R noch umfangreicher und besser zu machen. 
 
@@ -139,9 +139,9 @@ Gegen SPSS sprechen beispielsweise die hohen Lizenzkosten, die langsame Implemen
 :::
  
 ### Weiterführende Links {-}
-- [Vergleich Statistik-Software  1](https://www.inwt-statistics.de/blog-artikel-lesen/Statistik-Software-R_Python_SAS_SPSS_STATA_im_Vergleich.html)
-- [Vergleich Statistik-Software 2](https://novustat.com/statistik-blog/statistikprogramm-ueberblick.html)
-- [Popularität von Statistik-Software](http://r4stats.com/articles/popularity/)
+- <a href = "https://www.inwt-statistics.de/blog-artikel-lesen/Statistik-Software-R_Python_SAS_SPSS_STATA_im_Vergleich.html" target = "_blanc">Vergleich Statistik-Software  1</a>
+- <a href = "https://novustat.com/statistik-blog/statistikprogramm-ueberblick.html" target = "_blanc">Vergleich Statistik-Software 2</a>
+- <a href = "http://r4stats.com/articles/popularity/" target = "_blanc">Popularität von Statistik-Software</a>
 
 
 ## Tipps zum R lernen
@@ -167,7 +167,7 @@ Achten Sie genau auf die Syntax: Häufige Fehler sind vergessene oder doppelte K
 Wenn Sie bei einer Fragestellung feststecken und die Hilfe Sie auch nicht weiterbringt, versuchen Sie Ihre Fehlermeldung oder Ihre Fragestellung zu ergoogeln. Sie sind womöglich nicht der/die Erste, der/die vor diesem Problem steht.
 
 - **Beachten Sie die 15-Minuten-Regel.**<br />
-Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen, können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. [stackoverflow](https://stackoverflow.com/). 
+Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen, können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. <a href = "https://stackoverflow.com/" target = "_blank">stackoverflow</a>. 
 
 <img src="images/ah_r_rollercoaster.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:50px">
 <div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />

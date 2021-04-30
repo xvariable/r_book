@@ -8,6 +8,13 @@ alternativen-zu-r
 tipps-zum-r-lernen
 der-anfang-ist-schwer
 nützliche-hinweise
+installation
+installationsanleitung-windows
+erster-schritt-r
+zweiter-schritt-rstudio
+installationsanleitung-macos
+erster-schritt-r-1
+zweiter-schritt-rstudio-1
 benutzeroberflächen
 konsole
 rstudio-ide-für-r
@@ -20,13 +27,6 @@ files-plots-packages-help-viewer
 r-skripte
 features-von-rstudio
 rstudio-anpassen
-installation
-installationsanleitung-windows
-erster-schritt-r
-zweiter-schritt-rstudio
-installationsanleitung-macos
-erster-schritt-r-1
-zweiter-schritt-rstudio-1
 einführung-in-r-1
 r-syntax
 rechnen-mit-r

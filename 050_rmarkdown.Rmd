@@ -125,8 +125,8 @@ In `.Rmd`-Dokumnten können Sie nicht nur die Beschreibungssprache RMarkdown ver
 
 ## Weiterführende Links
 
-- [RMarkdown CheatSheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+- <a href = "https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" target = "_blanc">RMarkdown CheatSheet</a>
 
-- [RMarkdown Kapitel aus dem Buch R4DS](https://r4ds.had.co.nz/r-markdown.html), Wickham & Grolemund
+- <a href = "https://r4ds.had.co.nz/r-markdown.html" target = "_blanc">RMarkdown Kapitel aus dem Buch R4DS</a>, Wickham & Grolemund
 
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), Xie, Allaire & Grolemund
+- <a href = "https://bookdown.org/yihui/rmarkdown/" target = "_blanc">R Markdown: The Definitive Guide</a>, Xie, Allaire & Grolemund
