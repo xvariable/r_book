@@ -75,7 +75,7 @@ dritter-schritt-output-erzeugen
 formatierungen-optionen
 weiterführende-links-2
 datenaufbereitung
-datensatz-für-dieses-kapitel
+prerequisites
 pipe
 der-aufbau-im-detail
 schlechtere-alternativen-zur-pipe
@@ -89,7 +89,7 @@ berechnen-mit-dplyrmutate
 variablen-unter-einer-bedingung-berechnen
 summarize-daten-verdichten
 deskriptive-statistik
-datensatz-für-dieses-kapitel-1
+datensatz-für-dieses-kapitel
 häufigkeitsverteilung
 tabellen
 häufigkeitsdiagramm

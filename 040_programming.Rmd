@@ -9,7 +9,7 @@ Leider sind Computer bisweilen ganz besonders pingelige Gesprächspartner. Sie b
 
 ## R-Syntax
 
-Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im [Abschnitt](#konsole) haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
+Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im [Abschnitt zu Konsole](#konsole) haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
 
 ### Rechnen mit R
 
@@ -19,7 +19,7 @@ OK, als *Taschen*rechner ist R vielleicht etwas unpraktisch. Trotzdem, rechnen i
 1 + (2 - 3 * 4) / 5 
 ```
 
-Wenn Sie diese Zeile ausführen, z.B. über den Button "Run" oder durch den Shortcut `Cmd/Ctrl + Enter/Eingabe`, erhalten Sie umgehend das Ergebnis.
+Wenn Sie diese Zeile ausführen, z.B. über den Button "Run" oder durch den Shortcut `Cmd/Ctrl + Enter/Eingabe`, erhalten Sie umgehend das Ergebnis. In der Ausgabe wird dem Erhebnis eine `[1]` vorangestellt. Dies bedeutet, dass es sich um das erste Element des Ergebnisses handelt. Ergebnisse in R können nämlich auch mehrere Teile haben.
 
 ### Zuweisungsoperatoren
 Dass man mit R rechnen kann, mag zwar im Einzelfall ganz nützlich sein, aber natürlich kann R viel mehr. Es würde z.B. Sinn machen, das Ergebnis von so einer Berechnung abzuspeichern, so dass wir zu einem späteren Zeitpunkt wieder darauf zugreifen können. Dazu gibt es in R den Zuweisungsoperator `<-` Mit diesem Pfeil, der aus der spitzen Klammer und dem Bindestrich besteht, kann man einem Objekt einen Wert zuweisen. Den Namen des Objektes muss man selbst festlegen. Ich habe im folgenden ein Objekt erzeugt, dass ich `x` genannt habe und ihm den Wert der Berechnung `1 + 2` zugewiesen:
@@ -105,7 +105,7 @@ Man kann Kommentare auch dazu benutzen, Code, der noch nicht funktioniert (Bugs 
 Leider kann man in R bisher keine mehrzeiligen Kommentare machen. Man muss also in jeder Zeile das `#` voranstellen.
 
 ::: {#hint_short_cut .box .thumb}
-**Tipp!**
+**Best Practice: Kommentieren!**
 
 Grundsätzlich gilt: Kommentieren Sie lieber zu viel als zu wenig und schreiben Sie Ihre Kommentare so, dass alle Personen, mit denen Sie ihr R-Skript teilen, den Code verstehen können. Denken Sie dabei vor allem an sich selbst! Werden Sie den Code nachvollziehen können, wenn Sie in 2 Jahren daraus etwas für Ihre Bachelorarbeit wiederverwenden wollen?
 :::
@@ -244,7 +244,7 @@ Sys.Date()
 
 ### Funktionen verschachteln
 
-Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von außen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch `mean()` berechnete Mittelwert (= innere Funktion) durch die Funktion `round()` auf eine Stelle (zweites Argument `, 1`) gerundet:
+Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von innen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch `mean()` berechnete Mittelwert (= innere Funktion) durch die Funktion `round()` auf eine Stelle (zweites Argument `, 1`) gerundet:
 
 ```{r, round_example}
 round(mean(some_numbers, na.rm = TRUE), 1)
@@ -322,15 +322,62 @@ Natürlich gibt es noch viel mehr über das Programmieren von Funktionen zu wiss
 <img src="images/icon_rproject.png" alt="Rprotect Icon"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (*working directory*) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behält und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
 
 ### Arbeitsverzeichnis
-Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem "Arbeitsverzeichnis" heraus. 
-Möchte man jetzt etwas (z.B. einen Datensatz) in R laden, muss man den gesamten Pfad "relativ" zu diesem Verzeichnis angeben oder aber den kompletten Dateipfad. Hier ein Beispiel:
+Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja klar, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die "Adresse" kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem "Verweis" auf eine andere Datei kann man entweder den *absoluten* oder den *relativen* Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch "slash") `/` getrennt. 
 
-- Windows: C:/Users/julia/documents/data/my_data.xlsx
-- Unix und MacOS: /Users/julia/documents/my_data.xlsx
 
-Standardmäßig liegt das Arbeitsverzeichnis in den *Eigenen Dateien* des Computers, auf dem R installiert wurde.
+**Absolut** heißt ein Pfad immer dann, wenn der komplette Pfad (ausgehend von dem "root"-Verzeichnis der Festplatte) angegeben wird. Eine Datei könnte z.B. hier liegen:
 
-Mit dem Befehl `getwd()` kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. Mit `setwd("mein_pfad")` kann man das Arbeitsverzeichnis bestimmen. Das ist aber in der Regel gar nicht notwendig, wenn man mit R-Projekten arbeitet, weil diese das Arbeitsverzeichnis automatisch setzen.
+- Windows: `C:/Users/julia/my_project/data/my_data.xlsx`
+
+- Unix und MacOS: `/Users/julia/my_project/my_data.xlsx`
+
+::: {#info_windows_path .box .danger}
+**Achtung: Pfade bei Windows**
+
+Windows trennt die Ordner im Dateipfad üblicherweise mit Backslashes `\`, z.B. wenn sie über Rechtsklick "Adresse als Text kopieren" in die Zwischenablage gespeichert werden. Unix-Systeme wie MacOs nutzen den normalen Slash und auch R verwendet den normalen Slash. Windows-Nutzer:innen müssen hier also aufpassen und kopierte Pfade ggf. so umschreiben, dass sie normale Slashes `/` enthalten!
+
+:::
+
+Ein **relativer** Pfad ist meistens kürzer als ein absoluter. Beim relativen Pfad muss nicht die "komplette Anschrift" angegeben werden, sondern nur der Pfad relativ gesehen zu der Adresse, von der R aus gerade operiert. R hat nämlich auch einen Ordner im Dateisystem, von dem aus es operiert. Dieses Verzeichnis nennt man *Arbeitsverzeichnis*. Standardmäßig wird das Arbeitsverzeichnis bei der Installation auf den Ordner "Eigenen Dateien" gesetzt. Beispiel:
+
+- Windows: `C:/Users/julia/`
+
+- Unix und MacOS: `/Users/julia/`
+
+Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichnis heraus R arbeitet. Das geht über diese Befehle:
+
+- Mit dem Befehl `getwd()` kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. 
+
+- Mit `setwd("mein_pfad")` kann man das Arbeitsverzeichnis bestimmen ("setzen"). 
+
+Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man mit R-Projekten arbeitet. Denn auch die `.RProject`-Datei verändert das Arbeitsverzeichnis. Wenn R über einen Doppelklick auf eine `.RProject`-Datei geöffnet wird, setzt R in der aktuellen Session das Arbeitsverzeichnis auf den Ordner, in dem die Datei liegt. Das ist sehr praktisch (siehe Best-Practice-Box).
+
+Will man jetzt vom Arbeitsverzeichnis `C:/Users/julia/` aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur `my_project/data/my_data.xlsx` angibt.
+
+Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich in Hamburg anrufen, dann müssen sie die Vorwahl wählen (also den kompletten Pfad). Möchten sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
+
+
+::: {#info_best_practice_rproj .box .thumb}
+**Best Practice: Relative Pfade und R-Projekte!**
+
+Relative Pfade haben gegenüber absoluten Pfaden einen entscheidenden Vorteil, den ich hier an einem konkreten Beispiel illustrieren möchte:
+
+Stellen Sie sich vor, sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad `C:/Users/julia/my_project/` als `my_script.R` abgelegt. In diesem Ordner haben Sie einen Unterordner `data` angelegt, der die Datei `my_data.xlsx` enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus:  `C:/Users/julia/my_project/data/my_data.xlsx`. 
+
+Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. - Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die "Adresse") geändert hat. Sie müssen den Pfad im Skript aktualisieren!
+
+Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem *relativen Pfad* können Sie diese Arbeit vermeiden. 
+
+Der relative Pfad ist auch dann hilfreich, wenn sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. `C:/Users/sophie/my_project/`). 
+
+Es ist deshalb **Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen**. Auf der obersten Ebene in diesem Ordner sollte die `.RProject`-Datei liegen. Das Projekt **sollte immer über Doppelklick auf die .RProject`-Datei geöffnet** werden, weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden. 
+
+Zudem empfiehlt es sich, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu wählen (z.B. Unterordner "data" für Daten, "plots" für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn ein  Datum im Dateinamen verwendet werden soll dann immer im ISO-Format 2021-09-29).
+
+:::
+
+Nicht verwirren lassen: In den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis -- je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelt oder das Verzeichnis, was die `.RProjekt`-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl `getwd()` um schnell einmal nachzusehen.
+
 
 ### R-Projekte anlegen
 
@@ -373,7 +420,7 @@ Das CSV-Format (CSV für comma-separated values) ist ein sehr übliches Dateifor
 
 Es gibt zwar auch in base-R die Möglichkeit, CSV-Dateien zu laden, etwas zuverlässiger funktioniert es aber mit dem Paket `readr` aus dem tidyverse. Es gibt in dem Paket gleich zwei Funktionen zum Laden von CSV-Daten. Mit `read_csv()` können Daten eingelesen werden, in denen das Komma als Trennzeichen benutzt wurde. Das ist in der Regel bei Dateien, die aus dem englischen Sprachraum stammen, der Fall. Im Deutschen benutzen wir jedoch das Komma als Dezimaltrenner. Gerade bei zahlenlastigen Datensätzen wäre es daher ungünstig, das Komma zusätzlich auch noch als Trennzeichen in einer Daten-Datei zu verwenden. Deshalb wird hier das Semikolon als Trenner verwendet. Die Funktion `read_csv2()` geht von einer durch Semikolons separierten CSV-Datei aus.
 
-Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei eingelesen und im Anschluss angezeigt:
+Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei (die im Unterordner "data" leigt) eingelesen und im Anschluss angezeigt:
 
 
 ```{r, read_csv2, echo = TRUE, results = "hide", message=FALSE}

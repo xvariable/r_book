@@ -1,7 +1,7 @@
 # Datenaufbereitung
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
-pacman::p_load(tidyverse, sjlabelled)
+pacman::p_load(tidyverse, sjlabelled, sjmisc)
 # Einlesen der Daten
 data <- expss::read_labelled_csv2("data/ZA6738_v1-0-0_generation_z_labelled.csv") %>% 
   mutate(alter = sjlabelled::remove_labels(alter, labels = 1:23)) %>% 
@@ -40,15 +40,22 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket `dplyr` aus dem t
 - Das Ergebnis ist immer ein Dataframe.
 
 
-## Datensatz für dieses Kapitel
+## Prerequisites
 
-Als Datensatz dient in diesem Kapitel der "starwars"-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+Als **Datensatz** dient in diesem Kapitel der "starwars"-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
 
 ```{r echo=FALSE}
 starwars
 ```
 
-Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser z.B. für das Umcodieren geeigneter ist.
+Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser für das Umcodieren geeigneter ist.
+
+In diesem Kapitel werden -- wie oben beschreiben -- die **Pakete** `dplyr` aus dem `tidyverse` sowie `sjmisc` genutzt. Jedes neue Paket, dass zum ersten Mal verwendet wird, muss natürlich wie im Abschnitt [#### Files, Plots, Packages, Help & Viewer] beschrieben installiert werden. Danach muss das Paket auch noch im Skript mit dem `library`-Befehl geladen werden. Dadurch weiß R, dass das Paket in der aktuellen Session verwendet werden soll und macht die Funktionen des Paketes verfügbar.
+
+```{r}
+library(tidyverse)
+library(sjmisc)
+```
 
 
 ## Die Pipe {#pipe}
@@ -59,7 +66,8 @@ Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: 
 
 
 ### Der Aufbau im Detail
-Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:
+Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert (Achtung, jetzt folgt Pseudo-Code, der nur der Veranschaulichung dient und nicht 1:1 ausführbar ist):
+
 ```{r echo=FALSE}
 transformation_1 <- function(a, b){a}
 transformation_2 <- function(a, b){a}

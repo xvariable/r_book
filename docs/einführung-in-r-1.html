@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>6.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#prerequisites"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
 <li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel-1"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
 <li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
@@ -358,13 +358,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Leider sind Computer bisweilen ganz besonders pingelige Gesprächspartner. Sie beharren z.B. sehr genau auf korrekte Ausdrucksweisen und haben auch bei der Grammatik nur einen gewissen Spielraum. Zum Glück unterstützt RStudio das Lernen von R mit einigen Features, die uns die Verständigung leichter machen! Dadurch muss man z.B. nicht alle Vokabeln und die Syntax auswendig kennen, um sich verständigen zu können. Trotzdem sollte man natürlich den grundlegenden Aufbau – die Syntax der Sprache – kennen.</p>
 <div id="r-syntax" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> R-Syntax</h2>
-<p>Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im <a href="benutzeroberflächen.html#konsole">Abschnitt</a> haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.</p>
+<p>Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im <a href="benutzeroberflächen.html#konsole">Abschnitt zu Konsole</a> haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.</p>
 <div id="rechnen-mit-r" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Rechnen mit R</h3>
 <p>OK, als <em>Taschen</em>rechner ist R vielleicht etwas unpraktisch. Trotzdem, rechnen ist natürlich eine der ureigensten Funktionen von R und selbstverständlich beherrscht es alle Grundrechenarten und alle Rechen- und Klammerregeln:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="einführung-in-r-1.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">/</span> <span class="dv">5</span> </span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
-<p>Wenn Sie diese Zeile ausführen, z.B. über den Button “Run” oder durch den Shortcut <code>Cmd/Ctrl + Enter/Eingabe</code>, erhalten Sie umgehend das Ergebnis.</p>
+<p>Wenn Sie diese Zeile ausführen, z.B. über den Button “Run” oder durch den Shortcut <code>Cmd/Ctrl + Enter/Eingabe</code>, erhalten Sie umgehend das Ergebnis. In der Ausgabe wird dem Erhebnis eine <code>[1]</code> vorangestellt. Dies bedeutet, dass es sich um das erste Element des Ergebnisses handelt. Ergebnisse in R können nämlich auch mehrere Teile haben.</p>
 </div>
 <div id="zuweisungsoperatoren" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Zuweisungsoperatoren</h3>
@@ -426,7 +426,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <span id="cb11-2"><a href="einführung-in-r-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(&quot;Hello World!)</span></span></code></pre></div>
 <p>Leider kann man in R bisher keine mehrzeiligen Kommentare machen. Man muss also in jeder Zeile das <code>#</code> voranstellen.</p>
 <div id="hint_short_cut" class="box thumb">
-<p><strong>Tipp!</strong></p>
+<p><strong>Best Practice: Kommentieren!</strong></p>
 <p>Grundsätzlich gilt: Kommentieren Sie lieber zu viel als zu wenig und schreiben Sie Ihre Kommentare so, dass alle Personen, mit denen Sie ihr R-Skript teilen, den Code verstehen können. Denken Sie dabei vor allem an sich selbst! Werden Sie den Code nachvollziehen können, wenn Sie in 2 Jahren daraus etwas für Ihre Bachelorarbeit wiederverwenden wollen?</p>
 </div>
 </div>
@@ -526,7 +526,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 </div>
 <div id="funktionen-verschachteln" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Funktionen verschachteln</h3>
-<p>Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von außen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch <code>mean()</code> berechnete Mittelwert (= innere Funktion) durch die Funktion <code>round()</code> auf eine Stelle (zweites Argument <code>, 1</code>) gerundet:</p>
+<p>Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von innen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch <code>mean()</code> berechnete Mittelwert (= innere Funktion) durch die Funktion <code>round()</code> auf eine Stelle (zweites Argument <code>, 1</code>) gerundet:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="einführung-in-r-1.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(some_numbers, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 94.4</code></pre>
 <p>Das Verschachteln ist bisweilen nützlich, jedoch kann es sehr schnell unübersichtlich werden. Deshalb sollte man sich beim Coden bemühen, maximal zwei Funktionen ineinander zu verschachteln. Wir lernen später noch eine übersichtlichere Möglichkeit, einen Code zu verketten, im Abschnitt zur <a href="datenaufbereitung.html#pipe">Pipe</a>.</p>
@@ -544,7 +544,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Zum Glück weist R auf gleiche Funktionsnamen hin. In der Meldung nach dem Laden eines Paketes informiert R darüber, dass verschiedene Funktionen aus zuvor geladenen Paketen “maskiert” wurden. Hier ein Beispiel:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="einführung-in-r-1.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
+## Attache Paket: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     filter, lag</code></pre>
@@ -584,14 +584,40 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p><img src="images/icon_rproject.png" alt="Rprotect Icon"  style="float:right;margin-top:15;margin-left:15px;margin-bottom:5px">Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (<em>working directory</em>) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behält und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.</p>
 <div id="arbeitsverzeichnis" class="section level3" number="4.7.1">
 <h3><span class="header-section-number">4.7.1</span> Arbeitsverzeichnis</h3>
-<p>Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem “Arbeitsverzeichnis” heraus.
-Möchte man jetzt etwas (z.B. einen Datensatz) in R laden, muss man den gesamten Pfad “relativ” zu diesem Verzeichnis angeben oder aber den kompletten Dateipfad. Hier ein Beispiel:</p>
+<p>Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja klar, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die “Adresse” kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem “Verweis” auf eine andere Datei kann man entweder den <em>absoluten</em> oder den <em>relativen</em> Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch “slash”) <code>/</code> getrennt.</p>
+<p><strong>Absolut</strong> heißt ein Pfad immer dann, wenn der komplette Pfad (ausgehend von dem “root”-Verzeichnis der Festplatte) angegeben wird. Eine Datei könnte z.B. hier liegen:</p>
 <ul>
-<li>Windows: C:/Users/julia/documents/data/my_data.xlsx</li>
-<li>Unix und MacOS: /Users/julia/documents/my_data.xlsx</li>
+<li><p>Windows: <code>C:/Users/julia/my_project/data/my_data.xlsx</code></p></li>
+<li><p>Unix und MacOS: <code>/Users/julia/my_project/my_data.xlsx</code></p></li>
 </ul>
-<p>Standardmäßig liegt das Arbeitsverzeichnis in den <em>Eigenen Dateien</em> des Computers, auf dem R installiert wurde.</p>
-<p>Mit dem Befehl <code>getwd()</code> kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. Mit <code>setwd("mein_pfad")</code> kann man das Arbeitsverzeichnis bestimmen. Das ist aber in der Regel gar nicht notwendig, wenn man mit R-Projekten arbeitet, weil diese das Arbeitsverzeichnis automatisch setzen.</p>
+<div id="info_windows_path" class="box danger">
+<p><strong>Achtung: Pfade bei Windows</strong></p>
+<p>Windows trennt die Ordner im Dateipfad üblicherweise mit Backslashes <code>\</code>, z.B. wenn sie über Rechtsklick “Adresse als Text kopieren” in die Zwischenablage gespeichert werden. Unix-Systeme wie MacOs nutzen den normalen Slash und auch R verwendet den normalen Slash. Windows-Nutzer:innen müssen hier also aufpassen und kopierte Pfade ggf. so umschreiben, dass sie normale Slashes <code>/</code> enthalten!</p>
+</div>
+<p>Ein <strong>relativer</strong> Pfad ist meistens kürzer als ein absoluter. Beim relativen Pfad muss nicht die “komplette Anschrift” angegeben werden, sondern nur der Pfad relativ gesehen zu der Adresse, von der R aus gerade operiert. R hat nämlich auch einen Ordner im Dateisystem, von dem aus es operiert. Dieses Verzeichnis nennt man <em>Arbeitsverzeichnis</em>. Standardmäßig wird das Arbeitsverzeichnis bei der Installation auf den Ordner “Eigenen Dateien” gesetzt. Beispiel:</p>
+<ul>
+<li><p>Windows: <code>C:/Users/julia/</code></p></li>
+<li><p>Unix und MacOS: <code>/Users/julia/</code></p></li>
+</ul>
+<p>Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichnis heraus R arbeitet. Das geht über diese Befehle:</p>
+<ul>
+<li><p>Mit dem Befehl <code>getwd()</code> kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen.</p></li>
+<li><p>Mit <code>setwd("mein_pfad")</code> kann man das Arbeitsverzeichnis bestimmen (“setzen”).</p></li>
+</ul>
+<p>Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man mit R-Projekten arbeitet. Denn auch die <code>.RProject</code>-Datei verändert das Arbeitsverzeichnis. Wenn R über einen Doppelklick auf eine <code>.RProject</code>-Datei geöffnet wird, setzt R in der aktuellen Session das Arbeitsverzeichnis auf den Ordner, in dem die Datei liegt. Das ist sehr praktisch (siehe Best-Practice-Box).</p>
+<p>Will man jetzt vom Arbeitsverzeichnis <code>C:/Users/julia/</code> aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur <code>my_project/data/my_data.xlsx</code> angibt.</p>
+<p>Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich in Hamburg anrufen, dann müssen sie die Vorwahl wählen (also den kompletten Pfad). Möchten sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.</p>
+<div id="info_best_practice_rproj" class="box thumb">
+<p><strong>Best Practice: Relative Pfade und R-Projekte!</strong></p>
+<p>Relative Pfade haben gegenüber absoluten Pfaden einen entscheidenden Vorteil, den ich hier an einem konkreten Beispiel illustrieren möchte:</p>
+<p>Stellen Sie sich vor, sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad <code>C:/Users/julia/my_project/</code> als <code>my_script.R</code> abgelegt. In diesem Ordner haben Sie einen Unterordner <code>data</code> angelegt, der die Datei <code>my_data.xlsx</code> enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus: <code>C:/Users/julia/my_project/data/my_data.xlsx</code>.</p>
+<p>Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. - Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die “Adresse”) geändert hat. Sie müssen den Pfad im Skript aktualisieren!</p>
+<p>Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem <em>relativen Pfad</em> können Sie diese Arbeit vermeiden.</p>
+<p>Der relative Pfad ist auch dann hilfreich, wenn sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. <code>C:/Users/sophie/my_project/</code>).</p>
+<p>Es ist deshalb <strong>Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen</strong>. Auf der obersten Ebene in diesem Ordner sollte die <code>.RProject</code>-Datei liegen. Das Projekt <strong>sollte immer über Doppelklick auf die .RProject`-Datei geöffnet</strong> werden, weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden.</p>
+<p>Zudem empfiehlt es sich, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu wählen (z.B. Unterordner “data” für Daten, “plots” für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn ein Datum im Dateinamen verwendet werden soll dann immer im ISO-Format 2021-09-29).</p>
+</div>
+<p>Nicht verwirren lassen: In den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis – je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelt oder das Verzeichnis, was die <code>.RProjekt</code>-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl <code>getwd()</code> um schnell einmal nachzusehen.</p>
 </div>
 <div id="r-projekte-anlegen" class="section level3" number="4.7.2">
 <h3><span class="header-section-number">4.7.2</span> R-Projekte anlegen</h3>
@@ -619,7 +645,7 @@ Möchte man jetzt etwas (z.B. einen Datensatz) in R laden, muss man den gesamten
 <code>2;Becker;Fritz;67;...</code><br />
 <code>3;Coşkun;Ediz;24;..</code><br /></p>
 <p>Es gibt zwar auch in base-R die Möglichkeit, CSV-Dateien zu laden, etwas zuverlässiger funktioniert es aber mit dem Paket <code>readr</code> aus dem tidyverse. Es gibt in dem Paket gleich zwei Funktionen zum Laden von CSV-Daten. Mit <code>read_csv()</code> können Daten eingelesen werden, in denen das Komma als Trennzeichen benutzt wurde. Das ist in der Regel bei Dateien, die aus dem englischen Sprachraum stammen, der Fall. Im Deutschen benutzen wir jedoch das Komma als Dezimaltrenner. Gerade bei zahlenlastigen Datensätzen wäre es daher ungünstig, das Komma zusätzlich auch noch als Trennzeichen in einer Daten-Datei zu verwenden. Deshalb wird hier das Semikolon als Trenner verwendet. Die Funktion <code>read_csv2()</code> geht von einer durch Semikolons separierten CSV-Datei aus.</p>
-<p>Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei eingelesen und im Anschluss angezeigt:</p>
+<p>Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei (die im Unterordner “data” leigt) eingelesen und im Anschluss angezeigt:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="einführung-in-r-1.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Laden des Paketes</span></span>
 <span id="cb34-2"><a href="einführung-in-r-1.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb34-3"><a href="einführung-in-r-1.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>

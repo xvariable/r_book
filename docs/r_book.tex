@@ -37,6 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
+  pdftitle={R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover},
   pdfauthor={Julia Niemann-Lenz},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -123,10 +124,12 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
+\title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-04-29}
+\date{2021-04-30}
 
 \begin{document}
+\maketitle
 
 {
 \setcounter{tocdepth}{1}
@@ -158,7 +161,7 @@ Presse- und Informationsamt der Bundesregierung (2020). Generation Z. GESIS Date
 
 Das Buch Work in Progress! Ich habe im Wintersemester 2020 mit dem Aufbau des Kompeniums begonnen. Es ist ein ganz besonderes Semester, das zweite unter Corona-Bedingungen und diese Tatsache rückt noch einmal sehr in den Vordergrund, wie wichtig gute digitale Lernressourcen sind.
 
-Ich bemühe mich um eine sinnhafte Gliederung, sprechende Überschriften und einen linearen Aufbau. Gerade letzteres wird jedoch an einigen Stellen kaum möglich sein. Insbesondere, wenn Sie vielleicht zu den etwas fortgeschritteneren Anwendern gehören, scheuen Sie sich nicht, Inhalte zu überspringen und querzulesen!
+Ich bemühe mich um eine sinnhafte Gliederung, sprechende Überschriften und einen linearen Aufbau. Gerade letzteres wird jedoch an einigen Stellen kaum möglich sein. Insbesondere, wenn Sie vielleicht zu den etwas fortgeschritteneren Anwender:innen gehören, scheuen Sie sich nicht, Inhalte zu überspringen und querzulesen!
 
 Die Erweiterung des Buches erfolgt schrittweise. Über Vorschläge für neue Inhalte, Hinweise auf Fehler und Anregungen, wie man diese Lernressource noch besser gestalten kann, freue ich mich!
 
@@ -222,7 +225,7 @@ während der Entwicklung an die Programmiersprache gestellt wurden \citep[S. 84:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{Convenience:} Der Aufruf von statistischen Routinen sollte möglichst ``kompakt'' sein. Die Anwender sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
+  \textbf{Convenience:} Der Aufruf von statistischen Routinen sollte möglichst ``kompakt'' sein. Die Anwender:innen sollten sich nicht mit den Details wie z.B. dem Datenmanagement beschäftigen müssen. Zudem sollte der Output grafische und formatierte Ausgaben enthalten.
 \item
   \textbf{Completeness:} Alle Zusammenfassungen, Modellierungen und Visualisierungen die in FORTRAN möglich waren, sollten auch in S möglich sein.
 \item
@@ -277,7 +280,7 @@ Man kann natürlich fragen, warum nun gerade R die optimale Wahl für die Statis
 \item
   \textbf{R ist einfach.} Als erste Programmiersprache ist R gerade für Personen, die das Interesse ``Datenanalyse'' verfolgen, gut geeignet.
 \item
-  \textbf{R skaliert.} Man kann mit R sowohl kurze Ad-Hoc Auswertungen machen, als auch sehr komplexe Programme schreiben. Der Übergang ist fließend und so kann man vom Anwender zum Entwickler werden, ohne eine große Hürde überwinden zu müssen.
+  \textbf{R skaliert.} Man kann mit R sowohl kurze Ad-Hoc Auswertungen machen, als auch sehr komplexe Programme schreiben. Der Übergang ist fließend und so kann man von Anwender:in zu Entwickler:in werden, ohne eine große Hürde überwinden zu müssen.
 \item
   \textbf{R ist umfangreich, aktuell und zukunftssicher.} Durch den modularen Aufbau in Pakete ist es einfach, R um Funktionalität zu erweitern. Bereits jetzt existiert eine Vielzahl an Paketen, die den Funktionsumfang weit über den proprietärer Statistiksoftware hinaus erweitern. Eine aktive Entwicklercommunity arbeitet beständig daran, R noch umfangreicher und besser zu machen.
 \item
@@ -329,11 +332,11 @@ Gegen SPSS sprechen beispielsweise die hohen Lizenzkosten, die langsame Implemen
 \begin{itemize}
 \tightlist
 \item
-  \href{https://www.inwt-statistics.de/blog-artikel-lesen/Statistik-Software-R_Python_SAS_SPSS_STATA_im_Vergleich.html}{Vergleich Statistik-Software 1}
+  Vergleich Statistik-Software 1
 \item
-  \href{https://novustat.com/statistik-blog/statistikprogramm-ueberblick.html}{Vergleich Statistik-Software 2}
+  Vergleich Statistik-Software 2
 \item
-  \href{http://r4stats.com/articles/popularity/}{Popularität von Statistik-Software}
+  Popularität von Statistik-Software
 \end{itemize}
 
 \hypertarget{tipps-zum-r-lernen}{%
@@ -364,10 +367,93 @@ Artwork by Allison Horst
   Wenn Sie bei einer Fragestellung feststecken und die Hilfe Sie auch nicht weiterbringt, versuchen Sie Ihre Fehlermeldung oder Ihre Fragestellung zu ergoogeln. Sie sind womöglich nicht der/die Erste, der/die vor diesem Problem steht.
 \item
   \textbf{Beachten Sie die 15-Minuten-Regel.}
-  Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen, können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. \href{https://stackoverflow.com/}{stackoverflow}.
+  Wenn Sie auf ein Problem stoßen, versuchen Sie 15 Minuten lang es zu lösen. Sollten Sie es bis dahin nicht geschafft haben, fragen Sie jemanden um Hilfe! Wenn Sie gerade an einem Seminar teilnehmen, können das natürlich bevorzugt Ihre Kommiliton:innen, Tutor:innen oder Dozierenden sein. Aber auch im Internet gibt es viele Foren z.B. stackoverflow.
 \end{itemize}
 
 Artwork by Allison Horst
+
+\hypertarget{installation}{%
+\chapter{Installation}\label{installation}}
+
+R ist für viele verschiedene Betriebssysteme verfügbar, man kann es sogar auf einem Android-Smartphone installieren. RStudio gibt es für Windows, MacOS und Linux sowie in einer Variante für Server.
+
+Auf den folgenden Seiten finden Sie Installationsanleitungen von R und RStudio für MacOS und Windows. Sie benötigen beide Programme (vgl. Kapitel \protect\hyperlink{benutzeroberfluxe4chen}{Benutzeroberflächen}).
+Da die Installation auf beiden Betriebssystemen etwas unterschiedlich ist (insbesondere beim Download von R), sind die Wege in zwei Unterkapiteln beschreiben.
+
+\hypertarget{installationsanleitung-windows}{%
+\section{Installationsanleitung Windows}\label{installationsanleitung-windows}}
+
+Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  R, die Programmiersprache
+\item
+  RStudio, die Entwicklungsumgebung
+\end{enumerate}
+
+Zur Installation müssen Sie deshalb auch \textbf{beides nacheinander} installieren.
+
+\hypertarget{erster-schritt-r}{%
+\subsection{Erster Schritt: R}\label{erster-schritt-r}}
+
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet: https://cran.r-project.org. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellen R-Versionen:
+
+Klicken Sie auf ``Download R for Windows'' und klicken Sie im sich öffnenden Fenster auf „install R for the first time``.
+
+Während diese Dokumentation geschrieben wurde, war die aktuellste Version 4.0.3, wie der nachfolgende Screenshot zeigt:
+
+Nun klicken Sie auf den Download-Link für die aktuelle Version. Doppelklicken Sie anschließend die heruntergeladene Datei und folgen der Installationsanleitung. Die Einstellungsoptionen brauchen Sie dabei nicht anzupassen.
+
+\hypertarget{zweiter-schritt-rstudio}{%
+\subsection{Zweiter Schritt: RStudio}\label{zweiter-schritt-rstudio}}
+
+RStudio, die Entwicklungsumgebung für R können Sie unter https://rstudio.com/products/rstudio/download/ herunterladen.
+Wählen Sie die Version ``RStudio Desktop - Free''.
+
+Nun werden sie weitergeleitet und klicken auf „Download RStudio for Windows``.
+
+Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und folgen erneut der Installationsanleitung. Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.
+
+\hypertarget{installationsanleitung-macos}{%
+\section{Installationsanleitung MacOS}\label{installationsanleitung-macos}}
+
+Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  R, die Programmiersprache
+\item
+  RStudio, die Entwicklungsumgebung
+\end{enumerate}
+
+Zur Installation müssen Sie deshalb auch \textbf{beides nacheinander} installieren.
+
+\hypertarget{erster-schritt-r-1}{%
+\subsection{Erster Schritt: R}\label{erster-schritt-r-1}}
+
+Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet: https://cran.r-project.org. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
+
+Klicken Sie auf der https://cran.r-project.org auf ``Download R for (Mac) OSX'' und scrollen Sie bis zu den ``Latest Releases''. Unter dieser Überschrift wird Ihnen die aktuellste ``stable'' Version von R angezeigt.
+
+Während diese Dokumentation geschrieben wurde, war dies die Version 4.0.2, wie der nachfolgende Screenshot zeigt:
+
+Rechtsklicken Sie auf die Version und laden Sie sie herunter.
+
+Doppelklicken Sie auf die heruntergeladene Datei und folgen Sie der Installationsanleitung.
+
+\hypertarget{zweiter-schritt-rstudio-1}{%
+\subsection{Zweiter Schritt: RStudio}\label{zweiter-schritt-rstudio-1}}
+
+RStudio, die Entwicklungsumgebung für R können Sie unter \textless a href = ``\url{https://rstudio.com/products/rstudio/download/}'' target =‚ "\_blanc"\textgreater https://rstudio.com/products/rstudio/download/ herunterladen.
+
+Wählen Sie die Version ``RStudio Desktop - Free'' und laden Sie die Datei herunter.
+
+Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und ziehen Sie sie in Ihre Applications.
+
+Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.
 
 \hypertarget{benutzeroberfluxe4chen}{%
 \chapter{Benutzeroberflächen}\label{benutzeroberfluxe4chen}}
@@ -560,89 +646,6 @@ An dieser Stelle kann ich nicht auf alle Möglichkeiten eingehen (ich kenne auch
   Ich habe über \textbf{Code \textgreater{} Display \textgreater{} General \textgreater{} Show margin} noch eine senkrechte Linie bei 80-Zeichen eingeblendet. Sie erinnert mich daran, nicht zu lange Codezeilen zu produzieren und lieber den Code an sinnvollen Stellen umzubrechen oder ihn ggf. umzuschreiben. Das dient der Übersichtlichkeit.
 \end{enumerate}
 
-\hypertarget{installation}{%
-\chapter{Installation}\label{installation}}
-
-R ist für viele verschiedene Betriebssysteme verfügbar, man kann es sogar auf einem Android-Smartphone installieren. RStudio gibt es für Windows, MacOS und Linux sowie in einer Variante für Server.
-
-Auf den folgenden Seiten finden Sie Installationsanleitungen für MacOS und Windows.
-Da die Installation auf beiden Betriebssystemen etwas unterschiedlich ist (insbesondere beim Download von R), sind die Wege auf zwei getrennten Seiten aufgeteilt.
-
-\hypertarget{installationsanleitung-windows}{%
-\section{Installationsanleitung Windows}\label{installationsanleitung-windows}}
-
-Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  R, die Programmiersprache
-\item
-  RStudio, die Entwicklungsumgebung
-\end{enumerate}
-
-Zur Installation müssen Sie deshalb auch \textbf{beides nacheinander} installieren.
-
-\hypertarget{erster-schritt-r}{%
-\subsection{Erster Schritt: R}\label{erster-schritt-r}}
-
-Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet: \href{https://cran.r-project.org}{https://cran.r-project.org/}. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellen R-Versionen:
-
-Klicken Sie auf ``Download R for Windows'' und klicken Sie im sich öffnenden Fenster auf „install R for the first time``.
-
-Während diese Dokumentation geschrieben wurde, war die aktuellste Version 4.0.3, wie der nachfolgende Screenshot zeigt:
-
-Nun klicken Sie auf den Download-Link für die aktuelle Version. Doppelklicken Sie anschließend die heruntergeladene Datei und folgen der Installationsanleitung. Die Einstellungsoptionen brauchen Sie dabei nicht anzupassen.
-
-\hypertarget{zweiter-schritt-rstudio}{%
-\subsection{Zweiter Schritt: RStudio}\label{zweiter-schritt-rstudio}}
-
-RStudio, die Entwicklungsumgebung für R können Sie unter \url{https://rstudio.com/products/rstudio/download/} herunterladen.
-Wählen Sie die Version ``RStudio Desktop - Free''.
-
-Nun werden sie weitergeleitet und klicken auf „Download RStudio for Windows``.
-
-Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und folgen erneut der Installationsanleitung. Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.
-
-\hypertarget{installationsanleitung-macos}{%
-\section{Installationsanleitung MacOS}\label{installationsanleitung-macos}}
-
-Wie auf den vorhergehenden Seiten beschrieben, handelt es sich bei R und RStudio um zwei unterschiedliche Dinge:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  R, die Programmiersprache
-\item
-  RStudio, die Entwicklungsumgebung
-\end{enumerate}
-
-Zur Installation müssen Sie deshalb auch \textbf{beides nacheinander} installieren.
-
-\hypertarget{erster-schritt-r-1}{%
-\subsection{Erster Schritt: R}\label{erster-schritt-r-1}}
-
-Die aktuelle Version von R können Sie über das CRAN downloaden. Die Webadresse lautet: \href{https://cran.r-project.org}{https://cran.r-project.org/}. Gleich auf der Startseite finden Sie die Links zu den jeweils aktuellsten R-Versionen:
-
-Klicken Sie auf der \href{https://cran.r-project.org}{Homepage des CRAN} auf ``Download R for (Mac) OSX'' und scrollen Sie bis zu den ``Latest Releases''. Unter dieser Überschrift wird Ihnen die aktuellste ``stable'' Version von R angezeigt.
-
-Während diese Dokumentation geschrieben wurde, war dies die Version 4.0.2, wie der nachfolgende Screenshot zeigt:
-
-Rechtsklicken Sie auf die Version und laden Sie sie herunter.
-
-Doppelklicken Sie auf die heruntergeladene Datei und folgen Sie der Installationsanleitung.
-
-\hypertarget{zweiter-schritt-rstudio-1}{%
-\subsection{Zweiter Schritt: RStudio}\label{zweiter-schritt-rstudio-1}}
-
-RStudio, die Entwicklungsumgebung für R können Sie unter \url{https://rstudio.com/products/rstudio/download/} herunterladen.
-
-Wählen Sie die Version ``RStudio Desktop - Free'' und laden Sie die Datei herunter.
-
-Nachdem der Download abgeschlossen ist, doppelklicken Sie die Datei und ziehen Sie sie in Ihre Applications.
-
-Nach der Installation können Sie das Programm RStudio öffnen. Es greift automatisch auf die zuvor installierte Version von R zu.
-
 \hypertarget{einfuxfchrung-in-r-1}{%
 \chapter{Einführung in R}\label{einfuxfchrung-in-r-1}}
 
@@ -655,7 +658,7 @@ Leider sind Computer bisweilen ganz besonders pingelige Gesprächspartner. Sie b
 \hypertarget{r-syntax}{%
 \section{R-Syntax}\label{r-syntax}}
 
-Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im \protect\hyperlink{konsole}{Abschnitt} haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
+Bevor wir tiefer in die Arbeit mit R und RStudio einsteigen, ist es jetzt an der Zeit, ein erstes eigenes R-Skript zu schreiben. Bereits im \protect\hyperlink{konsole}{Abschnitt zu Konsole} haben Sie erste Syntax-Beispiele kennengelernt und gesehen, dass R ein passabler Taschenrechner ist. Jetzt möchten wir R genauer kennenlernen. Wenn Sie mögen, öffenen Sie ein neues R-Skript und übertragen Sie die Schritte.
 
 \hypertarget{rechnen-mit-r}{%
 \subsection{Rechnen mit R}\label{rechnen-mit-r}}
@@ -672,7 +675,7 @@ OK, als \emph{Taschen}rechner ist R vielleicht etwas unpraktisch. Trotzdem, rech
 ## [1] -1
 \end{verbatim}
 
-Wenn Sie diese Zeile ausführen, z.B. über den Button ``Run'' oder durch den Shortcut \texttt{Cmd/Ctrl\ +\ Enter/Eingabe}, erhalten Sie umgehend das Ergebnis.
+Wenn Sie diese Zeile ausführen, z.B. über den Button ``Run'' oder durch den Shortcut \texttt{Cmd/Ctrl\ +\ Enter/Eingabe}, erhalten Sie umgehend das Ergebnis. In der Ausgabe wird dem Erhebnis eine \texttt{{[}1{]}} vorangestellt. Dies bedeutet, dass es sich um das erste Element des Ergebnisses handelt. Ergebnisse in R können nämlich auch mehrere Teile haben.
 
 \hypertarget{zuweisungsoperatoren}{%
 \subsection{Zuweisungsoperatoren}\label{zuweisungsoperatoren}}
@@ -803,7 +806,7 @@ Man kann Kommentare auch dazu benutzen, Code, der noch nicht funktioniert (Bugs 
 Leider kann man in R bisher keine mehrzeiligen Kommentare machen. Man muss also in jeder Zeile das \texttt{\#} voranstellen.
 
 \leavevmode\hypertarget{hint_short_cut}{}%
-\textbf{Tipp!}
+\textbf{Best Practice: Kommentieren!}
 
 Grundsätzlich gilt: Kommentieren Sie lieber zu viel als zu wenig und schreiben Sie Ihre Kommentare so, dass alle Personen, mit denen Sie ihr R-Skript teilen, den Code verstehen können. Denken Sie dabei vor allem an sich selbst! Werden Sie den Code nachvollziehen können, wenn Sie in 2 Jahren daraus etwas für Ihre Bachelorarbeit wiederverwenden wollen?
 
@@ -984,13 +987,13 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-04-29"
+## [1] "2021-04-30"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
 \subsection{Funktionen verschachteln}\label{funktionen-verschachteln}}
 
-Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von außen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch \texttt{mean()} berechnete Mittelwert (= innere Funktion) durch die Funktion \texttt{round()} auf eine Stelle (zweites Argument \texttt{,\ 1}) gerundet:
+Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann von innen nach innen abgearbeitet. Im folgenden Codebeispiel wird der durch \texttt{mean()} berechnete Mittelwert (= innere Funktion) durch die Funktion \texttt{round()} auf eine Stelle (zweites Argument \texttt{,\ 1}) gerundet:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1114,20 +1117,64 @@ Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Se
 \hypertarget{arbeitsverzeichnis}{%
 \subsection{Arbeitsverzeichnis}\label{arbeitsverzeichnis}}
 
-Wenn man Dateien oder Daten in R laden will, sucht R standardmäßig in dem Verzeichnis danach, indem es installiert ist. R arbeitet immer aus diesem ``Arbeitsverzeichnis'' heraus.
-Möchte man jetzt etwas (z.B. einen Datensatz) in R laden, muss man den gesamten Pfad ``relativ'' zu diesem Verzeichnis angeben oder aber den kompletten Dateipfad. Hier ein Beispiel:
+Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja klar, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die ``Adresse'' kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem ``Verweis'' auf eine andere Datei kann man entweder den \emph{absoluten} oder den \emph{relativen} Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch ``slash'') \texttt{/} getrennt.
+
+\textbf{Absolut} heißt ein Pfad immer dann, wenn der komplette Pfad (ausgehend von dem ``root''-Verzeichnis der Festplatte) angegeben wird. Eine Datei könnte z.B. hier liegen:
 
 \begin{itemize}
-\tightlist
 \item
-  Windows: C:/Users/julia/documents/data/my\_data.xlsx
+  Windows: \texttt{C:/Users/julia/my\_project/data/my\_data.xlsx}
 \item
-  Unix und MacOS: /Users/julia/documents/my\_data.xlsx
+  Unix und MacOS: \texttt{/Users/julia/my\_project/my\_data.xlsx}
 \end{itemize}
 
-Standardmäßig liegt das Arbeitsverzeichnis in den \emph{Eigenen Dateien} des Computers, auf dem R installiert wurde.
+\leavevmode\hypertarget{info_windows_path}{}%
+\textbf{Achtung: Pfade bei Windows}
 
-Mit dem Befehl \texttt{getwd()} kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen. Mit \texttt{setwd("mein\_pfad")} kann man das Arbeitsverzeichnis bestimmen. Das ist aber in der Regel gar nicht notwendig, wenn man mit R-Projekten arbeitet, weil diese das Arbeitsverzeichnis automatisch setzen.
+Windows trennt die Ordner im Dateipfad üblicherweise mit Backslashes \texttt{\textbackslash{}}, z.B. wenn sie über Rechtsklick ``Adresse als Text kopieren'' in die Zwischenablage gespeichert werden. Unix-Systeme wie MacOs nutzen den normalen Slash und auch R verwendet den normalen Slash. Windows-Nutzer:innen müssen hier also aufpassen und kopierte Pfade ggf. so umschreiben, dass sie normale Slashes \texttt{/} enthalten!
+
+Ein \textbf{relativer} Pfad ist meistens kürzer als ein absoluter. Beim relativen Pfad muss nicht die ``komplette Anschrift'' angegeben werden, sondern nur der Pfad relativ gesehen zu der Adresse, von der R aus gerade operiert. R hat nämlich auch einen Ordner im Dateisystem, von dem aus es operiert. Dieses Verzeichnis nennt man \emph{Arbeitsverzeichnis}. Standardmäßig wird das Arbeitsverzeichnis bei der Installation auf den Ordner ``Eigenen Dateien'' gesetzt. Beispiel:
+
+\begin{itemize}
+\item
+  Windows: \texttt{C:/Users/julia/}
+\item
+  Unix und MacOS: \texttt{/Users/julia/}
+\end{itemize}
+
+Man kann aber auch innerhalb der R-Session ändern, aus welchem Arbeitsverzeichnis heraus R arbeitet. Das geht über diese Befehle:
+
+\begin{itemize}
+\item
+  Mit dem Befehl \texttt{getwd()} kann man sich das aktuelle Arbeitsverzeichnis anzeigen lassen.
+\item
+  Mit \texttt{setwd("mein\_pfad")} kann man das Arbeitsverzeichnis bestimmen (``setzen'').
+\end{itemize}
+
+Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man mit R-Projekten arbeitet. Denn auch die \texttt{.RProject}-Datei verändert das Arbeitsverzeichnis. Wenn R über einen Doppelklick auf eine \texttt{.RProject}-Datei geöffnet wird, setzt R in der aktuellen Session das Arbeitsverzeichnis auf den Ordner, in dem die Datei liegt. Das ist sehr praktisch (siehe Best-Practice-Box).
+
+Will man jetzt vom Arbeitsverzeichnis \texttt{C:/Users/julia/} aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur \texttt{my\_project/data/my\_data.xlsx} angibt.
+
+Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich in Hamburg anrufen, dann müssen sie die Vorwahl wählen (also den kompletten Pfad). Möchten sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
+
+\leavevmode\hypertarget{info_best_practice_rproj}{}%
+\textbf{Best Practice: Relative Pfade und R-Projekte!}
+
+Relative Pfade haben gegenüber absoluten Pfaden einen entscheidenden Vorteil, den ich hier an einem konkreten Beispiel illustrieren möchte:
+
+Stellen Sie sich vor, sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad \texttt{C:/Users/julia/my\_project/} als \texttt{my\_script.R} abgelegt. In diesem Ordner haben Sie einen Unterordner \texttt{data} angelegt, der die Datei \texttt{my\_data.xlsx} enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus: \texttt{C:/Users/julia/my\_project/data/my\_data.xlsx}.
+
+Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. - Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die ``Adresse'') geändert hat. Sie müssen den Pfad im Skript aktualisieren!
+
+Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem \emph{relativen Pfad} können Sie diese Arbeit vermeiden.
+
+Der relative Pfad ist auch dann hilfreich, wenn sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. \texttt{C:/Users/sophie/my\_project/}).
+
+Es ist deshalb \textbf{Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen}. Auf der obersten Ebene in diesem Ordner sollte die \texttt{.RProject}-Datei liegen. Das Projekt \textbf{sollte immer über Doppelklick auf die .RProject`-Datei geöffnet} werden, weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden.
+
+Zudem empfiehlt es sich, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu wählen (z.B. Unterordner ``data'' für Daten, ``plots'' für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn ein Datum im Dateinamen verwendet werden soll dann immer im ISO-Format 2021-09-29).
+
+Nicht verwirren lassen: In den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis -- je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelt oder das Verzeichnis, was die \texttt{.RProjekt}-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl \texttt{getwd()} um schnell einmal nachzusehen.
 
 \hypertarget{r-projekte-anlegen}{%
 \subsection{R-Projekte anlegen}\label{r-projekte-anlegen}}
@@ -1163,7 +1210,7 @@ Das CSV-Format (CSV für comma-separated values) ist ein sehr übliches Dateifor
 
 Es gibt zwar auch in base-R die Möglichkeit, CSV-Dateien zu laden, etwas zuverlässiger funktioniert es aber mit dem Paket \texttt{readr} aus dem tidyverse. Es gibt in dem Paket gleich zwei Funktionen zum Laden von CSV-Daten. Mit \texttt{read\_csv()} können Daten eingelesen werden, in denen das Komma als Trennzeichen benutzt wurde. Das ist in der Regel bei Dateien, die aus dem englischen Sprachraum stammen, der Fall. Im Deutschen benutzen wir jedoch das Komma als Dezimaltrenner. Gerade bei zahlenlastigen Datensätzen wäre es daher ungünstig, das Komma zusätzlich auch noch als Trennzeichen in einer Daten-Datei zu verwenden. Deshalb wird hier das Semikolon als Trenner verwendet. Die Funktion \texttt{read\_csv2()} geht von einer durch Semikolons separierten CSV-Datei aus.
 
-Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei eingelesen und im Anschluss angezeigt:
+Im folgenden Beispielskript wird zunächst das Paket geladen, dann die Datei (die im Unterordner ``data'' leigt) eingelesen und im Anschluss angezeigt:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1426,7 +1473,7 @@ Mit der Function \texttt{str()} (für \emph{str}ucture) kann man sich Strukturin
 \end{Shaded}
 
 \begin{verbatim}
-## tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
+## tibble[,4] [8 x 4] (S3: tbl_df/tbl/data.frame)
 ##  $ title      : chr [1:8] "The Mandalorian" "The Good Fight" "Stranger Things" "How To Sell Drugs Online (Fast)" ...
 ##  $ year       : num [1:8] 2019 2017 2016 2019 2011 ...
 ##  $ imdb_rating: num [1:8] 8.7 8.3 8.8 7.9 9.3 8.7 8 8.5
@@ -2008,11 +2055,11 @@ In \texttt{.Rmd}-Dokumnten können Sie nicht nur die Beschreibungssprache RMarkd
 
 \begin{itemize}
 \item
-  \href{https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf}{RMarkdown CheatSheet}
+  RMarkdown CheatSheet
 \item
-  \href{https://r4ds.had.co.nz/r-markdown.html}{RMarkdown Kapitel aus dem Buch R4DS}, Wickham \& Grolemund
+  RMarkdown Kapitel aus dem Buch R4DS, Wickham \& Grolemund
 \item
-  \href{https://bookdown.org/yihui/rmarkdown/}{R Markdown: The Definitive Guide}, Xie, Allaire \& Grolemund
+  R Markdown: The Definitive Guide, Xie, Allaire \& Grolemund
 \end{itemize}
 
 \hypertarget{datenaufbereitung}{%
@@ -2052,30 +2099,39 @@ Fast alle der hier vorgestellten Funktionen gehören zum Paket \texttt{dplyr} au
   Das Ergebnis ist immer ein Dataframe.
 \end{itemize}
 
-\hypertarget{datensatz-fuxfcr-dieses-kapitel}{%
-\section{Datensatz für dieses Kapitel}\label{datensatz-fuxfcr-dieses-kapitel}}
+\hypertarget{prerequisites}{%
+\section{Prerequisites}\label{prerequisites}}
 
-Als Datensatz dient in diesem Kapitel der ``starwars''-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
+Als \textbf{Datensatz} dient in diesem Kapitel der ``starwars''-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
 
 \begin{verbatim}
 ## # A tibble: 87 x 14
-##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##    <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-##  1 Luke~    172    77 blond      fair       blue            19   male  mascu~
-##  2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
-##  3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
-##  4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-##  5 Leia~    150    49 brown      light      brown           19   fema~ femin~
-##  6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
-##  7 Beru~    165    75 brown      light      blue            47   fema~ femin~
-##  8 R5-D4     97    32 <NA>       white, red red             NA   none  mascu~
-##  9 Bigg~    183    84 black      light      brown           24   male  mascu~
-## 10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
+##    <chr>    <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
+##  1 Luke S~    172    77 blond       fair       blue            19   male  mascu~
+##  2 C-3PO      167    75 <NA>        gold       yellow         112   none  mascu~
+##  3 R2-D2       96    32 <NA>        white, bl~ red             33   none  mascu~
+##  4 Darth ~    202   136 none        white      yellow          41.9 male  mascu~
+##  5 Leia O~    150    49 brown       light      brown           19   fema~ femin~
+##  6 Owen L~    178   120 brown, grey light      blue            52   male  mascu~
+##  7 Beru W~    165    75 brown       light      blue            47   fema~ femin~
+##  8 R5-D4       97    32 <NA>        white, red red             NA   none  mascu~
+##  9 Biggs ~    183    84 black       light      brown           24   male  mascu~
+## 10 Obi-Wa~    182    77 auburn, wh~ fair       blue-gray       57   male  mascu~
 ## # ... with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
 ## #   films <list>, vehicles <list>, starships <list>
 \end{verbatim}
 
-Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser z.B. für das Umcodieren geeigneter ist.
+Außerdem werde ich auch auf den bereits bekannten Generation-Z-Datensatz zurückgreifen, weil dieser für das Umcodieren geeigneter ist.
+
+In diesem Kapitel werden -- wie oben beschreiben -- die \textbf{Pakete} \texttt{dplyr} aus dem \texttt{tidyverse} sowie \texttt{sjmisc} genutzt. Jedes neue Paket, dass zum ersten Mal verwendet wird, muss natürlich wie im Abschnitt {[}\#\#\#\# Files, Plots, Packages, Help \& Viewer{]} beschrieben installiert werden. Danach muss das Paket auch noch im Skript mit dem \texttt{library}-Befehl geladen werden. Dadurch weiß R, dass das Paket in der aktuellen Session verwendet werden soll und macht die Funktionen des Paketes verfügbar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(sjmisc)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{pipe}{%
 \section{Die Pipe}\label{pipe}}
@@ -2087,7 +2143,7 @@ Die Pipe macht etwas, das für Sie zunächst tendenziell unsinnig klingen muss: 
 \hypertarget{der-aufbau-im-detail}{%
 \subsection{Der Aufbau im Detail}\label{der-aufbau-im-detail}}
 
-Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert:
+Hier der schematische Aufbau einer Datentransformation mit der Pipe, damit Sie nachvollziehen können, wie der Pipe-Operator funktioniert (Achtung, jetzt folgt Pseudo-Code, der nur der Veranschaulichung dient und nicht 1:1 ausführbar ist):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2209,14 +2265,14 @@ Im folgenden Beispiel möchte ich einen Starwars-Datensatz erstellen, der nur F�
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
-## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
-## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
-## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-## 5 Leia~    150    49 brown      light      brown           19   fema~ femin~
-## 6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+##   name     height  mass hair_color  skin_color eye_color birth_year sex   gender
+##   <chr>     <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke Sk~    172    77 blond       fair       blue            19   male  mascu~
+## 2 C-3PO       167    75 <NA>        gold       yellow         112   none  mascu~
+## 3 R2-D2        96    32 <NA>        white, bl~ red             33   none  mascu~
+## 4 Darth V~    202   136 none        white      yellow          41.9 male  mascu~
+## 5 Leia Or~    150    49 brown       light      brown           19   fema~ femin~
+## 6 Owen La~    178   120 brown, grey light      blue            52   male  mascu~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2254,14 +2310,14 @@ Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-## 2 Chew~    228   112 brown      unknown    blue           200   male  mascu~
-## 3 IG-88    200   140 none       metal      red             15   none  mascu~
-## 4 Roos~    224    82 none       grey       orange          NA   male  mascu~
-## 5 Rugo~    206    NA none       green      orange          NA   male  mascu~
-## 6 Yara~    264    NA none       white      yellow          NA   male  mascu~
+##   name     height  mass hair_color skin_color eye_color birth_year sex   gender 
+##   <chr>     <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr>  
+## 1 Darth V~    202   136 none       white      yellow          41.9 male  mascul~
+## 2 Chewbac~    228   112 brown      unknown    blue           200   male  mascul~
+## 3 IG-88       200   140 none       metal      red             15   none  mascul~
+## 4 Roos Ta~    224    82 none       grey       orange          NA   male  mascul~
+## 5 Rugor N~    206    NA none       green      orange          NA   male  mascul~
+## 6 Yarael ~    264    NA none       white      yellow          NA   male  mascul~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2297,14 +2353,14 @@ Und Kontrolle:
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Jabb~    175  1358 <NA>       green-tan~ orange           600 herm~ mascu~
-## 2 Ackb~    180    83 none       brown mot~ orange            41 male  mascu~
-## 3 Jar ~    196    66 none       orange     orange            52 male  mascu~
-## 4 Roos~    224    82 none       grey       orange            NA male  mascu~
-## 5 Rugo~    206    NA none       green      orange            NA male  mascu~
-## 6 Sebu~    112    40 none       grey, red  orange            NA male  mascu~
+##   name    height  mass hair_color skin_color  eye_color birth_year sex    gender
+##   <chr>    <int> <dbl> <chr>      <chr>       <chr>          <dbl> <chr>  <chr> 
+## 1 Jabba ~    175  1358 <NA>       green-tan,~ orange           600 herma~ mascu~
+## 2 Ackbar     180    83 none       brown mott~ orange            41 male   mascu~
+## 3 Jar Ja~    196    66 none       orange      orange            52 male   mascu~
+## 4 Roos T~    224    82 none       grey        orange            NA male   mascu~
+## 5 Rugor ~    206    NA none       green       orange            NA male   mascu~
+## 6 Sebulba    112    40 none       grey, red   orange            NA male   mascu~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2345,12 +2401,12 @@ Die Bedingung ``orange oder gelbe Augen und von Tatooine'' lässt sich also wie 
 
 \begin{verbatim}
 ## # A tibble: 4 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-## 2 Roos~    224    82 none       grey       orange          NA   male  mascu~
-## 3 Rugo~    206    NA none       green      orange          NA   male  mascu~
-## 4 Yara~    264    NA none       white      yellow          NA   male  mascu~
+##   name     height  mass hair_color skin_color eye_color birth_year sex   gender 
+##   <chr>     <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr>  
+## 1 Darth V~    202   136 none       white      yellow          41.9 male  mascul~
+## 2 Roos Ta~    224    82 none       grey       orange          NA   male  mascul~
+## 3 Rugor N~    206    NA none       green      orange          NA   male  mascul~
+## 4 Yarael ~    264    NA none       white      yellow          NA   male  mascul~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2378,14 +2434,14 @@ Ein häufiger Use-Case für Filter, der bisher noch nicht angesprochen wurde, is
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Luke~    172    77 blond      fair       blue            19   male  mascu~
-## 2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
-## 3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
-## 4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-## 5 Leia~    150    49 brown      light      brown           19   fema~ femin~
-## 6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+##   name     height  mass hair_color  skin_color eye_color birth_year sex   gender
+##   <chr>     <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Luke Sk~    172    77 blond       fair       blue            19   male  mascu~
+## 2 C-3PO       167    75 <NA>        gold       yellow         112   none  mascu~
+## 3 R2-D2        96    32 <NA>        white, bl~ red             33   none  mascu~
+## 4 Darth V~    202   136 none        white      yellow          41.9 male  mascu~
+## 5 Leia Or~    150    49 brown       light      brown           19   fema~ femin~
+## 6 Owen La~    178   120 brown, grey light      blue            52   male  mascu~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2408,14 +2464,14 @@ Der Einsatz von \texttt{arrange()} ist sehr simpel. Man muss der Funktion nach d
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Yoda      66    17 white      green      brown            896 male  mascu~
-## 2 Ratt~     79    15 none       grey, blue unknown           NA male  mascu~
-## 3 Wick~     88    20 brown      brown      brown              8 male  mascu~
-## 4 Dud ~     94    45 none       blue, grey yellow            NA male  mascu~
-## 5 R2-D2     96    32 <NA>       white, bl~ red               33 none  mascu~
-## 6 R4-P~     96    NA none       silver, r~ red, blue         NA none  femin~
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   <chr>      <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+## 1 Yoda          66    17 white      green      brown            896 male  mascu~
+## 2 Ratts Ty~     79    15 none       grey, blue unknown           NA male  mascu~
+## 3 Wicket S~     88    20 brown      brown      brown              8 male  mascu~
+## 4 Dud Bolt      94    45 none       blue, grey yellow            NA male  mascu~
+## 5 R2-D2         96    32 <NA>       white, bl~ red               33 none  mascu~
+## 6 R4-P17        96    NA none       silver, r~ red, blue         NA none  femin~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2433,14 +2489,14 @@ Die Daten sind jetzt aufsteigend sortiert. Um eine absteigende Sortierung zu err
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Yara~    264    NA none       white      yellow            NA male  mascu~
-## 2 Tarf~    234   136 brown      brown      blue              NA male  mascu~
-## 3 Lama~    229    88 none       grey       black             NA male  mascu~
-## 4 Chew~    228   112 brown      unknown    blue             200 male  mascu~
-## 5 Roos~    224    82 none       grey       orange            NA male  mascu~
-## 6 Grie~    216   159 none       brown, wh~ green, y~         NA male  mascu~
+##   name    height  mass hair_color skin_color  eye_color  birth_year sex   gender
+##   <chr>    <int> <dbl> <chr>      <chr>       <chr>           <dbl> <chr> <chr> 
+## 1 Yarael~    264    NA none       white       yellow             NA male  mascu~
+## 2 Tarfful    234   136 brown      brown       blue               NA male  mascu~
+## 3 Lama Su    229    88 none       grey        black              NA male  mascu~
+## 4 Chewba~    228   112 brown      unknown     blue              200 male  mascu~
+## 5 Roos T~    224    82 none       grey        orange             NA male  mascu~
+## 6 Grievo~    216   159 none       brown, whi~ green, ye~         NA male  mascu~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2458,14 +2514,14 @@ Selbstverständlich kann man auch nach mehreren Variablen sortieren und dabei au
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-## 1 Mon ~    150  NA   auburn     fair       blue              48 fema~ femin~
-## 2 Lumi~    170  56.2 black      yellow     blue              58 fema~ femin~
-## 3 Barr~    166  50   black      yellow     blue              40 fema~ femin~
-## 4 Shmi~    163  NA   black      fair       brown             72 fema~ femin~
-## 5 Zam ~    168  55   blonde     fair, gre~ yellow            NA fema~ femin~
-## 6 Beru~    165  75   brown      light      blue              47 fema~ femin~
+##   name     height  mass hair_color skin_color  eye_color birth_year sex   gender
+##   <chr>     <int> <dbl> <chr>      <chr>       <chr>          <dbl> <chr> <chr> 
+## 1 Mon Mot~    150  NA   auburn     fair        blue              48 fema~ femin~
+## 2 Luminar~    170  56.2 black      yellow      blue              58 fema~ femin~
+## 3 Barriss~    166  50   black      yellow      blue              40 fema~ femin~
+## 4 Shmi Sk~    163  NA   black      fair        brown             72 fema~ femin~
+## 5 Zam Wes~    168  55   blonde     fair, gree~ yellow            NA fema~ femin~
+## 6 Beru Wh~    165  75   brown      light       blue              47 fema~ femin~
 ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2513,14 +2569,14 @@ Zudem kann man \texttt{select()} auch dazu verwenden, die Variablen im Datensatz
 
 \begin{verbatim}
 ## # A tibble: 6 x 14
-##   name  homeworld height  mass hair_color skin_color eye_color birth_year sex  
-##   <chr> <chr>      <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr>
-## 1 Luke~ Tatooine     172    77 blond      fair       blue            19   male 
-## 2 C-3PO Tatooine     167    75 <NA>       gold       yellow         112   none 
-## 3 R2-D2 Naboo         96    32 <NA>       white, bl~ red             33   none 
-## 4 Dart~ Tatooine     202   136 none       white      yellow          41.9 male 
-## 5 Leia~ Alderaan     150    49 brown      light      brown           19   fema~
-## 6 Owen~ Tatooine     178   120 brown, gr~ light      blue            52   male 
+##   name   homeworld height  mass hair_color skin_color eye_color birth_year sex  
+##   <chr>  <chr>      <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr>
+## 1 Luke ~ Tatooine     172    77 blond      fair       blue            19   male 
+## 2 C-3PO  Tatooine     167    75 <NA>       gold       yellow         112   none 
+## 3 R2-D2  Naboo         96    32 <NA>       white, bl~ red             33   none 
+## 4 Darth~ Tatooine     202   136 none       white      yellow          41.9 male 
+## 5 Leia ~ Alderaan     150    49 brown      light      brown           19   fema~
+## 6 Owen ~ Tatooine     178   120 brown, gr~ light      blue            52   male 
 ## # ... with 5 more variables: gender <chr>, species <chr>, films <list>,
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
@@ -2921,8 +2977,8 @@ In diesem Kapitel geht es um die deskriptive (beschreibende) Statistik. Mit dies
   Funktionen zur Anzeige mehrere Kennwerte und mehrere Variablen
 \end{itemize}
 
-\hypertarget{datensatz-fuxfcr-dieses-kapitel-1}{%
-\section{Datensatz für dieses Kapitel}\label{datensatz-fuxfcr-dieses-kapitel-1}}
+\hypertarget{datensatz-fuxfcr-dieses-kapitel}{%
+\section{Datensatz für dieses Kapitel}\label{datensatz-fuxfcr-dieses-kapitel}}
 
 Als Datensatz dient in diesem Kapitel wieder der ``starwars''-Datensatz, der im Paket dplyr enthalten ist. Er enthält verschiedene Merkmale von Starwars-Figuren:
 
@@ -2934,18 +2990,18 @@ Als Datensatz dient in diesem Kapitel wieder der ``starwars''-Datensatz, der im 
 
 \begin{verbatim}
 ## # A tibble: 87 x 14
-##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##    <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
-##  1 Luke~    172    77 blond      fair       blue            19   male  mascu~
-##  2 C-3PO    167    75 <NA>       gold       yellow         112   none  mascu~
-##  3 R2-D2     96    32 <NA>       white, bl~ red             33   none  mascu~
-##  4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
-##  5 Leia~    150    49 brown      light      brown           19   fema~ femin~
-##  6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
-##  7 Beru~    165    75 brown      light      blue            47   fema~ femin~
-##  8 R5-D4     97    32 <NA>       white, red red             NA   none  mascu~
-##  9 Bigg~    183    84 black      light      brown           24   male  mascu~
-## 10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
+##    <chr>    <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
+##  1 Luke S~    172    77 blond       fair       blue            19   male  mascu~
+##  2 C-3PO      167    75 <NA>        gold       yellow         112   none  mascu~
+##  3 R2-D2       96    32 <NA>        white, bl~ red             33   none  mascu~
+##  4 Darth ~    202   136 none        white      yellow          41.9 male  mascu~
+##  5 Leia O~    150    49 brown       light      brown           19   fema~ femin~
+##  6 Owen L~    178   120 brown, grey light      blue            52   male  mascu~
+##  7 Beru W~    165    75 brown       light      blue            47   fema~ femin~
+##  8 R5-D4       97    32 <NA>        white, red red             NA   none  mascu~
+##  9 Biggs ~    183    84 black       light      brown           24   male  mascu~
+## 10 Obi-Wa~    182    77 auburn, wh~ fair       blue-gray       57   male  mascu~
 ## # ... with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
 ## #   films <list>, vehicles <list>, starships <list>
 \end{verbatim}
@@ -3363,14 +3419,14 @@ Außerdem enthält der Datensatz noch die Variable ``alter\_g3'', die ich in dre
 
 \begin{verbatim}
 ## # A tibble: 6 x 13
-##    lfdn alter_g3 pol_part_wahl pol_part_petiti~ pol_part_sm_kom~
-##   <dbl> <chr>        <dbl+lbl>        <dbl+lbl>        <dbl+lbl>
-## 1  1634 22 bis ~ 0 [not quote~   0 [not quoted]   0 [not quoted]
-## 2  1636 22 bis ~ 1 [quoted]      0 [not quoted]   1 [quoted]    
-## 3  1637 22 bis ~ 1 [quoted]      1 [quoted]       0 [not quoted]
-## 4  1638 22 bis ~ 1 [quoted]      1 [quoted]       0 [not quoted]
-## 5  1639 22 bis ~ 1 [quoted]      0 [not quoted]   0 [not quoted]
-## 6  1640 22 bis ~ 1 [quoted]      1 [quoted]       0 [not quoted]
+##    lfdn alter_g3         pol_part_wahl pol_part_petition pol_part_sm_kommentar
+##   <dbl> <chr>                <dbl+lbl>         <dbl+lbl>             <dbl+lbl>
+## 1  1634 22 bis 24 Jahre 0 [not quoted]    0 [not quoted]        0 [not quoted]
+## 2  1636 22 bis 24 Jahre 1 [quoted]        0 [not quoted]        1 [quoted]    
+## 3  1637 22 bis 24 Jahre 1 [quoted]        1 [quoted]            0 [not quoted]
+## 4  1638 22 bis 24 Jahre 1 [quoted]        1 [quoted]            0 [not quoted]
+## 5  1639 22 bis 24 Jahre 1 [quoted]        0 [not quoted]        0 [not quoted]
+## 6  1640 22 bis 24 Jahre 1 [quoted]        1 [quoted]            0 [not quoted]
 ## # ... with 8 more variables: pol_part_partei_veranstaltung <dbl+lbl>,
 ## #   pol_part_demo <dbl+lbl>, pol_part_information <dbl+lbl>,
 ## #   pol_part_gespraech <dbl+lbl>, pol_part_produktboykott <dbl+lbl>,
@@ -3471,7 +3527,7 @@ Die Tabelle macht genau was sie soll, sie tabuliert die beiden Variablen im vorg
 \item
   \texttt{adorn\_ns()} fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch \texttt{adorn\_percentages()} überschreiben.
 \item
-  \texttt{adorn\_title()} dient zur Beschriftung der Tabelle. Mit \texttt{placement\ =\ "combined"} kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre \texttt{placement\ =\ "top"}.
+  \texttt{adorn\_title()} dient zur Beschriftung der Tabelle. Mit \texttt{placement\ =\ "combined"} kann man z.B. in der ersten Zelle kombiniert die beiden Variablennamen anzeigen lassen. Mit der Variante \texttt{placement\ =\ "top"} wird die Beschriftung in einer Zeile darüber eingetragen.
 \end{itemize}
 
 Probieren wir es aus:
@@ -3484,19 +3540,16 @@ Probieren wir es aus:
   \FunctionTok{adorn\_percentages}\NormalTok{(}\AttributeTok{denominator =} \StringTok{"col"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{adorn\_pct\_formatting}\NormalTok{(}\AttributeTok{digits =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{adorn\_ns}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"combined"}\NormalTok{)}
+  \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"top"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  pol_part_petition/alter_g3 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre
-##                           0       80% (284)       60% (213)       62% (183)
-##                           1       20%  (72)       40% (141)       38% (112)
-##                       Total      100% (356)      100% (354)      100% (295)
-##        Total
-##   68%  (680)
-##   32%  (325)
-##  100% (1005)
+##                           alter_g3                                            
+##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre       Total
+##                  0       80% (284)       60% (213)       62% (183)  68%  (680)
+##                  1       20%  (72)       40% (141)       38% (112)  32%  (325)
+##              Total      100% (356)      100% (354)      100% (295) 100% (1005)
 \end{verbatim}
 
 Sehr hübsch! Durch die übersichtliche Formatierung mit den Prozentwerten können wir jetzt gut vergleichen, wie sich der Anteil derjenigen, die bereits Petitionen unterschreiben haben in den Altersgruppen unterscheidet. Zur Erinnerung, im Gesamten Sample waren es 32 Prozent, die diese Form der politischen Partizipation bereits genutzt haben (siehe auch Spalte ``Total'').
@@ -3625,14 +3678,14 @@ Hier der Code für das zitternde Streudiagramm:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-45-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 Betrachtet man den Output, kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es ist zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.
 
 \hypertarget{kovarianz}{%
 \subsection{Kovarianz}\label{kovarianz}}
 
-Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl \texttt{cov()} ausgeben lassen (Teil des \texttt{stats}-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll:
+Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl \texttt{cov()} ausgeben lassen (Teil des \texttt{stats}-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt im Idealfall lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll. Falls es im Datensatz fehlende Werte gibt braucht es noch einen Hinweis darauf, wie mit diesen umgegangen werden soll (siehe unten Argument \texttt{use}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3672,6 +3725,8 @@ Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem
   Das Argument \texttt{use} bestimmt darüber, wie mit fehlenden Werten umgegangen werden soll. Es ist eigentlich nur dann relevant, wenn mehr als zwei Variablen korreliert werden sollen. Dann kann man darüber entscheiden, ob ein Fall für alle mögliche Korrelationen ausgeschlossen werden soll, wenn er bei einer Variable einen fehlenden Wert hat (listenweiser Fallausschluss) oder ob dieser Fall nur bei den Korrelationen ausgeschlossen werden soll, bei denen die Variable beteiligt ist (paarweiser Fallausschluss).
 \item
   Im Argument \texttt{alternative} kann man festlegen, um was für eine Alternativhypothese es sich handelt. Hiernach bestimmt sich, in welche \emph{Richtung} der Signifikanztest durchgeführt werden soll und ob \emph{einseitig} oder \emph{zweiseitig} getestet werden soll. Man kann hier die Option \texttt{two.sided} für einen zweiseitigen Test festlegen, wenn man eine ungerichtete Hypothese aufgestellt hat. Für gerichtete Hypothesen stehen die Optionen \texttt{greater} (für positive Zusammenhänge) und \texttt{less} (für negative Zusammenhänge) zur Verfügung.
+\item
+  Mit dem Argument \texttt{method} kann man auch noch andere Korrelationskoeffizienten als die Pearson-Korrelation berchenen: Für Kendall \texttt{method\ =\ "kendall"} und für Spearman \texttt{method\ =\ "spearman"}.
 \end{itemize}
 
 \begin{Shaded}
@@ -3836,7 +3891,7 @@ Mit der Funktion \texttt{rplot()} kann man die Matrix in eine Korrelations-Grafi
 ## Don't know how to automatically pick scale for object of type noquote. Defaulting to continuous.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-53-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-54-1.pdf}
 
 Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formatieren. Mit \texttt{rearrange()} kann man die Variablen in der Matrix nach der Größe der Korrelation sortieren. Mit \texttt{shave} kann man die ``doppelte'' obere Hälfte des Plots abschneiden.
 
@@ -3867,7 +3922,7 @@ Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und
 ## Don't know how to automatically pick scale for object of type noquote. Defaulting to continuous.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-54-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen, sieht man auf den ersten Blick!
 
@@ -4210,7 +4265,7 @@ Das soeben erzeugte Objekt \texttt{p} ist leer. Zwar existiert schon eine Zuordn
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-64-1.pdf}
 
 Wie auch? Wir haben ja noch gar nicht festgelegt, um was für eine Art Grafik es sich handeln soll! Über den Operator \texttt{+} können wir dem Plot Geome hinzufügen. Wir addieren sozusagen geome zum Plot dazu: \texttt{p\ +\ geom\_()}.
 
@@ -4230,7 +4285,7 @@ Im Beispiel nutzen wir das zusätzliche Argument \texttt{size\ =\ 5}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-64-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-65-1.pdf}
 
 Juhu, es hat funktioniert! Die Datenpunkte sind auf der Y-Achse angeordnet und in zwei Gruppen aufgeteilt. Die Darstellung ist jedoch suboptimal, denn die Punkte überlagern sich, sie werden vielfach übereinander geplottet. Dadurch kann man nicht wirklich gut sehen, wie sie sich verteilen.
 
@@ -4246,7 +4301,7 @@ Abhilfe schafft ein alternatives Geom, nämlich \texttt{geom\_jitter()}. Beim Ji
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-65-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 Mit dem Argument \texttt{width} kann man die Breite dieser Streuung bestimmen und mit \texttt{alpha} die Transparenz der Punkte. Probieren wir es aus:
 
@@ -4257,7 +4312,7 @@ Mit dem Argument \texttt{width} kann man die Breite dieser Streuung bestimmen un
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-66-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-67-1.pdf}
 
 Die Darstellung ist ganz schön, aber es gibt weitere Alternativen.
 
@@ -4277,7 +4332,7 @@ Und hier unser Boxplot:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-68-1.pdf}
 
 \hypertarget{violin-plot}{%
 \subsection{Violin-Plot}\label{violin-plot}}
@@ -4291,7 +4346,7 @@ Eine weitere Variante, um eine Verteilung darzustellen, ist der Violin-Plot. Er 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-69-1.pdf}
 
 \hypertarget{balkendiagramme}{%
 \subsection{Balkendiagramme}\label{balkendiagramme}}
@@ -4315,7 +4370,7 @@ Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-71-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-72-1.pdf}
 
 Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusätzliches Layer mitgibt, dass das Koordinatensystem modifiziert :
 
@@ -4327,7 +4382,7 @@ Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusä
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-72-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-73-1.pdf}
 
 Wenn man über \texttt{fill} eine zweite Variable mappt, bekommt man gestapelte Balken:
 
@@ -4338,7 +4393,7 @@ Wenn man über \texttt{fill} eine zweite Variable mappt, bekommt man gestapelte 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-74-1.pdf}
 
 Und über das Zusatzargument \texttt{position\ =\ "dodge"} kann man die Balken nebeneinander anzeigen. Achtung, dieses Argument wird hier außerhalb von \texttt{aes()} platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.
 
@@ -4349,7 +4404,7 @@ Und über das Zusatzargument \texttt{position\ =\ "dodge"} kann man die Balken n
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-74-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-75-1.pdf}
 
 \hypertarget{histogramme}{%
 \subsection{Histogramme}\label{histogramme}}
@@ -4387,7 +4442,7 @@ Und jetzt das Geom hinzufügen:
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-77-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-78-1.pdf}
 
 Ohje, sehr ``löchrig''. Das ist genau das Problem, dass ich oben beschrieben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument \texttt{binwidth} kann man zudem festlegen, in welchen Einheiten die Werte zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.
 
@@ -4398,7 +4453,7 @@ Ohje, sehr ``löchrig''. Das ist genau das Problem, dass ich oben beschrieben ha
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-78-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 Sieht doch gleich viel besser aus!
 
@@ -4476,14 +4531,14 @@ Genau so habe ich mir das vorgestellt. Die neuen Variablen heißen standardmäß
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# von wide in long konvertieren:}
+\CommentTok{\# Liniendiagramm}
 \NormalTok{df\_mean }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ alter, }\AttributeTok{y =}\NormalTok{ value, }\AttributeTok{color =}\NormalTok{ name)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_line}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-83-1.pdf}
 
 \hypertarget{grafiken-speichern}{%
 \section{Grafiken speichern}\label{grafiken-speichern}}

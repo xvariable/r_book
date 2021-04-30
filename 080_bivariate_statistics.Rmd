@@ -93,7 +93,7 @@ Die Tabelle macht genau was sie soll, sie tabuliert die beiden Variablen im vorg
 
 - `adorn_ns()` fügt die absoluten Häufigkeiten wieder hinzu. Denn diese werden bei der Formatierung in Prozentwerte durch `adorn_percentages()` überschreiben.
 
-- `adorn_title()` dient zur Beschriftung der Tabelle. Mit `placement = "combined"` kann man z.B. in der ersten Zelle die beiden Variablennamen anzeigen lassen. Eine andere Variante wäre `placement = "top"`.
+- `adorn_title()` dient zur Beschriftung der Tabelle. Mit `placement = "combined"` kann man z.B. in der ersten Zelle kombiniert die beiden Variablennamen anzeigen lassen. Mit der Variante  `placement = "top"` wird die Beschriftung in einer Zeile darüber eingetragen.
 
 Probieren wir es aus:
 
@@ -104,7 +104,7 @@ my_crosstab %>%
   adorn_percentages(denominator = "col") %>% 
   adorn_pct_formatting(digits = 0) %>%
   adorn_ns() %>%
-  adorn_title(placement = "combined")
+  adorn_title(placement = "top")
 
 ```
 
@@ -227,7 +227,7 @@ Betrachtet man den Output, kann man die Beziehung zwischen den beiden Variablen 
 
 ### Kovarianz 
 
-Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl `cov()` ausgeben lassen (Teil des `stats`-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll:
+Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl `cov()` ausgeben lassen (Teil des `stats`-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt im Idealfall lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll. Falls es im Datensatz fehlende Werte gibt braucht es noch einen Hinweis darauf, wie mit diesen umgegangen werden soll (siehe unten Argument `use`). 
 
 ```{r}
 cov(df$pol_part_sx, df$pol_entfremdung_ix)
@@ -253,6 +253,8 @@ Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem
 - Das Argument `use` bestimmt darüber, wie mit fehlenden Werten umgegangen werden soll. Es ist eigentlich nur dann relevant, wenn mehr als zwei Variablen korreliert werden sollen. Dann kann man darüber entscheiden, ob ein Fall für alle mögliche Korrelationen ausgeschlossen werden soll, wenn er bei einer Variable einen fehlenden Wert hat (listenweiser Fallausschluss) oder ob dieser Fall nur bei den Korrelationen ausgeschlossen werden soll, bei denen die Variable beteiligt ist (paarweiser Fallausschluss).
 
 - Im Argument `alternative` kann man festlegen, um was für eine Alternativhypothese es sich handelt. Hiernach bestimmt sich, in welche *Richtung* der Signifikanztest durchgeführt werden soll und ob *einseitig* oder *zweiseitig* getestet werden soll. Man kann hier die Option `two.sided` für einen zweiseitigen Test festlegen, wenn man eine ungerichtete Hypothese aufgestellt hat. Für gerichtete Hypothesen stehen die Optionen `greater` (für positive Zusammenhänge) und `less` (für negative Zusammenhänge) zur Verfügung.
+
+- Mit dem Argument `method` kann man auch noch andere Korrelationskoeffizienten als die Pearson-Korrelation berchenen: Für Kendall `method = "kendall"` und für Spearman `method = "spearman"`.
 
 ```{r}
 cor.test(df$pol_part_sx, df$pol_entfremdung_ix, 

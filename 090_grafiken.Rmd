@@ -318,7 +318,7 @@ head(df_mean)
 Genau so habe ich mir das vorgestellt. Die neuen Variablen heißen standardmäßig  `name` und `value` und die Variable `alter` ist auch noch mit dabei. Genau diese Struktur und die drei Variablen brauchen wir. Jetzt kann es losgehen mit dem Liniendiagramm:
 
 ```{r warning = FALSE}
-# von wide in long konvertieren:
+# Liniendiagramm
 df_mean %>% 
   ggplot(mapping = aes(x = alter, y = value, color = name)) + 
   geom_line()
