@@ -1,8 +1,8 @@
 # RMarkdown
 
-RMarkdown ist ein Dateiformat, mit dem es möglich ist, dynamische Dokumente direkt aus R heraus zu erzeugen, wie bspw. Word- oder PDF-Dateien oder auch HTML-Seiten. Dabei wird nicht nur der R-Code oder die Ergebnisse exportiert. Es ist zusätzlich möglich Text einzubetten. Ganz im Sinne des "literate programming", kann man also die den R-Code und die Dokumentation des Codes verknüpfen. Aber auch darüber hinaus kann man seine eigenen Gedanken und Interpretationen festhalten oder auch längere Texte schreiben. Mit dem fertigen RMarkdown-Dokument kann im Anschluss ganz unterschiedliche Output-Dokumente erzeugen, wie bspw. Word- oder PDF-Dateien, Präsentationen oder HTML für Webseiten.
+RMarkdown ist ein Dateiformat, mit dem es möglich ist, dynamische Dokumente direkt aus R heraus zu erzeugen, wie beispielsweise Word- oder PDF-Dateien oder auch HTML-Seiten. Dabei wird nicht nur der R-Code oder die Ergebnisse exportiert. Es ist zusätzlich möglich, Text einzubetten. Ganz im Sinne des "literate programming", kann man also den R-Code und die Dokumentation des Codes verknüpfen. Aber auch darüber hinaus kann man seine eigenen Gedanken und Interpretationen festhalten oder auch längere Texte schreiben. Mit dem fertigen RMarkdown-Dokument kann man im Anschluss ganz unterschiedliche Output-Dokumente erzeugen, wie zum Beispiel Word- oder PDF-Dateien, Präsentationen oder HTML für Webseiten.
 
-Das ist natürlich sehr praktisch für Berichte und Hausarbeiten, aber auch Artikel in Fachzeitschriften. Auch ganze Bücher oder sogar interaktive Apps können mit RMarkdown produziert werden. Wenig überraschend: Auch dieses Buch wurde in RMarkdown geschrieben :)
+Das ist natürlich sehr praktisch für Berichte und Hausarbeiten, aber auch für Artikel in Fachzeitschriften. Auch ganze Bücher oder sogar interaktive Apps können mit RMarkdown produziert werden. Wenig überraschend: Auch dieses Buch wurde in RMarkdown geschrieben :)
 
 <img src="images/ah_rmarkdown.png" alt="Artwork by Allison Horst" style="width:1000px;margin-bottom:5px;margin-top:5px"><div style="color:grey;text-align:right">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Allison Horst</a></div><br />
 
@@ -28,11 +28,11 @@ Das Endresultat ist ein fertiger "Output", der leicht lesbar, schön formatiert 
 - Es ist ein hervorragendes Tool für transparente und reproduzierbare Forschung.
 :::
 
-RMarkdown-Dateien wurden so gestaltet, dass Sie unterschiedlich genutzt werden können, je nach Anforderung:
+RMarkdown-Dateien wurden so gestaltet, dass sie unterschiedlich genutzt werden können, je nach Anforderung:
 
-- Als "Forschungslogbuch", in dem Sie nicht nur ihren Code, sondern auch ihre Gedanken festhalten können.
+- Als "Forschungslogbuch", in dem Sie nicht nur Ihren Code, sondern auch Ihre Gedanken festhalten können.
 
-- In der Kollaboration mit Kolleg_innen und die nicht nur an Ihren Schlussfolgerungen und Gedanken, sondern auch am Code interessiert sind.
+- In der Kollaboration mit Kolleg:innen, die nicht nur an Ihren Schlussfolgerungen und Gedanken, sondern auch am Code interessiert sind.
 
 - Zur Kommunikation mit Entscheidungsträgern und anderem Publikum, dass keinen Code sehen und sich nur über die Ergebnisse und ihre Interpretation informieren möchte.
 
@@ -49,15 +49,15 @@ Der Workflow mit RMarkdown lässt sich in 3 Schritte gliedern:
 
 
 ### Erster Schritt: RMarkdown anlegen
-Am einfachsten legt man eine RMarkdowndatei über das Menü in RStudio an, nämlich unter `File -> New File -> R Markdown`. Alternativ funktioniert es auch über das Icon für neue Dateien:
+Am einfachsten legt man eine RMarkdown-Datei über das Menü in RStudio an, nämlich unter `File -> New File -> R Markdown`. Alternativ funktioniert es auch über das Icon für neue Dateien:
 
 <img src="images/menu_rmd.png" alt="RMarkdown anlegen" style="width:200px;margin-top:5px;margin-bottom:5px">
 
-Es folgt eine Abfrage, in der man schon einmal einen Titel und den/die Autor_in des Dokuments festlegen kann. Außerdem kann man Wählen um was für ein Markdown es sich handeln soll (der Standard ist ein "Document") und den Typ des Outputs festlegen. Die meisten Einstellungen kann man aber hinterher noch verändern, deshalb ist es nciht so entscheidend, was hier eingestellt wird.
+Es folgt eine Abfrage, in der man schon einmal einen Titel und den/die Autor_in des Dokuments festlegen kann. Außerdem kann man wählen, um was für ein Markdown es sich handeln soll (der Standard ist ein "Document") und den Typ des Outputs festlegen. Die meisten Einstellungen kann man aber hinterher noch verändern, deshalb ist es nicht so entscheidend, was hier eingestellt wird.
 
 <img src="images/new_rmd.png" alt="RMarkdown anlegen Dialogfeld" style="width:60%;margin-top:5px;margin-bottom:5px">
 
-Klickt man in dem Dialog auf "okay" offnet sich eine Datei, die auch schon Beispiel-Content und damit die wesentlichen Inhalte eine RMarkdown-Datei enthält:
+Klickt man in dem Dialog auf "okay" offnet sich eine Datei, die auch schon Beispiel-Content und damit die wesentlichen Inhalte einer RMarkdown-Datei enthält:
 
 <img src="images/rmd_example.png" alt="RMarkdown Beispiel-Content" style="width:60%;margin-top:5px;margin-bottom:5px">
 
@@ -77,20 +77,20 @@ Diese Bestandteile werden im Folgenden kurz beschrieben.
 
 **Der Header** ist begrenzt durch je ein einleitendes und ein schließendes `---`. Er enthält Metainformationen zum Dokument, die entweder nicht in der Ausgabe enthalten sind oder bei der Erzeugung des Outputs zur Titelgestaltung genutzt werden.
 
-**R-Code-Chunks: ** Nach dem Header folgt ein grau hinterlegter Block, der durch \`\`\` eingeleitet und geschlossen wird. Dies ist ein Bereich, in dem ausführbarer R-Code seinen Platz findet, eine so genannte Code-Chunk. Das `r` in der geschweiften Klammer macht dabei deutlich, dass es sich um R-Code handelt. Möglich wäre auch Code in anderen Programmiersprachen. Innerhalb der geschweiften Klammer stehen außerdem der Name der R-Chunk (hier `setup`) sowie Optionen für die Code-Chunk (hier bspw. `include=FALSE`, was bedeutet, dass dieser Block nicht in den Output integriert werden soll). Diese beiden Angaben sind optional. Nach der geschweiften Klammer folgt R-Code. In diesem Fall ist er aber nicht besonders spannend. Er setzt nur eine Optionen für das Paket `knitr`, welches am Ende dafür zuständig, ist aus dem Markdown-Dokument output zu erzeugen. Etwas interessanter sind die zweite und die dritte Code-Chunk im Beispieldokument. hier werden mit Base-R-Funktionen informationen über den `cars`- Datensatz angezeigt und ein Plot erzeugt. 
+**R-Code-Chunks: ** Nach dem Header folgt ein grau hinterlegter Block, der durch \`\`\` eingeleitet und geschlossen wird. Dies ist ein Bereich, in dem ausführbarer R-Code seinen Platz findet, eine so genannte Code-Chunk. Das `r` in der geschweiften Klammer macht dabei deutlich, dass es sich um R-Code handelt. Möglich wäre auch Code in anderen Programmiersprachen. Innerhalb der geschweiften Klammer stehen außerdem der Name der R-Chunk (hier `setup`) sowie Optionen für die Code-Chunk (hier bspw. `include=FALSE`, was bedeutet, dass dieser Block nicht in den Output integriert werden soll). Diese beiden Angaben sind optional. Nach der geschweiften Klammer folgt R-Code. In diesem Fall ist er aber nicht besonders spannend. Er setzt nur eine Optionen für das Paket `Knitr`, welches am Ende dafür zuständig, ist aus dem Markdown-Dokument Output zu erzeugen. Etwas interessanter sind die zweite und die dritte Code-Chunk im Beispieldokument. Hier werden mit Base-R-Funktionen Informationen über den `cars`- Datensatz angezeigt und ein Plot erzeugt. 
 
-Diese Chunks können Sie auch einzeln ausführen, und zwar über die kleinen grünen Pfeil-Icons auf Hohe der Chunks. Der Output wird ihnen dann direkt unter der Chunk angezeigt:
+Diese Chunks können Sie auch einzeln ausführen, und zwar über die kleinen grünen Pfeil-Icons auf Höhe der Chunks. Der Output wird Ihnen dann direkt unter der Chunk angezeigt:
 <img src="images/rmd_r_chunk.png" alt="RMarkdown run Chunk" style="width:450px;margin-top:5px;margin-bottom:5px">
 
-**Text mit Formatierungsangaben:** Markdown ist eine Gruppe von einfachen Beschreibungssprachen, in denen Regeln für die Formatierung von Texten festgelegt werden. RMarkdown ist nicht nur der Name des Dateiformats `.Rmd`, sondern auch der Name der Beschreibungssprache RMarkdown. Die Regeln sind wirklich sehr einfach. in dem Beispieldokument sieht man schon auf den ersten Blick, dass das `#`-Zeichen offenbar für Überschriften zuständig ist. Die Anzahl der `#` steht dabei für die "Ordnung" der Überschriften. Hier sind jeweils zwei Hashzeichen (`##`) vor den Überschriften, es handelt sich also um Überschriften zweiter Ordnung (warum auch immer). Im Beispiel-Content kann man auch die Formatierungen sehen, mit denen Links eingebunden (durch spitze Klammern `<>`) und Text gefettet wird (durch zwei `**`). 
+**Text mit Formatierungsangaben:** Markdown ist eine Gruppe von einfachen Beschreibungssprachen, in denen Regeln für die Formatierung von Texten festgelegt werden. RMarkdown ist nicht nur der Name des Dateiformats `.Rmd`, sondern auch der Name der Beschreibungssprache RMarkdown. Die Regeln sind wirklich sehr einfach. In dem Beispieldokument sieht man schon auf den ersten Blick, dass das `#`-Zeichen offenbar für Überschriften zuständig ist. Die Anzahl der `#` steht dabei für die "Ordnung" der Überschriften. Hier sind jeweils zwei Hashzeichen (`##`) vor den Überschriften, es handelt sich also um Überschriften zweiter Ordnung (warum auch immer). Im Beispiel-Content kann man auch die Formatierungen sehen, mit denen Links eingebunden (durch spitze Klammern `<>`) und Text gefettet wird (durch zwei `**`). 
 
 ### Dritter Schritt: Output erzeugen
 
-Das Beispieldokument, dass RStudio beim anlegen einer `.Rmd`-Datei generiert hat, ist ein vollwertiges RMarkdown-Dokument, aus dem ein Output erzeugt werden kann. Dies geht ganz einfach über den Button "Knit" in der Menüleiste des Skript-Bereiches. Klickt man auf diesen Button öffnet sich ein Dialog, in dem man noch einmal aussuchen kann, was für ein Output generiert werden soll (also völlig unabhängig von den Voreinstellungen, die Sie gewählt hatten),
+Das Beispieldokument, das RStudio beim Anlegen einer `.Rmd`-Datei generiert hat, ist ein vollwertiges RMarkdown-Dokument, aus dem ein Output erzeugt werden kann. Dies geht ganz einfach über den Button "knit" in der Menüleiste des Skript-Bereiches. Klickt man auf diesen Button, öffnet sich ein Dialog, in dem man noch einmal aussuchen kann, was für ein Output generiert werden soll (also völlig unabhängig von den Voreinstellungen, die Sie gewählt hatten).
 
 <img src="images/rmd_knit.png" alt="RMarkdown knitten" style="width:150px;margin-top:5px;margin-bottom:5px">
 
-Nach erfolgter Auswahl muss ein Speicherort und der Name des Output-Files festgelegt werden. Und wenig später wird das Dokument als Vorschau angezeigt.
+Nach erfolgter Auswahl muss ein Speicherort und der Name des Output-Files festgelegt werden – und wenig später wird das Dokument als Vorschau angezeigt.
 
 
 ::: {#info_tinytex .box .warning}
@@ -104,7 +104,7 @@ Achtung, wenn Sie mit dem RMarkdown ein PDF erzeugen möchten, benötigen Sie da
 
 ## Formatierungen & Optionen
 
-Natürlich gibt es noch viel mehr Formatierungsmöglichkeiten als die oben genannten. Selbstverständlich können Sie Tabellen zeichnen, Bilder einbinden, Kursivstellung oder Versalien beutzen, Farbe einsetzen usw. Außerdem können Sie über Templates oder eigene Stylesheets die Formatierung ihres Dokumentes ändern und z.B. andere Schriftarten wählen. Auch Zitationen und Literaturverzeichnisse können über Bibtex eingefügt werden.
+Natürlich gibt es noch viel mehr Formatierungsmöglichkeiten als die oben genannten. Selbstverständlich können Sie Tabellen zeichnen, Bilder einbinden, Kursivstellung oder Versalien beutzen, Farbe einsetzen usw. Außerdem können Sie über Templates oder eigene Stylesheets die Formatierung Ihres Dokumentes ändern und z.B. andere Schriftarten wählen. Auch Zitationen und Literaturverzeichnisse können über Bibtex eingefügt werden.
 
 Mit den Optionen für die Code-Chunks können Sie darüber bestimmen, ob und welche Inhalte im Output angezeigt werden sollen. Möchten sie z.B. die Informationen, die beim Laden von Paketen in der Console ausgegeben werden im Output zeigen oder lieber verbergen?
 
