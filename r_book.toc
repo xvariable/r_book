@@ -133,3 +133,9 @@
 \contentsline {subsection}{\numberline {9.4.6}Histogramme}{116}{subsection.9.4.6}%
 \contentsline {subsection}{\numberline {9.4.7}Liniendiagramme}{118}{subsection.9.4.7}%
 \contentsline {section}{\numberline {9.5}Grafiken speichern}{120}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Regression}{121}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Das lineare Modell}{121}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Bivariate lineare Regression}{122}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Grafische Darstellung}{124}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Die Funktion \texttt {lm()}}{126}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Standardisierte Regressionskoeffizienten (β)}{129}{subsection.10.2.3}%

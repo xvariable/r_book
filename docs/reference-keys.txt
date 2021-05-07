@@ -124,3 +124,9 @@ balkendiagramme
 histogramme
 liniendiagramme
 grafiken-speichern
+regression
+das-lineare-modell
+bivariate-lineare-regression
+grafische-darstellung
+die-funktion-lm
+standardisierte-regressionskoeffizienten-β

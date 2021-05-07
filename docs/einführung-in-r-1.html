@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-04-30" />
+<meta name="date" content="2021-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -333,6 +333,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#das-lineare-modell"><i class="fa fa-check"></i><b>10.1</b> Das lineare Modell</a></li>
+<li class="chapter" data-level="10.2" data-path="regression.html"><a href="regression.html#bivariate-lineare-regression"><i class="fa fa-check"></i><b>10.2</b> Bivariate lineare Regression</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression.html"><a href="regression.html#grafische-darstellung"><i class="fa fa-check"></i><b>10.2.1</b> Grafische Darstellung</a></li>
+<li class="chapter" data-level="10.2.2" data-path="regression.html"><a href="regression.html#die-funktion-lm"><i class="fa fa-check"></i><b>10.2.2</b> Die Funktion <code>lm()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="regression.html"><a href="regression.html#standardisierte-regressionskoeffizienten-β"><i class="fa fa-check"></i><b>10.2.3</b> Standardisierte Regressionskoeffizienten (β)</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -522,7 +532,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Vielleicht haben Sie bemerkt, dass ich im Code bei der <code>mean()</code>- und der <code>print()</code>-Funktion das erste Argument nicht mit seinem Namen angesprochen habe. Natürlich hat auch dieses Argument einen Namen, es heißt <code>x</code>. Jedoch ist es sehr üblich, dass Daten-Objekte in Funktionen an vorderster Stelle übergeben werden. Es ist eine Konvention in diesem Fall den Namen doch wegzulassen.</p>
 <p>Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benötigen, wie etwa <code>Sys.Date()</code>. Diese Funktion gibt einfach nur das aktuelle Datum aus. Da sie dazu nur auf die Systemzeit des Computers zugreifen muss, braucht sie kein Argument.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="einführung-in-r-1.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2021-04-30&quot;</code></pre>
+<pre><code>## [1] &quot;2021-05-07&quot;</code></pre>
 </div>
 <div id="funktionen-verschachteln" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Funktionen verschachteln</h3>
@@ -1343,6 +1353,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

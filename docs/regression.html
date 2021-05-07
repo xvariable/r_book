@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 10 Regression | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 10 Regression | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
+  
+  <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="github-repo" content="xvariable/r_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 10 Regression | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  
+  <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  
+
+<meta name="author" content="Julia Niemann-Lenz" />
+
+
+<meta name="date" content="2021-05-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="grafiken.html"/>
+<link rel="next" href="literaturverzeichnis.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HCCP0H824J');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Kompendium</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>2.1</b> Installationsanleitung Windows</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>2.1.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>2.2</b> Installationsanleitung MacOS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>2.2.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>2.2.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>3</b> Benutzeroberflächen</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>3.1</b> R Konsole</a></li>
+<li class="chapter" data-level="3.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>3.2</b> RStudio: IDE für R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>3.2.1</b> RStudio-Cloud</a></li>
+<li class="chapter" data-level="3.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installation von RStudio</a></li>
+<li class="chapter" data-level="3.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>3.2.3</b> RStudio Benutzeroberfläche</a></li>
+<li class="chapter" data-level="3.2.4" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#r-skripte"><i class="fa fa-check"></i><b>3.2.4</b> R-Skripte</a></li>
+<li class="chapter" data-level="3.2.5" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#features-von-rstudio"><i class="fa fa-check"></i><b>3.2.5</b> Features von RStudio</a></li>
+<li class="chapter" data-level="3.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>3.2.6</b> RStudio anpassen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
+<li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
+<li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
+<li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
+<li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
+<li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
+<li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
+<li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
+<li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
+<li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
+<li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
+<li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
+<li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
+<li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
+<li class="chapter" data-level="4.9.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#fehlende-werte"><i class="fa fa-check"></i><b>4.9.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="4.9.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objekttypen-konvertieren"><i class="fa fa-check"></i><b>4.9.5</b> Objekttypen konvertieren</a></li>
+<li class="chapter" data-level="4.9.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#faktoren"><i class="fa fa-check"></i><b>4.9.6</b> Faktoren</a></li>
+<li class="chapter" data-level="4.9.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#listen"><i class="fa fa-check"></i><b>4.9.7</b> Listen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-workflow"><i class="fa fa-check"></i><b>5.1</b> RMarkdown Workflow</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#erster-schritt-rmarkdown-anlegen"><i class="fa fa-check"></i><b>5.1.1</b> Erster Schritt: RMarkdown anlegen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rmarkdown.html"><a href="rmarkdown.html#zweiter-schritt-inhalt-der-rmarkdown-datei"><i class="fa fa-check"></i><b>5.1.2</b> Zweiter Schritt: Inhalt der RMarkdown-Datei</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rmarkdown.html"><a href="rmarkdown.html#dritter-schritt-output-erzeugen"><i class="fa fa-check"></i><b>5.1.3</b> Dritter Schritt: Output erzeugen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#formatierungen-optionen"><i class="fa fa-check"></i><b>5.2</b> Formatierungen &amp; Optionen</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#weiterführende-links-2"><i class="fa fa-check"></i><b>5.3</b> Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#prerequisites"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>6.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>6.3</b> Filter: Fälle auswählen</a></li>
+<li class="chapter" data-level="6.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>6.4</b> Arrange: Fälle sortieren</a></li>
+<li class="chapter" data-level="6.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>6.5</b> Select: Variablen auswählen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>6.6</b> Variablen umcodieren</a></li>
+<li class="chapter" data-level="6.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>6.7</b> Variablen berechnen</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>6.7.1</b> Summen und Mittelwertindices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>6.7.2</b> Berechnen mit dplyr::mutate()</a></li>
+<li class="chapter" data-level="6.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>6.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>6.8</b> Summarize: Daten verdichten</a></li>
+<li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
+<li class="chapter" data-level="7.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>7.2.2</b> Häufigkeitsdiagramm</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>7.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>7.3.1</b> Nominale Daten</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>7.3.2</b> Ordinale Daten</a></li>
+<li class="chapter" data-level="7.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>7.3.3</b> Metrische Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>7.4</b> Schiefe und Kurtosis</a></li>
+<li class="chapter" data-level="7.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>7.5</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>8</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>8.1</b> Kreuztabellen</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>8.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
+<li class="chapter" data-level="8.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>8.1.2</b> Kreuztabelle ausgeben</a></li>
+<li class="chapter" data-level="8.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>8.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>8.2</b> Korrelationen</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>8.2.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>8.2.2</b> Kovarianz</a></li>
+<li class="chapter" data-level="8.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>8.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>8.2.4</b> Korrelation mit <code>psych</code></a></li>
+<li class="chapter" data-level="8.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>8.2.5</b> Partialkorrelation</a></li>
+<li class="chapter" data-level="8.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>8.2.6</b> Korrelationsmatrizen darstellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>9</b> Grafiken</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>9.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="9.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>9.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="9.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>9.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="9.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>9.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="9.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>9.4.7</b> Liniendiagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#das-lineare-modell"><i class="fa fa-check"></i><b>10.1</b> Das lineare Modell</a></li>
+<li class="chapter" data-level="10.2" data-path="regression.html"><a href="regression.html#bivariate-lineare-regression"><i class="fa fa-check"></i><b>10.2</b> Bivariate lineare Regression</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression.html"><a href="regression.html#grafische-darstellung"><i class="fa fa-check"></i><b>10.2.1</b> Grafische Darstellung</a></li>
+<li class="chapter" data-level="10.2.2" data-path="regression.html"><a href="regression.html#die-funktion-lm"><i class="fa fa-check"></i><b>10.2.2</b> Die Funktion <code>lm()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="regression.html"><a href="regression.html#standardisierte-regressionskoeffizienten-β"><i class="fa fa-check"></i><b>10.2.3</b> Standardisierte Regressionskoeffizienten (β)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regression" class="section level1" number="10">
+<h1><span class="header-section-number">Kapitel 10</span> Regression</h1>
+<p>Die Regression ist so etwas wie das “Schweizer Taschenmesser” der empirischen Sozialwissenschaft. Es gibt viele Varianten und Erweiterungen der Regression, der Standardfall ist jedoch die lineare Regression bzw. das lineare Modell, das ich in diesem Kapitel erläutere.</p>
+<div id="das-lineare-modell" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Das lineare Modell</h2>
+<p>Das lineare Modell hat die folgende Form, wobei <em>y</em> für die Werte der abhängigen Variable steht (auch <em>Outcome</em>, Kriterium, Regressant oder “zu erklärende” Variable). Die unabhängige(n) Variable(n) heißen <em>x</em> (auch Prädiktoren, Regressoren oder erklärende Variablen) und <em>b</em> ist ein “Gewicht.” <em>e</em> steht für den <em>Fehler</em>, also den Anteil an Varianz, der nicht durch das Modell erklärt werden kann.</p>
+<p><span class="math display">\[y = b_{0}+b_{1}x_{1}+b_{2}x_{2}+... b_{n}x_{n}+E\]</span></p>
+<p>Das Modell besagt, dass die Ausprägung der Variable <em>y</em> von den Ausprägungen der <em>x</em>-Variablen abhängt. Diese <em>x</em>-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht <em>b</em> multipliziert. Der “Rest,” also alles, was nicht erklärt werden kann, wird mit <em>E</em> aufgefangen. Das Gewicht <em>b_{0}</em> ist keiner <em>x</em>-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von <em>y</em> und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet. - Warum zeige ich später noch.</p>
+<p>Das <strong>Ziel der linearen Regression</strong> ist es, herauszufinden, welche unterschiedlichen Gewichte (also Werte von <em>b</em>) die einzelnen unabhängigen Variablen <em>x</em> jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren <em>x</em> die Outcome-Variable <em>y</em> in besonderem Maße beeinflussen.</p>
+<p>– Moment, stand da gerade <em>beeinflussen</em>? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der <em>x</em>-Variable auf die <em>y</em>-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der [#Korrelation], die lediglich von einem Zusammenhang ausgeht ohne in abhängige und unabhängige Variable zu unterschieden.</p>
+<p>An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r sachlogische Gründe für die Plausibilität ihrer Kausalhypothese anzuführen!</p>
+</div>
+<div id="bivariate-lineare-regression" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Bivariate lineare Regression</h2>
+<p>Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine <em>bivariate</em> Regression. Die Hypothese die getestet werden soll lautet:</p>
+<p><strong>H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst</strong></p>
+<p>Wir nehmen uns also wieder den Gen-Z-Datensatz vor und die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:</p>
+<ul>
+<li><p>Die abhängige Variable Politische Partizipation (<em>y</em>) ist ein Summenindex von 10 politischen Handlungen, beispielsweise “Wählen gehen,” “Teilnahme an Produktboykott” usw. Befragte können hier einen Wert zwischen 0 = <em>keine Teilnahme</em> und 10 = <em>Teilnahme an allen zehn Handlungen</em> erreichen.</p></li>
+<li><p>Die Prädiktorvariable politisches Interesse (<em>x</em>) wurde auf einer Skala von 0 = <em>überhaupt nicht</em> bis 3 = <em>sehr stark</em> gemessen.</p></li>
+</ul>
+<p>Die Formel für eine bivariate Regression lautet so:</p>
+<p><span class="math display">\[y = b_{0}+b_{1}x_{1}+E\]</span></p>
+<p>Für unsere konkrete Hypothese bedeutet das:</p>
+<p><span class="math display">\[politische Partizipation = b_{0}+b_{politisches Interesse} × politisches Interesse+Fehler\]</span></p>
+<p>Sie kennen wahrscheinlich auch schon die grafische Darstellung aus den Sitzungsfolien oder aus Lehrbüchern:</p>
+<p><img src="images/regression_model.png" /></p>
+<ul>
+<li><p><strong><em>b<sub>1</sub></em></strong> ist die Steigung der Regressionsgeraden (englisch <em>slope</em>). Wenn wir eine Einheit auf der x-Achse weitergehen, um wie viele Einheiten steigt die Regressionsgerade dann auf der y-Achse an? Im dargestellten Beispiel sind das bei der pinken Linie zwei y-Einheiten. Bei den zur Veranschaulichung dargestellten alternativen Slopes ist die Steigung eine andere: Bei hellgrün sind es 4 (sehr steile Linie), bei hellblau nur 0,25 (sehr flach).</p></li>
+<li><p><strong><em>b<sub>0</sub></em></strong> ist der Achsenabschnitt, also der Punkt, an dem die Gerade die y-Achse schneidet. Anders ausgedrückt: Wenn die unabhängige Variable den Wert x = 0 hat, welchen Wert hat dann y?</p></li>
+<li><p>Das <strong><em>Residuum</em></strong> ist die Abweichung der Messpunkte von der Regressionsgerade. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler <strong><em>E</em></strong> in der Regressionsgleichung wird in der Regel <strong>gebildet durch die Summe der quadrierten Residuen</strong>. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. - Macht aber keiner.</p></li>
+</ul>
+<div id="info_e" class="box info">
+<p><strong>Warum gibt es überhaupt Residuen und den Fehler?</strong></p>
+<p>Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Regressionsgeraden (Residuen). Empirisch wird sich nämlich kaum eine perfekte Anordnung zeigen, bei der alle Messpunkte genau auf der Geraden leigen. In einer Messung wird es immer Punkte geben, die mehr oder weniger stark von der Regressionsgerade abweichen. In unserem Beispiel könnte es eine Person geben, die sich erst an 4 politischen Handlungsmöglichkeiten beteiligt hat, die aber dennoch angibt, ihr politisches Interesse sei extrem hoch. Für diese Abweichung kann es natürlich ganz unterschiedliche Gründe geben. Die empirische Wirklichkeit ist eben kein Modell! Hier ein paar unterschiedliche Beispiele, wie die Abweichung zustande kommen kann:</p>
+<ul>
+<li><p>Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben. - Also ein “Fehler” beim Ausfüllen des Fragebogens.</p></li>
+<li><p>Die Person hatte einfach noch nicht genügend Gelegenheit sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.</p></li>
+<li><p>Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei “3” liegt, “5,2” politische Handlungen ausgeführt haben müsste. - Das geht ja kaum. Der Wert, den die Grade schätzt, ist eben nur hypothetisch.</p></li>
+<li><p>Der Zusammenhang ist gar nicht linear (also keine gerade Linie). Vielleicht wäre eine “andere Form” der Line viel angemessener. Vielleicht eine Kurve die erst steil ansteigt und dann abflacht.</p></li>
+</ul>
+<p>In jeder tatsächlich durchgeführten Berechnung einer Regression liegt wahrscheinlich eine Mischung aus verschiedenen Gründen vor. Was genau sich hinter dem Residuum genau verbirgt, werden wir nie wirklich wissen. Es ist jedoch natürlich unsere Aufgabe, den Wert mit einem gut durchdachten Forschungsdesign möglichst klein zu halten.</p>
+</div>
+<p>Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die unterteilung in unabhängige und abhängige Variable hinreichend begründet.</p>
+<div id="grafische-darstellung" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Grafische Darstellung</h3>
+<p>Die erste Annäherung an die Regression ist grafisch. Mit einem Scatterplot oder Jitterplot kann der Zusammenhang zwischen zwei Variablen visualisiert werden (vgl. Abschnitt [### Streudiagramm]). Das Paket <code>ggplot2</code> kann aber noch mehr. Mit dem Geom <code>geom_smooth</code> kann man über <code>method = "lm"</code> (für “linear model”) eine Regressionsgerade zur Punktewolke hinzufügen.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regression.html#cb253-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb253-2"><a href="regression.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
+<span id="cb253-3"><a href="regression.html#cb253-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb253-4"><a href="regression.html#cb253-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb253-5"><a href="regression.html#cb253-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
+<span id="cb253-6"><a href="regression.html#cb253-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p>Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt <em>b<sub>0</sub></em> und vor allem <em>b<sub>1</sub></em>? Dazu mehr im nächsten Abschnitt.</p>
+<p>Zunächst möchte ich noch kurz auf das <code>geom_smooth()</code> eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, <code>method</code>, hatte ich auf <code>lm</code> gesetzt, weil wir ja hier genau das machen wollen, nämlich einen Regressionsgerade nach dem “linearen Modell” berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument <code>color = "deeppink"</code> können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformem HMTMH-Magenta ein. Aber was macht das Mittlere Argument <code>se = FALSE</code>? Das finden wir ganz einfach heraus, indem wir es einmal auf <code>TRUE</code> setzen:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb254-2"><a href="regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
+<span id="cb254-3"><a href="regression.html#cb254-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb254-4"><a href="regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb254-5"><a href="regression.html#cb254-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
+<span id="cb254-6"><a href="regression.html#cb254-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein “Schatten” hinter der Geraden. Dieser Schatten zeigt das Konfidenzintervall der Regressionsgeraden an. Praktisch!</p>
+</div>
+<div id="die-funktion-lm" class="section level3" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Die Funktion <code>lm()</code></h3>
+<p>Die grafische Darstellung ist sehr nützlich, aber natürlich wüssten wir auch gerne die genauen Werte für unsere Regressionsgerade. Um die herauszufinden, bietet das <code>stats</code>-Paket die Funktion <code>lm()</code> (linear model). Zur Erinnerung: Genau wie <code>base</code>-R muss man das <code>stats</code>-Paket nicht gesondert laden, es ist standardmäßig verfügbar, sobald man RStudio öffnet.</p>
+<p>Die Funktion <code>lm()</code> erwartet zwei Argumente: 1. eine Objekt der R-Klasse “formula.” Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer “Formel” teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. Als zweites Argument benötigt die Funktion natürlich noch den Datensatz auf den die Formel angewendet werden soll.</p>
+<p>Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator Operator <code>~</code> (Tilde). <strong>Die Tilde <code>~</code> bedeutet: “wird vorhergesagt durch”</strong>. Für die lineare Regression muss die Formel also <code>abhängige_Variable  ~ unabhängige_Variable</code> lauten.</p>
+<p>Nachdem man die <code>lm()</code>-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. <code>my_model</code>) zugeordnet hat, kann man sich mit der <code>summary()</code>-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das ganze so aus:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formulieren</span></span>
+<span id="cb255-2"><a href="regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pol_part_sx <span class="sc">~</span> politisches_interesse, <span class="at">data =</span> data)</span>
+<span id="cb255-3"><a href="regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb255-4"><a href="regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Zusammenfassung ausgeben</span></span>
+<span id="cb255-5"><a href="regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.7303 -1.1427 -0.1427  1.0042  5.5635 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)            0.84886    0.10594   8.013 3.12e-15 ***
+## politisches_interesse  1.29382    0.06332  20.431  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.746 on 997 degrees of freedom
+##   (7 observations deleted due to missingness)
+## Multiple R-squared:  0.2951, Adjusted R-squared:  0.2944 
+## F-statistic: 417.4 on 1 and 997 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Puh, da steht eine Menge Zeug. Vieles davon habe ich noch gar nicht erklärt. Gehen wir den Output der Reihe nach durch.</p>
+<p>Der Output beginnt mit dem <strong>Call</strong>. Das ist ganz nett, hier wird unser Funktionsaufruf wiederholt. Er ist also im Model mit abgespeichert: Ein kleiner Reminder, falls man viele Modelle gerechnet und vergessen hat, welche Formel und Daten man jeweils benutzt hat.</p>
+<p>Dann folgen die <strong>Residuals</strong>. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit <em>e</em> gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgerade hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.</p>
+<p>Im Output der <code>lm()</code>-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu -4.73 nach unten und sogar bis zu 5.56 nach oben ab.</p>
+<p>Die Werte für <em>b<sub>0</sub></em> und <em>b<sub>1</sub></em> finden sich im dritten Bereich der Ausgabe unter <strong>Coefficients</strong> in der Spalte “Estimate”:</p>
+<ul>
+<li>In der Zeile “(Intercept)” ist der Wert für <em>b<sub>0</sub></em> (hier 0.85)</li>
+<li>In der Zeile “politisches_interesse” ist der Wert für <em>b<sub>1</sub></em> (hier 1.29)</li>
+</ul>
+<p>Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standard-Fehler (“Std. Error”) für die b-Werte und jeweils noch einen T-Test (vgl. zukünftiges Kapitel “T-Test”). Der T-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine test-Statistik ist der T-Wert (“t value”) und zu diesem T-Wert gibt es noch ein Signifikanzniveau (“Pr(&gt;|t|)”). Wie immer gilt hier, dass ein Wert von p &lt; .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen <code>*</code> gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.</p>
+<div id="info_b" class="box info">
+<p><strong>Was sagen die Regressionskoeffizienten (b-Werte) aus?</strong></p>
+<p>Der Wert <em>b<sub>1</sub></em> = 1.29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt der abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) dann kommen 1.29 politische Handlungen dazu.</p>
+<p>Der Wert <em>b<sub>0</sub></em> = 1.3 bedeutet, dass die abhängige Variable “politische Partizipation” den Wert 1.3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich in unserer Grafik oben schneidet die Regressionsgerade die Y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen das es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. – Selbst wenn kein politisches Interesse vorliegt (0 = <em>Überhaupt nicht</em>), gibt es laut der Regressionsgerade eine gewisse politische Partizipation.</p>
+</div>
+<p>Im vierten und letzten Abschnitt des Outputs wird der Standardfehler der Residuen inklusive Freiheitsgerade (degrees of freedom) angegeben (Erläuterung folgt später). An dieser Stelle erfährt man auch, dass einige Fälle aus der Berechnung entfernt wurden, da sie fehlende Werte in der einen oder anderen Variable aufweisen.</p>
+<p>Zu guter letzt gibt es noch einen R<sup>2</sup>-Wert (r-squared), ein korrigiertes R<sup>2</sup> (adjustet R-squared) und eine F-Statistik für eben dieses R<sup>2</sup>. R<sup>2</sup> ist der Anteil der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob R<sup>2</sup> sich signifikant von Null unterschiedet. – So ähnlich wie oben mit dem T-Test bei den b-Werten.</p>
+<p>Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich bereichtet werden. Neben <em>b<sub>1</sub></em> (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens R<sup>2</sup>inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a>sign <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb257-2"><a href="regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .001&quot;</span>,</span>
+<span id="cb257-3"><a href="regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .01&quot;</span>,</span>
+<span id="cb257-4"><a href="regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .05&quot;</span>,</span>
+<span id="cb257-5"><a href="regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;n.s.&quot;</span></span>
+<span id="cb257-6"><a href="regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von <em>b</em> = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt R<sup>2</sup> = 0.2951303, bei df = 997 Freiheitsgraden (korrigiertes R<sup>2</sup> = 0.2944233). Das Modell ist auf dem Niveau p &lt; .001 signifikant.</p>
+</div>
+<div id="standardisierte-regressionskoeffizienten-β" class="section level3" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Standardisierte Regressionskoeffizienten (β)</h3>
+<p>Neben den normalen Regressionskoeffizienten b kann man auch standardisierten Koeffizienten β (beta) berechnen. Dazu <strong>z-standardisiert</strong> man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja “auf den Mittelwert zentrieren und Standardabweichung = 1 setzen.” Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also <strong>nicht</strong> der Sprung von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.</p>
+<p>Das <code>stats</code>-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu gibt es aber das Paket <code>lm.beta</code> mit der gleichnamigen Funktion, welche auf ein mit <code>lm()</code> erzeugtes Modell angewendet werden kann.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
+<span id="cb258-2"><a href="regression.html#cb258-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
+<span id="cb258-3"><a href="regression.html#cb258-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb258-4"><a href="regression.html#cb258-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
+<span id="cb258-5"><a href="regression.html#cb258-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
+## 
+## Standardized Coefficients::
+##           (Intercept) politisches_interesse 
+##              0.000000              0.543259</code></pre>
+<div id="info_beta" class="box danger">
+<p><strong>Achtung b oder β?</strong></p>
+<p>Leider gibt es bezüglich <em>b</em> und <em>β</em> – wie so oft – ein wenig Begriffs-Chaos in unterschiedlichen Lehrbüchern. Manchmal wird nämlich für die hier mit <em>b</em> betitelten nicht-standardisierten Regressionskoeffizienten <em>β</em> genutzt.</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="grafiken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literaturverzeichnis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xvariable/r_book/edit/main/100_regression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r_book.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

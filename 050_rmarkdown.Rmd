@@ -34,7 +34,7 @@ RMarkdown-Dateien wurden so gestaltet, dass sie unterschiedlich genutzt werden k
 
 - In der Kollaboration mit Kolleg:innen, die nicht nur an Ihren Schlussfolgerungen und Gedanken, sondern auch am Code interessiert sind.
 
-- Zur Kommunikation mit Entscheidungsträgern und anderem Publikum, dass keinen Code sehen und sich nur über die Ergebnisse und ihre Interpretation informieren möchte.
+- Zur Kommunikation mit Entscheidungsträgern und anderem Publikum, dass keinen Code sehen und sich nur über die Ergebnisse und Ihre Interpretation informieren möchte.
 
 
 ## RMarkdown Workflow
