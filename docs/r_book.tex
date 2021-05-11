@@ -126,7 +126,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-05-07}
+\date{2021-05-11}
 
 \begin{document}
 \maketitle
@@ -987,7 +987,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-05-07"
+## [1] "2021-05-11"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -1110,14 +1110,14 @@ Natürlich gibt es noch viel mehr über das Programmieren von Funktionen zu wiss
 \hypertarget{r-projekte}{%
 \section{R-Projekte}\label{r-projekte}}
 
-\textbf{Kurze Info vorab:} Der Abschnitt Projekte ist nur für die Arbeit auf Ihrem eigenen Rechner relevant. Wenn Sie in der RStudio-Cloud arbeiten, ist das Projekt bereits angelegt worden. Sie können dort keine eigenen Projekte anlegen. Das kann dort nur ihr Admin.
+\textbf{Kurze Info vorab:} Der Abschnitt Projekte ist nur für die Arbeit auf Ihrem eigenen Rechner relevant. Wenn Sie in der RStudio-Cloud arbeiten, ist das Projekt bereits angelegt worden. Sie können dort keine eigenen Projekte anlegen. Das kann dort nur Ihr Admin.
 
-Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (\emph{working directory}) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die übersicht behält und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
+Beginnt man die Arbeit an einem neuen Datenanalyseprojekt oder nimmt an einem Seminar teil, macht es Sinn, dafür ein neues R-Projekt anzulegen. Ein R-Projekt organisiert die Dateien in einem Ordner auf dem Computer als zusammengehörig und setzt außerdem das Arbeistverzeichnis (\emph{working directory}) auf das Verzeichnis des Projekts. Das ist sehr praktisch, weil man so die Übersicht behält und zusammengehörige .R-Dateien gemeinsam mit Daten und weiteren Dateien, wie z.B. Forschungsberichten aus RStudio heraus übersichtlich organisieren kann.
 
 \hypertarget{arbeitsverzeichnis}{%
 \subsection{Arbeitsverzeichnis}\label{arbeitsverzeichnis}}
 
-Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja logisch, woher sollte R sonst wissen welche der vielen Dateien die auf einem Rechner geöffnet werden soll? Man muss also die ``Adresse'' kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem ``Verweis'' auf eine andere Datei kann man entweder den \emph{absoluten} oder den \emph{relativen} Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch ``slash'', also \texttt{/}) getrennt.
+Möchte man in einem R-Skript auf andere Dateien zugreifen (z.B. auf Daten im Excel- oder CSV-Format) muss man im Skript auf Dateipfad und Namen dieser anderen Dateien verweisen. Das ist ja logisch, woher sollte R sonst wissen, welche der vielen Dateien, die auf einem Rechner sind, geöffnet werden soll? Man muss also die ``Adresse'' kennen, sprich wissen, in welchem Ordner auf der Festplatte die Datei abgespeichert wurde und wie sie genau heißt. Bei so einem ``Verweis'' auf eine andere Datei kann man entweder den \emph{absoluten} oder den \emph{relativen} Pfad angeben. Die einzelnen Ordner und Unterordnernamen werden mit einem Schrägstrich (englisch ``slash'', also \texttt{/}) getrennt.
 
 \textbf{Absolut} heißt ein Pfad immer dann, wenn der komplette Pfad (ausgehend von dem ``root''-Verzeichnis der Festplatte) angegeben wird. Eine Datei könnte z.B. hier liegen:
 
@@ -1155,7 +1155,7 @@ Die beiden Befehle braucht man in der Regel jedoch nicht, wenn man R-Projekte ve
 
 Will man jetzt vom Arbeitsverzeichnis \texttt{C:/Users/julia/} aus über einen relativen Pfad auf den gleichen Datensatz wie im obigen absoluten Beispiel zugreifen, spart man sich den Teil der Adresse, den das R-Arbeitsverzeichnis und der Datensatz gemeinsam haben: R findet die Datei also auch, wenn man nur \texttt{my\_project/data/my\_data.xlsx} angibt.
 
-Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich im Home-Office in Hamburg anrufen, dann müssen Sie die Vorwahl von Hamburg + meine Telefonnummer wählen (also den kompletten Pfad). Möchten Sie aber das Sekretariat des IJK erreichen brauchen sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass Sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
+Ein bisschen kann man dieses System mit den absoluten und relativen Pfaden mit Festnetz-Telefonnummern vergleichen: Wenn Sie in Hannover sind und möchten mich im Home-Office in Hamburg anrufen, dann müssen Sie die Vorwahl von Hamburg + meine Telefonnummer wählen (also den kompletten Pfad). Möchten Sie aber das Sekretariat des IJK erreichen, brauchen Sie die Vorwahl nicht zu wählen, weil automatisch angenommen wird, dass Sie eine Nummer im gleichen Vorwahl-Bereich erreichen wollen.
 
 \leavevmode\hypertarget{info_best_practice_rproj}{}%
 \textbf{Best Practice: Relative Pfade und R-Projekte!}
@@ -1164,15 +1164,15 @@ Relative Pfade haben gegenüber absoluten Pfaden einen entscheidenden Vorteil, d
 
 Stellen Sie sich vor, Sie haben ein Analyseprojekt mit einem R-Skript und einem Datensatz. Das R-Skript haben Sie unter dem Pfad \texttt{C:/Users/julia/my\_project/} als \texttt{my\_script.R} abgelegt. In diesem Ordner haben Sie einen Unterordner \texttt{data} angelegt, der die Datei \texttt{my\_data.xlsx} enthält. Sie greifen in dem Skript einmal auf diesen Datensatz zu und haben den Pfad absoult angegeben. Das sähe dann so aus: \texttt{C:/Users/julia/my\_project/data/my\_data.xlsx}.
 
-Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. - Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die ``Adresse'') geändert hat. Sie müssen den Pfad im Skript aktualisieren!
+Nach Ihrer R-Session entscheiden Sie, dass Sie den Projektordner gerne umbenennen würden oder dass Sie das ganze Projekt lieber an einen anderen Ort auf Ihrer Festplatte verschieben wollen. Zwei Wochen später öffnen Sie das R-Skript wieder und führen es aus. Natürlich findet das Skript die Excel-Datei nicht mehr, da sich ja der Pfad (die ``Adresse'') geändert hat. Sie müssen den Pfad im Skript aktualisieren!
 
-Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben, ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem \emph{relativen Pfad} können Sie diese Arbeit vermeiden.
+Wenn Sie nur in einem Skript auf nur eine andere Datei verweisen, ist das Aktualisieren lästig, aber überschaubar. Wenn Sie jedoch ein großes Projekt mit vielen Dateien haben, ist das eine Heidenarbeit, die keiner gerne machen möchte. Mit einem \emph{relativen Pfad} können Sie diese Arbeit vermeiden.
 
 Der relative Pfad ist auch dann hilfreich, wenn Sie den Projektordner mit anderen Personen teilen (z.B. über eine Cloud oder durch verschicken des gezippten Ordners per Mail), denn die absoluten Pfade heißen ja vermutlich auf dem Rechner der anderen Personen anders (z.B. \texttt{C:/Users/sophie/my\_project/}).
 
 Es ist deshalb \textbf{Best Practice alle Dateien, die zu einem Analyseprojekt gehören, innerhalb eines Projektordners abzulegen}. Auf der obersten Ebene in diesem Ordner sollte die \texttt{.RProject}-Datei liegen. Das Projekt \textbf{sollte immer über die .RProject`-Datei geöffnet werden} (per Doppelklick oder über das RStudio-Menü), weil dann das Arbeitsverzeichnis auf den Projektordner gesetzt wird. Die Pfade sollten in den Skripten immer relativ gesehen zum Projektverzeichnis angelegt werden.
 
-Zudem ist es empfehlenswert, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu verwenden (z.B. Unterordner ``data'' für Daten, ``plots'' für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn einDatum im Dateinamen verwendet werden soll, dann immer im ISO-Format ``2021-09-29'', weil dieses chronologisch sortiert wird).
+Zudem ist es empfehlenswert, sich bereits zu Beginn des Analyseprojekts Gedanken über die Ordnerstruktur und die Dateinamen zu machen und/oder gängige Standards zu verwenden (z.B. Unterordner ``data'' für Daten, ``plots'' für Outputgrafiken, keine Leerzeichen in Dateinamen, Zahlen mit führenden Nullen zur Sortierung der Dateien und wenn ein Datum im Dateinamen verwendet werden soll, dann immer im ISO-Format ``2021-09-29'', weil dieses chronologisch sortiert wird).
 
 Nicht verwirren lassen: Das Arbeisverzeichnis kann in jeder R-Session ein anderes sein (je nach Analyseprojekt) und auch in den oben genannten Beispielen waren jeweils unterschiedliche Verzeichnisse das Arbeitsverzeichnis -- je nachdem, ob es sich um das standardmäßig bei der Installation von R gesetzte Verzeichnis handelte oder das Verzeichnis, was die \texttt{.RProjekt}-Datei gesetzt hat. Es ist sehr wichtig, das man selbst weiß, in welchem Verzeichnis R momentan arbeitet, wenn man auf andere Dateien zugreifen will. Im Zweifel nutzt man den base-R-Befehl \texttt{getwd()} um schnell einmal nachzusehen.
 
@@ -4568,26 +4568,26 @@ Das lineare Modell hat die folgende Form, wobei \emph{y} für die Werte der abh�
 
 \[y = b_{0}+b_{1}x_{1}+b_{2}x_{2}+... b_{n}x_{n}+E\]
 
-Das Modell besagt, dass die Ausprägung der Variable \emph{y} von den Ausprägungen der \emph{x}-Variablen abhängt. Diese \emph{x}-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht \emph{b} multipliziert. Der ``Rest'', also alles, was nicht erklärt werden kann, wird mit \emph{E} aufgefangen. Das Gewicht \emph{b\_\{0\}} ist keiner \emph{x}-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von \emph{y} und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet. - Warum zeige ich später noch.
+Das Modell besagt, dass die Ausprägung der Variable \emph{y} von den Ausprägungen der \emph{x}-Variablen abhängt. Diese \emph{x}-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht \emph{b} multipliziert. Der ``Rest'', also alles, was nicht erklärt werden kann, wird mit \emph{E} aufgefangen. Das Gewicht \emph{b\_\{0\}} ist keiner \emph{x}-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von \emph{y} und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet - warum zeige ich später noch.
 
 Das \textbf{Ziel der linearen Regression} ist es, herauszufinden, welche unterschiedlichen Gewichte (also Werte von \emph{b}) die einzelnen unabhängigen Variablen \emph{x} jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren \emph{x} die Outcome-Variable \emph{y} in besonderem Maße beeinflussen.
 
 -- Moment, stand da gerade \emph{beeinflussen}? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der \emph{x}-Variable auf die \emph{y}-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der {[}\#Korrelation{]}, die lediglich von einem Zusammenhang ausgeht ohne in abhängige und unabhängige Variable zu unterschieden.
 
-An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r sachlogische Gründe für die Plausibilität ihrer Kausalhypothese anzuführen!
+An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell, noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r sachlogische Gründe für die Plausibilität Ihrer Kausalhypothese anzuführen!
 
 \hypertarget{bivariate-lineare-regression}{%
 \section{Bivariate lineare Regression}\label{bivariate-lineare-regression}}
 
-Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine \emph{bivariate} Regression. Die Hypothese die getestet werden soll lautet:
+Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine \emph{bivariate} Regression. Die Hypothese, die getestet werden soll, lautet:
 
-\textbf{H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst}
+\textbf{H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst.}
 
-Wir nehmen uns also wieder den Gen-Z-Datensatz vor und die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:
+Wir nehmen uns also wieder den Gen-Z-Datensatz vor. Die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:
 
 \begin{itemize}
 \item
-  Die abhängige Variable Politische Partizipation (\emph{y}) ist ein Summenindex von 10 politischen Handlungen, beispielsweise ``Wählen gehen'', ``Teilnahme an Produktboykott'' usw. Befragte können hier einen Wert zwischen 0 = \emph{keine Teilnahme} und 10 = \emph{Teilnahme an allen zehn Handlungen} erreichen.
+  Die abhängige Variable politische Partizipation (\emph{y}) ist ein Summenindex von 10 politischen Handlungen, beispielsweise ``Wählen gehen'', ``Teilnahme an Produktboykott'' usw. Befragte können hier einen Wert zwischen 0 = \emph{keine Teilnahme} und 10 = \emph{Teilnahme an allen zehn Handlungen} erreichen.
 \item
   Die Prädiktorvariable politisches Interesse (\emph{x}) wurde auf einer Skala von 0 = \emph{überhaupt nicht} bis 3 = \emph{sehr stark} gemessen.
 \end{itemize}
@@ -4610,7 +4610,7 @@ Sie kennen wahrscheinlich auch schon die grafische Darstellung aus den Sitzungsf
 \item
   \textbf{\emph{b\textsubscript{0}}} ist der Achsenabschnitt, also der Punkt, an dem die Gerade die y-Achse schneidet. Anders ausgedrückt: Wenn die unabhängige Variable den Wert x = 0 hat, welchen Wert hat dann y?
 \item
-  Das \textbf{\emph{Residuum}} ist die Abweichung der Messpunkte von der Regressionsgerade. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler \textbf{\emph{E}} in der Regressionsgleichung wird in der Regel \textbf{gebildet durch die Summe der quadrierten Residuen}. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. - Macht aber keiner.
+  Das \textbf{\emph{Residuum}} ist die Abweichung der Messpunkte von der Regressionsgeraden. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler \textbf{\emph{E}} in der Regressionsgleichung wird in der Regel \textbf{gebildet durch die Summe der quadrierten Residuen}. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. Macht aber keiner.
 \end{itemize}
 
 \leavevmode\hypertarget{info_e}{}%
@@ -4620,18 +4620,18 @@ Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Re
 
 \begin{itemize}
 \item
-  Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben. - Also ein ``Fehler'' beim Ausfüllen des Fragebogens.
+  Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben - also ein ``Fehler'' beim Ausfüllen des Fragebogens.
 \item
-  Die Person hatte einfach noch nicht genügend Gelegenheit sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.
+  Die Person hatte einfach noch nicht genügend Gelegenheit, sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit, zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.
 \item
-  Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei ``3'' liegt, ``5,2'' politische Handlungen ausgeführt haben müsste. - Das geht ja kaum. Der Wert, den die Grade schätzt, ist eben nur hypothetisch.
+  Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei ``3'' liegt, ``5,2'' politische Handlungen ausgeführt haben müsste. Das geht ja kaum. Der Wert, den die Gerade schätzt, ist eben nur hypothetisch.
 \item
   Der Zusammenhang ist gar nicht linear (also keine gerade Linie). Vielleicht wäre eine ``andere Form'' der Line viel angemessener. Vielleicht eine Kurve die erst steil ansteigt und dann abflacht.
 \end{itemize}
 
 In jeder tatsächlich durchgeführten Berechnung einer Regression liegt wahrscheinlich eine Mischung aus verschiedenen Gründen vor. Was genau sich hinter dem Residuum genau verbirgt, werden wir nie wirklich wissen. Es ist jedoch natürlich unsere Aufgabe, den Wert mit einem gut durchdachten Forschungsdesign möglichst klein zu halten.
 
-Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die unterteilung in unabhängige und abhängige Variable hinreichend begründet.
+Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.
 
 \hypertarget{grafische-darstellung}{%
 \subsection{Grafische Darstellung}\label{grafische-darstellung}}
@@ -4651,9 +4651,9 @@ Die erste Annäherung an die Regression ist grafisch. Mit einem Scatterplot oder
 
 \includegraphics{r_book_files/figure-latex/unnamed-chunk-86-1.pdf}
 
-Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt \emph{b\textsubscript{0}} und vor allem \emph{b\textsubscript{1}}? Dazu mehr im nächsten Abschnitt.
+Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. Aber welche Werte haben jetzt \emph{b\textsubscript{0}} und vor allem \emph{b\textsubscript{1}}? Dazu mehr im nächsten Abschnitt.
 
-Zunächst möchte ich noch kurz auf das \texttt{geom\_smooth()} eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, \texttt{method}, hatte ich auf \texttt{lm} gesetzt, weil wir ja hier genau das machen wollen, nämlich einen Regressionsgerade nach dem ``linearen Modell'' berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument \texttt{color\ =\ "deeppink"} können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformem HMTMH-Magenta ein. Aber was macht das Mittlere Argument \texttt{se\ =\ FALSE}? Das finden wir ganz einfach heraus, indem wir es einmal auf \texttt{TRUE} setzen:
+Zunächst möchte ich noch kurz auf das \texttt{geom\_smooth()} eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, \texttt{method}, hatte ich auf \texttt{lm} gesetzt, weil wir ja hier genau das machen wollen, nämlich eine Regressionsgerade nach dem ``linearen Modell'' berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument \texttt{color\ =\ "deeppink"} können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformem HMTMH-Magenta ein. Aber was macht das mittlere Argument \texttt{se\ =\ FALSE}? Das finden wir ganz einfach heraus, indem wir es einmal auf \texttt{TRUE} setzen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4675,11 +4675,11 @@ Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein ``Schatten'' hinte
 
 Die grafische Darstellung ist sehr nützlich, aber natürlich wüssten wir auch gerne die genauen Werte für unsere Regressionsgerade. Um die herauszufinden, bietet das \texttt{stats}-Paket die Funktion \texttt{lm()} (linear model). Zur Erinnerung: Genau wie \texttt{base}-R muss man das \texttt{stats}-Paket nicht gesondert laden, es ist standardmäßig verfügbar, sobald man RStudio öffnet.
 
-Die Funktion \texttt{lm()} erwartet zwei Argumente: 1. eine Objekt der R-Klasse ``formula''. Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer ``Formel'' teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. Als zweites Argument benötigt die Funktion natürlich noch den Datensatz auf den die Formel angewendet werden soll.
+Die Funktion \texttt{lm()} erwartet zwei Argumente: 1. ein Objekt der R-Klasse ``formula''. Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer ``Formel'' teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. Als zweites Argument benötigt die Funktion natürlich noch den Datensatz auf den die Formel angewendet werden soll.
 
-Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator Operator \texttt{\textasciitilde{}} (Tilde). \textbf{Die Tilde \texttt{\textasciitilde{}} bedeutet: ``wird vorhergesagt durch''}. Für die lineare Regression muss die Formel also \texttt{abhängige\_Variable\ \ \textasciitilde{}\ unabhängige\_Variable} lauten.
+Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator \texttt{\textasciitilde{}} (Tilde). \textbf{Die Tilde \texttt{\textasciitilde{}} bedeutet: ``wird vorhergesagt durch''}. Für die lineare Regression muss die Formel also \texttt{abhängige\_Variable\ \textasciitilde{}\ unabhängige\_Variable} lauten.
 
-Nachdem man die \texttt{lm()}-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. \texttt{my\_model}) zugeordnet hat, kann man sich mit der \texttt{summary()}-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das ganze so aus:
+Nachdem man die \texttt{lm()}-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. \texttt{my\_model}) zugeordnet hat, kann man sich mit der \texttt{summary()}-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das Ganze so aus:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4717,7 +4717,7 @@ Puh, da steht eine Menge Zeug. Vieles davon habe ich noch gar nicht erklärt. Ge
 
 Der Output beginnt mit dem \textbf{Call}. Das ist ganz nett, hier wird unser Funktionsaufruf wiederholt. Er ist also im Model mit abgespeichert: Ein kleiner Reminder, falls man viele Modelle gerechnet und vergessen hat, welche Formel und Daten man jeweils benutzt hat.
 
-Dann folgen die \textbf{Residuals}. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit \emph{e} gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgerade hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.
+Dann folgen die \textbf{Residuals}. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit \emph{e} gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgeraden hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.
 
 Im Output der \texttt{lm()}-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu -4.73 nach unten und sogar bis zu 5.56 nach oben ab.
 
@@ -4731,33 +4731,33 @@ Die Werte für \emph{b\textsubscript{0}} und \emph{b\textsubscript{1}} finden si
   In der Zeile ``politisches\_interesse'' ist der Wert für \emph{b\textsubscript{1}} (hier 1.29)
 \end{itemize}
 
-Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standard-Fehler (``Std. Error'') für die b-Werte und jeweils noch einen T-Test (vgl. zukünftiges Kapitel ``T-Test''). Der T-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine test-Statistik ist der T-Wert (``t value'') und zu diesem T-Wert gibt es noch ein Signifikanzniveau (``Pr(\textgreater\textbar t\textbar)''). Wie immer gilt hier, dass ein Wert von p \textless{} .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen \texttt{*} gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.
+Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standardfehler (``Std. Error'') für die b-Werte und jeweils noch einen T-Test (vgl. zukünftiges Kapitel ``T-Test''). Der T-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine Test-Statistik ist der T-Wert (``t value'') und zu diesem T-Wert gibt es noch ein Signifikanzniveau (``Pr(\textgreater\textbar t\textbar)''). Wie immer gilt hier, dass ein Wert von p \textless{} .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen \texttt{*} gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.
 
 \leavevmode\hypertarget{info_b}{}%
 \textbf{Was sagen die Regressionskoeffizienten (b-Werte) aus?}
 
-Der Wert \emph{b\textsubscript{1}} = 1.29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt der abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) dann kommen 1.29 politische Handlungen dazu.
+Der Wert \emph{b\textsubscript{1}} = 1.29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt oder abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) dann kommen 1.29 politische Handlungen dazu.
 
-Der Wert \emph{b\textsubscript{0}} = 1.3 bedeutet, dass die abhängige Variable ``politische Partizipation'' den Wert 1.3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich in unserer Grafik oben schneidet die Regressionsgerade die Y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen das es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. -- Selbst wenn kein politisches Interesse vorliegt (0 = \emph{Überhaupt nicht}), gibt es laut der Regressionsgerade eine gewisse politische Partizipation.
+Der Wert \emph{b\textsubscript{0}} = 1.3 bedeutet, dass die abhängige Variable ``politische Partizipation'' den Wert 1.3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich, in unserer Grafik oben schneidet die Regressionsgerade die Y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen, dass es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. -- Selbst wenn kein politisches Interesse vorliegt (0 = \emph{Überhaupt nicht}), gibt es laut der Regressionsgeraden eine gewisse politische Partizipation.
 
 Im vierten und letzten Abschnitt des Outputs wird der Standardfehler der Residuen inklusive Freiheitsgerade (degrees of freedom) angegeben (Erläuterung folgt später). An dieser Stelle erfährt man auch, dass einige Fälle aus der Berechnung entfernt wurden, da sie fehlende Werte in der einen oder anderen Variable aufweisen.
 
-Zu guter letzt gibt es noch einen R\textsuperscript{2}-Wert (r-squared), ein korrigiertes R\textsuperscript{2} (adjustet R-squared) und eine F-Statistik für eben dieses R\textsuperscript{2}. R\textsuperscript{2} ist der Anteil der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob R\textsuperscript{2} sich signifikant von Null unterschiedet. -- So ähnlich wie oben mit dem T-Test bei den b-Werten.
+Zu guter Letzt gibt es noch einen \emph{R\textsuperscript{2}}-Wert (r-squared), ein \emph{korrigiertes R\textsuperscript{2}} (adjustet R-squared) und eine F-Statistik für eben dieses \emph{R\textsuperscript{2}}. \emph{R\textsuperscript{2}} ist der Anteil der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob \emph{R\textsuperscript{2}} sich signifikant von Null unterscheidet. -- So ähnlich wie oben mit dem T-Test bei den \emph{b}-Werten.
 
-Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich bereichtet werden. Neben \emph{b\textsubscript{1}} (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens R\textsuperscript{2}inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.
+Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben \emph{b\textsubscript{1}} (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens \emph{R\textsuperscript{2}} inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{sign }\OtherTok{\textless{}{-}} \FunctionTok{case\_when}\NormalTok{(}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.001} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .001"}\NormalTok{,}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .01"}\NormalTok{,}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .05"}\NormalTok{,}
-   \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"n.s."}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.001} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .001 signifikant."}\NormalTok{,}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .01 signifikant."}\NormalTok{,}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .05 signifikant."}\NormalTok{,}
+   \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist nicht signifikant."}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von \emph{b} = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt R\textsuperscript{2} = 0.2951303, bei df = 997 Freiheitsgraden (korrigiertes R\textsuperscript{2} = 0.2944233). Das Modell ist auf dem Niveau p \textless{} .001 signifikant.
+Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von \emph{b} = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt \emph{R\textsuperscript{2}} = 0.3, bei \emph{df} = 997 Freiheitsgraden (\emph{korrigiertes R\textsuperscript{2}} = 0.29). Das Modell ist auf dem Niveau p \textless{} .001 signifikant.
 
 \hypertarget{standardisierte-regressionskoeffizienten-ux3b2}{%
 \subsection{Standardisierte Regressionskoeffizienten (β)}\label{standardisierte-regressionskoeffizienten-ux3b2}}

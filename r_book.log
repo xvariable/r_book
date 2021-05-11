@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  7 MAY 2021 22:25
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  11 MAY 2021 09:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -883,12 +883,6 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 Overfull \hbox (12.98003pt too wide) in paragraph at lines 1165--1166
 \TU/lmr/m/n/10 Datensatz. Das R-Skript haben Sie unter dem Pfad \TU/lmtt/m/n/10
  C:/Users/julia/my_project/
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 1175--1176
-\TU/lmr/m/n/10 Nullen zur Sortierung der Dateien und wenn einDatum im Dateiname
-n
  []
 
 [38] [39]
@@ -2265,11 +2259,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 19153 strings out of 479418
- 343708 string characters out of 5884585
+ 19149 strings out of 479418
+ 343603 string characters out of 5884585
  794832 words of memory out of 5000000
- 36370 multiletter control sequences out of 15000+600000
- 536373 words of font info for 73 fonts, out of 8000000 for 9000
+ 36368 multiletter control sequences out of 15000+600000
+ 536365 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,6n,118p,1164b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 
