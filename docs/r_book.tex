@@ -126,7 +126,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-05-11}
+\date{2021-05-20}
 
 \begin{document}
 \maketitle
@@ -987,7 +987,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-05-11"
+## [1] "2021-05-20"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -1473,7 +1473,7 @@ Mit der Function \texttt{str()} (für \emph{str}ucture) kann man sich Strukturin
 \end{Shaded}
 
 \begin{verbatim}
-## tibble[,4] [8 x 4] (S3: tbl_df/tbl/data.frame)
+## tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
 ##  $ title      : chr [1:8] "The Mandalorian" "The Good Fight" "Stranger Things" "How To Sell Drugs Online (Fast)" ...
 ##  $ year       : num [1:8] 2019 2017 2016 2019 2011 ...
 ##  $ imdb_rating: num [1:8] 8.7 8.3 8.8 7.9 9.3 8.7 8 8.5
@@ -2834,7 +2834,7 @@ Das Geschickte an \texttt{summarize()} ist, dass die Funktion perfekt mit \textt
 \begin{verbatim}
 ## # A tibble: 2 x 3
 ##   homeworld  mean     n
-## * <chr>     <dbl> <int>
+##   <chr>     <dbl> <int>
 ## 1 Naboo      175.    11
 ## 2 Tatooine   170.    10
 \end{verbatim}
@@ -4758,6 +4758,23 @@ Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Ta
 \end{Shaded}
 
 Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von \emph{b} = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt \emph{R\textsuperscript{2}} = 0.3, bei \emph{df} = 997 Freiheitsgraden (\emph{korrigiertes R\textsuperscript{2}} = 0.29). Das Modell ist auf dem Niveau p \textless{} .001 signifikant.
+
+\leavevmode\hypertarget{info_b_confidence}{}%
+\textbf{Konfidenzintervalle für b}
+
+Im Standard-Output der Regression ist nur ein signifikanzniveau für R angegeben. Selbstverständlich kann man Inferenzstatistik auch auf die Konstante und b anwenden. Mit der Funktion \texttt{confint()} aus dem \texttt{stats}-Paket kann man sich Konfidenzintervalle für die Regressionsparameter eines Modells ausgeben lassen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{confint}\NormalTok{(my\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                           2.5 %   97.5 %
+## (Intercept)           0.6409651 1.056748
+## politisches_interesse 1.1695581 1.418089
+\end{verbatim}
 
 \hypertarget{standardisierte-regressionskoeffizienten-ux3b2}{%
 \subsection{Standardisierte Regressionskoeffizienten (β)}\label{standardisierte-regressionskoeffizienten-ux3b2}}

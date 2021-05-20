@@ -65,7 +65,7 @@ In jeder tatsächlich durchgeführten Berechnung einer Regression liegt wahrsche
 Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE, error=FALSE}
-pacman::p_load(tidyverse, janitor, sjPlot, broom)
+pacman::p_load(tidyverse, janitor, sjPlot, sjmisc, broom)
 
 # Einlesen der Daten
 data <- haven::read_sav("data/ZA6738_v1-0-0_generation_z_recoded.sav")%>% 
@@ -171,6 +171,17 @@ sign <- case_when(
 ```
 
 Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von *b* = `r round(my_model$coefficients[2], 2)` politischen Handlungen einher. Die erklärte Varianz beträgt *R^2^* =  `r round(summary(my_model)$r.squared, 2)`, bei *df* = `r summary(my_model)$df[2]` Freiheitsgraden (*korrigiertes R^2^* = `r round(summary(my_model)$adj.r.squared,2)`). `r sign`
+
+::: {#info_b_confidence .box .thumb}
+**Konfidenzintervalle für b**
+
+Im Standard-Output der Regression ist nur ein signifikanzniveau für R angegeben. Selbstverständlich kann man Inferenzstatistik auch auf die Konstante und b anwenden. Mit der Funktion `confint()` aus dem `stats`-Paket kann man sich Konfidenzintervalle für die Regressionsparameter eines Modells ausgeben lassen:
+
+```{r}
+confint(my_model)
+```
+
+:::
 
 
 ### Standardisierte Regressionskoeffizienten (β)

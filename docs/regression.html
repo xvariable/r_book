@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-05-11" />
+<meta name="date" content="2021-05-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -481,16 +481,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb257-5"><a href="regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Das Modell ist nicht signifikant.&quot;</span></span>
 <span id="cb257-6"><a href="regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von <em>b</em> = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt <em>R<sup>2</sup></em> = 0.3, bei <em>df</em> = 997 Freiheitsgraden (<em>korrigiertes R<sup>2</sup></em> = 0.29). Das Modell ist auf dem Niveau p &lt; .001 signifikant.</p>
+<div id="info_b_confidence" class="box thumb">
+<p><strong>Konfidenzintervalle für b</strong></p>
+<p>Im Standard-Output der Regression ist nur ein signifikanzniveau für R angegeben. Selbstverständlich kann man Inferenzstatistik auch auf die Konstante und b anwenden. Mit der Funktion <code>confint()</code> aus dem <code>stats</code>-Paket kann man sich Konfidenzintervalle für die Regressionsparameter eines Modells ausgeben lassen:</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_model)</span></code></pre></div>
+<pre><code>##                           2.5 %   97.5 %
+## (Intercept)           0.6409651 1.056748
+## politisches_interesse 1.1695581 1.418089</code></pre>
+</div>
 </div>
 <div id="standardisierte-regressionskoeffizienten-β" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Standardisierte Regressionskoeffizienten (β)</h3>
 <p>Neben den normalen Regressionskoeffizienten b kann man auch standardisierten Koeffizienten β (beta) berechnen. Dazu <strong>z-standardisiert</strong> man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja “auf den Mittelwert zentrieren und Standardabweichung = 1 setzen.” Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also <strong>nicht</strong> der Sprung von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.</p>
 <p>Das <code>stats</code>-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu gibt es aber das Paket <code>lm.beta</code> mit der gleichnamigen Funktion, welche auf ein mit <code>lm()</code> erzeugtes Modell angewendet werden kann.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
-<span id="cb258-2"><a href="regression.html#cb258-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
-<span id="cb258-3"><a href="regression.html#cb258-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb258-4"><a href="regression.html#cb258-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
-<span id="cb258-5"><a href="regression.html#cb258-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regression.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
+<span id="cb260-2"><a href="regression.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
+<span id="cb260-3"><a href="regression.html#cb260-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-4"><a href="regression.html#cb260-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
+<span id="cb260-5"><a href="regression.html#cb260-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = pol_part_sx ~ politisches_interesse, data = data)

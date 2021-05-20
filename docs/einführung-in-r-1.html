@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-05-11" />
+<meta name="date" content="2021-05-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -532,7 +532,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Vielleicht haben Sie bemerkt, dass ich im Code bei der <code>mean()</code>- und der <code>print()</code>-Funktion das erste Argument nicht mit seinem Namen angesprochen habe. Natürlich hat auch dieses Argument einen Namen, es heißt <code>x</code>. Jedoch ist es sehr üblich, dass Daten-Objekte in Funktionen an vorderster Stelle übergeben werden. Es ist eine Konvention in diesem Fall den Namen doch wegzulassen.</p>
 <p>Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benötigen, wie etwa <code>Sys.Date()</code>. Diese Funktion gibt einfach nur das aktuelle Datum aus. Da sie dazu nur auf die Systemzeit des Computers zugreifen muss, braucht sie kein Argument.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="einführung-in-r-1.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2021-05-11&quot;</code></pre>
+<pre><code>## [1] &quot;2021-05-20&quot;</code></pre>
 </div>
 <div id="funktionen-verschachteln" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Funktionen verschachteln</h3>
@@ -802,7 +802,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Mit der Function <code>str()</code> (für <em>str</em>ucture) kann man sich Strukturinformationen über den Datensatz anzeigen lassen. Die Funktion listet oben die Dimensionen des Datensatzes (Fallzahl x Variablenzahl) und die Klasse auf und dann folgt für jede Variable der Typ (z.B. <code>num</code>oder <code>chr</code>), dann folgt die Länge des Vektors (z.B. <code>[1:52]</code>) und zuletzt werden die ersten (bis zu zehn) Elemente des Vektors ausgegeben. So erhält man einen guten ersten Einblick in die Daten.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="einführung-in-r-1.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Informationen über die Vektoren im Datensatz anzeigen</span></span>
 <span id="cb53-2"><a href="einführung-in-r-1.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(series_data)</span></code></pre></div>
-<pre><code>## tibble[,4] [8 × 4] (S3: tbl_df/tbl/data.frame)
+<pre><code>## tibble [8 × 4] (S3: tbl_df/tbl/data.frame)
 ##  $ title      : chr [1:8] &quot;The Mandalorian&quot; &quot;The Good Fight&quot; &quot;Stranger Things&quot; &quot;How To Sell Drugs Online (Fast)&quot; ...
 ##  $ year       : num [1:8] 2019 2017 2016 2019 2011 ...
 ##  $ imdb_rating: num [1:8] 8.7 8.3 8.8 7.9 9.3 8.7 8 8.5
