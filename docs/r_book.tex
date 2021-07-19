@@ -118,6 +118,7 @@
 }
 \makeatother
 \usepackage{titling}
+\usepackage{icomma}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -126,7 +127,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-05-20}
+\date{2021-07-19}
 
 \begin{document}
 \maketitle
@@ -135,6 +136,12 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{OutDec=} \StringTok{","}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{herzlich-willkommen}{%
 \chapter*{Herzlich Willkommen!}\label{herzlich-willkommen}}
 \addcontentsline{toc}{chapter}{Herzlich Willkommen!}
@@ -938,7 +945,7 @@ Häufig müssen die Argumente einer bestimmten Klasse angehören, damit die Funk
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 86.58333
+## [1] 86,58333
 \end{verbatim}
 
 Argumente können von der Funktion zwingend vorausgesetzt werden oder optional sein. Die Funktion \texttt{mean()} benötigt zwangsläufig ihre Zahlenreihe, sonst kann logischerweise kein Mittelwert berechnet werden. Sie hat aber noch zwei weitere Argumente, die \texttt{trim} und \texttt{na.rm} heißen. Diese beiden Argumente müssen nicht unbedingt mit an die \texttt{mean}-Funktion übergeben werden. Die Programmierer von R haben für beide Argumente Standardwerte (\emph{default values}) vordefiniert, die im Normalfall sinnvoll sind. Wenn man von den Standards abweichen will, kann man die Argumente aber zusätzlich mit übergeben.
@@ -958,7 +965,7 @@ Argumente können von der Funktion zwingend vorausgesetzt werden oder optional s
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3.222222
+## [1] 3,222222
 \end{verbatim}
 
 Es ist übrigens nicht notwendig, immer den Namen der Argumente mit anzugeben. Wenn man die Reihenfolge der Argumente kennt, kann man auch einfach die Werte in der richtigen Reihenfolge übergeben:
@@ -971,7 +978,7 @@ Es ist übrigens nicht notwendig, immer den Namen der Argumente mit anzugeben. W
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3.222222
+## [1] 3,222222
 \end{verbatim}
 
 Diese Schreibweise ist aber weniger übersichtlich, man muss die Funktion schon sehr gut kennen, um zu wissen welches Argument an welcher Stelle kommt. Da Programm-Code immer auch für Menschen und nicht nur für den Computer geschrieben wird, ist es nicht empfehlenswert die Namen der Argumente wegzulassen. Zudem muss man sich auch nicht zwangsläufig an eine vordefinierte Reihenfolge halten, wenn man im Code auch die Namen angibt.
@@ -987,7 +994,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-05-20"
+## [1] "2021-07-19"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -1002,7 +1009,7 @@ Es ist möglich, mehrere Funktionen ineinander zu verschachteln. Sie werden dann
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 94.4
+## [1] 94,4
 \end{verbatim}
 
 Das Verschachteln ist bisweilen nützlich, jedoch kann es sehr schnell unübersichtlich werden. Deshalb sollte man sich beim Coden bemühen, maximal zwei Funktionen ineinander zu verschachteln. Wir lernen später noch eine übersichtlichere Möglichkeit, einen Code zu verketten, im Abschnitt zur \protect\hyperlink{pipe}{Pipe}.
@@ -1033,13 +1040,13 @@ Zum Glück weist R auf gleiche Funktionsnamen hin. In der Meldung nach dem Laden
 \end{verbatim}
 
 \begin{verbatim}
-## The following objects are masked from 'package:stats':
+## Die folgenden Objekte sind maskiert von 'package:stats':
 ## 
 ##     filter, lag
 \end{verbatim}
 
 \begin{verbatim}
-## The following objects are masked from 'package:base':
+## Die folgenden Objekte sind maskiert von 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union
 \end{verbatim}
@@ -1476,7 +1483,7 @@ Mit der Function \texttt{str()} (für \emph{str}ucture) kann man sich Strukturin
 ## tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
 ##  $ title      : chr [1:8] "The Mandalorian" "The Good Fight" "Stranger Things" "How To Sell Drugs Online (Fast)" ...
 ##  $ year       : num [1:8] 2019 2017 2016 2019 2011 ...
-##  $ imdb_rating: num [1:8] 8.7 8.3 8.8 7.9 9.3 8.7 8 8.5
+##  $ imdb_rating: num [1:8] 8,7 8,3 8,8 7,9 9,3 8,7 8 8,5
 ##  $ on_netflix : logi [1:8] FALSE FALSE TRUE TRUE FALSE FALSE ...
 \end{verbatim}
 
@@ -1803,7 +1810,7 @@ Diese zeilenweise Struktur, kann R natürlich auch abbilden und zwar als Liste:
 ## [1] NA
 ## 
 ## [[5]]
-## [1] 1.68
+## [1] 1,68
 ## 
 ## [[6]]
 ## [1] 56
@@ -1867,7 +1874,7 @@ Genau wie bei einem Datensatz kann man die Elemente einer Liste auch benennen (d
 ## [1] NA
 ## 
 ## $height
-## [1] 1.68
+## [1] 1,68
 ## 
 ## $weight
 ## [1] 56
@@ -2322,7 +2329,7 @@ Gar nicht so schwer, aber hat das auch funktioniert? Schauen wir uns nochmal die
 ## #   vehicles <list>, starships <list>
 \end{verbatim}
 
-Tatsächlich! Im Datensatz sind jetzt nur noch n = 11 Fälle und in der Variable \texttt{height} haben alle den Wert 200 oder einen höheren Wert.
+Tatsächlich! Im Datensatz sind jetzt nur noch n = \text{11} Fälle und in der Variable \texttt{height} haben alle den Wert 200 oder einen höheren Wert.
 
 Natürlich kann man in R auch auf nominale Variablen filtern, z.B. auf eine bestimmte Augenfarbe. Im folgenden Datensatz speichere ich alle Starwars-Figuren ab, die orangene Augen haben. Dafür benötige ich die Filterbedingung: \texttt{eye\_color\ ==\ "orange"}. Man braucht hier zwingend doppelte Gleichzeichen. Dies ist nötig, weil das einfache Gleichzeichen von R als Zuweisungsoperator \texttt{\textless{}-} verstanden würde. Hier soll aber nichts zugewiesen, sondern lediglich etwas verglichen werden. Beachten Sie außerdem die Anführungszeichen. Wir brauchen Sie, weil es sich um eine Text-Variable (character) handelt.
 
@@ -2693,7 +2700,7 @@ Der Einsatz der Funktion sieht wie folgt aus:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3.0  NA 2.6 3.0 2.2 1.6
+## [1] 3,0  NA 2,6 3,0 2,2 1,6
 \end{verbatim}
 
 Neben dem Datensatz-Argument, welches hier wie gehabt über die Pipe übergeben wird, benötigt die Funktion \texttt{row\_means()} noch weitere Argumente:
@@ -3054,11 +3061,11 @@ Neben dem sehr schlichten \texttt{table()}-Befehl gibt in vielen R-Paketen weite
 
 \begin{verbatim}
 ##    starwars$sex  n    percent valid_percent
-##          female 16 0.18390805    0.19277108
-##  hermaphroditic  1 0.01149425    0.01204819
-##            male 60 0.68965517    0.72289157
-##            none  6 0.06896552    0.07228916
-##            <NA>  4 0.04597701            NA
+##          female 16 0,18390805    0,19277108
+##  hermaphroditic  1 0,01149425    0,01204819
+##            male 60 0,68965517    0,72289157
+##            none  6 0,06896552    0,07228916
+##            <NA>  4 0,04597701            NA
 \end{verbatim}
 
 Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalten für die kumulierten Prozentwerte. Diese Spalten können wir mit \texttt{mutate()} aus dem tidyverse leicht selbst berechnen (siehe Kapitel zur Datenaufbereitung). Zusätzlich brauchen wir die Funktion \texttt{cumsum()}, welche kumulierte Summen bildet.
@@ -3076,11 +3083,11 @@ Schon sehr viel übersichtlicher und informativer! Allerdings fehlen noch Spalte
 
 \begin{verbatim}
 ##    starwars$sex  n    percent valid_percent cum_percent cum_valid_percent
-##          female 16 0.18390805    0.19277108   0.1839080         0.1927711
-##  hermaphroditic  1 0.01149425    0.01204819   0.1954023         0.2048193
-##            male 60 0.68965517    0.72289157   0.8850575         0.9277108
-##            none  6 0.06896552    0.07228916   0.9540230         1.0000000
-##            <NA>  4 0.04597701            NA   1.0000000                NA
+##          female 16 0,18390805    0,19277108   0,1839080         0,1927711
+##  hermaphroditic  1 0,01149425    0,01204819   0,1954023         0,2048193
+##            male 60 0,68965517    0,72289157   0,8850575         0,9277108
+##            none  6 0,06896552    0,07228916   0,9540230         1,0000000
+##            <NA>  4 0,04597701            NA   1,0000000                NA
 \end{verbatim}
 
 \hypertarget{huxe4ufigkeitsdiagramm}{%
@@ -3232,7 +3239,7 @@ Als Beispiel benutze ich hier die Variable für das Gewicht.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 97.31186
+## [1] 97,31186
 \end{verbatim}
 
 Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?).
@@ -3246,7 +3253,7 @@ Man kann sich auch ein \textbf{getrimmtes Mittel} ausgeben lassen, bei dem die o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 75.43673
+## [1] 75,43673
 \end{verbatim}
 
 Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben \textbf{Streuungsmaße} Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte, ist die \textbf{Streuung} (\emph{standard deviation}).
@@ -3258,7 +3265,7 @@ Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzus
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 169.4572
+## [1] 169,4572
 \end{verbatim}
 
 Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:
@@ -3270,7 +3277,7 @@ Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch u
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 28715.73
+## [1] 28715,73
 \end{verbatim}
 
 \hypertarget{schiefe-und-kurtosis}{%
@@ -3288,7 +3295,7 @@ Im \texttt{psych}-Paket gibt es Funktionen für beides:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.025488
+## [1] -1,025488
 \end{verbatim}
 
 Zur Erinnerung:
@@ -3313,7 +3320,7 @@ Hier noch der Code zur Berechnung der Kurtosis:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.776414
+## [1] 1,776414
 \end{verbatim}
 
 \hypertarget{uxfcbersichts-funktionen}{%
@@ -3329,7 +3336,7 @@ Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgebe
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##    66.0   167.0   180.0   174.4   191.0   264.0       6
+##    66,0   167,0   180,0   174,4   191,0   264,0       6
 \end{verbatim}
 
 Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte \texttt{psych}-Paket hat z.B. eine \texttt{describe()}-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz.
@@ -3345,19 +3352,19 @@ In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt 
 
 \begin{verbatim}
 ##             vars  n   mean     sd median trimmed   mad min  max range  skew
-## name*          1 87  44.00  25.26     44   44.00 32.62   1   87    86  0.00
-## height         2 81 174.36  34.77    180  178.17 19.27  66  264   198 -1.03
-## mass           3 59  97.31 169.46     79   75.44 16.31  15 1358  1343  6.97
-## hair_color*    4 82   7.94   2.70     10    8.12  2.97   1   12    11 -0.58
-## skin_color*    5 87  13.62   8.26     13   13.15  8.90   1   31    30  0.47
-## eye_color*     6 87   6.25   4.83      4    5.86  4.45   1   15    14  0.67
+## name*          1 87  44,00  25,26     44   44,00 32,62   1   87    86  0,00
+## height         2 81 174,36  34,77    180  178,17 19,27  66  264   198 -1,03
+## mass           3 59  97,31 169,46     79   75,44 16,31  15 1358  1343  6,97
+## hair_color*    4 82   7,94   2,70     10    8,12  2,97   1   12    11 -0,58
+## skin_color*    5 87  13,62   8,26     13   13,15  8,90   1   31    30  0,47
+## eye_color*     6 87   6,25   4,83      4    5,86  4,45   1   15    14  0,67
 ##             kurtosis    se
-## name*          -1.24  2.71
-## height          1.78  3.86
-## mass           48.93 22.06
-## hair_color*    -0.83  0.30
-## skin_color*    -0.93  0.89
-## eye_color*     -1.04  0.52
+## name*          -1,24  2,71
+## height          1,78  3,86
+## mass           48,93 22,06
+## hair_color*    -0,83  0,30
+## skin_color*    -0,93  0,89
+## eye_color*     -1,04  0,52
 \end{verbatim}
 
 Da sind jetzt sogar einige Kennzahlen dabei, die wir bisher gar nicht besprochen haben (und auch nicht besprechen werden, z.B. ``mad''). Über verschiedene Argumente kann man sich noch weitere Kennzahlen in der Tabelle anzeigen lassen (z.B. \texttt{skew\ =\ TRUE} oder \texttt{ranges\ =\ TRUE}). Allerdings fällt auch auf, dass die Berechnungen nicht für alle Variablen durchgeführt werden. Ein Mittelwert der Namen ist auch keine nützliche Angabe. Mit dem zusätzlichen Argument \texttt{omit\ =\ TRUE} kann man diese Zeilen ausblenden.
@@ -3466,9 +3473,9 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 
 \begin{verbatim}
 ##    data$alter_g3   n   percent
-##  14 bis 17 Jahre 356 0.3542289
-##  18 bis 21 Jahre 354 0.3522388
-##  22 bis 24 Jahre 295 0.2935323
+##  14 bis 17 Jahre 356 0,3542289
+##  18 bis 21 Jahre 354 0,3522388
+##  22 bis 24 Jahre 295 0,2935323
 \end{verbatim}
 
 Die drei Altersgruppen sind also alle etwa gleich stark besetzt, die älteste Altersgruppe ist ca. 5 Prozent kleiner als die anderen beiden.
@@ -3484,8 +3491,8 @@ Jetzt noch die Beteiligung an Petitionen:
 
 \begin{verbatim}
 ##  data$pol_part_petition   n   percent
-##                       0 680 0.6766169
-##                       1 325 0.3233831
+##                       0 680 0,6766169
+##                       1 325 0,3233831
 \end{verbatim}
 
 Ein knappes Drittel der Befragten haben bereits eine Petition unterschrieben. Würde kein Zusammenhang/Unterschied in den Gruppen vorliegen, wäre also zu erwarten, dass etwa ein Drittel der Befragten in jeder Altersgruppe bereits eine Petition unterschrieben hat.
@@ -3582,7 +3589,7 @@ Dazu ziehen wir im folgenden den Chi-Quadrat-Test heran, ebenfalls aus dem Paket
 ##  Pearson's Chi-squared test
 ## 
 ## data:  my_crosstab
-## X-squared = 37.226, df = 2, p-value = 8.249e-09
+## X-squared = 37,226, df = 2, p-value = 8,249e-09
 \end{verbatim}
 
 Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 \^{} -9 also 0.000000008249. Das ist deutlich unter p \textless{} .001 und damit ``signifikant''. Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.
@@ -3597,7 +3604,7 @@ Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quas
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1924605
+## [1] 0,1924605
 \end{verbatim}
 
 Cramer´s V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen.
@@ -3678,7 +3685,7 @@ Hier der Code für das zitternde Streudiagramm:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-46-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-47-1.pdf}
 
 Betrachtet man den Output, kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es ist zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.
 
@@ -3694,10 +3701,10 @@ Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.4992269
+## [1] -0,4992269
 \end{verbatim}
 
-Im Beispiel ist die Kovarianz also -0.5. Das ist insofern gut, weil das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.
+Im Beispiel ist die Kovarianz also \text{-0,5}. Das ist insofern gut, weil das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.
 
 \hypertarget{korrelation-mit-base-rstats}{%
 \subsection{\texorpdfstring{Korrelation mit \texttt{base\ R}/\texttt{stats}}{Korrelation mit base R/stats}}\label{korrelation-mit-base-rstats}}
@@ -3713,10 +3720,10 @@ Auch der Korrelationskoeffizient lässt sich leicht mit dem \texttt{stats}-Paket
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.3998827
+## [1] -0,3998827
 \end{verbatim}
 
-Das Vorzeichen bleibt, verglichen mit der Kovarianz, selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 ``gepresst''. Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von \emph{r} = -0.4.
+Das Vorzeichen bleibt, verglichen mit der Kovarianz, selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 ``gepresst''. Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von \emph{r} = \text{-0,4}.
 
 Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem prüfen, ob ein Korrelationskoeffizient sich signifikant von 0 unterscheidet (Inferenzstatistik). Die Funktion für den Signifikanztest lautet \texttt{cor.test()}. Neben den beiden Variablen kann man der Funktion weitere Argumente mitgeben:
 
@@ -3742,16 +3749,16 @@ Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem
 ##  Pearson's product-moment correlation
 ## 
 ## data:  df$pol_part_sx and df$pol_entfremdung_ix
-## t = -13.803, df = 1001, p-value < 2.2e-16
+## t = -13,803, df = 1001, p-value < 2,2e-16
 ## alternative hypothesis: true correlation is less than 0
 ## 95 percent confidence interval:
-##  -1.0000000 -0.3552982
+##  -1,0000000 -0,3552982
 ## sample estimates:
 ##        cor 
-## -0.3998827
+## -0,3998827
 \end{verbatim}
 
-Das Ergebnis ist ein kurzer ``Bericht'' über den Signifikanztest. Angegeben sind z.B. der p-Wert, das Konfidenzintervall und noch einmal der Korrelationskoeffizient. Aus dem p-Wert, der im Beispiel einen sehr niedrigen Wert (kleiner als die geforderten .05) aufweist, können wir schließen, dass der Wert \emph{r} = -0.3998827 signifikant von 0 abweicht, also mit einiger Wahrscheinlichkeit nicht zufällig zustande gekommen ist. Das spricht für unsere Hypothese und damit für die Existenz des vermuteten Zusammenhangs in der Grundgesamtheit. Wir können die Hypothese somit als durch die Daten bestätigt ansehen.
+Das Ergebnis ist ein kurzer ``Bericht'' über den Signifikanztest. Angegeben sind z.B. der p-Wert, das Konfidenzintervall und noch einmal der Korrelationskoeffizient. Aus dem p-Wert, der im Beispiel einen sehr niedrigen Wert (kleiner als die geforderten .05) aufweist, können wir schließen, dass der Wert \emph{r} = \text{-0,3998827} signifikant von 0 abweicht, also mit einiger Wahrscheinlichkeit nicht zufällig zustande gekommen ist. Das spricht für unsere Hypothese und damit für die Existenz des vermuteten Zusammenhangs in der Grundgesamtheit. Wir können die Hypothese somit als durch die Daten bestätigt ansehen.
 
 \hypertarget{korrelation-mit-psych}{%
 \subsection{\texorpdfstring{Korrelation mit \texttt{psych}}{Korrelation mit psych}}\label{korrelation-mit-psych}}
@@ -3772,8 +3779,8 @@ Die Funktion für die Korrelation in \texttt{psych} lautet \texttt{corr()} (mit 
 ## Call:psych::corr.test(x = ., use = "pairwise", method = "pearson")
 ## Correlation matrix 
 ##                    pol_part_sx pol_entfremdung_ix
-## pol_part_sx                1.0               -0.4
-## pol_entfremdung_ix        -0.4                1.0
+## pol_part_sx                1,0               -0,4
+## pol_entfremdung_ix        -0,4                1,0
 ## Sample Size 
 ## [1] 1003
 ## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
@@ -3813,21 +3820,21 @@ Bei der Partialkorrelation wird der Einfluss einer dritten Variable aus der Korr
 ## Call:psych::corr.p(r = ., n = 1003)
 ## Correlation matrix 
 ##       x1    x2     y
-## x1  1.00 -0.38  0.22
-## x2 -0.38  1.00 -0.05
-## y   0.22 -0.05  1.00
+## x1  1,00 -0,38  0,22
+## x2 -0,38  1,00 -0,05
+## y   0,22 -0,05  1,00
 ## Sample Size 
 ## [1] 1003
 ## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
 ##    x1   x2    y
-## x1  0 0.00 0.00
-## x2  0 0.00 0.15
-## y   0 0.15 0.00
+## x1  0 0,00 0,00
+## x2  0 0,00 0,15
+## y   0 0,15 0,00
 ## 
 ##  To see confidence intervals of the correlations, print with the short=FALSE option
 \end{verbatim}
 
-Der Output sieht ähnlich aus wie zuvor, nur dass in den Zellen jetzt jeweils die Korrelation zwischen zwei Variablen dargestellt ist, bereinigt um die jeweils dritte. Für die uns interessierende Korrelation zwischen politischer Partizipation und politischer Entfremdung ist der Korrelationskoeffizient hier nur leicht gesunken. Er beträgt jetzt noch \emph{r-partial} = -0.38. Der Einfluss des Alters auf unseren Zusammenhang war also vermutlich nicht besonders stark. Auch nach Kontrolle dieser Drittvariable hat unsere Alternativhypothese also Bestand.
+Der Output sieht ähnlich aus wie zuvor, nur dass in den Zellen jetzt jeweils die Korrelation zwischen zwei Variablen dargestellt ist, bereinigt um die jeweils dritte. Für die uns interessierende Korrelation zwischen politischer Partizipation und politischer Entfremdung ist der Korrelationskoeffizient hier nur leicht gesunken. Er beträgt jetzt noch \emph{r-partial} = \text{-0,38}. Der Einfluss des Alters auf unseren Zusammenhang war also vermutlich nicht besonders stark. Auch nach Kontrolle dieser Drittvariable hat unsere Alternativhypothese also Bestand.
 
 Man kann sogar in der Korrelations-Matrix oben sehen, dass das Alter lediglich mit der Variable \emph{politische Partizipation} einen Zusammenhang hat, aber kaum mit \emph{politischer Entfremdung}. Vermutlich wird ein Teil der Varianz in der politischen Partizipation durch das Alter erklärt. Dass diese Variablen ebenfalls kovariieren, macht inhaltlich sogar Sinn: Wer älter ist, hatte bereits mehr Gelegenheit zur politischen Partizipation und einige Partizipationsmöglichkeiten kann man sogar erst mit einem gewissen Alter ausüben, wie beispielsweise das Wählen.
 
@@ -3891,7 +3898,7 @@ Mit der Funktion \texttt{rplot()} kann man die Matrix in eine Korrelations-Grafi
 ## Don't know how to automatically pick scale for object of type noquote. Defaulting to continuous.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-54-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formatieren. Mit \texttt{rearrange()} kann man die Variablen in der Matrix nach der Größe der Korrelation sortieren. Mit \texttt{shave} kann man die ``doppelte'' obere Hälfte des Plots abschneiden.
 
@@ -3922,7 +3929,7 @@ Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und
 ## Don't know how to automatically pick scale for object of type noquote. Defaulting to continuous.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-55-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 Sehr schön übersichtlich. Welche Variablen hier wie zusammenhängen, sieht man auf den ersten Blick!
 
@@ -4265,7 +4272,7 @@ Das soeben erzeugte Objekt \texttt{p} ist leer. Zwar existiert schon eine Zuordn
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-64-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-65-1.pdf}
 
 Wie auch? Wir haben ja noch gar nicht festgelegt, um was für eine Art Grafik es sich handeln soll! Über den Operator \texttt{+} können wir dem Plot Geome hinzufügen. Wir addieren sozusagen geome zum Plot dazu: \texttt{p\ +\ geom\_()}.
 
@@ -4285,7 +4292,7 @@ Im Beispiel nutzen wir das zusätzliche Argument \texttt{size\ =\ 5}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-65-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 Juhu, es hat funktioniert! Die Datenpunkte sind auf der Y-Achse angeordnet und in zwei Gruppen aufgeteilt. Die Darstellung ist jedoch suboptimal, denn die Punkte überlagern sich, sie werden vielfach übereinander geplottet. Dadurch kann man nicht wirklich gut sehen, wie sie sich verteilen.
 
@@ -4301,7 +4308,7 @@ Abhilfe schafft ein alternatives Geom, nämlich \texttt{geom\_jitter()}. Beim Ji
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-66-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-67-1.pdf}
 
 Mit dem Argument \texttt{width} kann man die Breite dieser Streuung bestimmen und mit \texttt{alpha} die Transparenz der Punkte. Probieren wir es aus:
 
@@ -4312,7 +4319,7 @@ Mit dem Argument \texttt{width} kann man die Breite dieser Streuung bestimmen un
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-68-1.pdf}
 
 Die Darstellung ist ganz schön, aber es gibt weitere Alternativen.
 
@@ -4332,7 +4339,7 @@ Und hier unser Boxplot:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-69-1.pdf}
 
 \hypertarget{violin-plot}{%
 \subsection{Violin-Plot}\label{violin-plot}}
@@ -4346,7 +4353,7 @@ Eine weitere Variante, um eine Verteilung darzustellen, ist der Violin-Plot. Er 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-69-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-70-1.pdf}
 
 \hypertarget{balkendiagramme}{%
 \subsection{Balkendiagramme}\label{balkendiagramme}}
@@ -4370,7 +4377,7 @@ Und jetzt das Geom für das Balkendiagramm hinzufügen. Weil dunkelgraue Balken 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-72-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-73-1.pdf}
 
 Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusätzliches Layer mitgibt, dass das Koordinatensystem modifiziert :
 
@@ -4382,7 +4389,7 @@ Das Ganze kann man natürlich auch drehen, und zwar indem man dem Plot ein zusä
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-74-1.pdf}
 
 Wenn man über \texttt{fill} eine zweite Variable mappt, bekommt man gestapelte Balken:
 
@@ -4393,7 +4400,7 @@ Wenn man über \texttt{fill} eine zweite Variable mappt, bekommt man gestapelte 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-74-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-75-1.pdf}
 
 Und über das Zusatzargument \texttt{position\ =\ "dodge"} kann man die Balken nebeneinander anzeigen. Achtung, dieses Argument wird hier außerhalb von \texttt{aes()} platziert. Es bezieht sich nämlich nicht auf das Variablen-Mapping.
 
@@ -4404,7 +4411,7 @@ Und über das Zusatzargument \texttt{position\ =\ "dodge"} kann man die Balken n
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 \hypertarget{histogramme}{%
 \subsection{Histogramme}\label{histogramme}}
@@ -4442,7 +4449,7 @@ Und jetzt das Geom hinzufügen:
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-78-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 Ohje, sehr ``löchrig''. Das ist genau das Problem, dass ich oben beschrieben hatte. Es gibt jedoch Hilfe: Mit dem Zusatzargument \texttt{binwidth} kann man zudem festlegen, in welchen Einheiten die Werte zusammengefasst werden sollen. Es lohnt sich in der Regel, ein wenig mit dieser Einstellung herumzuexperimentieren.
 
@@ -4453,7 +4460,7 @@ Ohje, sehr ``löchrig''. Das ist genau das Problem, dass ich oben beschrieben ha
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-80-1.pdf}
 
 Sieht doch gleich viel besser aus!
 
@@ -4538,7 +4545,7 @@ Genau so habe ich mir das vorgestellt. Die neuen Variablen heißen standardmäß
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-83-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-84-1.pdf}
 
 \hypertarget{grafiken-speichern}{%
 \section{Grafiken speichern}\label{grafiken-speichern}}
@@ -4568,26 +4575,26 @@ Das lineare Modell hat die folgende Form, wobei \emph{y} für die Werte der abh�
 
 \[y = b_{0}+b_{1}x_{1}+b_{2}x_{2}+... b_{n}x_{n}+E\]
 
-Das Modell besagt, dass die Ausprägung der Variable \emph{y} von den Ausprägungen der \emph{x}-Variablen abhängt. Diese \emph{x}-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht \emph{b} multipliziert. Der ``Rest'', also alles, was nicht erklärt werden kann, wird mit \emph{E} aufgefangen. Das Gewicht \emph{b\_\{0\}} ist keiner \emph{x}-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von \emph{y} und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet - warum zeige ich später noch.
+Das Modell besagt, dass die Ausprägung der Variable \emph{y} von den Ausprägungen der \emph{x}-Variablen abhängt. Diese \emph{x}-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht \emph{b} multipliziert. Der ``Rest'', also alles, was nicht erklärt werden kann, wird mit \emph{E} aufgefangen. Das Gewicht \emph{b\_\{0\}} ist keiner \emph{x}-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von \emph{y} und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet. - Warum zeige ich später noch.
 
-Das \textbf{Ziel der linearen Regression} ist es, herauszufinden, welche unterschiedlichen Gewichte (also Werte von \emph{b}) die einzelnen unabhängigen Variablen \emph{x} jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren \emph{x} die Outcome-Variable \emph{y} in besonderem Maße beeinflussen.
+Das \textbf{Ziel der linearen Regression} ist es herauszufinden, welche unterschiedlichen Gewichte (also Werte von \emph{b}) die einzelnen unabhängigen Variablen \emph{x} jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren \emph{x} die Outcome-Variable \emph{y} in besonderem Maße beeinflussen.
 
--- Moment, stand da gerade \emph{beeinflussen}? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der \emph{x}-Variable auf die \emph{y}-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der {[}\#Korrelation{]}, die lediglich von einem Zusammenhang ausgeht ohne in abhängige und unabhängige Variable zu unterschieden.
+-- Moment, stand da gerade \emph{beeinflussen}? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der \emph{x}-Variable auf die \emph{y}-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der {[}\#Korrelation{]}, die lediglich von einem Zusammenhang ausgeht, ohne in abhängige und unabhängige Variable zu unterschieden.
 
-An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell, noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r sachlogische Gründe für die Plausibilität Ihrer Kausalhypothese anzuführen!
+An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r, sachlogische Gründe für die Plausibilität ihrer Kausalhypothese anzuführen!
 
 \hypertarget{bivariate-lineare-regression}{%
 \section{Bivariate lineare Regression}\label{bivariate-lineare-regression}}
 
-Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine \emph{bivariate} Regression. Die Hypothese, die getestet werden soll, lautet:
+Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine \emph{bivariate} Regression. Die Hypothese die getestet werden soll lautet:
 
-\textbf{H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst.}
+\textbf{H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst}
 
-Wir nehmen uns also wieder den Gen-Z-Datensatz vor. Die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:
+Wir nehmen uns also wieder den Gen-Z-Datensatz vor und die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:
 
 \begin{itemize}
 \item
-  Die abhängige Variable politische Partizipation (\emph{y}) ist ein Summenindex von 10 politischen Handlungen, beispielsweise ``Wählen gehen'', ``Teilnahme an Produktboykott'' usw. Befragte können hier einen Wert zwischen 0 = \emph{keine Teilnahme} und 10 = \emph{Teilnahme an allen zehn Handlungen} erreichen.
+  Die abhängige Variable Politische Partizipation (\emph{y}) ist ein Summenindex von 10 politischen Handlungen, beispielsweise ``Wählen gehen'', ``Teilnahme an Produktboykott'' usw. Befragte können hier einen Wert zwischen 0 = \emph{keine Teilnahme} und 10 = \emph{Teilnahme an allen zehn Handlungen} erreichen.
 \item
   Die Prädiktorvariable politisches Interesse (\emph{x}) wurde auf einer Skala von 0 = \emph{überhaupt nicht} bis 3 = \emph{sehr stark} gemessen.
 \end{itemize}
@@ -4610,28 +4617,28 @@ Sie kennen wahrscheinlich auch schon die grafische Darstellung aus den Sitzungsf
 \item
   \textbf{\emph{b\textsubscript{0}}} ist der Achsenabschnitt, also der Punkt, an dem die Gerade die y-Achse schneidet. Anders ausgedrückt: Wenn die unabhängige Variable den Wert x = 0 hat, welchen Wert hat dann y?
 \item
-  Das \textbf{\emph{Residuum}} ist die Abweichung der Messpunkte von der Regressionsgeraden. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler \textbf{\emph{E}} in der Regressionsgleichung wird in der Regel \textbf{gebildet durch die Summe der quadrierten Residuen}. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. Macht aber keiner.
+  Das \textbf{\emph{Residuum}} ist die Abweichung der Messpunkte von der Regressionsgerade. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler \textbf{\emph{E}} in der Regressionsgleichung wird in der Regel \textbf{gebildet durch die Summe der quadrierten Residuen}. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. Macht aber keiner.
 \end{itemize}
 
 \leavevmode\hypertarget{info_e}{}%
 \textbf{Warum gibt es überhaupt Residuen und den Fehler?}
 
-Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Regressionsgeraden (Residuen). Empirisch wird sich nämlich kaum eine perfekte Anordnung zeigen, bei der alle Messpunkte genau auf der Geraden leigen. In einer Messung wird es immer Punkte geben, die mehr oder weniger stark von der Regressionsgerade abweichen. In unserem Beispiel könnte es eine Person geben, die sich erst an 4 politischen Handlungsmöglichkeiten beteiligt hat, die aber dennoch angibt, ihr politisches Interesse sei extrem hoch. Für diese Abweichung kann es natürlich ganz unterschiedliche Gründe geben. Die empirische Wirklichkeit ist eben kein Modell! Hier ein paar unterschiedliche Beispiele, wie die Abweichung zustande kommen kann:
+Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Regressionsgeraden (Residuen). Empirisch wird sich nämlich kaum eine perfekte Anordnung zeigen, bei der alle Messpunkte genau auf der Geraden liegen. In einer Messung wird es immer Punkte geben, die mehr oder weniger stark von der Regressionsgerade abweichen. In unserem Beispiel könnte es eine Person geben, die sich erst an 4 politischen Handlungsmöglichkeiten beteiligt hat, die aber dennoch angibt, ihr politisches Interesse sei extrem hoch. Für diese Abweichung kann es natürlich ganz unterschiedliche Gründe geben. Die empirische Wirklichkeit ist eben kein Modell! Hier ein paar unterschiedliche Beispiele, wie die Abweichung zustande kommen kann:
 
 \begin{itemize}
 \item
-  Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben - also ein ``Fehler'' beim Ausfüllen des Fragebogens.
+  Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben. - Also ein ``Fehler'' beim Ausfüllen des Fragebogens.
 \item
-  Die Person hatte einfach noch nicht genügend Gelegenheit, sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit, zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.
+  Die Person hatte einfach noch nicht genügend Gelegenheit, sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.
 \item
-  Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei ``3'' liegt, ``5,2'' politische Handlungen ausgeführt haben müsste. Das geht ja kaum. Der Wert, den die Gerade schätzt, ist eben nur hypothetisch.
+  Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei ``3'' liegt, ``5,2'' politische Handlungen ausgeführt haben müsste. - Das geht ja kaum. Der Wert, den die Gerade schätzt, ist eben nur hypothetisch.
 \item
   Der Zusammenhang ist gar nicht linear (also keine gerade Linie). Vielleicht wäre eine ``andere Form'' der Line viel angemessener. Vielleicht eine Kurve die erst steil ansteigt und dann abflacht.
 \end{itemize}
 
 In jeder tatsächlich durchgeführten Berechnung einer Regression liegt wahrscheinlich eine Mischung aus verschiedenen Gründen vor. Was genau sich hinter dem Residuum genau verbirgt, werden wir nie wirklich wissen. Es ist jedoch natürlich unsere Aufgabe, den Wert mit einem gut durchdachten Forschungsdesign möglichst klein zu halten.
 
-Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.
+Bevor es jetzt losgeht, noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.
 
 \hypertarget{grafische-darstellung}{%
 \subsection{Grafische Darstellung}\label{grafische-darstellung}}
@@ -4649,11 +4656,11 @@ Die erste Annäherung an die Regression ist grafisch. Mit einem Scatterplot oder
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-86-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-87-1.pdf}
 
-Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. Aber welche Werte haben jetzt \emph{b\textsubscript{0}} und vor allem \emph{b\textsubscript{1}}? Dazu mehr im nächsten Abschnitt.
+Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt \emph{b\textsubscript{0}} und vor allem \emph{b\textsubscript{1}}? Dazu mehr im nächsten Abschnitt.
 
-Zunächst möchte ich noch kurz auf das \texttt{geom\_smooth()} eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, \texttt{method}, hatte ich auf \texttt{lm} gesetzt, weil wir ja hier genau das machen wollen, nämlich eine Regressionsgerade nach dem ``linearen Modell'' berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument \texttt{color\ =\ "deeppink"} können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformem HMTMH-Magenta ein. Aber was macht das mittlere Argument \texttt{se\ =\ FALSE}? Das finden wir ganz einfach heraus, indem wir es einmal auf \texttt{TRUE} setzen:
+Zunächst möchte ich noch kurz auf das \texttt{geom\_smooth()} eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, \texttt{method}, hatte ich auf \texttt{lm} gesetzt, weil wir ja hier genau das machen wollen -- nämlich eine Regressionsgerade nach dem ``linearen Modell'' berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument \texttt{color\ =\ "deeppink"} können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformen HMTMH-Magenta ein. Aber was macht das mittlere Argument \texttt{se\ =\ FALSE}? Das finden wir ganz einfach heraus, indem wir es einmal auf \texttt{TRUE} setzen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4666,7 +4673,7 @@ Zunächst möchte ich noch kurz auf das \texttt{geom\_smooth()} eingehen. Oben h
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-88-1.pdf}
 
 Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein ``Schatten'' hinter der Geraden. Dieser Schatten zeigt das Konfidenzintervall der Regressionsgeraden an. Praktisch!
 
@@ -4675,11 +4682,11 @@ Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein ``Schatten'' hinte
 
 Die grafische Darstellung ist sehr nützlich, aber natürlich wüssten wir auch gerne die genauen Werte für unsere Regressionsgerade. Um die herauszufinden, bietet das \texttt{stats}-Paket die Funktion \texttt{lm()} (linear model). Zur Erinnerung: Genau wie \texttt{base}-R muss man das \texttt{stats}-Paket nicht gesondert laden, es ist standardmäßig verfügbar, sobald man RStudio öffnet.
 
-Die Funktion \texttt{lm()} erwartet zwei Argumente: 1. ein Objekt der R-Klasse ``formula''. Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer ``Formel'' teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. Als zweites Argument benötigt die Funktion natürlich noch den Datensatz auf den die Formel angewendet werden soll.
+Die Funktion \texttt{lm()} erwartet zwei Argumente: 1. ein Objekt der R-Klasse ``formula''. Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer ``Formel'' teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. als zweites Argument benötigt die Funktion natürlich noch den Datensatz, auf den die Formel angewendet werden soll.
 
-Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator \texttt{\textasciitilde{}} (Tilde). \textbf{Die Tilde \texttt{\textasciitilde{}} bedeutet: ``wird vorhergesagt durch''}. Für die lineare Regression muss die Formel also \texttt{abhängige\_Variable\ \textasciitilde{}\ unabhängige\_Variable} lauten.
+Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator \texttt{\textasciitilde{}} (Tilde). \textbf{Die Tilde \texttt{\textasciitilde{}} bedeutet: ``wird vorhergesagt durch''}. Für die lineare Regression muss die Formel also \texttt{abhängige\_Variable\ \ \textasciitilde{}\ unabhängige\_Variable} lauten.
 
-Nachdem man die \texttt{lm()}-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. \texttt{my\_model}) zugeordnet hat, kann man sich mit der \texttt{summary()}-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das Ganze so aus:
+Nachdem man die \texttt{lm()}-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. \texttt{my\_model}) zugeordnet hat, kann man sich mit der \texttt{summary()}-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das ganze so aus:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4698,88 +4705,71 @@ Nachdem man die \texttt{lm()}-Funktion ausgeführt und das Ergebnis einem selbst
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.7303 -1.1427 -0.1427  1.0042  5.5635 
+## -4,7303 -1,1427 -0,1427  1,0042  5,5635 
 ## 
 ## Coefficients:
 ##                       Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)            0.84886    0.10594   8.013 3.12e-15 ***
-## politisches_interesse  1.29382    0.06332  20.431  < 2e-16 ***
+## (Intercept)            0,84886    0,10594   8,013 3,12e-15 ***
+## politisches_interesse  1,29382    0,06332  20,431  < 2e-16 ***
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
 ## 
-## Residual standard error: 1.746 on 997 degrees of freedom
-##   (7 observations deleted due to missingness)
-## Multiple R-squared:  0.2951, Adjusted R-squared:  0.2944 
-## F-statistic: 417.4 on 1 and 997 DF,  p-value: < 2.2e-16
+## Residual standard error: 1,746 on 997 degrees of freedom
+##   (7 Beobachtungen als fehlend gelöscht)
+## Multiple R-squared:  0,2951, Adjusted R-squared:  0,2944 
+## F-statistic: 417,4 on 1 and 997 DF,  p-value: < 2,2e-16
 \end{verbatim}
 
 Puh, da steht eine Menge Zeug. Vieles davon habe ich noch gar nicht erklärt. Gehen wir den Output der Reihe nach durch.
 
 Der Output beginnt mit dem \textbf{Call}. Das ist ganz nett, hier wird unser Funktionsaufruf wiederholt. Er ist also im Model mit abgespeichert: Ein kleiner Reminder, falls man viele Modelle gerechnet und vergessen hat, welche Formel und Daten man jeweils benutzt hat.
 
-Dann folgen die \textbf{Residuals}. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit \emph{e} gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgeraden hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.
+Dann folgen die \textbf{Residuals}. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit \emph{e} gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgerade, hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.
 
-Im Output der \texttt{lm()}-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu -4.73 nach unten und sogar bis zu 5.56 nach oben ab.
+Im Output der \texttt{lm()}-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilsgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu \text{-4,73} nach unten und sogar bis zu \text{5,56} nach oben ab.
 
 Die Werte für \emph{b\textsubscript{0}} und \emph{b\textsubscript{1}} finden sich im dritten Bereich der Ausgabe unter \textbf{Coefficients} in der Spalte ``Estimate'':
 
 \begin{itemize}
 \tightlist
 \item
-  In der Zeile ``(Intercept)'' ist der Wert für \emph{b\textsubscript{0}} (hier 0.85)
+  In der Zeile ``(Intercept)'' ist der Wert für \emph{b\textsubscript{0}} (hier \text{0,85})
 \item
-  In der Zeile ``politisches\_interesse'' ist der Wert für \emph{b\textsubscript{1}} (hier 1.29)
+  In der Zeile ``politisches\_interesse'' ist der Wert für \emph{b\textsubscript{1}} (hier \text{1,29})
 \end{itemize}
 
-Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standardfehler (``Std. Error'') für die b-Werte und jeweils noch einen T-Test (vgl. zukünftiges Kapitel ``T-Test''). Der T-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine Test-Statistik ist der T-Wert (``t value'') und zu diesem T-Wert gibt es noch ein Signifikanzniveau (``Pr(\textgreater\textbar t\textbar)''). Wie immer gilt hier, dass ein Wert von p \textless{} .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen \texttt{*} gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.
+Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standardfehler (``Std. Error'') für die b-Werte und jeweils noch einen t-Test (vgl. zukünftiges Kapitel ``t-Test''). Der t-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine Test-Statistik ist der t-Wert (``t value'') und zu diesem t-Wert gibt es noch ein Signifikanzniveau (``Pr(\textgreater\textbar t\textbar)''). Wie immer gilt hier, dass ein Wert von p \textless{} .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen \texttt{*} gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.
 
 \leavevmode\hypertarget{info_b}{}%
 \textbf{Was sagen die Regressionskoeffizienten (b-Werte) aus?}
 
-Der Wert \emph{b\textsubscript{1}} = 1.29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt oder abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) dann kommen 1.29 politische Handlungen dazu.
+Der Wert \emph{b\textsubscript{1}} = \text{1,29} gibt an, um wie viele Einheiten die abhängige Variable ansteigt oder abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) dann kommen \text{1,29} politische Handlungen dazu.
 
-Der Wert \emph{b\textsubscript{0}} = 1.3 bedeutet, dass die abhängige Variable ``politische Partizipation'' den Wert 1.3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich, in unserer Grafik oben schneidet die Regressionsgerade die Y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen, dass es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. -- Selbst wenn kein politisches Interesse vorliegt (0 = \emph{Überhaupt nicht}), gibt es laut der Regressionsgeraden eine gewisse politische Partizipation.
+Der Wert \emph{b\textsubscript{0}} = \text{1,3} bedeutet, dass die abhängige Variable ``politische Partizipation'' den Wert \text{1,3} annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich, in unserer Grafik oben schneidet die Regressionsgerade die y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen, dass es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. -- Selbst wenn kein politisches Interesse vorliegt (0 = \emph{Überhaupt nicht}), gibt es laut der Regressionsgerade eine gewisse politische Partizipation.
 
 Im vierten und letzten Abschnitt des Outputs wird der Standardfehler der Residuen inklusive Freiheitsgerade (degrees of freedom) angegeben (Erläuterung folgt später). An dieser Stelle erfährt man auch, dass einige Fälle aus der Berechnung entfernt wurden, da sie fehlende Werte in der einen oder anderen Variable aufweisen.
 
-Zu guter Letzt gibt es noch einen \emph{R\textsuperscript{2}}-Wert (r-squared), ein \emph{korrigiertes R\textsuperscript{2}} (adjustet R-squared) und eine F-Statistik für eben dieses \emph{R\textsuperscript{2}}. \emph{R\textsuperscript{2}} ist der Anteil der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob \emph{R\textsuperscript{2}} sich signifikant von Null unterscheidet. -- So ähnlich wie oben mit dem T-Test bei den \emph{b}-Werten.
+Zu guter Letzt gibt es noch einen R\textsuperscript{2}-Wert (r-squared), ein korrigiertes R\textsuperscript{2} (adjustet R-squared) und eine F-Statistik für eben dieses R\textsuperscript{2}. R\textsuperscript{2} ist der Anteil, der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob R\textsuperscript{2} sich signifikant von Null unterschiedet. -- So ähnlich wie oben mit dem t-Test bei den b-Werten.
 
-Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben \emph{b\textsubscript{1}} (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens \emph{R\textsuperscript{2}} inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.
+Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben \emph{b\textsubscript{1}} (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens R\textsuperscript{2} inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{sign }\OtherTok{\textless{}{-}} \FunctionTok{case\_when}\NormalTok{(}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.001} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .001 signifikant."}\NormalTok{,}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .01 signifikant."}\NormalTok{,}
-   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist auf dem Niveau p \textless{} .05 signifikant."}\NormalTok{,}
-   \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Das Modell ist nicht signifikant."}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.001} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .001"}\NormalTok{,}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .01"}\NormalTok{,}
+   \FunctionTok{glance}\NormalTok{(my\_model)}\SpecialCharTok{$}\NormalTok{p.value[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{\textless{}}\FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} .05"}\NormalTok{,}
+   \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"n.s."}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von \emph{b} = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt \emph{R\textsuperscript{2}} = 0.3, bei \emph{df} = 997 Freiheitsgraden (\emph{korrigiertes R\textsuperscript{2}} = 0.29). Das Modell ist auf dem Niveau p \textless{} .001 signifikant.
-
-\leavevmode\hypertarget{info_b_confidence}{}%
-\textbf{Konfidenzintervalle für b}
-
-Im Standard-Output der Regression ist nur ein signifikanzniveau für R angegeben. Selbstverständlich kann man Inferenzstatistik auch auf die Konstante und b anwenden. Mit der Funktion \texttt{confint()} aus dem \texttt{stats}-Paket kann man sich Konfidenzintervalle für die Regressionsparameter eines Modells ausgeben lassen:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{confint}\NormalTok{(my\_model)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                           2.5 %   97.5 %
-## (Intercept)           0.6409651 1.056748
-## politisches_interesse 1.1695581 1.418089
-\end{verbatim}
+Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von \emph{b} = \text{1,29} politischen Handlungen einher. Die erklärte Varianz beträgt R\textsuperscript{2} = \text{0,2951303}, bei df = \text{997} Freiheitsgraden (korrigiertes R\textsuperscript{2} = \text{0,2944233}). Das Modell ist auf dem Niveau p \textless{} .001 signifikant.
 
 \hypertarget{standardisierte-regressionskoeffizienten-ux3b2}{%
 \subsection{Standardisierte Regressionskoeffizienten (β)}\label{standardisierte-regressionskoeffizienten-ux3b2}}
 
-Neben den normalen Regressionskoeffizienten b kann man auch standardisierten Koeffizienten β (beta) berechnen. Dazu \textbf{z-standardisiert} man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja ``auf den Mittelwert zentrieren und Standardabweichung = 1 setzen''. Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also \textbf{nicht} der Sprung von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.
+Neben den normalen Regressionskoeffizienten b kann man auch den standardisierten Koeffizienten β (beta) berechnen. Dazu \textbf{z-standardisiert} man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja ``auf den Mittelwert zentrieren und Standardabweichung = 1 setzen''. Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also \textbf{nicht} der Sprung von 2 = \emph{Weniger stark} auf 3 = \emph{Eher stark}) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.
 
 Das \texttt{stats}-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu gibt es aber das Paket \texttt{lm.beta} mit der gleichnamigen Funktion, welche auf ein mit \texttt{lm()} erzeugtes Modell angewendet werden kann.
 
@@ -4800,7 +4790,7 @@ Das \texttt{stats}-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu 
 ## 
 ## Standardized Coefficients::
 ##           (Intercept) politisches_interesse 
-##              0.000000              0.543259
+##              0,000000              0,543259
 \end{verbatim}
 
 \leavevmode\hypertarget{info_beta}{}%
@@ -4808,6 +4798,637 @@ Das \texttt{stats}-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu 
 
 Leider gibt es bezüglich \emph{b} und \emph{β} -- wie so oft -- ein wenig Begriffs-Chaos in unterschiedlichen Lehrbüchern. Manchmal wird nämlich für die hier mit \emph{b} betitelten nicht-standardisierten Regressionskoeffizienten \emph{β} genutzt.
 
-  \bibliography{book.bib}
+\hypertarget{t-tests}{%
+\chapter{T-Tests}\label{t-tests}}
+
+\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen wurden auf ein Tidyverse-konformes Paket (\texttt{rstatix}) angepasst.}
+
+In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt.
+Als T-Tests werden eine Reihe von Null-Hypothesen-Tests bezeichnet, deren Prüfgröße auf der T-Verteilung basiert.
+T-Tests wurden ursprünglich von William S. Gosset entwickelt, der für die Guinness-Brauerei daran arbeitete, die Qualität der Gerste abzuschätzen, damit das Bier einen gleichbleibenden Qualitätsstandard erfüllen konnte.
+Gosset entwickelte den T-Test und wollte seine Erkenntnisse gerne mit anderen Forschenden teilen.
+Da Guinness die Offenbarung von Betriebsgeheimnissen fürchtete, war es Mitarbeitenden der Brauerei jedoch verboten, ihre Erkenntnisse unter ihrem Namen zu veröffentlichen.
+Gosset nutzte deshalb das Pseudonym ``Student''.
+T-Tests sind deshalb heute auch als ``Student´s T-Test'' bekannt.
+
+Es gibt verschiedene Varianten des T-Tests, von den hier drei besprochen werden:
+
+\begin{itemize}
+\item
+  Beim diesem \textbf{Ein-Stichproben-T-Test} (1-sample-test) wird geprüft, ob sich ein das arithmetische Mittel (Mittelwert) von einem zuvor festgelegten Wert unterscheidet.
+\item
+  Mit dem \textbf{T-Test für unabhängige Stichproben} (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variablen in zwei Populationen voneinander unterscheidet. -- Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.
+\item
+  Der \textbf{T-Test für abhängige Stichproben} (t-test for paired samples) testet, ob sich zwei miteinander zusammenhängende Mittelwerte von einander unterschieden. Die Stichproben, die verglichen werden, hängen also irgendwie miteinander zusammen. Das kann z.B. der Fall bei einer Vorher- und einer Nachher-Messung in einem Experiment sein. Oder wenn in einem Datensatz beide Partner:innen einer Beziehung befragt werden. Oder wenn einfach zwei verschiedene Kennwerte miteinander vergleichen werden sollen. Im Datensatz liegen die beiden ``Stichproben'' also als zwei verschiedene Variablen vor.
+\end{itemize}
+
+\hypertarget{datenbeispiel}{%
+\section{Datenbeispiel}\label{datenbeispiel}}
+
+In den folgenden Analysen wird ein Beispieldatensatz mit per Zufallsgenerator erzeugten Daten verwendet, den Daniel Possler und ich erstellt haben.
+In der fiktiven Studie, zu der der Datensatz gehört, soll untersucht werden, ob das Spielen von unterschiedlichen Videospielen einen Einfluss auf die Spendenbereitschaft (pro-soziales Verhalten) hat.
+
+Konkret beinhalten die Daten ein Experimentaldesign, in dem geprüft wird, ob die Spendenbereitschaft davon abhängt, ob die Proband:innen in einem Videospiel einen Superhelden steuern oder nicht.
+
+Für eine Baseline-Messung war vor dem Gebäude, in dem die Studie stattfand, ein Schauspieler platziert, der sich als Obdachloser ausgab.
+Er bat jede:n Proband:in, bevor er/sie zur Studie hereinkam, um ``eine kleine Spende''.
+Der Betrag, den die Proband:innen dem Schauspieler spendeten wurde in den Datensatz eingetragen (Variable: \emph{Spende\_t0}).
+
+Im Anschluss wurden die N = 70 Versuchspersonen zufällig und gleichmäßig auf zwei Experimentalgruppen aufgeteilt (n₁ = 35 und n₂ = 35; Variable: \emph{Gruppe}).
+
+\begin{itemize}
+\item
+  Gruppe 1 wurde gebeten, zwanzig Minuten lang ein Superhelden-Spiel zu spielen.
+\item
+  Gruppe 2 spielte hingegen genausolange ein Rennspiel.
+\end{itemize}
+
+Zum Dank erhielten die Proband:innen eine Aufwandsentschädigung von 10 Euro. Es wurde ihnen die Möglichkeit eingeräumt, dieses Geld für einen wohltätigen Zweck zu spenden -- entweder vollständig oder teilweise.
+Die Höhe der Spende wurde für jede Versuchsperson erfasst (Variable: \emph{Spende\_t1}).
+
+Um die Stabilität der Effekte untersuchen zu können, wurden die Proband:innen drei Tage nach der Teilnahme noch einmal eingeladen.
+Sie erhielten wieder eine Aufwandsentschädigung von 10 Euro und konnten erneut einen Teil oder die vollständige Summe spenden (Variable: \emph{Spende\_t2}).
+
+Hier ein kurzer Blick in den Datensatz:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(df\_prosocial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##     Vpn Gruppe            Spende_t0 Spende_t1 Spende_t2
+##   <dbl> <chr>                 <dbl>     <dbl>     <dbl>
+## 1     1 Superhelden-Spiel         3         7         3
+## 2     2 Superhelden-Spiel         3         8         1
+## 3     3 Superhelden-Spiel         0        10         3
+## 4     4 Superhelden-Spiel         3         9         3
+## 5     5 Superhelden-Spiel         3        10         2
+## 6     6 Superhelden-Spiel         1         7         2
+\end{verbatim}
+
+\hypertarget{einstichproben-t-test}{%
+\section{Einstichproben-T-Test}\label{einstichproben-t-test}}
+
+Der Einstichproben T-Test kommt häufig zum Einsatz. Z.B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von \emph{Null} unterscheiden.
+Der Wert, gegen den getestet wird ist in dem Fall einfach Null.
+Es ist aber auch möglich, gegen einen anderen, selbst festgelegten Wert zu testen.
+
+Mit dem Einstichproben-T-Test könnte man z.B. die folgenden Hypothesen auf den Prüfstand stellen:
+
+\begin{itemize}
+\item
+  Der IQ in einer Gruppe von Befragten unterscheidet sich signifikant vom Wert 100.
+\item
+  Die politische Einstellung auf einer links-rechts-Skala weicht deutlich nach rechts vom Skalenmittel ab.
+\item
+  Die Länge von Zeit-Online-Artikeln liegt über 3.000-Zeichen.
+\end{itemize}
+
+Die \textbf{Anwendungsvoraussetzung} für den Einstichproben-T-Test ist das Datenniveau. Die betrachtete Variable muss logischerweise \textbf{intervallskaliert} sein -- bei nominalem oder ordinalem Datenniveau würde die Berechnung eines arithmetischen Mittels ja auch keinen Sinn ergeben.
+
+\hypertarget{hypothese-aufstellen}{%
+\subsection{Hypothese aufstellen}\label{hypothese-aufstellen}}
+
+In unserem Fallbeispiel möchten wir zunächst untersuchen, wie es allgemein um das prosoziale Verhalten der Versuchspersonen bestellt ist -- ganz unabhängig von dem Experiment. Wir nutzen dazu die Variable \emph{Spende\_t0} und klären also die Frage, ob die Versuchspersonen dem vermeintlichen Obdachlosen im Mittel mehr oder weniger als einen bestimmten Wert gespendet haben. Da es sich bei den Werten in der Variable um Angaben in Euro handelt, erfüllt die Variable das erforderliche Datenniveau.
+
+Bevor es mit dem T-Test losgehen kann, muss noch eine Hypothese aufgestellt werden. Wir müssen einen Wert festlegen, gegen den wir testen wollen. Diesen Wert können wir frei wählen, wir könnten z.B. schauen ob die Spenden signifikant über Null liegen oder von 1,50 Euro abweichen. Normalerweise müsste die Hypothese natürlich begründet werden, aber ich lege sie jetzt einfach mal wie folgt fest:
+
+\emph{H1: Die Spendenbereitschaft der Versuchspersonen liegt zum Zeitpunkt T0 signifikant über 1,50 Euro.}
+
+Diese Hypothese ist einseitig gerichtet. Sie gilt als zutreffend, wenn (1) der Mittelwert der Variable \emph{Spende\_t0} größer als 1,5 ist und (2) der T-Test ein signifikantes Ergebnis zeigt.
+
+\hypertarget{daten-explorieren}{%
+\subsection{Daten explorieren}\label{daten-explorieren}}
+
+Natürlich empfiehlt es sich immer vor einer Analyse, die Verteilung seiner Variablen zu kennen und sie durch Grafken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Spende\_t0)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-94-1.pdf}
+
+Oh! Sehr schön, viele Versuchspersonen sind spendabel! -- Und halbwegs normalverteilt sieht der Plot sogar auch aus\ldots{} er ist ein wenig linksschief.
+
+\leavevmode\hypertarget{info_levene}{}%
+\textbf{Normalverteilung der Variablen? -- Nicht nötig!}
+
+Manchmal wird angegeben, dass die ``Normalverteilung der Variablen in der Grundgesamtheit'' (wahlweise auch ``in der Stichprobe2) eine Anwendungsvoraussetzung für den T-Test sei. Dies istnicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach''schief" verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden.
+
+Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben immer der Fall sein sollte (\href{https://www.youtube.com/watch?v=jvoxEYmQHNM}{hier} noch meine Lieblings-Erklärung zum zentralen Grenzwertsatz).
+
+Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, bspw. könnte man dazu die \texttt{mean()}- Funktion benutzen. Die \texttt{describe()}-Funktion aus \texttt{psych} liefert noch ein umfassenderes Bild:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(psych)}
+
+\FunctionTok{describe}\NormalTok{(df\_prosocial}\SpecialCharTok{$}\NormalTok{Spende\_t0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    vars  n mean  sd median trimmed mad min max range skew kurtosis   se
+## X1    1 70  2,1 1,1      2     2,1 1,5   0   5     5 -0,1     -0,6 0,14
+\end{verbatim}
+
+Tatsächlich, der Mittelwert liegt bei \text{2,1}, also deutlich über 1,5 Euro. Das spricht schon einmal für die Hypothese H1. Aber wie sieht es mit der zweiten Bedingung aus? Dazu benötigen wir den Signifikanzwert des T-Tests.
+
+\hypertarget{t-test-durchfuxfchren}{%
+\subsection{T-Test durchführen}\label{t-test-durchfuxfchren}}
+
+Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion \texttt{t.test()}. Man kann aber auch das Paket \texttt{rstatix} und dessen Funktion \texttt{t\_test()} benutzen. Das Paket hat es sich zum Ziel gesetzt für einfache statistische Tests eine Tidyverse-Variante anzubieten. Deshalb kann die Funktion \texttt{t\_test()} in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt.
+
+Die wichtigsten Argumente der \texttt{t\_test()}-Funktion aus `rstatix`` werden hier kurz erläutert:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse gewohnt kann man
+  Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
+\item
+  Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel \protect\hyperlink{regression}{Regression} bekannt. Die Tilde \texttt{\textasciitilde{}} verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa ``die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde''. Die Notation ist immer \texttt{Variable1\ \textasciitilde{}\ Variable2}. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet \texttt{Variable1\ \textasciitilde{}\ 1}.
+\item
+  Über \texttt{mu} kann der Testwert angegeben werden. Lässt man das Argument weg, wird automatisch vom Testwert ``0'' ausgegangen.
+\item
+  Mit \texttt{alternative} lässt sich festlegen, ob der Test ein- oder zweiseitig erfolgen soll, wobei letzteres der Standard ist. Möchte man einseitig prüfen muss man konkret angeben, ob der Mittelwert \emph{kleiner} als der Testwert sein soll (\texttt{"less"}) oder \emph{größer} (\texttt{"greater"}).
+\item
+  Mit \texttt{detailed=\ TRUE} kann eine ausführlichere Darstellung angefordert werden. Standardmäßig ist das Argument jedoch auf \texttt{FALSE} gesetzt.
+\end{enumerate}
+
+Fordern wir zunächst die nicht-detaillierte Standard-Ausgabe an:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rstatix)}
+
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{t\_test}\NormalTok{(Spende\_t0 }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{mu =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   .y.       group1 group2         n statistic    df         p
+## * <chr>     <chr>  <chr>      <int>     <dbl> <dbl>     <dbl>
+## 1 Spende_t0 1      null model    70      4.52    69 0.0000123
+\end{verbatim}
+
+Die Tabelle fasst das Ergebnis zusammen. Weiter vorne in der Tabelle finden sich ein paar Angaben zum durchgeführten Test, z.B. der Name der Variable und die Fallzahl n.~Das in der Spalte ``group1'' eine 1 und unter ``group2'' nur ``null model'' steht, zeigt an, dass hier ein Einstichproben-T-Test durchgeführt wurde. Wichtig ist aber insbesondere, was hinten in der Tabelle steht: Unter ``statistic'' wird der T-Wert ausgegeben. Die Spalte ``df'' liefert die entsprechenden Freiheitsgrade und p den zum T-Wert gehörigen Signifikanzwert. Da p kleiner als .05 ist, kann die Hypothese als bestätigt angenommen werden.
+
+Über das Argument \texttt{detailed\ =\ TRUE} erhält mannoch eine ausführlichere Darstellung die auch die Difefrenz zwischen Mittelwert und Testwert sowie die Grenzen des Konfidenzintervalls enthält. Da die Tabelle sehr breit ist, kann sie hier nicht dargestellt werden. Aber probieren Sie es gerne aus!
+
+\hypertarget{cohens-d}{%
+\subsection{Cohen´s d}\label{cohens-d}}
+
+Das \texttt{rstatix}-Paket enthält auch eine Funktion zur Berechnung der Effektstärke in Form von Cohen´s d (\texttt{cohens\_d()}). Die Funktion benötigt als Argumente dieselbe Formel wie der zugehörige T-Test und natürlich auch den Test-Wert:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{cohens\_d}\NormalTok{(Spende\_t0 }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{mu =} \FloatTok{1.5}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 6
+##   .y.       group1 group2     effsize     n magnitude
+## * <chr>     <chr>  <chr>        <dbl> <int> <ord>    
+## 1 Spende_t0 1      null model   0.541    70 moderate
+\end{verbatim}
+
+Die Ausgabe fasst noch einmal den Test zusammen und nennt unter ``effsize'' den Wert für Cohen´s d.~In der letzten Spalte wird außerdem eingeordnet, wie stark der Effekt ist. Die Grenzen für die Einordnung der Effektstärke sind die, die Cohen selbst nennt \citep{Cohen_1992}: \textbar d\textbar{} \textless{} 0.2 ``negligible'', \textbar d\textbar{} \textless{} 0.5 ``small'', \textbar d\textbar{} \textless{} 0.8 ``moderate'', \textbar d\textbar{} \textgreater= ``large''.
+
+Abschließend können wir die Hypothese H1 positiv beurteilen: Der Mittelwert M = \text{2,11} der Variable Spende\_t0 unterscheidet sich tatsächlich auf dem Niveau p \textless{} ,001 vom Testwert 1,5 (t(\text{69}) = \text{4,52}). Cohen´s d = \text{0,54} bescheinigt eine mittlere Effektstärke.
+
+\leavevmode\hypertarget{info_levene}{}%
+\textbf{T-Tests mit dem stats-Paket}
+
+Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion \texttt{t.test()} bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den ``.'' statt des "\_"). Allerdings hat die Funktion \texttt{t.test()} den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test -- ebensowenig wie Cohen´s d.~Beides könnte man zwar auch über andere Pakete erhalten (z.B. \texttt{car} und \texttt{effsize}), aber mit \texttt{rstatix} erhält man alles aus einer Hand und Tidyverse-konform.
+
+Zur Vollständigkeit kommt hier noch die Base-R-Syntax, inklusive Output:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ df\_prosocial}\SpecialCharTok{$}\NormalTok{Spende\_t0, }\AttributeTok{mu =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)   }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  One Sample t-test
+## 
+## data:  df_prosocial$Spende_t0
+## t = 5, df = 69, p-value = 1e-05
+## alternative hypothesis: true mean is greater than 1,5
+## 95 percent confidence interval:
+##  1,9 Inf
+## sample estimates:
+## mean of x 
+##       2,1
+\end{verbatim}
+
+Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des \texttt{rstatix}-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z.B. bei bei \citet{Phillips_2018} in Kapitel 13.3.
+
+Die Logik des Einstichproben-T-Tests ist ganz einfach: Wir haben erstens einen fixen, selbst festgelegten Wert (hier 1,5, aber häufig ist es 0). Zweitens gibt es einen Wert, der in gewisser Weise ``variabel'' ist, nämlich abhängig von der Stichprobe. Für diesen variablen Wert wird ein Konfidenzintervall berechnet. Liegt jetzt der feste Testwert außerhalb des Konfidenzintervalls des Stichprobenwertes, können wir annehmen, dass sich die beiden Werte tatsächlich signifikant unterscheiden. (Der p-Wert hat im Prinzip die gleiche Aussage: Er drückt aus wie (un)wahrscheinlich es ist, den errechneten Mittelwert zu erhalten, wenn in der Grundgesamtheit eigentlich der Testwert der Mittelwert wäre.)
+
+\hypertarget{t-test-fuxfcr-unabhuxe4ngige-stichproben}{%
+\section{T-Test für unabhängige Stichproben}\label{t-test-fuxfcr-unabhuxe4ngige-stichproben}}
+
+Der T-Test für unabhängige Stichproben führt die Logik Einstichproben-T-Tests fort. Der Unterschied ist hier einfach nur, dass es nicht jeweils einen fixen Wert und einen errechneten Mittelwert gibt, sondern zwei ``variable'' Mittelwerte aus eben zwei unterschiedlichen Teilstichproben. Der T-Test für unabhängige Stichproben berechnet die Differenz zwischen den Mittelwerten und überprüft, ob diese signifikant von Null abweicht.
+
+Um das ganze etwas konkreter zu machen, hier ein paar typische Hypothesen, die man mit dem T-Test für unabhängige Stichproben testen kann:
+
+\begin{itemize}
+\item
+  Männer und Frauen unterschieden sich in ihrem politischen Interesse.
+\item
+  Rentner:innen sehen täglich länger fern als Studierende.
+\item
+  Die Artikel auf Zeit-Online sind länger als die auf Spiegel-Online.
+\item
+  Eine Gruppe mit Versuchspersonen die Treatment 1 (rote Pille) bekommen hat, reagiert völlig anders als eine andere Gruppe von Versuchspersonen, die Treatment 2 (grüne Pille) bekommen hat.
+\end{itemize}
+
+Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. -- Mindestens implizit wird von einer Ursache-Wirkungsbeziehung ausgegangen. Die Unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.
+
+Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:
+
+\emph{H2: bei Spieler:innen die ein Superhelden-Spiel gespielt haben ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.}
+
+\hypertarget{deskriptive-auswertung}{%
+\subsection{Deskriptive Auswertung}\label{deskriptive-auswertung}}
+
+Natürlich bietet es sich an, zunächst einmal rein deskriptiv zu prüfen, ob die Mittelwerte sich überhaupt und in der prognostizierten Richtung unterscheiden. Dazu kann man auf Mittel aus dplyr zurückgreifen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{M =} \FunctionTok{mean}\NormalTok{(Spende\_t1, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+            \AttributeTok{SD =} \FunctionTok{sd}\NormalTok{(Spende\_t1, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+            \AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   Gruppe                M    SD     n
+##   <chr>             <dbl> <dbl> <int>
+## 1 Rennspiel          2.76  1.58    35
+## 2 Superhelden-Spiel  7.91  1.78    35
+\end{verbatim}
+
+Das sieht schonmal vielversprechend aus! Ein illustrativer Boxplot ist eine aussagekräftige grafische Variante:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(Spende\_t1)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Gruppe, Spende\_t1, }\AttributeTok{color =}\NormalTok{ Gruppe)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-101-1.pdf}
+
+Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art ``geglättetes Histogram'') kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(Spende\_t1)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Spende\_t1, }\AttributeTok{fill =}\NormalTok{ Gruppe)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-102-1.pdf}
+
+\hypertarget{anwendungsvoraussetzungen}{%
+\subsection{Anwendungsvoraussetzungen}\label{anwendungsvoraussetzungen}}
+
+Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass -- wie der Name schon sagt -- die \textbf{Anwendungsvoraussetzung der Unabhängigkeit} erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts mit einander zu tun haben, also nicht z.B. verheiratet sind. -- Das wären dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.
+
+Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z.B. weil beide häufig gemeinsam über Politik reden.
+
+Die Anwendungsvoraussetzung der Intervallskalierung gilt natürlich weiterhin, wie schon für den Einstichproben-T-Test. -- Jedoch natürlich nur für die abhängige Variable, für die die Mittelwerte berechnet werden sollen.
+
+Eine weitere Anwendungsvoraussetzung ist die \textbf{Varianzhomogenität / Homoskedastizität}: Die Varianzen müssen in den zu vergleichenden Teilpopulationen annäherungsweise gleich sein. Also ganz wörtlich: Ist in Population 1 die Varianz s² = 1,23 dann möchte man hier, dass Population 2 eben auch eine Varianz von s² = 1,23 aufweist oder einen Wert, der jedenfalls nicht signifikant davon abweicht.
+
+Und wie testet man, ob die Kennwerte in zwei Stichproben sich signifikant von einander unterschieden? Das klingt ja fast wie der T-Test für unabhängige Stichproben, den wir ja ohnehin gerade hier behandeln! Tatsächlich ist es aber kein T-Test, der dabei angewendet wird, sondern ein F-Test. Der F-Test ist eine ganz ähnliche Teststatistik, die später bei den Varianzanalysen nochmal auftauchen wird.
+
+Verrückt, oder? Bevor wir jetzt also einen T-Test für unsere unabhängigen Mittelwerte machen können, müssen wir erstmal einen genauso aufwendigen F-Test für die Varianzen machen, um die Anwendungsvoraussetzung zu prüfen. -- Aber dieser F-Test sollte nach Möglichkeit besser nicht signifikant werden, denn signifikant würde hier bedeuten, dass die beiden Varianzen sich unterscheiden. -- Und wir wollen schließlich Varianz\emph{homogenität}, also gleiche Varianzen. Der F-Test für die Varianzhomogenität hat einen speziellen Namen, er heißt Levene-Test (nach Howard Levene).
+
+\leavevmode\hypertarget{danger_levene}{}%
+\textbf{Levene: p \textless{} .05 = blöd, weil keine Varianzhomogenität!}
+
+Als Studentin fand ich den Levene-Test super verwirrend, weil ich gerade gelernt hatte, dass winzig kleine p-Werte prima sind und für die aufgestellten Hypothesen sprechen. Und beim Levene-Test war auf einmal alles anders herum?! Das geht wirklich schwer in den Kopf rein und ich merke heute, dass nach wie vor viele Studierende damit Schwierigkeiten haben.
+
+Um es nochmal ganz deutlich zusagen: Normalerweise wollen wir ja, das unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer das es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Das der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.
+
+\hypertarget{levene-test-auf-varianzhomogenituxe4t}{%
+\subsection{Levene-Test auf Varianzhomogenität}\label{levene-test-auf-varianzhomogenituxe4t}}
+
+Also, auf geht ´s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die \emph{Gruppe} ist die uV und die Variable \emph{Spende\_t01} die aV.
+
+Für den Levene-Test benutze ich ebenfalls das Paket \texttt{rstatix} und die Funktion \texttt{levene\_test()}. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z.B. \texttt{car}). \texttt{rstatix} bietet aber weiterhin den Vorteil, das es ``pipeable'' ist.
+
+Die Funktion hat folgende Argumente:
+
+\begin{itemize}
+\item
+  Das erste Argument ist wieder das Datensatz-Objekt.
+\item
+  Das zweite ist eine Formel (wie bei der \protect\hyperlink{regression}{Regression}), die die Variablen der Analyse mit einer Tilde \texttt{\textasciitilde{}} verbindet. Die Tilde bedeutet dabei übersetzt in Worte etwa folgendes: ``Variable vor der Tilde wird vorhergesagt durch Variable nach der Tilde''. Die Notation ist immer \texttt{aV\ \textasciitilde{}\ uV}.
+\item
+  Außerdem kann man noch mit dem Argument \texttt{center\ =} die Art des Tests auswählen. Der Orginal-Levene-Test wird durch \texttt{center\ =\ "mean"} berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben \citep{Brown_1974} gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Mediane einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option \texttt{center\ =\ "median"} ist die deshalb die Default-Option der \texttt{levene\_test()}- Funktion. Sie muss nicht gesondert eingestellt werden.
+\end{itemize}
+
+Angewendet sieht das so aus:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{levene\_test}\NormalTok{(Spende\_t1 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Gruppe)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 4
+##     df1   df2 statistic     p
+##   <int> <int>     <dbl> <dbl>
+## 1     1    66     0.156 0.695
+\end{verbatim}
+
+Prima, sehr schön! Ausgegeben wird unter ``statistic'' ein relativ kleiner F-Wert inklusive Freiheitsgraden (df1 und df2) und einem zugehörigen p-Wert. Dieser p-Wert ist größer als .05, also nicht signifikant. Es spricht also alles dafür, dass die Varianzen der Variable \emph{Spenden\_t1} in beiden Teil-Stichproben (Gruppe Superhelden und Gruppe Rennspiel) gleich sind. Dem nun folgenden T-Test steht also nichts entgegen.
+
+\leavevmode\hypertarget{info_varianzhetero}{}%
+\textbf{Was, wenn der Levene-Test doch signifikant wird?}
+
+Dann wären die Varianzen nicht gleich/homogen. Das wäre für den Standard-T-Test schlecht, ist aber praktisch nicht so schlimm, denn den T-Test gibt es auch in einer robusten Variante (Welch-Korrektur), bei der die Prüfgröße T und ihr Signifikanztest korrigiert werden -- und zwar in dem Maße in dem die Varianzen ungleich sind.
+
+\hypertarget{t-test-durchfuxfchren-1}{%
+\subsection{T-Test durchführen}\label{t-test-durchfuxfchren-1}}
+
+Den T-Test für unabhängige Stichproben erhält man in R ebenfalls über das \texttt{rstatix}-Paket und die \texttt{t\_test()}-Funktion. Hier die relevanten Argumente:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Datensatz-Objekt
+\item
+  Das zweite Argument ist wieder die Formel, mit \texttt{aV\ \textasciitilde{}\ uV}.
+\item
+  Standardmäßig geht die Funktion \texttt{t\_test()} davon aus, dass die Varianzen \textbf{nicht} gleich sind (entspricht \texttt{var.equal\ =\ FALSE}). In unserem Fall haben wir aber sogar vorab auf gleiche Varianzen getestet und können durch \texttt{var.equal\ =\ TRUE} einen Test ohne Korrektur anfordern. Es empfiehlt sich, immer einen Levene-Test vorzuschalten und das \texttt{var.equal}-Argument bewusst auf \texttt{TRUE}oder \texttt{FALSE} zu setzen.
+\item
+  Mit \texttt{alternative} kann man festlegen ob der Test ungerichtet (\texttt{"two.sided"}) oder einseitig (\texttt{"less"} oder \texttt{"greater"}) stattfinden soll.
+\item
+  Mit \texttt{detailed\ =\ TRUE} bzw. \texttt{FALSE} kann man wieder über den Detailgrad der Ausgabe bestimmen.
+\end{enumerate}
+
+Hier der Test der H2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{t\_test}\NormalTok{(Spende\_t1 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Gruppe, }\AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"less"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 8
+##   .y.       group1    group2               n1    n2 statistic    df        p
+## * <chr>     <chr>     <chr>             <int> <int>     <dbl> <dbl>    <dbl>
+## 1 Spende_t1 Rennspiel Superhelden-Spiel    35    35     -12.6    66 1.51e-19
+\end{verbatim}
+
+Das Ergebnis sieht so ähnlich aus wie vorhin, beim ersten T-Test. Es gibt wieder einen t-Wert unter ``statistic'', entsprechende Freiheitsgrade und einen zugehörigen p-Wert. Dieser ist deutlich \textless{} .05, das Ergebnis ist also signifikant, was für die Alternativhypothese spricht. Die Grenzen des Konfidenzintervalls können über die detaillierte Ausgabe mit \texttt{detailed\ =\ TRUE} angefordert werden (aus Platzgründen nicht dargestellt). Diesen Grenzen zur Folge würden wir die Mittelwertdifferenz zwischen \text{-5,96} und \text{-4,33} schätzen. Das ist beides deutlich von Null verschieden (anders ausgedrückt: Die Grenzen schließen die Null nicht ein).
+
+Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine ``Reihenfolge'' zwischen Superheldenspiel und Rennspiel).
+
+Das Ergebnis des T-Tests zeigt, dass das die Spieler:innen, die das Superheldenspiel gespielt haben, deutlich spendabler waren als die Spieler:innen des Rennspiels. Erstere spendeten im Durchschnitt M = \text{7,91} Euro, letztere nur M = \text{2,76} Euro. Das Ergebnis des T-Tests für unabhängige Stichproben fiel im Sinne von H2 aus und ist mit t(\text{66}) = \text{-5,15} auf dem Niveau p \textless{} ,001 signifikant. Offensichtlich hat das Spielen eines Superheldenspiels tatsächlich einen positiven Einfluss auf das prosoziale Verhalten, wie hier am Beispiel der Spendenbereitschaft demonstriert wurde (hier wurden jedoch keine echten Daten analysiert).
+
+\hypertarget{cohens-d-1}{%
+\subsection{Cohen´s d}\label{cohens-d-1}}
+
+Ergänzend kann auch beim T-Test für unabhängige Stichproben die Effektstärke Cohen´s d berechnet werden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{cohens\_d}\NormalTok{(Spende\_t1 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Gruppe, }\AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   .y.       group1    group2            effsize    n1    n2 magnitude
+## * <chr>     <chr>     <chr>               <dbl> <int> <int> <ord>    
+## 1 Spende_t1 Rennspiel Superhelden-Spiel   -3.06    35    35 large
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cd }\OtherTok{\textless{}{-}}\NormalTok{ df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{cohens\_d}\NormalTok{(Spende\_t1 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Gruppe, }\AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Die Interpretation des T-Tests kann um einen entsprechenden Satz ergänzt werden: Der gefundene Effekt ist mit Cohen´s d = \text{-3,06} als stark zu bezeichnen.
+
+\hypertarget{t-test-fuxfcr-abhuxe4ngige-stichproben}{%
+\section{T-Test für abhängige Stichproben}\label{t-test-fuxfcr-abhuxe4ngige-stichproben}}
+
+Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für \textbf{abhängige Stichproben} sieht es anders aus: Jetzt werden \emph{zwei prinzipiell gleich aufgebaute Variablen} mit einander vergleichen:
+
+\begin{itemize}
+\item
+  Beide sollen (quasi-)metrisches Datenniveau aufweisen.
+\item
+  Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z.B. beide von 1 = \emph{stimme überhaupt nicht zu} bis 5 = \emph{stimme voll und ganz zu} gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z.B. niemand 5 = \emph{stimme voll und ganz zu} angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
+\item
+  Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er ``wide format'' aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (\#tendenziell, ein paar fehlende Messwerte sind okay).
+\end{itemize}
+
+Hier wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für abhängie Stichproben prüfen kann:
+
+\begin{itemize}
+\item
+  Unterscheiden sich die Mittelwerte von zwei Items einer Skala von einander?
+\item
+  Welcher Wert ist höher, der für Zustimmung zum Item ``Die Klimakrise ist das wichtigste Problem unserer Zeit'' oder zu "Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit?
+\item
+  Unterschiedet sich das politische Interesse von Ehefrauen von dem ihrer Ehemänner?
+\item
+  Unterschiedet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).
+\end{itemize}
+
+Im Anwendungsbeispiel möchten wir nun prüfen, ob der positive Effekt, den wir für das Spielen von Superhelden-Spielen gefunden haben, auch über längere Zeit anhält, oder nicht. Theoretisch ist davon auszugehen, dass das einmalige Spielen eines Superhelden-Spiels das prosoziale Verhalten zwar kurzfristig, aber nicht über einen längeren Zeitraum hinweg verändern kann. Deshalb lautet die zu testende Hypothese:
+
+\emph{H3a: Die Spendenbereitschaft der Superhelden-Spieler:innen ist zum Zeitpunkt T2 niedriger als zum Zeitpunkt T1.}
+
+Für die Gruppe der Rennspiel-Spieler:innen würde man natürlich so einen Effekt nicht erwarten. Hier sollte das Niveau gleichbleibend niedrig sein. Eine Hypothese, die keinen Effekt voraussagt, wäre eine Nullhypothese. Eine Nullhypothese kann mit der Inferenzstatistik nicht verifiziert sondern nur widerlegt werden. Der Vollständigkeit halber stellen wir deshalb die zugehörige Alternativhypothese auf, obwohl wir nicht erwarten, dass sie sich bestätigen lässt:
+
+\emph{H3b: Die Spendenbereitschaft der Rennspiel-Spieler:innen unterschiedet sich an beiden Messzeitpunkten.}
+
+Während H3a eine gerichtete Hypothese ist, ist H3b ungerichtet, denn es besteht kein Argument für die Formulierung einer Richtung.
+
+\hypertarget{deskriptiver-vergleich}{%
+\subsection{Deskriptiver Vergleich}\label{deskriptiver-vergleich}}
+
+Natürlich bietet es sich auch vor dem T-Test für abhängige Stichproben an, zunächst deskriptiv zu evaluieren, wie die Variablen verteilt sind und wo die Mittelwerte liegen. Auch hier werden zunächst grafische Analysen genutzt. Mit dem Befehl \texttt{facet\_wrap()} kann man die Darstellung für die Gruppen aufteilen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Spende\_t1), }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Spende\_t2), }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{fill =} \StringTok{"orange"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Gruppe)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-108-1.pdf}
+
+Die Verteilungen sind deutlich unterschiedlich für die beiden Gruppen. Während bei den Rennspielen die Werte zu beiden Zeitpunkten in einem ähnlichen Spektrum liegen, ist dies bei den Superhelden-Spielen nicht der Fall. Die Superhelden-Gruppe ist ja auch genau die Gruppe, die im Rahmen von von H3a interessiert. Es sieht gut aus für die Vermutung, dass es in der Gruppe der Superhelden-Spieler:innen einen signifikanten Mittelwertunterschied zwischen den beiden Messzeitpunkten Spende\_t01 und Spende\_t02 gibt -- und in der Gruppe Rennspiele (H3b) wie erwartet nicht.
+
+Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das Tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mw\_table }\OtherTok{\textless{}{-}}\NormalTok{ df\_prosocial }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(Gruppe, Spende\_t1, Spende\_t2) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{t1\_M =} \FunctionTok{mean}\NormalTok{(Spende\_t1, }\AttributeTok{na.rm=} \ConstantTok{TRUE}\NormalTok{),}
+            \AttributeTok{t1\_SD =} \FunctionTok{SD}\NormalTok{(Spende\_t1, }\AttributeTok{na.rm=} \ConstantTok{TRUE}\NormalTok{),}
+            \AttributeTok{t1\_n =} \FunctionTok{n}\NormalTok{(),}
+            \AttributeTok{t2\_M =} \FunctionTok{mean}\NormalTok{(Spende\_t2, }\AttributeTok{na.rm=} \ConstantTok{TRUE}\NormalTok{),}
+            \AttributeTok{t2\_SD =} \FunctionTok{SD}\NormalTok{(Spende\_t2, }\AttributeTok{na.rm=} \ConstantTok{TRUE}\NormalTok{),}
+            \AttributeTok{t2\_n =} \FunctionTok{n}\NormalTok{())}
+
+\NormalTok{mw\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 7
+##   Gruppe             t1_M t1_SD  t1_n  t2_M t2_SD  t2_n
+##   <chr>             <dbl> <dbl> <int> <dbl> <dbl> <int>
+## 1 Rennspiel          2.76  1.58    35  2.62  1.13    35
+## 2 Superhelden-Spiel  7.91  1.78    35  2.35  1.01    35
+\end{verbatim}
+
+Anders als beim T-Test für unabhängige Stichproben vergleicht man bei der Betrachtung für den T-Test für abhängige Stichproben die Mittelwerte in einer Zeile in den unterschiedlichen Spalten. Für die Zeile ``Rennspiel'' (H3b) ergibt sich hier kaum ein Unterschied (2.76470588235294 gegenüber 2.61764705882353). Für die Zeile ``Superhelden-Spiel'' (H3a) ergibt sich jedoch ein deutlicher Unterschied (7.91176470588235 gegenüber 2.35294117647059). Nun wäre es wichtig zu wissen, ob die Mittelwertunterschiede signifikant sind.
+
+\hypertarget{levene-tests-durchfuxfchren}{%
+\subsection{Levene-Tests durchführen}\label{levene-tests-durchfuxfchren}}
+
+Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom ``wide-format'' in ein ``long-format'' überführt werden (vgl. dazu Abschnitt {[}Datenumformungen{]}). Da die \texttt{levene\_test()}-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davor schalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(Spende\_t1, Spende\_t2), }
+               \AttributeTok{names\_to =} \StringTok{"Zeitpunkt"}\NormalTok{, }
+               \AttributeTok{values\_to =} \StringTok{"Betrag"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{levene\_test}\NormalTok{(Betrag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Zeitpunkt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 5
+##   Gruppe              df1   df2 statistic       p
+##   <chr>             <int> <int>     <dbl>   <dbl>
+## 1 Rennspiel             1    66      4.47 0.0384 
+## 2 Superhelden-Spiel     1    66      8.26 0.00544
+\end{verbatim}
+
+Das Ergebnis zeigt sich signifikant für beide Gruppen, denn p ist jeweils \textless{} .05. Wir können also nicht von Varianzhomogenität ausgehen und müssen für den folgenden T-Test merken, dass der korrigierte Test benötigt wird.
+
+\hypertarget{t-test-durchfuxfchren-2}{%
+\subsection{T-Test durchführen}\label{t-test-durchfuxfchren-2}}
+
+Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das ``long-format'' wie der Levene-Test. Auch hier können wir diese wieder in der Pipe davor schalten und ebenso auch die Aufteilung in beide Gruppen. Die einfachste Variante den T-Test anzufordern ist über die bereits bekannte \texttt{t-test()}- Funktion. Benötigt wird allerdings das zusätzliche Argument \texttt{paired\ =\ TRUE}, damit der paarweise Test durchgeführt wird. Außerdem setzen wir explizit \texttt{var.equal\ =\ FALSE}, weil der Levene-Test ein signifikantes Ergebnis produziert hat und deshalb nicht von Varianzhomogenität ausgegangen werden kann.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(Spende\_t1, Spende\_t2), }
+                     \AttributeTok{names\_to =} \StringTok{"Zeitpunkt"}\NormalTok{, }
+                     \AttributeTok{values\_to =} \StringTok{"Betrag"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+        \FunctionTok{group\_by}\NormalTok{(Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+        \FunctionTok{t\_test}\NormalTok{(Betrag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Zeitpunkt, }
+               \AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{, }
+               \AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{,}
+               \AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 9
+##   Gruppe           .y.    group1   group2      n1    n2 statistic    df        p
+## * <chr>            <chr>  <chr>    <chr>    <int> <int>     <dbl> <dbl>    <dbl>
+## 1 Rennspiel        Betrag Spende_~ Spende_~    35    35     0.457    32 3.25e- 1
+## 2 Superhelden-Spi~ Betrag Spende_~ Spende_~    35    35    14.9      32 2.76e-16
+\end{verbatim}
+
+Der Output enthält in den beiden Zeilen zwei T-Tests für abhängige Stichproben, oben für H3b und unten für H3a. In der Spalte ``estimate'' sind die Werte der Mittelwertdiffrenzen angegeben.
+
+\textbf{Interpretation H3b (erste Zeile):}
+
+In der Gruppe ``Rennspiel'' beträgt die Mittelwertdifferenz nur c(\texttt{mean\ of\ the\ differences} = 0.151515151515152) Euro. Der T-Wert ist mit T( c(df = 32)) = c(t = 0.456673377277543) sehr klein. Der p-Wert sieht zwar wegen der ``wissenschaftlichen'' Notation kompliziert aus, aber lassen Sie sich davon nicht in die Irre führen! Er ist recht hoch: p = 0.651 und damit nicht signifikant. Insgesamt muss die H3b deshalb abgelehnt werden. Wie erwartet.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sn }\OtherTok{\textless{}{-}} \FunctionTok{case\_when}\NormalTok{(tt\_pairwise[[}\DecValTok{2}\NormalTok{, }\StringTok{"p"}\NormalTok{]] }\SpecialCharTok{\textless{}} \FloatTok{0.001} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} ,001"}\NormalTok{,}
+\NormalTok{                tt\_pairwise[[}\DecValTok{2}\NormalTok{, }\StringTok{"p"}\NormalTok{]] }\SpecialCharTok{\textless{}} \FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"p \textless{} ,01"}\NormalTok{,}
+\NormalTok{                tt\_pairwise[[}\DecValTok{2}\NormalTok{, }\StringTok{"p"}\NormalTok{]] }\SpecialCharTok{\textless{}} \FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"\textless{} ,05"}\NormalTok{,}
+                \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"n.s."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+** Interpretation H3a (zweite Zeile):**
+
+In der Gruppe ``Superhelden'' beträgt die Mittelwertdifferenz hingegen stolze c(\texttt{mean\ of\ the\ differences} = 5.48484848484848) Euro (zur Erinnerung, die Probandinnen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(c(df = 32)) = c(t = 14.9445217485871) auf dem Niveau p \textless{} ,001 signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen.
+
+\hypertarget{cohens-d-2}{%
+\subsection{Cohen´s d}\label{cohens-d-2}}
+
+Selbstredend kann auch hier wieder Cohen´s d berechnet werden, um die Effektstärke einzuordnen. Dabei wird ebenfalls die gesamte Pipe vorgeschaltet und die Angaben zur Varianzheterogenität und dass es sich um einen T-Test für abhängige Stichproben handelt dürfen auch in der \texttt{cohens\_d()}-Funktion nicht fehlen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_prosocial }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(Spende\_t1, Spende\_t2), }
+                   \AttributeTok{names\_to =} \StringTok{"Zeitpunkt"}\NormalTok{, }
+                   \AttributeTok{values\_to =} \StringTok{"Betrag"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{group\_by}\NormalTok{(Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{cohens\_d}\NormalTok{(Betrag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Zeitpunkt, }
+             \AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{, }
+             \AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 8
+##   .y.    group1    group2    effsize Gruppe               n1    n2 magnitude 
+## * <chr>  <chr>     <chr>       <dbl> <chr>             <int> <int> <ord>     
+## 1 Betrag Spende_t1 Spende_t2  0.0795 Rennspiel            35    35 negligible
+## 2 Betrag Spende_t1 Spende_t2  2.60   Superhelden-Spiel    35    35 large
+\end{verbatim}
+
+Wie zu erwarten war ist die Effekstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
+
+  \bibliography{literature.bib}
 
 \end{document}

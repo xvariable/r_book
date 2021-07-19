@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 11 T-Tests | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 11 T-Tests | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
+  
+  <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="github-repo" content="xvariable/r_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 11 T-Tests | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  
+  <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  
+
+<meta name="author" content="Julia Niemann-Lenz" />
+
+
+<meta name="date" content="2021-07-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regression.html"/>
+<link rel="next" href="literaturverzeichnis.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HCCP0H824J');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Kompendium</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>2.1</b> Installationsanleitung Windows</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>2.1.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>2.2</b> Installationsanleitung MacOS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>2.2.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>2.2.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>3</b> Benutzeroberflächen</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>3.1</b> R Konsole</a></li>
+<li class="chapter" data-level="3.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>3.2</b> RStudio: IDE für R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>3.2.1</b> RStudio-Cloud</a></li>
+<li class="chapter" data-level="3.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installation von RStudio</a></li>
+<li class="chapter" data-level="3.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>3.2.3</b> RStudio Benutzeroberfläche</a></li>
+<li class="chapter" data-level="3.2.4" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#r-skripte"><i class="fa fa-check"></i><b>3.2.4</b> R-Skripte</a></li>
+<li class="chapter" data-level="3.2.5" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#features-von-rstudio"><i class="fa fa-check"></i><b>3.2.5</b> Features von RStudio</a></li>
+<li class="chapter" data-level="3.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>3.2.6</b> RStudio anpassen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
+<li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
+<li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
+<li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
+<li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
+<li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
+<li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
+<li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
+<li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
+<li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
+<li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
+<li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
+<li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
+<li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
+<li class="chapter" data-level="4.9.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#fehlende-werte"><i class="fa fa-check"></i><b>4.9.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="4.9.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objekttypen-konvertieren"><i class="fa fa-check"></i><b>4.9.5</b> Objekttypen konvertieren</a></li>
+<li class="chapter" data-level="4.9.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#faktoren"><i class="fa fa-check"></i><b>4.9.6</b> Faktoren</a></li>
+<li class="chapter" data-level="4.9.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#listen"><i class="fa fa-check"></i><b>4.9.7</b> Listen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-workflow"><i class="fa fa-check"></i><b>5.1</b> RMarkdown Workflow</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#erster-schritt-rmarkdown-anlegen"><i class="fa fa-check"></i><b>5.1.1</b> Erster Schritt: RMarkdown anlegen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rmarkdown.html"><a href="rmarkdown.html#zweiter-schritt-inhalt-der-rmarkdown-datei"><i class="fa fa-check"></i><b>5.1.2</b> Zweiter Schritt: Inhalt der RMarkdown-Datei</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rmarkdown.html"><a href="rmarkdown.html#dritter-schritt-output-erzeugen"><i class="fa fa-check"></i><b>5.1.3</b> Dritter Schritt: Output erzeugen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#formatierungen-optionen"><i class="fa fa-check"></i><b>5.2</b> Formatierungen &amp; Optionen</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#weiterführende-links-2"><i class="fa fa-check"></i><b>5.3</b> Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#prerequisites"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>6.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>6.3</b> Filter: Fälle auswählen</a></li>
+<li class="chapter" data-level="6.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>6.4</b> Arrange: Fälle sortieren</a></li>
+<li class="chapter" data-level="6.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>6.5</b> Select: Variablen auswählen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>6.6</b> Variablen umcodieren</a></li>
+<li class="chapter" data-level="6.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>6.7</b> Variablen berechnen</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>6.7.1</b> Summen und Mittelwertindices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>6.7.2</b> Berechnen mit dplyr::mutate()</a></li>
+<li class="chapter" data-level="6.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>6.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>6.8</b> Summarize: Daten verdichten</a></li>
+<li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
+<li class="chapter" data-level="7.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>7.2.2</b> Häufigkeitsdiagramm</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>7.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>7.3.1</b> Nominale Daten</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>7.3.2</b> Ordinale Daten</a></li>
+<li class="chapter" data-level="7.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>7.3.3</b> Metrische Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>7.4</b> Schiefe und Kurtosis</a></li>
+<li class="chapter" data-level="7.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>7.5</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>8</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>8.1</b> Kreuztabellen</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>8.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
+<li class="chapter" data-level="8.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>8.1.2</b> Kreuztabelle ausgeben</a></li>
+<li class="chapter" data-level="8.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>8.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>8.2</b> Korrelationen</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>8.2.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>8.2.2</b> Kovarianz</a></li>
+<li class="chapter" data-level="8.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>8.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>8.2.4</b> Korrelation mit <code>psych</code></a></li>
+<li class="chapter" data-level="8.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>8.2.5</b> Partialkorrelation</a></li>
+<li class="chapter" data-level="8.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>8.2.6</b> Korrelationsmatrizen darstellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>9</b> Grafiken</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>9.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="9.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>9.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="9.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>9.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="9.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>9.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="9.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>9.4.7</b> Liniendiagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#das-lineare-modell"><i class="fa fa-check"></i><b>10.1</b> Das lineare Modell</a></li>
+<li class="chapter" data-level="10.2" data-path="regression.html"><a href="regression.html#bivariate-lineare-regression"><i class="fa fa-check"></i><b>10.2</b> Bivariate lineare Regression</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression.html"><a href="regression.html#grafische-darstellung"><i class="fa fa-check"></i><b>10.2.1</b> Grafische Darstellung</a></li>
+<li class="chapter" data-level="10.2.2" data-path="regression.html"><a href="regression.html#die-funktion-lm"><i class="fa fa-check"></i><b>10.2.2</b> Die Funktion <code>lm()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="regression.html"><a href="regression.html#standardisierte-regressionskoeffizienten-β"><i class="fa fa-check"></i><b>10.2.3</b> Standardisierte Regressionskoeffizienten (β)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="t-tests.html"><a href="t-tests.html"><i class="fa fa-check"></i><b>11</b> T-Tests</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="t-tests.html"><a href="t-tests.html#datenbeispiel"><i class="fa fa-check"></i><b>11.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="11.2" data-path="t-tests.html"><a href="t-tests.html#einstichproben-t-test"><i class="fa fa-check"></i><b>11.2</b> Einstichproben-T-Test</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="t-tests.html"><a href="t-tests.html#hypothese-aufstellen"><i class="fa fa-check"></i><b>11.2.1</b> Hypothese aufstellen</a></li>
+<li class="chapter" data-level="11.2.2" data-path="t-tests.html"><a href="t-tests.html#daten-explorieren"><i class="fa fa-check"></i><b>11.2.2</b> Daten explorieren</a></li>
+<li class="chapter" data-level="11.2.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen"><i class="fa fa-check"></i><b>11.2.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.2.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d"><i class="fa fa-check"></i><b>11.2.4</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="t-tests.html"><a href="t-tests.html#t-test-für-unabhängige-stichproben"><i class="fa fa-check"></i><b>11.3</b> T-Test für unabhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="t-tests.html"><a href="t-tests.html#deskriptive-auswertung"><i class="fa fa-check"></i><b>11.3.1</b> Deskriptive Auswertung</a></li>
+<li class="chapter" data-level="11.3.2" data-path="t-tests.html"><a href="t-tests.html#anwendungsvoraussetzungen"><i class="fa fa-check"></i><b>11.3.2</b> Anwendungsvoraussetzungen</a></li>
+<li class="chapter" data-level="11.3.3" data-path="t-tests.html"><a href="t-tests.html#levene-test-auf-varianzhomogenität"><i class="fa fa-check"></i><b>11.3.3</b> Levene-Test auf Varianzhomogenität</a></li>
+<li class="chapter" data-level="11.3.4" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-1"><i class="fa fa-check"></i><b>11.3.4</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.3.5" data-path="t-tests.html"><a href="t-tests.html#cohens-d-1"><i class="fa fa-check"></i><b>11.3.5</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="t-tests.html"><a href="t-tests.html#t-test-für-abhängige-stichproben"><i class="fa fa-check"></i><b>11.4</b> T-Test für abhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="t-tests.html"><a href="t-tests.html#deskriptiver-vergleich"><i class="fa fa-check"></i><b>11.4.1</b> Deskriptiver Vergleich</a></li>
+<li class="chapter" data-level="11.4.2" data-path="t-tests.html"><a href="t-tests.html#levene-tests-durchführen"><i class="fa fa-check"></i><b>11.4.2</b> Levene-Tests durchführen</a></li>
+<li class="chapter" data-level="11.4.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-2"><i class="fa fa-check"></i><b>11.4.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="t-tests" class="section level1" number="11">
+<h1><span class="header-section-number">Kapitel 11</span> T-Tests</h1>
+<p><em>Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen wurden auf ein Tidyverse-konformes Paket (<code>rstatix</code>) angepasst.</em></p>
+<p>In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt.
+Als T-Tests werden eine Reihe von Null-Hypothesen-Tests bezeichnet, deren Prüfgröße auf der T-Verteilung basiert.
+T-Tests wurden ursprünglich von William S. Gosset entwickelt, der für die Guinness-Brauerei daran arbeitete, die Qualität der Gerste abzuschätzen, damit das Bier einen gleichbleibenden Qualitätsstandard erfüllen konnte.
+Gosset entwickelte den T-Test und wollte seine Erkenntnisse gerne mit anderen Forschenden teilen.
+Da Guinness die Offenbarung von Betriebsgeheimnissen fürchtete, war es Mitarbeitenden der Brauerei jedoch verboten, ihre Erkenntnisse unter ihrem Namen zu veröffentlichen.
+Gosset nutzte deshalb das Pseudonym “Student.”
+T-Tests sind deshalb heute auch als “Student´s T-Test” bekannt.</p>
+<p>Es gibt verschiedene Varianten des T-Tests, von den hier drei besprochen werden:</p>
+<ul>
+<li><p>Beim diesem <strong>Ein-Stichproben-T-Test</strong> (1-sample-test) wird geprüft, ob sich ein das arithmetische Mittel (Mittelwert) von einem zuvor festgelegten Wert unterscheidet.</p></li>
+<li><p>Mit dem <strong>T-Test für unabhängige Stichproben</strong> (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variablen in zwei Populationen voneinander unterscheidet. – Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.</p></li>
+<li><p>Der <strong>T-Test für abhängige Stichproben</strong> (t-test for paired samples) testet, ob sich zwei miteinander zusammenhängende Mittelwerte von einander unterschieden. Die Stichproben, die verglichen werden, hängen also irgendwie miteinander zusammen. Das kann z.B. der Fall bei einer Vorher- und einer Nachher-Messung in einem Experiment sein. Oder wenn in einem Datensatz beide Partner:innen einer Beziehung befragt werden. Oder wenn einfach zwei verschiedene Kennwerte miteinander vergleichen werden sollen. Im Datensatz liegen die beiden “Stichproben” also als zwei verschiedene Variablen vor.</p></li>
+</ul>
+<div id="datenbeispiel" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Datenbeispiel</h2>
+<p>In den folgenden Analysen wird ein Beispieldatensatz mit per Zufallsgenerator erzeugten Daten verwendet, den Daniel Possler und ich erstellt haben.
+In der fiktiven Studie, zu der der Datensatz gehört, soll untersucht werden, ob das Spielen von unterschiedlichen Videospielen einen Einfluss auf die Spendenbereitschaft (pro-soziales Verhalten) hat.</p>
+<p>Konkret beinhalten die Daten ein Experimentaldesign, in dem geprüft wird, ob die Spendenbereitschaft davon abhängt, ob die Proband:innen in einem Videospiel einen Superhelden steuern oder nicht.</p>
+<p>Für eine Baseline-Messung war vor dem Gebäude, in dem die Studie stattfand, ein Schauspieler platziert, der sich als Obdachloser ausgab.
+Er bat jede:n Proband:in, bevor er/sie zur Studie hereinkam, um “eine kleine Spende.”
+Der Betrag, den die Proband:innen dem Schauspieler spendeten wurde in den Datensatz eingetragen (Variable: <em>Spende_t0</em>).</p>
+<p>Im Anschluss wurden die N = 70 Versuchspersonen zufällig und gleichmäßig auf zwei Experimentalgruppen aufgeteilt (n₁ = 35 und n₂ = 35; Variable: <em>Gruppe</em>).</p>
+<ul>
+<li><p>Gruppe 1 wurde gebeten, zwanzig Minuten lang ein Superhelden-Spiel zu spielen.</p></li>
+<li><p>Gruppe 2 spielte hingegen genausolange ein Rennspiel.</p></li>
+</ul>
+<p>Zum Dank erhielten die Proband:innen eine Aufwandsentschädigung von 10 Euro. Es wurde ihnen die Möglichkeit eingeräumt, dieses Geld für einen wohltätigen Zweck zu spenden – entweder vollständig oder teilweise.
+Die Höhe der Spende wurde für jede Versuchsperson erfasst (Variable: <em>Spende_t1</em>).</p>
+<p>Um die Stabilität der Effekte untersuchen zu können, wurden die Proband:innen drei Tage nach der Teilnahme noch einmal eingeladen.
+Sie erhielten wieder eine Aufwandsentschädigung von 10 Euro und konnten erneut einen Teil oder die vollständige Summe spenden (Variable: <em>Spende_t2</em>).</p>
+<p>Hier ein kurzer Blick in den Datensatz:</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="t-tests.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_prosocial)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##     Vpn Gruppe            Spende_t0 Spende_t1 Spende_t2
+##   &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1     1 Superhelden-Spiel         3         7         3
+## 2     2 Superhelden-Spiel         3         8         1
+## 3     3 Superhelden-Spiel         0        10         3
+## 4     4 Superhelden-Spiel         3         9         3
+## 5     5 Superhelden-Spiel         3        10         2
+## 6     6 Superhelden-Spiel         1         7         2</code></pre>
+</div>
+<div id="einstichproben-t-test" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Einstichproben-T-Test</h2>
+<p>Der Einstichproben T-Test kommt häufig zum Einsatz. Z.B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von <em>Null</em> unterscheiden.
+Der Wert, gegen den getestet wird ist in dem Fall einfach Null.
+Es ist aber auch möglich, gegen einen anderen, selbst festgelegten Wert zu testen.</p>
+<p>Mit dem Einstichproben-T-Test könnte man z.B. die folgenden Hypothesen auf den Prüfstand stellen:</p>
+<ul>
+<li><p>Der IQ in einer Gruppe von Befragten unterscheidet sich signifikant vom Wert 100.</p></li>
+<li><p>Die politische Einstellung auf einer links-rechts-Skala weicht deutlich nach rechts vom Skalenmittel ab.</p></li>
+<li><p>Die Länge von Zeit-Online-Artikeln liegt über 3.000-Zeichen.</p></li>
+</ul>
+<p>Die <strong>Anwendungsvoraussetzung</strong> für den Einstichproben-T-Test ist das Datenniveau. Die betrachtete Variable muss logischerweise <strong>intervallskaliert</strong> sein – bei nominalem oder ordinalem Datenniveau würde die Berechnung eines arithmetischen Mittels ja auch keinen Sinn ergeben.</p>
+<div id="hypothese-aufstellen" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Hypothese aufstellen</h3>
+<p>In unserem Fallbeispiel möchten wir zunächst untersuchen, wie es allgemein um das prosoziale Verhalten der Versuchspersonen bestellt ist – ganz unabhängig von dem Experiment. Wir nutzen dazu die Variable <em>Spende_t0</em> und klären also die Frage, ob die Versuchspersonen dem vermeintlichen Obdachlosen im Mittel mehr oder weniger als einen bestimmten Wert gespendet haben. Da es sich bei den Werten in der Variable um Angaben in Euro handelt, erfüllt die Variable das erforderliche Datenniveau.</p>
+<p>Bevor es mit dem T-Test losgehen kann, muss noch eine Hypothese aufgestellt werden. Wir müssen einen Wert festlegen, gegen den wir testen wollen. Diesen Wert können wir frei wählen, wir könnten z.B. schauen ob die Spenden signifikant über Null liegen oder von 1,50 Euro abweichen. Normalerweise müsste die Hypothese natürlich begründet werden, aber ich lege sie jetzt einfach mal wie folgt fest:</p>
+<p><em>H1: Die Spendenbereitschaft der Versuchspersonen liegt zum Zeitpunkt T0 signifikant über 1,50 Euro.</em></p>
+<p>Diese Hypothese ist einseitig gerichtet. Sie gilt als zutreffend, wenn (1) der Mittelwert der Variable <em>Spende_t0</em> größer als 1,5 ist und (2) der T-Test ein signifikantes Ergebnis zeigt.</p>
+</div>
+<div id="daten-explorieren" class="section level3" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Daten explorieren</h3>
+<p>Natürlich empfiehlt es sich immer vor einer Analyse, die Verteilung seiner Variablen zu kennen und sie durch Grafken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="t-tests.html#cb263-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb263-2"><a href="t-tests.html#cb263-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Spende_t0)) <span class="sc">+</span></span>
+<span id="cb263-3"><a href="t-tests.html#cb263-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() </span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p>Oh! Sehr schön, viele Versuchspersonen sind spendabel! – Und halbwegs normalverteilt sieht der Plot sogar auch aus… er ist ein wenig linksschief.</p>
+<div id="info_levene" class="box info">
+<p><strong>Normalverteilung der Variablen? – Nicht nötig!</strong></p>
+<p>Manchmal wird angegeben, dass die “Normalverteilung der Variablen in der Grundgesamtheit” (wahlweise auch “in der Stichprobe2) eine Anwendungsvoraussetzung für den T-Test sei. Dies istnicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach”schief" verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden.</p>
+<p>Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen – was nach zentralem Grenzwerttheorem bei randomisierten Stichproben immer der Fall sein sollte (<a href="https://www.youtube.com/watch?v=jvoxEYmQHNM">hier</a> noch meine Lieblings-Erklärung zum zentralen Grenzwertsatz).</p>
+</div>
+<p>Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, bspw. könnte man dazu die <code>mean()</code>- Funktion benutzen. Die <code>describe()</code>-Funktion aus <code>psych</code> liefert noch ein umfassenderes Bild:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="t-tests.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb264-2"><a href="t-tests.html#cb264-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb264-3"><a href="t-tests.html#cb264-3" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(df_prosocial<span class="sc">$</span>Spende_t0)</span></code></pre></div>
+<pre><code>##    vars  n mean  sd median trimmed mad min max range skew kurtosis   se
+## X1    1 70  2,1 1,1      2     2,1 1,5   0   5     5 -0,1     -0,6 0,14</code></pre>
+<p>Tatsächlich, der Mittelwert liegt bei 2,1, also deutlich über 1,5 Euro. Das spricht schon einmal für die Hypothese H1. Aber wie sieht es mit der zweiten Bedingung aus? Dazu benötigen wir den Signifikanzwert des T-Tests.</p>
+</div>
+<div id="t-test-durchführen" class="section level3" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> T-Test durchführen</h3>
+<p>Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion <code>t.test()</code>. Man kann aber auch das Paket <code>rstatix</code> und dessen Funktion <code>t_test()</code> benutzen. Das Paket hat es sich zum Ziel gesetzt für einfache statistische Tests eine Tidyverse-Variante anzubieten. Deshalb kann die Funktion <code>t_test()</code> in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt.</p>
+<p>Die wichtigsten Argumente der <code>t_test()</code>-Funktion aus `rstatix`` werden hier kurz erläutert:</p>
+<ol style="list-style-type: decimal">
+<li><p>Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse gewohnt kann man
+Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.</p></li>
+<li><p>Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel <a href="regression.html#regression">Regression</a> bekannt. Die Tilde <code>~</code> verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa “die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde.” Die Notation ist immer <code>Variable1 ~ Variable2</code>. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet <code>Variable1 ~ 1</code>.</p></li>
+<li><p>Über <code>mu</code> kann der Testwert angegeben werden. Lässt man das Argument weg, wird automatisch vom Testwert “0” ausgegangen.</p></li>
+<li><p>Mit <code>alternative</code> lässt sich festlegen, ob der Test ein- oder zweiseitig erfolgen soll, wobei letzteres der Standard ist. Möchte man einseitig prüfen muss man konkret angeben, ob der Mittelwert <em>kleiner</em> als der Testwert sein soll (<code>"less"</code>) oder <em>größer</em> (<code>"greater"</code>).</p></li>
+<li><p>Mit <code>detailed= TRUE</code> kann eine ausführlichere Darstellung angefordert werden. Standardmäßig ist das Argument jedoch auf <code>FALSE</code> gesetzt.</p></li>
+</ol>
+<p>Fordern wir zunächst die nicht-detaillierte Standard-Ausgabe an:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="t-tests.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb266-2"><a href="t-tests.html#cb266-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-3"><a href="t-tests.html#cb266-3" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb266-4"><a href="t-tests.html#cb266-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(Spende_t0 <span class="sc">~</span> <span class="dv">1</span>, <span class="at">mu =</span> <span class="fl">1.5</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 1 x 7
+##   .y.       group1 group2         n statistic    df         p
+## * &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;      &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Spende_t0 1      null model    70      4.52    69 0.0000123</code></pre>
+<p>Die Tabelle fasst das Ergebnis zusammen. Weiter vorne in der Tabelle finden sich ein paar Angaben zum durchgeführten Test, z.B. der Name der Variable und die Fallzahl n. Das in der Spalte “group1” eine 1 und unter “group2” nur “null model” steht, zeigt an, dass hier ein Einstichproben-T-Test durchgeführt wurde. Wichtig ist aber insbesondere, was hinten in der Tabelle steht: Unter “statistic” wird der T-Wert ausgegeben. Die Spalte “df” liefert die entsprechenden Freiheitsgrade und p den zum T-Wert gehörigen Signifikanzwert. Da p kleiner als .05 ist, kann die Hypothese als bestätigt angenommen werden.</p>
+<p>Über das Argument <code>detailed = TRUE</code> erhält mannoch eine ausführlichere Darstellung die auch die Difefrenz zwischen Mittelwert und Testwert sowie die Grenzen des Konfidenzintervalls enthält. Da die Tabelle sehr breit ist, kann sie hier nicht dargestellt werden. Aber probieren Sie es gerne aus!</p>
+</div>
+<div id="cohens-d" class="section level3" number="11.2.4">
+<h3><span class="header-section-number">11.2.4</span> Cohen´s d</h3>
+<p>Das <code>rstatix</code>-Paket enthält auch eine Funktion zur Berechnung der Effektstärke in Form von Cohen´s d (<code>cohens_d()</code>). Die Funktion benötigt als Argumente dieselbe Formel wie der zugehörige T-Test und natürlich auch den Test-Wert:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="t-tests.html#cb268-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb268-2"><a href="t-tests.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cohens_d</span>(Spende_t0 <span class="sc">~</span> <span class="dv">1</span>, <span class="at">mu =</span> <span class="fl">1.5</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##   .y.       group1 group2     effsize     n magnitude
+## * &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt; &lt;ord&gt;    
+## 1 Spende_t0 1      null model   0.541    70 moderate</code></pre>
+<p>Die Ausgabe fasst noch einmal den Test zusammen und nennt unter “effsize” den Wert für Cohen´s d. In der letzten Spalte wird außerdem eingeordnet, wie stark der Effekt ist. Die Grenzen für die Einordnung der Effektstärke sind die, die Cohen selbst nennt <span class="citation">(<a href="#ref-Cohen_1992" role="doc-biblioref">Cohen 1992</a>)</span>: |d| &lt; 0.2 “negligible,” |d| &lt; 0.5 “small,” |d| &lt; 0.8 “moderate,” |d| &gt;= “large.”</p>
+<p>Abschließend können wir die Hypothese H1 positiv beurteilen: Der Mittelwert M = 2,11 der Variable Spende_t0 unterscheidet sich tatsächlich auf dem Niveau p &lt; ,001 vom Testwert 1,5 (t(69) = 4,52). Cohen´s d = 0,54 bescheinigt eine mittlere Effektstärke.</p>
+<div id="info_levene" class="box info">
+<p><strong>T-Tests mit dem stats-Paket</strong></p>
+<p>Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion <code>t.test()</code> bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den “.” statt des "_"). Allerdings hat die Funktion <code>t.test()</code> den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test – ebensowenig wie Cohen´s d. Beides könnte man zwar auch über andere Pakete erhalten (z.B. <code>car</code> und <code>effsize</code>), aber mit <code>rstatix</code> erhält man alles aus einer Hand und Tidyverse-konform.</p>
+<p>Zur Vollständigkeit kommt hier noch die Base-R-Syntax, inklusive Output:</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="t-tests.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> df_prosocial<span class="sc">$</span>Spende_t0, <span class="at">mu =</span> <span class="fl">1.5</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)   </span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  df_prosocial$Spende_t0
+## t = 5, df = 69, p-value = 1e-05
+## alternative hypothesis: true mean is greater than 1,5
+## 95 percent confidence interval:
+##  1,9 Inf
+## sample estimates:
+## mean of x 
+##       2,1</code></pre>
+<p>Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des <code>rstatix</code>-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z.B. bei bei <span class="citation"><a href="#ref-Phillips_2018" role="doc-biblioref">Phillips</a> (<a href="#ref-Phillips_2018" role="doc-biblioref">2018</a>)</span> in Kapitel 13.3.</p>
+</div>
+<p>Die Logik des Einstichproben-T-Tests ist ganz einfach: Wir haben erstens einen fixen, selbst festgelegten Wert (hier 1,5, aber häufig ist es 0). Zweitens gibt es einen Wert, der in gewisser Weise “variabel” ist, nämlich abhängig von der Stichprobe. Für diesen variablen Wert wird ein Konfidenzintervall berechnet. Liegt jetzt der feste Testwert außerhalb des Konfidenzintervalls des Stichprobenwertes, können wir annehmen, dass sich die beiden Werte tatsächlich signifikant unterscheiden. (Der p-Wert hat im Prinzip die gleiche Aussage: Er drückt aus wie (un)wahrscheinlich es ist, den errechneten Mittelwert zu erhalten, wenn in der Grundgesamtheit eigentlich der Testwert der Mittelwert wäre.)</p>
+</div>
+</div>
+<div id="t-test-für-unabhängige-stichproben" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> T-Test für unabhängige Stichproben</h2>
+<p>Der T-Test für unabhängige Stichproben führt die Logik Einstichproben-T-Tests fort. Der Unterschied ist hier einfach nur, dass es nicht jeweils einen fixen Wert und einen errechneten Mittelwert gibt, sondern zwei “variable” Mittelwerte aus eben zwei unterschiedlichen Teilstichproben. Der T-Test für unabhängige Stichproben berechnet die Differenz zwischen den Mittelwerten und überprüft, ob diese signifikant von Null abweicht.</p>
+<p>Um das ganze etwas konkreter zu machen, hier ein paar typische Hypothesen, die man mit dem T-Test für unabhängige Stichproben testen kann:</p>
+<ul>
+<li><p>Männer und Frauen unterschieden sich in ihrem politischen Interesse.</p></li>
+<li><p>Rentner:innen sehen täglich länger fern als Studierende.</p></li>
+<li><p>Die Artikel auf Zeit-Online sind länger als die auf Spiegel-Online.</p></li>
+<li><p>Eine Gruppe mit Versuchspersonen die Treatment 1 (rote Pille) bekommen hat, reagiert völlig anders als eine andere Gruppe von Versuchspersonen, die Treatment 2 (grüne Pille) bekommen hat.</p></li>
+</ul>
+<p>Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. – Mindestens implizit wird von einer Ursache-Wirkungsbeziehung ausgegangen. Die Unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.</p>
+<p>Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:</p>
+<p><em>H2: bei Spieler:innen die ein Superhelden-Spiel gespielt haben ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.</em></p>
+<div id="deskriptive-auswertung" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Deskriptive Auswertung</h3>
+<p>Natürlich bietet es sich an, zunächst einmal rein deskriptiv zu prüfen, ob die Mittelwerte sich überhaupt und in der prognostizierten Richtung unterscheiden. Dazu kann man auf Mittel aus dplyr zurückgreifen:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="t-tests.html#cb272-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb272-2"><a href="t-tests.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb272-3"><a href="t-tests.html#cb272-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">M =</span> <span class="fu">mean</span>(Spende_t1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb272-4"><a href="t-tests.html#cb272-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">sd</span>(Spende_t1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb272-5"><a href="t-tests.html#cb272-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 4
+##   Gruppe                M    SD     n
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 Rennspiel          2.76  1.58    35
+## 2 Superhelden-Spiel  7.91  1.78    35</code></pre>
+<p>Das sieht schonmal vielversprechend aus! Ein illustrativer Boxplot ist eine aussagekräftige grafische Variante:</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="t-tests.html#cb274-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb274-2"><a href="t-tests.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Spende_t1)) <span class="sc">%&gt;%</span> </span>
+<span id="cb274-3"><a href="t-tests.html#cb274-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Gruppe, Spende_t1, <span class="at">color =</span> Gruppe)) <span class="sc">+</span></span>
+<span id="cb274-4"><a href="t-tests.html#cb274-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb274-5"><a href="t-tests.html#cb274-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p>Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art “geglättetes Histogram”) kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="t-tests.html#cb275-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb275-2"><a href="t-tests.html#cb275-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Spende_t1)) <span class="sc">%&gt;%</span> </span>
+<span id="cb275-3"><a href="t-tests.html#cb275-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Spende_t1, <span class="at">fill =</span> Gruppe)) <span class="sc">+</span> </span>
+<span id="cb275-4"><a href="t-tests.html#cb275-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+</div>
+<div id="anwendungsvoraussetzungen" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Anwendungsvoraussetzungen</h3>
+<p>Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass – wie der Name schon sagt – die <strong>Anwendungsvoraussetzung der Unabhängigkeit</strong> erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts mit einander zu tun haben, also nicht z.B. verheiratet sind. – Das wären dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.</p>
+<p>Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z.B. weil beide häufig gemeinsam über Politik reden.</p>
+<p>Die Anwendungsvoraussetzung der Intervallskalierung gilt natürlich weiterhin, wie schon für den Einstichproben-T-Test. – Jedoch natürlich nur für die abhängige Variable, für die die Mittelwerte berechnet werden sollen.</p>
+<p>Eine weitere Anwendungsvoraussetzung ist die <strong>Varianzhomogenität / Homoskedastizität</strong>: Die Varianzen müssen in den zu vergleichenden Teilpopulationen annäherungsweise gleich sein. Also ganz wörtlich: Ist in Population 1 die Varianz s² = 1,23 dann möchte man hier, dass Population 2 eben auch eine Varianz von s² = 1,23 aufweist oder einen Wert, der jedenfalls nicht signifikant davon abweicht.</p>
+<p>Und wie testet man, ob die Kennwerte in zwei Stichproben sich signifikant von einander unterschieden? Das klingt ja fast wie der T-Test für unabhängige Stichproben, den wir ja ohnehin gerade hier behandeln! Tatsächlich ist es aber kein T-Test, der dabei angewendet wird, sondern ein F-Test. Der F-Test ist eine ganz ähnliche Teststatistik, die später bei den Varianzanalysen nochmal auftauchen wird.</p>
+<p>Verrückt, oder? Bevor wir jetzt also einen T-Test für unsere unabhängigen Mittelwerte machen können, müssen wir erstmal einen genauso aufwendigen F-Test für die Varianzen machen, um die Anwendungsvoraussetzung zu prüfen. – Aber dieser F-Test sollte nach Möglichkeit besser nicht signifikant werden, denn signifikant würde hier bedeuten, dass die beiden Varianzen sich unterscheiden. – Und wir wollen schließlich Varianz<em>homogenität</em>, also gleiche Varianzen. Der F-Test für die Varianzhomogenität hat einen speziellen Namen, er heißt Levene-Test (nach Howard Levene).</p>
+<div id="danger_levene" class="box danger">
+<p><strong>Levene: p &lt; .05 = blöd, weil keine Varianzhomogenität!</strong></p>
+<p>Als Studentin fand ich den Levene-Test super verwirrend, weil ich gerade gelernt hatte, dass winzig kleine p-Werte prima sind und für die aufgestellten Hypothesen sprechen. Und beim Levene-Test war auf einmal alles anders herum?! Das geht wirklich schwer in den Kopf rein und ich merke heute, dass nach wie vor viele Studierende damit Schwierigkeiten haben.</p>
+<p>Um es nochmal ganz deutlich zusagen: Normalerweise wollen wir ja, das unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer das es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Das der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.</p>
+</div>
+</div>
+<div id="levene-test-auf-varianzhomogenität" class="section level3" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Levene-Test auf Varianzhomogenität</h3>
+<p>Also, auf geht ´s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die <em>Gruppe</em> ist die uV und die Variable <em>Spende_t01</em> die aV.</p>
+<p>Für den Levene-Test benutze ich ebenfalls das Paket <code>rstatix</code> und die Funktion <code>levene_test()</code>. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z.B. <code>car</code>). <code>rstatix</code> bietet aber weiterhin den Vorteil, das es “pipeable” ist.</p>
+<p>Die Funktion hat folgende Argumente:</p>
+<ul>
+<li><p>Das erste Argument ist wieder das Datensatz-Objekt.</p></li>
+<li><p>Das zweite ist eine Formel (wie bei der <a href="regression.html#regression">Regression</a>), die die Variablen der Analyse mit einer Tilde <code>~</code> verbindet. Die Tilde bedeutet dabei übersetzt in Worte etwa folgendes: “Variable vor der Tilde wird vorhergesagt durch Variable nach der Tilde.” Die Notation ist immer <code>aV ~ uV</code>.</p></li>
+<li><p>Außerdem kann man noch mit dem Argument <code>center =</code> die Art des Tests auswählen. Der Orginal-Levene-Test wird durch <code>center = "mean"</code> berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben <span class="citation">(<a href="#ref-Brown_1974" role="doc-biblioref">Brown and Forsythe 1974</a>)</span> gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Mediane einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option <code>center = "median"</code> ist die deshalb die Default-Option der <code>levene_test()</code>- Funktion. Sie muss nicht gesondert eingestellt werden.</p></li>
+</ul>
+<p>Angewendet sieht das so aus:</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="t-tests.html#cb276-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb276-2"><a href="t-tests.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Spende_t1 <span class="sc">~</span> Gruppe)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 4
+##     df1   df2 statistic     p
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1     1    66     0.156 0.695</code></pre>
+<p>Prima, sehr schön! Ausgegeben wird unter “statistic” ein relativ kleiner F-Wert inklusive Freiheitsgraden (df1 und df2) und einem zugehörigen p-Wert. Dieser p-Wert ist größer als .05, also nicht signifikant. Es spricht also alles dafür, dass die Varianzen der Variable <em>Spenden_t1</em> in beiden Teil-Stichproben (Gruppe Superhelden und Gruppe Rennspiel) gleich sind. Dem nun folgenden T-Test steht also nichts entgegen.</p>
+<div id="info_varianzhetero" class="box info">
+<p><strong>Was, wenn der Levene-Test doch signifikant wird?</strong></p>
+<p>Dann wären die Varianzen nicht gleich/homogen. Das wäre für den Standard-T-Test schlecht, ist aber praktisch nicht so schlimm, denn den T-Test gibt es auch in einer robusten Variante (Welch-Korrektur), bei der die Prüfgröße T und ihr Signifikanztest korrigiert werden – und zwar in dem Maße in dem die Varianzen ungleich sind.</p>
+</div>
+</div>
+<div id="t-test-durchführen-1" class="section level3" number="11.3.4">
+<h3><span class="header-section-number">11.3.4</span> T-Test durchführen</h3>
+<p>Den T-Test für unabhängige Stichproben erhält man in R ebenfalls über das <code>rstatix</code>-Paket und die <code>t_test()</code>-Funktion. Hier die relevanten Argumente:</p>
+<ol style="list-style-type: decimal">
+<li><p>Datensatz-Objekt</p></li>
+<li><p>Das zweite Argument ist wieder die Formel, mit <code>aV ~ uV</code>.</p></li>
+<li><p>Standardmäßig geht die Funktion <code>t_test()</code> davon aus, dass die Varianzen <strong>nicht</strong> gleich sind (entspricht <code>var.equal = FALSE</code>). In unserem Fall haben wir aber sogar vorab auf gleiche Varianzen getestet und können durch <code>var.equal = TRUE</code> einen Test ohne Korrektur anfordern. Es empfiehlt sich, immer einen Levene-Test vorzuschalten und das <code>var.equal</code>-Argument bewusst auf <code>TRUE</code>oder <code>FALSE</code> zu setzen.</p></li>
+<li><p>Mit <code>alternative</code> kann man festlegen ob der Test ungerichtet (<code>"two.sided"</code>) oder einseitig (<code>"less"</code> oder <code>"greater"</code>) stattfinden soll.</p></li>
+<li><p>Mit <code>detailed = TRUE</code> bzw. <code>FALSE</code> kann man wieder über den Detailgrad der Ausgabe bestimmen.</p></li>
+</ol>
+<p>Hier der Test der H2:</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="t-tests.html#cb278-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb278-2"><a href="t-tests.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(Spende_t1 <span class="sc">~</span> Gruppe, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 1 x 8
+##   .y.       group1    group2               n1    n2 statistic    df        p
+## * &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;             &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Spende_t1 Rennspiel Superhelden-Spiel    35    35     -12.6    66 1.51e-19</code></pre>
+<p>Das Ergebnis sieht so ähnlich aus wie vorhin, beim ersten T-Test. Es gibt wieder einen t-Wert unter “statistic,” entsprechende Freiheitsgrade und einen zugehörigen p-Wert. Dieser ist deutlich &lt; .05, das Ergebnis ist also signifikant, was für die Alternativhypothese spricht. Die Grenzen des Konfidenzintervalls können über die detaillierte Ausgabe mit <code>detailed = TRUE</code> angefordert werden (aus Platzgründen nicht dargestellt). Diesen Grenzen zur Folge würden wir die Mittelwertdifferenz zwischen -5,96 und -4,33 schätzen. Das ist beides deutlich von Null verschieden (anders ausgedrückt: Die Grenzen schließen die Null nicht ein).</p>
+<p>Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine “Reihenfolge” zwischen Superheldenspiel und Rennspiel).</p>
+<p>Das Ergebnis des T-Tests zeigt, dass das die Spieler:innen, die das Superheldenspiel gespielt haben, deutlich spendabler waren als die Spieler:innen des Rennspiels. Erstere spendeten im Durchschnitt M = 7,91 Euro, letztere nur M = 2,76 Euro. Das Ergebnis des T-Tests für unabhängige Stichproben fiel im Sinne von H2 aus und ist mit t(66) = -5,15 auf dem Niveau p &lt; ,001 signifikant. Offensichtlich hat das Spielen eines Superheldenspiels tatsächlich einen positiven Einfluss auf das prosoziale Verhalten, wie hier am Beispiel der Spendenbereitschaft demonstriert wurde (hier wurden jedoch keine echten Daten analysiert).</p>
+</div>
+<div id="cohens-d-1" class="section level3" number="11.3.5">
+<h3><span class="header-section-number">11.3.5</span> Cohen´s d</h3>
+<p>Ergänzend kann auch beim T-Test für unabhängige Stichproben die Effektstärke Cohen´s d berechnet werden:</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="t-tests.html#cb280-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb280-2"><a href="t-tests.html#cb280-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cohens_d</span>(Spende_t1 <span class="sc">~</span> Gruppe, <span class="at">var.equal =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 1 x 7
+##   .y.       group1    group2            effsize    n1    n2 magnitude
+## * &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
+## 1 Spende_t1 Rennspiel Superhelden-Spiel   -3.06    35    35 large</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="t-tests.html#cb282-1" aria-hidden="true" tabindex="-1"></a>cd <span class="ot">&lt;-</span> df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb282-2"><a href="t-tests.html#cb282-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cohens_d</span>(Spende_t1 <span class="sc">~</span> Gruppe, <span class="at">var.equal =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<p>Die Interpretation des T-Tests kann um einen entsprechenden Satz ergänzt werden: Der gefundene Effekt ist mit Cohen´s d = -3,06 als stark zu bezeichnen.</p>
+</div>
+</div>
+<div id="t-test-für-abhängige-stichproben" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> T-Test für abhängige Stichproben</h2>
+<p>Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für <strong>abhängige Stichproben</strong> sieht es anders aus: Jetzt werden <em>zwei prinzipiell gleich aufgebaute Variablen</em> mit einander vergleichen:</p>
+<ul>
+<li><p>Beide sollen (quasi-)metrisches Datenniveau aufweisen.</p></li>
+<li><p>Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z.B. beide von 1 = <em>stimme überhaupt nicht zu</em> bis 5 = <em>stimme voll und ganz zu</em> gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z.B. niemand 5 = <em>stimme voll und ganz zu</em> angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).</p></li>
+<li><p>Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er “wide format” aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (#tendenziell, ein paar fehlende Messwerte sind okay).</p></li>
+</ul>
+<p>Hier wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für abhängie Stichproben prüfen kann:</p>
+<ul>
+<li><p>Unterscheiden sich die Mittelwerte von zwei Items einer Skala von einander?</p></li>
+<li><p>Welcher Wert ist höher, der für Zustimmung zum Item “Die Klimakrise ist das wichtigste Problem unserer Zeit” oder zu "Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit?</p></li>
+<li><p>Unterschiedet sich das politische Interesse von Ehefrauen von dem ihrer Ehemänner?</p></li>
+<li><p>Unterschiedet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).</p></li>
+</ul>
+<p>Im Anwendungsbeispiel möchten wir nun prüfen, ob der positive Effekt, den wir für das Spielen von Superhelden-Spielen gefunden haben, auch über längere Zeit anhält, oder nicht. Theoretisch ist davon auszugehen, dass das einmalige Spielen eines Superhelden-Spiels das prosoziale Verhalten zwar kurzfristig, aber nicht über einen längeren Zeitraum hinweg verändern kann. Deshalb lautet die zu testende Hypothese:</p>
+<p><em>H3a: Die Spendenbereitschaft der Superhelden-Spieler:innen ist zum Zeitpunkt T2 niedriger als zum Zeitpunkt T1.</em></p>
+<p>Für die Gruppe der Rennspiel-Spieler:innen würde man natürlich so einen Effekt nicht erwarten. Hier sollte das Niveau gleichbleibend niedrig sein. Eine Hypothese, die keinen Effekt voraussagt, wäre eine Nullhypothese. Eine Nullhypothese kann mit der Inferenzstatistik nicht verifiziert sondern nur widerlegt werden. Der Vollständigkeit halber stellen wir deshalb die zugehörige Alternativhypothese auf, obwohl wir nicht erwarten, dass sie sich bestätigen lässt:</p>
+<p><em>H3b: Die Spendenbereitschaft der Rennspiel-Spieler:innen unterschiedet sich an beiden Messzeitpunkten.</em></p>
+<p>Während H3a eine gerichtete Hypothese ist, ist H3b ungerichtet, denn es besteht kein Argument für die Formulierung einer Richtung.</p>
+<div id="deskriptiver-vergleich" class="section level3" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Deskriptiver Vergleich</h3>
+<p>Natürlich bietet es sich auch vor dem T-Test für abhängige Stichproben an, zunächst deskriptiv zu evaluieren, wie die Variablen verteilt sind und wo die Mittelwerte liegen. Auch hier werden zunächst grafische Analysen genutzt. Mit dem Befehl <code>facet_wrap()</code> kann man die Darstellung für die Gruppen aufteilen:</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="t-tests.html#cb283-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb283-2"><a href="t-tests.html#cb283-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb283-3"><a href="t-tests.html#cb283-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(Spende_t1), <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb283-4"><a href="t-tests.html#cb283-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(Spende_t2), <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>) <span class="sc">+</span></span>
+<span id="cb283-5"><a href="t-tests.html#cb283-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Gruppe)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
+<p>Die Verteilungen sind deutlich unterschiedlich für die beiden Gruppen. Während bei den Rennspielen die Werte zu beiden Zeitpunkten in einem ähnlichen Spektrum liegen, ist dies bei den Superhelden-Spielen nicht der Fall. Die Superhelden-Gruppe ist ja auch genau die Gruppe, die im Rahmen von von H3a interessiert. Es sieht gut aus für die Vermutung, dass es in der Gruppe der Superhelden-Spieler:innen einen signifikanten Mittelwertunterschied zwischen den beiden Messzeitpunkten Spende_t01 und Spende_t02 gibt – und in der Gruppe Rennspiele (H3b) wie erwartet nicht.</p>
+<p>Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das Tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="t-tests.html#cb284-1" aria-hidden="true" tabindex="-1"></a>mw_table <span class="ot">&lt;-</span> df_prosocial <span class="sc">%&gt;%</span> </span>
+<span id="cb284-2"><a href="t-tests.html#cb284-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gruppe, Spende_t1, Spende_t2) <span class="sc">%&gt;%</span> </span>
+<span id="cb284-3"><a href="t-tests.html#cb284-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb284-4"><a href="t-tests.html#cb284-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">t1_M =</span> <span class="fu">mean</span>(Spende_t1, <span class="at">na.rm=</span> <span class="cn">TRUE</span>),</span>
+<span id="cb284-5"><a href="t-tests.html#cb284-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">t1_SD =</span> <span class="fu">SD</span>(Spende_t1, <span class="at">na.rm=</span> <span class="cn">TRUE</span>),</span>
+<span id="cb284-6"><a href="t-tests.html#cb284-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">t1_n =</span> <span class="fu">n</span>(),</span>
+<span id="cb284-7"><a href="t-tests.html#cb284-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">t2_M =</span> <span class="fu">mean</span>(Spende_t2, <span class="at">na.rm=</span> <span class="cn">TRUE</span>),</span>
+<span id="cb284-8"><a href="t-tests.html#cb284-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">t2_SD =</span> <span class="fu">SD</span>(Spende_t2, <span class="at">na.rm=</span> <span class="cn">TRUE</span>),</span>
+<span id="cb284-9"><a href="t-tests.html#cb284-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">t2_n =</span> <span class="fu">n</span>())</span>
+<span id="cb284-10"><a href="t-tests.html#cb284-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-11"><a href="t-tests.html#cb284-11" aria-hidden="true" tabindex="-1"></a>mw_table</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 7
+##   Gruppe             t1_M t1_SD  t1_n  t2_M t2_SD  t2_n
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 Rennspiel          2.76  1.58    35  2.62  1.13    35
+## 2 Superhelden-Spiel  7.91  1.78    35  2.35  1.01    35</code></pre>
+<p>Anders als beim T-Test für unabhängige Stichproben vergleicht man bei der Betrachtung für den T-Test für abhängige Stichproben die Mittelwerte in einer Zeile in den unterschiedlichen Spalten. Für die Zeile “Rennspiel” (H3b) ergibt sich hier kaum ein Unterschied (2,76 gegenüber 2,62). Für die Zeile “Superhelden-Spiel” (H3a) ergibt sich jedoch ein deutlicher Unterschied (7,91 gegenüber 2,35). Nun wäre es wichtig zu wissen, ob die Mittelwertunterschiede signifikant sind.</p>
+</div>
+<div id="levene-tests-durchführen" class="section level3" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Levene-Tests durchführen</h3>
+<p>Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom “wide-format” in ein “long-format” überführt werden (vgl. dazu Abschnitt [Datenumformungen]). Da die <code>levene_test()</code>-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davor schalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="t-tests.html#cb286-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span></span>
+<span id="cb286-2"><a href="t-tests.html#cb286-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Spende_t1, Spende_t2), </span>
+<span id="cb286-3"><a href="t-tests.html#cb286-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Zeitpunkt&quot;</span>, </span>
+<span id="cb286-4"><a href="t-tests.html#cb286-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Betrag&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-5"><a href="t-tests.html#cb286-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-6"><a href="t-tests.html#cb286-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Betrag <span class="sc">~</span> Zeitpunkt)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   Gruppe              df1   df2 statistic       p
+##   &lt;chr&gt;             &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Rennspiel             1    66      4.47 0.0384 
+## 2 Superhelden-Spiel     1    66      8.26 0.00544</code></pre>
+<p>Das Ergebnis zeigt sich signifikant für beide Gruppen, denn p ist jeweils &lt; .05. Wir können also nicht von Varianzhomogenität ausgehen und müssen für den folgenden T-Test merken, dass der korrigierte Test benötigt wird.</p>
+</div>
+<div id="t-test-durchführen-2" class="section level3" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> T-Test durchführen</h3>
+<p>Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das “long-format” wie der Levene-Test. Auch hier können wir diese wieder in der Pipe davor schalten und ebenso auch die Aufteilung in beide Gruppen. Die einfachste Variante den T-Test anzufordern ist über die bereits bekannte <code>t-test()</code>- Funktion. Benötigt wird allerdings das zusätzliche Argument <code>paired = TRUE</code>, damit der paarweise Test durchgeführt wird. Außerdem setzen wir explizit <code>var.equal = FALSE</code>, weil der Levene-Test ein signifikantes Ergebnis produziert hat und deshalb nicht von Varianzhomogenität ausgegangen werden kann.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="t-tests.html#cb288-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span></span>
+<span id="cb288-2"><a href="t-tests.html#cb288-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Spende_t1, Spende_t2), </span>
+<span id="cb288-3"><a href="t-tests.html#cb288-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names_to =</span> <span class="st">&quot;Zeitpunkt&quot;</span>, </span>
+<span id="cb288-4"><a href="t-tests.html#cb288-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values_to =</span> <span class="st">&quot;Betrag&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb288-5"><a href="t-tests.html#cb288-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb288-6"><a href="t-tests.html#cb288-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">t_test</span>(Betrag <span class="sc">~</span> Zeitpunkt, </span>
+<span id="cb288-7"><a href="t-tests.html#cb288-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">var.equal =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb288-8"><a href="t-tests.html#cb288-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb288-9"><a href="t-tests.html#cb288-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 9
+##   Gruppe           .y.    group1   group2      n1    n2 statistic    df        p
+## * &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Rennspiel        Betrag Spende_… Spende_…    35    35     0.457    32 3.25e- 1
+## 2 Superhelden-Spi… Betrag Spende_… Spende_…    35    35    14.9      32 2.76e-16</code></pre>
+<p>Der Output enthält in den beiden Zeilen zwei T-Tests für abhängige Stichproben, oben für H3b und unten für H3a. In der Spalte “estimate” sind die Werte der Mittelwertdiffrenzen angegeben.</p>
+<p><strong>Interpretation H3b (erste Zeile):</strong></p>
+<p>In der Gruppe “Rennspiel” beträgt die Mittelwertdifferenz nur 0,15 Euro. Der T-Wert ist mit T( 32) = 0,46 sehr klein. Der p-Wert sieht zwar wegen der “wissenschaftlichen” Notation kompliziert aus, aber lassen Sie sich davon nicht in die Irre führen! Er ist recht hoch: p = 0,65 und damit nicht signifikant. Insgesamt muss die H3b deshalb abgelehnt werden. Wie erwartet.</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="t-tests.html#cb290-1" aria-hidden="true" tabindex="-1"></a>sn <span class="ot">&lt;-</span> <span class="fu">case_when</span>(tt_pairwise[[<span class="dv">2</span>, <span class="st">&quot;p&quot;</span>]] <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;p &lt; ,001&quot;</span>,</span>
+<span id="cb290-2"><a href="t-tests.html#cb290-2" aria-hidden="true" tabindex="-1"></a>                tt_pairwise[[<span class="dv">2</span>, <span class="st">&quot;p&quot;</span>]] <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;p &lt; ,01&quot;</span>,</span>
+<span id="cb290-3"><a href="t-tests.html#cb290-3" aria-hidden="true" tabindex="-1"></a>                tt_pairwise[[<span class="dv">2</span>, <span class="st">&quot;p&quot;</span>]] <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;&lt; ,05&quot;</span>,</span>
+<span id="cb290-4"><a href="t-tests.html#cb290-4" aria-hidden="true" tabindex="-1"></a>                <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;n.s.&quot;</span>)</span></code></pre></div>
+<p>** Interpretation H3a (zweite Zeile):**</p>
+<p>In der Gruppe “Superhelden” beträgt die Mittelwertdifferenz hingegen stolze 5,48 Euro (zur Erinnerung, die Probandinnen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(32) = 14,94 auf dem Niveau p &lt; ,001 signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen.</p>
+</div>
+<div id="cohens-d-2" class="section level3" number="11.4.4">
+<h3><span class="header-section-number">11.4.4</span> Cohen´s d</h3>
+<p>Selbstredend kann auch hier wieder Cohen´s d berechnet werden, um die Effektstärke einzuordnen. Dabei wird ebenfalls die gesamte Pipe vorgeschaltet und die Angaben zur Varianzheterogenität und dass es sich um einen T-Test für abhängige Stichproben handelt dürfen auch in der <code>cohens_d()</code>-Funktion nicht fehlen.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="t-tests.html#cb291-1" aria-hidden="true" tabindex="-1"></a>df_prosocial <span class="sc">%&gt;%</span></span>
+<span id="cb291-2"><a href="t-tests.html#cb291-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Spende_t1, Spende_t2), </span>
+<span id="cb291-3"><a href="t-tests.html#cb291-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">names_to =</span> <span class="st">&quot;Zeitpunkt&quot;</span>, </span>
+<span id="cb291-4"><a href="t-tests.html#cb291-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">values_to =</span> <span class="st">&quot;Betrag&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb291-5"><a href="t-tests.html#cb291-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb291-6"><a href="t-tests.html#cb291-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cohens_d</span>(Betrag <span class="sc">~</span> Zeitpunkt, </span>
+<span id="cb291-7"><a href="t-tests.html#cb291-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">var.equal =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb291-8"><a href="t-tests.html#cb291-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">paired =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 2 x 8
+##   .y.    group1    group2    effsize Gruppe               n1    n2 magnitude 
+## * &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;             &lt;int&gt; &lt;int&gt; &lt;ord&gt;     
+## 1 Betrag Spende_t1 Spende_t2  0.0795 Rennspiel            35    35 negligible
+## 2 Betrag Spende_t1 Spende_t2  2.60   Superhelden-Spiel    35    35 large</code></pre>
+<p>Wie zu erwarten war ist die Effekstärke für H3b verschwindend gering – der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.</p>
+
+</div>
+</div>
+</div>
+<h3>Literaturverzeichnis</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Brown_1974" class="csl-entry">
+Brown, Morton B., and Alan B. Forsythe. 1974. <span>“Robust Tests for the Equality of Variances.”</span> <em>Journal of the American Statistical Association</em> 69 (346): 364–67. <a href="https://doi.org/10.1080/01621459.1974.10482955">https://doi.org/10.1080/01621459.1974.10482955</a>.
+</div>
+<div id="ref-Cohen_1992" class="csl-entry">
+Cohen, Jacob. 1992. <span>“A Power Primer.”</span> <em>Psychological Bulletin</em> 112 (1): 155–59. <a href="https://doi.org/10.1037/0033-2909.112.1.155">https://doi.org/10.1037/0033-2909.112.1.155</a>.
+</div>
+<div id="ref-Phillips_2018" class="csl-entry">
+Phillips, Nathaniel D. 2018. <em>YaRrr! The Pirate’s Guide to r</em>. <a href="https://bookdown.org/ndphillips/YaRrr/">https://bookdown.org/ndphillips/YaRrr/</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literaturverzeichnis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xvariable/r_book/edit/main/110_t-test.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r_book.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

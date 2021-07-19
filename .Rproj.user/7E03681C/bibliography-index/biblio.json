@@ -47,6 +47,29 @@
             "volume": "4"
         },
         {
+            "DOI": "10.1037/0033-2909.112.1.155",
+            "author": [
+                {
+                    "family": "Cohen",
+                    "given": "Jacob"
+                }
+            ],
+            "container-title": "Psychological Bulletin",
+            "id": "Cohen_1992",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "page": "155-159",
+            "title": "A power primer",
+            "type": "article-journal",
+            "volume": "112"
+        },
+        {
             "URL": "https://github.com/matloff/TidyverseSkeptic",
             "author": [
                 {
@@ -139,6 +162,25 @@
             "type": ""
         },
         {
+            "URL": "https://bookdown.org/ndphillips/YaRrr/",
+            "author": [
+                {
+                    "family": "Phillips",
+                    "given": "Nathaniel D."
+                }
+            ],
+            "id": "Phillips_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "YaRrr! The Pirate’s Guide to R",
+            "type": "book"
+        },
+        {
             "ISBN": "978-1491910399",
             "URL": "http://r4ds.had.co.nz/",
             "author": [
@@ -163,9 +205,37 @@
             "title": "R for Data Science: Import, tidy, transform, visualize, and model data",
             "title-short": "R for Data Science",
             "type": "book"
+        },
+        {
+            "DOI": "10.1080/01621459.1974.10482955",
+            "ISSN": "0162-1459",
+            "author": [
+                {
+                    "family": "Brown",
+                    "given": "Morton B."
+                },
+                {
+                    "family": "Forsythe",
+                    "given": "Alan B."
+                }
+            ],
+            "container-title": "Journal of the American Statistical Association",
+            "id": "Brown_1974",
+            "issue": "346",
+            "issued": {
+                "date-parts": [
+                    [
+                        1974
+                    ]
+                ]
+            },
+            "page": "364-367",
+            "title": "Robust Tests for the Equality of Variances",
+            "type": "article-journal",
+            "volume": "69"
         }
     ],
     "project_biblios": [
-        "book.bib"
+        "literature.bib"
     ]
 }

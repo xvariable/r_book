@@ -2,45 +2,47 @@ This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: r_book.aux
 The style file: apalike.bst
-Database file #1: book.bib
-You've used 6 entries,
+Database file #1: literature.bib
+Warning--empty publisher in Phillips_2018
+You've used 9 entries,
             1935 wiz_defined-function locations,
-            505 strings with 4279 characters,
-and the built_in function-call counts, 1668 in all, are:
-= -- 164
-> -- 48
-< -- 6
-+ -- 16
-- -- 14
-* -- 116
-:= -- 317
-add.period$ -- 15
-call.type$ -- 6
-change.case$ -- 36
-chr.to.int$ -- 6
-cite$ -- 6
-duplicate$ -- 72
-empty$ -- 119
-format.name$ -- 22
-if$ -- 314
+            527 strings with 4614 characters,
+and the built_in function-call counts, 2710 in all, are:
+= -- 267
+> -- 75
+< -- 9
++ -- 26
+- -- 22
+* -- 204
+:= -- 496
+add.period$ -- 23
+call.type$ -- 9
+change.case$ -- 54
+chr.to.int$ -- 9
+cite$ -- 10
+duplicate$ -- 114
+empty$ -- 202
+format.name$ -- 35
+if$ -- 516
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 30
-num.names$ -- 18
-pop$ -- 30
+missing$ -- 9
+newline$ -- 44
+num.names$ -- 27
+pop$ -- 46
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 56
 quote$ -- 0
-skip$ -- 59
+skip$ -- 91
 stack$ -- 0
-substring$ -- 90
-swap$ -- 3
+substring$ -- 178
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
-warning$ -- 0
-while$ -- 14
+type$ -- 48
+warning$ -- 1
+while$ -- 24
 width$ -- 0
-write$ -- 71
+write$ -- 107
+(There was 1 warning)

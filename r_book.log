@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  20 MAY 2021 14:00
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  19 JUL 2021 23:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -431,6 +431,8 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip64
 \thanksmargin=\skip65
 \droptitle=\skip66
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/was/icomma.sty
+Package: icomma 2002/03/10 v2.0 (WaS)
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip67
@@ -440,40 +442,40 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (./r_book.aux)
 \openout1 = `r_book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 131.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 131.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 131.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 131.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 131.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 131.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 131.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -502,7 +504,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 131.
+(Font)              scaled to size 10.0pt on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -541,18 +543,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 131.
+(Font)              scaled to size 10.0pt on input line 132.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 131.
+(Font)              `operators' in the math version `normal' on input line 132.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 131.
+ line 132.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 131.
+(Font)              `operators' in the math version `bold' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 131.
+t line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -639,15 +641,15 @@ t=math;language=dflt;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 131.
+(Font)              `symbols' in the math version `normal' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 131.
+t line 132.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 131.
+(Font)              `symbols' in the math version `bold' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 131.
+t line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -717,17 +719,17 @@ pt=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-31.
+32.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 131.
+t line 132.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 131
+(Font)              `largesymbols' in the math version `bold' on input line 132
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 131.
-LaTeX Info: Redefining \microtypecontext on input line 131.
+t line 132.
+LaTeX Info: Redefining \microtypecontext on input line 132.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -739,7 +741,7 @@ File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 \AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring OFF on input line 131.
+Package hyperref Info: Link coloring OFF on input line 132.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -751,32 +753,32 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 131.
-LaTeX Info: Redefining \pageref on input line 131.
-LaTeX Info: Redefining \nameref on input line 131.
+LaTeX Info: Redefining \ref on input line 132.
+LaTeX Info: Redefining \pageref on input line 132.
+LaTeX Info: Redefining \nameref on input line 132.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 132.
+(Font)              scaled to size 12.0pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 132.
+(Font)              scaled to size 8.0pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 132.
+(Font)              scaled to size 6.0pt on input line 133.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-32.
+33.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 132.
+(Font)              scaled to size 12.0011pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 132.
+(Font)              scaled to size 8.00073pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 132.
+(Font)              scaled to size 6.00055pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 132.
+(Font)              scaled to size 11.99872pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 132.
+(Font)              scaled to size 7.99915pt on input line 133.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 132.
+(Font)              scaled to size 5.99936pt on input line 133.
 [1
 
 
@@ -804,13 +806,13 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 \openout4 = `r_book.toc'.
 
 [4]
-Underfull \hbox (badness 3219) in paragraph at lines 146--147
+Underfull \hbox (badness 3219) in paragraph at lines 153--154
 []\TU/lmr/m/n/10 Digitale Daten sind ein bedeutender Wirtschaftsfaktor, der oft
  höher
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 146--147
+Underfull \hbox (badness 1184) in paragraph at lines 153--154
 \TU/lmr/m/n/10 Transparenz und Reproduzierbarkeit von wissenschaftlichen Erkenn
 tnissen
  []
@@ -820,7 +822,7 @@ tnissen
 ] [6]
 Chapter 1.
 
-Underfull \hbox (badness 2680) in paragraph at lines 195--200
+Underfull \hbox (badness 2680) in paragraph at lines 202--207
 \TU/lmr/m/n/10 gemeinsam mit anderen Forschungseinrichtungen an einem Projekt z
 ur
  []
@@ -828,7 +830,7 @@ ur
 [7
 
 ] [8]
-Underfull \hbox (badness 1533) in paragraph at lines 245--254
+Underfull \hbox (badness 1533) in paragraph at lines 252--261
 []\TU/lmr/m/n/10 Nachdem Ithaka und Gentleman R zunächst nur in der Wissenschaf
 ts-
  []
@@ -838,19 +840,19 @@ Chapter 2.
 [13
 
 ]
-Overfull \hbox (129.37091pt too wide) in paragraph at lines 412--414
+Overfull \hbox (129.37091pt too wide) in paragraph at lines 419--421
 \TU/lmr/m/n/10 RStudio, die Entwicklungsumgebung für R können Sie unter https:/
 /rstudio.com/products/rstudio/download/
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 450--451
+Underfull \hbox (badness 2343) in paragraph at lines 457--458
 \TU/lmr/m/n/10 RStudio, die Entwicklungsumgebung für R können Sie unter <a href
 
  []
 
 
-Underfull \hbox (badness 1082) in paragraph at lines 450--451
+Underfull \hbox (badness 1082) in paragraph at lines 457--458
 \TU/lmr/m/n/10 = “[]$[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [
 ] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]$
 []” target =‚
@@ -871,22 +873,22 @@ Chapter 4.
 Underfull \vbox (badness 3354) has occurred while \output is active []
 
 [25] [26]
-Underfull \hbox (badness 1442) in paragraph at lines 772--773
+Underfull \hbox (badness 1442) in paragraph at lines 779--780
 \TU/lmr/m/n/10 bei dem alle Objektnamen kleingeschrieben werden und unterschied
 liche
  []
 
 [27] [28] [29] [30] [31] [32] [33] [34]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1058.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1065.
 [35] [36] [37]
-Overfull \hbox (12.98003pt too wide) in paragraph at lines 1165--1166
+Overfull \hbox (12.98003pt too wide) in paragraph at lines 1172--1173
 \TU/lmr/m/n/10 Datensatz. Das R-Skript haben Sie unter dem Pfad \TU/lmtt/m/n/10
  C:/Users/julia/my_project/
  []
 
 [38] [39]
-Overfull \hbox (46.39001pt too wide) in paragraph at lines 1206--1210
+Overfull \hbox (46.39001pt too wide) in paragraph at lines 1213--1217
 []\TU/lmtt/m/n/10 id;last_name;first_name;age;... 1;Apel;Susanne;56;... 2;Becke
 r;Fritz;67;...
  []
@@ -895,31 +897,31 @@ r;Fritz;67;...
 Underfull \vbox (badness 2486) has occurred while \output is active []
 
 [42]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 1370--1370
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1377--1377
 []\TU/lmtt/m/n/10 ##  [5] "zufriedenheit_leben"             "zukunftsperspektiv
 e_persoenlich"[] 
  []
 
 [43] [44]
-Overfull \hbox (279.75pt too wide) in paragraph at lines 1481--1481
+Overfull \hbox (279.75pt too wide) in paragraph at lines 1488--1488
 []\TU/lmtt/m/n/10 ##  $ title      : chr [1:8] "The Mandalorian" "The Good Figh
 t" "Stranger Things" "How To Sell Drugs Online (Fast)" ...[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1481--1481
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1488--1488
 []\TU/lmtt/m/n/10 ##  $ on_netflix : logi [1:8] FALSE FALSE TRUE TRUE FALSE FAL
 SE ...[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 1497--1497
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1504--1504
 []\TU/lmtt/m/n/10 ## [3] "Stranger Things"                 "How To Sell Drugs O
 nline (Fast)"[] 
  []
 
 [45]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 1524--1524
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1531--1531
 []\TU/lmtt/m/n/10 ## [1] "Stranger Things"                 "How To Sell Drugs O
 nline (Fast)"[] 
  []
@@ -928,41 +930,41 @@ nline (Fast)"[]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [46] [47] [48]
-Underfull \hbox (badness 1571) in paragraph at lines 1710--1711
+Underfull \hbox (badness 1571) in paragraph at lines 1717--1718
 []\TU/lmr/m/n/10 Analog dazu gibt es auch die Funktionen \TU/lmtt/m/n/10 as.num
 eric()\TU/lmr/m/n/10 , \TU/lmtt/m/n/10 as.double()\TU/lmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 1710--1711
+Underfull \hbox (badness 2961) in paragraph at lines 1717--1718
 \TU/lmtt/m/n/10 as.character() \TU/lmr/m/n/10 und \TU/lmtt/m/n/10 as.logical()\
 TU/lmr/m/n/10 . Das funktioniert aber natürlich
  []
 
 [49]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 1757--1757
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1764--1764
 []\TU/lmtt/m/n/10 ##  Ord.factor w/ 5 levels "stimme überhaupt nicht zu"<..: 2 
 4 2 1 1 5 4 5 5 3 ...[] 
  []
 
 
-Overfull \hbox (93.64001pt too wide) in paragraph at lines 1776--1779
+Overfull \hbox (93.64001pt too wide) in paragraph at lines 1783--1786
 []\TU/lmtt/m/n/10 1;Apel;Susanne;NA;1.68;56... 2;Becker;Fritz;67;1.82;89... 3;C
 oşkun;Ediz;24;1.70,71.. 
  []
 
 [50] [51]
-Overfull \hbox (108.78006pt too wide) in alignment at lines 1882--1886
+Overfull \hbox (108.78006pt too wide) in alignment at lines 1889--1893
  [] [] [] [] 
  []
 
 
-Overfull \hbox (108.78006pt too wide) in alignment at lines 1886--1907
+Overfull \hbox (108.78006pt too wide) in alignment at lines 1893--1914
  [] [] [] [] 
  []
 
 
-Overfull \hbox (108.78006pt too wide) in alignment at lines 1907--1924
+Overfull \hbox (108.78006pt too wide) in alignment at lines 1914--1931
  [] [] [] [] 
  []
 
@@ -975,705 +977,705 @@ Chapter 5.
 ]
 Chapter 6.
 
-Underfull \hbox (badness 1502) in paragraph at lines 2087--2088
+Underfull \hbox (badness 1502) in paragraph at lines 2094--2095
 []\TU/lmr/m/n/10 Die letzte Funktion entfaltet besondere Stärken im Zusammenhan
 g mit
  []
 
 [61]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##    name    height  mass hair_color  skin_color eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##    <chr>    <int> <dbl> <chr>       <chr>      <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  1 Luke S~    172    77 blond       fair       blue       
      19   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  2 C-3PO      167    75 <NA>        gold       yellow     
     112   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  3 R2-D2       96    32 <NA>        white, bl~ red        
      33   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  4 Darth ~    202   136 none        white      yellow     
      41.9 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  5 Leia O~    150    49 brown       light      brown      
      19   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  6 Owen L~    178   120 brown, grey light      blue       
      52   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  7 Beru W~    165    75 brown       light      blue       
      47   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  8 R5-D4       97    32 <NA>        white, red red        
      NA   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ##  9 Biggs ~    183    84 black       light      brown      
      24   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ## 10 Obi-Wa~    182    77 auburn, wh~ fair       blue-gray  
      57   male  mascu~[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2123--2123
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2130--2130
 []\TU/lmtt/m/n/10 ## # ... with 77 more rows, and 5 more variables: homeworld <
 chr>, species <chr>,[] 
  []
 
 [62] [63]
-Underfull \hbox (badness 10000) in paragraph at lines 2186--2188
+Underfull \hbox (badness 10000) in paragraph at lines 2193--2195
 []\TU/lmr/m/n/10 Wieder landet der (nun einmal transformierte) Dataframe
  []
 
 
-Underfull \hbox (badness 1852) in paragraph at lines 2186--2188
+Underfull \hbox (badness 1852) in paragraph at lines 2193--2195
 \TU/lmtt/m/n/10 new_data \TU/lmr/m/n/10 als erstes Argument in einer Funktion, 
 diesmal in
  []
 
 [64] [65]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ##   name     height  mass hair_color  skin_color eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ##   <chr>     <int> <dbl> <chr>       <chr>      <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 1 Luke Sk~    172    77 blond       fair       blue       
      19   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 2 C-3PO       167    75 <NA>        gold       yellow     
     112   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 3 R2-D2        96    32 <NA>        white, bl~ red        
      33   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 4 Darth V~    202   136 none        white      yellow     
      41.9 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 5 Leia Or~    150    49 brown       light      brown      
      19   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## 6 Owen La~    178   120 brown, grey light      blue       
      52   male  mascu~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2285--2285
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ##   name     height  mass hair_color skin_color eye_color bi
 rth_year sex   gender[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ##   <chr>     <int> <dbl> <chr>      <chr>      <chr>       
    <dbl> <chr> <chr>[] 
  []
 
 [66]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 1 Darth V~    202   136 none       white      yellow      
     41.9 male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 2 Chewbac~    228   112 brown      unknown    blue        
    200   male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 3 IG-88       200   140 none       metal      red         
     15   none  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 4 Roos Ta~    224    82 none       grey       orange      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 5 Rugor N~    206    NA none       green      orange      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## 6 Yarael ~    264    NA none       white      yellow      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2323--2323
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2330--2330
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ##   name    height  mass hair_color skin_color  eye_color bi
 rth_year sex    gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ##   <chr>    <int> <dbl> <chr>      <chr>       <chr>       
    <dbl> <chr>  <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 1 Jabba ~    175  1358 <NA>       green-tan,~ orange      
      600 herma~ mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 2 Ackbar     180    83 none       brown mott~ orange      
       41 male   mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 3 Jar Ja~    196    66 none       orange      orange      
       52 male   mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 4 Roos T~    224    82 none       grey        orange      
       NA male   mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 5 Rugor ~    206    NA none       green       orange      
       NA male   mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## 6 Sebulba    112    40 none       grey, red   orange      
       NA male   mascu~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2366--2366
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2373--2373
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 [67]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ##   name     height  mass hair_color skin_color eye_color bi
 rth_year sex   gender[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ##   <chr>     <int> <dbl> <chr>      <chr>      <chr>       
    <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ## 1 Darth V~    202   136 none       white      yellow      
     41.9 male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ## 2 Roos Ta~    224    82 none       grey       orange      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ## 3 Rugor N~    206    NA none       green      orange      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ## 4 Yarael ~    264    NA none       white      yellow      
     NA   male  mascul~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2412--2412
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2419--2419
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ##   name     height  mass hair_color  skin_color eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ##   <chr>     <int> <dbl> <chr>       <chr>      <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 1 Luke Sk~    172    77 blond       fair       blue       
      19   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 2 C-3PO       167    75 <NA>        gold       yellow     
     112   none  mascu~[] 
  []
 
 [68]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 3 R2-D2        96    32 <NA>        white, bl~ red        
      33   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 4 Darth V~    202   136 none        white      yellow     
      41.9 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 5 Leia Or~    150    49 brown       light      brown      
      19   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## 6 Owen La~    178   120 brown, grey light      blue       
      52   male  mascu~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2454--2454
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ##   name      height  mass hair_color skin_color eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ##   <chr>      <int> <dbl> <chr>      <chr>      <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 1 Yoda          66    17 white      green      brown      
       896 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 2 Ratts Ty~     79    15 none       grey, blue unknown    
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 3 Wicket S~     88    20 brown      brown      brown      
         8 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 4 Dud Bolt      94    45 none       blue, grey yellow     
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 5 R2-D2         96    32 <NA>       white, bl~ red        
        33 none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## 6 R4-P17        96    NA none       silver, r~ red, blue  
        NA none  femin~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2477--2477
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2484--2484
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ##   name    height  mass hair_color skin_color  eye_color  b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ##   <chr>    <int> <dbl> <chr>      <chr>       <chr>       
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 1 Yarael~    264    NA none       white       yellow      
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 2 Tarfful    234   136 brown      brown       blue        
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 3 Lama Su    229    88 none       grey        black       
        NA male  mascu~[] 
  []
 
 [69]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 4 Chewba~    228   112 brown      unknown     blue        
       200 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 5 Roos T~    224    82 none       grey        orange      
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## 6 Grievo~    216   159 none       brown, whi~ green, ye~  
        NA male  mascu~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2502--2502
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2509--2509
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ##   name     height  mass hair_color skin_color  eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ##   <chr>     <int> <dbl> <chr>      <chr>       <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 1 Mon Mot~    150  NA   auburn     fair        blue       
        48 fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 2 Luminar~    170  56.2 black      yellow      blue       
        58 fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 3 Barriss~    166  50   black      yellow      blue       
        40 fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 4 Shmi Sk~    163  NA   black      fair        brown      
        72 fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 5 Zam Wes~    168  55   blonde     fair, gree~ yellow     
        NA fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## 6 Beru Wh~    165  75   brown      light       blue       
        47 fema~ femin~[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2527--2527
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2534--2534
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: homeworld <chr>, species <chr
 >, films <list>,[] 
  []
 
 [70]
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ##   name   homeworld height  mass hair_color skin_color eye_
 color birth_year sex[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ##   <chr>  <chr>      <int> <dbl> <chr>      <chr>      <chr
 >          <dbl> <chr>[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 1 Luke ~ Tatooine     172    77 blond      fair       blue
             19   male[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 2 C-3PO  Tatooine     167    75 <NA>       gold       yell
 ow         112   none[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 3 R2-D2  Naboo         96    32 <NA>       white, bl~ red 
             33   none[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 4 Darth~ Tatooine     202   136 none       white      yell
 ow          41.9 male[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 5 Leia ~ Alderaan     150    49 brown      light      brow
 n           19   fema~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## 6 Owen ~ Tatooine     178   120 brown, gr~ light      blue
             52   male[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2582--2582
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2589--2589
 []\TU/lmtt/m/n/10 ## # ... with 5 more variables: gender <chr>, species <chr>, 
 films <list>,[] 
  []
 
 [71] [72] [73]
-Underfull \hbox (badness 1152) in paragraph at lines 2715--2716
+Underfull \hbox (badness 1152) in paragraph at lines 2722--2723
 \TU/lmr/m/n/10 Mit \TU/lmtt/m/n/10 mutate() \TU/lmr/m/n/10 kann man neue Variab
 len bilden und zwar nach beliebi-
  []
 
 [74] [75]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ##   lfdn verbundenheit_europa verbundenheit_dtl sieht_sich_a
 ls_europaeer[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 1 1634                    2                 2             
            0[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 2 1636                    3                 2             
            1[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 3 1637                    2                 2             
            0[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 4 1638                    3                 2             
            1[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 5 1639                    3                 3             
            0[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2799--2799
 []\TU/lmtt/m/n/10 ## 6 1640                    4                 4             
            0[] 
  []
 
 [76]
-Overfull \hbox (21.27325pt too wide) in alignment at lines 2848--2860
+Overfull \hbox (21.27325pt too wide) in alignment at lines 2855--2867
  [] [] [] [] 
  []
 
 
-Overfull \hbox (9.03961pt too wide) in paragraph at lines 2864--2865
+Overfull \hbox (9.03961pt too wide) in paragraph at lines 2871--2872
 []\TU/lmr/m/n/10 tidyverse/magrittr|  
  []
 
 
-Overfull \hbox (10.0778pt too wide) in paragraph at lines 2889--2890
+Overfull \hbox (10.0778pt too wide) in paragraph at lines 2896--2897
 []\TU/lmtt/m/n/10 arrange(desc())|  
  []
 
 
-Overfull \hbox (4.2382pt too wide) in paragraph at lines 2913--2914
+Overfull \hbox (4.2382pt too wide) in paragraph at lines 2920--2921
 []\TU/lmr/m/n/10 Recodieranweisung 
  []
 
 
-Overfull \hbox (21.27325pt too wide) in alignment at lines 2860--2961
+Overfull \hbox (21.27325pt too wide) in alignment at lines 2867--2968
  [] [] [] [] 
  []
 
 [77] [78]
 Chapter 7.
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##    name    height  mass hair_color  skin_color eye_color b
 irth_year sex   gender[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (85.5pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##    <chr>    <int> <dbl> <chr>       <chr>      <chr>      
     <dbl> <chr> <chr>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  1 Luke S~    172    77 blond       fair       blue       
      19   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  2 C-3PO      167    75 <NA>        gold       yellow     
     112   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  3 R2-D2       96    32 <NA>        white, bl~ red        
      33   none  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  4 Darth ~    202   136 none        white      yellow     
      41.9 male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  5 Leia O~    150    49 brown       light      brown      
      19   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  6 Owen L~    178   120 brown, grey light      blue       
      52   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  7 Beru W~    165    75 brown       light      blue       
      47   fema~ femin~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  8 R5-D4       97    32 <NA>        white, red red        
      NA   none  mascu~[] 
  []
@@ -1681,80 +1683,80 @@ Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
 [79
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ##  9 Biggs ~    183    84 black       light      brown      
      24   male  mascu~[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ## 10 Obi-Wa~    182    77 auburn, wh~ fair       blue-gray  
      57   male  mascu~[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3014--3014
 []\TU/lmtt/m/n/10 ## # ... with 77 more rows, and 5 more variables: homeworld <
 chr>, species <chr>,[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3043--3043
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3050--3050
 []\TU/lmtt/m/n/10 ##         female hermaphroditic           male           non
 e           <NA>[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3043--3043
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3050--3050
 []\TU/lmtt/m/n/10 ##             16              1             60              
 6              4[] 
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 3045--3046
+Underfull \hbox (badness 1527) in paragraph at lines 3052--3053
 \TU/lmr/m/n/10 Tabulierungs-Funktionen, mit denen man sich umfangreichere und ü
 ber-
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 3045--3046
+Underfull \hbox (badness 1163) in paragraph at lines 3052--3053
 \TU/lmr/m/n/10 sichtlichere Häufigkeitstabellen ausgeben lassen kann. Diese Fun
 ktionen
  []
 
 [80]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
 []\TU/lmtt/m/n/10 ##    starwars$sex  n    percent valid_percent cum_percent cu
 m_valid_percent[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
-[]\TU/lmtt/m/n/10 ##          female 16 0.18390805    0.19277108   0.1839080   
-      0.1927711[] 
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
+[]\TU/lmtt/m/n/10 ##          female 16 0,18390805    0,19277108   0,1839080   
+      0,1927711[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
-[]\TU/lmtt/m/n/10 ##  hermaphroditic  1 0.01149425    0.01204819   0.1954023   
-      0.2048193[] 
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
+[]\TU/lmtt/m/n/10 ##  hermaphroditic  1 0,01149425    0,01204819   0,1954023   
+      0,2048193[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
-[]\TU/lmtt/m/n/10 ##            male 60 0.68965517    0.72289157   0.8850575   
-      0.9277108[] 
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
+[]\TU/lmtt/m/n/10 ##            male 60 0,68965517    0,72289157   0,8850575   
+      0,9277108[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
-[]\TU/lmtt/m/n/10 ##            none  6 0.06896552    0.07228916   0.9540230   
-      1.0000000[] 
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
+[]\TU/lmtt/m/n/10 ##            none  6 0,06896552    0,07228916   0,9540230   
+      1,0000000[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3084--3084
-[]\TU/lmtt/m/n/10 ##            <NA>  4 0.04597701            NA   1.0000000   
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3091--3091
+[]\TU/lmtt/m/n/10 ##            <NA>  4 0,04597701            NA   1,0000000   
              NA[] 
  []
 
@@ -1767,60 +1769,60 @@ File: r_book_files/figure-latex/freq_plot2-1.pdf Graphic file (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [82]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3137--3137
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3144--3144
 []\TU/lmtt/m/n/10 ## [1] "male"           "none"           "female"         "he
 rmaphroditic"[] 
  []
 
 [83] [84] [85] [86]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
 []\TU/lmtt/m/n/10 ##             vars  n   mean     sd median trimmed   mad min
   max range  skew[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## name*          1 87  44.00  25.26     44   44.00 32.62   1
-   87    86  0.00[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## name*          1 87  44,00  25,26     44   44,00 32,62   1
+   87    86  0,00[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## height         2 81 174.36  34.77    180  178.17 19.27  66
-  264   198 -1.03[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## height         2 81 174,36  34,77    180  178,17 19,27  66
+  264   198 -1,03[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## mass           3 59  97.31 169.46     79   75.44 16.31  15
- 1358  1343  6.97[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## mass           3 59  97,31 169,46     79   75,44 16,31  15
+ 1358  1343  6,97[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## hair_color*    4 82   7.94   2.70     10    8.12  2.97   1
-   12    11 -0.58[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## hair_color*    4 82   7,94   2,70     10    8,12  2,97   1
+   12    11 -0,58[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## skin_color*    5 87  13.62   8.26     13   13.15  8.90   1
-   31    30  0.47[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## skin_color*    5 87  13,62   8,26     13   13,15  8,90   1
+   31    30  0,47[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3361--3361
-[]\TU/lmtt/m/n/10 ## eye_color*     6 87   6.25   4.83      4    5.86  4.45   1
-   15    14  0.67[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3368--3368
+[]\TU/lmtt/m/n/10 ## eye_color*     6 87   6,25   4,83      4    5,86  4,45   1
+   15    14  0,67[] 
  []
 
 [87]
-Overfull \hbox (164.5801pt too wide) in alignment at lines 3371--3375
+Overfull \hbox (164.5801pt too wide) in alignment at lines 3378--3382
  [] [] [] [] 
  []
 
 
-Overfull \hbox (164.5801pt too wide) in alignment at lines 3375--3396
+Overfull \hbox (164.5801pt too wide) in alignment at lines 3382--3403
  [] [] [] [] 
  []
 
@@ -1829,305 +1831,305 @@ Chapter 8.
 [89
 
 ]
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ##    lfdn alter_g3         pol_part_wahl pol_part_petition p
 ol_part_sm_kommentar[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ##   <dbl> <chr>                <dbl+lbl>         <dbl+lbl>  
            <dbl+lbl>[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 1  1634 22 bis 24 Jahre 0 [not quoted]    0 [not quoted]  
       0 [not quoted][] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 2  1636 22 bis 24 Jahre 1 [quoted]        0 [not quoted]  
       1 [quoted][] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 3  1637 22 bis 24 Jahre 1 [quoted]        1 [quoted]      
       0 [not quoted][] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 4  1638 22 bis 24 Jahre 1 [quoted]        1 [quoted]      
       0 [not quoted][] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 5  1639 22 bis 24 Jahre 1 [quoted]        0 [not quoted]  
       0 [not quoted][] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## 6  1640 22 bis 24 Jahre 1 [quoted]        1 [quoted]      
       0 [not quoted][] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## # ... with 8 more variables: pol_part_partei_veranstaltung
  <dbl+lbl>,[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## #   pol_part_gespraech <dbl+lbl>, pol_part_produktboykott 
 <dbl+lbl>,[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 3435--3435
+Overfull \hbox (85.5pt too wide) in paragraph at lines 3442--3442
 []\TU/lmtt/m/n/10 ## #   pol_part_parteiengagement <dbl+lbl>, pol_part_anderes_
 engagement <dbl+lbl>,[] 
  []
 
 Missing character: There is no χ in font [lmroman10-regular]:mapping=tex-text;!
 [90]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 3516--3516
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3523--3523
 []\TU/lmtt/m/n/10 ##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 
 24 Jahre[] 
  []
 
 [91]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 3516--3516
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3523--3523
 []\TU/lmtt/m/n/10 ##                  0             284             213        
      183[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 3516--3516
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3523--3523
 []\TU/lmtt/m/n/10 ##                  1              72             141        
      112[] 
  []
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 3526--3528
+Underfull \hbox (badness 1603) in paragraph at lines 3533--3535
 []\TU/lmtt/m/n/10 adorn_pct_formatting() \TU/lmr/m/n/10 dient der Formatierung 
 der Prozentwerte.
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3553--3553
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3560--3560
 []\TU/lmtt/m/n/10 ##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 
 24 Jahre       Total[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3553--3553
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3560--3560
 []\TU/lmtt/m/n/10 ##                  0       80% (284)       60% (213)       6
 2% (183)  68%  (680)[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3553--3553
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3560--3560
 []\TU/lmtt/m/n/10 ##                  1       20%  (72)       40% (141)       3
 8% (112)  32%  (325)[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3553--3553
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3560--3560
 []\TU/lmtt/m/n/10 ##              Total      100% (356)      100% (354)      10
 0% (295) 100% (1005)[] 
  []
 
 [92] [93]
-Underfull \hbox (badness 1478) in paragraph at lines 3611--3612
+Underfull \hbox (badness 1478) in paragraph at lines 3618--3619
 \TU/lmr/m/n/10 dann die Berechnung der Kovarianz und des Korrelationskoeffizien
 ten \TU/lmr/m/it/10 r
  []
 
 [94] [95]
-File: r_book_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-46-1.pdf>
+File: r_book_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-47-1.pdf>
 
-Overfull \hbox (6.80202pt too wide) in paragraph at lines 3688--3689
+Overfull \hbox (6.80202pt too wide) in paragraph at lines 3695--3696
 \TU/lmr/m/n/10 Die Kovarianz ist die gemeinsame Variation der beiden Variablen,
  beziehungsweise
  []
 
 [96]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3703.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3710.
 
-Underfull \hbox (badness 2744) in paragraph at lines 3705--3706
+Underfull \hbox (badness 2744) in paragraph at lines 3712--3713
 \TU/lmr/m/n/10 Der Korrelationskoeffizient \TU/lmr/m/it/10 r \TU/lmr/m/n/10 (au
 ch Pearson´s r oder Produkt-Moment-
  []
 
 [97] [98]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 3785--3785
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3792--3792
 []\TU/lmtt/m/n/10 ## Call:psych::corr.test(x = ., use = "pairwise", method = "p
 earson")[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3785--3785
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3792--3792
 []\TU/lmtt/m/n/10 ## Probability values (Entries above the diagonal are adjuste
 d for multiple tests.)[] 
  []
 
 
-Overfull \hbox (106.5pt too wide) in paragraph at lines 3785--3785
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3792--3792
 []\TU/lmtt/m/n/10 ##  To see confidence intervals of the correlations, print wi
 th the short=FALSE option[] 
  []
 
 [99]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3828--3828
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3835--3835
 []\TU/lmtt/m/n/10 ## Probability values (Entries above the diagonal are adjuste
 d for multiple tests.)[] 
  []
 
 
-Overfull \hbox (106.5pt too wide) in paragraph at lines 3828--3828
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3835--3835
 []\TU/lmtt/m/n/10 ##  To see confidence intervals of the correlations, print wi
 th the short=FALSE option[] 
  []
 
 [100]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##    term     mpg    cyl   disp     hp    drat     wt    qse
 c     vs      am[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##    <chr>  <dbl>  <dbl>  <dbl>  <dbl>   <dbl>  <dbl>   <dbl
 >  <dbl>   <dbl>[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  1 mpg   NA     -0.852 -0.848 -0.776  0.681  -0.868  0.419
    0.664  0.600[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  2 cyl   -0.852 NA      0.902  0.832 -0.700   0.782 -0.591
   -0.811 -0.523[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  3 disp  -0.848  0.902 NA      0.791 -0.710   0.888 -0.434
   -0.710 -0.591[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  4 hp    -0.776  0.832  0.791 NA     -0.449   0.659 -0.708
   -0.723 -0.243[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  5 drat   0.681 -0.700 -0.710 -0.449 NA      -0.712  0.091
 2  0.440  0.713[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  6 wt    -0.868  0.782  0.888  0.659 -0.712  NA     -0.175
   -0.555 -0.692[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  7 qsec   0.419 -0.591 -0.434 -0.708  0.0912 -0.175 NA    
    0.745 -0.230[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  8 vs     0.664 -0.811 -0.710 -0.723  0.440  -0.555  0.745
   NA      0.168[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ##  9 am     0.600 -0.523 -0.591 -0.243  0.713  -0.692 -0.230
    0.168 NA[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ## 10 gear   0.480 -0.493 -0.556 -0.126  0.700  -0.583 -0.213
    0.206  0.794[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3872--3872
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3879--3879
 []\TU/lmtt/m/n/10 ## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656
   -0.570  0.0575[] 
  []
 
 [101]
-Overfull \hbox (174.75pt too wide) in paragraph at lines 3892--3892
-[]\TU/lmtt/m/n/10 ## Don[]t know how to automatically pick scale for object of 
-type noquote. Defaulting to continuous.[] 
- []
-
-File: r_book_files/figure-latex/unnamed-chunk-54-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-54-1.pdf>
-[102]
-Overfull \hbox (174.75pt too wide) in paragraph at lines 3923--3923
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3899--3899
 []\TU/lmtt/m/n/10 ## Don[]t know how to automatically pick scale for object of 
 type noquote. Defaulting to continuous.[] 
  []
 
 File: r_book_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-55-1.pdf>
+[102]
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3930--3930
+[]\TU/lmtt/m/n/10 ## Don[]t know how to automatically pick scale for object of 
+type noquote. Defaulting to continuous.[] 
+ []
 
-Overfull \hbox (17.5718pt too wide) in paragraph at lines 3942--3943
+File: r_book_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-56-1.pdf>
+
+Overfull \hbox (17.5718pt too wide) in paragraph at lines 3949--3950
 \TU/lmr/m/n/10 Argumente/Bemerkung|  
  []
 
 
-Overfull \hbox (21.26826pt too wide) in alignment at lines 3933--3945
+Overfull \hbox (21.26826pt too wide) in alignment at lines 3940--3952
  [] [] [] [] 
  []
 
 
-Overfull \hbox (7.34961pt too wide) in paragraph at lines 3947--3948
+Overfull \hbox (7.34961pt too wide) in paragraph at lines 3954--3955
 []\TU/lmr/bx/n/10 Tabellenanalyse|  
  []
 
 
-Overfull \hbox (1.5596pt too wide) in paragraph at lines 3965--3966
+Overfull \hbox (1.5596pt too wide) in paragraph at lines 3972--3973
 []\TU/lmtt/m/n/10 adorn_totals()|  
  []
 
 
-Overfull \hbox (17.3096pt too wide) in paragraph at lines 3974--3975
+Overfull \hbox (17.3096pt too wide) in paragraph at lines 3981--3982
 []\TU/lmtt/m/n/10 adorn_percentages|  
  []
 
 
-Overfull \hbox (33.0596pt too wide) in paragraph at lines 3983--3984
+Overfull \hbox (33.0596pt too wide) in paragraph at lines 3990--3991
 []\TU/lmtt/m/n/10 adorn_pct_formatting|  
  []
 
 
-Overfull \hbox (21.26826pt too wide) in alignment at lines 3945--4126
+Overfull \hbox (21.26826pt too wide) in alignment at lines 3952--4133
  [] [] [] [] 
  []
 
 
-Overfull \hbox (21.26826pt too wide) in alignment at lines 4126--4145
+Overfull \hbox (21.26826pt too wide) in alignment at lines 4133--4152
  [] [] [] [] 
  []
 
@@ -2139,83 +2141,83 @@ Underfull \vbox (badness 3428) has occurred while \output is active []
 [105
 
 ]
-Underfull \hbox (badness 4108) in paragraph at lines 4204--4205
+Underfull \hbox (badness 4108) in paragraph at lines 4211--4212
 []\TU/lmr/m/n/10 Im Folgenden wollen wir uns natürlich ein paar Grafiken und Fo
 r-
  []
 
 [106]
-Underfull \hbox (badness 1237) in paragraph at lines 4206--4207
+Underfull \hbox (badness 1237) in paragraph at lines 4213--4214
 []\TU/lmr/m/n/10 Als Datenbeispiel benutzen wir auch in diesem Kapitel den Gene
 ration
  []
 
 [107]
-File: r_book_files/figure-latex/unnamed-chunk-64-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-64-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[108]
 File: r_book_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-65-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[109]
+[108]
 File: r_book_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-66-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[110]
+[109]
 File: r_book_files/figure-latex/unnamed-chunk-67-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-67-1.pdf>
-[111]
-File: r_book_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-68-1.pdf>
-File: r_book_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-69-1.pdf>
-[112]
-File: r_book_files/figure-latex/unnamed-chunk-72-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-72-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[113]
+[110]
+File: r_book_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-68-1.pdf>
+[111]
+File: r_book_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-69-1.pdf>
+File: r_book_files/figure-latex/unnamed-chunk-70-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-70-1.pdf>
+[112]
 File: r_book_files/figure-latex/unnamed-chunk-73-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-73-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[114]
+[113]
 File: r_book_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-74-1.pdf>
-[115]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[114]
 File: r_book_files/figure-latex/unnamed-chunk-75-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-75-1.pdf>
+[115]
+File: r_book_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-76-1.pdf>
 [116]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4443--4443
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4450--4450
 []\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
  []binwidth[].[] 
  []
 
-File: r_book_files/figure-latex/unnamed-chunk-78-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-78-1.pdf>
 File: r_book_files/figure-latex/unnamed-chunk-79-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-79-1.pdf>
+File: r_book_files/figure-latex/unnamed-chunk-80-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-80-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [117] [118] [119]
-File: r_book_files/figure-latex/unnamed-chunk-83-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-83-1.pdf>
+File: r_book_files/figure-latex/unnamed-chunk-84-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-84-1.pdf>
 [120]
 Chapter 10.
 [121
 
 ]
-Overfull \hbox (5.21298pt too wide) detected at line 4601
+Overfull \hbox (5.21298pt too wide) detected at line 4608
 [][][][][][][][][][][][][][][][][][][][][][][] [] [][] [] [][] [] [][][][][][][
 ][][][][][][][][][][][][][] [] [][][][][][]
  []
@@ -2223,25 +2225,20 @@ Overfull \hbox (5.21298pt too wide) detected at line 4601
 File: images/regression_model.png Graphic file (type bmp)
 <images/regression_model.png>
 [122] [123]
-Underfull \hbox (badness 4366) in paragraph at lines 4632--4633
+Underfull \hbox (badness 4366) in paragraph at lines 4639--4640
 []\TU/lmr/m/n/10 In jeder tatsächlich durchgeführten Berechnung einer Regressio
 n liegt
  []
 
 [124]
-File: r_book_files/figure-latex/unnamed-chunk-86-1.pdf Graphic file (type pdf)
-<use r_book_files/figure-latex/unnamed-chunk-86-1.pdf>
 File: r_book_files/figure-latex/unnamed-chunk-87-1.pdf Graphic file (type pdf)
 <use r_book_files/figure-latex/unnamed-chunk-87-1.pdf>
+File: r_book_files/figure-latex/unnamed-chunk-88-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-88-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [125] [126] [127] [128]
-Underfull \hbox (badness 1259) in paragraph at lines 4765--4766
-[]\TU/lmr/m/n/10 Im Standard-Output der Regression ist nur ein signifikanznivea
-u für R
- []
-
 Missing character: There is no β in font [lmroman12-bold]:mapping=tex-text;!
 Missing character: There is no β in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no β in font [lmroman10-regular]:mapping=tex-text;!
@@ -2250,26 +2247,172 @@ Missing character: There is no β in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no β in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no β in font [lmroman10-italic]:mapping=tex-text;!
 Missing character: There is no β in font [lmroman10-italic]:mapping=tex-text;!
-(./r_book.bbl [130])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4813.
+[130]
+Chapter 11.
 [131
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4813.
+Missing character: There is no ₁ in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ₂ in font [lmroman10-regular]:mapping=tex-text;!
+[132]
+Underfull \hbox (badness 1394) in paragraph at lines 4890--4891
+[]\TU/lmr/m/n/10 Die \TU/lmr/bx/n/10 Anwendungsvoraussetzung \TU/lmr/m/n/10 für
+ den Einstichproben-T-Test ist das
+ []
+
+[133]
+File: r_book_files/figure-latex/unnamed-chunk-94-1.pdf Graphic file (type pdf)
+<use r_book_files/figure-latex/unnamed-chunk-94-1.pdf>
+[134]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4940--4940
+[]\TU/lmtt/m/n/10 ##    vars  n mean  sd median trimmed mad min max range skew 
+kurtosis   se[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4940--4940
+[]\TU/lmtt/m/n/10 ## X1    1 70  2,1 1,1      2     2,1 1,5   0   5     5 -0,1 
+    -0,6 0,14[] 
+ []
+
+[135] [136] [137] [138]
+File: r_book_files/figure-latex/unnamed-chunk-101-1.pdf Graphic file (type pdf)
+
+<use r_book_files/figure-latex/unnamed-chunk-101-1.pdf>
+[139]
+File: r_book_files/figure-latex/unnamed-chunk-102-1.pdf Graphic file (type pdf)
+
+<use r_book_files/figure-latex/unnamed-chunk-102-1.pdf>
+[140] [141]
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
+[142]
+Underfull \hbox (badness 5316) in paragraph at lines 5193--5195
+[]\TU/lmr/m/n/10 Mit \TU/lmtt/m/n/10 alternative \TU/lmr/m/n/10 kann man festle
+gen ob der Test ungerichtet
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 5193--5195
+\TU/lmr/m/n/10 (\TU/lmtt/m/n/10 "two.sided"\TU/lmr/m/n/10 ) oder einseitig (\TU
+/lmtt/m/n/10 "less" \TU/lmr/m/n/10 oder \TU/lmtt/m/n/10 "greater"\TU/lmr/m/n/10
+ ) stattfinden
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 5212--5212
+[]\TU/lmtt/m/n/10 ##   .y.       group1    group2               n1    n2 statis
+tic    df        p[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 5212--5212
+[]\TU/lmtt/m/n/10 ## * <chr>     <chr>     <chr>             <int> <int>     <d
+bl> <dbl>    <dbl>[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 5212--5212
+[]\TU/lmtt/m/n/10 ## 1 Spende_t1 Rennspiel Superhelden-Spiel    35    35     -1
+2.6    66 1.51e-19[] 
+ []
+
+[143]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5237--5237
+[]\TU/lmtt/m/n/10 ##   .y.       group1    group2            effsize    n1    n
+2 magnitude[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5237--5237
+[]\TU/lmtt/m/n/10 ## * <chr>     <chr>     <chr>               <dbl> <int> <int
+> <ord>[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5237--5237
+[]\TU/lmtt/m/n/10 ## 1 Spende_t1 Rennspiel Superhelden-Spiel   -3.06    35    3
+5 large[] 
+ []
+
+[144]
+Underfull \hbox (badness 2189) in paragraph at lines 5272--5273
+[]\TU/lmr/m/n/10 Unterschiedet sich eine bestimmte Variable im Zeitverlauf zu u
+n-
+ []
+
+[145]
+File: r_book_files/figure-latex/unnamed-chunk-108-1.pdf Graphic file (type pdf)
+
+<use r_book_files/figure-latex/unnamed-chunk-108-1.pdf>
+[146] [147]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
+[]\TU/lmtt/m/n/10 ##   Gruppe           .y.    group1   group2      n1    n2 st
+atistic    df        p[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
+[]\TU/lmtt/m/n/10 ## * <chr>            <chr>  <chr>    <chr>    <int> <int>   
+  <dbl> <dbl>    <dbl>[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
+[]\TU/lmtt/m/n/10 ## 1 Rennspiel        Betrag Spende_~ Spende_~    35    35   
+  0.457    32 3.25e- 1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
+[]\TU/lmtt/m/n/10 ## 2 Superhelden-Spi~ Betrag Spende_~ Spende_~    35    35   
+ 14.9      32 2.76e-16[] 
+ []
+
+[148]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 5428--5428
+[]\TU/lmtt/m/n/10 ##   .y.    group1    group2    effsize Gruppe               
+n1    n2 magnitude[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5428--5428
+[]\TU/lmtt/m/n/10 ## * <chr>  <chr>     <chr>       <dbl> <chr>             <in
+t> <int> <ord>[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 5428--5428
+[]\TU/lmtt/m/n/10 ## 1 Betrag Spende_t1 Spende_t2  0.0795 Rennspiel            
+35    35 negligible[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5428--5428
+[]\TU/lmtt/m/n/10 ## 2 Betrag Spende_t1 Spende_t2  2.60   Superhelden-Spiel    
+35    35 large[] 
+ []
+
+(./r_book.bbl [149] [150
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5434.
+[151]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5434.
 (./r_book.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4813.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4813.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5434.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 5434.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 19149 strings out of 479418
- 343603 string characters out of 5884585
- 794832 words of memory out of 5000000
- 36368 multiletter control sequences out of 15000+600000
- 536365 words of font info for 72 fonts, out of 8000000 for 9000
+ 19218 strings out of 479418
+ 345743 string characters out of 5884585
+ 796013 words of memory out of 5000000
+ 36427 multiletter control sequences out of 15000+600000
+ 536373 words of font info for 73 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,6n,118p,1164b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,6n,118p,1164b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r_book.pdf (131 pages).
+Output written on r_book.pdf (151 pages).

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 10 Regression | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
   <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 10 Regression | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-05-20" />
+<meta name="date" content="2021-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,8 +32,8 @@
   
   
 <link rel="prev" href="grafiken.html"/>
-<link rel="next" href="literaturverzeichnis.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<link rel="next" href="t-tests.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
 <script>
@@ -124,6 +126,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -343,6 +368,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.3" data-path="regression.html"><a href="regression.html#standardisierte-regressionskoeffizienten-β"><i class="fa fa-check"></i><b>10.2.3</b> Standardisierte Regressionskoeffizienten (β)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="t-tests.html"><a href="t-tests.html"><i class="fa fa-check"></i><b>11</b> T-Tests</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="t-tests.html"><a href="t-tests.html#datenbeispiel"><i class="fa fa-check"></i><b>11.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="11.2" data-path="t-tests.html"><a href="t-tests.html#einstichproben-t-test"><i class="fa fa-check"></i><b>11.2</b> Einstichproben-T-Test</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="t-tests.html"><a href="t-tests.html#hypothese-aufstellen"><i class="fa fa-check"></i><b>11.2.1</b> Hypothese aufstellen</a></li>
+<li class="chapter" data-level="11.2.2" data-path="t-tests.html"><a href="t-tests.html#daten-explorieren"><i class="fa fa-check"></i><b>11.2.2</b> Daten explorieren</a></li>
+<li class="chapter" data-level="11.2.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen"><i class="fa fa-check"></i><b>11.2.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.2.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d"><i class="fa fa-check"></i><b>11.2.4</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="t-tests.html"><a href="t-tests.html#t-test-für-unabhängige-stichproben"><i class="fa fa-check"></i><b>11.3</b> T-Test für unabhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="t-tests.html"><a href="t-tests.html#deskriptive-auswertung"><i class="fa fa-check"></i><b>11.3.1</b> Deskriptive Auswertung</a></li>
+<li class="chapter" data-level="11.3.2" data-path="t-tests.html"><a href="t-tests.html#anwendungsvoraussetzungen"><i class="fa fa-check"></i><b>11.3.2</b> Anwendungsvoraussetzungen</a></li>
+<li class="chapter" data-level="11.3.3" data-path="t-tests.html"><a href="t-tests.html#levene-test-auf-varianzhomogenität"><i class="fa fa-check"></i><b>11.3.3</b> Levene-Test auf Varianzhomogenität</a></li>
+<li class="chapter" data-level="11.3.4" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-1"><i class="fa fa-check"></i><b>11.3.4</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.3.5" data-path="t-tests.html"><a href="t-tests.html#cohens-d-1"><i class="fa fa-check"></i><b>11.3.5</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="t-tests.html"><a href="t-tests.html#t-test-für-abhängige-stichproben"><i class="fa fa-check"></i><b>11.4</b> T-Test für abhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="t-tests.html"><a href="t-tests.html#deskriptiver-vergleich"><i class="fa fa-check"></i><b>11.4.1</b> Deskriptiver Vergleich</a></li>
+<li class="chapter" data-level="11.4.2" data-path="t-tests.html"><a href="t-tests.html#levene-tests-durchführen"><i class="fa fa-check"></i><b>11.4.2</b> Levene-Tests durchführen</a></li>
+<li class="chapter" data-level="11.4.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-2"><i class="fa fa-check"></i><b>11.4.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -368,18 +419,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Das lineare Modell</h2>
 <p>Das lineare Modell hat die folgende Form, wobei <em>y</em> für die Werte der abhängigen Variable steht (auch <em>Outcome</em>, Kriterium, Regressant oder “zu erklärende” Variable). Die unabhängige(n) Variable(n) heißen <em>x</em> (auch Prädiktoren, Regressoren oder erklärende Variablen) und <em>b</em> ist ein “Gewicht.” <em>e</em> steht für den <em>Fehler</em>, also den Anteil an Varianz, der nicht durch das Modell erklärt werden kann.</p>
 <p><span class="math display">\[y = b_{0}+b_{1}x_{1}+b_{2}x_{2}+... b_{n}x_{n}+E\]</span></p>
-<p>Das Modell besagt, dass die Ausprägung der Variable <em>y</em> von den Ausprägungen der <em>x</em>-Variablen abhängt. Diese <em>x</em>-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht <em>b</em> multipliziert. Der “Rest,” also alles, was nicht erklärt werden kann, wird mit <em>E</em> aufgefangen. Das Gewicht <em>b_{0}</em> ist keiner <em>x</em>-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von <em>y</em> und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet - warum zeige ich später noch.</p>
-<p>Das <strong>Ziel der linearen Regression</strong> ist es, herauszufinden, welche unterschiedlichen Gewichte (also Werte von <em>b</em>) die einzelnen unabhängigen Variablen <em>x</em> jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren <em>x</em> die Outcome-Variable <em>y</em> in besonderem Maße beeinflussen.</p>
-<p>– Moment, stand da gerade <em>beeinflussen</em>? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der <em>x</em>-Variable auf die <em>y</em>-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der [#Korrelation], die lediglich von einem Zusammenhang ausgeht ohne in abhängige und unabhängige Variable zu unterschieden.</p>
-<p>An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell, noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r sachlogische Gründe für die Plausibilität Ihrer Kausalhypothese anzuführen!</p>
+<p>Das Modell besagt, dass die Ausprägung der Variable <em>y</em> von den Ausprägungen der <em>x</em>-Variablen abhängt. Diese <em>x</em>-Variablen werden aber mit einem jeweils unterschiedlichen Gewicht <em>b</em> multipliziert. Der “Rest,” also alles, was nicht erklärt werden kann, wird mit <em>E</em> aufgefangen. Das Gewicht <em>b_{0}</em> ist keiner <em>x</em>-Variable zugeordnet. Es ist eine Art grundsätzliches Niveau von <em>y</em> und wird auch als Konstante oder Achsenabschnitt (englisch Intercept) bezeichnet. - Warum zeige ich später noch.</p>
+<p>Das <strong>Ziel der linearen Regression</strong> ist es herauszufinden, welche unterschiedlichen Gewichte (also Werte von <em>b</em>) die einzelnen unabhängigen Variablen <em>x</em> jeweils haben. Dadurch kann man eine Aussage treffen, welche Prädiktoren <em>x</em> die Outcome-Variable <em>y</em> in besonderem Maße beeinflussen.</p>
+<p>– Moment, stand da gerade <em>beeinflussen</em>? Ja. Tatsächlich ist die theoretische Annahme der Regression, dass es einen Einfluss von der <em>x</em>-Variable auf die <em>y</em>-Variable gibt. Mit der Regression werden also Kausalhypothesen untersucht. Darin unterscheidet sie sich von der [#Korrelation], die lediglich von einem Zusammenhang ausgeht, ohne in abhängige und unabhängige Variable zu unterschieden.</p>
+<p>An dieser Stelle möchte ich aber ausdrücklich darauf hinweisen, dass weder das lineare Modell noch R die Annahme der Kausalität überprüfen kann. R kann Ihnen auch nicht sagen, welche Variable in einem Modell die abhängige und welche die unabhängige sein sollte. Es ist Ihre Aufgabe als Forschende:r, sachlogische Gründe für die Plausibilität ihrer Kausalhypothese anzuführen!</p>
 </div>
 <div id="bivariate-lineare-regression" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Bivariate lineare Regression</h2>
-<p>Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine <em>bivariate</em> Regression. Die Hypothese, die getestet werden soll, lautet:</p>
-<p><strong>H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst.</strong></p>
-<p>Wir nehmen uns also wieder den Gen-Z-Datensatz vor. Die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:</p>
+<p>Nach den einführenden Worten ist es jetzt Zeit für ein konkretes Beispiel. Im Folgenden möchte ich mir den einfachsten Fall vornehmen, nämlich eine Regression mit nur einem Prädiktor oder auch eine <em>bivariate</em> Regression. Die Hypothese die getestet werden soll lautet:</p>
+<p><strong>H1: Die politische Partizipation wird vom generellen politischen Interesse beeinflusst</strong></p>
+<p>Wir nehmen uns also wieder den Gen-Z-Datensatz vor und die Variablen, um die es hier geht, kennen Sie auch schon aus den vorigen Kapiteln:</p>
 <ul>
-<li><p>Die abhängige Variable politische Partizipation (<em>y</em>) ist ein Summenindex von 10 politischen Handlungen, beispielsweise “Wählen gehen,” “Teilnahme an Produktboykott” usw. Befragte können hier einen Wert zwischen 0 = <em>keine Teilnahme</em> und 10 = <em>Teilnahme an allen zehn Handlungen</em> erreichen.</p></li>
+<li><p>Die abhängige Variable Politische Partizipation (<em>y</em>) ist ein Summenindex von 10 politischen Handlungen, beispielsweise “Wählen gehen,” “Teilnahme an Produktboykott” usw. Befragte können hier einen Wert zwischen 0 = <em>keine Teilnahme</em> und 10 = <em>Teilnahme an allen zehn Handlungen</em> erreichen.</p></li>
 <li><p>Die Prädiktorvariable politisches Interesse (<em>x</em>) wurde auf einer Skala von 0 = <em>überhaupt nicht</em> bis 3 = <em>sehr stark</em> gemessen.</p></li>
 </ul>
 <p>Die Formel für eine bivariate Regression lautet so:</p>
@@ -391,121 +442,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong><em>b<sub>1</sub></em></strong> ist die Steigung der Regressionsgeraden (englisch <em>slope</em>). Wenn wir eine Einheit auf der x-Achse weitergehen, um wie viele Einheiten steigt die Regressionsgerade dann auf der y-Achse an? Im dargestellten Beispiel sind das bei der pinken Linie zwei y-Einheiten. Bei den zur Veranschaulichung dargestellten alternativen Slopes ist die Steigung eine andere: Bei hellgrün sind es 4 (sehr steile Linie), bei hellblau nur 0,25 (sehr flach).</p></li>
 <li><p><strong><em>b<sub>0</sub></em></strong> ist der Achsenabschnitt, also der Punkt, an dem die Gerade die y-Achse schneidet. Anders ausgedrückt: Wenn die unabhängige Variable den Wert x = 0 hat, welchen Wert hat dann y?</p></li>
-<li><p>Das <strong><em>Residuum</em></strong> ist die Abweichung der Messpunkte von der Regressionsgeraden. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler <strong><em>E</em></strong> in der Regressionsgleichung wird in der Regel <strong>gebildet durch die Summe der quadrierten Residuen</strong>. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. Macht aber keiner.</p></li>
+<li><p>Das <strong><em>Residuum</em></strong> ist die Abweichung der Messpunkte von der Regressionsgerade. Hier dargestellt durch einen einzelnen blauen Punkt (die Messung), der eben nicht genau auf der pinken Linie liegt. Der Fehler <strong><em>E</em></strong> in der Regressionsgleichung wird in der Regel <strong>gebildet durch die Summe der quadrierten Residuen</strong>. Das hat dann den Vorteil, dass positive und negative Residuen sich nicht gegenseitig aufheben können und dass größere Abweichungen proportional stärker ins Gewicht fallen als kleinere. Es ist aber vor allem eine Konvention. Denkbar wäre es auch, den Fehler durch die Summe der Beträge der Residuen zu bilden. Macht aber keiner.</p></li>
 </ul>
 <div id="info_e" class="box info">
 <p><strong>Warum gibt es überhaupt Residuen und den Fehler?</strong></p>
-<p>Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Regressionsgeraden (Residuen). Empirisch wird sich nämlich kaum eine perfekte Anordnung zeigen, bei der alle Messpunkte genau auf der Geraden leigen. In einer Messung wird es immer Punkte geben, die mehr oder weniger stark von der Regressionsgerade abweichen. In unserem Beispiel könnte es eine Person geben, die sich erst an 4 politischen Handlungsmöglichkeiten beteiligt hat, die aber dennoch angibt, ihr politisches Interesse sei extrem hoch. Für diese Abweichung kann es natürlich ganz unterschiedliche Gründe geben. Die empirische Wirklichkeit ist eben kein Modell! Hier ein paar unterschiedliche Beispiele, wie die Abweichung zustande kommen kann:</p>
+<p>Der Fehler basiert auf allen Abweichungen der gemessenen Werte vom Modell der Regressionsgeraden (Residuen). Empirisch wird sich nämlich kaum eine perfekte Anordnung zeigen, bei der alle Messpunkte genau auf der Geraden liegen. In einer Messung wird es immer Punkte geben, die mehr oder weniger stark von der Regressionsgerade abweichen. In unserem Beispiel könnte es eine Person geben, die sich erst an 4 politischen Handlungsmöglichkeiten beteiligt hat, die aber dennoch angibt, ihr politisches Interesse sei extrem hoch. Für diese Abweichung kann es natürlich ganz unterschiedliche Gründe geben. Die empirische Wirklichkeit ist eben kein Modell! Hier ein paar unterschiedliche Beispiele, wie die Abweichung zustande kommen kann:</p>
 <ul>
-<li><p>Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben - also ein “Fehler” beim Ausfüllen des Fragebogens.</p></li>
-<li><p>Die Person hatte einfach noch nicht genügend Gelegenheit, sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit, zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.</p></li>
-<li><p>Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei “3” liegt, “5,2” politische Handlungen ausgeführt haben müsste. Das geht ja kaum. Der Wert, den die Gerade schätzt, ist eben nur hypothetisch.</p></li>
+<li><p>Die Person hat die Skala für politisches Interesse falsch herum gedeutet, sie wollte eigentlich ein niedriges politisches Interesse angeben. - Also ein “Fehler” beim Ausfüllen des Fragebogens.</p></li>
+<li><p>Die Person hatte einfach noch nicht genügend Gelegenheit, sich an politischen Aktionen zu beteiligen. Vielleicht ist sie sehr jung und hat deshalb nicht die Möglichkeit zu Demonstrationen in die nächste Stadt zu fahren oder zu wählen. Es könnte also sein, dass unser Modell unvollständig ist und noch nicht alle relevanten Einflussfaktoren berücksichtigt sind.</p></li>
+<li><p>Der Wert, den unsere Regressionsgerade vorhersagt, ist empirisch gar nicht erreichbar. Es könnte zum Beispiel sein, dass die modellhafte Gerade vorhersagt, dass eine Person, deren politisches Interesse bei “3” liegt, “5,2” politische Handlungen ausgeführt haben müsste. - Das geht ja kaum. Der Wert, den die Gerade schätzt, ist eben nur hypothetisch.</p></li>
 <li><p>Der Zusammenhang ist gar nicht linear (also keine gerade Linie). Vielleicht wäre eine “andere Form” der Line viel angemessener. Vielleicht eine Kurve die erst steil ansteigt und dann abflacht.</p></li>
 </ul>
 <p>In jeder tatsächlich durchgeführten Berechnung einer Regression liegt wahrscheinlich eine Mischung aus verschiedenen Gründen vor. Was genau sich hinter dem Residuum genau verbirgt, werden wir nie wirklich wissen. Es ist jedoch natürlich unsere Aufgabe, den Wert mit einem gut durchdachten Forschungsdesign möglichst klein zu halten.</p>
 </div>
-<p>Bevor es jetzt losgeht noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.</p>
+<p>Bevor es jetzt losgeht, noch eine kleine Anmerkung zu der Kausalannahme der Hypothese: Allgemein wird häufig davon ausgegangen, dass das Denken das Handeln prägt. Deshalb ist die Hypothese grundsätzlich plausibel. Häufig ist jedoch durchaus auch eine umgekehrte Richtung plausibel. Auch in diesem Fall könnte es durchaus sein, dass die Teilnahme an politischen Aktionen wie Demonstrationen oder Wahlen Einfluss auf das politische Interesse ausübt. Nehmen wir mal an, wir haben einen langen Theorieteil geschrieben und die Unterteilung in unabhängige und abhängige Variable hinreichend begründet.</p>
 <div id="grafische-darstellung" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Grafische Darstellung</h3>
 <p>Die erste Annäherung an die Regression ist grafisch. Mit einem Scatterplot oder Jitterplot kann der Zusammenhang zwischen zwei Variablen visualisiert werden (vgl. Abschnitt [### Streudiagramm]). Das Paket <code>ggplot2</code> kann aber noch mehr. Mit dem Geom <code>geom_smooth</code> kann man über <code>method = "lm"</code> (für “linear model”) eine Regressionsgerade zur Punktewolke hinzufügen.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regression.html#cb253-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb253-2"><a href="regression.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
-<span id="cb253-3"><a href="regression.html#cb253-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
-<span id="cb253-4"><a href="regression.html#cb253-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
-<span id="cb253-5"><a href="regression.html#cb253-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
-<span id="cb253-6"><a href="regression.html#cb253-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
-<p>Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. Aber welche Werte haben jetzt <em>b<sub>0</sub></em> und vor allem <em>b<sub>1</sub></em>? Dazu mehr im nächsten Abschnitt.</p>
-<p>Zunächst möchte ich noch kurz auf das <code>geom_smooth()</code> eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, <code>method</code>, hatte ich auf <code>lm</code> gesetzt, weil wir ja hier genau das machen wollen, nämlich eine Regressionsgerade nach dem “linearen Modell” berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument <code>color = "deeppink"</code> können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformem HMTMH-Magenta ein. Aber was macht das mittlere Argument <code>se = FALSE</code>? Das finden wir ganz einfach heraus, indem wir es einmal auf <code>TRUE</code> setzen:</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb254-2"><a href="regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
 <span id="cb254-3"><a href="regression.html#cb254-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
-<span id="cb254-4"><a href="regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb254-4"><a href="regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
 <span id="cb254-5"><a href="regression.html#cb254-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
 <span id="cb254-6"><a href="regression.html#cb254-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt <em>b<sub>0</sub></em> und vor allem <em>b<sub>1</sub></em>? Dazu mehr im nächsten Abschnitt.</p>
+<p>Zunächst möchte ich noch kurz auf das <code>geom_smooth()</code> eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, <code>method</code>, hatte ich auf <code>lm</code> gesetzt, weil wir ja hier genau das machen wollen – nämlich eine Regressionsgerade nach dem “linearen Modell” berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument <code>color = "deeppink"</code> können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformen HMTMH-Magenta ein. Aber was macht das mittlere Argument <code>se = FALSE</code>? Das finden wir ganz einfach heraus, indem wir es einmal auf <code>TRUE</code> setzen:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb255-2"><a href="regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
+<span id="cb255-3"><a href="regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb255-4"><a href="regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb255-5"><a href="regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
+<span id="cb255-6"><a href="regression.html#cb255-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein “Schatten” hinter der Geraden. Dieser Schatten zeigt das Konfidenzintervall der Regressionsgeraden an. Praktisch!</p>
 </div>
 <div id="die-funktion-lm" class="section level3" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Die Funktion <code>lm()</code></h3>
 <p>Die grafische Darstellung ist sehr nützlich, aber natürlich wüssten wir auch gerne die genauen Werte für unsere Regressionsgerade. Um die herauszufinden, bietet das <code>stats</code>-Paket die Funktion <code>lm()</code> (linear model). Zur Erinnerung: Genau wie <code>base</code>-R muss man das <code>stats</code>-Paket nicht gesondert laden, es ist standardmäßig verfügbar, sobald man RStudio öffnet.</p>
-<p>Die Funktion <code>lm()</code> erwartet zwei Argumente: 1. ein Objekt der R-Klasse “formula.” Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer “Formel” teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. Als zweites Argument benötigt die Funktion natürlich noch den Datensatz auf den die Formel angewendet werden soll.</p>
-<p>Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator <code>~</code> (Tilde). <strong>Die Tilde <code>~</code> bedeutet: “wird vorhergesagt durch”</strong>. Für die lineare Regression muss die Formel also <code>abhängige_Variable ~ unabhängige_Variable</code> lauten.</p>
-<p>Nachdem man die <code>lm()</code>-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. <code>my_model</code>) zugeordnet hat, kann man sich mit der <code>summary()</code>-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das Ganze so aus:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formulieren</span></span>
-<span id="cb255-2"><a href="regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pol_part_sx <span class="sc">~</span> politisches_interesse, <span class="at">data =</span> data)</span>
-<span id="cb255-3"><a href="regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb255-4"><a href="regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Zusammenfassung ausgeben</span></span>
-<span id="cb255-5"><a href="regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
+<p>Die Funktion <code>lm()</code> erwartet zwei Argumente: 1. ein Objekt der R-Klasse “formula.” Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer “Formel” teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. als zweites Argument benötigt die Funktion natürlich noch den Datensatz, auf den die Formel angewendet werden soll.</p>
+<p>Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator <code>~</code> (Tilde). <strong>Die Tilde <code>~</code> bedeutet: “wird vorhergesagt durch”</strong>. Für die lineare Regression muss die Formel also <code>abhängige_Variable  ~ unabhängige_Variable</code> lauten.</p>
+<p>Nachdem man die <code>lm()</code>-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. <code>my_model</code>) zugeordnet hat, kann man sich mit der <code>summary()</code>-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das ganze so aus:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regression.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formulieren</span></span>
+<span id="cb256-2"><a href="regression.html#cb256-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pol_part_sx <span class="sc">~</span> politisches_interesse, <span class="at">data =</span> data)</span>
+<span id="cb256-3"><a href="regression.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb256-4"><a href="regression.html#cb256-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Zusammenfassung ausgeben</span></span>
+<span id="cb256-5"><a href="regression.html#cb256-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.7303 -1.1427 -0.1427  1.0042  5.5635 
+## -4,7303 -1,1427 -0,1427  1,0042  5,5635 
 ## 
 ## Coefficients:
 ##                       Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)            0.84886    0.10594   8.013 3.12e-15 ***
-## politisches_interesse  1.29382    0.06332  20.431  &lt; 2e-16 ***
+## (Intercept)            0,84886    0,10594   8,013 3,12e-15 ***
+## politisches_interesse  1,29382    0,06332  20,431  &lt; 2e-16 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0,001 &#39;**&#39; 0,01 &#39;*&#39; 0,05 &#39;.&#39; 0,1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.746 on 997 degrees of freedom
-##   (7 observations deleted due to missingness)
-## Multiple R-squared:  0.2951, Adjusted R-squared:  0.2944 
-## F-statistic: 417.4 on 1 and 997 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 1,746 on 997 degrees of freedom
+##   (7 Beobachtungen als fehlend gelöscht)
+## Multiple R-squared:  0,2951, Adjusted R-squared:  0,2944 
+## F-statistic: 417,4 on 1 and 997 DF,  p-value: &lt; 2,2e-16</code></pre>
 <p>Puh, da steht eine Menge Zeug. Vieles davon habe ich noch gar nicht erklärt. Gehen wir den Output der Reihe nach durch.</p>
 <p>Der Output beginnt mit dem <strong>Call</strong>. Das ist ganz nett, hier wird unser Funktionsaufruf wiederholt. Er ist also im Model mit abgespeichert: Ein kleiner Reminder, falls man viele Modelle gerechnet und vergessen hat, welche Formel und Daten man jeweils benutzt hat.</p>
-<p>Dann folgen die <strong>Residuals</strong>. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit <em>e</em> gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgeraden hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.</p>
-<p>Im Output der <code>lm()</code>-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu -4.73 nach unten und sogar bis zu 5.56 nach oben ab.</p>
+<p>Dann folgen die <strong>Residuals</strong>. Die Residuen sind die Abweichungen der Messwerte von den Werten, die die Regressionsgerade für jeden Fall im Datensatz vorhersagen würde. Also der Fehler oder das, was oben in der einleitenden Grafik mit <em>e</em> gekennzeichnet war. Wenn man sich den Scatterplot von oben anschaut, dann ist das Residuum die Distanz von jedem einzelnen Punkt zur Regressionsgeraden. Liegt der Punkt über der Regressionsgerade, hat das Residuum ein positives Vorzeichen. Liegt ein Punkt darunter, ist das Vorzeichen negativ.</p>
+<p>Im Output der <code>lm()</code>-Funktion werden hier einfach ein paar zentrale Kennzahlen über die Verteilung der Residuen angegeben, nämlich die Quartilsgrenzen. Wir könnten uns aber auch für jeden Fall im Datensatz das jeweilige Residuum ausgeben lassen. Schön wäre natürlich, wenn die Residuen möglichst klein wären. Das ist hier aber leider nicht der Fall. Die Werte weichen bis zu -4,73 nach unten und sogar bis zu 5,56 nach oben ab.</p>
 <p>Die Werte für <em>b<sub>0</sub></em> und <em>b<sub>1</sub></em> finden sich im dritten Bereich der Ausgabe unter <strong>Coefficients</strong> in der Spalte “Estimate”:</p>
 <ul>
-<li>In der Zeile “(Intercept)” ist der Wert für <em>b<sub>0</sub></em> (hier 0.85)</li>
-<li>In der Zeile “politisches_interesse” ist der Wert für <em>b<sub>1</sub></em> (hier 1.29)</li>
+<li>In der Zeile “(Intercept)” ist der Wert für <em>b<sub>0</sub></em> (hier 0,85)</li>
+<li>In der Zeile “politisches_interesse” ist der Wert für <em>b<sub>1</sub></em> (hier 1,29)</li>
 </ul>
-<p>Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standardfehler (“Std. Error”) für die b-Werte und jeweils noch einen T-Test (vgl. zukünftiges Kapitel “T-Test”). Der T-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine Test-Statistik ist der T-Wert (“t value”) und zu diesem T-Wert gibt es noch ein Signifikanzniveau (“Pr(&gt;|t|)”). Wie immer gilt hier, dass ein Wert von p &lt; .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen <code>*</code> gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.</p>
+<p>Die weiteren Spalten in der Coefficients-Tabelle enthalten den Standardfehler (“Std. Error”) für die b-Werte und jeweils noch einen t-Test (vgl. zukünftiges Kapitel “t-Test”). Der t-Test prüft, ob die b-Werte überzufällig von Null abweichen. Seine Test-Statistik ist der t-Wert (“t value”) und zu diesem t-Wert gibt es noch ein Signifikanzniveau (“Pr(&gt;|t|)”). Wie immer gilt hier, dass ein Wert von p &lt; .05 als signifikant gewertet wird. Praktischerweise sind signifikante Werte in der Tabelle mit Sternchen <code>*</code> gekennzeichnet. Was die Sternchen und die anderen Codes genau bedeuten, ist praktischerweise unter der Tabelle nochmal aufgeführt.</p>
 <div id="info_b" class="box info">
 <p><strong>Was sagen die Regressionskoeffizienten (b-Werte) aus?</strong></p>
-<p>Der Wert <em>b<sub>1</sub></em> = 1.29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt oder abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) dann kommen 1.29 politische Handlungen dazu.</p>
-<p>Der Wert <em>b<sub>0</sub></em> = 1.3 bedeutet, dass die abhängige Variable “politische Partizipation” den Wert 1.3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich, in unserer Grafik oben schneidet die Regressionsgerade die Y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen, dass es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. – Selbst wenn kein politisches Interesse vorliegt (0 = <em>Überhaupt nicht</em>), gibt es laut der Regressionsgeraden eine gewisse politische Partizipation.</p>
+<p>Der Wert <em>b<sub>1</sub></em> = 1,29 gibt an, um wie viele Einheiten die abhängige Variable ansteigt oder abfällt, wenn der Prädiktor um eine Einheit größer wird. Hier also: Nimmt das politische Interesse um 1 zu (also z.B. von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) dann kommen 1,29 politische Handlungen dazu.</p>
+<p>Der Wert <em>b<sub>0</sub></em> = 1,3 bedeutet, dass die abhängige Variable “politische Partizipation” den Wert 1,3 annimmt, wenn die unabhängige Variable = 0 ist. Tatsächlich, in unserer Grafik oben schneidet die Regressionsgerade die y-Achse genau bei diesem Wert. Aus dem positiven Intercept kann man schließen, dass es offenbar ein gewisses Grundniveau von politischer Partizipation gibt. – Selbst wenn kein politisches Interesse vorliegt (0 = <em>Überhaupt nicht</em>), gibt es laut der Regressionsgerade eine gewisse politische Partizipation.</p>
 </div>
 <p>Im vierten und letzten Abschnitt des Outputs wird der Standardfehler der Residuen inklusive Freiheitsgerade (degrees of freedom) angegeben (Erläuterung folgt später). An dieser Stelle erfährt man auch, dass einige Fälle aus der Berechnung entfernt wurden, da sie fehlende Werte in der einen oder anderen Variable aufweisen.</p>
-<p>Zu guter Letzt gibt es noch einen <em>R<sup>2</sup></em>-Wert (r-squared), ein <em>korrigiertes R<sup>2</sup></em> (adjustet R-squared) und eine F-Statistik für eben dieses <em>R<sup>2</sup></em>. <em>R<sup>2</sup></em> ist der Anteil der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob <em>R<sup>2</sup></em> sich signifikant von Null unterscheidet. – So ähnlich wie oben mit dem T-Test bei den <em>b</em>-Werten.</p>
-<p>Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben <em>b<sub>1</sub></em> (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens <em>R<sup>2</sup></em> inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a>sign <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb257-2"><a href="regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;Das Modell ist auf dem Niveau p &lt; .001 signifikant.&quot;</span>,</span>
-<span id="cb257-3"><a href="regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;Das Modell ist auf dem Niveau p &lt; .01 signifikant.&quot;</span>,</span>
-<span id="cb257-4"><a href="regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;Das Modell ist auf dem Niveau p &lt; .05 signifikant.&quot;</span>,</span>
-<span id="cb257-5"><a href="regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Das Modell ist nicht signifikant.&quot;</span></span>
-<span id="cb257-6"><a href="regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von <em>b</em> = 1.29 politischen Handlungen einher. Die erklärte Varianz beträgt <em>R<sup>2</sup></em> = 0.3, bei <em>df</em> = 997 Freiheitsgraden (<em>korrigiertes R<sup>2</sup></em> = 0.29). Das Modell ist auf dem Niveau p &lt; .001 signifikant.</p>
-<div id="info_b_confidence" class="box thumb">
-<p><strong>Konfidenzintervalle für b</strong></p>
-<p>Im Standard-Output der Regression ist nur ein signifikanzniveau für R angegeben. Selbstverständlich kann man Inferenzstatistik auch auf die Konstante und b anwenden. Mit der Funktion <code>confint()</code> aus dem <code>stats</code>-Paket kann man sich Konfidenzintervalle für die Regressionsparameter eines Modells ausgeben lassen:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(my_model)</span></code></pre></div>
-<pre><code>##                           2.5 %   97.5 %
-## (Intercept)           0.6409651 1.056748
-## politisches_interesse 1.1695581 1.418089</code></pre>
-</div>
+<p>Zu guter Letzt gibt es noch einen R<sup>2</sup>-Wert (r-squared), ein korrigiertes R<sup>2</sup> (adjustet R-squared) und eine F-Statistik für eben dieses R<sup>2</sup>. R<sup>2</sup> ist der Anteil, der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob R<sup>2</sup> sich signifikant von Null unterschiedet. – So ähnlich wie oben mit dem t-Test bei den b-Werten.</p>
+<p>Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben <em>b<sub>1</sub></em> (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens R<sup>2</sup> inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a>sign <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb258-2"><a href="regression.html#cb258-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .001&quot;</span>,</span>
+<span id="cb258-3"><a href="regression.html#cb258-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .01&quot;</span>,</span>
+<span id="cb258-4"><a href="regression.html#cb258-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .05&quot;</span>,</span>
+<span id="cb258-5"><a href="regression.html#cb258-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;n.s.&quot;</span></span>
+<span id="cb258-6"><a href="regression.html#cb258-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von <em>b</em> = 1,29 politischen Handlungen einher. Die erklärte Varianz beträgt R<sup>2</sup> = 0,2951303, bei df = 997 Freiheitsgraden (korrigiertes R<sup>2</sup> = 0,2944233). Das Modell ist auf dem Niveau p &lt; .001 signifikant.</p>
 </div>
 <div id="standardisierte-regressionskoeffizienten-β" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Standardisierte Regressionskoeffizienten (β)</h3>
-<p>Neben den normalen Regressionskoeffizienten b kann man auch standardisierten Koeffizienten β (beta) berechnen. Dazu <strong>z-standardisiert</strong> man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja “auf den Mittelwert zentrieren und Standardabweichung = 1 setzen.” Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also <strong>nicht</strong> der Sprung von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.</p>
+<p>Neben den normalen Regressionskoeffizienten b kann man auch den standardisierten Koeffizienten β (beta) berechnen. Dazu <strong>z-standardisiert</strong> man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja “auf den Mittelwert zentrieren und Standardabweichung = 1 setzen.” Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also <strong>nicht</strong> der Sprung von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.</p>
 <p>Das <code>stats</code>-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu gibt es aber das Paket <code>lm.beta</code> mit der gleichnamigen Funktion, welche auf ein mit <code>lm()</code> erzeugtes Modell angewendet werden kann.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regression.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
-<span id="cb260-2"><a href="regression.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
-<span id="cb260-3"><a href="regression.html#cb260-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb260-4"><a href="regression.html#cb260-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
-<span id="cb260-5"><a href="regression.html#cb260-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
+<span id="cb259-2"><a href="regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
+<span id="cb259-3"><a href="regression.html#cb259-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb259-4"><a href="regression.html#cb259-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
+<span id="cb259-5"><a href="regression.html#cb259-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
 ## 
 ## Standardized Coefficients::
 ##           (Intercept) politisches_interesse 
-##              0.000000              0.543259</code></pre>
+##              0,000000              0,543259</code></pre>
 <div id="info_beta" class="box danger">
 <p><strong>Achtung b oder β?</strong></p>
 <p>Leider gibt es bezüglich <em>b</em> und <em>β</em> – wie so oft – ein wenig Begriffs-Chaos in unterschiedlichen Lehrbüchern. Manchmal wird nämlich für die hier mit <em>b</em> betitelten nicht-standardisierten Regressionskoeffizienten <em>β</em> genutzt.</p>
@@ -520,7 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="grafiken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literaturverzeichnis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="t-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -543,6 +586,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

@@ -139,3 +139,21 @@
 \contentsline {subsection}{\numberline {10.2.1}Grafische Darstellung}{124}{subsection.10.2.1}%
 \contentsline {subsection}{\numberline {10.2.2}Die Funktion \texttt {lm()}}{126}{subsection.10.2.2}%
 \contentsline {subsection}{\numberline {10.2.3}Standardisierte Regressionskoeffizienten (β)}{129}{subsection.10.2.3}%
+\contentsline {chapter}{\numberline {11}T-Tests}{131}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Datenbeispiel}{132}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Einstichproben-T-Test}{133}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Hypothese aufstellen}{133}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Daten explorieren}{134}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}T-Test durchführen}{135}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}Cohen´s d}{136}{subsection.11.2.4}%
+\contentsline {section}{\numberline {11.3}T-Test für unabhängige Stichproben}{138}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Deskriptive Auswertung}{139}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Anwendungsvoraussetzungen}{140}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Levene-Test auf Varianzhomogenität}{141}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}T-Test durchführen}{143}{subsection.11.3.4}%
+\contentsline {subsection}{\numberline {11.3.5}Cohen´s d}{144}{subsection.11.3.5}%
+\contentsline {section}{\numberline {11.4}T-Test für abhängige Stichproben}{144}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Deskriptiver Vergleich}{145}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Levene-Tests durchführen}{147}{subsection.11.4.2}%
+\contentsline {subsection}{\numberline {11.4.3}T-Test durchführen}{148}{subsection.11.4.3}%
+\contentsline {subsection}{\numberline {11.4.4}Cohen´s d}{149}{subsection.11.4.4}%

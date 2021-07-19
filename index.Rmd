@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib]
+bibliography: [literature.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: xvariable/r_book
@@ -13,7 +13,12 @@ url: 'https\://bookdown.org/yihui/rmarkdown-cookbook/'
 description: "Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht."
 header-includes:
   - \usepackage{titling}
+  - \usepackage{icomma}
 ---
+
+```{r}
+options(OutDec= ",")
+```
 
 # Herzlich Willkommen! {-}
 
