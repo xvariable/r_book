@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  19 JUL 2021 23:34
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.27)  20 JUL 2021 09:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2345,7 +2345,10 @@ n-
 File: r_book_files/figure-latex/unnamed-chunk-108-1.pdf Graphic file (type pdf)
 
 <use r_book_files/figure-latex/unnamed-chunk-108-1.pdf>
-[146] [147]
+[146]
+Underfull \vbox (badness 1389) has occurred while \output is active []
+
+[147]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
 []\TU/lmtt/m/n/10 ##   Gruppe           .y.    group1   group2      n1    n2 st
 atistic    df        p[] 
@@ -2360,13 +2363,13 @@ Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
 
 Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
 []\TU/lmtt/m/n/10 ## 1 Rennspiel        Betrag Spende_~ Spende_~    35    35   
-  0.457    32 3.25e- 1[] 
+  0.457    32 6.51e- 1[] 
  []
 
 
 Overfull \hbox (90.75pt too wide) in paragraph at lines 5383--5383
 []\TU/lmtt/m/n/10 ## 2 Superhelden-Spi~ Betrag Spende_~ Spende_~    35    35   
- 14.9      32 2.76e-16[] 
+ 14.9      32 5.52e-16[] 
  []
 
 [148]

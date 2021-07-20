@@ -127,7 +127,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-07-19}
+\date{2021-07-20}
 
 \begin{document}
 \maketitle
@@ -994,7 +994,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-07-19"
+## [1] "2021-07-20"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -4801,7 +4801,7 @@ Leider gibt es bezüglich \emph{b} und \emph{β} -- wie so oft -- ein wenig Begr
 \hypertarget{t-tests}{%
 \chapter{T-Tests}\label{t-tests}}
 
-\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen wurden auf ein Tidyverse-konformes Paket (\texttt{rstatix}) angepasst.}
+\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen auf ein Tidyverse-konformes Paket (\texttt{rstatix}) angepasst.}
 
 In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt.
 Als T-Tests werden eine Reihe von Null-Hypothesen-Tests bezeichnet, deren Prüfgröße auf der T-Verteilung basiert.
@@ -4832,7 +4832,7 @@ Konkret beinhalten die Daten ein Experimentaldesign, in dem geprüft wird, ob di
 
 Für eine Baseline-Messung war vor dem Gebäude, in dem die Studie stattfand, ein Schauspieler platziert, der sich als Obdachloser ausgab.
 Er bat jede:n Proband:in, bevor er/sie zur Studie hereinkam, um ``eine kleine Spende''.
-Der Betrag, den die Proband:innen dem Schauspieler spendeten wurde in den Datensatz eingetragen (Variable: \emph{Spende\_t0}).
+Der Betrag, den die Proband:innen dem Schauspieler gaben wurde in den Datensatz eingetragen (Variable: \emph{Spende\_t0}).
 
 Im Anschluss wurden die N = 70 Versuchspersonen zufällig und gleichmäßig auf zwei Experimentalgruppen aufgeteilt (n₁ = 35 und n₂ = 35; Variable: \emph{Gruppe}).
 
@@ -4840,7 +4840,7 @@ Im Anschluss wurden die N = 70 Versuchspersonen zufällig und gleichmäßig auf 
 \item
   Gruppe 1 wurde gebeten, zwanzig Minuten lang ein Superhelden-Spiel zu spielen.
 \item
-  Gruppe 2 spielte hingegen genausolange ein Rennspiel.
+  Gruppe 2 spielte hingegen genauso lange ein Rennspiel.
 \end{itemize}
 
 Zum Dank erhielten die Proband:innen eine Aufwandsentschädigung von 10 Euro. Es wurde ihnen die Möglichkeit eingeräumt, dieses Geld für einen wohltätigen Zweck zu spenden -- entweder vollständig oder teilweise.
@@ -4873,7 +4873,7 @@ Hier ein kurzer Blick in den Datensatz:
 \section{Einstichproben-T-Test}\label{einstichproben-t-test}}
 
 Der Einstichproben T-Test kommt häufig zum Einsatz. Z.B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von \emph{Null} unterscheiden.
-Der Wert, gegen den getestet wird ist in dem Fall einfach Null.
+Der Wert, gegen den getestet wird, ist in dem Fall einfach Null.
 Es ist aber auch möglich, gegen einen anderen, selbst festgelegten Wert zu testen.
 
 Mit dem Einstichproben-T-Test könnte man z.B. die folgenden Hypothesen auf den Prüfstand stellen:
@@ -4892,7 +4892,7 @@ Die \textbf{Anwendungsvoraussetzung} für den Einstichproben-T-Test ist das Date
 \hypertarget{hypothese-aufstellen}{%
 \subsection{Hypothese aufstellen}\label{hypothese-aufstellen}}
 
-In unserem Fallbeispiel möchten wir zunächst untersuchen, wie es allgemein um das prosoziale Verhalten der Versuchspersonen bestellt ist -- ganz unabhängig von dem Experiment. Wir nutzen dazu die Variable \emph{Spende\_t0} und klären also die Frage, ob die Versuchspersonen dem vermeintlichen Obdachlosen im Mittel mehr oder weniger als einen bestimmten Wert gespendet haben. Da es sich bei den Werten in der Variable um Angaben in Euro handelt, erfüllt die Variable das erforderliche Datenniveau.
+In unserem Fallbeispiel möchten wir zunächst untersuchen, wie es allgemein um das prosoziale Verhalten der Versuchspersonen bestellt ist -- ganz unabhängig von dem Experiment. Wir nutzen dazu die Variable \emph{Spende\_t0} und klären die Frage, ob die Versuchspersonen dem vermeintlichen Obdachlosen im Mittel mehr oder weniger als einen bestimmten Wert gespendet haben. Da es sich bei den Werten in der Variable um Angaben in Euro handelt, erfüllt die Variable das erforderliche Datenniveau.
 
 Bevor es mit dem T-Test losgehen kann, muss noch eine Hypothese aufgestellt werden. Wir müssen einen Wert festlegen, gegen den wir testen wollen. Diesen Wert können wir frei wählen, wir könnten z.B. schauen ob die Spenden signifikant über Null liegen oder von 1,50 Euro abweichen. Normalerweise müsste die Hypothese natürlich begründet werden, aber ich lege sie jetzt einfach mal wie folgt fest:
 
@@ -4920,9 +4920,9 @@ Oh! Sehr schön, viele Versuchspersonen sind spendabel! -- Und halbwegs normalve
 \leavevmode\hypertarget{info_levene}{}%
 \textbf{Normalverteilung der Variablen? -- Nicht nötig!}
 
-Manchmal wird angegeben, dass die ``Normalverteilung der Variablen in der Grundgesamtheit'' (wahlweise auch ``in der Stichprobe2) eine Anwendungsvoraussetzung für den T-Test sei. Dies istnicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach''schief" verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden.
+Manchmal wird angegeben, dass die ``Normalverteilung der Variablen in der Grundgesamtheit'' (wahlweise auch ``in der Stichprobe'') eine Anwendungsvoraussetzung für den T-Test sei. Dies ist nicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach ``schief'' verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden.
 
-Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben immer der Fall sein sollte (\href{https://www.youtube.com/watch?v=jvoxEYmQHNM}{hier} noch meine Lieblings-Erklärung zum zentralen Grenzwertsatz).
+Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben der Fall sein sollte (\href{https://www.youtube.com/watch?v=jvoxEYmQHNM}{hier} meine Lieblings-Erklärung zum zentralen Grenzwertsatz).
 
 Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, bspw. könnte man dazu die \texttt{mean()}- Funktion benutzen. Die \texttt{describe()}-Funktion aus \texttt{psych} liefert noch ein umfassenderes Bild:
 
@@ -4946,7 +4946,7 @@ Tatsächlich, der Mittelwert liegt bei \text{2,1}, also deutlich über 1,5 Euro.
 
 Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion \texttt{t.test()}. Man kann aber auch das Paket \texttt{rstatix} und dessen Funktion \texttt{t\_test()} benutzen. Das Paket hat es sich zum Ziel gesetzt für einfache statistische Tests eine Tidyverse-Variante anzubieten. Deshalb kann die Funktion \texttt{t\_test()} in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt.
 
-Die wichtigsten Argumente der \texttt{t\_test()}-Funktion aus `rstatix`` werden hier kurz erläutert:
+Die wichtigsten Argumente der \texttt{t\_test()}-Funktion aus \texttt{rstatix} werden hier kurz erläutert:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5248,7 +5248,7 @@ Die Interpretation des T-Tests kann um einen entsprechenden Satz ergänzt werden
 \hypertarget{t-test-fuxfcr-abhuxe4ngige-stichproben}{%
 \section{T-Test für abhängige Stichproben}\label{t-test-fuxfcr-abhuxe4ngige-stichproben}}
 
-Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für \textbf{abhängige Stichproben} sieht es anders aus: Jetzt werden \emph{zwei prinzipiell gleich aufgebaute Variablen} mit einander vergleichen:
+Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für \textbf{abhängige Stichproben} sieht es anders aus: Hier werden \emph{zwei prinzipiell gleich aufgebaute Variablen} mit einander vergleichen:
 
 \begin{itemize}
 \item
@@ -5256,16 +5256,16 @@ Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. 
 \item
   Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z.B. beide von 1 = \emph{stimme überhaupt nicht zu} bis 5 = \emph{stimme voll und ganz zu} gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z.B. niemand 5 = \emph{stimme voll und ganz zu} angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
 \item
-  Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er ``wide format'' aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (\#tendenziell, ein paar fehlende Messwerte sind okay).
+  Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er ``wide format'' aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (tendenziell, ein paar fehlende Messwerte sind okay).
 \end{itemize}
 
-Hier wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für abhängie Stichproben prüfen kann:
+Nun wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für abhängige Stichproben prüfen kann:
 
 \begin{itemize}
 \item
   Unterscheiden sich die Mittelwerte von zwei Items einer Skala von einander?
 \item
-  Welcher Wert ist höher, der für Zustimmung zum Item ``Die Klimakrise ist das wichtigste Problem unserer Zeit'' oder zu "Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit?
+  Welcher Wert ist höher, der für Zustimmung zum Item ``Die Klimakrise ist das wichtigste Problem unserer Zeit'' oder zu ``Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit''?
 \item
   Unterschiedet sich das politische Interesse von Ehefrauen von dem ihrer Ehemänner?
 \item
@@ -5358,7 +5358,7 @@ Das Ergebnis zeigt sich signifikant für beide Gruppen, denn p ist jeweils \text
 \hypertarget{t-test-durchfuxfchren-2}{%
 \subsection{T-Test durchführen}\label{t-test-durchfuxfchren-2}}
 
-Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das ``long-format'' wie der Levene-Test. Auch hier können wir diese wieder in der Pipe davor schalten und ebenso auch die Aufteilung in beide Gruppen. Die einfachste Variante den T-Test anzufordern ist über die bereits bekannte \texttt{t-test()}- Funktion. Benötigt wird allerdings das zusätzliche Argument \texttt{paired\ =\ TRUE}, damit der paarweise Test durchgeführt wird. Außerdem setzen wir explizit \texttt{var.equal\ =\ FALSE}, weil der Levene-Test ein signifikantes Ergebnis produziert hat und deshalb nicht von Varianzhomogenität ausgegangen werden kann.
+Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das ``long-format'' wie der Levene-Test. Auch hier können wir diese wieder in der Pipe davor schalten und ebenso auch die Aufteilung in beide Gruppen. Die einfachste Variante den T-Test anzufordern ist über die bereits bekannte \texttt{t-test()}- Funktion. Benötigt wird allerdings das zusätzliche Argument \texttt{paired\ =\ TRUE}, damit der paarweise Test durchgeführt wird. Außerdem setzen wir explizit \texttt{var.equal\ =\ FALSE}, weil der Levene-Test ein signifikantes Ergebnis produziert hat und deshalb nicht von Varianzhomogenität ausgegangen werden kann. Ich belasse es an dieser Stelle bei der Default-Einstellung \texttt{alternative\ =\ "two.sided"}, da ich eine gerichtete und eine ungerichtete Hypothese gleichzeitig prüfen möchte und der zweiseitige Test der strengere ist. Theoretisch würde für H3a aber ein einseitiger Test ausreichen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5370,7 +5370,7 @@ Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das 
         \FunctionTok{t\_test}\NormalTok{(Betrag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Zeitpunkt, }
                \AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{, }
                \AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{,}
-               \AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)}
+               \AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5378,15 +5378,15 @@ Der T-Test für abhängige Stichproben benötigt dieselbe Datenumformung in das 
 ## # A tibble: 2 x 9
 ##   Gruppe           .y.    group1   group2      n1    n2 statistic    df        p
 ## * <chr>            <chr>  <chr>    <chr>    <int> <int>     <dbl> <dbl>    <dbl>
-## 1 Rennspiel        Betrag Spende_~ Spende_~    35    35     0.457    32 3.25e- 1
-## 2 Superhelden-Spi~ Betrag Spende_~ Spende_~    35    35    14.9      32 2.76e-16
+## 1 Rennspiel        Betrag Spende_~ Spende_~    35    35     0.457    32 6.51e- 1
+## 2 Superhelden-Spi~ Betrag Spende_~ Spende_~    35    35    14.9      32 5.52e-16
 \end{verbatim}
 
 Der Output enthält in den beiden Zeilen zwei T-Tests für abhängige Stichproben, oben für H3b und unten für H3a. In der Spalte ``estimate'' sind die Werte der Mittelwertdiffrenzen angegeben.
 
 \textbf{Interpretation H3b (erste Zeile):}
 
-In der Gruppe ``Rennspiel'' beträgt die Mittelwertdifferenz nur c(\texttt{mean\ of\ the\ differences} = 0.151515151515152) Euro. Der T-Wert ist mit T( c(df = 32)) = c(t = 0.456673377277543) sehr klein. Der p-Wert sieht zwar wegen der ``wissenschaftlichen'' Notation kompliziert aus, aber lassen Sie sich davon nicht in die Irre führen! Er ist recht hoch: p = 0.651 und damit nicht signifikant. Insgesamt muss die H3b deshalb abgelehnt werden. Wie erwartet.
+In der Gruppe ``Rennspiel'' beträgt die Mittelwertdifferenz nur c(\texttt{mean\ of\ the\ differences} = 0.151515151515152) Euro. Der T-Wert ist mit T(c(df = 32)) = c(t = 0.456673377277543) sehr klein. Der p-Wert sieht zwar wegen der ``wissenschaftlichen'' Notation kompliziert aus, aber lassen Sie sich davon nicht in die Irre führen! Er ist recht hoch: p = 0.651 und damit nicht signifikant. Insgesamt muss die H3b deshalb abgelehnt werden. Wie erwartet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5427,7 +5427,7 @@ Selbstredend kann auch hier wieder Cohen´s d berechnet werden, um die Effektst�
 ## 2 Betrag Spende_t1 Spende_t2  2.60   Superhelden-Spiel    35    35 large
 \end{verbatim}
 
-Wie zu erwarten war ist die Effekstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
+Wie zu erwarten war ist die Effektstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
 
   \bibliography{literature.bib}
 
