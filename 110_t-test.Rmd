@@ -6,7 +6,7 @@ editor_options:
 
 # T-Tests
 
-*Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen auf ein Tidyverse-konformes Paket (`rstatix`) angepasst.*
+*Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen auf ein tidyverse-konformes Paket (`rstatix`) angepasst.*
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -27,7 +27,7 @@ Es gibt verschiedene Varianten des T-Tests, von den hier drei besprochen werden:
 
 - Beim diesem **Ein-Stichproben-T-Test** (1-sample-test) wird geprüft, ob sich ein das arithmetische Mittel (Mittelwert) von einem zuvor festgelegten Wert unterscheidet.
 
-- Mit dem **T-Test für unabhängige Stichproben** (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variablen in zwei Populationen voneinander unterscheidet. -- Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.
+- Mit dem **T-Test für unabhängige Stichproben** (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variable in zwei Populationen voneinander unterscheiden. -- Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.
 
 - Der **T-Test für abhängige Stichproben** (t-test for paired samples) testet, ob sich zwei miteinander zusammenhängende Mittelwerte von einander unterschieden. Die Stichproben, die verglichen werden, hängen also irgendwie miteinander zusammen. Das kann z.B. der Fall bei einer Vorher- und einer Nachher-Messung in einem Experiment sein. Oder wenn in einem Datensatz beide Partner:innen einer Beziehung befragt werden. Oder wenn einfach zwei verschiedene Kennwerte miteinander vergleichen werden sollen. Im Datensatz liegen die beiden "Stichproben" also als zwei verschiedene Variablen vor.
 
@@ -62,11 +62,11 @@ head(df_prosocial)
 
 ## Einstichproben-T-Test
 
-Der Einstichproben T-Test kommt häufig zum Einsatz. Z.B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von *Null* unterscheiden.
+Der Einstichproben-T-Test kommt häufig zum Einsatz. Z. B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von *Null* unterscheiden.
 Der Wert, gegen den getestet wird, ist in dem Fall einfach Null.
 Es ist aber auch möglich, gegen einen anderen, selbst festgelegten Wert zu testen.
 
-Mit dem Einstichproben-T-Test könnte man z.B. die folgenden Hypothesen auf den Prüfstand stellen: 
+Mit dem Einstichproben-T-Test könnte man z. B. die folgenden Hypothesen auf den Prüfstand stellen: 
 
 - Der IQ in einer Gruppe von Befragten unterscheidet sich signifikant vom Wert 100.
 
@@ -90,7 +90,7 @@ Diese Hypothese ist einseitig gerichtet. Sie gilt als zutreffend, wenn (1) der M
 
 ### Daten explorieren
 
-Natürlich empfiehlt es sich immer vor einer Analyse, die Verteilung seiner Variablen zu kennen und sie durch Grafken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:
+Natürlich empfiehlt es sich immer vor einer Analyse die Verteilung seiner Variablen zu kennen und sie durch Grafiken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:
 
 ```{r}
 df_prosocial %>% 
@@ -105,10 +105,10 @@ Oh! Sehr schön, viele Versuchspersonen sind spendabel! -- Und halbwegs normalve
 
 Manchmal wird angegeben, dass die "Normalverteilung der Variablen in der Grundgesamtheit" (wahlweise auch "in der Stichprobe") eine Anwendungsvoraussetzung für den T-Test sei. Dies ist nicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach "schief" verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden. 
 
-Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben der Fall sein sollte ([hier](https://www.youtube.com/watch?v=jvoxEYmQHNM) meine Lieblings-Erklärung zum zentralen Grenzwertsatz).  
+Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Samples hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben der Fall sein sollte ([hier](https://www.youtube.com/watch?v=jvoxEYmQHNM) meine Lieblings-Erklärung zum zentralen Grenzwertsatz).  
 :::
 
-Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, bspw. könnte man dazu die `mean()`- Funktion benutzen. Die `describe()`-Funktion aus `psych` liefert noch ein umfassenderes Bild:
+Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, beispielsweise könnte man dazu die `mean()`- Funktion benutzen. Die `describe()`-Funktion aus `psych` liefert noch ein umfassenderes Bild:
 
 ```{r}
 library(psych)
@@ -121,11 +121,11 @@ Tatsächlich, der Mittelwert liegt bei `r round(mean(df_prosocial$Spende_t0),1)`
 
 ### T-Test durchführen
 
-Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion `t.test()`. Man kann aber auch das Paket `rstatix` und dessen Funktion `t_test()` benutzen. Das Paket hat es sich zum Ziel gesetzt für einfache statistische Tests eine Tidyverse-Variante anzubieten. Deshalb kann die Funktion `t_test()` in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt. 
+Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion `t.test()`. Man kann aber auch das Paket `rstatix` und dessen Funktion `t_test()` benutzen. Das Paket hat es sich zum Ziel gesetzt, für einfache statistische Tests eine tidyverse-Variante anzubieten. Deshalb kann die Funktion `t_test()` in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt. 
 
 Die wichtigsten Argumente der `t_test()`-Funktion aus `rstatix` werden hier kurz erläutert:
 
-1. Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse gewohnt kann man 
+1. Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im tidyverse gewohnt kann man ???
 Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
 
 2.  Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel [Regression] bekannt. Die Tilde `~` verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa "die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde". Die Notation ist immer `Variable1 ~ Variable2`. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet `Variable1 ~ 1`.
@@ -178,14 +178,14 @@ Abschließend können wir die Hypothese H1 positiv beurteilen: Der Mittelwert M 
 
 **T-Tests mit dem stats-Paket**
 
-Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion `t.test()` bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den "." statt des "_"). Allerdings hat die Funktion `t.test()` den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test -- ebensowenig wie Cohen´s d. Beides könnte man zwar auch über andere Pakete erhalten (z.B. `car` und `effsize`), aber mit `rstatix` erhält man alles aus einer Hand und Tidyverse-konform.
+Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion `t.test()` bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den "." statt des "_"). Allerdings hat die Funktion `t.test()` den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test -- ebensowenig wie Cohen´s d. Beides könnte man zwar auch über andere Pakete erhalten (z.B. `car` und `effsize`), aber mit `rstatix` erhält man alles aus einer Hand und tidyverse-konform.
 
-Zur Vollständigkeit kommt hier noch die Base-R-Syntax, inklusive Output: 
+Zur Vollständigkeit kommt hier noch die base-R-Syntax, inklusive Output: 
 
 ```{r}
 t.test(x = df_prosocial$Spende_t0, mu = 1.5, alternative = "greater")   
 ```
-Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des `rstatix`-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z.B. bei bei @Phillips_2018 in Kapitel 13.3.
+Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des `rstatix`-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z. B. bei bei @Phillips_2018 in Kapitel 13.3.
 :::
 
 Die Logik des Einstichproben-T-Tests ist ganz einfach: Wir haben erstens einen fixen, selbst festgelegten Wert (hier 1,5, aber häufig ist es 0). Zweitens gibt es einen Wert, der in gewisser Weise "variabel" ist, nämlich abhängig von der Stichprobe. Für diesen variablen Wert wird ein Konfidenzintervall berechnet. Liegt jetzt der feste Testwert außerhalb des Konfidenzintervalls des Stichprobenwertes, können wir annehmen, dass sich die beiden Werte tatsächlich signifikant unterscheiden. (Der p-Wert hat im Prinzip die gleiche Aussage: Er drückt aus wie (un)wahrscheinlich es ist, den errechneten Mittelwert zu erhalten, wenn in der Grundgesamtheit eigentlich der Testwert der Mittelwert wäre.)
@@ -205,11 +205,11 @@ Um das ganze etwas konkreter zu machen, hier ein paar typische Hypothesen, die m
 
 - Eine Gruppe mit Versuchspersonen die Treatment 1 (rote Pille) bekommen hat, reagiert völlig anders als eine andere Gruppe von Versuchspersonen, die Treatment 2 (grüne Pille) bekommen hat.
 
-Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. -- Mindestens implizit wird von einer Ursache-Wirkungsbeziehung ausgegangen. Die Unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.
+Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. -- Mindestens implizit wird von einer Ursache-Wirkungs-Beziehung ausgegangen. Die unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.
 
-Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:
+Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen Verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:
 
-*H2: bei Spieler:innen die ein Superhelden-Spiel gespielt haben ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.*
+*H2: Bei Spieler:innen die ein Superhelden-Spiel gespielt haben, ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.*
 
 ### Deskriptive Auswertung
 
@@ -232,7 +232,7 @@ df_prosocial %>%
   theme(legend.position = "none")
 ```
 
-Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art "geglättetes Histogram") kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:
+Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art "geglättetes Histogramm") kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:
 
 ```{r}
 df_prosocial %>% 
@@ -244,9 +244,9 @@ df_prosocial %>%
 
 ### Anwendungsvoraussetzungen
 
-Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass -- wie der Name schon sagt -- die **Anwendungsvoraussetzung der Unabhängigkeit** erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts mit einander zu tun haben, also nicht z.B. verheiratet sind. -- Das wären dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.  
+Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass -- wie der Name schon sagt -- die **Anwendungsvoraussetzung der Unabhängigkeit** erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts miteinander zu tun haben, also nicht z. B. verheiratet sind. -- Das wäre dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.  
 
-Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z.B. weil beide häufig gemeinsam über Politik reden. 
+Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z. B. weil beide häufig gemeinsam über Politik reden. 
 
 Die Anwendungsvoraussetzung der Intervallskalierung gilt natürlich weiterhin, wie schon für den Einstichproben-T-Test. -- Jedoch natürlich nur für die abhängige Variable, für die die Mittelwerte berechnet werden sollen.
 
@@ -261,15 +261,15 @@ Verrückt, oder? Bevor wir jetzt also einen T-Test für unsere unabhängigen Mit
 
 Als Studentin fand ich den Levene-Test super verwirrend, weil ich gerade gelernt hatte, dass winzig kleine p-Werte prima sind und für die aufgestellten Hypothesen sprechen. Und beim Levene-Test war auf einmal alles anders herum?! Das geht wirklich schwer in den Kopf rein und ich merke heute, dass nach wie vor viele Studierende damit Schwierigkeiten haben. 
 
-Um es nochmal ganz deutlich zusagen: Normalerweise wollen wir ja, das unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer das es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Das der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.
+Um es nochmal ganz deutlich zu sagen: Normalerweise wollen wir ja, dass unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer, dass es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Dass der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.
 :::
 
 
 ### Levene-Test auf Varianzhomogenität
 
-Also, auf geht ´s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die *Gruppe* ist die uV und die Variable *Spende_t01* die aV. 
+Also, auf geht‘s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die *Gruppe* ist die uV und die Variable *Spende_t01* die aV. 
 
-Für den Levene-Test benutze ich ebenfalls das Paket `rstatix` und die Funktion `levene_test()`. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z.B. `car`). `rstatix` bietet aber weiterhin den Vorteil, das es "pipeable" ist. 
+Für den Levene-Test benutze ich ebenfalls das Paket `rstatix` und die Funktion `levene_test()`. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z. B. `car`). `rstatix` bietet aber weiterhin den Vorteil, dass es "pipeable" ist. 
 
 Die Funktion hat folgende Argumente: 
 
@@ -277,7 +277,7 @@ Die Funktion hat folgende Argumente:
 
 - Das zweite ist eine Formel (wie bei der [Regression]), die die Variablen der Analyse mit einer Tilde `~` verbindet. Die Tilde bedeutet dabei übersetzt in Worte etwa folgendes: "Variable vor der Tilde wird vorhergesagt durch Variable nach der Tilde". Die Notation ist immer `aV ~ uV`. 
 
-- Außerdem kann man noch mit dem Argument `center =` die Art des Tests auswählen. Der Orginal-Levene-Test wird durch `center = "mean"` berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben [@Brown_1974]  gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Mediane einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option `center = "median"` ist die deshalb die Default-Option der `levene_test()`- Funktion. Sie muss nicht gesondert eingestellt werden.
+- Außerdem kann man noch mit dem Argument `center =` die Art des Tests auswählen. Der Orginal-Levene-Test wird durch `center = "mean"` berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben [@Brown_1974]  gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Median einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option `center = "median"` ist deshalb die Default-Option der `levene_test()`- Funktion. Sie muss nicht gesondert eingestellt werden.
 
 Angewendet sieht das so aus:
 
@@ -306,7 +306,7 @@ Den T-Test für unabhängige Stichproben erhält man in R ebenfalls über das `r
 
 3. Standardmäßig geht die Funktion `t_test()` davon aus, dass die Varianzen **nicht** gleich sind (entspricht `var.equal = FALSE`). In unserem Fall haben wir aber sogar vorab auf gleiche Varianzen getestet und können durch `var.equal = TRUE` einen Test ohne Korrektur anfordern. Es empfiehlt sich, immer einen Levene-Test vorzuschalten und das `var.equal`-Argument bewusst auf `TRUE`oder `FALSE` zu setzen.
 
-4.  Mit `alternative` kann man festlegen ob der Test ungerichtet (`"two.sided"`) oder einseitig (`"less"` oder `"greater"`) stattfinden soll. 
+4.  Mit `alternative` kann man festlegen, ob der Test ungerichtet (`"two.sided"`) oder einseitig (`"less"` oder `"greater"`) stattfinden soll. 
 
 5. Mit `detailed = TRUE` bzw. `FALSE` kann man wieder über den Detailgrad der Ausgabe bestimmen.
 
@@ -329,7 +329,7 @@ pv <- case_when(tt[[1, "p"]] < 0.001 ~ "p < ,001",
 
 Das Ergebnis sieht so ähnlich aus wie vorhin, beim ersten T-Test. Es gibt wieder einen t-Wert unter "statistic", entsprechende Freiheitsgrade und einen zugehörigen p-Wert. Dieser ist deutlich < .05, das Ergebnis ist also signifikant, was für die Alternativhypothese spricht. Die Grenzen des Konfidenzintervalls können über die detaillierte Ausgabe mit `detailed = TRUE` angefordert werden (aus Platzgründen nicht dargestellt). Diesen Grenzen zur Folge würden wir die Mittelwertdifferenz zwischen `r tt[[1, "conf.low"]]` und `r tt[[1, "conf.high"]]` schätzen. Das ist beides deutlich von Null verschieden (anders ausgedrückt: Die Grenzen schließen die Null nicht ein). 
 
-Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine "Reihenfolge" zwischen Superheldenspiel und Rennspiel).
+Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich, dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine "Reihenfolge" zwischen Superheldenspiel und Rennspiel).
 
 Das Ergebnis des T-Tests zeigt, dass das die Spieler:innen, die das Superheldenspiel gespielt haben, deutlich spendabler waren als die Spieler:innen des Rennspiels. Erstere spendeten im Durchschnitt M = `r tt[[1, "estimate2"]]` Euro, letztere nur M = `r tt[[1, "estimate1"]]` Euro. Das Ergebnis des T-Tests für unabhängige Stichproben fiel im Sinne von H2 aus und ist mit t(`r tt[[1, "df"]]`) = `r tt[[1, "estimate"]]` auf dem Niveau `r pv` signifikant. Offensichtlich hat das Spielen eines Superheldenspiels tatsächlich einen positiven Einfluss auf das prosoziale Verhalten, wie hier am Beispiel der  Spendenbereitschaft demonstriert wurde (hier wurden jedoch keine echten Daten analysiert).
 
@@ -350,23 +350,23 @@ Die Interpretation des T-Tests kann um einen entsprechenden Satz ergänzt werden
 
 
 ## T-Test für abhängige Stichproben
-Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für **abhängige Stichproben** sieht es anders aus: Hier werden *zwei prinzipiell gleich aufgebaute Variablen* mit einander vergleichen:
+Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für **abhängige Stichproben** sieht es anders aus: Hier werden *zwei prinzipiell gleich aufgebaute Variablen* mit einander verglichen:
 
 - Beide sollen (quasi-)metrisches Datenniveau aufweisen.
 
-- Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z.B. beide von 1 = *stimme überhaupt nicht zu* bis 5 = *stimme voll und ganz zu* gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z.B. niemand 5 = *stimme voll und ganz zu* angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
+- Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z. B. beide von 1 = *stimme überhaupt nicht zu* bis 5 = *stimme voll und ganz zu* gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z. B. niemand 5 = *stimme voll und ganz zu* angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
 
 - Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er "wide format" aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (tendenziell, ein paar fehlende Messwerte sind okay). 
 
 Nun wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für abhängige Stichproben prüfen kann:
 
-- Unterscheiden sich die Mittelwerte von zwei Items einer Skala von einander?
+- Unterscheiden sich die Mittelwerte von zwei Items einer Skala voneinander?
 
 - Welcher Wert ist höher, der für Zustimmung zum Item "Die Klimakrise ist das wichtigste Problem unserer Zeit" oder zu "Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit"?
 
 - Unterschiedet sich das politische Interesse von Ehefrauen von dem ihrer Ehemänner?
 
-- Unterschiedet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).
+- Unterscheidet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).
 
 Im Anwendungsbeispiel möchten wir nun prüfen, ob der positive Effekt, den wir für das Spielen von Superhelden-Spielen gefunden haben, auch über längere Zeit anhält, oder nicht. Theoretisch ist davon auszugehen, dass das einmalige Spielen eines Superhelden-Spiels das prosoziale Verhalten zwar kurzfristig, aber nicht über einen längeren Zeitraum hinweg verändern kann. Deshalb lautet die zu testende Hypothese:
 
@@ -393,7 +393,7 @@ df_prosocial %>%
 
 Die Verteilungen sind deutlich unterschiedlich für die beiden Gruppen. Während bei den Rennspielen die Werte zu beiden Zeitpunkten in einem ähnlichen Spektrum liegen, ist dies bei den Superhelden-Spielen nicht der Fall. Die Superhelden-Gruppe ist ja auch genau die Gruppe, die im Rahmen von von H3a interessiert. Es sieht gut aus für die Vermutung, dass es in der Gruppe der Superhelden-Spieler:innen einen signifikanten Mittelwertunterschied zwischen den beiden Messzeitpunkten Spende_t01 und Spende_t02 gibt -- und in der Gruppe Rennspiele (H3b) wie erwartet nicht.
 
-Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das Tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:
+Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:
 
 ```{r}
 mw_table <- df_prosocial %>% 
@@ -413,7 +413,7 @@ Anders als beim T-Test für unabhängige Stichproben vergleicht man bei der Betr
 
 ### Levene-Tests durchführen
 
-Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom "wide-format" in ein "long-format" überführt werden (vgl. dazu Abschnitt [Datenumformungen]). Da die `levene_test()`-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davor schalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.
+Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom "wide-format" in ein "long-format" überführt werden (vgl. dazu Abschnitt [Datenumformungen]). Da die `levene_test()`-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davorschalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.
 
 ```{r warning = FALSE}
 df_prosocial %>%
@@ -470,7 +470,7 @@ sn <- case_when(tt_pairwise[[2, "p"]] < 0.001 ~ "p < ,001",
 
 ** Interpretation H3a (zweite Zeile):**
 
-In der Gruppe "Superhelden" beträgt die Mittelwertdifferenz hingegen stolze `r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(estimate)` Euro (zur Erinnerung, die Probandinnen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(`r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(df)`) =  `r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(statistic)` auf dem Niveau `r sn` signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen. 
+In der Gruppe "Superhelden" beträgt die Mittelwertdifferenz hingegen stolze `r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(estimate)` Euro (zur Erinnerung, die Proband:innen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(`r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(df)`) =  `r tt_pairwise %>% filter(Gruppe == "Superhelden-Spiel") %>% select(statistic)` auf dem Niveau `r sn` signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen. 
 
 
 ### Cohen´s d
@@ -487,4 +487,4 @@ df_prosocial %>%
              var.equal = FALSE, 
              paired = TRUE) 
 ```
-Wie zu erwarten war ist die Effektstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
+Wie zu erwarten war, ist die Effektstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
