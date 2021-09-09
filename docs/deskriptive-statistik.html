@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-07-20" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -394,6 +394,29 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="varianzanalyse.html"><a href="varianzanalyse.html"><i class="fa fa-check"></i><b>12</b> Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#datenbeispiel-1"><i class="fa fa-check"></i><b>12.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="12.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#prerequisits"><i class="fa fa-check"></i><b>12.2</b> Prerequisits</a></li>
+<li class="chapter" data-level="12.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#einfaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.3</b> Einfaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse"><i class="fa fa-check"></i><b>12.3.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test"><i class="fa fa-check"></i><b>12.3.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-der-varianzanalyse"><i class="fa fa-check"></i><b>12.3.3</b> Durchführung der Varianzanalyse</a></li>
+<li class="chapter" data-level="12.3.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#effektstärke"><i class="fa fa-check"></i><b>12.3.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="12.3.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-test"><i class="fa fa-check"></i><b>12.3.5</b> Posthoc-Test</a></li>
+<li class="chapter" data-level="12.3.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#ergebnisdarstellung"><i class="fa fa-check"></i><b>12.3.6</b> Ergebnisdarstellung</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#zweifaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.4</b> Zweifaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse-1"><i class="fa fa-check"></i><b>12.4.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.4.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test-1"><i class="fa fa-check"></i><b>12.4.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.4.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-einer-mehrfaktoriellen-varianzanalyse"><i class="fa fa-check"></i><b>12.4.3</b> Durchführung einer mehrfaktoriellen Varianzanalyse</a></li>
+<li class="chapter" data-level="12.4.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#visualisierung"><i class="fa fa-check"></i><b>12.4.4</b> Visualisierung</a></li>
+<li class="chapter" data-level="12.4.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-tests"><i class="fa fa-check"></i><b>12.4.5</b> Posthoc-Tests</a></li>
+<li class="chapter" data-level="12.4.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#abschließende-beurteilung-des-hypothesentests"><i class="fa fa-check"></i><b>12.4.6</b> Abschließende Beurteilung des Hypothesentests</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -488,12 +511,14 @@ div.csl-indent {
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="deskriptive-statistik.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
 <span id="cb156-2"><a href="deskriptive-statistik.html#cb156-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-3"><a href="deskriptive-statistik.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>sex, <span class="at">sort.frq =</span> <span class="st">&quot;desc&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; =
+## &quot;none&quot;)` instead.</code></pre>
 <p><img src="r_book_files/figure-html/freq_plot-1.png" width="672" /></p>
 <p>Das Argument <code>sort.frq = "desc"</code> sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.</p>
 <p>Über die Funktion <code>plot_frq()</code> sind noch weitere Darstellungsformen möglich, wie beispielsweise ein Liniendiagramm oder ein Diagramm mit Punkten. Man muss dazu lediglich das zusätzliche Argument <code>type</code> mit an die Funktion übergeben (z.B. <code>type = "line"</code> oder <code>type = "dot"</code>). Auch Histogramme sind möglich (<code>type = "histogram</code>):</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="deskriptive-statistik.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb157-2"><a href="deskriptive-statistik.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-3"><a href="deskriptive-statistik.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>mass, <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="deskriptive-statistik.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb158-2"><a href="deskriptive-statistik.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="deskriptive-statistik.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_frq</span>(starwars<span class="sc">$</span>mass, <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/freq_plot2-1.png" width="672" />
 Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausreißer, der sehr viel schwerer ist als alle anderen Starwars-Figuren.</p>
 </div>
@@ -504,15 +529,15 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <div id="nominale-daten" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Nominale Daten</h3>
 <p>Als Beispiel für eine nominale Variable verwende ich die Frage, welches Geschlecht die Starwars-Figuren haben. Die Variable hat die folgenden Ausprägungen:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="deskriptive-statistik.html#cb158-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="deskriptive-statistik.html#cb159-1" aria-hidden="true" tabindex="-1"></a>sjlabelled<span class="sc">::</span><span class="fu">get_labels</span>(starwars<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## [1] &quot;male&quot;           &quot;none&quot;           &quot;female&quot;         &quot;hermaphroditic&quot;
 ## [5] NA</code></pre>
 <p>Der <strong>Modus</strong> ist der Wert in einer Verteilung, der am häufigsten vorkommt. Da die Reihenfolge der Ausprägungen dabei keine Rolle spielt, ist er sogar für nominale Daten anwendbar. Man kann ihn aber auch für ordinale und metrische Daten ermitteln.</p>
 <p>Für den Modus gibt es in base-R keine Standard-Funktion, vielleicht ist er einfach zu simpel. Man kann den Modus einfach über eine Häufigkeitsauszählung ermitteln oder über ein Säulendiagram (siehe voriger Abschnitt).</p>
 <p>Alternativ gibt es noch eine <code>Mode()</code>-Funktion im <code>DescTools</code>-Paket. Achtung! Das Paket ist etwas altmodisch bei der Benennung seiner Funktionen: <code>Mode()</code> muss hier zwingend groß geschrieben werden!! Außerdem liefert die Funktion kein Ergebnis zurück, wenn es zwei gleich hohe höchste Ausprägungen gibt.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="deskriptive-statistik.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb160-2"><a href="deskriptive-statistik.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-3"><a href="deskriptive-statistik.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(starwars<span class="sc">$</span>sex, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="deskriptive-statistik.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb161-2"><a href="deskriptive-statistik.html#cb161-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb161-3"><a href="deskriptive-statistik.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(starwars<span class="sc">$</span>sex, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;male&quot;
 ## attr(,&quot;freq&quot;)
 ## [1] 60</code></pre>
@@ -523,36 +548,36 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <p>Der <strong>Median</strong> teilt die (sortierten) Fälle einer Variablen in zwei gleich große Hälften. Er kann für ordinale und metrische Daten berechnet werden.</p>
 <p>Die Funktion für den Median gibt es sogar in base-R. Sie heißt schlicht <code>median()</code>. Die Funktion benötigt zwei Argumente. Zum einen selbstverständlich den Verweis auf die Variable und zum anderen einen Hinweis, wie mit fehlenden Werten umgegangen werden soll. Da R nicht wissen kann, wie fehlende Werte einzuberechnen wären, müssen sie vorab aus der Analyse entfernt werden, mit <code>na.rm = TRUE</code> (<em>NA remove</em>).</p>
 <p>Im Datensatz gibt es keine ordinale Variable, deshalb nehme ich im folgenden die Größe in cm (metrisch) als Beispiel:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="deskriptive-statistik.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="deskriptive-statistik.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 180</code></pre>
 <p>Die <strong>Spannweite</strong> (<em>range</em>) gibt an, zwischen welchen Ausprägungen sich eine Variable bewegt, also den höchsten und den niedrigsten Wert.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="deskriptive-statistik.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="deskriptive-statistik.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1]  66 264</code></pre>
 <p>Über die Funktionen <code>min()</code> und <code>max()</code> kann man sich übrigens auch einzeln das Minimum bzw. Maximum ausgeben lassen.</p>
 <p>Wie oben erwähnt, teilt der Median die Verteilung der Werte in zwei gleiche Hälften. Wenn man jedoch nicht zwei Hälften haben möchte, sondern sich eher für Drittel, Viertel oder Fünftel interessiert, sind <strong>Quantile</strong> das Mittel der Wahl. Üblich sind eigentlich nur Quartile, also die Einteilung in Viertel. Deshalb gibt die base-R-Funktion <code>quantile()</code> standardmäßig die Grenzen der Quartile zurück.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="deskriptive-statistik.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="deskriptive-statistik.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##   0%  25%  50%  75% 100% 
 ##   66  167  180  191  264</code></pre>
 <p>Es handelt sich um 5 Grenzen, weil der niedrigste und der höchste Wert mit ausgegeben werden. Die Quartile befinden sich quasi “zwischen” diesen 5 Grenzpunkten.</p>
 <p>Der **Interquartilsabstand* gibt den Abstand zwischen dem Ende des ersten und dem Beginn des letzten Quartils an, also in unserem Beispiel den Abstand zwischen den Ausprägungen 167 und 191 cm (= 24 cm).</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="deskriptive-statistik.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="deskriptive-statistik.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
 </div>
 <div id="metrische-daten" class="section level3" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> Metrische Daten</h3>
 <p>Für metrische Variablen haben Sie die Auswahl zwischen allen hier vorgestellten Maßen der zentralen Tendenz (wobei der Modus in der Regel bei vielen Ausprägungen kaum Sinn macht). Üblich ist vor allem das <strong>“arithmetische Mittel”</strong>, umgangssprachlich oft auch als Durchschnitt oder Mittelwert bezeichnet. Die Funktion <code>mean()</code> habe ich in den Einführungskapiteln bereits als Beispiel genutzt.</p>
 <p>Als Beispiel benutze ich hier die Variable für das Gewicht.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="deskriptive-statistik.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="deskriptive-statistik.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 97,31186</code></pre>
 <p>Das Durschnittsgewicht im Sample beträgt also 97.31 Einheiten (kg?).</p>
 <p>Man kann sich auch ein <strong>getrimmtes Mittel</strong> ausgeben lassen, bei dem die oberen und niedrigen X Prozent der Daten entfernt werden. So kann das arithmetische Mittel robust gemacht werden gegen Extremwerte. Aus dem Abschnitt über die Häufigkeiten (Histogram) wissen wir, dass es in der Variable einen extremen Ausreißer gibt. Ein Starwars-Charakter ist viel schwerer als alle anderen. Er verzerrt das arithmetische Mittel nach oben. Ein getrimmtes Mittel liefert deshalb vielleicht ein realistischeres Bild:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="deskriptive-statistik.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="deskriptive-statistik.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(starwars<span class="sc">$</span>mass, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 75,43673</code></pre>
 <p>Es macht Sinn, sich bei einer Variable nie allein das arithmetische Mittel anzusehen. Sie wüssten dann z.B. nicht ob ein Wert (z.B. 80 kg) nur erreicht wird, weil alle Befragten genau so schwer sind, weil es sehr viele Personen mit 75 und 85 kg im Sample gibt oder eine ganz andere Verteilung vorherrscht. Wie der Name schon sagt, geben <strong>Streuungsmaße</strong> Auskunft darüber, wie die Werte einer Variablen um den Mittelwert streuen oder variieren. Das wichtigste Streuungsmaß, welches auch immer gemeinsam mit dem arithmetischen Mittel angesehen und berichtet werden sollte, ist die <strong>Streuung</strong> (<em>standard deviation</em>).</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="deskriptive-statistik.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="deskriptive-statistik.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 169,4572</code></pre>
 <p>Die Streuung ist bekanntlich die Wurzel der Varianz und als Streuungsmaß auch um einiges üblicher. Dennoch soll hier natürlich auch die Funktion für die Varianz nicht fehlen:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="deskriptive-statistik.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="deskriptive-statistik.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 28715,73</code></pre>
 </div>
 </div>
@@ -560,8 +585,8 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 <h2><span class="header-section-number">7.4</span> Schiefe und Kurtosis</h2>
 <p>Weitere Kennwerte für die Form von Verteilungen sind die <strong>Schiefe</strong> (<em>skew</em>) und <strong>Kurtosis</strong> (<em>kurtosis</em>). Die Schiefe ist quasi das Gegenteil von Symmetrie. Kurtosis drückt aus, wie spitz (nach oben gewölbt) oder flach eine Verteilung ist.</p>
 <p>Im <code>psych</code>-Paket gibt es Funktionen für beides:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="deskriptive-statistik.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb178-2"><a href="deskriptive-statistik.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skew</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="deskriptive-statistik.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb179-2"><a href="deskriptive-statistik.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skew</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] -1,025488</code></pre>
 <p>Zur Erinnerung:</p>
 <ul>
@@ -571,19 +596,19 @@ Das Histogramm offenbart in der Variable <code>mass</code> einen extremen Ausrei
 </ul>
 <p>Die Verteilung des Alters im obigen Beispiel ist also nahezu symmetrisch, ein wenig linksschief.</p>
 <p>Hier noch der Code zur Berechnung der Kurtosis:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="deskriptive-statistik.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosi</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="deskriptive-statistik.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosi</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1,776414</code></pre>
 </div>
 <div id="übersichts-funktionen" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Übersichts-Funktionen</h2>
 <p>Bisher haben wir uns die Statistiken jeweils für eine einzelne Variable ausgeben lassen. Aber natürlich macht es Sinn, sich mehrere Kennwerte gleichzeitig ausgeben zu lassen. Die Funktion <code>summary()</code> aus dem base-Paket liefert zum Beispiel einen guten ersten Einblick:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="deskriptive-statistik.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>height)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="deskriptive-statistik.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>height)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    66,0   167,0   180,0   174,4   191,0   264,0       6</code></pre>
 <p>Allerdings fehlen an dieser Stelle z.B. die Streuungsmaße. Es geht also noch mehr. Das vorhin genutzte <code>psych</code>-Paket hat z.B. eine <code>describe()</code>-Funktion, mit der man sich gleichzeitig verschiedene deskriptive Statistiken ausgeben kann - und zwar nicht nur für eine Variable, sondern gleich für mehrere oder sogar für einen ganzen Datensatz.</p>
 <p>In dem nun folgenden Code habe ich den Datensatz um ein paar Variablen gekürzt (<code>[, 1:11]</code>), weil die Funktion <code>describe()</code> mit diesen Variablen nicht funktioniert.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="deskriptive-statistik.html#cb184-1" aria-hidden="true" tabindex="-1"></a>desc_stats <span class="ot">&lt;-</span> <span class="fu">describe</span>(starwars[, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>])</span>
-<span id="cb184-2"><a href="deskriptive-statistik.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(desc_stats)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="deskriptive-statistik.html#cb185-1" aria-hidden="true" tabindex="-1"></a>desc_stats <span class="ot">&lt;-</span> <span class="fu">describe</span>(starwars[, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>])</span>
+<span id="cb185-2"><a href="deskriptive-statistik.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(desc_stats)</span></code></pre></div>
 <pre><code>##             vars  n   mean     sd median trimmed   mad min  max range  skew
 ## name*          1 87  44,00  25,26     44   44,00 32,62   1   87    86  0,00
 ## height         2 81 174,36  34,77    180  178,17 19,27  66  264   198 -1,03

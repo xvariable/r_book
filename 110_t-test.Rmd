@@ -15,7 +15,7 @@ df_prosocial <- read_csv2("data/gaming_data.csv")
 options(digits = 2)
 ```
 
-In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt.
+In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt. Bei T-Test geht es immer um den Vergleich von Mittelwerten, also um Unterschiedshypothesen.
 Als T-Tests werden eine Reihe von Null-Hypothesen-Tests bezeichnet, deren Prüfgröße auf der T-Verteilung basiert.
 T-Tests wurden ursprünglich von William S. Gosset entwickelt, der für die Guinness-Brauerei daran arbeitete, die Qualität der Gerste abzuschätzen, damit das Bier einen gleichbleibenden Qualitätsstandard erfüllen konnte.
 Gosset entwickelte den T-Test und wollte seine Erkenntnisse gerne mit anderen Forschenden teilen.
@@ -125,8 +125,7 @@ Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die F
 
 Die wichtigsten Argumente der `t_test()`-Funktion aus `rstatix` werden hier kurz erläutert:
 
-1. Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im tidyverse gewohnt kann man ???
-Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
+1. Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
 
 2.  Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel [Regression] bekannt. Die Tilde `~` verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa "die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde". Die Notation ist immer `Variable1 ~ Variable2`. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet `Variable1 ~ 1`.
 

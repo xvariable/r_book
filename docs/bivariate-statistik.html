@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-07-20" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -394,6 +394,29 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="varianzanalyse.html"><a href="varianzanalyse.html"><i class="fa fa-check"></i><b>12</b> Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#datenbeispiel-1"><i class="fa fa-check"></i><b>12.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="12.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#prerequisits"><i class="fa fa-check"></i><b>12.2</b> Prerequisits</a></li>
+<li class="chapter" data-level="12.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#einfaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.3</b> Einfaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse"><i class="fa fa-check"></i><b>12.3.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test"><i class="fa fa-check"></i><b>12.3.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-der-varianzanalyse"><i class="fa fa-check"></i><b>12.3.3</b> Durchführung der Varianzanalyse</a></li>
+<li class="chapter" data-level="12.3.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#effektstärke"><i class="fa fa-check"></i><b>12.3.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="12.3.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-test"><i class="fa fa-check"></i><b>12.3.5</b> Posthoc-Test</a></li>
+<li class="chapter" data-level="12.3.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#ergebnisdarstellung"><i class="fa fa-check"></i><b>12.3.6</b> Ergebnisdarstellung</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#zweifaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.4</b> Zweifaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse-1"><i class="fa fa-check"></i><b>12.4.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.4.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test-1"><i class="fa fa-check"></i><b>12.4.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.4.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-einer-mehrfaktoriellen-varianzanalyse"><i class="fa fa-check"></i><b>12.4.3</b> Durchführung einer mehrfaktoriellen Varianzanalyse</a></li>
+<li class="chapter" data-level="12.4.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#visualisierung"><i class="fa fa-check"></i><b>12.4.4</b> Visualisierung</a></li>
+<li class="chapter" data-level="12.4.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-tests"><i class="fa fa-check"></i><b>12.4.5</b> Posthoc-Tests</a></li>
+<li class="chapter" data-level="12.4.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#abschließende-beurteilung-des-hypothesentests"><i class="fa fa-check"></i><b>12.4.6</b> Abschließende Beurteilung des Hypothesentests</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -421,7 +444,7 @@ div.csl-indent {
 <p>Chi-Quadrat ist eine Maßzahl für die Differenz zwischen der Kontingenztabelle (=gemessene Werte) und der Indifferenztabelle (=die Tabelle die entstünde, wenn es keinen Zusammenhang zwischen den Variablen geben würde). Ist Chi-Quadrat = 0, besteht kein Zusammenhang zwischen den Variablen. Allerdings kann Chi-Quadrat abhängig von der Reihen- und Spaltenzahl, sowie der Fallzahl, unendlich hohe Werte annehmen. Chi-Quadrate für unterschiedliche Tabellen lassen sich deshalb schlecht vergleichen. Mit Cramer´s V liegt eine standardisierte Form von Chi-Quadrat vor, die zwischen 0 und 1 variiert. Über die Richtung von Zusammenhängen gibt aber auch Cramer´s V keine Auskunft. Dazu muss man in der Kreuztabelle nachsehen. Kreuztabellen und Chi-Quadrat-basierte Maßzahlen sind bei Hypothesentests immer dann das Mittel der Wahl, wenn die abhängige Variable nominales Datenniveau hat.</p>
 <p>Im Folgenden verwende ich wieder den Geneartion-Z-Datensatz als Beispiel. Darin gibt es einige Variablen zur politischen Partizipation, z.B. ob man schon einmal an einer Wahl teilgenommen hat oder schon einmal eine Petition unterschrieben hat. Diese Variablen sind dichotom 0/1-codiert. Die “0” bedeutet dabei, dass ein:e Befragte:r die Partizipationsmöglichkeit noch nie wahrgenommen hat und “1” bedeutet, dass sie mindestens einmal wahrgenommen wurde.</p>
 <p>Außerdem enthält der Datensatz noch die Variable “alter_g3,” die ich in drei Gruppen eingeteilt habe (“14 bis 17 Jahre,” “18 bis 21 Jahre” und “22 bis 24 Jahre”).</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="bivariate-statistik.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="bivariate-statistik.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 13
 ##    lfdn alter_g3         pol_part_wahl pol_part_petition pol_part_sm_kommentar
 ##   &lt;dbl&gt; &lt;chr&gt;                &lt;dbl+lbl&gt;         &lt;dbl+lbl&gt;             &lt;dbl+lbl&gt;
@@ -440,24 +463,24 @@ div.csl-indent {
 <p>Unsere H1 lautet also:</p>
 <p><em>Der Anteil derjenigen, die bereits eine Petition unterschrieben haben, steigt mit zunehmendem Alter.</em></p>
 <p>Bevor es mit dem Hypothesentest losgehen kann, müssen die erforderlichen Pakete geladen werden. Das tidyverse für die Pipe, <code>janitor</code> für die Kreuztabellen und Chi-Quadrat (χ<sup>2</sup>) und <code>DescTools</code> für Cramer´s V.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="bivariate-statistik.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb188-2"><a href="bivariate-statistik.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb188-3"><a href="bivariate-statistik.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bivariate-statistik.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb189-2"><a href="bivariate-statistik.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb189-3"><a href="bivariate-statistik.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
 <div id="vorbereitung-univariate-verteilung" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Vorbereitung: Univariate Verteilung</h3>
 <p>Schauen wir uns zunächst einmal die univariate Verteilung der beiden Variablen an.
 Dies ist hilfreich, um ein Gefühl für die Daten zu bekommen und ein Verständnis dafür zu entwickeln, welche Verteilung wir erwarten würden.
 Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code>.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bivariate-statistik.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Altersgruppen</span></span>
-<span id="cb189-2"><a href="bivariate-statistik.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>alter_g3)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="bivariate-statistik.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Altersgruppen</span></span>
+<span id="cb190-2"><a href="bivariate-statistik.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>alter_g3)</span></code></pre></div>
 <pre><code>##    data$alter_g3   n   percent
 ##  14 bis 17 Jahre 356 0,3542289
 ##  18 bis 21 Jahre 354 0,3522388
 ##  22 bis 24 Jahre 295 0,2935323</code></pre>
 <p>Die drei Altersgruppen sind also alle etwa gleich stark besetzt, die älteste Altersgruppe ist ca. 5 Prozent kleiner als die anderen beiden.</p>
 <p>Jetzt noch die Beteiligung an Petitionen:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="bivariate-statistik.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Teilnahme Petitionen</span></span>
-<span id="cb191-2"><a href="bivariate-statistik.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>pol_part_petition)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="bivariate-statistik.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle Teilnahme Petitionen</span></span>
+<span id="cb192-2"><a href="bivariate-statistik.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(data<span class="sc">$</span>pol_part_petition)</span></code></pre></div>
 <pre><code>##  data$pol_part_petition   n   percent
 ##                       0 680 0,6766169
 ##                       1 325 0,3233831</code></pre>
@@ -468,11 +491,11 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 <p>Mit dem Paket <code>janitor</code> und der Funktion <code>tabyl()</code> kann man nicht nur einfache Tabellen erstellen, sondern auch Kreuztabellen. Dazu gibt man die beiden Variablen, die man kreuztabulieren möchte, einfach nacheinander als Argumente in die Funktion. Die Variable, die zuerst übergeben wird, steht dann hinterher in den Zeilen, die zweite in den Spalten. Es ist eine Konvention, dass Variablen, die als unabhängig betrachtet werden, bei Kreuztabellen in den Spalten dargestellt werden. An einigen Stellen findet man es aber auch andersherum. Das Layout einer Tabelle hängt ja auch manchmal davon ab, wo man wieviel Platz hat und wenn man eine unabhängige Variable mit sehr vielen Ausprägungen hat, dann passt sie unter Umständen besser in die Zeilen.</p>
 <p>Wir halten uns im folgenden Code jedoch an die Konvention und übergeben zusätzlich noch das Argument <code>show_na = FALSE</code> um fehlende Werte aus der Analyse auszuschließen.</p>
 <p>Hier der Basis-Code für die Kreuztabelle mit <code>janitor::tabyl()</code>:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="bivariate-statistik.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle berechnen</span></span>
-<span id="cb193-2"><a href="bivariate-statistik.html#cb193-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb193-3"><a href="bivariate-statistik.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(pol_part_petition, alter_g3, <span class="at">show_na =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb193-4"><a href="bivariate-statistik.html#cb193-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-5"><a href="bivariate-statistik.html#cb193-5" aria-hidden="true" tabindex="-1"></a>my_crosstab</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="bivariate-statistik.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle berechnen</span></span>
+<span id="cb194-2"><a href="bivariate-statistik.html#cb194-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb194-3"><a href="bivariate-statistik.html#cb194-3" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(pol_part_petition, alter_g3, <span class="at">show_na =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb194-4"><a href="bivariate-statistik.html#cb194-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-5"><a href="bivariate-statistik.html#cb194-5" aria-hidden="true" tabindex="-1"></a>my_crosstab</span></code></pre></div>
 <pre><code>##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre
 ##                  0             284             213             183
 ##                  1              72             141             112</code></pre>
@@ -485,13 +508,13 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 <li><p><code>adorn_title()</code> dient zur Beschriftung der Tabelle. Mit <code>placement = "combined"</code> kann man z.B. in der ersten Zelle kombiniert die beiden Variablennamen anzeigen lassen. Mit der Variante <code>placement = "top"</code> wird die Beschriftung in einer Zeile darüber eingetragen.</p></li>
 </ul>
 <p>Probieren wir es aus:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="bivariate-statistik.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle formatieren</span></span>
-<span id="cb195-2"><a href="bivariate-statistik.html#cb195-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="sc">%&gt;%</span> </span>
-<span id="cb195-3"><a href="bivariate-statistik.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb195-4"><a href="bivariate-statistik.html#cb195-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">&quot;col&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb195-5"><a href="bivariate-statistik.html#cb195-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb195-6"><a href="bivariate-statistik.html#cb195-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb195-7"><a href="bivariate-statistik.html#cb195-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_title</span>(<span class="at">placement =</span> <span class="st">&quot;top&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="bivariate-statistik.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kreuztabelle formatieren</span></span>
+<span id="cb196-2"><a href="bivariate-statistik.html#cb196-2" aria-hidden="true" tabindex="-1"></a>my_crosstab <span class="sc">%&gt;%</span> </span>
+<span id="cb196-3"><a href="bivariate-statistik.html#cb196-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb196-4"><a href="bivariate-statistik.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">&quot;col&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-5"><a href="bivariate-statistik.html#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb196-6"><a href="bivariate-statistik.html#cb196-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb196-7"><a href="bivariate-statistik.html#cb196-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_title</span>(<span class="at">placement =</span> <span class="st">&quot;top&quot;</span>)</span></code></pre></div>
 <pre><code>##                           alter_g3                                            
 ##  pol_part_petition 14 bis 17 Jahre 18 bis 21 Jahre 22 bis 24 Jahre       Total
 ##                  0       80% (284)       60% (213)       62% (183)  68%  (680)
@@ -508,8 +531,8 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 <div id="chi-quadrat-cramers-v" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> Chi-Quadrat &amp; Cramer´s V</h3>
 <p>Dazu ziehen wir im folgenden den Chi-Quadrat-Test heran, ebenfalls aus dem Paket <code>janitor</code>.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="bivariate-statistik.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-Quadrat berchnen</span></span>
-<span id="cb197-2"><a href="bivariate-statistik.html#cb197-2" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">chisq.test</span>(my_crosstab)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="bivariate-statistik.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-Quadrat berchnen</span></span>
+<span id="cb198-2"><a href="bivariate-statistik.html#cb198-2" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">chisq.test</span>(my_crosstab)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -517,8 +540,8 @@ Das geht (wie im Kapitel zu den Häufigkeitstabellen beschrieben) am schönsten 
 ## X-squared = 37,226, df = 2, p-value = 8,249e-09</code></pre>
 <p>Chi-Quadrat beträgt 37.2 (df = 2), bei einem sehr kleinen p-Wert. Der p-Wert 8.249e-09 bedeutet 8.249 * 10 ^ -9 also 0.000000008249. Das ist deutlich unter p &lt; .001 und damit “signifikant.” Wir können deshalb davon ausgehen, dass der Zusammenhang/Unterschied, den wir hier beobachtet haben, überzufällig zu Stande gekommen ist. Die Daten unterstützen also unsere Hypothese H1.</p>
 <p>Aber wie stark ist der gefundene Zusammenhang? Dabei hilft uns Cramer´s V, quasi das standardisierte Chi-Quadrat. Die Funktion dazu findet sich im Paket <code>DescTools</code> und heißt <code>CramerV()</code>. Sie benötigt als einziges Argument eine Kreuztabelle, bzw. die darin befindlichen Zahlen als Matrix (also auf keinen Fall die formatierte Tabelle). Die einfache Tabelle haben wir oben im Objekt <code>my_crosstab</code> gespeichert. Für die Berechnung von Cramer´s V muss noch die erste Spalte gelöscht werden, die die Ausprägungen der Variable zu Petitionen enthält. Über das Subsetting <code>[, -1]</code> können wir genau dies erreichen. Der Befehl besagt quasi: Gib alle Zeilen aus (durch das Weglassen der Angabe vor dem Komma - wenn man hier nichts schreibt, bdeutet das “keine Enischränkung”) und alle Spalten bis auf die erste (nach dem Komma <code>-1</code>).</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="bivariate-statistik.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cramer´s V</span></span>
-<span id="cb199-2"><a href="bivariate-statistik.html#cb199-2" aria-hidden="true" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">CramerV</span>(my_crosstab[, <span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="bivariate-statistik.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cramer´s V</span></span>
+<span id="cb200-2"><a href="bivariate-statistik.html#cb200-2" aria-hidden="true" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">CramerV</span>(my_crosstab[, <span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0,1924605</code></pre>
 <p>Cramer´s V beträgt .19. Es besteht also ein schwacher, aber signifikanter Zusammenhang zwischen dem Alter und der politischen Beteiligung mittels Petitionen.</p>
 <p>Die Hypothese kann damit insgesamt als bestätigt angesehen werden, auch wenn wir einräumen müssen, dass nicht zwischen allen Altersgruppen Unterschiede bestehen.
@@ -529,16 +552,16 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <h2><span class="header-section-number">8.2</span> Korrelationen</h2>
 <p>Dieser Abschnitt ist den Zusammenhängen zwischen metrischen Variablen gewidmet. Dabei wird zunächst auf die grafische Analyse eingegangen und dann die Berechnung der Kovarianz und des Korrelationskoeffizienten <em>r</em> veranschaulicht. Dabei werden sowohl die Befehle aus base-R als auch die entsprechenden Befehle aus dem Paket <code>psych</code> verwendet. Zudem wird noch das Paket <code>corrr</code> vorgestellt, das zur explorativen grafischen Analyse von Korrelationen dient.</p>
 <p>Zunächst werden die entsprechenden Pakete geladen.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="bivariate-statistik.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></span>
-<span id="cb201-2"><a href="bivariate-statistik.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)     <span class="co"># für Korrelationen</span></span>
-<span id="cb201-3"><a href="bivariate-statistik.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)     <span class="co"># für Korrelationsmatrizen</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="bivariate-statistik.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Scatterplots und die Pipe</span></span>
+<span id="cb202-2"><a href="bivariate-statistik.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)     <span class="co"># für Korrelationen</span></span>
+<span id="cb202-3"><a href="bivariate-statistik.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)     <span class="co"># für Korrelationsmatrizen</span></span></code></pre></div>
 <p>Als Datenbeispiel dient wieder der Generation-Z-Datensatz. Ich habe in diesem Datensatz zwei Indices gebildet, deren Zusammenhang wir hier untersuchen wollen.</p>
 <ul>
 <li><p>Für die <em>Politische Partizipation</em> habe ich einen Summenindex gebildet. Er zählt, wie viele von zehn möglichen Aktivitäten der politischen Partizipation eine Person bereits ausgeführt hat (z.B. Wählen gehen, Petitionen unterschreiben, demonstrieren oder Konsumboykott).</p></li>
 <li><p>Für die <em>Politische Entfremdung</em> habe ich einen Mittelwertindex gebildet, der auf fünf Items beruht, welche jeweils auf einer 4er-Skala von 1 = <em>stimme überhaupt nicht zu</em> bis 4 = <em>stimme voll und ganz zu</em> gemessen wurden. (Hier drei Beispielitems: <em>Politik hat mit meinem Leben nichts zu tun</em>, <em>Entscheidungsprozesse in der Politik sind für mich meistens nicht nachvollziehbar</em> und <em>Den Parteien geht es nur um Macht</em>).</p></li>
 </ul>
 <p>Außerdem enthält der Datensatz noch die Variablen <code>lfdn</code> für die Fallnummer und das <code>alter</code> der Befragten.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="bivariate-statistik.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="bivariate-statistik.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##    lfdn pol_part_sx pol_entfremdung_ix         alter
 ##   &lt;dbl&gt;       &lt;dbl&gt;              &lt;dbl&gt;     &lt;dbl+lbl&gt;
@@ -559,16 +582,16 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <p>Nach dem Anlegen des Plots müssen wir dem Plot noch ein <em>Geom</em> hinzufügen. Der Begriff steht für <em>geom</em>etrisches Objekt. Ein Geom ist im Prinzip eine Funktion für die Art der Grafik. Es beinhaltet z.B. statistische Transformationen, die zur Darstellung der Grafik nötig sind und außerdem Default-Layout-Informationen. In unserem Fall möchten wir das Geom <code>geom_jitter</code> hinzufügen, also einen “zitternden” Scatterplot. Eine Übersicht über verschiedene Geome findet man <a href="https://rstudio.com/wp-content/uploads/2015/06/ggplot2-german.pdf">hier</a>. Das Geom wird mit dem Plot über ein <code>+</code> verknüpft. Dieses Pluszeichen muss zwingend am Ende der vorigen Zeile stehen. Über das Pluszeichen kann man dem Plot auch noch weitere Veränderungen hinzufügen. Dazu später mehr.</p>
 <p>Alternativ zum oben beschriebenen Vorgehen kann man auch die <em>aes()</em>-Funktion in die <em>geom_</em>-Funktion einbauen, das macht optisch keinen Unterschied.</p>
 <p>Hier der Code für das zitternde Streudiagramm:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="bivariate-statistik.html#cb204-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb204-2"><a href="bivariate-statistik.html#cb204-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pol_part_sx, <span class="at">y =</span> pol_entfremdung_ix)) <span class="sc">+</span></span>
-<span id="cb204-3"><a href="bivariate-statistik.html#cb204-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="bivariate-statistik.html#cb205-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb205-2"><a href="bivariate-statistik.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pol_part_sx, <span class="at">y =</span> pol_entfremdung_ix)) <span class="sc">+</span></span>
+<span id="cb205-3"><a href="bivariate-statistik.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() </span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 <p>Betrachtet man den Output, kann man die Beziehung zwischen den beiden Variablen schon erahnen. Es ist zwar keine klare Linie ersichtlich (das wäre auch sehr viel verlangt), aber man kann schon sehen, dass in der Tendenz hohe Werte von politischer Entfremdung mit niedrigen Werten von politischer Partizipation einhergehen und umgekehrt. Die Grafik spricht also für den vermuteten negativen Zusammenhang.</p>
 </div>
 <div id="kovarianz" class="section level3" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Kovarianz</h3>
 <p>Die Kovarianz ist die gemeinsame Variation der beiden Variablen, beziehungsweise das Produkt der Abweichung beider Variablen von ihrem jeweiligen Mittelwert geteilt durch die Fallzahl. In R kann man die Kovarianz einfach über den Befehl <code>cov()</code> ausgeben lassen (Teil des <code>stats</code>-Paketes, wird üblicherweise mit base R geladen). Die Funktion benötigt im Idealfall lediglich die beiden Variablen/Vektoren, deren Kovarianz ermittelt werden soll. Falls es im Datensatz fehlende Werte gibt braucht es noch einen Hinweis darauf, wie mit diesen umgegangen werden soll (siehe unten Argument <code>use</code>).</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="bivariate-statistik.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="bivariate-statistik.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0,4992269</code></pre>
 <p>Im Beispiel ist die Kovarianz also -0,5. Das ist insofern gut, weil das Vorzeichen der Prognose aus der Hypothese entspricht. Allerdings können wir noch keine Aussage über die Stärke des Zusammenhangs machen, weil die Kovarianz ein unstandardisiertes Maß für die gemeinsame Variation der beiden Variablen ist. Sie berücksichtigt die Skalierung der Variablen nicht.</p>
 </div>
@@ -576,7 +599,7 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <h3><span class="header-section-number">8.2.3</span> Korrelation mit <code>base R</code>/<code>stats</code></h3>
 <p>Der Korrelationskoeffizient <em>r</em> (auch Pearson´s r oder Produkt-Moment-Korrelation) berücksichtigt die Skalierung, weil er die Standardabweichungen der beiden Variablen mit einbezieht. Er beschreibt die Beziehung zwischen zwei metrischen Variablen in einem Wertebereich von -1 über 0 bis +1. Der Wert +1 steht dabei für eine perfekt positive und -1 für eine perfekt negative Beziehung.</p>
 <p>Auch der Korrelationskoeffizient lässt sich leicht mit dem <code>stats</code>-Paket berechnen:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="bivariate-statistik.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="bivariate-statistik.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix)</span></code></pre></div>
 <pre><code>## [1] -0,3998827</code></pre>
 <p>Das Vorzeichen bleibt, verglichen mit der Kovarianz, selbstverständlich dasselbe. Die Höhe des Betrags wird jedoch in einen Bereich zwischen 0 und 1 “gepresst.” Für unsere beiden Variablen ergibt sich eine mittlere Effektstärke von <em>r</em> = -0,4.</p>
 <p>Mit einem Signifikanztest, bei dem ein p-Wert berechnet wird, kann man außerdem prüfen, ob ein Korrelationskoeffizient sich signifikant von 0 unterscheidet (Inferenzstatistik). Die Funktion für den Signifikanztest lautet <code>cor.test()</code>. Neben den beiden Variablen kann man der Funktion weitere Argumente mitgeben:</p>
@@ -585,9 +608,9 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <li><p>Im Argument <code>alternative</code> kann man festlegen, um was für eine Alternativhypothese es sich handelt. Hiernach bestimmt sich, in welche <em>Richtung</em> der Signifikanztest durchgeführt werden soll und ob <em>einseitig</em> oder <em>zweiseitig</em> getestet werden soll. Man kann hier die Option <code>two.sided</code> für einen zweiseitigen Test festlegen, wenn man eine ungerichtete Hypothese aufgestellt hat. Für gerichtete Hypothesen stehen die Optionen <code>greater</code> (für positive Zusammenhänge) und <code>less</code> (für negative Zusammenhänge) zur Verfügung.</p></li>
 <li><p>Mit dem Argument <code>method</code> kann man auch noch andere Korrelationskoeffizienten als die Pearson-Korrelation berchenen: Für Kendall <code>method = "kendall"</code> und für Spearman <code>method = "spearman"</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="bivariate-statistik.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix, </span>
-<span id="cb209-2"><a href="bivariate-statistik.html#cb209-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>,</span>
-<span id="cb209-3"><a href="bivariate-statistik.html#cb209-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="bivariate-statistik.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>pol_part_sx, df<span class="sc">$</span>pol_entfremdung_ix, </span>
+<span id="cb210-2"><a href="bivariate-statistik.html#cb210-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>,</span>
+<span id="cb210-3"><a href="bivariate-statistik.html#cb210-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -605,9 +628,9 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <h3><span class="header-section-number">8.2.4</span> Korrelation mit <code>psych</code></h3>
 <p>Den Korrelationskoeffizient kann man in R auch mit vielen anderen Paketen ausrechnen. Beispielhaft soll hier noch der Code für die Korrelation mit dem <code>psych</code>-Paket veranschaulicht werden. Dieses Paket benutzen wir ja auch für viele andere statistische Verfahren und man kann <code>psych</code> mit der Pipe benutzen (tidyverse-Schreibweise). Der Output für die Korrelation sieht leicht anders aus.</p>
 <p>Die Funktion für die Korrelation in <code>psych</code> lautet <code>corr()</code> (mit 2 r). Sie benötigt als erstes Argument den Datensatz mit ausschließlich den Variablen, die korreliert werden sollen. Diese können direkt vor der Funktion mit einem <code>select()</code>- Befehl ausgewählt werden. Neben dem Datenobjekt kann man weitere Argumente angeben, z.B. über <code>use</code> den listen- oder paarweisen Fallausschluss und über <code>method</code> die Art der Korrelation. Neben dem standardmäßig eingestellten Wert <code>pearson</code> für den Korrelationskoeffizienten (Pearson´s r) gibt es nämlich noch weitere Maßzahlen für spezielle Daten (z.B. <code>spearman</code> für Rangdaten oder <code>kendall</code> für ordinale Daten).</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="bivariate-statistik.html#cb211-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb211-2"><a href="bivariate-statistik.html#cb211-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pol_part_sx, pol_entfremdung_ix) <span class="sc">%&gt;%</span> </span>
-<span id="cb211-3"><a href="bivariate-statistik.html#cb211-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.test</span>(<span class="at">use=</span><span class="st">&quot;pairwise&quot;</span>, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="bivariate-statistik.html#cb212-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb212-2"><a href="bivariate-statistik.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pol_part_sx, pol_entfremdung_ix) <span class="sc">%&gt;%</span> </span>
+<span id="cb212-3"><a href="bivariate-statistik.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.test</span>(<span class="at">use=</span><span class="st">&quot;pairwise&quot;</span>, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.test(x = ., use = &quot;pairwise&quot;, method = &quot;pearson&quot;)
 ## Correlation matrix 
 ##                    pol_part_sx pol_entfremdung_ix
@@ -631,10 +654,10 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <div id="partialkorrelation" class="section level3" number="8.2.5">
 <h3><span class="header-section-number">8.2.5</span> Partialkorrelation</h3>
 <p>Bei der Partialkorrelation wird der Einfluss einer dritten Variable aus der Korrelation zwischen zwei Variablen herausgerechnet. Das geschieht über die Residuen (vgl. zukünftiges Kapitel zur Regression/SDA2). Im <code>psych</code>-Paket kann man die Partialkorrelation einfach berechnen. Zur besseren Übersichtlichkeit kann man vorab im <code>select()</code>-Befehl die Variablen auf eine spezielle Weise gruppieren (das kann man aber auch weglassen, dann muss man sich aber merken, welche Variable die Einflussvariable war). Im Anschluss erfolgt die Partialkorrelation durch die Funktion <code>partial.r()</code> und dann durch die Funktion <code>corr.p()</code> der entsprechende Signifikanztest:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="bivariate-statistik.html#cb213-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb213-2"><a href="bivariate-statistik.html#cb213-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">x =</span> <span class="fu">c</span>(pol_part_sx, pol_entfremdung_ix), <span class="at">y =</span> alter) <span class="sc">%&gt;%</span> </span>
-<span id="cb213-3"><a href="bivariate-statistik.html#cb213-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">partial.r</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb213-4"><a href="bivariate-statistik.html#cb213-4" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.p</span>(<span class="at">n =</span><span class="dv">1003</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="bivariate-statistik.html#cb214-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb214-2"><a href="bivariate-statistik.html#cb214-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">x =</span> <span class="fu">c</span>(pol_part_sx, pol_entfremdung_ix), <span class="at">y =</span> alter) <span class="sc">%&gt;%</span> </span>
+<span id="cb214-3"><a href="bivariate-statistik.html#cb214-3" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">partial.r</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb214-4"><a href="bivariate-statistik.html#cb214-4" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">corr.p</span>(<span class="at">n =</span><span class="dv">1003</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.p(r = ., n = 1003)
 ## Correlation matrix 
 ##       x1    x2     y
@@ -658,8 +681,8 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 <p>Zum Abschluss dieses Teils möchte ich noch kurz darauf eingehen, dass man natürlich auch mehrere oder sogar viele Korrelationen in einer Matrix darstellen kann. R liefert sogar ganz schöne Grafiken, die Zusammenhänge zwischen metrischen Variablen übersichtlich darstellen können. Ein Paket, welches dazu benutzt werden kann, ist <code>corrr</code>.</p>
 <p>Ich greife im Folgenden auf einen anderen Datensatz zu, nämlich auf den Datensatz <code>mtcars</code> aus dem tidyverse. In dem Datensatz sind Statistiken über verschiedene Automodelle gesammelt, aber der Inhalt ist an dieser Stelle nicht so wichtig.</p>
 <p>Die Funktion <code>correlate()</code> aus dem <code>corrr</code>-Paket liefert zunächst die Korrelationsmatrix der Daten. Signifikanztests liefert das Paket nicht, denn es ist eher für die explorative Vorgehensweise geeignet (= nicht inferenzstatistisch-Hypothesenprüfend).</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="bivariate-statistik.html#cb215-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb215-2"><a href="bivariate-statistik.html#cb215-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="bivariate-statistik.html#cb216-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb216-2"><a href="bivariate-statistik.html#cb216-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() </span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
@@ -679,20 +702,20 @@ Stattdessen wird offenbar durch das Erreichen der Volljährigkeit ein relevanter
 ## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656  -0.570  0.0575
 ## # … with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
 <p>Mit der Funktion <code>rplot()</code> kann man die Matrix in eine Korrelations-Grafik überführen:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="bivariate-statistik.html#cb218-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb218-2"><a href="bivariate-statistik.html#cb218-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb218-3"><a href="bivariate-statistik.html#cb218-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="bivariate-statistik.html#cb219-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb219-2"><a href="bivariate-statistik.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb219-3"><a href="bivariate-statistik.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
 <pre><code>## Don&#39;t know how to automatically pick scale for object of type noquote. Defaulting to continuous.</code></pre>
 <p><img src="r_book_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>Das Paket liefert außerdem weitere Funktionen, die dabei helfen, die Matrix und damit auch die Grafik schöner zu formatieren. Mit <code>rearrange()</code> kann man die Variablen in der Matrix nach der Größe der Korrelation sortieren. Mit <code>shave</code> kann man die “doppelte” obere Hälfte des Plots abschneiden.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="bivariate-statistik.html#cb221-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb221-2"><a href="bivariate-statistik.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb221-3"><a href="bivariate-statistik.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb221-4"><a href="bivariate-statistik.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb221-5"><a href="bivariate-statistik.html#cb221-5" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="bivariate-statistik.html#cb222-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb222-2"><a href="bivariate-statistik.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb222-3"><a href="bivariate-statistik.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb222-4"><a href="bivariate-statistik.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb222-5"><a href="bivariate-statistik.html#cb222-5" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>()</span></code></pre></div>
 <pre><code>## 
 ## Correlation method: &#39;pearson&#39;
 ## Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>

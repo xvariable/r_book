@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 13 Zweifaktorielle Varianzanalyse | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</title>
+  <meta name="description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 13 Zweifaktorielle Varianzanalyse | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/yihui/rmarkdown-cookbook/" />
+  
+  <meta property="og:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  <meta name="github-repo" content="xvariable/r_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 13 Zweifaktorielle Varianzanalyse | R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover" />
+  
+  <meta name="twitter:description" content="Dieses Buch ist als Nachschlage-Referez für die Statistik-Ausbildung in der Kommunikationswissenschaft gedacht." />
+  
+
+<meta name="author" content="Julia Niemann-Lenz" />
+
+
+<meta name="date" content="2021-09-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="varianzanalyse.html"/>
+<link rel="next" href="literaturverzeichnis.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCCP0H824J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HCCP0H824J');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Kompendium</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herzlich Willkommen!</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dank"><i class="fa fa-check"></i>Dank</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#einführung-in-r"><i class="fa fa-check"></i><b>1.1</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#s-ist-die-mutter-von-r"><i class="fa fa-check"></i><b>1.1.1</b> S ist die Mutter von R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#die-philosophie-von-s"><i class="fa fa-check"></i><b>1.1.2</b> Die Philosophie von S</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#die-entwicklung-von-r"><i class="fa fa-check"></i><b>1.1.3</b> Die Entwicklung von R</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#vorteile-von-r"><i class="fa fa-check"></i><b>1.2</b> Vorteile von R</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#alternativen-zu-r"><i class="fa fa-check"></i><b>1.3</b> Alternativen zu R</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#weiterführende-links-1"><i class="fa fa-check"></i>Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipps-zum-r-lernen"><i class="fa fa-check"></i><b>1.4</b> Tipps zum R lernen</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#der-anfang-ist-schwer"><i class="fa fa-check"></i><b>1.4.1</b> Der Anfang ist schwer</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#nützliche-hinweise"><i class="fa fa-check"></i><b>1.4.2</b> Nützliche Hinweise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#installationsanleitung-windows"><i class="fa fa-check"></i><b>2.1</b> Installationsanleitung Windows</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#erster-schritt-r"><i class="fa fa-check"></i><b>2.1.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#installationsanleitung-macos"><i class="fa fa-check"></i><b>2.2</b> Installationsanleitung MacOS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="installation.html"><a href="installation.html#erster-schritt-r-1"><i class="fa fa-check"></i><b>2.2.1</b> Erster Schritt: R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="installation.html"><a href="installation.html#zweiter-schritt-rstudio-1"><i class="fa fa-check"></i><b>2.2.2</b> Zweiter Schritt: RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html"><i class="fa fa-check"></i><b>3</b> Benutzeroberflächen</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#konsole"><i class="fa fa-check"></i><b>3.1</b> R Konsole</a></li>
+<li class="chapter" data-level="3.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-ide-für-r"><i class="fa fa-check"></i><b>3.2</b> RStudio: IDE für R</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-cloud"><i class="fa fa-check"></i><b>3.2.1</b> RStudio-Cloud</a></li>
+<li class="chapter" data-level="3.2.2" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#installation-von-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installation von RStudio</a></li>
+<li class="chapter" data-level="3.2.3" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-benutzeroberfläche"><i class="fa fa-check"></i><b>3.2.3</b> RStudio Benutzeroberfläche</a></li>
+<li class="chapter" data-level="3.2.4" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#r-skripte"><i class="fa fa-check"></i><b>3.2.4</b> R-Skripte</a></li>
+<li class="chapter" data-level="3.2.5" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#features-von-rstudio"><i class="fa fa-check"></i><b>3.2.5</b> Features von RStudio</a></li>
+<li class="chapter" data-level="3.2.6" data-path="benutzeroberflächen.html"><a href="benutzeroberflächen.html#rstudio-anpassen"><i class="fa fa-check"></i><b>3.2.6</b> RStudio anpassen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html"><i class="fa fa-check"></i><b>4</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-syntax"><i class="fa fa-check"></i><b>4.1</b> R-Syntax</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#rechnen-mit-r"><i class="fa fa-check"></i><b>4.1.1</b> Rechnen mit R</a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#zuweisungsoperatoren"><i class="fa fa-check"></i><b>4.1.2</b> Zuweisungsoperatoren</a></li>
+<li class="chapter" data-level="4.1.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objektnamen"><i class="fa fa-check"></i><b>4.1.3</b> Objektnamen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#kommentare"><i class="fa fa-check"></i><b>4.2</b> Kommentare</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#einfache-kommentare"><i class="fa fa-check"></i><b>4.2.1</b> Einfache Kommentare</a></li>
+<li class="chapter" data-level="4.2.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#sections"><i class="fa fa-check"></i><b>4.2.2</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete"><i class="fa fa-check"></i><b>4.3</b> R-Pakete</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-anzeigen"><i class="fa fa-check"></i><b>4.3.1</b> R-Pakete anzeigen</a></li>
+<li class="chapter" data-level="4.3.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-pakete-installieren"><i class="fa fa-check"></i><b>4.3.2</b> R-Pakete installieren</a></li>
+<li class="chapter" data-level="4.3.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-laden"><i class="fa fa-check"></i><b>4.3.3</b> Pakete laden</a></li>
+<li class="chapter" data-level="4.3.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dokumentation"><i class="fa fa-check"></i><b>4.3.4</b> Dokumentation</a></li>
+<li class="chapter" data-level="4.3.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#pakete-finden"><i class="fa fa-check"></i><b>4.3.5</b> Pakete finden</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen"><i class="fa fa-check"></i><b>4.4</b> Funktionen</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-argumente"><i class="fa fa-check"></i><b>4.4.1</b> Aufbau &amp; Argumente</a></li>
+<li class="chapter" data-level="4.4.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#funktionen-verschachteln"><i class="fa fa-check"></i><b>4.4.2</b> Funktionen verschachteln</a></li>
+<li class="chapter" data-level="4.4.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#hilfe-für-funktionen"><i class="fa fa-check"></i><b>4.4.3</b> Hilfe für Funktionen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#doppelte-funktionsnamen"><i class="fa fa-check"></i><b>4.5</b> Doppelte Funktionsnamen</a></li>
+<li class="chapter" data-level="4.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#eigene-funktionen-schreiben"><i class="fa fa-check"></i><b>4.6</b> Eigene Funktionen schreiben</a></li>
+<li class="chapter" data-level="4.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte"><i class="fa fa-check"></i><b>4.7</b> R-Projekte</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#arbeitsverzeichnis"><i class="fa fa-check"></i><b>4.7.1</b> Arbeitsverzeichnis</a></li>
+<li class="chapter" data-level="4.7.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#r-projekte-anlegen"><i class="fa fa-check"></i><b>4.7.2</b> R-Projekte anlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenimport-und-datenexport"><i class="fa fa-check"></i><b>4.8</b> Datenimport und Datenexport</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#csv-dateien-importieren"><i class="fa fa-check"></i><b>4.8.1</b> CSV-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#excel-dateien-importieren"><i class="fa fa-check"></i><b>4.8.2</b> Excel-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#spss-dateien-importieren"><i class="fa fa-check"></i><b>4.8.3</b> SPSS-Dateien importieren</a></li>
+<li class="chapter" data-level="4.8.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#daten-exportieren-abspeichern"><i class="fa fa-check"></i><b>4.8.4</b> Daten exportieren (abspeichern)</a></li>
+<li class="chapter" data-level="4.8.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#work_labelled"><i class="fa fa-check"></i><b>4.8.5</b> Arbeit mit gelabelten Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#datenstrukturen"><i class="fa fa-check"></i><b>4.9</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#dataframes"><i class="fa fa-check"></i><b>4.9.1</b> Dataframes</a></li>
+<li class="chapter" data-level="4.9.2" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#aufbau-von-dataframes"><i class="fa fa-check"></i><b>4.9.2</b> Aufbau von Dataframes</a></li>
+<li class="chapter" data-level="4.9.3" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#atomic_vector_types"><i class="fa fa-check"></i><b>4.9.3</b> Atomare Datentypen</a></li>
+<li class="chapter" data-level="4.9.4" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#fehlende-werte"><i class="fa fa-check"></i><b>4.9.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="4.9.5" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#objekttypen-konvertieren"><i class="fa fa-check"></i><b>4.9.5</b> Objekttypen konvertieren</a></li>
+<li class="chapter" data-level="4.9.6" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#faktoren"><i class="fa fa-check"></i><b>4.9.6</b> Faktoren</a></li>
+<li class="chapter" data-level="4.9.7" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#listen"><i class="fa fa-check"></i><b>4.9.7</b> Listen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einführung-in-r-1.html"><a href="einführung-in-r-1.html#wichtige-funktionen-aus-diesem-kapitel"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-workflow"><i class="fa fa-check"></i><b>5.1</b> RMarkdown Workflow</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#erster-schritt-rmarkdown-anlegen"><i class="fa fa-check"></i><b>5.1.1</b> Erster Schritt: RMarkdown anlegen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rmarkdown.html"><a href="rmarkdown.html#zweiter-schritt-inhalt-der-rmarkdown-datei"><i class="fa fa-check"></i><b>5.1.2</b> Zweiter Schritt: Inhalt der RMarkdown-Datei</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rmarkdown.html"><a href="rmarkdown.html#dritter-schritt-output-erzeugen"><i class="fa fa-check"></i><b>5.1.3</b> Dritter Schritt: Output erzeugen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#formatierungen-optionen"><i class="fa fa-check"></i><b>5.2</b> Formatierungen &amp; Optionen</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#weiterführende-links-2"><i class="fa fa-check"></i><b>5.3</b> Weiterführende Links</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenaufbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#prerequisites"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#pipe"><i class="fa fa-check"></i><b>6.2</b> Die Pipe</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#der-aufbau-im-detail"><i class="fa fa-check"></i><b>6.2.1</b> Der Aufbau im Detail</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#schlechtere-alternativen-zur-pipe"><i class="fa fa-check"></i><b>6.2.2</b> Schlechtere Alternativen zur Pipe</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#filter-fälle-auswählen"><i class="fa fa-check"></i><b>6.3</b> Filter: Fälle auswählen</a></li>
+<li class="chapter" data-level="6.4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#arrange-fälle-sortieren"><i class="fa fa-check"></i><b>6.4</b> Arrange: Fälle sortieren</a></li>
+<li class="chapter" data-level="6.5" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#select-variablen-auswählen"><i class="fa fa-check"></i><b>6.5</b> Select: Variablen auswählen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-umcodieren"><i class="fa fa-check"></i><b>6.6</b> Variablen umcodieren</a></li>
+<li class="chapter" data-level="6.7" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-berechnen"><i class="fa fa-check"></i><b>6.7</b> Variablen berechnen</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summen-und-mittelwertindices"><i class="fa fa-check"></i><b>6.7.1</b> Summen und Mittelwertindices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#berechnen-mit-dplyrmutate"><i class="fa fa-check"></i><b>6.7.2</b> Berechnen mit dplyr::mutate()</a></li>
+<li class="chapter" data-level="6.7.3" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#variablen-unter-einer-bedingung-berechnen"><i class="fa fa-check"></i><b>6.7.3</b> Variablen unter einer Bedingung berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#summarize-daten-verdichten"><i class="fa fa-check"></i><b>6.8</b> Summarize: Daten verdichten</a></li>
+<li class="chapter" data-level="" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html#wichtige-funktionen-aus-diesem-kapitel-1"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#datensatz-für-dieses-kapitel"><i class="fa fa-check"></i><b>7.1</b> Datensatz für dieses Kapitel</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsverteilung"><i class="fa fa-check"></i><b>7.2</b> Häufigkeitsverteilung</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#tabellen"><i class="fa fa-check"></i><b>7.2.1</b> Tabellen</a></li>
+<li class="chapter" data-level="7.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeitsdiagramm"><i class="fa fa-check"></i><b>7.2.2</b> Häufigkeitsdiagramm</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#maße-der-zentralen-tendenz-streuung"><i class="fa fa-check"></i><b>7.3</b> Maße der zentralen Tendenz &amp; Streuung</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#nominale-daten"><i class="fa fa-check"></i><b>7.3.1</b> Nominale Daten</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#ordinale-daten"><i class="fa fa-check"></i><b>7.3.2</b> Ordinale Daten</a></li>
+<li class="chapter" data-level="7.3.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#metrische-daten"><i class="fa fa-check"></i><b>7.3.3</b> Metrische Daten</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#schiefe-und-kurtosis"><i class="fa fa-check"></i><b>7.4</b> Schiefe und Kurtosis</a></li>
+<li class="chapter" data-level="7.5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#übersichts-funktionen"><i class="fa fa-check"></i><b>7.5</b> Übersichts-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#wichtige-funktionen-aus-diesem-kapitel-2"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>8</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabellen"><i class="fa fa-check"></i><b>8.1</b> Kreuztabellen</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#vorbereitung-univariate-verteilung"><i class="fa fa-check"></i><b>8.1.1</b> Vorbereitung: Univariate Verteilung</a></li>
+<li class="chapter" data-level="8.1.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kreuztabelle-ausgeben"><i class="fa fa-check"></i><b>8.1.2</b> Kreuztabelle ausgeben</a></li>
+<li class="chapter" data-level="8.1.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#chi-quadrat-cramers-v"><i class="fa fa-check"></i><b>8.1.3</b> Chi-Quadrat &amp; Cramer´s V</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationen"><i class="fa fa-check"></i><b>8.2</b> Korrelationen</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#streudiagramm"><i class="fa fa-check"></i><b>8.2.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.2.2" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#kovarianz"><i class="fa fa-check"></i><b>8.2.2</b> Kovarianz</a></li>
+<li class="chapter" data-level="8.2.3" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-base-rstats"><i class="fa fa-check"></i><b>8.2.3</b> Korrelation mit <code>base R</code>/<code>stats</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelation-mit-psych"><i class="fa fa-check"></i><b>8.2.4</b> Korrelation mit <code>psych</code></a></li>
+<li class="chapter" data-level="8.2.5" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#partialkorrelation"><i class="fa fa-check"></i><b>8.2.5</b> Partialkorrelation</a></li>
+<li class="chapter" data-level="8.2.6" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#korrelationsmatrizen-darstellen"><i class="fa fa-check"></i><b>8.2.6</b> Korrelationsmatrizen darstellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#wichtige-funktionen-aus-diesem-kapitel-3"><i class="fa fa-check"></i>Wichtige Funktionen aus diesem Kapitel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>9</b> Grafiken</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="grafiken.html"><a href="grafiken.html#drei-basis-funktionen"><i class="fa fa-check"></i><b>9.1</b> Drei Basis-Funktionen</a></li>
+<li class="chapter" data-level="9.2" data-path="grafiken.html"><a href="grafiken.html#erste-funktion-plot-objekt-erstellen"><i class="fa fa-check"></i><b>9.2</b> Erste Funktion: Plot-Objekt erstellen</a></li>
+<li class="chapter" data-level="9.3" data-path="grafiken.html"><a href="grafiken.html#zweite-funktion-aesthetik-mapping"><i class="fa fa-check"></i><b>9.3</b> Zweite Funktion: Aesthetik Mapping</a></li>
+<li class="chapter" data-level="9.4" data-path="grafiken.html"><a href="grafiken.html#dritte-funktion-geom-hinzufügen"><i class="fa fa-check"></i><b>9.4</b> Dritte Funktion: Geom hinzufügen</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="grafiken.html"><a href="grafiken.html#streudiagramm-1"><i class="fa fa-check"></i><b>9.4.1</b> Streudiagramm</a></li>
+<li class="chapter" data-level="9.4.2" data-path="grafiken.html"><a href="grafiken.html#jitter-plot"><i class="fa fa-check"></i><b>9.4.2</b> Jitter-Plot</a></li>
+<li class="chapter" data-level="9.4.3" data-path="grafiken.html"><a href="grafiken.html#boxplot"><i class="fa fa-check"></i><b>9.4.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.4.4" data-path="grafiken.html"><a href="grafiken.html#violin-plot"><i class="fa fa-check"></i><b>9.4.4</b> Violin-Plot</a></li>
+<li class="chapter" data-level="9.4.5" data-path="grafiken.html"><a href="grafiken.html#balkendiagramme"><i class="fa fa-check"></i><b>9.4.5</b> Balkendiagramme</a></li>
+<li class="chapter" data-level="9.4.6" data-path="grafiken.html"><a href="grafiken.html#histogramme"><i class="fa fa-check"></i><b>9.4.6</b> Histogramme</a></li>
+<li class="chapter" data-level="9.4.7" data-path="grafiken.html"><a href="grafiken.html#liniendiagramme"><i class="fa fa-check"></i><b>9.4.7</b> Liniendiagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="grafiken.html"><a href="grafiken.html#grafiken-speichern"><i class="fa fa-check"></i><b>9.5</b> Grafiken speichern</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#das-lineare-modell"><i class="fa fa-check"></i><b>10.1</b> Das lineare Modell</a></li>
+<li class="chapter" data-level="10.2" data-path="regression.html"><a href="regression.html#bivariate-lineare-regression"><i class="fa fa-check"></i><b>10.2</b> Bivariate lineare Regression</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression.html"><a href="regression.html#grafische-darstellung"><i class="fa fa-check"></i><b>10.2.1</b> Grafische Darstellung</a></li>
+<li class="chapter" data-level="10.2.2" data-path="regression.html"><a href="regression.html#die-funktion-lm"><i class="fa fa-check"></i><b>10.2.2</b> Die Funktion <code>lm()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="regression.html"><a href="regression.html#standardisierte-regressionskoeffizienten-β"><i class="fa fa-check"></i><b>10.2.3</b> Standardisierte Regressionskoeffizienten (β)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="t-tests.html"><a href="t-tests.html"><i class="fa fa-check"></i><b>11</b> T-Tests</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="t-tests.html"><a href="t-tests.html#datenbeispiel"><i class="fa fa-check"></i><b>11.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="11.2" data-path="t-tests.html"><a href="t-tests.html#einstichproben-t-test"><i class="fa fa-check"></i><b>11.2</b> Einstichproben-T-Test</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="t-tests.html"><a href="t-tests.html#hypothese-aufstellen"><i class="fa fa-check"></i><b>11.2.1</b> Hypothese aufstellen</a></li>
+<li class="chapter" data-level="11.2.2" data-path="t-tests.html"><a href="t-tests.html#daten-explorieren"><i class="fa fa-check"></i><b>11.2.2</b> Daten explorieren</a></li>
+<li class="chapter" data-level="11.2.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen"><i class="fa fa-check"></i><b>11.2.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.2.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d"><i class="fa fa-check"></i><b>11.2.4</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="t-tests.html"><a href="t-tests.html#t-test-für-unabhängige-stichproben"><i class="fa fa-check"></i><b>11.3</b> T-Test für unabhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="t-tests.html"><a href="t-tests.html#deskriptive-auswertung"><i class="fa fa-check"></i><b>11.3.1</b> Deskriptive Auswertung</a></li>
+<li class="chapter" data-level="11.3.2" data-path="t-tests.html"><a href="t-tests.html#anwendungsvoraussetzungen"><i class="fa fa-check"></i><b>11.3.2</b> Anwendungsvoraussetzungen</a></li>
+<li class="chapter" data-level="11.3.3" data-path="t-tests.html"><a href="t-tests.html#levene-test-auf-varianzhomogenität"><i class="fa fa-check"></i><b>11.3.3</b> Levene-Test auf Varianzhomogenität</a></li>
+<li class="chapter" data-level="11.3.4" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-1"><i class="fa fa-check"></i><b>11.3.4</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.3.5" data-path="t-tests.html"><a href="t-tests.html#cohens-d-1"><i class="fa fa-check"></i><b>11.3.5</b> Cohen´s d</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="t-tests.html"><a href="t-tests.html#t-test-für-abhängige-stichproben"><i class="fa fa-check"></i><b>11.4</b> T-Test für abhängige Stichproben</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="t-tests.html"><a href="t-tests.html#deskriptiver-vergleich"><i class="fa fa-check"></i><b>11.4.1</b> Deskriptiver Vergleich</a></li>
+<li class="chapter" data-level="11.4.2" data-path="t-tests.html"><a href="t-tests.html#levene-tests-durchführen"><i class="fa fa-check"></i><b>11.4.2</b> Levene-Tests durchführen</a></li>
+<li class="chapter" data-level="11.4.3" data-path="t-tests.html"><a href="t-tests.html#t-test-durchführen-2"><i class="fa fa-check"></i><b>11.4.3</b> T-Test durchführen</a></li>
+<li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="varianzanalyse.html"><a href="varianzanalyse.html"><i class="fa fa-check"></i><b>12</b> Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#datenbeispiel-1"><i class="fa fa-check"></i><b>12.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="12.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#prerequisits"><i class="fa fa-check"></i><b>12.2</b> Prerequisits</a></li>
+<li class="chapter" data-level="12.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#einfaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.3</b> Einfaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse"><i class="fa fa-check"></i><b>12.3.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test"><i class="fa fa-check"></i><b>12.3.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-der-varianzanalyse"><i class="fa fa-check"></i><b>12.3.3</b> Durchführung der Varianzanalyse</a></li>
+<li class="chapter" data-level="12.3.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#effektstärke"><i class="fa fa-check"></i><b>12.3.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="12.3.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-test"><i class="fa fa-check"></i><b>12.3.5</b> Posthoc-Test</a></li>
+<li class="chapter" data-level="12.3.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#ergebnisdarstellung"><i class="fa fa-check"></i><b>12.3.6</b> Ergebnisdarstellung</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html"><i class="fa fa-check"></i><b>13</b> Zweifaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#deskriptive-analyse-1"><i class="fa fa-check"></i><b>13.0.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="13.0.2" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#levene-test-1"><i class="fa fa-check"></i><b>13.0.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="13.0.3" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#durchführung-einer-mehrfaktoriellen-varianzanalyse"><i class="fa fa-check"></i><b>13.0.3</b> Durchführung einer mehrfaktoriellen Varianzanalyse</a></li>
+<li class="chapter" data-level="13.0.4" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#effektstärke-1"><i class="fa fa-check"></i><b>13.0.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="13.0.5" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#visualisierung"><i class="fa fa-check"></i><b>13.0.5</b> Visualisierung</a></li>
+<li class="chapter" data-level="13.0.6" data-path="zweifaktorielle-varianzanalyse.html"><a href="zweifaktorielle-varianzanalyse.html#posthoc-tests"><i class="fa fa-check"></i><b>13.0.6</b> Posthoc-Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="zweifaktorielle-varianzanalyse" class="section level1" number="13">
+<h1><span class="header-section-number">Kapitel 13</span> Zweifaktorielle Varianzanalyse</h1>
+<p>Im nächsten Schritt soll eine komplexere Varianzanalyse durchgeführt werden, nämlich eine in der nicht nur ein Einflussfaktor betrachtet wird, sondern gleich zwei. In So einem Modell gibt es drei mögliche Effekte:</p>
+<ol style="list-style-type: decimal">
+<li>Einen Haupteffekt von Einflussfaktor A</li>
+<li>Einen Haupteffekt von Einflussfaktor B</li>
+<li>Einen Interaktionseffekt der beiden Einflussfakoren</li>
+</ol>
+<div id="info_interactionanova" class="box info">
+<p><strong>Haupt- &amp; Interaktionseffekte</strong></p>
+<p><em>Haupteffekt</em> bedeutet, dass ein Faktor direkt unt unter allen (einbezogenen) Bedingungen auf die abhängige Variable wirkt.</p>
+<p>Bei <em>Interaktionseffekten</em> wirken zwei (oder mehr) Faktoren in komplexer Weise zusammen. Der Effekt geht über eine reine Addition der Haupteffekte der beiden Einflussvariablen hinaus. Bei einer Interaktion ist die Wirkung eines Faktors abhängig von den Ausprägungen des anderen Faktors. Das heißt zum Beispiel, dass sich die Wirkung bei gleichzeitigem Auftreten besonders verstärken kann. Es sind aber auch Abschwächungseffekte denkbar, oder dass eine bestimmte Wirkung von Faktor A nur auftritt, wenn auch Faktor B zu einem gewissen Grad gegeben ist. – Der <em>F</em>-Wert verändert sich.</p>
+<p>Interaktionseffekte zu untersuchen ist natürlich besonders spannend.</p>
+</div>
+<p>Wir greifen in diesem Beispiel wieder auf die Daten von Carsten Reichelt zurück und nehmen nun einen zusätzlichen Einflussfaktor hinzu, nämlich die Wettkampfpräferenz. Dieses Konstrukt drückt aus, inwiefern ein:e Spieler:in bereit ist, sich einem Wettkampf zu stellen. Die Variable ist nominal/dichotom umd hat zwei Ausprägungen: geringe und hohe Wettkampfpräferenz.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="zweifaktorielle-varianzanalyse.html#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="zweifaktorielle-varianzanalyse.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="zweifaktorielle-varianzanalyse.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_rounding</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="zweifaktorielle-varianzanalyse.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() </span></code></pre></div>
+<pre><code>##         Wettkampfpraeferenz   n percent
+##  geringe Wettkampfpräferenz 131    0.53
+##     hohe Wettkampfpräferenz 117    0.47
+##                       Total 248    1.00</code></pre>
+<p>Für unser Hypothesenkonstrukt bedeutet das, dass wir nun drei Hypothesen haben:</p>
+<p><em>H1: Der Schwierigkeitsgrad beeinflusst den Highscore negativ (siehe oben).</em></p>
+<p><em>H2: Die Wettkampfpräferenz beeinflusst den Highscore positiv.</em></p>
+<p><em>H3: Es gibt einen Interaktionseffekt zwischen Schwierigkeitsgrad und Wettkampfpräferenz.</em></p>
+<p>Für H3 sollten wir natürlich auch überlegen, welcher Art die Interaktion sein könnte. Ich lehne mich jetzt mal aus dem Fenster und prognostiziere, dass man erwarten könnte, dass der Einfluss von Wettkampfpräferenz mit steigendem Schwierigkeitsgrad abnimmt. Meine Begründung dafür wäre, das man bei einem hohen Schwierigkeitsgrad weniger Einfluss auf den Highscore hat, selbst wenn man eine hohe Wettkampfpräferenz hat. Das Ergebnis des Highscores ist schließlich auch noch von vielen anderen Punkten abhängig, wie z.B. Spielerfahrung oder generelle Reaktionsgeschwindigkeit. Meine präzisierte H3 lautet also:</p>
+<p><em>H3: Bei zunehmendem Schwierigkeitsgrad nimmt der Einfluss der Wettkampfpräferenz ab.</em></p>
+<div id="info_interactionanova" class="box info">
+<p><strong>Muss H1 noch einmal geprüft werden? Ja!</strong>
+Man könnte ja denken, dass man H1 auch weglassen könnte, schließlich haben wir sie im vorigen Abschnitt bereits geprüft. Allerdings kann es natürlich sein, dass sich der gefundene Effekt bei der Hinzunahme neuer Einflussfaktoren verändert, z.B. geringer ausfällt (der <em>F</em>-Wert würde in diesem Fall geringer und damit auch die Signifikanz).</p>
+<p>Außerdem können wir die Effekte beider Einflussfaktoren miteinander vergleichen, wenn wir beide aufnehmen.</p>
+</div>
+<div id="deskriptive-analyse-1" class="section level3" number="13.0.1">
+<h3><span class="header-section-number">13.0.1</span> Deskriptive Analyse</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="zweifaktorielle-varianzanalyse.html#cb27-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="zweifaktorielle-varianzanalyse.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad, Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="zweifaktorielle-varianzanalyse.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb27-4"><a href="zweifaktorielle-varianzanalyse.html#cb27-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore), <span class="dv">2</span>),</span>
+<span id="cb27-5"><a href="zweifaktorielle-varianzanalyse.html#cb27-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore)))</span>
+<span id="cb27-6"><a href="zweifaktorielle-varianzanalyse.html#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="zweifaktorielle-varianzanalyse.html#cb27-7" aria-hidden="true" tabindex="-1"></a>desc_table </span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+## # Groups:   Schwierigkeitsgrad [3]
+##   Schwierigkeitsgrad Wettkampfpraeferenz            n     M    SD
+##   &lt;ord&gt;              &lt;ord&gt;                      &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 einfach            geringe Wettkampfpräferenz    37 5267.  2196
+## 2 einfach            hohe Wettkampfpräferenz       42 7058.  2037
+## 3 mittel             geringe Wettkampfpräferenz    50 3768.  1660
+## 4 mittel             hohe Wettkampfpräferenz       40 3458.  1601
+## 5 schwer             geringe Wettkampfpräferenz    44 1858.   617
+## 6 schwer             hohe Wettkampfpräferenz       35 2056.   796</code></pre>
+<p>An den Werten für n können wir sehen, dass es auch für jede Kombination der beiden Einflussfaktoren im Datensatz eine beruhigend hohe Anzahl an n &gt; 30 Fällen gibt. Wir können deshalb nach dem zentralen Grenzwerttheorem davon ausgehen, dass sich Stichprobenmittelwerte unterschiedlicher Stichproben normal verteilen würden, selbst in den jetzt sechs Untergruppen.</p>
+</div>
+<div id="levene-test-1" class="section level3" number="13.0.2">
+<h3><span class="header-section-number">13.0.2</span> Levene-Test</h3>
+<p>Wir wissen bereits aus der vorigen Analyse, dass wir es hinsichtlich der Gruppenvariable Schwierigkeit mit heterogenen Varianzen bei der Variable Highscore zu tun haben. Wir benötigen deshalb in jedem Fall eine Welch-Korrektur für den F-Test der Varianzanalyse. Der Vollständigkeit halber, wird hier dennoch demonstriert, wie eine Analyse der unterschiedlichen Streuung bei einer Zweifaktoriellen Varianzanalyse aussieht.</p>
+<p>Zunächst einmal lässt sich der Boxplot über die ggplot-Funktion <code>facet_wrap</code> leicht so aufsplitten, dass alle sechs Gruppen sichtbar werden.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="zweifaktorielle-varianzanalyse.html#cb29-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="zweifaktorielle-varianzanalyse.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> Highscore, <span class="at">color =</span> Schwierigkeitsgrad)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="zweifaktorielle-varianzanalyse.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="zweifaktorielle-varianzanalyse.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="zweifaktorielle-varianzanalyse.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Wettkampfpraeferenz))</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Augenscheinlich hat sich die Lage durch die Aufteilung in nun sechs Gruppen nicht wesentlich verschlimmert, denn die jeweils gleichfarbigen Box-Plots weisen immer die höchste Ähnlichkeit zueinander auf und sind von den andersfarbigen immer deutlich verschieden. Auch die deskriptive Analyse der Standardabweichung in der vorhergehenden Tabelle zeigt ja im Übrigen, dass der Faktor Wettkampfpräferenz nicht ursächlich für die Varianzheterogenität zu sein scheint.</p>
+<p>Jetzt folgt der Levene-Test für den Einflussfaktor Wettkampfpräferenz:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="zweifaktorielle-varianzanalyse.html#cb30-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="zweifaktorielle-varianzanalyse.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Wettkampfpraeferenz)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 4
+##     df1   df2 statistic       p
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1   246      8.03 0.00499</code></pre>
+<p>Ergebnis: Ebenfalls signifikant, also ungleiche Varianzen.</p>
+<p>Und da wir uns in H3 auch für den Interaktionseffekt interessieren folgt noch ein multifaktorieller Levene-Test. Die Interaktion wird eingebracht über den Operator <code>*</code> in der Formel.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="zweifaktorielle-varianzanalyse.html#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="zweifaktorielle-varianzanalyse.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 4
+##     df1   df2 statistic        p
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1     5   242      13.2 2.33e-11</code></pre>
+<p>Wie zu erwarten, ein drittes signifikantes Ergebnis. Wir können also auf keinen Fall von Varianzhomogenität ausgehen. Wir benötigen die Welch-Korrektur.</p>
+</div>
+<div id="durchführung-einer-mehrfaktoriellen-varianzanalyse" class="section level3" number="13.0.3">
+<h3><span class="header-section-number">13.0.3</span> Durchführung einer mehrfaktoriellen Varianzanalyse</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="zweifaktorielle-varianzanalyse.html#cb34-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> afex<span class="sc">::</span><span class="fu">aov_car</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">+</span> Wettkampfpraeferenz <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="zweifaktorielle-varianzanalyse.html#cb34-2" aria-hidden="true" tabindex="-1"></a>                                      Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz <span class="sc">+</span></span>
+<span id="cb34-3"><a href="zweifaktorielle-varianzanalyse.html#cb34-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">Error</span>(lfdn), </span>
+<span id="cb34-4"><a href="zweifaktorielle-varianzanalyse.html#cb34-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> df)</span></code></pre></div>
+<pre><code>## Contrasts set to contr.sum for the following variables: Schwierigkeitsgrad, Wettkampfpraeferenz</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="zweifaktorielle-varianzanalyse.html#cb36-1" aria-hidden="true" tabindex="-1"></a>my_model</span></code></pre></div>
+<pre><code>## Anova Table (Type 3 tests)
+## 
+## Response: Highscore
+##                                   Effect     df        MSE          F  ges
+## 1                     Schwierigkeitsgrad 2, 242 2547712.45 138.25 *** .533
+## 2                    Wettkampfpraeferenz 1, 242 2547712.45    7.52 ** .030
+## 3 Schwierigkeitsgrad:Wettkampfpraeferenz 2, 242 2547712.45   9.64 *** .074
+##   p.value
+## 1   &lt;.001
+## 2    .007
+## 3   &lt;.001
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;+&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="zweifaktorielle-varianzanalyse.html#cb38-1" aria-hidden="true" tabindex="-1"></a>my_model<span class="sc">$</span>Anova</span></code></pre></div>
+<pre><code>## Anova Table (Type III tests)
+## 
+## Response: dv
+##                                            Sum Sq  Df   F value    Pr(&gt;F)    
+## (Intercept)                            3742311693   1 1468.8909 &lt; 2.2e-16 ***
+## Schwierigkeitsgrad                      704465814   2  138.2546 &lt; 2.2e-16 ***
+## Wettkampfpraeferenz                      19164046   1    7.5221   0.00655 ** 
+## Schwierigkeitsgrad:Wettkampfpraeferenz   49122164   2    9.6404 9.368e-05 ***
+## Residuals                               616546413 242                        
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="effektstärke-1" class="section level3" number="13.0.4">
+<h3><span class="header-section-number">13.0.4</span> Effektstärke</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="zweifaktorielle-varianzanalyse.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(my_model, <span class="at">partial =</span> <span class="cn">FALSE</span>, <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## Type 3 ANOVAs only give sensible and informative results when covariates are
+##   mean-centered and factors are coded with orthogonal contrasts (such as those
+##   produced by &#39;contr.sum&#39;, &#39;contr.poly&#39;, or &#39;contr.helmert&#39;, but *not* by the
+##   default &#39;contr.treatment&#39;).</code></pre>
+<pre><code>## # Effect Size for ANOVA (Type III)
+## 
+## Parameter                              | Eta2 |       95% CI
+## ------------------------------------------------------------
+## Schwierigkeitsgrad                     | 0.51 | [0.42, 0.58]
+## Wettkampfpraeferenz                    | 0.01 | [0.00, 0.06]
+## Schwierigkeitsgrad:Wettkampfpraeferenz | 0.04 | [0.00, 0.09]</code></pre>
+</div>
+<div id="visualisierung" class="section level3" number="13.0.5">
+<h3><span class="header-section-number">13.0.5</span> Visualisierung</h3>
+<p>Die Visualisierung von Interaktionseffekten hilft erheblich bei der Interpretation. Am einfachsten ist, es, wenn wir als Basis für die Visualisierung die Tabelle benutzen, die wir im Abschnitt <a href="zweifaktorielle-varianzanalyse.html#deskriptive-analyse-1">Deskriptive Analyse</a> erzeugt hatten. Wir brauchen aus dieser Tabelle die beiden Einflussvariablen und die Mittelwerte:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="zweifaktorielle-varianzanalyse.html#cb43-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="zweifaktorielle-varianzanalyse.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, M)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+## # Groups:   Schwierigkeitsgrad [3]
+##   Schwierigkeitsgrad Wettkampfpraeferenz            M
+##   &lt;ord&gt;              &lt;ord&gt;                      &lt;dbl&gt;
+## 1 einfach            geringe Wettkampfpräferenz 5267.
+## 2 einfach            hohe Wettkampfpräferenz    7058.
+## 3 mittel             geringe Wettkampfpräferenz 3768.
+## 4 mittel             hohe Wettkampfpräferenz    3458.
+## 5 schwer             geringe Wettkampfpräferenz 1858.
+## 6 schwer             hohe Wettkampfpräferenz    2056.</code></pre>
+<p>Was im Interaktionsdiagramm dargestellt werden soll, ist genau das, was oben in der Tabelle steht: Die Mittelwerte des Highscores und zwar in Abhängigkeit von den beiden unabhängigen Variablen. Hätten wir nur einen Einflussfaktor, würden wir das mit einem Balkendiagramm machen (siehe oben: Schwierigkeitsgrad auf die x-Achse, Mittelwert des Highscores auf die y-Achse).</p>
+<p>Bei zwei Faktoren bietet sich ein Liniendiagramm an. Der zweite Faktor kann dann durch unterschiedliche Linien (Argument <code>group</code>) dargestellt werden, die zur besseren Übersichtlichkeit auch noch verschieden eingefärbt werden können (Argument <code>color</code>).</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="zweifaktorielle-varianzanalyse.html#cb45-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="zweifaktorielle-varianzanalyse.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> M, </span>
+<span id="cb45-3"><a href="zweifaktorielle-varianzanalyse.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">group =</span> Wettkampfpraeferenz, <span class="at">color =</span> Wettkampfpraeferenz)) <span class="sc">+</span>       </span>
+<span id="cb45-4"><a href="zweifaktorielle-varianzanalyse.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-5"><a href="zweifaktorielle-varianzanalyse.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ab hier nur noch &quot;Aufhübschung&quot; des Plots</span></span>
+<span id="cb45-6"><a href="zweifaktorielle-varianzanalyse.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">8000</span>) <span class="sc">+</span></span>
+<span id="cb45-7"><a href="zweifaktorielle-varianzanalyse.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Schwierigkeitsgrad&quot;</span>, </span>
+<span id="cb45-8"><a href="zweifaktorielle-varianzanalyse.html#cb45-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Mittelwert Highscore&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb45-9"><a href="zweifaktorielle-varianzanalyse.html#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb45-10"><a href="zweifaktorielle-varianzanalyse.html#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;deeppink&quot;</span>))</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>In dem Interaktionsdiagramm zeigt sich, dass die von mir Prognostizierte Interaktion vor allem im einfachen Schwierigkeitsgrad zum Tragen kommt. Hier ist es tatsächlich so, dass Probandinnen mit hoher Wettkampfpräferenz deutlich besser abschneiden als solche mit niedriger. Auf mittlerem Schwierigkeitsgrad ist die Tendenz jedoch umgedreht. Hier sind Personen mit niedriger Wettkampfpräferenz etwas besser. Der Mittelwertunterschied ist jedoch gering. Bei schweren Schwirigkeitsgrad dreht es sich wieder, aber auch hier ist die Mittelwertdifferenz gering. Es ist also kompliziert. Möglicherweise gibt es einen zusätzlichen Effekt, bei dem Personen mit hoher Wettkampfpräferenz durch einen besonders schweren Schwierigkeitsgrad zusätzlich angespornt werden einen hohen Highscore zu erzielen. Um das zu untersuchen sind unsere Daten aber leider nicht differenziert genug. Festzuhalten ist aber, dass sich die H3 (A-Version) bestätigen lässt (das zeigt der <em>F</em>-Wert oben) und dass zumindest die visuellen Ergebnisse für Gruppe “leicht” für die präzisierte B-Version der H3 sprechen.</p>
+<p>Es stellt sich jetzt natürlich die Frage, welche der beobachteten Mittelwertunterschiede sind signifikant?</p>
+</div>
+<div id="posthoc-tests" class="section level3" number="13.0.6">
+<h3><span class="header-section-number">13.0.6</span> Posthoc-Tests</h3>
+<p>Bis hierhin haben wir festgestellt, dass sich wohl alle drei Hypothesen bestätigen lassen. Müssen wir einen erneuten Posthoc-Test durchführen? Und wenn ja für welche Hypothesen?</p>
+<p>Für H1 (Haupteffekt des Schwierigkeitsgrades) haben wir den Post-Hoc-Test bereits im Ersten Abschnitt bei der einfaktoriellen Varianzanalyse ausgefüht.</p>
+<p>Für H2 (Haupteffekt der Wettkampfpräferenz) brauchen wir keinen Posthoc-Test, denn der Faktor Wettkampfpräferenz hat nur zwei Ausprägungen. Die Varianzanalyse hat einen signifikanten Haupterfeffekt ergeben, es ist klar das sich nur diese beiden unterschieden können (um beim Bild des Omnibustests zu bleiben: Es sitzt nur ein Mittelwertunterschied im Bus)</p>
+<p>Für H3 (Interaktion) wäre ein Posthoc-Test natürlich interessant. Es wäre wichtig zu wissen, ob sich die Personen mit hoher vs. niedriger Wettkampfpräferenz in der Gruppe leichter Schwierigkeitsgrad tatsächlich signifikant unterscheiden. Und natürlich auch, ob in den anderen Schwierigkeitsgraden signifikante Unterschiede vorliegen.</p>
+<p>Ich habe leider noch nicht herausgefunden, wie man in R am besten einen Posthoc-Test für Interaktionseffekte rechnet (für Hinweise bin ich dankbar). Bis ich es herausgefunden habe, behelfe ich mich, in dem ich eine</p>
+<p>Bis ich diesen Hinweis erhalten habe, behelfe ich mich mit folgendem Code</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="zweifaktorielle-varianzanalyse.html#cb46-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="zweifaktorielle-varianzanalyse.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">str_c</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-3"><a href="zweifaktorielle-varianzanalyse.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">games_howell_test</span>(<span class="at">formula =</span> Highscore <span class="sc">~</span> Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-4"><a href="zweifaktorielle-varianzanalyse.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;estimate&quot;</span>, <span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;conf.high&quot;</span>), format, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">nsmall =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="zweifaktorielle-varianzanalyse.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, p.adj.signif) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-6"><a href="zweifaktorielle-varianzanalyse.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_extract</span>(group1, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>) <span class="sc">==</span> <span class="fu">str_extract</span>(group2, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   group1                        group2                     estimate p.adj.signif
+##   &lt;chr&gt;                         &lt;chr&gt;                      &lt;chr&gt;    &lt;chr&gt;       
+## 1 einfach-geringe Wettkampfprä… einfach-hohe Wettkampfprä… &quot; 1791&quot;  **          
+## 2 mittel-geringe Wettkampfpräf… mittel-hohe Wettkampfpräf… &quot; -310&quot;  ns          
+## 3 schwer-geringe Wettkampfpräf… schwer-hohe Wettkampfpräf… &quot;  198&quot;  ns</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="varianzanalyse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literaturverzeichnis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xvariable/r_book/edit/main/120_anova.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r_book.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

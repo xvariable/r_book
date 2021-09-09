@@ -127,7 +127,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-07-20}
+\date{2021-09-09}
 
 \begin{document}
 \maketitle
@@ -994,7 +994,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-07-20"
+## [1] "2021-09-09"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -4801,9 +4801,9 @@ Leider gibt es bezüglich \emph{b} und \emph{β} -- wie so oft -- ein wenig Begr
 \hypertarget{t-tests}{%
 \chapter{T-Tests}\label{t-tests}}
 
-\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen auf ein Tidyverse-konformes Paket (\texttt{rstatix}) angepasst.}
+\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Gegenüber dem Skript aus der Veranstaltung wurde jedoch das Datenbeispiel erweitert, damit der Einstichproben-T-Test demonstriert werden kann. Außerdem wurden die Funktionen auf ein tidyverse-konformes Paket (\texttt{rstatix}) angepasst.}
 
-In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt.
+In diesem Kapitel werden verschiedene Varianten des T-Tests behandelt. Bei T-Test geht es immer um den Vergleich von Mittelwerten, also um Unterschiedshypothesen.
 Als T-Tests werden eine Reihe von Null-Hypothesen-Tests bezeichnet, deren Prüfgröße auf der T-Verteilung basiert.
 T-Tests wurden ursprünglich von William S. Gosset entwickelt, der für die Guinness-Brauerei daran arbeitete, die Qualität der Gerste abzuschätzen, damit das Bier einen gleichbleibenden Qualitätsstandard erfüllen konnte.
 Gosset entwickelte den T-Test und wollte seine Erkenntnisse gerne mit anderen Forschenden teilen.
@@ -4817,7 +4817,7 @@ Es gibt verschiedene Varianten des T-Tests, von den hier drei besprochen werden:
 \item
   Beim diesem \textbf{Ein-Stichproben-T-Test} (1-sample-test) wird geprüft, ob sich ein das arithmetische Mittel (Mittelwert) von einem zuvor festgelegten Wert unterscheidet.
 \item
-  Mit dem \textbf{T-Test für unabhängige Stichproben} (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variablen in zwei Populationen voneinander unterscheidet. -- Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.
+  Mit dem \textbf{T-Test für unabhängige Stichproben} (2-sample-test, t-test for independent samples) kann man prüfen, ob sich die Mittelwerte einer bestimmten Variable in zwei Populationen voneinander unterscheiden. -- Verglichen wird also der Mittelwert in ein und dieselben Variable aber in zwei Gruppen.
 \item
   Der \textbf{T-Test für abhängige Stichproben} (t-test for paired samples) testet, ob sich zwei miteinander zusammenhängende Mittelwerte von einander unterschieden. Die Stichproben, die verglichen werden, hängen also irgendwie miteinander zusammen. Das kann z.B. der Fall bei einer Vorher- und einer Nachher-Messung in einem Experiment sein. Oder wenn in einem Datensatz beide Partner:innen einer Beziehung befragt werden. Oder wenn einfach zwei verschiedene Kennwerte miteinander vergleichen werden sollen. Im Datensatz liegen die beiden ``Stichproben'' also als zwei verschiedene Variablen vor.
 \end{itemize}
@@ -4872,11 +4872,11 @@ Hier ein kurzer Blick in den Datensatz:
 \hypertarget{einstichproben-t-test}{%
 \section{Einstichproben-T-Test}\label{einstichproben-t-test}}
 
-Der Einstichproben T-Test kommt häufig zum Einsatz. Z.B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von \emph{Null} unterscheiden.
+Der Einstichproben-T-Test kommt häufig zum Einsatz. Z. B. immer dann, wenn in einer Regression getestet wird, ob sich die Regressionskoeffizienten signifikant von \emph{Null} unterscheiden.
 Der Wert, gegen den getestet wird, ist in dem Fall einfach Null.
 Es ist aber auch möglich, gegen einen anderen, selbst festgelegten Wert zu testen.
 
-Mit dem Einstichproben-T-Test könnte man z.B. die folgenden Hypothesen auf den Prüfstand stellen:
+Mit dem Einstichproben-T-Test könnte man z. B. die folgenden Hypothesen auf den Prüfstand stellen:
 
 \begin{itemize}
 \item
@@ -4903,7 +4903,7 @@ Diese Hypothese ist einseitig gerichtet. Sie gilt als zutreffend, wenn (1) der M
 \hypertarget{daten-explorieren}{%
 \subsection{Daten explorieren}\label{daten-explorieren}}
 
-Natürlich empfiehlt es sich immer vor einer Analyse, die Verteilung seiner Variablen zu kennen und sie durch Grafken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:
+Natürlich empfiehlt es sich immer vor einer Analyse die Verteilung seiner Variablen zu kennen und sie durch Grafiken und deskriptive Statistiken zu explorieren. Gut geeignet erscheint in diesem Fall ein einfaches Bar-Chart, bei metrischen Variablen mit sehr vielen Ausprägungen wäre ein Histogramm besser:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4922,9 +4922,9 @@ Oh! Sehr schön, viele Versuchspersonen sind spendabel! -- Und halbwegs normalve
 
 Manchmal wird angegeben, dass die ``Normalverteilung der Variablen in der Grundgesamtheit'' (wahlweise auch ``in der Stichprobe'') eine Anwendungsvoraussetzung für den T-Test sei. Dies ist nicht der Fall! Das Verfahren wäre dann auch ziemlich eingeschränkt, denn für Variablen, die nun einmal einfach ``schief'' verteilt sind und natürlicherweise nicht normalverteilt vorliegen (wie bspw. Alter oder Einkommen), könnte man es nicht anwenden.
 
-Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Sample hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben der Fall sein sollte (\href{https://www.youtube.com/watch?v=jvoxEYmQHNM}{hier} meine Lieblings-Erklärung zum zentralen Grenzwertsatz).
+Richtig ist: Der T-Test setzt lediglich voraus, dass sich Stichprobenmittelwerte über verschiedene Samples hinweg normal verteilen -- was nach zentralem Grenzwerttheorem bei randomisierten Stichproben der Fall sein sollte (\href{https://www.youtube.com/watch?v=jvoxEYmQHNM}{hier} meine Lieblings-Erklärung zum zentralen Grenzwertsatz).
 
-Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, bspw. könnte man dazu die \texttt{mean()}- Funktion benutzen. Die \texttt{describe()}-Funktion aus \texttt{psych} liefert noch ein umfassenderes Bild:
+Mit deskriptiven Statistiken können wir herausfinden, wo der Mittelwert der Verteilung liegt, beispielsweise könnte man dazu die \texttt{mean()}- Funktion benutzen. Die \texttt{describe()}-Funktion aus \texttt{psych} liefert noch ein umfassenderes Bild:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4944,14 +4944,14 @@ Tatsächlich, der Mittelwert liegt bei \text{2,1}, also deutlich über 1,5 Euro.
 \hypertarget{t-test-durchfuxfchren}{%
 \subsection{T-Test durchführen}\label{t-test-durchfuxfchren}}
 
-Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion \texttt{t.test()}. Man kann aber auch das Paket \texttt{rstatix} und dessen Funktion \texttt{t\_test()} benutzen. Das Paket hat es sich zum Ziel gesetzt für einfache statistische Tests eine Tidyverse-Variante anzubieten. Deshalb kann die Funktion \texttt{t\_test()} in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt.
+Der T-Test ist im stats-Package von R bereits mit eingebaut und zwar über die Funktion \texttt{t.test()}. Man kann aber auch das Paket \texttt{rstatix} und dessen Funktion \texttt{t\_test()} benutzen. Das Paket hat es sich zum Ziel gesetzt, für einfache statistische Tests eine tidyverse-Variante anzubieten. Deshalb kann die Funktion \texttt{t\_test()} in der Pipe verwendet werden, was später noch nützlich sein wird. Und sie liefert als Ergebnis einen tibble zurück, der in der Ausgabe sehr übersichtlich ist und der sich leicht in eine APA-konforme Darstellung umbauen lässt.
 
 Die wichtigsten Argumente der \texttt{t\_test()}-Funktion aus \texttt{rstatix} werden hier kurz erläutert:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse gewohnt kann man
+  Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im tidyverse gewohnt kann man ???
   Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
 \item
   Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel \protect\hyperlink{regression}{Regression} bekannt. Die Tilde \texttt{\textasciitilde{}} verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa ``die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde''. Die Notation ist immer \texttt{Variable1\ \textasciitilde{}\ Variable2}. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet \texttt{Variable1\ \textasciitilde{}\ 1}.
@@ -5011,9 +5011,9 @@ Abschließend können wir die Hypothese H1 positiv beurteilen: Der Mittelwert M 
 \leavevmode\hypertarget{info_levene}{}%
 \textbf{T-Tests mit dem stats-Paket}
 
-Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion \texttt{t.test()} bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den ``.'' statt des "\_"). Allerdings hat die Funktion \texttt{t.test()} den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test -- ebensowenig wie Cohen´s d.~Beides könnte man zwar auch über andere Pakete erhalten (z.B. \texttt{car} und \texttt{effsize}), aber mit \texttt{rstatix} erhält man alles aus einer Hand und Tidyverse-konform.
+Für T-Tests benötigt man eigentlich gar kein Zusatzpaket, weil die Funktion \texttt{t.test()} bereits im stats-Pakage (also in base-R) eingebaut ist (man beachte den ``.'' statt des "\_"). Allerdings hat die Funktion \texttt{t.test()} den Nachteil, dass sie nicht mit der Pipe verwendbar ist und das Paket liefert auch keinen Levene-Test -- ebensowenig wie Cohen´s d.~Beides könnte man zwar auch über andere Pakete erhalten (z.B. \texttt{car} und \texttt{effsize}), aber mit \texttt{rstatix} erhält man alles aus einer Hand und tidyverse-konform.
 
-Zur Vollständigkeit kommt hier noch die Base-R-Syntax, inklusive Output:
+Zur Vollständigkeit kommt hier noch die base-R-Syntax, inklusive Output:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5035,7 +5035,7 @@ Zur Vollständigkeit kommt hier noch die Base-R-Syntax, inklusive Output:
 ##       2,1
 \end{verbatim}
 
-Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des \texttt{rstatix}-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z.B. bei bei \citet{Phillips_2018} in Kapitel 13.3.
+Die Zahlen sind die gleichen, es gibt nur Abweichungen durch Rundung (base-R rundet den T-Wert auf ganze Zahlen). Da die Vorteile des \texttt{rstatix}-Paketes überwiegen, beschreibe ich die base-Syntax hier nicht weiter. Ausführlich findet sich das z. B. bei bei \citet{Phillips_2018} in Kapitel 13.3.
 
 Die Logik des Einstichproben-T-Tests ist ganz einfach: Wir haben erstens einen fixen, selbst festgelegten Wert (hier 1,5, aber häufig ist es 0). Zweitens gibt es einen Wert, der in gewisser Weise ``variabel'' ist, nämlich abhängig von der Stichprobe. Für diesen variablen Wert wird ein Konfidenzintervall berechnet. Liegt jetzt der feste Testwert außerhalb des Konfidenzintervalls des Stichprobenwertes, können wir annehmen, dass sich die beiden Werte tatsächlich signifikant unterscheiden. (Der p-Wert hat im Prinzip die gleiche Aussage: Er drückt aus wie (un)wahrscheinlich es ist, den errechneten Mittelwert zu erhalten, wenn in der Grundgesamtheit eigentlich der Testwert der Mittelwert wäre.)
 
@@ -5057,11 +5057,11 @@ Um das ganze etwas konkreter zu machen, hier ein paar typische Hypothesen, die m
   Eine Gruppe mit Versuchspersonen die Treatment 1 (rote Pille) bekommen hat, reagiert völlig anders als eine andere Gruppe von Versuchspersonen, die Treatment 2 (grüne Pille) bekommen hat.
 \end{itemize}
 
-Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. -- Mindestens implizit wird von einer Ursache-Wirkungsbeziehung ausgegangen. Die Unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.
+Wie in den Beispielen leicht zu erkennen ist, betreffen die Hypothesen jeweils zwei Variablen. Beim T-Test für unabhängige Stichproben unterscheidet man zwischen einer unabhängigen und einer abhängigen Variable. -- Mindestens implizit wird von einer Ursache-Wirkungs-Beziehung ausgegangen. Die unabhängige Variable bildet die beiden Gruppen. Sie ist zwingend nominal-dichotom, denn mehr als zwei Gruppen kann man mit einem T-Test nicht vergleichen (für mehr als zwei Gruppen würde man eine Varianzanalyse verwenden). Der Mittelwert wird für die abhängige Variable berechnet, und zwar getrennt voneinander zweimal, also für beide Gruppen.
 
-Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:
+Im Rechen-Beispiel kommen wir wieder auf das Videospiel-Experiment zum prosozialen Verhalten zurück. Die Forscher haben die folgende Hypothese aufgestellt:
 
-\emph{H2: bei Spieler:innen die ein Superhelden-Spiel gespielt haben ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.}
+\emph{H2: Bei Spieler:innen die ein Superhelden-Spiel gespielt haben, ist die Spendenbereitschaft höher als bei denen, die ein Rennspiel gespielt haben.}
 
 \hypertarget{deskriptive-auswertung}{%
 \subsection{Deskriptive Auswertung}\label{deskriptive-auswertung}}
@@ -5100,7 +5100,7 @@ Das sieht schonmal vielversprechend aus! Ein illustrativer Boxplot ist eine auss
 
 \includegraphics{r_book_files/figure-latex/unnamed-chunk-101-1.pdf}
 
-Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art ``geglättetes Histogram'') kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:
+Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art ``geglättetes Histogramm'') kann man ebenfalls die Lage und Verteilung beider Variablen gut vergleichen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5116,9 +5116,9 @@ Noch eine Variation: Mit zwei übereinanderliegenden Density-Plots (eine Art ``g
 \hypertarget{anwendungsvoraussetzungen}{%
 \subsection{Anwendungsvoraussetzungen}\label{anwendungsvoraussetzungen}}
 
-Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass -- wie der Name schon sagt -- die \textbf{Anwendungsvoraussetzung der Unabhängigkeit} erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts mit einander zu tun haben, also nicht z.B. verheiratet sind. -- Das wären dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.
+Wichtig bei Hypothesen für den T-Test für unabhängige Stichproben ist, dass -- wie der Name schon sagt -- die \textbf{Anwendungsvoraussetzung der Unabhängigkeit} erfüllt ist. Das bedeutet, dass die jeweils zu vergleichenden Populationen wirklich völlig random und unabhängig voneinander entstanden sein müssen. Im Hypothesen-Beispiel 1 werden Männer und Frauen untersucht, die nichts miteinander zu tun haben, also nicht z. B. verheiratet sind. -- Das wäre dann eine abhängige Stichprobe (siehe unten). Die Antworten eines jeden Mannes in der Stichprobe hängt dann überhaupt nicht davon ab, was irgendeine Frau im Sample sagt.
 
-Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z.B. weil beide häufig gemeinsam über Politik reden.
+Hier ein Beispiel in dem die Unabhängigkeit nicht gegeben wäre: Bei verheirateten Paaren müsste man davon ausgehen, dass die Ehepartner sich gegenseitig in ihrem Politikinteresse annähern. Wenn der Mann einen sehr hohen Wert nennt, wäre davon auszugehen, dass der Wert der Frau ebenfalls hoch ist, z. B. weil beide häufig gemeinsam über Politik reden.
 
 Die Anwendungsvoraussetzung der Intervallskalierung gilt natürlich weiterhin, wie schon für den Einstichproben-T-Test. -- Jedoch natürlich nur für die abhängige Variable, für die die Mittelwerte berechnet werden sollen.
 
@@ -5133,14 +5133,14 @@ Verrückt, oder? Bevor wir jetzt also einen T-Test für unsere unabhängigen Mit
 
 Als Studentin fand ich den Levene-Test super verwirrend, weil ich gerade gelernt hatte, dass winzig kleine p-Werte prima sind und für die aufgestellten Hypothesen sprechen. Und beim Levene-Test war auf einmal alles anders herum?! Das geht wirklich schwer in den Kopf rein und ich merke heute, dass nach wie vor viele Studierende damit Schwierigkeiten haben.
 
-Um es nochmal ganz deutlich zusagen: Normalerweise wollen wir ja, das unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer das es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Das der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.
+Um es nochmal ganz deutlich zu sagen: Normalerweise wollen wir ja, dass unsere Hypothesentests Unterschiede produzieren, damit wir uns gegen die Nullhypothese entscheiden können (die Nullhypothese sagt ja immer, dass es keinen Unterschied oder Zusammenhang gibt). Beim Levene-Test wollen wir hingegen, möglichst das hinsichtlich des Kriteriums der Varianz kein Unterschied besteht, damit die Gruppen hier vergleichbar sind. Der Levene-Test, testet lediglich die Varianz. Dass der Mittelwertunterschied signifikant ist, hoffen wir natürlich nach wie vor, das testen wir aber erst im Anschluss.
 
 \hypertarget{levene-test-auf-varianzhomogenituxe4t}{%
 \subsection{Levene-Test auf Varianzhomogenität}\label{levene-test-auf-varianzhomogenituxe4t}}
 
-Also, auf geht ´s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die \emph{Gruppe} ist die uV und die Variable \emph{Spende\_t01} die aV.
+Also, auf geht`s, hier kommt der Levene-Test für die Daten und die Hypothese zur Spendenbereitschaft nach dem Spielen verschiedener Videospiel-Typen. Die \emph{Gruppe} ist die uV und die Variable \emph{Spende\_t01} die aV.
 
-Für den Levene-Test benutze ich ebenfalls das Paket \texttt{rstatix} und die Funktion \texttt{levene\_test()}. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z.B. \texttt{car}). \texttt{rstatix} bietet aber weiterhin den Vorteil, das es ``pipeable'' ist.
+Für den Levene-Test benutze ich ebenfalls das Paket \texttt{rstatix} und die Funktion \texttt{levene\_test()}. Natürlich gibt es auch andere Pakete mit denen man Levene-Tests und T-Tests berechnen kann (z. B. \texttt{car}). \texttt{rstatix} bietet aber weiterhin den Vorteil, dass es ``pipeable'' ist.
 
 Die Funktion hat folgende Argumente:
 
@@ -5150,7 +5150,7 @@ Die Funktion hat folgende Argumente:
 \item
   Das zweite ist eine Formel (wie bei der \protect\hyperlink{regression}{Regression}), die die Variablen der Analyse mit einer Tilde \texttt{\textasciitilde{}} verbindet. Die Tilde bedeutet dabei übersetzt in Worte etwa folgendes: ``Variable vor der Tilde wird vorhergesagt durch Variable nach der Tilde''. Die Notation ist immer \texttt{aV\ \textasciitilde{}\ uV}.
 \item
-  Außerdem kann man noch mit dem Argument \texttt{center\ =} die Art des Tests auswählen. Der Orginal-Levene-Test wird durch \texttt{center\ =\ "mean"} berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben \citep{Brown_1974} gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Mediane einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option \texttt{center\ =\ "median"} ist die deshalb die Default-Option der \texttt{levene\_test()}- Funktion. Sie muss nicht gesondert eingestellt werden.
+  Außerdem kann man noch mit dem Argument \texttt{center\ =} die Art des Tests auswählen. Der Orginal-Levene-Test wird durch \texttt{center\ =\ "mean"} berechnet (so berechnet ihn auch das Programm SPSS standardmäßig). Allerdings haben \citep{Brown_1974} gezeigt, dass für schiefe Verteilungen der Variablen der Vergleich der Median einen besseren Hinweis auf die Homo- beziehungsweise Heterogenität der Varianzen gibt. Die Option \texttt{center\ =\ "median"} ist deshalb die Default-Option der \texttt{levene\_test()}- Funktion. Sie muss nicht gesondert eingestellt werden.
 \end{itemize}
 
 Angewendet sieht das so aus:
@@ -5190,7 +5190,7 @@ Den T-Test für unabhängige Stichproben erhält man in R ebenfalls über das \t
 \item
   Standardmäßig geht die Funktion \texttt{t\_test()} davon aus, dass die Varianzen \textbf{nicht} gleich sind (entspricht \texttt{var.equal\ =\ FALSE}). In unserem Fall haben wir aber sogar vorab auf gleiche Varianzen getestet und können durch \texttt{var.equal\ =\ TRUE} einen Test ohne Korrektur anfordern. Es empfiehlt sich, immer einen Levene-Test vorzuschalten und das \texttt{var.equal}-Argument bewusst auf \texttt{TRUE}oder \texttt{FALSE} zu setzen.
 \item
-  Mit \texttt{alternative} kann man festlegen ob der Test ungerichtet (\texttt{"two.sided"}) oder einseitig (\texttt{"less"} oder \texttt{"greater"}) stattfinden soll.
+  Mit \texttt{alternative} kann man festlegen, ob der Test ungerichtet (\texttt{"two.sided"}) oder einseitig (\texttt{"less"} oder \texttt{"greater"}) stattfinden soll.
 \item
   Mit \texttt{detailed\ =\ TRUE} bzw. \texttt{FALSE} kann man wieder über den Detailgrad der Ausgabe bestimmen.
 \end{enumerate}
@@ -5213,7 +5213,7 @@ Hier der Test der H2:
 
 Das Ergebnis sieht so ähnlich aus wie vorhin, beim ersten T-Test. Es gibt wieder einen t-Wert unter ``statistic'', entsprechende Freiheitsgrade und einen zugehörigen p-Wert. Dieser ist deutlich \textless{} .05, das Ergebnis ist also signifikant, was für die Alternativhypothese spricht. Die Grenzen des Konfidenzintervalls können über die detaillierte Ausgabe mit \texttt{detailed\ =\ TRUE} angefordert werden (aus Platzgründen nicht dargestellt). Diesen Grenzen zur Folge würden wir die Mittelwertdifferenz zwischen \text{-5,96} und \text{-4,33} schätzen. Das ist beides deutlich von Null verschieden (anders ausgedrückt: Die Grenzen schließen die Null nicht ein).
 
-Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine ``Reihenfolge'' zwischen Superheldenspiel und Rennspiel).
+Beide Grenzen der Konfidenzintervalle sind außerdem negativ. Der Grund dafür ist, dass die Ausprägung Rennspiel in der uV mit einer kleineren Ordnungsnummer codiert wurde und deshalb zuerst in die Auswertung einging und natürlich, dass ihr Mittelwert auch kleiner ist als der der Ausprägung Superhelden. Das Vorzeichen hat in diesem Fall jedoch keine sinnvoll zu interpretierende Bedeutung, weil die uV nominal ist (es gibt keine ``Reihenfolge'' zwischen Superheldenspiel und Rennspiel).
 
 Das Ergebnis des T-Tests zeigt, dass das die Spieler:innen, die das Superheldenspiel gespielt haben, deutlich spendabler waren als die Spieler:innen des Rennspiels. Erstere spendeten im Durchschnitt M = \text{7,91} Euro, letztere nur M = \text{2,76} Euro. Das Ergebnis des T-Tests für unabhängige Stichproben fiel im Sinne von H2 aus und ist mit t(\text{66}) = \text{-5,15} auf dem Niveau p \textless{} ,001 signifikant. Offensichtlich hat das Spielen eines Superheldenspiels tatsächlich einen positiven Einfluss auf das prosoziale Verhalten, wie hier am Beispiel der Spendenbereitschaft demonstriert wurde (hier wurden jedoch keine echten Daten analysiert).
 
@@ -5248,13 +5248,13 @@ Die Interpretation des T-Tests kann um einen entsprechenden Satz ergänzt werden
 \hypertarget{t-test-fuxfcr-abhuxe4ngige-stichproben}{%
 \section{T-Test für abhängige Stichproben}\label{t-test-fuxfcr-abhuxe4ngige-stichproben}}
 
-Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für \textbf{abhängige Stichproben} sieht es anders aus: Hier werden \emph{zwei prinzipiell gleich aufgebaute Variablen} mit einander vergleichen:
+Im vorigen Abschnitt wurde der T-Test für unabhängige Stichproben erläutert. Dabei spielten zwei Variablen eine Rolle die unterschiedliches Datenniveau hatten: Es gab eine nominale uV mit der zwei Gruppen gebildet wurden und eine (quasi-)metrisch skalierte aV, deren Mittelwert berechnet wurde (2x). Beim T-Test für \textbf{abhängige Stichproben} sieht es anders aus: Hier werden \emph{zwei prinzipiell gleich aufgebaute Variablen} mit einander verglichen:
 
 \begin{itemize}
 \item
   Beide sollen (quasi-)metrisches Datenniveau aufweisen.
 \item
-  Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z.B. beide von 1 = \emph{stimme überhaupt nicht zu} bis 5 = \emph{stimme voll und ganz zu} gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z.B. niemand 5 = \emph{stimme voll und ganz zu} angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
+  Beide sollen auf der gleichen Skala gemessen worden sein und theoretisch den gleichen Wertebereich aufweisen (also z. B. beide von 1 = \emph{stimme überhaupt nicht zu} bis 5 = \emph{stimme voll und ganz zu} gemessen worden sein. Wenn in einer Variable eine Ausprägung empirisch nicht vorkommt, also z. B. niemand 5 = \emph{stimme voll und ganz zu} angekreuzt hat, ist es aber trotzdem okay, die Variable zu verwenden).
 \item
   Wie der Name des Tests schon sagt, müssen außerdem die Stichproben abhängig sein. Das bedeutet, dass die Variablen als zwei getrennte Variablen im Datensatz vorliegen, jedenfalls sofern er ``wide format'' aufweist. Für jeden Fall im Datensatz wurde ein Wert in Variable 1 und ein Wert in Variable 2 gemessen (tendenziell, ein paar fehlende Messwerte sind okay).
 \end{itemize}
@@ -5263,13 +5263,13 @@ Nun wieder ein paar Beispiele für Fragestellungen, die man mit dem T-Test für 
 
 \begin{itemize}
 \item
-  Unterscheiden sich die Mittelwerte von zwei Items einer Skala von einander?
+  Unterscheiden sich die Mittelwerte von zwei Items einer Skala voneinander?
 \item
   Welcher Wert ist höher, der für Zustimmung zum Item ``Die Klimakrise ist das wichtigste Problem unserer Zeit'' oder zu ``Soziale Gerechtigkeit ist das wichtigste Problem unserer Zeit''?
 \item
   Unterschiedet sich das politische Interesse von Ehefrauen von dem ihrer Ehemänner?
 \item
-  Unterschiedet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).
+  Unterscheidet sich eine bestimmte Variable im Zeitverlauf zu unterschiedlichen Messzeitpunkten (z.B. (1) vor und nach Gabe eines Treatments und danach oder (2) direkt nach dem Experiment und eine Woche später).
 \end{itemize}
 
 Im Anwendungsbeispiel möchten wir nun prüfen, ob der positive Effekt, den wir für das Spielen von Superhelden-Spielen gefunden haben, auch über längere Zeit anhält, oder nicht. Theoretisch ist davon auszugehen, dass das einmalige Spielen eines Superhelden-Spiels das prosoziale Verhalten zwar kurzfristig, aber nicht über einen längeren Zeitraum hinweg verändern kann. Deshalb lautet die zu testende Hypothese:
@@ -5301,7 +5301,7 @@ Natürlich bietet es sich auch vor dem T-Test für abhängige Stichproben an, zu
 
 Die Verteilungen sind deutlich unterschiedlich für die beiden Gruppen. Während bei den Rennspielen die Werte zu beiden Zeitpunkten in einem ähnlichen Spektrum liegen, ist dies bei den Superhelden-Spielen nicht der Fall. Die Superhelden-Gruppe ist ja auch genau die Gruppe, die im Rahmen von von H3a interessiert. Es sieht gut aus für die Vermutung, dass es in der Gruppe der Superhelden-Spieler:innen einen signifikanten Mittelwertunterschied zwischen den beiden Messzeitpunkten Spende\_t01 und Spende\_t02 gibt -- und in der Gruppe Rennspiele (H3b) wie erwartet nicht.
 
-Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das Tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:
+Die Mittelwertunterschiede kann man natürlich nicht nur grafisch, sondern auch in Zahlen ausdrücken. Ich nutze hier das tidyverse um eine gruppierte Darstellung (aufgeteilt nach Gruppe) zu erzeugen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5332,7 +5332,7 @@ Anders als beim T-Test für unabhängige Stichproben vergleicht man bei der Betr
 \hypertarget{levene-tests-durchfuxfchren}{%
 \subsection{Levene-Tests durchführen}\label{levene-tests-durchfuxfchren}}
 
-Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom ``wide-format'' in ein ``long-format'' überführt werden (vgl. dazu Abschnitt {[}Datenumformungen{]}). Da die \texttt{levene\_test()}-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davor schalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.
+Natürlich brauchen wir vor dem T-Tet wieder einen Levene-Test. Um diesen Test durchführen zu können, muss der Datensatz vom ``wide-format'' in ein ``long-format'' überführt werden (vgl. dazu Abschnitt {[}Datenumformungen{]}). Da die \texttt{levene\_test()}-Funktion tidy ist, kann man die Umformung einfach in der Pipe vor den Test schalten. Und noch etwas kann man davorschalten: Eine Aufteilung in die Gruppen, so dass der Levene-Test getrennt für beide Experimentalgruppen ausgegeben werden kann.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5399,7 +5399,7 @@ In der Gruppe ``Rennspiel'' beträgt die Mittelwertdifferenz nur c(\texttt{mean\
 
 ** Interpretation H3a (zweite Zeile):**
 
-In der Gruppe ``Superhelden'' beträgt die Mittelwertdifferenz hingegen stolze c(\texttt{mean\ of\ the\ differences} = 5.48484848484848) Euro (zur Erinnerung, die Probandinnen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(c(df = 32)) = c(t = 14.9445217485871) auf dem Niveau p \textless{} ,001 signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen.
+In der Gruppe ``Superhelden'' beträgt die Mittelwertdifferenz hingegen stolze c(\texttt{mean\ of\ the\ differences} = 5.48484848484848) Euro (zur Erinnerung, die Proband:innen hatten maximal 10 Euro zur Verfügung). Die T-Statistik ist mit T(c(df = 32)) = c(t = 14.9445217485871) auf dem Niveau p \textless{} ,001 signifikant. Dieses Daten sprechen für H3a, die entsprechende Nullhypothese wird zurückgewiesen.
 
 \hypertarget{cohens-d-2}{%
 \subsection{Cohen´s d}\label{cohens-d-2}}
@@ -5427,7 +5427,429 @@ Selbstredend kann auch hier wieder Cohen´s d berechnet werden, um die Effektst�
 ## 2 Betrag Spende_t1 Spende_t2  2.60   Superhelden-Spiel    35    35 large
 \end{verbatim}
 
-Wie zu erwarten war ist die Effektstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
+Wie zu erwarten war, ist die Effektstärke für H3b verschwindend gering -- der Signifikanztest zeigte ja ohnehin ein negatives Ergebnis. Für H3a enthüllt Cohen´s d jedoch einen starken Effekt.
+
+\hypertarget{varianzanalyse}{%
+\chapter{Varianzanalyse}\label{varianzanalyse}}
+
+\emph{Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Dieser wiederum nutzte Vorarbeiten von Jule Scheper, Sophie Bruns und Anna Freytag.}
+
+Im letzten Kapitel haben wir mit dem T-Test ein Verfahren kennengelernt, mit dem wir Unterschiedshypothesen prüfen können, indem die Mittelwerte von zwei Gruppen verglichen werden. Was aber, wenn wir nicht zwei sondern mehr Gruppen haben? Hier kommt die Varianzanalyse ins Spiel. Mit der Varianzanalyse (englisch ANOVA = \textbf{an}alysis \textbf{o}f \textbf{va}riance) ist dies möglich. Genau wie der im letzten Kapitel angewendete T-Test hat die abhängige Variable der Varianzanalyse metrisches Datenniveau und die unabhängige mindestens nominales\footnote{Selbstverständlich ist auch ein höheres Datenniveau möglich. Wegen der Stichprobengröße in den einzelnen Gruppen und der Übersichtlichkeit sollte die unabhängige Variable aber nicht sehr viele Ausprägungen haben, weshalb metrische Variablen kaum als Faktoren in der Varianzanalyse eingesetzt werden.}. Ein Unterschied ist, dass die unabhängige Variable mehr als zwei Ausprägungen haben darf. -- Sie muss also nicht zwingend dichotom sein. Ein anderer Unterschied ist, dass als Prüfgröße nicht die T-Verteilung verwendet wird, sondern die von Ronald a. Fisher entwickelte F-Verteilung. Die Prüfgröße heißt deshalb \emph{F}.
+
+Mit der Varianzanalyse können auch komplexe experimentelle Designs ausgewertet werden, bei denen es z. B. mehr als ein Einflussfaktor berücksichtigt wird. Nimmt man nur einen Einflussfaktor auf, handelt es sich um eine \emph{einfaktorielle} Varianzanalyse (One-way Anova), bei zwei Faktoren spricht man von einer \emph{zweifaktoriellen} Varianzanalyse (Two-way Anova) und bei noch mehr Faktoren von einer mehrfaktoriellen Varianzanalyse.
+
+\hypertarget{datenbeispiel-1}{%
+\section{Datenbeispiel}\label{datenbeispiel-1}}
+
+Die Daten für dieses Kapitel liefert die BA-Arbeit von Carsten Reichelt (2019). Vielen Dank an dieser Stelle! Carsten Reichelt hat in seiner BA-Arbeit untersucht, ob der Schwierigkeitsgrad eines Videospiels eine Rolle für die Performance und das Erleben von Unterhaltung der Spieler:innen spielt. Um diese Frage zu klären hat er ein Online-Experiment designed in dem N = 248 nutzten Proband:innen vier Minuten lang das Spiel Pac-Man spielen mussten (= Stimulus). Der Stimulus wurde dabei über die drei Schwierigkeitsgrade ``einfach'' (n = 79), ``mittel'' (n = 90) und schwer (n = 79) variiert. Die Gruppenzugehörigkeit bildet also die zentrale unabhängige Variable und sie ist dreistufig (einfach, mittel oder schwer). Nach dem Spielen füllten die Proband:innen einen Online-Fragebogen aus, in dem verschiedene weitere, abhängige und unabhängige Variablen erhoben wurden. Außerdem wurde der Highsore, den die Proband:innen erzielten erfasst.
+
+\hypertarget{prerequisits}{%
+\section{Prerequisits}\label{prerequisits}}
+
+Zunächst benötigen wir natürlich verschiedene Pakete zur Durchfühung der Varianzanalyse:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse) }\CommentTok{\# für Grafiken und die Pipe}
+\FunctionTok{library}\NormalTok{(janitor)   }\CommentTok{\# für Häufigkeitsauszählungen}
+\FunctionTok{library}\NormalTok{(rstatix)   }\CommentTok{\# für den Levene{-}Test}
+\FunctionTok{library}\NormalTok{(effectsize)}\CommentTok{\# für Eta{-}Quadrat}
+\FunctionTok{library}\NormalTok{(afex)      }\CommentTok{\# zur Berechnung der Mehrfaktoriellen Anova}
+\end{Highlighting}
+\end{Shaded}
+
+Die Die Daten der Abschlussarbeit von Herrn Reichelt liegen im SPSS-Format .sav. vor. Sie können über das Paket \texttt{haven} geladen werden. Da wir die unabhängigen Variablen für die Varianzanalyse in R als \emph{Faktoren} benötigen, wandeln wir diese gleich im Anschluss an den Ladevorgang direkt in das benötigte Format um.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ haven}\SpecialCharTok{::}\FunctionTok{read\_sav}\NormalTok{(}\StringTok{"data/BA–Carsten Reichelt.sav"}\NormalTok{, }\AttributeTok{user\_na =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Schwierigkeitsgrad =} \FunctionTok{factor}\NormalTok{(Schwierigkeitsgrad, }
+                                     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"einfach"}\NormalTok{, }\StringTok{"mittel"}\NormalTok{, }\StringTok{"schwer"}\NormalTok{), }
+                                     \AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{),}
+         \AttributeTok{Wettkampfpraeferenz =} \FunctionTok{factor}\NormalTok{( v\_12\_rec,}
+                                       \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"geringe Wettkampfpräferenz"}\NormalTok{, }\StringTok{"hohe Wettkampfpräferenz"}\NormalTok{),}
+                                       \AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(lfdn, Schwierigkeitsgrad, Highscore, Wettkampfpraeferenz)}
+
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 248 x 4
+##     lfdn Schwierigkeitsgrad Highscore Wettkampfpraeferenz       
+##    <dbl> <ord>                  <dbl> <ord>                     
+##  1    91 mittel                  1950 hohe Wettkampfpräferenz   
+##  2    92 einfach                 3890 geringe Wettkampfpräferenz
+##  3    93 einfach                 5200 hohe Wettkampfpräferenz   
+##  4    98 mittel                  3930 geringe Wettkampfpräferenz
+##  5   104 schwer                  1660 geringe Wettkampfpräferenz
+##  6   106 mittel                  3280 hohe Wettkampfpräferenz   
+##  7   113 einfach                 9000 hohe Wettkampfpräferenz   
+##  8   114 einfach                 7920 hohe Wettkampfpräferenz   
+##  9   123 mittel                  4800 geringe Wettkampfpräferenz
+## 10   135 einfach                 5520 geringe Wettkampfpräferenz
+## # ... with 238 more rows
+\end{verbatim}
+
+\hypertarget{einfaktorielle-varianzanalyse}{%
+\section{Einfaktorielle Varianzanalyse}\label{einfaktorielle-varianzanalyse}}
+
+Bevor wir uns an komplexere Designs wagen, testen wir ersteinmal eine ganz basale Hypothese, die quasi Voraussetzung für die weiteren Analysen in der BA-Arbeit von Herrn Reichelt ist. Im Experiment wird davon ausgagangen, dass die Gruppenzuteilung und der in der jeweiligen Gruppe angewendete Stimulus ursächlich verantwortlich ist für die Varianz zwischen den Gruppen.
+
+Die Hypothese, die zuerst betrachtet wird, ist quasi der Test, ob die Variation durch den Stimulus funktioniert hat (\emph{Treatmentcheck}). Es sollte so sein, dass der Schwierigkeitsgrad den High-Score beeinflusst, und zwar in ``gegenläufiger'' (anti-proportionaler) Richtung. Salopp gesagt: Je schwerer das Spiel, desto geringer der Highscore. Anders formuliert könnte die Hypothese so lauten:
+
+\emph{H1: Der Schwierigkeitsgrad beeinflusst den erzielten Highscore negativ.}
+
+\hypertarget{deskriptive-analyse}{%
+\subsection{Deskriptive Analyse}\label{deskriptive-analyse}}
+
+Bevor es an die tatsächliche Prüfung der aufgestellten Hypothese geht, empfiehlt es sie wie immer, sich mit den Mitteln der deskriptiven Statistik und mit Grafiken einen Überblick über die Datenlage zu verschaffen.
+
+Schauen wir uns zunächst die Verteilung der abhängigen Variablen an. Da es sich um eine nominale Variable handelt, interessiert hier vor allem die Häufigkeitsverteilung (und nicht etwa Lage und Streuungsmaße). Zur Anzeige der Häufigkeitsberteilung gibt es viele Wege, etwa \texttt{table()}oder \texttt{summary()}. Damit ich hier auch die realtiven Häufigkeiten erhalte, nutze ich \texttt{tabyl()}aus dem \texttt{janitor}-Paket.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  janitor}\SpecialCharTok{::}\FunctionTok{tabyl}\NormalTok{(Schwierigkeitsgrad) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_rounding}\NormalTok{(}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Schwierigkeitsgrad   n percent
+##             einfach  79    0,32
+##              mittel  90    0,36
+##              schwer  79    0,32
+##               Total 248    1,00
+\end{verbatim}
+
+Wir können an dieser Verteilung sehen, dass die Gruppen alle ausreichend groß und ungefähr gleich besetzt sind. Lediglich in Gruppe zwei sind ein paar mehr Versuchspersonen gelandet. Das stört nicht weiter.
+
+Nun schauen wir uns die abhängige Variable, also den Schwierigeitsgrad an. Es ist eine Voraussetzung für die sinnhafte Anwendung der Varianzanalyse, dass die Verteilung dieser Variablen tatsächlich auch im Sample variiert. -- Das die Proband:innen also unterschiedliche Scores erzielt haben und nicht etwa alle den gleichen oder einen ähnlichen. Außerdem ist es interessant zu wissen, auf welchem Niveau die Proband:innen Packman spielen. Lassen wir uns also die interessierenden Kennzahlen ausgeben:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{Highscore)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##      30    1870    3305    3918    5658   11130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{Highscore)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2394
+\end{verbatim}
+
+Das sieht prima aus! Der Highscore schwankt zwischen einem Minimum von \text{30} und einem Maximum von \text{\ensuremath{1,11\times 10^{4}}}. Im Mittel haben die Proband:innen \emph{M} = \text{3918} Punkte erzielt, wobei die Verteilung rechtsschief zu sein scheint, da der Medien etwas kleiner als das arithmetische Mittel ist. Auch die Standardabweichung (= Wurzel der Varianz) ist mit \text{2394,04} angemessen hoch. Man kann also sagen, dass der Highscore variiert.
+
+Nützlich ist an dieser Stelle auch ein Histogramm, da man darüber die Verteilung der aV noch detaillierter veranschaulichen kann:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Highscore)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-114-1.pdf}
+
+Es zeigt tatsächlich eine rechtsschiefe Verteilung, die eine deutliche Spitze im unteren Viertel der Bandbreite an Highscores aufweist.
+
+Mit Hilfe eines Boxplots können wir außerdem die Lage der Mittelwerte und die Variation der Highscores in den einzelnen Gruppen überblicksartig beurteilen. Das ist dann schon ein erster Vorgeschmack auf das zu erwartende Ergebnis des folgenden Hypothesentests -- ohne das jedoch geprüft wird, ob die Mittelwerte tatsächlich signifikant von einander abweichen. Zusätzlich lasse ich über \texttt{stat\_summary()}noch die arithmetischen Mittel in schwarz in die Grafik einzeichnen, da der Boxplot lediglich die Mediane darstellt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ Highscore, }\AttributeTok{color =}\NormalTok{ Schwierigkeitsgrad)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun=}\NormalTok{mean, }\AttributeTok{shape =} \DecValTok{23}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-115-1.pdf}
+
+Tatsächlich, die Mittelwerte in den Gruppen reihen sich genau wie erwartet: Die Personen in der Gruppe ``einfach'' haben den höchsten Highscore erzielt, die in der Gruppe ``schwer'' den niedrigsten. Das ist schon einmal vielversprechend für den Hypothesentest, denn diese Reihung hatten wir ja in der Hypothese prognostiziert. Würde sie hier nicht wie erwartet auftreten, könnten wir den Hypothesentest gleich abbrechen.
+
+Noch etwas wird in dem Boxplot ersichtlich: Die Bandbreite an Highscores ist in der Gruppe ``einfach'' am höchsten: hier liegt sowohl der Minimalwert, als auch der Maximalwert -- und zwar über alle Gruppen hinweg! Das sieht man am der senkrechten violetten Linie, die länger ist, als die Linien der anderen beiden Gruppen. Auch die Quartielgrenzen sind recht weit auseinander (das sieht man an der ``Box''). In dieser Gruppe scheint also die Streuung relativ groß zu sein. In der gelben Gruppe ``schwierig'' ist sie hingegen gering. Das erkannt man an der niedriegen ``Box'' und daran, dass alle Fälle, die außerhalb der Box liegen, noch nicht einmal in Form einer Linie, sondern als Punkte (=Einzelfälle/Ausreißer) dargestellt werden. Die Spieler:innen aus der Gruppe "schwer liegen also viel dichter bei einander als die Spieler:innen der anderen Gruppen.
+
+Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: \emph{fehlende Varianzhomogenität}. Aus dem letzten Kapitel \protect\hyperlink{anwendungsvoraussetzungen-1}{T-Test} wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse\footnote{Die übrigen Voraussetzungen für die Varianzanalyse sind vom Prinzip her ähnlich zum T-Test. Deshalb wird an dieser Stelle nicht erneut darauf eingegangen}. Hier kommen wieder der \textbf{Levene-Test} und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova schieben wir den Levene-Test ein um sicherzugehen ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.
+
+\hypertarget{levene-test}{%
+\subsection{Levene-Test}\label{levene-test}}
+
+Der Levene-Test prüft -- wie im letzten Kapitel beschreiben -- ob sich die Varianz in den einzelnen Gruppen unterscheidet (was schlecht wäre) oder nicht (dann wäre die Anwendungsvoraussetzung erfüllt). Bevor wir den Test durchführen, lasse ich mir hier einmal arithmetisches Mittel und die Standardabweichung als standardisiertes Maß der Varianz ausgeben:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Schwierigkeitsgrad) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(Highscore), }\DecValTok{0}\NormalTok{), }\AttributeTok{SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(Highscore), }\DecValTok{0}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   Schwierigkeitsgrad     M    SD
+##   <ord>              <dbl> <dbl>
+## 1 einfach             6219  2284
+## 2 mittel              3631  1632
+## 3 schwer              1946   704
+\end{verbatim}
+
+Das sieht tatsächlich nicht so toll aus. Die Standardabweichung ist in der Gruppe ``einfach'' mit SD = 2284 tatsächlich deutlich höher als in der Gruppe ``schwer'' mit SD = \texttt{rdf\ \%\textgreater{}\%\ \ filter(Schwierigkeitsgrad\ ==\ "schwer")\ \%\textgreater{}\%\ summarise(sd(Highscore))\ \%\textgreater{}\%\ round(0)}.
+
+Wir sind vorgewarnt, jetzt wollen wir es genau wissen. Hier kommt der Levene-Test:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{levene\_test}\NormalTok{(Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Schwierigkeitsgrad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 4
+##     df1   df2 statistic        p
+##   <int> <int>     <dbl>    <dbl>
+## 1     2   245      42.8 1.17e-16
+\end{verbatim}
+
+Wie erwartet zweigt der Levene-Test mit p \textless{} .001 ein signifikantes Ergebnis. Es ist also von Varianzheterogenität auszugehen und wir benötigen eine Korrektur der Prüfgröße F.
+
+\leavevmode\hypertarget{info_levenef}{}%
+\textbf{Funfact}
+
+Der Prüfwert des Levene-Tests ist auch ein F-Wert, genau wie der Testwert, der beider Varianzanalyse verwendet wird. Unterschied ist: Bei Levene werden die Varianzen der Gruppen verglichen, bei der Varianzanalyse arithmetische Mittel.
+
+\hypertarget{durchfuxfchrung-der-varianzanalyse}{%
+\subsection{Durchführung der Varianzanalyse}\label{durchfuxfchrung-der-varianzanalyse}}
+
+Nun wissen wir schon eine ganze Menge: Wir haben gesehen, dass sich die mittleren Highscores je nach Schwierigkeitsgrad deutlich unterschieden. Und wir wissen, dass wegen der Varianzhomogenität ein korrigierter Test angewendet werden sollte. Als nächstes prüfen wir die Hypothese mit einem Signifikanztest. Erreicht die Profgröße \emph{F} einen gewissen Wert sinkt der p-Wert unter die Grenze von p \textless{} .05 und man würde in dem experimentellen Setting der BA-Arbeit von Herrn Reichelt davon ausgehen, dass der Schwierigkeitsgrad tatsächlich ursächlich für den erzielten Highscore ist (was ja eine völlig plausible Annahme ist).
+
+Die Standard-Funktion aus \texttt{base-R} zur Berechnung von Varianzanalysen ist \texttt{aov()}. Die Funktion kann jedoch keine Korrektur bei Varianzheterogenität vornehmen, weshalb man lieber auf die Funktion \texttt{oneway.test()}, ebenfalls aus base-R zurückgreifen sollte, die dies ermöglicht. Diese Funktion benötigt zwei Argumente. Das dritte hier angegebene Argument ist optional, es sollte dennoch angegeben werden, damit der mögliche Einsatz der Korrektur bewusst und explizit geschieht. Hier die Argumente von \texttt{oneway.test()}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Eine Formel \texttt{formula}, die wie folgt aufgebaut ist: \texttt{abhängige\ Variable\ \textasciitilde{}\ unabhängige\ Variable} (genau wie bei der Regression). Die Tilde \texttt{\textasciitilde{}} bedeutet soviel wie ``wird beeinflusst durch''.
+\item
+  Ein Datenobjekt \texttt{data} in dem die Variablen und Messwerte zu finden sind, also unser Datensatz.
+\item
+  Mit dem Argument \texttt{var.equal} lässt sich ein korrigierter Test anfordern. Es steht standardmäßig auf \texttt{FALSE}, so dass nicht von Varianzhomogenität ausgegangen wird und eine s.g. Welch-Korrektur durchgeführt wird. MAn kann es aber auch auf \texttt{TRUE} setzen, wenn der Levene-Test mal auf Varianzhomogenität hinweisen sollte.
+\end{enumerate}
+
+Der Output des erzeugten Modells lässt sich mit \texttt{summary()} ausgeben. Mit \texttt{tidy()} aus dem \texttt{broom()}-Paket erhält man allerdings eine hübschere Tabelle:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_model }\OtherTok{\textless{}{-}} \FunctionTok{oneway.test}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Schwierigkeitsgrad, }
+                        \AttributeTok{data =}\NormalTok{ df, }
+                        \AttributeTok{var.equal =} \ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{broom}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(my\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 5
+##   num.df den.df statistic  p.value method                                       
+##    <dbl>  <dbl>     <dbl>    <dbl> <chr>                                        
+## 1      2   136.      150. 3.99e-35 One-way analysis of means (not assuming equa~
+\end{verbatim}
+
+Ah sehr schön, ausgegeben werden die Freiheitsgrade (df), der F-Wert (statistic) und der zugehörige, sehr kleine p-Wert (p.value). In der letzten Spalte wird noch einmal die verwendete Methode angeführt (One-way Anova) und in Klammern steht auch, dass keine Varianzhomogenität angenommen wurde, wie gewünscht.
+
+\hypertarget{effektstuxe4rke}{%
+\subsection{Effektstärke}\label{effektstuxe4rke}}
+
+Als Maß für die Stärke des beobachteten Effekts dient bei der Varianzanalyse \(\eta\)\textsuperscript{2} (Eta-Quadrat). Es berechnet sich aus dem Verhältnis der erklärten Varianz (Quadratsummen zwischen den Gruppen) und der Gesamtvariation. Man kann es mit dem Befehl \texttt{eta\_squared()} aus dem \texttt{effectsize}-Paket ausgeben. Um ein Gesamt-Eta (und kein parteilles) zu erhalten sollte man die Option \texttt{partial} auf \texttt{FALSE} setzen und das Konfidenzintervall auf die für uns üblichen 95\% (Argument \texttt{ci\ =\ 95}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{effectsize}\SpecialCharTok{::}\FunctionTok{eta\_squared}\NormalTok{(my\_model, }
+                        \AttributeTok{partial =} \ConstantTok{FALSE}\NormalTok{, }
+                        \AttributeTok{ci =} \FloatTok{0.95}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Eta2 |       95% CI
+## -------------------
+## 0.69 | [0.61, 0.75]
+\end{verbatim}
+
+\leavevmode\hypertarget{info_levenef}{}%
+\textbf{Achtung, identische Funktionsnamen}
+
+Eine genau gleich benannte Funktion \texttt{eta\_squared()} gibt es auch im Paket \texttt{rstatix}, das ich für den Levene-Test geladen habe. Diese Funktion funktioniert aber nur mit über \texttt{aov()} erzeugten Objekten. Es ist deshalb unter Umständen wichtig explizit zu machen, dass hier die \texttt{eta\_squared()}-Funktion aus dem Paket \texttt{effectsize} verwendet werden soll.
+
+Zusammenfassend lässt sich sagen, dass die bisherigen Ergebnisse für die H1 sprechen: Der F-Wert ist mit p \textless{} .001 signifikant und \(\eta\)\textsuperscript{2} = \text{0,69} steht für einen starken Zusammenhang. Worüber wir jedoch noch keine Aussage machen können ist, ob sich wirklich alle Gruppen jeweils signifikant von einander unterschieden. Dazu werden Posthoc-Test benötigt.
+
+\hypertarget{posthoc-test}{%
+\subsection{Posthoc-Test}\label{posthoc-test}}
+
+Der F-Wert repräsentiert die die kombinierte Signifikanz aller Parameter in der Formel. Es ist ein ``Omnibus-Test'': \emph{Alle} Mitelwertunterschiede dürfen ``einsteigen'' und werden gleichzeitig getestet. In unserem Fall sind das drei: (1) der Test zwischen ``einfach'' und ``mittel'', der Test zwischen ``einfach'' und ``schwer'' sowie (3) der Test zwischen ``mittel'' und ``schwer''. Ist der F-Wert signifikant bedeutet das, dass \emph{irgendetwas} in dem getesten Modell signifikant ist. Wir wissen aber nicht genau, ob und welcher der drei Mittelwertvergleiche. Sogenannte \emph{Poshoc-Tests} weisen die Signifikanzen für die einzelnen Mittelwertunterschiede aus.
+
+\leavevmode\hypertarget{info_levenef}{}%
+\textbf{Achtung Alphafehler-Kummulation!}
+
+Theoretisch könnte man jetzt einfach hergehen und einen Filter vor die Anova setzen, in dem jeweils eine Gruppe ausgeschlossen wird und nur zwei Gruppen zum Vergleich zugelassen werden. Oder man könnte gleich T-Test mit diesen beiden Gruppen berechnen. Das ist allerdings eine schlechte Idee.
+
+Aus der Inferenzsstatistik-Vorlesung wissen Sie, dass wir bei den hier durchgeführten Nullhypothesentests vorab eine Fehlerwahrscheinlichkeit festlegen, die üblicherweise bei 5 Prozent bzw. bei \(\alpha\) = .05 liegt. Das bedeutet wiederum, das wir in 5 Prozemnt der Fälle eine Fehlentscheidung für ein Signifikantes Ergebnis bewusst einkalkulieren. Das wäre rein statistisch jedes zwanzigste Mal. Gerade wenn viele Signifikanztests durchgeführt werden kann es deshalb vermehrt zu solchen Fehlentscheidungen, den so genannten Alpha-Fehlern kommen. Deshalb muss der kummulierte Alpha-Fehler reduziert werden.
+
+Posthoctests machen genau das: (1) Sie testen sehr viele Mittelwertunterschiede -- nämlich jeweils einzeln die zwischen jeder Gruppe und jeder anderen Gruppe -- und (2) sie korrigieren das Alpha-Fehler-Niveau, so dass es Fehlentscheidungen weniger wahrscheinlich werden und nicht inflationär auftreten. Es gibt viele verschiedene Verfahren für die Alphafehler-Korrektur, die nach ihren jeweiligen Entwicklern benannt sind. Ohne Anspruch auf Vollständigkeit z.B. Bonferoni, Games-Howell, Tamhane und Scheffé. Die Verfahren haben unterschiedliche Anwendungsvoraussetzungen (z.B. Varianzhomogenität) und Vor- und Nachteile. Eine ausführliche Diskussion führt aber an dieser Stelle zu weit.
+
+Selbstverständlich finden sich Posthoc-Tests wieder in unterschiedlichen R-Paketen. Ich mag das \texttt{rstatix}-Paket, weil es pipeable ist und wir es ohnehin schon geladen haben. Darin finden sich verschiedene Funktionen für Posthoc-Tests:
+
+\begin{itemize}
+\tightlist
+\item
+  Falls Varianzhomogenität besteht, kann man die Funktion \texttt{emmeans\_test()} verwenden. ``eenmeans'' steht dabei für ``estimated marginal means''. Die Funktion benötigtdas Datenobjekt als erstes Argument (eine Tidyverse-Konvention), dann die Formel für die Varianzanalyse und schließlich muss man über \texttt{p.adjust.method} die zu verwendende Korrektur angeben, bspw. \texttt{"bonferroni"}
+\item
+  Der Games-Howell-Test berücksichtigt die Welch-Korrektur und ist über die Funktion \texttt{games\_howell\_test()} nutzbar. Sie benötigt nur das Datenobjekt und die Formel.
+\end{itemize}
+
+In unserem Fall brauchen wir natürlich wegen des signifikanten Levene-Tests und der Welch-Korrektur den Games-Howell-Test:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{games\_howell\_test}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df,}
+                  \AttributeTok{formula =}\NormalTok{ Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Schwierigkeitsgrad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 8
+##   .y.       group1  group2 estimate conf.low conf.high    p.adj p.adj.signif
+## * <chr>     <chr>   <chr>     <dbl>    <dbl>     <dbl>    <dbl> <chr>       
+## 1 Highscore einfach mittel   -2588.   -3321.    -1856. 2.03e-13 ****        
+## 2 Highscore einfach schwer   -4274.   -4914.    -3633. 4.89e-10 ****        
+## 3 Highscore mittel  schwer   -1685.   -2134.    -1236. 8.04e-14 ****
+\end{verbatim}
+
+Die Output-Tabelle zeigt drei Zeilen für die drei paarweisen Mittelwertvergleiche. In den beiden ``group''-Spalten steht, welche Gruppen miteinander verglichen werden. Die Spalte ``estimate'' gibt die Differenz zwischen den Gruppenmittelwerten an und dahinter folgen zwei Spalten für das Konfidenzintervall dieser Differenz. Wenn sich die Grenzen der Konfidenzintervalle nicht überschneiden, spricht dies für einen signifikanten Unterschied. Ob eine Mittelwertdifferenz signifikant ist, kann man aber noch leichter in den letzten beiden Spalten sehen. Dort sind der korrigierte p-Wert bzw. das Siginifikanzlevel angegeben.
+
+Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# Datentransfirmationen zur Erstellung eines Mini{-}Datensatzes, der die Mittelwerte und Konfidenzintervalle enthält}
+  \FunctionTok{group\_by}\NormalTok{(Schwierigkeitsgrad) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{mean\_se}\NormalTok{(Highscore)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Mittelwert =}\NormalTok{ y, }\AttributeTok{CI\_lower =}\NormalTok{ ymin, }\AttributeTok{CI\_higher =}\NormalTok{ ymax) }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# Ausgabe als Grafik}
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{ (}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ Mittelwert)) }\SpecialCharTok{+} 
+  \CommentTok{\# Balkendiagramm}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"deeppink"}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Konfidenzintervalle}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin=}\NormalTok{CI\_lower, }\AttributeTok{ymax=}\NormalTok{CI\_higher), }\AttributeTok{width=}\FloatTok{0.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-120-1.pdf}
+
+\hypertarget{ergebnisdarstellung}{%
+\subsection{Ergebnisdarstellung}\label{ergebnisdarstellung}}
+
+Selbstverständlich kann man die Ergebnisse einer Varianzanalyse auch in einer Tabelle darstellen. Macht man jedoch nur eine einzelne Analyse, noch dazu wie in diesem Fall ``bloß'' einen Treatment-Check, Ist auch die Darstellung im Text möglich. Für unsere Auswertung sieht dass Ergebnis wie folgt aus:
+
+Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit \(F_{korrigiert}\) = \text{150} ein höchst signifikantes Ergebnis (p \textless{} .001). Der beobachtete Effekt ist mit \(\eta\)\textsuperscript{2} = \text{0,69} als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore von einander. Der Mittelwert des Highscores der Gruppe ``einfach'' ist mit \emph{M} = 6219 (\emph{SD} = 2284) der höchste. Der Mittelwert \emph{M} = 3631 (\emph{SD} = 1632) der Gruppe ``mittel'' ist signifikant geringer, und der Mittelwert der Gruppe ``schwer'' ist mit \emph{M} = 1946 (\emph{SD} = 704) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.
+
+\hypertarget{zweifaktorielle-varianzanalyse}{%
+\chapter{Zweifaktorielle Varianzanalyse}\label{zweifaktorielle-varianzanalyse}}
+
+Im nächsten Schritt soll eine komplexere Varianzanalyse durchgeführt werden, nämlich eine in der nicht nur ein Einflussfaktor betrachtet wird, sondern gleich zwei. In So einem Modell gibt es drei mögliche Effekte:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Einen Haupteffekt von Einflussfaktor A
+\item
+  Einen Haupteffekt von Einflussfaktor B
+\item
+  Einen Interaktionseffekt der beiden Einflussfakoren
+\end{enumerate}
+
+\leavevmode\hypertarget{info_interactionanova}{}%
+\textbf{Interaktionseffekte}
+
+Wie der Name schon sagt interagieren bei einem Interaktionseffekt die beiden Einflussfaktoren miteinander: Das heißt, dass sich die Wirkung bei gleichzeitigem Auftreten z.B. besonders verstärken kann -- also über das Maß, das jeder einzelne Faktor beitragen würde hinaus. Es sind aber auch Abschwächungseffekte denkbar, oder dass eine bestimmte Wirkung von Faktor A nur auftritt, wenn auch Faktor B zu einem gewissen Grad gegeben ist. -- Solche Interaktionseffekte zu untersuchen ist natürlich besonders spannend.
+
+Wir greifen in diesem Beispiel wieder auf die Daten von Carsten Reichelt zurück und nehmen nun einen zusätzlichen Einflussfaktor hinzu, nämlich die Wettkampfpräferenz. Dieses Konstrukt drückt aus, inwiefern ein:e Spieler:in bereit ist, sich einem Wettkampf zu stellen. Die Variable ist nominal/dichotom umd hat zwei Ausprägungen: geringe und hohe Wettkampfpräferenz.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  janitor}\SpecialCharTok{::}\FunctionTok{tabyl}\NormalTok{(Wettkampfpraeferenz) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_rounding}\NormalTok{(}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Wettkampfpraeferenz   n percent
+##  geringe Wettkampfpräferenz 131    0,53
+##     hohe Wettkampfpräferenz 117    0,47
+##                       Total 248    1,00
+\end{verbatim}
+
+Für unser Hypothesenkonstrukt bedeutet das, dass wir nun drei Hypothesen haben:
+
+\emph{H1: Der Schwierigkeitsgrad beeinflusst den Highscore negativ (siehe oben).}
+
+\emph{H2: Die Wettkampfpräferenz beeinflusst den Highscore positiv}
+
+\emph{H3: Es gibt einen Interaktionseffekt zwischen Schwierigkeitsgrad und Wettkampfpräferenz}
+
+Für H3 sollten wir natürlich auch überlegen, welcher Art die Interaktion sein könnte. Tbc.
+
+\leavevmode\hypertarget{info_interactionanova}{}%
+\textbf{Muss H1 noch einmal geprüft werden? Ja!}
+Man könnte jetzt denken, dass man H1 auch weglassen könnte, schließlich haben wir sie im vorigen Abschnitt bereits geprüft. Allerdings kann es natürlich sein, dass sich der gefundene Effekt bei der Hinzunahme neuer Einflussfaktoren verändert, z.B. geringer ausfällt. Außerdem können wir so die Effekte beider Einflussfaktoren miteinander vergleichen.
+
+\hypertarget{deskriptive-analyse-1}{%
+\subsection{Deskriptive Analyse}\label{deskriptive-analyse-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Schwierigkeitsgrad, Wettkampfpraeferenz) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{(), }
+            \AttributeTok{M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(Highscore), }\DecValTok{2}\NormalTok{),}
+            \AttributeTok{SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(Highscore)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+## # Groups:   Schwierigkeitsgrad [3]
+##   Schwierigkeitsgrad Wettkampfpraeferenz            n     M    SD
+##   <ord>              <ord>                      <int> <dbl> <dbl>
+## 1 einfach            geringe Wettkampfpräferenz    37 5267.  2196
+## 2 einfach            hohe Wettkampfpräferenz       42 7058.  2037
+## 3 mittel             geringe Wettkampfpräferenz    50 3768.  1660
+## 4 mittel             hohe Wettkampfpräferenz       40 3458.  1601
+## 5 schwer             geringe Wettkampfpräferenz    44 1858.   617
+## 6 schwer             hohe Wettkampfpräferenz       35 2056.   796
+\end{verbatim}
+
+An den Werten für n können wir sehen, dass es auch für jede Kombination der beiden Einflussfaktoren im Datensatz eine beruhigend hohe Anzahl an Fällen gibt.
+
+\hypertarget{anwendungsvoraussetzungen-1}{%
+\subsection{Anwendungsvoraussetzungen}\label{anwendungsvoraussetzungen-1}}
 
   \bibliography{literature.bib}
 

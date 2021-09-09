@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-07-20" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -394,6 +394,29 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="varianzanalyse.html"><a href="varianzanalyse.html"><i class="fa fa-check"></i><b>12</b> Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#datenbeispiel-1"><i class="fa fa-check"></i><b>12.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="12.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#prerequisits"><i class="fa fa-check"></i><b>12.2</b> Prerequisits</a></li>
+<li class="chapter" data-level="12.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#einfaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.3</b> Einfaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse"><i class="fa fa-check"></i><b>12.3.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test"><i class="fa fa-check"></i><b>12.3.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-der-varianzanalyse"><i class="fa fa-check"></i><b>12.3.3</b> Durchführung der Varianzanalyse</a></li>
+<li class="chapter" data-level="12.3.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#effektstärke"><i class="fa fa-check"></i><b>12.3.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="12.3.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-test"><i class="fa fa-check"></i><b>12.3.5</b> Posthoc-Test</a></li>
+<li class="chapter" data-level="12.3.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#ergebnisdarstellung"><i class="fa fa-check"></i><b>12.3.6</b> Ergebnisdarstellung</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#zweifaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.4</b> Zweifaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse-1"><i class="fa fa-check"></i><b>12.4.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.4.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test-1"><i class="fa fa-check"></i><b>12.4.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.4.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-einer-mehrfaktoriellen-varianzanalyse"><i class="fa fa-check"></i><b>12.4.3</b> Durchführung einer mehrfaktoriellen Varianzanalyse</a></li>
+<li class="chapter" data-level="12.4.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#visualisierung"><i class="fa fa-check"></i><b>12.4.4</b> Visualisierung</a></li>
+<li class="chapter" data-level="12.4.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-tests"><i class="fa fa-check"></i><b>12.4.5</b> Posthoc-Tests</a></li>
+<li class="chapter" data-level="12.4.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#abschließende-beurteilung-des-hypothesentests"><i class="fa fa-check"></i><b>12.4.6</b> Abschließende Beurteilung des Hypothesentests</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -583,7 +606,7 @@ Artwork by <a href="https://github.com/allisonhorst/stats-illustrations/">Alliso
 <p>Vielleicht haben Sie bemerkt, dass ich im Code bei der <code>mean()</code>- und der <code>print()</code>-Funktion das erste Argument nicht mit seinem Namen angesprochen habe. Natürlich hat auch dieses Argument einen Namen, es heißt <code>x</code>. Jedoch ist es sehr üblich, dass Daten-Objekte in Funktionen an vorderster Stelle übergeben werden. Es ist eine Konvention in diesem Fall den Namen doch wegzulassen.</p>
 <p>Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benötigen, wie etwa <code>Sys.Date()</code>. Diese Funktion gibt einfach nur das aktuelle Datum aus. Da sie dazu nur auf die Systemzeit des Computers zugreifen muss, braucht sie kein Argument.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="einführung-in-r-1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2021-07-20&quot;</code></pre>
+<pre><code>## [1] &quot;2021-09-09&quot;</code></pre>
 </div>
 <div id="funktionen-verschachteln" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Funktionen verschachteln</h3>

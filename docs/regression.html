@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-07-20" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -394,6 +394,29 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.4" data-path="t-tests.html"><a href="t-tests.html#cohens-d-2"><i class="fa fa-check"></i><b>11.4.4</b> Cohen´s d</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="varianzanalyse.html"><a href="varianzanalyse.html"><i class="fa fa-check"></i><b>12</b> Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#datenbeispiel-1"><i class="fa fa-check"></i><b>12.1</b> Datenbeispiel</a></li>
+<li class="chapter" data-level="12.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#prerequisits"><i class="fa fa-check"></i><b>12.2</b> Prerequisits</a></li>
+<li class="chapter" data-level="12.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#einfaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.3</b> Einfaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse"><i class="fa fa-check"></i><b>12.3.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test"><i class="fa fa-check"></i><b>12.3.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-der-varianzanalyse"><i class="fa fa-check"></i><b>12.3.3</b> Durchführung der Varianzanalyse</a></li>
+<li class="chapter" data-level="12.3.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#effektstärke"><i class="fa fa-check"></i><b>12.3.4</b> Effektstärke</a></li>
+<li class="chapter" data-level="12.3.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-test"><i class="fa fa-check"></i><b>12.3.5</b> Posthoc-Test</a></li>
+<li class="chapter" data-level="12.3.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#ergebnisdarstellung"><i class="fa fa-check"></i><b>12.3.6</b> Ergebnisdarstellung</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#zweifaktorielle-varianzanalyse"><i class="fa fa-check"></i><b>12.4</b> Zweifaktorielle Varianzanalyse</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="varianzanalyse.html"><a href="varianzanalyse.html#deskriptive-analyse-1"><i class="fa fa-check"></i><b>12.4.1</b> Deskriptive Analyse</a></li>
+<li class="chapter" data-level="12.4.2" data-path="varianzanalyse.html"><a href="varianzanalyse.html#levene-test-1"><i class="fa fa-check"></i><b>12.4.2</b> Levene-Test</a></li>
+<li class="chapter" data-level="12.4.3" data-path="varianzanalyse.html"><a href="varianzanalyse.html#durchführung-einer-mehrfaktoriellen-varianzanalyse"><i class="fa fa-check"></i><b>12.4.3</b> Durchführung einer mehrfaktoriellen Varianzanalyse</a></li>
+<li class="chapter" data-level="12.4.4" data-path="varianzanalyse.html"><a href="varianzanalyse.html#visualisierung"><i class="fa fa-check"></i><b>12.4.4</b> Visualisierung</a></li>
+<li class="chapter" data-level="12.4.5" data-path="varianzanalyse.html"><a href="varianzanalyse.html#posthoc-tests"><i class="fa fa-check"></i><b>12.4.5</b> Posthoc-Tests</a></li>
+<li class="chapter" data-level="12.4.6" data-path="varianzanalyse.html"><a href="varianzanalyse.html#abschließende-beurteilung-des-hypothesentests"><i class="fa fa-check"></i><b>12.4.6</b> Abschließende Beurteilung des Hypothesentests</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 </ul>
 
@@ -459,21 +482,21 @@ div.csl-indent {
 <div id="grafische-darstellung" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Grafische Darstellung</h3>
 <p>Die erste Annäherung an die Regression ist grafisch. Mit einem Scatterplot oder Jitterplot kann der Zusammenhang zwischen zwei Variablen visualisiert werden (vgl. Abschnitt [### Streudiagramm]). Das Paket <code>ggplot2</code> kann aber noch mehr. Mit dem Geom <code>geom_smooth</code> kann man über <code>method = "lm"</code> (für “linear model”) eine Regressionsgerade zur Punktewolke hinzufügen.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb254-2"><a href="regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
-<span id="cb254-3"><a href="regression.html#cb254-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
-<span id="cb254-4"><a href="regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
-<span id="cb254-5"><a href="regression.html#cb254-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
-<span id="cb254-6"><a href="regression.html#cb254-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
-<p>Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt <em>b<sub>0</sub></em> und vor allem <em>b<sub>1</sub></em>? Dazu mehr im nächsten Abschnitt.</p>
-<p>Zunächst möchte ich noch kurz auf das <code>geom_smooth()</code> eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, <code>method</code>, hatte ich auf <code>lm</code> gesetzt, weil wir ja hier genau das machen wollen – nämlich eine Regressionsgerade nach dem “linearen Modell” berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument <code>color = "deeppink"</code> können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformen HMTMH-Magenta ein. Aber was macht das mittlere Argument <code>se = FALSE</code>? Das finden wir ganz einfach heraus, indem wir es einmal auf <code>TRUE</code> setzen:</p>
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb255-2"><a href="regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
 <span id="cb255-3"><a href="regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
-<span id="cb255-4"><a href="regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb255-4"><a href="regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
 <span id="cb255-5"><a href="regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
 <span id="cb255-6"><a href="regression.html#cb255-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>Prima, das sieht ja schon super aus! Und definitiv nach einem positiven Zusammenhang. - Aber welche Werte haben jetzt <em>b<sub>0</sub></em> und vor allem <em>b<sub>1</sub></em>? Dazu mehr im nächsten Abschnitt.</p>
+<p>Zunächst möchte ich noch kurz auf das <code>geom_smooth()</code> eingehen. Oben habe ich der Funktion drei Argumente mitgegeben. Das erste Argument, <code>method</code>, hatte ich auf <code>lm</code> gesetzt, weil wir ja hier genau das machen wollen – nämlich eine Regressionsgerade nach dem “linearen Modell” berechnen. Denkbar wären natürlich auch andere Modelle (z.B. Kurven). Beim letzten Argument <code>color = "deeppink"</code> können Sie sich wahrscheinlich schon denken was es macht: Es färbt die Gerade in CI-konformen HMTMH-Magenta ein. Aber was macht das mittlere Argument <code>se = FALSE</code>? Das finden wir ganz einfach heraus, indem wir es einmal auf <code>TRUE</code> setzen:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regression.html#cb256-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb256-2"><a href="regression.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> politisches_interesse, <span class="at">y =</span> pol_part_sx)) <span class="sc">+</span></span>
+<span id="cb256-3"><a href="regression.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb256-4"><a href="regression.html#cb256-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-5"><a href="regression.html#cb256-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;politisches Interesse&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-6"><a href="regression.html#cb256-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;politische Partizipation&quot;</span>)</span></code></pre></div>
 <p><img src="r_book_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>Hmm. Viel hat sich nicht verändert. Aber jetzt ist da so ein “Schatten” hinter der Geraden. Dieser Schatten zeigt das Konfidenzintervall der Regressionsgeraden an. Praktisch!</p>
 </div>
@@ -483,11 +506,11 @@ div.csl-indent {
 <p>Die Funktion <code>lm()</code> erwartet zwei Argumente: 1. ein Objekt der R-Klasse “formula.” Das ist eine neue Art von Objekt, die bisher noch nicht vorkam. Mit so einer “Formel” teilt man R mit, mit welchen Variablen ein Modell gerechnet werden soll und wie die Variablen miteinander zusammenhängen. Für letzteres gibt es verschiedene Operatoren. 2. als zweites Argument benötigt die Funktion natürlich noch den Datensatz, auf den die Formel angewendet werden soll.</p>
 <p>Für die bivariate Regression müssen wir nun zuerst eine Formel formulieren, also unsere Hypothese für R so übersetzen, dass es sie versteht und die Regression berechnen kann. Dazu benötigen wir den Operator <code>~</code> (Tilde). <strong>Die Tilde <code>~</code> bedeutet: “wird vorhergesagt durch”</strong>. Für die lineare Regression muss die Formel also <code>abhängige_Variable  ~ unabhängige_Variable</code> lauten.</p>
 <p>Nachdem man die <code>lm()</code>-Funktion ausgeführt und das Ergebnis einem selbst benannten Objekt (z.B. <code>my_model</code>) zugeordnet hat, kann man sich mit der <code>summary()</code>-Funktion die Ergebnisse der Regression anzeigen lassen. In unserem Beispiel sieht das ganze so aus:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regression.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formulieren</span></span>
-<span id="cb256-2"><a href="regression.html#cb256-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pol_part_sx <span class="sc">~</span> politisches_interesse, <span class="at">data =</span> data)</span>
-<span id="cb256-3"><a href="regression.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb256-4"><a href="regression.html#cb256-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Zusammenfassung ausgeben</span></span>
-<span id="cb256-5"><a href="regression.html#cb256-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formulieren</span></span>
+<span id="cb257-2"><a href="regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pol_part_sx <span class="sc">~</span> politisches_interesse, <span class="at">data =</span> data)</span>
+<span id="cb257-3"><a href="regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb257-4"><a href="regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Zusammenfassung ausgeben</span></span>
+<span id="cb257-5"><a href="regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
@@ -525,23 +548,23 @@ div.csl-indent {
 <p>Im vierten und letzten Abschnitt des Outputs wird der Standardfehler der Residuen inklusive Freiheitsgerade (degrees of freedom) angegeben (Erläuterung folgt später). An dieser Stelle erfährt man auch, dass einige Fälle aus der Berechnung entfernt wurden, da sie fehlende Werte in der einen oder anderen Variable aufweisen.</p>
 <p>Zu guter Letzt gibt es noch einen R<sup>2</sup>-Wert (r-squared), ein korrigiertes R<sup>2</sup> (adjustet R-squared) und eine F-Statistik für eben dieses R<sup>2</sup>. R<sup>2</sup> ist der Anteil, der durch den Prädiktor erklärten Varianz an der Gesamtvarianz der abhängigen Variable. Mit dem F-Test im Output wird hier wiederum geschaut, ob R<sup>2</sup> sich signifikant von Null unterschiedet. – So ähnlich wie oben mit dem t-Test bei den b-Werten.</p>
 <p>Wenn man eine Regression berechnet, gibt man diese in der Regel in Form einer Tabelle an. Eine einzelne Regression kann aber auch textlich berichtet werden. Neben <em>b<sub>1</sub></em> (inkl. Signifikanzniveau) sollte außerdem unbedingt mindestens R<sup>2</sup> inklusive der Freiheitsgrade und dem Signifikanzniveau angegeben werden. Der Intercept wird in Tabellen mit berichtet, auch wenn er kaum interpretiert wird.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a>sign <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb258-2"><a href="regression.html#cb258-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .001&quot;</span>,</span>
-<span id="cb258-3"><a href="regression.html#cb258-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .01&quot;</span>,</span>
-<span id="cb258-4"><a href="regression.html#cb258-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .05&quot;</span>,</span>
-<span id="cb258-5"><a href="regression.html#cb258-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;n.s.&quot;</span></span>
-<span id="cb258-6"><a href="regression.html#cb258-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a>sign <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb259-2"><a href="regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.001</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .001&quot;</span>,</span>
+<span id="cb259-3"><a href="regression.html#cb259-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.01</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .01&quot;</span>,</span>
+<span id="cb259-4"><a href="regression.html#cb259-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">glance</span>(my_model)<span class="sc">$</span>p.value[[<span class="dv">1</span>]]<span class="sc">&lt;</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;p &lt; .05&quot;</span>,</span>
+<span id="cb259-5"><a href="regression.html#cb259-5" aria-hidden="true" tabindex="-1"></a>   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;n.s.&quot;</span></span>
+<span id="cb259-6"><a href="regression.html#cb259-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Das Ergebnis für unsere Hypothese von oben lautet wie folgt: Die Daten bestätigen die Hypothese. Die politische Partizipation wird vom generellen politischen Interesse beeinflusst. Steigt das politische Interesse um einen Skalenpunkt, so geht dies mit einer Zunahme von <em>b</em> = 1,29 politischen Handlungen einher. Die erklärte Varianz beträgt R<sup>2</sup> = 0,2951303, bei df = 997 Freiheitsgraden (korrigiertes R<sup>2</sup> = 0,2944233). Das Modell ist auf dem Niveau p &lt; .001 signifikant.</p>
 </div>
 <div id="standardisierte-regressionskoeffizienten-β" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Standardisierte Regressionskoeffizienten (β)</h3>
 <p>Neben den normalen Regressionskoeffizienten b kann man auch den standardisierten Koeffizienten β (beta) berechnen. Dazu <strong>z-standardisiert</strong> man die Messwerte zuerst oder formt die Regressionsgleichung entsprechend um. Durch die Standardisierung wird die Skalierung der einzelnen Messwerte herausgerechnet, Z-Standardisierung bedeutet ja “auf den Mittelwert zentrieren und Standardabweichung = 1 setzen.” Eine standardisierte Prädiktorvariable ist nicht mehr im oben genannten Sinn interpretierbar, denn wenn der Wert der standardisierten Variable sich um 1 erhöht, dann ist das eben keine Einheit mehr (also <strong>nicht</strong> der Sprung von 2 = <em>Weniger stark</em> auf 3 = <em>Eher stark</em>) sondern eine Erhöhung um eine Standardabweichung (was immer das heißt). Die standardisierten β-Werte haben aber einen anderen Vorteil: Sollte man mehrere Prädiktoren in einem Modell haben, die aber auf unterschiedlichen Skalen gemessen wurden (z.B. 1x 5er und 1x 7er Skala), kann man ihren relativen Erklärungsbeitrag besser untereinander vergleichen.</p>
 <p>Das <code>stats</code>-Paket kann die β-Koeffizienten nicht direkt berechnen. Dazu gibt es aber das Paket <code>lm.beta</code> mit der gleichnamigen Funktion, welche auf ein mit <code>lm()</code> erzeugtes Modell angewendet werden kann.</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
-<span id="cb259-2"><a href="regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
-<span id="cb259-3"><a href="regression.html#cb259-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb259-4"><a href="regression.html#cb259-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
-<span id="cb259-5"><a href="regression.html#cb259-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regression.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
+<span id="cb260-2"><a href="regression.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)  </span>
+<span id="cb260-3"><a href="regression.html#cb260-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-4"><a href="regression.html#cb260-4" aria-hidden="true" tabindex="-1"></a><span class="co"># beat-Koeffizienten ausgeben</span></span>
+<span id="cb260-5"><a href="regression.html#cb260-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(my_model) </span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = pol_part_sx ~ politisches_interesse, data = data)
