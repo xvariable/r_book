@@ -127,7 +127,7 @@
 
 \title{R Kompendium für die kommunikationswissenschaftliche Statistik- und Datenanalyse-Ausbildung am IJK Hannover}
 \author{Julia Niemann-Lenz}
-\date{2021-09-09}
+\date{2021-10-05}
 
 \begin{document}
 \maketitle
@@ -994,7 +994,7 @@ Es gibt übrigens auch einige wenige Funktionen, die gar keine Argumente benöti
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-09-09"
+## [1] "2021-10-05"
 \end{verbatim}
 
 \hypertarget{funktionen-verschachteln}{%
@@ -3105,6 +3105,11 @@ Zur Erstellung von Plots ist das Paket \texttt{ggplot} aus dem tidyverse mittler
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+## "none")` instead.
+\end{verbatim}
+
 \includegraphics{r_book_files/figure-latex/freq_plot-1.pdf}
 
 Das Argument \texttt{sort.frq\ =\ "desc"} sorgt für eine absteigende Sortierung der Balken. Es ist natürlich nur bei nominalen Daten sinnvoll.
@@ -4951,8 +4956,7 @@ Die wichtigsten Argumente der \texttt{t\_test()}-Funktion aus \texttt{rstatix} w
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im tidyverse gewohnt kann man ???
-  Zwingend: Den Zahlenvektor (= den Datensatz und die Variable) für den der Mittelwert berechnet werden soll. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
+  Das Datenargument, also den Datensatz, der die Variablen enthält. Wie im Tidyverse üblich kann man ihn als erstes Argument über die Pipe übergeben.
 \item
   Eine Formel, die die statistische Modellierung nach R übersetzt. Solche Formeln sind schon aus dem Kapitel \protect\hyperlink{regression}{Regression} bekannt. Die Tilde \texttt{\textasciitilde{}} verbindet dabei die Variablen der Analyse mit einander. Tilde bedeutet übersetzt in Worte an dieser Stelle etwa ``die Variable vor der Tilde wird verglichen mit dem Wert nach der Tilde''. Die Notation ist immer \texttt{Variable1\ \textasciitilde{}\ Variable2}. Im Fall des Einstichproben-T-Tests gibt es jedoch nur eine Variable und die entsprechende Formel lautet \texttt{Variable1\ \textasciitilde{}\ 1}.
 \item
@@ -5454,7 +5458,7 @@ Zunächst benötigen wir natürlich verschiedene Pakete zur Durchfühung der Var
 \FunctionTok{library}\NormalTok{(janitor)   }\CommentTok{\# für Häufigkeitsauszählungen}
 \FunctionTok{library}\NormalTok{(rstatix)   }\CommentTok{\# für den Levene{-}Test}
 \FunctionTok{library}\NormalTok{(effectsize)}\CommentTok{\# für Eta{-}Quadrat}
-\FunctionTok{library}\NormalTok{(afex)      }\CommentTok{\# zur Berechnung der Mehrfaktoriellen Anova}
+\FunctionTok{library}\NormalTok{(afex)      }\CommentTok{\# zur Berechnung der mehrfaktoriellen Anova}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5571,7 +5575,9 @@ Mit Hilfe eines Boxplots können wir außerdem die Lage der Mittelwerte und die 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ Highscore, }\AttributeTok{color =}\NormalTok{ Schwierigkeitsgrad)) }\SpecialCharTok{+}
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }
+                       \AttributeTok{y =}\NormalTok{ Highscore, }
+                       \AttributeTok{color =}\NormalTok{ Schwierigkeitsgrad)) }\SpecialCharTok{+}
   \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun=}\NormalTok{mean, }\AttributeTok{shape =} \DecValTok{23}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{)}
 \end{Highlighting}
@@ -5583,7 +5589,7 @@ Tatsächlich, die Mittelwerte in den Gruppen reihen sich genau wie erwartet: Die
 
 Noch etwas wird in dem Boxplot ersichtlich: Die Bandbreite an Highscores ist in der Gruppe ``einfach'' am höchsten: hier liegt sowohl der Minimalwert, als auch der Maximalwert -- und zwar über alle Gruppen hinweg! Das sieht man am der senkrechten violetten Linie, die länger ist, als die Linien der anderen beiden Gruppen. Auch die Quartielgrenzen sind recht weit auseinander (das sieht man an der ``Box''). In dieser Gruppe scheint also die Streuung relativ groß zu sein. In der gelben Gruppe ``schwierig'' ist sie hingegen gering. Das erkannt man an der niedriegen ``Box'' und daran, dass alle Fälle, die außerhalb der Box liegen, noch nicht einmal in Form einer Linie, sondern als Punkte (=Einzelfälle/Ausreißer) dargestellt werden. Die Spieler:innen aus der Gruppe "schwer liegen also viel dichter bei einander als die Spieler:innen der anderen Gruppen.
 
-Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: \emph{fehlende Varianzhomogenität}. Aus dem letzten Kapitel \protect\hyperlink{anwendungsvoraussetzungen-1}{T-Test} wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse\footnote{Die übrigen Voraussetzungen für die Varianzanalyse sind vom Prinzip her ähnlich zum T-Test. Deshalb wird an dieser Stelle nicht erneut darauf eingegangen}. Hier kommen wieder der \textbf{Levene-Test} und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova schieben wir den Levene-Test ein um sicherzugehen ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.
+Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: \emph{fehlende Varianzhomogenität}. Aus dem letzten Kapitel \protect\hyperlink{anwendungsvoraussetzungen}{T-Test} wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse\footnote{Die übrigen Voraussetzungen für die Varianzanalyse sind vom Prinzip her ähnlich zum T-Test. Deshalb wird an dieser Stelle nicht erneut darauf eingegangen}. Hier kommen wieder der \textbf{Levene-Test} und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova schieben wir den Levene-Test ein um sicherzugehen ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.
 
 \hypertarget{levene-test}{%
 \subsection{Levene-Test}\label{levene-test}}
@@ -5708,7 +5714,7 @@ Theoretisch könnte man jetzt einfach hergehen und einen Filter vor die Anova se
 
 Aus der Inferenzsstatistik-Vorlesung wissen Sie, dass wir bei den hier durchgeführten Nullhypothesentests vorab eine Fehlerwahrscheinlichkeit festlegen, die üblicherweise bei 5 Prozent bzw. bei \(\alpha\) = .05 liegt. Das bedeutet wiederum, das wir in 5 Prozemnt der Fälle eine Fehlentscheidung für ein Signifikantes Ergebnis bewusst einkalkulieren. Das wäre rein statistisch jedes zwanzigste Mal. Gerade wenn viele Signifikanztests durchgeführt werden kann es deshalb vermehrt zu solchen Fehlentscheidungen, den so genannten Alpha-Fehlern kommen. Deshalb muss der kummulierte Alpha-Fehler reduziert werden.
 
-Posthoctests machen genau das: (1) Sie testen sehr viele Mittelwertunterschiede -- nämlich jeweils einzeln die zwischen jeder Gruppe und jeder anderen Gruppe -- und (2) sie korrigieren das Alpha-Fehler-Niveau, so dass es Fehlentscheidungen weniger wahrscheinlich werden und nicht inflationär auftreten. Es gibt viele verschiedene Verfahren für die Alphafehler-Korrektur, die nach ihren jeweiligen Entwicklern benannt sind. Ohne Anspruch auf Vollständigkeit z.B. Bonferoni, Games-Howell, Tamhane und Scheffé. Die Verfahren haben unterschiedliche Anwendungsvoraussetzungen (z.B. Varianzhomogenität) und Vor- und Nachteile. Eine ausführliche Diskussion führt aber an dieser Stelle zu weit.
+Posthoc-Tests machen genau das: (1) Sie testen sehr viele Mittelwertunterschiede -- nämlich jeweils einzeln die zwischen jeder Gruppe und jeder anderen Gruppe -- und (2) sie korrigieren das Alpha-Fehler-Niveau, so dass es Fehlentscheidungen weniger wahrscheinlich werden und nicht inflationär auftreten. Es gibt viele verschiedene Verfahren für die Alphafehler-Korrektur, die nach ihren jeweiligen Entwicklern benannt sind. Ohne Anspruch auf Vollständigkeit z.B. Bonferoni, Games-Howell, Tamhane und Scheffé. Die Verfahren haben unterschiedliche Anwendungsvoraussetzungen (z.B. Varianzhomogenität) und Vor- und Nachteile. Eine ausführliche Diskussion führt aber an dieser Stelle zu weit.
 
 Selbstverständlich finden sich Posthoc-Tests wieder in unterschiedlichen R-Paketen. Ich mag das \texttt{rstatix}-Paket, weil es pipeable ist und wir es ohnehin schon geladen haben. Darin finden sich verschiedene Funktionen für Posthoc-Tests:
 
@@ -5740,16 +5746,33 @@ In unserem Fall brauchen wir natürlich wegen des signifikanten Levene-Tests und
 
 Die Output-Tabelle zeigt drei Zeilen für die drei paarweisen Mittelwertvergleiche. In den beiden ``group''-Spalten steht, welche Gruppen miteinander verglichen werden. Die Spalte ``estimate'' gibt die Differenz zwischen den Gruppenmittelwerten an und dahinter folgen zwei Spalten für das Konfidenzintervall dieser Differenz. Wenn sich die Grenzen der Konfidenzintervalle nicht überschneiden, spricht dies für einen signifikanten Unterschied. Ob eine Mittelwertdifferenz signifikant ist, kann man aber noch leichter in den letzten beiden Spalten sehen. Dort sind der korrigierte p-Wert bzw. das Siginifikanzlevel angegeben.
 
-Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen:
+Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen. Wir benötigen dazu einen Datensatz, in dem die Mittelwerte, und die Grenzen der Konfidenzintervalle nach Gruppen aufgesplitztet werden. Zur Berechnung der Grenzen des Konfidenzintervalls wird im folgenden Code die Funktion \texttt{mean\_se()} aus dem Paket \texttt{ggplot2} verwendet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
-  \CommentTok{\# Datentransfirmationen zur Erstellung eines Mini{-}Datensatzes, der die Mittelwerte und Konfidenzintervalle enthält}
+\NormalTok{tab\_mean\_ci }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(Schwierigkeitsgrad) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{mean\_se}\NormalTok{(Highscore)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Mittelwert =}\NormalTok{ y, }\AttributeTok{CI\_lower =}\NormalTok{ ymin, }\AttributeTok{CI\_higher =}\NormalTok{ ymax) }\SpecialCharTok{\%\textgreater{}\%}
-  \CommentTok{\# Ausgabe als Grafik}
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{mean\_se}\NormalTok{(Highscore)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Mittelwert =}\NormalTok{ y, }\AttributeTok{CI\_lower =}\NormalTok{ ymin, }\AttributeTok{CI\_higher =}\NormalTok{ ymax) }
+
+\NormalTok{tab\_mean\_ci }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 4
+##   Schwierigkeitsgrad Mittelwert CI_lower CI_higher
+##   <ord>                   <dbl>    <dbl>     <dbl>
+## 1 einfach                 6219.    5962.     6476.
+## 2 mittel                  3631.    3459.     3803.
+## 3 schwer                  1946.    1866.     2025.
+\end{verbatim}
+
+Aus diesem Datensatz können wir jekt unseren Plot mit zwei Geomen erstellen. Ein Geom für die Balken und eines für die Konfidenzintervalle.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab\_mean\_ci }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{ (}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ Mittelwert)) }\SpecialCharTok{+} 
   \CommentTok{\# Balkendiagramm}
   \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"deeppink"}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
@@ -5758,7 +5781,7 @@ Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden läs
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{r_book_files/figure-latex/unnamed-chunk-120-1.pdf}
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-121-1.pdf}
 
 \hypertarget{ergebnisdarstellung}{%
 \subsection{Ergebnisdarstellung}\label{ergebnisdarstellung}}
@@ -5768,9 +5791,9 @@ Selbstverständlich kann man die Ergebnisse einer Varianzanalyse auch in einer T
 Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit \(F_{korrigiert}\) = \text{150} ein höchst signifikantes Ergebnis (p \textless{} .001). Der beobachtete Effekt ist mit \(\eta\)\textsuperscript{2} = \text{0,69} als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore von einander. Der Mittelwert des Highscores der Gruppe ``einfach'' ist mit \emph{M} = 6219 (\emph{SD} = 2284) der höchste. Der Mittelwert \emph{M} = 3631 (\emph{SD} = 1632) der Gruppe ``mittel'' ist signifikant geringer, und der Mittelwert der Gruppe ``schwer'' ist mit \emph{M} = 1946 (\emph{SD} = 704) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.
 
 \hypertarget{zweifaktorielle-varianzanalyse}{%
-\chapter{Zweifaktorielle Varianzanalyse}\label{zweifaktorielle-varianzanalyse}}
+\section{Zweifaktorielle Varianzanalyse}\label{zweifaktorielle-varianzanalyse}}
 
-Im nächsten Schritt soll eine komplexere Varianzanalyse durchgeführt werden, nämlich eine in der nicht nur ein Einflussfaktor betrachtet wird, sondern gleich zwei. In So einem Modell gibt es drei mögliche Effekte:
+Im nächsten Schritt soll eine komplexere Varianzanalyse durchgeführt werden, nämlich eine in der nicht nur ein Einflussfaktor betrachtet wird, sondern gleich zwei. In so einem Modell gibt es drei mögliche Effekte:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5780,15 +5803,19 @@ Im nächsten Schritt soll eine komplexere Varianzanalyse durchgeführt werden, n
 \item
   Einen Haupteffekt von Einflussfaktor B
 \item
-  Einen Interaktionseffekt der beiden Einflussfakoren
+  Einen Interaktionseffekt der beiden Einflussfaktoren
 \end{enumerate}
 
 \leavevmode\hypertarget{info_interactionanova}{}%
-\textbf{Interaktionseffekte}
+\textbf{Haupt- \& Interaktionseffekte}
 
-Wie der Name schon sagt interagieren bei einem Interaktionseffekt die beiden Einflussfaktoren miteinander: Das heißt, dass sich die Wirkung bei gleichzeitigem Auftreten z.B. besonders verstärken kann -- also über das Maß, das jeder einzelne Faktor beitragen würde hinaus. Es sind aber auch Abschwächungseffekte denkbar, oder dass eine bestimmte Wirkung von Faktor A nur auftritt, wenn auch Faktor B zu einem gewissen Grad gegeben ist. -- Solche Interaktionseffekte zu untersuchen ist natürlich besonders spannend.
+\emph{Haupteffekt} bedeutet, dass ein Faktor direkt und unter allen (einbezogenen) Bedingungen auf die abhängige Variable wirkt.
 
-Wir greifen in diesem Beispiel wieder auf die Daten von Carsten Reichelt zurück und nehmen nun einen zusätzlichen Einflussfaktor hinzu, nämlich die Wettkampfpräferenz. Dieses Konstrukt drückt aus, inwiefern ein:e Spieler:in bereit ist, sich einem Wettkampf zu stellen. Die Variable ist nominal/dichotom umd hat zwei Ausprägungen: geringe und hohe Wettkampfpräferenz.
+Bei \emph{Interaktionseffekten} wirken zwei (oder mehr) Faktoren in komplexer Weise zusammen. Der Effekt geht über eine reine Addition der Haupteffekte der beiden Einflussvariablen hinaus. Bei einer Interaktion ist die Wirkung eines Faktors abhängig von den Ausprägungen des anderen Faktors. Das heißt zum Beispiel, dass sich die Wirkung bei gleichzeitigem Auftreten besonders verstärken kann. Es sind aber auch Abschwächungseffekte denkbar, oder dass eine bestimmte Wirkung von Faktor A nur auftritt, wenn auch Faktor B zu einem gewissen Grad gegeben ist. -- Der \emph{F}-Wert verändert sich.
+
+Interaktionseffekte zu untersuchen ist natürlich besonders spannend.
+
+Wir greifen in diesem Beispiel wieder auf die Daten von Carsten Reichelt zurück und nehmen nun einen zusätzlichen Einflussfaktor hinzu, nämlich die Wettkampfpräferenz. Dieses Konstrukt drückt aus, inwiefern ein:e Spieler:in bereit ist, sich einem Wettkampf zu stellen. Die Variable ist nominal/dichotom und hat zwei Ausprägungen: geringe und hohe Wettkampfpräferenz.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5810,26 +5837,57 @@ Für unser Hypothesenkonstrukt bedeutet das, dass wir nun drei Hypothesen haben:
 
 \emph{H1: Der Schwierigkeitsgrad beeinflusst den Highscore negativ (siehe oben).}
 
-\emph{H2: Die Wettkampfpräferenz beeinflusst den Highscore positiv}
+\emph{H2: Die Wettkampfpräferenz beeinflusst den Highscore positiv.}
 
-\emph{H3: Es gibt einen Interaktionseffekt zwischen Schwierigkeitsgrad und Wettkampfpräferenz}
+\emph{H3: Es gibt einen Interaktionseffekt zwischen Schwierigkeitsgrad und Wettkampfpräferenz.}
 
-Für H3 sollten wir natürlich auch überlegen, welcher Art die Interaktion sein könnte. Tbc.
+Für H3 sollten wir natürlich auch überlegen, welcher Art die Interaktion sein könnte. Ich lehne mich jetzt mal aus dem Fenster und prognostiziere, dass man erwarten könnte, dass der Einfluss von Wettkampfpräferenz mit steigendem Schwierigkeitsgrad abnimmt. Meine Begründung dafür wäre, dass man bei einem hohen Schwierigkeitsgrad weniger Einfluss auf den Highscore hat, selbst wenn man eine hohe Wettkampfpräferenz hat. Das Ergebnis des Highscores ist schließlich auch noch von vielen anderen Punkten abhängig, wie z.B. Spielerfahrung oder generelle Reaktionsgeschwindigkeit. Meine präzisierte H3 lautet also:
+
+\emph{H3: Bei zunehmendem Schwierigkeitsgrad nimmt der Einfluss der Wettkampfpräferenz ab.}
 
 \leavevmode\hypertarget{info_interactionanova}{}%
 \textbf{Muss H1 noch einmal geprüft werden? Ja!}
-Man könnte jetzt denken, dass man H1 auch weglassen könnte, schließlich haben wir sie im vorigen Abschnitt bereits geprüft. Allerdings kann es natürlich sein, dass sich der gefundene Effekt bei der Hinzunahme neuer Einflussfaktoren verändert, z.B. geringer ausfällt. Außerdem können wir so die Effekte beider Einflussfaktoren miteinander vergleichen.
+
+Man könnte ja denken, dass man H1 auch weglassen könnte, schließlich haben wir sie im vorigen Abschnitt bereits geprüft. Allerdings kann es natürlich sein, dass sich der gefundene Effekt bei der Hinzunahme neuer Einflussfaktoren verändert, z.B. geringer ausfällt (der \emph{F}-Wert würde in diesem Fall geringer und damit auch die Signifikanz).
+
+Außerdem können wir die Effekte beider Einflussfaktoren miteinander vergleichen, wenn wir beide aufnehmen.
 
 \hypertarget{deskriptive-analyse-1}{%
 \subsection{Deskriptive Analyse}\label{deskriptive-analyse-1}}
 
+Wie immer: Vor dem Signifikanztest wird deskriptiv ausgewertet. Es muss festgestellt werden, ob die Mittelwerte in die Prognostizierte Richtung weisen. Für H1 und den Schwierigkeitsgrad haben wir dies im letzten Abschnitt bereits bestätigt.
+
+Aber auch für den zweiten Haupteffekt und die Wettkampfpräferenz (H2) sieht es gut aus, denn tatsächlich ist der Highscore der Probanden höher, wenn die Wettkampfpräferenz höher ist.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Wettkampfpraeferenz) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{(), }
+            \AttributeTok{M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(Highscore)),}
+            \AttributeTok{SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(Highscore)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   Wettkampfpraeferenz            n     M    SD
+##   <ord>                      <int> <dbl> <dbl>
+## 1 geringe Wettkampfpräferenz   131  3550  2080
+## 2 hohe Wettkampfpräferenz      117  4331  2652
+\end{verbatim}
+
+Nun zum Interaktionseffekt. Um die Werte zu veranschaulichen, gruppieren wir nicht nur nach einer unabhängigen Variablen, sondern nach beiden. Weil wir diese Tabelle später noch einmal benötigen, wird sie als Objekt \texttt{desc\_table} abgespeichert.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{desc\_table }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(Schwierigkeitsgrad, Wettkampfpraeferenz) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{(), }
-            \AttributeTok{M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(Highscore), }\DecValTok{2}\NormalTok{),}
+            \AttributeTok{M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(Highscore)),}
             \AttributeTok{SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(Highscore)))}
+
+\NormalTok{desc\_table }
 \end{Highlighting}
 \end{Shaded}
 
@@ -5838,18 +5896,257 @@ Man könnte jetzt denken, dass man H1 auch weglassen könnte, schließlich haben
 ## # Groups:   Schwierigkeitsgrad [3]
 ##   Schwierigkeitsgrad Wettkampfpraeferenz            n     M    SD
 ##   <ord>              <ord>                      <int> <dbl> <dbl>
-## 1 einfach            geringe Wettkampfpräferenz    37 5267.  2196
-## 2 einfach            hohe Wettkampfpräferenz       42 7058.  2037
-## 3 mittel             geringe Wettkampfpräferenz    50 3768.  1660
-## 4 mittel             hohe Wettkampfpräferenz       40 3458.  1601
-## 5 schwer             geringe Wettkampfpräferenz    44 1858.   617
-## 6 schwer             hohe Wettkampfpräferenz       35 2056.   796
+## 1 einfach            geringe Wettkampfpräferenz    37  5267  2196
+## 2 einfach            hohe Wettkampfpräferenz       42  7058  2037
+## 3 mittel             geringe Wettkampfpräferenz    50  3768  1660
+## 4 mittel             hohe Wettkampfpräferenz       40  3458  1601
+## 5 schwer             geringe Wettkampfpräferenz    44  1858   617
+## 6 schwer             hohe Wettkampfpräferenz       35  2056   796
 \end{verbatim}
 
-An den Werten für n können wir sehen, dass es auch für jede Kombination der beiden Einflussfaktoren im Datensatz eine beruhigend hohe Anzahl an Fällen gibt.
+Diese Tabelle ist etwas unübersichtlich. Aber eigentlich ist es auch nicht so schlimm, wenn man weiß, wonach man suchen muss. Es ist hier relevant zu schauen, ob sich die Mittelwerte in zusammengehörigen Zeilen unterschieden, z.B. also die beiden Zeilen ``Schwierigkeitsgrad leicht''. Tatsächlich ist in diesen beiden Zeilen ein deutlicher Mittelwertunterschied zu finden. Bei ``mittel'' und ``schwer'' ist hingegen kaum eine Differenz.
 
-\hypertarget{anwendungsvoraussetzungen-1}{%
-\subsection{Anwendungsvoraussetzungen}\label{anwendungsvoraussetzungen-1}}
+An den Werten für n können wir sehen, dass es auch für jede Kombination der beiden Einflussfaktoren im Datensatz eine beruhigend hohe Anzahl an n \textgreater{} 30 Fällen gibt. Wir können deshalb nach dem zentralen Grenzwerttheorem davon ausgehen, dass sich Stichprobenmittelwerte unterschiedlicher Stichproben normal verteilen würden, selbst in den jetzt sechs Untergruppen.
+
+Zur visuellen Analyse lässt sich der Boxplot über die \texttt{ggplot}-Funktion \texttt{facet\_wrap} leicht so aufsplitten, dass alle sechs Gruppen sichtbar werden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ Highscore, }\AttributeTok{color =}\NormalTok{ Schwierigkeitsgrad)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun=}\NormalTok{mean, }\AttributeTok{shape =} \DecValTok{23}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\FunctionTok{vars}\NormalTok{(Wettkampfpraeferenz))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-125-1.pdf}
+
+Augenscheinlich hat sich die Lage durch die Aufteilung in nun sechs Gruppen nicht wesentlich verschlimmert, denn die jeweils gleichfarbigen Box-Plots weisen immer die höchste Ähnlichkeit zueinander auf und sind von den andersfarbigen immer deutlich verschieden.
+
+\hypertarget{levene-test-1}{%
+\subsection{Levene-Test}\label{levene-test-1}}
+
+Wir wissen bereits aus dem vorigen Abschnitt, dass wir es hinsichtlich der Gruppenvariable Schwierigkeit mit heterogenen Varianzen bei der Variable Highscore zu tun haben. Außerdem existiert für die Mehrfaktorielle Varianzanalyse leider keine Welch-Korrektur. Der Vollständigkeit halber, wird hier dennoch demonstriert, wie eine Analyse der unterschiedlichen Streuung bei einer Zweifaktoriellen Varianzanalyse aussieht.
+
+Zuerst der Levene-Test für den Einflussfaktor Wettkampfpräferenz:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{levene\_test}\NormalTok{(Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Wettkampfpraeferenz)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 4
+##     df1   df2 statistic       p
+##   <int> <int>     <dbl>   <dbl>
+## 1     1   246      8.03 0.00499
+\end{verbatim}
+
+Ergebnis: Ebenfalls signifikant, also ungleiche Varianzen.
+
+Und da wir uns in H3 auch für den Interaktionseffekt interessieren folgt noch ein multifaktorieller Levene-Test. Die Interaktion wird eingebracht über den Operator \texttt{*} (Asterisk/Sternchen) in der Formel. Der Asterisk bedeutet soviel wie ``interagiert mit''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{levene\_test}\NormalTok{(Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Schwierigkeitsgrad }\SpecialCharTok{*}\NormalTok{ Wettkampfpraeferenz)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 4
+##     df1   df2 statistic        p
+##   <int> <int>     <dbl>    <dbl>
+## 1     5   242      13.2 2.33e-11
+\end{verbatim}
+
+Wie zu erwarten, ein drittes signifikantes Ergebnis. Wir können also auf keinen Fall von Varianzhomogenität ausgehen. Dieses Wissen bleibt insofern ohne Konsequenzen, als dass wir hier eine ganz normale zweifaktorielle Varianzanalyse berechnen werden, weil die Welch-Korrektur für dieses Verfahren fehlt. Wir behalten aber im Hinterkopf, dass das Ergebnis der nun folgenden Analyse möglicherweise verzerrt ist, weil die Anwendungsvoraussetzung der Varianzhomogenität verletzt wird.
+
+\hypertarget{durchfuxfchrung-einer-mehrfaktoriellen-varianzanalyse}{%
+\subsection{Durchführung einer mehrfaktoriellen Varianzanalyse}\label{durchfuxfchrung-einer-mehrfaktoriellen-varianzanalyse}}
+
+Nun folgt der Signifikanztest, bzw. die Signifikanztests, es sind ja mehrere und zwar gleichzeitig. Es gibt -- wie so oft -- viele Pakete mit denen man eine zweifaktorielle Varianzanalyse berechnen könnte, z.B. auch das Paket \texttt{rstatix}, das wir ja bereits geladen haben. Ich habe mich hier jedoch für das \texttt{afex}-Paket entschieden. Es ist ein spezielles Paket zur Berechnung von Anovas mit Experimentaldaten und bietet dabei viele Möglichkeiten. -- Auch wenn Ihre Analysen komplexer werden und über das hier gezeigte hinausgehen, können Sie bei dem Paket bleiben.
+
+Bevor es losgeht, eine Anmerkung vorab: Es gibt bei der mehrfaktoriellen Varianzanalyse unterschiedliche ``Typen''. Sie unterscheiden sich darin, wie die Abweichungen der individuellen Messungen vom Gesamtmittelwert den einzelnen Faktoren zugeschlagen werden. Dieses Thema kann hier nicht vertieft werden. Wichtig ist aber, dass wir für die unsere Berechnung die Quadratsummenzerlegung \emph{Typ III} benötigen, dies bietet das base-Paket nicht.
+
+\begin{verbatim}
+## Coefficient covariances computed by hccm()
+\end{verbatim}
+
+\begin{verbatim}
+## ANOVA Table (type III tests)
+## 
+##                                   Effect DFn DFd     F       p p<.05   ges
+## 1                     Schwierigkeitsgrad   2 242 138,3 9,0e-41     * 0,533
+## 2                    Wettkampfpraeferenz   1 242   7,5 7,0e-03     * 0,030
+## 3 Schwierigkeitsgrad:Wettkampfpraeferenz   2 242   9,6 9,4e-05     * 0,074
+\end{verbatim}
+
+Die Funktion \texttt{aov\_car} aus dem \texttt{afex}-Paket benötigt eine Formel der Form \texttt{abhängige\ Variable\ \textasciitilde{}\ unabhängige\ Variable}, genau wie beim Levene-Test. Es gibt aber noch eine Besonderheit: Angegeben werden muss außerdem noch ein ``Fehlerterm''. Der Fehlerterm stellt in dem Modell die nicht erklärte Varianz dar, die jeder Messpunkt aufweist. Es ist wichtig, dass hier eine Variable eingesetzt wird, die für jeden Fall im Datensatz einen \emph{eineindeutigen} Wert hat (= kein Wert darf doppelt vorkommen). Hier bietet sich die ``laufende Nummer'', also die Variable \texttt{lfdn} an.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_model }\OtherTok{\textless{}{-}}\NormalTok{ afex}\SpecialCharTok{::}\FunctionTok{aov\_car}\NormalTok{(Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Schwierigkeitsgrad }\SpecialCharTok{+}\NormalTok{ Wettkampfpraeferenz }\SpecialCharTok{+} 
+\NormalTok{                                      Schwierigkeitsgrad }\SpecialCharTok{*}\NormalTok{ Wettkampfpraeferenz }\SpecialCharTok{+}
+                                      \FunctionTok{Error}\NormalTok{(lfdn), }
+                          \AttributeTok{data =}\NormalTok{ df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Contrasts set to contr.sum for the following variables: Schwierigkeitsgrad, Wettkampfpraeferenz
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_model}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Anova Table (Type 3 tests)
+## 
+## Response: Highscore
+##                                   Effect     df        MSE          F  ges
+## 1                     Schwierigkeitsgrad 2, 242 2547712,45 138,25 *** ,533
+## 2                    Wettkampfpraeferenz 1, 242 2547712,45    7,52 ** ,030
+## 3 Schwierigkeitsgrad:Wettkampfpraeferenz 2, 242 2547712,45   9,64 *** ,074
+##   p.value
+## 1   <.001
+## 2    ,007
+## 3   <.001
+## ---
+## Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '+' 0,1 ' ' 1
+\end{verbatim}
+
+Sehr schön, alle \emph{F}-Werte sind signifikant! Das spricht für die Hypothesen. Weil die deskriptive Analyse der Haupteffekte auch in die richtige Richtung zeigte, können H1 und H2 jetzt schon als durch die Daten bestätigt angesehen werden. Bei H3, der Interaktionshypothese ist es nicht ganz so klar, aber irgendwas signifikantes scheint es auch hier zu geben, zum Verständnis hilft ein Interaktionsplot.
+
+Zuvor berechnen wir aber noch schnell die Effektstärken des Modells, das nicht-partielle \(\eta^2\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{eta\_squared}\NormalTok{(my\_model, }\AttributeTok{partial =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{ci =} \FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Type 3 ANOVAs only give sensible and informative results when covariates are
+##   mean-centered and factors are coded with orthogonal contrasts (such as those
+##   produced by 'contr.sum', 'contr.poly', or 'contr.helmert', but *not* by the
+##   default 'contr.treatment').
+\end{verbatim}
+
+\begin{verbatim}
+## # Effect Size for ANOVA (Type III)
+## 
+## Parameter                              | Eta2 |       95% CI
+## ------------------------------------------------------------
+## Schwierigkeitsgrad                     | 0.51 | [0.42, 0.58]
+## Wettkampfpraeferenz                    | 0.01 | [0.00, 0.06]
+## Schwierigkeitsgrad:Wettkampfpraeferenz | 0.04 | [0.00, 0.09]
+\end{verbatim}
+
+Eindeutig die größte Effektstärke zeigt der Haupteffekt des Schwierigkeitsgrades (H1). -- Gegenüber dem Test mit der einfaktoriellen Varianzanalyse fällt es jedoch geringfügig kleiner aus. Die anderen beiden Effekte sind irgendwie existent, aber vergleichsweise gering.
+
+\hypertarget{visualisierung}{%
+\subsection{Visualisierung}\label{visualisierung}}
+
+Die Visualisierung von Interaktionseffekten hilft erheblich bei der Interpretation. Am einfachsten ist, es, wenn wir als Basis für die Visualisierung die Tabelle benutzen, die wir im Abschnitt \protect\hyperlink{deskriptive-analyse-1}{Deskriptive Analyse} erzeugt hatten. Wir brauchen aus dieser Tabelle die beiden Einflussvariablen und die Mittelwerte:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{desc\_table }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(Schwierigkeitsgrad, Wettkampfpraeferenz, M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+## # Groups:   Schwierigkeitsgrad [3]
+##   Schwierigkeitsgrad Wettkampfpraeferenz            M
+##   <ord>              <ord>                      <dbl>
+## 1 einfach            geringe Wettkampfpräferenz  5267
+## 2 einfach            hohe Wettkampfpräferenz     7058
+## 3 mittel             geringe Wettkampfpräferenz  3768
+## 4 mittel             hohe Wettkampfpräferenz     3458
+## 5 schwer             geringe Wettkampfpräferenz  1858
+## 6 schwer             hohe Wettkampfpräferenz     2056
+\end{verbatim}
+
+Was im Interaktionsdiagramm dargestellt werden soll, ist genau das, was oben in der Tabelle steht: Die Mittelwerte des Highscores und zwar in Abhängigkeit von den beiden unabhängigen Variablen. Hätten wir nur einen Einflussfaktor, würden wir das mit einem Balkendiagramm machen (siehe oben: Schwierigkeitsgrad auf die x-Achse, Mittelwert des Highscores auf die y-Achse).
+
+Bei zwei Faktoren bietet sich ein Liniendiagramm an. Der zweite Faktor kann dann durch unterschiedliche Linien (Argument \texttt{group}) dargestellt werden, die zur besseren Übersichtlichkeit auch noch verschieden eingefärbt werden können (Argument \texttt{color}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{desc\_table }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Schwierigkeitsgrad, }\AttributeTok{y =}\NormalTok{ M, }
+                       \AttributeTok{group =}\NormalTok{ Wettkampfpraeferenz, }\AttributeTok{color =}\NormalTok{ Wettkampfpraeferenz)) }\SpecialCharTok{+}       
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+  \CommentTok{\# Ab hier nur noch "Aufhübschung" des Plots}
+  \FunctionTok{ylim}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{8000}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Schwierigkeitsgrad"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Mittelwert Highscore"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"green"}\NormalTok{, }\StringTok{"deeppink"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{r_book_files/figure-latex/unnamed-chunk-132-1.pdf}
+
+In dem Interaktionsdiagramm zeigt sich, dass die von mir Prognostizierte Interaktion vor allem im einfachen Schwierigkeitsgrad zum Tragen kommt. Hier ist es tatsächlich so, dass Probandinnen mit hoher Wettkampfpräferenz deutlich besser abschneiden als solche mit niedriger. Auf mittlerem Schwierigkeitsgrad ist die Tendenz jedoch umgedreht. Hier sind Personen mit niedriger Wettkampfpräferenz etwas besser. Der Mittelwertunterschied ist jedoch gering. Bei schweren Schwierigkeitsgrad dreht es sich wieder, aber auch hier ist die Mittelwertdifferenz gering. Es ist also kompliziert. Möglicherweise gibt es einen zusätzlichen Effekt, bei dem Personen mit hoher Wettkampfpräferenz durch einen besonders schweren Schwierigkeitsgrad zusätzlich angespornt werden einen hohen Highscore zu erzielen. Um das zu untersuchen sind unsere Daten aber leider nicht differenziert genug. Festzuhalten ist aber, dass sich die H3 (A-Version) bestätigen lässt (das zeigt der \emph{F}-Wert oben) und dass zumindest die visuellen Ergebnisse für Gruppe ``leicht'' für die präzisierte B-Version der H3 sprechen.
+
+Es stellt sich jetzt natürlich die Frage, welche der beobachteten Mittelwertunterschiede sind signifikant?
+
+\hypertarget{posthoc-tests}{%
+\subsection{Posthoc-Tests}\label{posthoc-tests}}
+
+Bis hierhin haben wir festgestellt, dass sich wohl alle drei Hypothesen bestätigen lassen. Müssen wir einen erneuten Posthoc-Test durchführen? Und wenn ja für welche Hypothesen?
+
+Für H1 (Haupteffekt des Schwierigkeitsgrades) haben wir den Posthoc-Test bereits im ersten Abschnitt bei der einfaktoriellen Varianzanalyse ausgeführt. Das ERgebnis würde hier nicht anders ausfallen.
+
+Für H2 (Haupteffekt der Wettkampfpräferenz) brauchen wir keinen Posthoc-Test, denn der Faktor Wettkampfpräferenz hat nur zwei Ausprägungen. Die Varianzanalyse hat einen signifikanten Haupteffekt ergeben, es ist klar das sich nur diese beiden unterschieden können (um beim Bild des Omnibustests zu bleiben: Es sitzt nur ein Mittelwertunterschied im Bus).
+
+Für H3 (Interaktion) wäre ein Posthoc-Test natürlich interessant. Es wäre wichtig zu wissen, ob sich die Personen mit hoher vs.~niedriger Wettkampfpräferenz in der Gruppe leichter Schwierigkeitsgrad tatsächlich signifikant unterscheiden. Und natürlich auch, ob in den anderen Schwierigkeitsgraden signifikante Unterschiede vorliegen.
+
+Ich habe leider noch keine elegante Version gefunden, mit der man in R einen Posthoc-Test für Interaktionseffekte rechnen kann -- für Hinweise wäre ich dankbar. Bis ich diesen Hinweis erhalten habe, behelfe ich mich damit, dass ich aus den beiden Faktoren einen neue, kombinierte Gruppenvariable bilde und diese dann in den Posthoc-Test gebe.
+
+Der folgende Code ist advanced, der Vollständigkeit halber zeige ich ihn hier dennoch:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\#eine neue Gruppenvariable erstellen}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Gruppe =} \FunctionTok{str\_c}\NormalTok{(Schwierigkeitsgrad, Wettkampfpraeferenz, }\AttributeTok{sep =} \StringTok{"{-}"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# Posthoc{-}Test durchführen}
+  \FunctionTok{games\_howell\_test}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ Highscore }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Gruppe) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# Zur Übersichtlichkeit Zahlenwerte runden}
+  \FunctionTok{mutate\_at}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"estimate"}\NormalTok{, }\StringTok{"conf.low"}\NormalTok{, }\StringTok{"conf.high"}\NormalTok{), format, }\AttributeTok{digits =} \DecValTok{0}\NormalTok{, }\AttributeTok{nsmall =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# Zur Übersichtlichkeit nur relevante Variablen auswählen}
+  \FunctionTok{select}\NormalTok{(group1, group2, estimate, p.adj.signif) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# Nur die Mittelwertunterschiede herausfiltern die mich tatsächlich interessieren }
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{str\_extract}\NormalTok{(group1, }\StringTok{"\^{}[einfach|mittel|schwer]"}\NormalTok{) }\SpecialCharTok{==} \FunctionTok{str\_extract}\NormalTok{(group2, }\StringTok{"\^{}[einfach|mittel|schwer]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 4
+##   group1                        group2                     estimate p.adj.signif
+##   <chr>                         <chr>                      <chr>    <chr>       
+## 1 einfach-geringe Wettkampfprä~ einfach-hohe Wettkampfprä~ " 1791"  **          
+## 2 mittel-geringe Wettkampfpräf~ mittel-hohe Wettkampfpräf~ " -310"  ns          
+## 3 schwer-geringe Wettkampfpräf~ schwer-hohe Wettkampfpräf~ "  198"  ns
+\end{verbatim}
+
+Ich interessiere mich vor allem für die Mittelwertunterschiede innerhalb jedes Schwierigkeitsgerades., deshalb habe ich durch einen Filter, der mit ``Regular Expressions'' arbeitet hier nur die herausgefiltert. Schaut man sich die Signifikanzniveaus drei Mittelwertunterschiede an, bestätigt sich, was auch schon anhand der Interaktionsgrafik zu vermuten war: Ein Signifikanter Mittelwertunterschied der Wettkampfpräferenz besteht lediglich in der Gruppe ``leichter Schwierigkeitsgrad''.
+
+\hypertarget{abschlieuxdfende-beurteilung-des-hypothesentests}{%
+\subsection{Abschließende Beurteilung des Hypothesentests}\label{abschlieuxdfende-beurteilung-des-hypothesentests}}
+
+Alle drei Hypothesen ließen sich mit den Daten bestätigen. Jedoch ist der Haupteffekt des Schwierigkeitsgerades deutlich am größten, während der Haupteffekt der Wettkampfpräferenz gering ausfällt. Es gibt jedoch eine interessante Interaktion zwischen beiden Faktoren, die jedoch lediglich im leichten Schwierigkeitsgrad zum Tragen kommt: Dieser Schwierigkeitsgrad ermöglicht es offenbar den Proband:innen mit einer hohen Wettkampfpräferenz deutlich vor denen, die nur eine niedrig ausgeprägte Wettkampfpräferenz haben, hervorzustechen und einen signifikant höheren Highscore zu erzielen. In schwereren Schwierigkeitsgraden niveliert sich der Einfluss der Wettkampfpräferenz.
 
   \bibliography{literature.bib}
 

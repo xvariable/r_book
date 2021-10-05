@@ -1,0 +1,176 @@
+\contentsline {chapter}{Herzlich Willkommen!}{7}{chapter*.2}%
+\contentsline {section}{Dank}{8}{section*.3}%
+\contentsline {section}{Disclaimer}{8}{section*.4}%
+\contentsline {chapter}{\numberline {1}Einleitung}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Einführung in R}{9}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}S ist die Mutter von R}{9}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Die Philosophie von S}{10}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Die Entwicklung von R}{11}{subsection.1.1.3}%
+\contentsline {subsection}{Weiterführende Links}{11}{section*.5}%
+\contentsline {section}{\numberline {1.2}Vorteile von R}{11}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Alternativen zu R}{13}{section.1.3}%
+\contentsline {subsection}{Weiterführende Links}{13}{section*.6}%
+\contentsline {section}{\numberline {1.4}Tipps zum R lernen}{13}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Der Anfang ist schwer}{13}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Nützliche Hinweise}{14}{subsection.1.4.2}%
+\contentsline {chapter}{\numberline {2}Installation}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Installationsanleitung Windows}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Erster Schritt: R}{15}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Zweiter Schritt: RStudio}{16}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Installationsanleitung MacOS}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Erster Schritt: R}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Zweiter Schritt: RStudio}{16}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}Benutzeroberflächen}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}R Konsole}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}RStudio: IDE für R}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}RStudio-Cloud}{21}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Installation von RStudio}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}RStudio Benutzeroberfläche}{22}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Console}{22}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Environment}{22}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}Files, Plots, Packages, Help \& Viewer}{22}{subsubsection.3.2.3.3}%
+\contentsline {subsection}{\numberline {3.2.4}R-Skripte}{23}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Features von RStudio}{24}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}RStudio anpassen}{25}{subsection.3.2.6}%
+\contentsline {chapter}{\numberline {4}Einführung in R}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}R-Syntax}{27}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Rechnen mit R}{28}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Zuweisungsoperatoren}{28}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Objektnamen}{29}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Kommentare}{30}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Einfache Kommentare}{30}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Sections}{30}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}R-Pakete}{31}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}R-Pakete anzeigen}{31}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}R-Pakete installieren}{32}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Pakete laden}{32}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Dokumentation}{33}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Pakete finden}{33}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Funktionen}{33}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Aufbau \& Argumente}{33}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Funktionen verschachteln}{35}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Hilfe für Funktionen}{35}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Doppelte Funktionsnamen}{36}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Eigene Funktionen schreiben}{37}{section.4.6}%
+\contentsline {section}{\numberline {4.7}R-Projekte}{38}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Arbeitsverzeichnis}{38}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}R-Projekte anlegen}{41}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Datenimport und Datenexport}{41}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}CSV-Dateien importieren}{41}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Excel-Dateien importieren}{43}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}SPSS-Dateien importieren}{43}{subsection.4.8.3}%
+\contentsline {subsection}{\numberline {4.8.4}Daten exportieren (abspeichern)}{44}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.5}Arbeit mit gelabelten Daten}{44}{subsection.4.8.5}%
+\contentsline {section}{\numberline {4.9}Datenstrukturen}{45}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Dataframes}{45}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Aufbau von Dataframes}{46}{subsection.4.9.2}%
+\contentsline {subsection}{\numberline {4.9.3}Atomare Datentypen}{48}{subsection.4.9.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}Numerische Werte}{49}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.2}Text}{49}{subsubsection.4.9.3.2}%
+\contentsline {subsubsection}{\numberline {4.9.3.3}Logical}{50}{subsubsection.4.9.3.3}%
+\contentsline {subsection}{\numberline {4.9.4}Fehlende Werte}{50}{subsection.4.9.4}%
+\contentsline {subsection}{\numberline {4.9.5}Objekttypen konvertieren}{51}{subsection.4.9.5}%
+\contentsline {subsection}{\numberline {4.9.6}Faktoren}{51}{subsection.4.9.6}%
+\contentsline {subsection}{\numberline {4.9.7}Listen}{52}{subsection.4.9.7}%
+\contentsline {section}{Wichtige Funktionen aus diesem Kapitel}{54}{section*.7}%
+\contentsline {chapter}{\numberline {5}RMarkdown}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}RMarkdown Workflow}{58}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Erster Schritt: RMarkdown anlegen}{58}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Zweiter Schritt: Inhalt der RMarkdown-Datei}{59}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Dritter Schritt: Output erzeugen}{60}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Formatierungen \& Optionen}{60}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Weiterführende Links}{61}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Datenaufbereitung}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Prerequisites}{64}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Die Pipe}{64}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Der Aufbau im Detail}{65}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Schlechtere Alternativen zur Pipe}{66}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Filter: Fälle auswählen}{67}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Arrange: Fälle sortieren}{71}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Select: Variablen auswählen}{72}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Variablen umcodieren}{73}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Variablen berechnen}{75}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Summen und Mittelwertindices}{76}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Berechnen mit dplyr::mutate()}{77}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Variablen unter einer Bedingung berechnen}{77}{subsection.6.7.3}%
+\contentsline {section}{\numberline {6.8}Summarize: Daten verdichten}{78}{section.6.8}%
+\contentsline {section}{Wichtige Funktionen aus diesem Kapitel}{79}{section*.8}%
+\contentsline {chapter}{\numberline {7}Deskriptive Statistik}{81}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Datensatz für dieses Kapitel}{81}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Häufigkeitsverteilung}{82}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Tabellen}{82}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Häufigkeitsdiagramm}{83}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Maße der zentralen Tendenz \& Streuung}{85}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Nominale Daten}{85}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Ordinale Daten}{86}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Metrische Daten}{87}{subsection.7.3.3}%
+\contentsline {section}{\numberline {7.4}Schiefe und Kurtosis}{88}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Übersichts-Funktionen}{89}{section.7.5}%
+\contentsline {section}{Wichtige Funktionen aus diesem Kapitel}{90}{section*.9}%
+\contentsline {chapter}{\numberline {8}Bivariate Statistik}{91}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Kreuztabellen}{91}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Vorbereitung: Univariate Verteilung}{92}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Kreuztabelle ausgeben}{93}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Chi-Quadrat \& Cramer´s V}{95}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Korrelationen}{96}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Streudiagramm}{97}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Kovarianz}{98}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Korrelation mit \texttt {base\ R}/\texttt {stats}}{99}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Korrelation mit \texttt {psych}}{100}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Partialkorrelation}{102}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Korrelationsmatrizen darstellen}{103}{subsection.8.2.6}%
+\contentsline {section}{Wichtige Funktionen aus diesem Kapitel}{105}{section*.10}%
+\contentsline {chapter}{\numberline {9}Grafiken}{107}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Drei Basis-Funktionen}{108}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Erste Funktion: Plot-Objekt erstellen}{109}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Zweite Funktion: Aesthetik Mapping}{109}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Dritte Funktion: Geom hinzufügen}{110}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Streudiagramm}{111}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Jitter-Plot}{112}{subsection.9.4.2}%
+\contentsline {subsection}{\numberline {9.4.3}Boxplot}{114}{subsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.4.4}Violin-Plot}{114}{subsection.9.4.4}%
+\contentsline {subsection}{\numberline {9.4.5}Balkendiagramme}{115}{subsection.9.4.5}%
+\contentsline {subsection}{\numberline {9.4.6}Histogramme}{118}{subsection.9.4.6}%
+\contentsline {subsection}{\numberline {9.4.7}Liniendiagramme}{120}{subsection.9.4.7}%
+\contentsline {section}{\numberline {9.5}Grafiken speichern}{122}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Regression}{123}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Das lineare Modell}{123}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Bivariate lineare Regression}{124}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Grafische Darstellung}{126}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Die Funktion \texttt {lm()}}{128}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Standardisierte Regressionskoeffizienten (β)}{131}{subsection.10.2.3}%
+\contentsline {chapter}{\numberline {11}T-Tests}{133}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Datenbeispiel}{134}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Einstichproben-T-Test}{135}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Hypothese aufstellen}{135}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Daten explorieren}{136}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}T-Test durchführen}{137}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}Cohen´s d}{138}{subsection.11.2.4}%
+\contentsline {section}{\numberline {11.3}T-Test für unabhängige Stichproben}{140}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Deskriptive Auswertung}{141}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Anwendungsvoraussetzungen}{142}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Levene-Test auf Varianzhomogenität}{143}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}T-Test durchführen}{145}{subsection.11.3.4}%
+\contentsline {subsection}{\numberline {11.3.5}Cohen´s d}{146}{subsection.11.3.5}%
+\contentsline {section}{\numberline {11.4}T-Test für abhängige Stichproben}{146}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Deskriptiver Vergleich}{147}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Levene-Tests durchführen}{149}{subsection.11.4.2}%
+\contentsline {subsection}{\numberline {11.4.3}T-Test durchführen}{150}{subsection.11.4.3}%
+\contentsline {subsection}{\numberline {11.4.4}Cohen´s d}{151}{subsection.11.4.4}%
+\contentsline {chapter}{\numberline {12}Varianzanalyse}{153}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Datenbeispiel}{154}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Prerequisits}{154}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Einfaktorielle Varianzanalyse}{155}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Deskriptive Analyse}{155}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Levene-Test}{159}{subsection.12.3.2}%
+\contentsline {subsection}{\numberline {12.3.3}Durchführung der Varianzanalyse}{160}{subsection.12.3.3}%
+\contentsline {subsection}{\numberline {12.3.4}Effektstärke}{161}{subsection.12.3.4}%
+\contentsline {subsection}{\numberline {12.3.5}Posthoc-Test}{161}{subsection.12.3.5}%
+\contentsline {subsection}{\numberline {12.3.6}Ergebnisdarstellung}{164}{subsection.12.3.6}%
+\contentsline {section}{\numberline {12.4}Zweifaktorielle Varianzanalyse}{164}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}Deskriptive Analyse}{166}{subsection.12.4.1}%
+\contentsline {subsection}{\numberline {12.4.2}Levene-Test}{168}{subsection.12.4.2}%
+\contentsline {subsection}{\numberline {12.4.3}Durchführung einer mehrfaktoriellen Varianzanalyse}{169}{subsection.12.4.3}%
+\contentsline {subsection}{\numberline {12.4.4}Visualisierung}{171}{subsection.12.4.4}%
+\contentsline {subsection}{\numberline {12.4.5}Posthoc-Tests}{173}{subsection.12.4.5}%
+\contentsline {subsection}{\numberline {12.4.6}Abschließende Beurteilung des Hypothesentests}{174}{subsection.12.4.6}%

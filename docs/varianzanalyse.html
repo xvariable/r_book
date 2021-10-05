@@ -24,7 +24,7 @@
 <meta name="author" content="Julia Niemann-Lenz" />
 
 
-<meta name="date" content="2021-09-09" />
+<meta name="date" content="2021-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -128,6 +128,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -425,22 +447,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prerequisits" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Prerequisits</h2>
 <p>Zunächst benötigen wir natürlich verschiedene Pakete zur Durchfühung der Varianzanalyse:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="varianzanalyse.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Grafiken und die Pipe</span></span>
-<span id="cb1-2"><a href="varianzanalyse.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)   <span class="co"># für Häufigkeitsauszählungen</span></span>
-<span id="cb1-3"><a href="varianzanalyse.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)   <span class="co"># für den Levene-Test</span></span>
-<span id="cb1-4"><a href="varianzanalyse.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)<span class="co"># für Eta-Quadrat</span></span>
-<span id="cb1-5"><a href="varianzanalyse.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afex)      <span class="co"># zur Berechnung der mehrfaktoriellen Anova</span></span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="varianzanalyse.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># für Grafiken und die Pipe</span></span>
+<span id="cb294-2"><a href="varianzanalyse.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)   <span class="co"># für Häufigkeitsauszählungen</span></span>
+<span id="cb294-3"><a href="varianzanalyse.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)   <span class="co"># für den Levene-Test</span></span>
+<span id="cb294-4"><a href="varianzanalyse.html#cb294-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)<span class="co"># für Eta-Quadrat</span></span>
+<span id="cb294-5"><a href="varianzanalyse.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afex)      <span class="co"># zur Berechnung der mehrfaktoriellen Anova</span></span></code></pre></div>
 <p>Die Die Daten der Abschlussarbeit von Herrn Reichelt liegen im SPSS-Format .sav. vor. Sie können über das Paket <code>haven</code> geladen werden. Da wir die unabhängigen Variablen für die Varianzanalyse in R als <em>Faktoren</em> benötigen, wandeln wir diese gleich im Anschluss an den Ladevorgang direkt in das benötigte Format um.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="varianzanalyse.html#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sav</span>(<span class="st">&quot;data/BA–Carsten Reichelt.sav&quot;</span>, <span class="at">user_na =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="varianzanalyse.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Schwierigkeitsgrad =</span> <span class="fu">factor</span>(Schwierigkeitsgrad, </span>
-<span id="cb2-3"><a href="varianzanalyse.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;einfach&quot;</span>, <span class="st">&quot;mittel&quot;</span>, <span class="st">&quot;schwer&quot;</span>), </span>
-<span id="cb2-4"><a href="varianzanalyse.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-5"><a href="varianzanalyse.html#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Wettkampfpraeferenz =</span> <span class="fu">factor</span>( v_12_rec,</span>
-<span id="cb2-6"><a href="varianzanalyse.html#cb2-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;geringe Wettkampfpräferenz&quot;</span>, <span class="st">&quot;hohe Wettkampfpräferenz&quot;</span>),</span>
-<span id="cb2-7"><a href="varianzanalyse.html#cb2-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-8"><a href="varianzanalyse.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, Schwierigkeitsgrad, Highscore, Wettkampfpraeferenz)</span>
-<span id="cb2-9"><a href="varianzanalyse.html#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="varianzanalyse.html#cb2-10" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="varianzanalyse.html#cb295-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sav</span>(<span class="st">&quot;data/BA–Carsten Reichelt.sav&quot;</span>, <span class="at">user_na =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb295-2"><a href="varianzanalyse.html#cb295-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Schwierigkeitsgrad =</span> <span class="fu">factor</span>(Schwierigkeitsgrad, </span>
+<span id="cb295-3"><a href="varianzanalyse.html#cb295-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;einfach&quot;</span>, <span class="st">&quot;mittel&quot;</span>, <span class="st">&quot;schwer&quot;</span>), </span>
+<span id="cb295-4"><a href="varianzanalyse.html#cb295-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb295-5"><a href="varianzanalyse.html#cb295-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Wettkampfpraeferenz =</span> <span class="fu">factor</span>( v_12_rec,</span>
+<span id="cb295-6"><a href="varianzanalyse.html#cb295-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;geringe Wettkampfpräferenz&quot;</span>, <span class="st">&quot;hohe Wettkampfpräferenz&quot;</span>),</span>
+<span id="cb295-7"><a href="varianzanalyse.html#cb295-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb295-8"><a href="varianzanalyse.html#cb295-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lfdn, Schwierigkeitsgrad, Highscore, Wettkampfpraeferenz)</span>
+<span id="cb295-9"><a href="varianzanalyse.html#cb295-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-10"><a href="varianzanalyse.html#cb295-10" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>## # A tibble: 248 x 4
 ##     lfdn Schwierigkeitsgrad Highscore Wettkampfpraeferenz       
 ##    &lt;dbl&gt; &lt;ord&gt;                  &lt;dbl&gt; &lt;ord&gt;                     
@@ -465,37 +487,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">12.3.1</span> Deskriptive Analyse</h3>
 <p>Bevor es an die tatsächliche Prüfung der aufgestellten Hypothese geht, empfiehlt es sie wie immer, sich mit den Mitteln der deskriptiven Statistik und mit Grafiken einen Überblick über die Datenlage zu verschaffen.</p>
 <p>Schauen wir uns zunächst die Verteilung der abhängigen Variablen an. Da es sich um eine nominale Variable handelt, interessiert hier vor allem die Häufigkeitsverteilung (und nicht etwa Lage und Streuungsmaße). Zur Anzeige der Häufigkeitsberteilung gibt es viele Wege, etwa <code>table()</code>oder <code>summary()</code>. Damit ich hier auch die realtiven Häufigkeiten erhalte, nutze ich <code>tabyl()</code>aus dem <code>janitor</code>-Paket.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="varianzanalyse.html#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="varianzanalyse.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="varianzanalyse.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_rounding</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="varianzanalyse.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="varianzanalyse.html#cb297-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb297-2"><a href="varianzanalyse.html#cb297-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span> </span>
+<span id="cb297-3"><a href="varianzanalyse.html#cb297-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_rounding</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb297-4"><a href="varianzanalyse.html#cb297-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() </span></code></pre></div>
 <pre><code>##  Schwierigkeitsgrad   n percent
-##             einfach  79    0.32
-##              mittel  90    0.36
-##              schwer  79    0.32
-##               Total 248    1.00</code></pre>
+##             einfach  79    0,32
+##              mittel  90    0,36
+##              schwer  79    0,32
+##               Total 248    1,00</code></pre>
 <p>Wir können an dieser Verteilung sehen, dass die Gruppen alle ausreichend groß und ungefähr gleich besetzt sind. Lediglich in Gruppe zwei sind ein paar mehr Versuchspersonen gelandet. Das stört nicht weiter.</p>
 <p>Nun schauen wir uns die abhängige Variable, also den Schwierigeitsgrad an. Es ist eine Voraussetzung für die sinnhafte Anwendung der Varianzanalyse, dass die Verteilung dieser Variablen tatsächlich auch im Sample variiert. – Das die Proband:innen also unterschiedliche Scores erzielt haben und nicht etwa alle den gleichen oder einen ähnlichen. Außerdem ist es interessant zu wissen, auf welchem Niveau die Proband:innen Packman spielen. Lassen wir uns also die interessierenden Kennzahlen ausgeben:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="varianzanalyse.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>Highscore)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="varianzanalyse.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>Highscore)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##      30    1870    3305    3918    5658   11130</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="varianzanalyse.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>Highscore)</span></code></pre></div>
-<pre><code>## [1] 2394.036</code></pre>
-<p>Das sieht prima aus! Der Highscore schwankt zwischen einem Minimum von 30 und einem Maximum von 1.113^{4}. Im Mittel haben die Proband:innen <em>M</em> = 3918 Punkte erzielt, wobei die Verteilung rechtsschief zu sein scheint, da der Medien etwas kleiner als das arithmetische Mittel ist. Auch die Standardabweichung (= Wurzel der Varianz) ist mit 2394.0361856 angemessen hoch. Man kann also sagen, dass der Highscore variiert.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="varianzanalyse.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>Highscore)</span></code></pre></div>
+<pre><code>## [1] 2394</code></pre>
+<p>Das sieht prima aus! Der Highscore schwankt zwischen einem Minimum von 30 und einem Maximum von 1,11^{4}. Im Mittel haben die Proband:innen <em>M</em> = 3918 Punkte erzielt, wobei die Verteilung rechtsschief zu sein scheint, da der Medien etwas kleiner als das arithmetische Mittel ist. Auch die Standardabweichung (= Wurzel der Varianz) ist mit 2394,04 angemessen hoch. Man kann also sagen, dass der Highscore variiert.</p>
 <p>Nützlich ist an dieser Stelle auch ein Histogramm, da man darüber die Verteilung der aV noch detaillierter veranschaulichen kann:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="varianzanalyse.html#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="varianzanalyse.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Highscore)) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="varianzanalyse.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="varianzanalyse.html#cb303-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb303-2"><a href="varianzanalyse.html#cb303-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Highscore)) <span class="sc">+</span></span>
+<span id="cb303-3"><a href="varianzanalyse.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 <p>Es zeigt tatsächlich eine rechtsschiefe Verteilung, die eine deutliche Spitze im unteren Viertel der Bandbreite an Highscores aufweist.</p>
 <p>Mit Hilfe eines Boxplots können wir außerdem die Lage der Mittelwerte und die Variation der Highscores in den einzelnen Gruppen überblicksartig beurteilen. Das ist dann schon ein erster Vorgeschmack auf das zu erwartende Ergebnis des folgenden Hypothesentests – ohne das jedoch geprüft wird, ob die Mittelwerte tatsächlich signifikant von einander abweichen. Zusätzlich lasse ich über <code>stat_summary()</code>noch die arithmetischen Mittel in schwarz in die Grafik einzeichnen, da der Boxplot lediglich die Mediane darstellt.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="varianzanalyse.html#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="varianzanalyse.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, </span>
-<span id="cb11-3"><a href="varianzanalyse.html#cb11-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> Highscore, </span>
-<span id="cb11-4"><a href="varianzanalyse.html#cb11-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> Schwierigkeitsgrad)) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="varianzanalyse.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="varianzanalyse.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="varianzanalyse.html#cb304-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb304-2"><a href="varianzanalyse.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, </span>
+<span id="cb304-3"><a href="varianzanalyse.html#cb304-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> Highscore, </span>
+<span id="cb304-4"><a href="varianzanalyse.html#cb304-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> Schwierigkeitsgrad)) <span class="sc">+</span></span>
+<span id="cb304-5"><a href="varianzanalyse.html#cb304-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb304-6"><a href="varianzanalyse.html#cb304-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Tatsächlich, die Mittelwerte in den Gruppen reihen sich genau wie erwartet: Die Personen in der Gruppe “einfach” haben den höchsten Highscore erzielt, die in der Gruppe “schwer” den niedrigsten. Das ist schon einmal vielversprechend für den Hypothesentest, denn diese Reihung hatten wir ja in der Hypothese prognostiziert. Würde sie hier nicht wie erwartet auftreten, könnten wir den Hypothesentest gleich abbrechen.</p>
 <p>Noch etwas wird in dem Boxplot ersichtlich: Die Bandbreite an Highscores ist in der Gruppe “einfach” am höchsten: hier liegt sowohl der Minimalwert, als auch der Maximalwert – und zwar über alle Gruppen hinweg! Das sieht man am der senkrechten violetten Linie, die länger ist, als die Linien der anderen beiden Gruppen. Auch die Quartielgrenzen sind recht weit auseinander (das sieht man an der “Box”). In dieser Gruppe scheint also die Streuung relativ groß zu sein. In der gelben Gruppe “schwierig” ist sie hingegen gering. Das erkannt man an der niedriegen “Box” und daran, dass alle Fälle, die außerhalb der Box liegen, noch nicht einmal in Form einer Linie, sondern als Punkte (=Einzelfälle/Ausreißer) dargestellt werden. Die Spieler:innen aus der Gruppe "schwer liegen also viel dichter bei einander als die Spieler:innen der anderen Gruppen.</p>
 <p>Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: <em>fehlende Varianzhomogenität</em>. Aus dem letzten Kapitel <a href="t-tests.html#anwendungsvoraussetzungen">T-Test</a> wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Hier kommen wieder der <strong>Levene-Test</strong> und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova schieben wir den Levene-Test ein um sicherzugehen ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.</p>
@@ -503,9 +525,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="levene-test" class="section level3" number="12.3.2">
 <h3><span class="header-section-number">12.3.2</span> Levene-Test</h3>
 <p>Der Levene-Test prüft – wie im letzten Kapitel beschreiben – ob sich die Varianz in den einzelnen Gruppen unterscheidet (was schlecht wäre) oder nicht (dann wäre die Anwendungsvoraussetzung erfüllt). Bevor wir den Test durchführen, lasse ich mir hier einmal arithmetisches Mittel und die Standardabweichung als standardisiertes Maß der Varianz ausgeben:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="varianzanalyse.html#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="varianzanalyse.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="varianzanalyse.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore), <span class="dv">0</span>), <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore), <span class="dv">0</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="varianzanalyse.html#cb305-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb305-2"><a href="varianzanalyse.html#cb305-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span> </span>
+<span id="cb305-3"><a href="varianzanalyse.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore), <span class="dv">0</span>), <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore), <span class="dv">0</span>)) </span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   Schwierigkeitsgrad     M    SD
 ##   &lt;ord&gt;              &lt;dbl&gt; &lt;dbl&gt;
@@ -514,8 +536,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 schwer              1946   704</code></pre>
 <p>Das sieht tatsächlich nicht so toll aus. Die Standardabweichung ist in der Gruppe “einfach” mit SD = 2284 tatsächlich deutlich höher als in der Gruppe “schwer” mit SD = <code>rdf %&gt;%  filter(Schwierigkeitsgrad == "schwer") %&gt;% summarise(sd(Highscore)) %&gt;% round(0)</code>.</p>
 <p>Wir sind vorgewarnt, jetzt wollen wir es genau wissen. Hier kommt der Levene-Test:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="varianzanalyse.html#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="varianzanalyse.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="varianzanalyse.html#cb307-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb307-2"><a href="varianzanalyse.html#cb307-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##     df1   df2 statistic        p
 ##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -536,11 +558,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Mit dem Argument <code>var.equal</code> lässt sich ein korrigierter Test anfordern. Es steht standardmäßig auf <code>FALSE</code>, so dass nicht von Varianzhomogenität ausgegangen wird und eine s.g. Welch-Korrektur durchgeführt wird. MAn kann es aber auch auf <code>TRUE</code> setzen, wenn der Levene-Test mal auf Varianzhomogenität hinweisen sollte.</p></li>
 </ol>
 <p>Der Output des erzeugten Modells lässt sich mit <code>summary()</code> ausgeben. Mit <code>tidy()</code> aus dem <code>broom()</code>-Paket erhält man allerdings eine hübschere Tabelle:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="varianzanalyse.html#cb16-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(<span class="at">formula =</span> Highscore <span class="sc">~</span> Schwierigkeitsgrad, </span>
-<span id="cb16-2"><a href="varianzanalyse.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> df, </span>
-<span id="cb16-3"><a href="varianzanalyse.html#cb16-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb16-4"><a href="varianzanalyse.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="varianzanalyse.html#cb16-5" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(my_model)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="varianzanalyse.html#cb309-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(<span class="at">formula =</span> Highscore <span class="sc">~</span> Schwierigkeitsgrad, </span>
+<span id="cb309-2"><a href="varianzanalyse.html#cb309-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> df, </span>
+<span id="cb309-3"><a href="varianzanalyse.html#cb309-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb309-4"><a href="varianzanalyse.html#cb309-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-5"><a href="varianzanalyse.html#cb309-5" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(my_model)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 5
 ##   num.df den.df statistic  p.value method                                       
 ##    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                                        
@@ -550,9 +572,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="effektstärke" class="section level3" number="12.3.4">
 <h3><span class="header-section-number">12.3.4</span> Effektstärke</h3>
 <p>Als Maß für die Stärke des beobachteten Effekts dient bei der Varianzanalyse <span class="math inline">\(\eta\)</span><sup>2</sup> (Eta-Quadrat). Es berechnet sich aus dem Verhältnis der erklärten Varianz (Quadratsummen zwischen den Gruppen) und der Gesamtvariation. Man kann es mit dem Befehl <code>eta_squared()</code> aus dem <code>effectsize</code>-Paket ausgeben. Um ein Gesamt-Eta (und kein parteilles) zu erhalten sollte man die Option <code>partial</code> auf <code>FALSE</code> setzen und das Konfidenzintervall auf die für uns üblichen 95% (Argument <code>ci = 95</code>):</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="varianzanalyse.html#cb18-1" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(my_model, </span>
-<span id="cb18-2"><a href="varianzanalyse.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">partial =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb18-3"><a href="varianzanalyse.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ci =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="varianzanalyse.html#cb311-1" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(my_model, </span>
+<span id="cb311-2"><a href="varianzanalyse.html#cb311-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">partial =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb311-3"><a href="varianzanalyse.html#cb311-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ci =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <pre><code>## Eta2 |       95% CI
 ## -------------------
 ## 0.69 | [0.61, 0.75]</code></pre>
@@ -560,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Achtung, identische Funktionsnamen</strong></p>
 <p>Eine genau gleich benannte Funktion <code>eta_squared()</code> gibt es auch im Paket <code>rstatix</code>, das ich für den Levene-Test geladen habe. Diese Funktion funktioniert aber nur mit über <code>aov()</code> erzeugten Objekten. Es ist deshalb unter Umständen wichtig explizit zu machen, dass hier die <code>eta_squared()</code>-Funktion aus dem Paket <code>effectsize</code> verwendet werden soll.</p>
 </div>
-<p>Zusammenfassend lässt sich sagen, dass die bisherigen Ergebnisse für die H1 sprechen: Der F-Wert ist mit p &lt; .001 signifikant und <span class="math inline">\(\eta\)</span><sup>2</sup> = 0.69 steht für einen starken Zusammenhang. Worüber wir jedoch noch keine Aussage machen können ist, ob sich wirklich alle Gruppen jeweils signifikant von einander unterschieden. Dazu werden Posthoc-Test benötigt.</p>
+<p>Zusammenfassend lässt sich sagen, dass die bisherigen Ergebnisse für die H1 sprechen: Der F-Wert ist mit p &lt; .001 signifikant und <span class="math inline">\(\eta\)</span><sup>2</sup> = 0,69 steht für einen starken Zusammenhang. Worüber wir jedoch noch keine Aussage machen können ist, ob sich wirklich alle Gruppen jeweils signifikant von einander unterschieden. Dazu werden Posthoc-Test benötigt.</p>
 </div>
 <div id="posthoc-test" class="section level3" number="12.3.5">
 <h3><span class="header-section-number">12.3.5</span> Posthoc-Test</h3>
@@ -577,8 +599,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Der Games-Howell-Test berücksichtigt die Welch-Korrektur und ist über die Funktion <code>games_howell_test()</code> nutzbar. Sie benötigt nur das Datenobjekt und die Formel.</li>
 </ul>
 <p>In unserem Fall brauchen wir natürlich wegen des signifikanten Levene-Tests und der Welch-Korrektur den Games-Howell-Test:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="varianzanalyse.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">games_howell_test</span>(<span class="at">data =</span> df,</span>
-<span id="cb20-2"><a href="varianzanalyse.html#cb20-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">formula =</span> Highscore <span class="sc">~</span> Schwierigkeitsgrad)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="varianzanalyse.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">games_howell_test</span>(<span class="at">data =</span> df,</span>
+<span id="cb313-2"><a href="varianzanalyse.html#cb313-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">formula =</span> Highscore <span class="sc">~</span> Schwierigkeitsgrad)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 8
 ##   .y.       group1  group2 estimate conf.low conf.high    p.adj p.adj.signif
 ## * &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
@@ -587,12 +609,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 Highscore mittel  schwer   -1685.   -2134.    -1236. 8.04e-14 ****</code></pre>
 <p>Die Output-Tabelle zeigt drei Zeilen für die drei paarweisen Mittelwertvergleiche. In den beiden “group”-Spalten steht, welche Gruppen miteinander verglichen werden. Die Spalte “estimate” gibt die Differenz zwischen den Gruppenmittelwerten an und dahinter folgen zwei Spalten für das Konfidenzintervall dieser Differenz. Wenn sich die Grenzen der Konfidenzintervalle nicht überschneiden, spricht dies für einen signifikanten Unterschied. Ob eine Mittelwertdifferenz signifikant ist, kann man aber noch leichter in den letzten beiden Spalten sehen. Dort sind der korrigierte p-Wert bzw. das Siginifikanzlevel angegeben.</p>
 <p>Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen. Wir benötigen dazu einen Datensatz, in dem die Mittelwerte, und die Grenzen der Konfidenzintervalle nach Gruppen aufgesplitztet werden. Zur Berechnung der Grenzen des Konfidenzintervalls wird im folgenden Code die Funktion <code>mean_se()</code> aus dem Paket <code>ggplot2</code> verwendet.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="varianzanalyse.html#cb22-1" aria-hidden="true" tabindex="-1"></a>tab_mean_ci <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="varianzanalyse.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="varianzanalyse.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean_se</span>(Highscore)) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-4"><a href="varianzanalyse.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Mittelwert =</span> y, <span class="at">CI_lower =</span> ymin, <span class="at">CI_higher =</span> ymax) </span>
-<span id="cb22-5"><a href="varianzanalyse.html#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="varianzanalyse.html#cb22-6" aria-hidden="true" tabindex="-1"></a>tab_mean_ci </span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="varianzanalyse.html#cb315-1" aria-hidden="true" tabindex="-1"></a>tab_mean_ci <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb315-2"><a href="varianzanalyse.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad) <span class="sc">%&gt;%</span></span>
+<span id="cb315-3"><a href="varianzanalyse.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean_se</span>(Highscore)) <span class="sc">%&gt;%</span> </span>
+<span id="cb315-4"><a href="varianzanalyse.html#cb315-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Mittelwert =</span> y, <span class="at">CI_lower =</span> ymin, <span class="at">CI_higher =</span> ymax) </span>
+<span id="cb315-5"><a href="varianzanalyse.html#cb315-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb315-6"><a href="varianzanalyse.html#cb315-6" aria-hidden="true" tabindex="-1"></a>tab_mean_ci </span></code></pre></div>
 <pre><code>## # A tibble: 3 x 4
 ##   Schwierigkeitsgrad Mittelwert CI_lower CI_higher
 ##   &lt;ord&gt;                   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -600,18 +622,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 mittel                  3631.    3459.     3803.
 ## 3 schwer                  1946.    1866.     2025.</code></pre>
 <p>Aus diesem Datensatz können wir jekt unseren Plot mit zwei Geomen erstellen. Ein Geom für die Balken und eines für die Konfidenzintervalle.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="varianzanalyse.html#cb24-1" aria-hidden="true" tabindex="-1"></a>tab_mean_ci <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="varianzanalyse.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span> (<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> Mittelwert)) <span class="sc">+</span> </span>
-<span id="cb24-3"><a href="varianzanalyse.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Balkendiagramm</span></span>
-<span id="cb24-4"><a href="varianzanalyse.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb24-5"><a href="varianzanalyse.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Konfidenzintervalle</span></span>
-<span id="cb24-6"><a href="varianzanalyse.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin=</span>CI_lower, <span class="at">ymax=</span>CI_higher), <span class="at">width=</span><span class="fl">0.4</span>)</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="varianzanalyse.html#cb317-1" aria-hidden="true" tabindex="-1"></a>tab_mean_ci <span class="sc">%&gt;%</span></span>
+<span id="cb317-2"><a href="varianzanalyse.html#cb317-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span> (<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> Mittelwert)) <span class="sc">+</span> </span>
+<span id="cb317-3"><a href="varianzanalyse.html#cb317-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Balkendiagramm</span></span>
+<span id="cb317-4"><a href="varianzanalyse.html#cb317-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deeppink&quot;</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb317-5"><a href="varianzanalyse.html#cb317-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Konfidenzintervalle</span></span>
+<span id="cb317-6"><a href="varianzanalyse.html#cb317-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">ymin=</span>CI_lower, <span class="at">ymax=</span>CI_higher), <span class="at">width=</span><span class="fl">0.4</span>)</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 </div>
 <div id="ergebnisdarstellung" class="section level3" number="12.3.6">
 <h3><span class="header-section-number">12.3.6</span> Ergebnisdarstellung</h3>
 <p>Selbstverständlich kann man die Ergebnisse einer Varianzanalyse auch in einer Tabelle darstellen. Macht man jedoch nur eine einzelne Analyse, noch dazu wie in diesem Fall “bloß” einen Treatment-Check, Ist auch die Darstellung im Text möglich. Für unsere Auswertung sieht dass Ergebnis wie folgt aus:</p>
-<p>Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit <span class="math inline">\(F_{korrigiert}\)</span> = 150 ein höchst signifikantes Ergebnis (p &lt; .001). Der beobachtete Effekt ist mit <span class="math inline">\(\eta\)</span><sup>2</sup> = 0.69 als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore von einander. Der Mittelwert des Highscores der Gruppe “einfach” ist mit <em>M</em> = 6219 (<em>SD</em> = 2284) der höchste. Der Mittelwert <em>M</em> = 3631 (<em>SD</em> = 1632) der Gruppe “mittel” ist signifikant geringer, und der Mittelwert der Gruppe “schwer” ist mit <em>M</em> = 1946 (<em>SD</em> = 704) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.</p>
+<p>Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit <span class="math inline">\(F_{korrigiert}\)</span> = 150 ein höchst signifikantes Ergebnis (p &lt; .001). Der beobachtete Effekt ist mit <span class="math inline">\(\eta\)</span><sup>2</sup> = 0,69 als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore von einander. Der Mittelwert des Highscores der Gruppe “einfach” ist mit <em>M</em> = 6219 (<em>SD</em> = 2284) der höchste. Der Mittelwert <em>M</em> = 3631 (<em>SD</em> = 1632) der Gruppe “mittel” ist signifikant geringer, und der Mittelwert der Gruppe “schwer” ist mit <em>M</em> = 1946 (<em>SD</em> = 704) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.</p>
 </div>
 </div>
 <div id="zweifaktorielle-varianzanalyse" class="section level2" number="12.4">
@@ -629,14 +651,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Interaktionseffekte zu untersuchen ist natürlich besonders spannend.</p>
 </div>
 <p>Wir greifen in diesem Beispiel wieder auf die Daten von Carsten Reichelt zurück und nehmen nun einen zusätzlichen Einflussfaktor hinzu, nämlich die Wettkampfpräferenz. Dieses Konstrukt drückt aus, inwiefern ein:e Spieler:in bereit ist, sich einem Wettkampf zu stellen. Die Variable ist nominal/dichotom und hat zwei Ausprägungen: geringe und hohe Wettkampfpräferenz.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="varianzanalyse.html#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="varianzanalyse.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="varianzanalyse.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_rounding</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="varianzanalyse.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="varianzanalyse.html#cb318-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb318-2"><a href="varianzanalyse.html#cb318-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
+<span id="cb318-3"><a href="varianzanalyse.html#cb318-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_rounding</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb318-4"><a href="varianzanalyse.html#cb318-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() </span></code></pre></div>
 <pre><code>##         Wettkampfpraeferenz   n percent
-##  geringe Wettkampfpräferenz 131    0.53
-##     hohe Wettkampfpräferenz 117    0.47
-##                       Total 248    1.00</code></pre>
+##  geringe Wettkampfpräferenz 131    0,53
+##     hohe Wettkampfpräferenz 117    0,47
+##                       Total 248    1,00</code></pre>
 <p>Für unser Hypothesenkonstrukt bedeutet das, dass wir nun drei Hypothesen haben:</p>
 <p><em>H1: Der Schwierigkeitsgrad beeinflusst den Highscore negativ (siehe oben).</em></p>
 <p><em>H2: Die Wettkampfpräferenz beeinflusst den Highscore positiv.</em></p>
@@ -652,24 +674,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">12.4.1</span> Deskriptive Analyse</h3>
 <p>Wie immer: Vor dem Signifikanztest wird deskriptiv ausgewertet. Es muss festgestellt werden, ob die Mittelwerte in die Prognostizierte Richtung weisen. Für H1 und den Schwierigkeitsgrad haben wir dies im letzten Abschnitt bereits bestätigt.</p>
 <p>Aber auch für den zweiten Haupteffekt und die Wettkampfpräferenz (H2) sieht es gut aus, denn tatsächlich ist der Highscore der Probanden höher, wenn die Wettkampfpräferenz höher ist.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="varianzanalyse.html#cb27-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="varianzanalyse.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="varianzanalyse.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb27-4"><a href="varianzanalyse.html#cb27-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore)),</span>
-<span id="cb27-5"><a href="varianzanalyse.html#cb27-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore)))</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="varianzanalyse.html#cb320-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb320-2"><a href="varianzanalyse.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
+<span id="cb320-3"><a href="varianzanalyse.html#cb320-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb320-4"><a href="varianzanalyse.html#cb320-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore)),</span>
+<span id="cb320-5"><a href="varianzanalyse.html#cb320-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore)))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
 ##   Wettkampfpraeferenz            n     M    SD
 ##   &lt;ord&gt;                      &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 geringe Wettkampfpräferenz   131  3550  2080
 ## 2 hohe Wettkampfpräferenz      117  4331  2652</code></pre>
 <p>Nun zum Interaktionseffekt. Um die Werte zu veranschaulichen, gruppieren wir nicht nur nach einer unabhängigen Variablen, sondern nach beiden. Weil wir diese Tabelle später noch einmal benötigen, wird sie als Objekt <code>desc_table</code> abgespeichert.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="varianzanalyse.html#cb29-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="varianzanalyse.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad, Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-3"><a href="varianzanalyse.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb29-4"><a href="varianzanalyse.html#cb29-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore)),</span>
-<span id="cb29-5"><a href="varianzanalyse.html#cb29-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore)))</span>
-<span id="cb29-6"><a href="varianzanalyse.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="varianzanalyse.html#cb29-7" aria-hidden="true" tabindex="-1"></a>desc_table </span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="varianzanalyse.html#cb322-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb322-2"><a href="varianzanalyse.html#cb322-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Schwierigkeitsgrad, Wettkampfpraeferenz) <span class="sc">%&gt;%</span> </span>
+<span id="cb322-3"><a href="varianzanalyse.html#cb322-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb322-4"><a href="varianzanalyse.html#cb322-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">M =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Highscore)),</span>
+<span id="cb322-5"><a href="varianzanalyse.html#cb322-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Highscore)))</span>
+<span id="cb322-6"><a href="varianzanalyse.html#cb322-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb322-7"><a href="varianzanalyse.html#cb322-7" aria-hidden="true" tabindex="-1"></a>desc_table </span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ## # Groups:   Schwierigkeitsgrad [3]
 ##   Schwierigkeitsgrad Wettkampfpraeferenz            n     M    SD
@@ -683,28 +705,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Diese Tabelle ist etwas unübersichtlich. Aber eigentlich ist es auch nicht so schlimm, wenn man weiß, wonach man suchen muss. Es ist hier relevant zu schauen, ob sich die Mittelwerte in zusammengehörigen Zeilen unterschieden, z.B. also die beiden Zeilen “Schwierigkeitsgrad leicht.” Tatsächlich ist in diesen beiden Zeilen ein deutlicher Mittelwertunterschied zu finden. Bei “mittel” und “schwer” ist hingegen kaum eine Differenz.</p>
 <p>An den Werten für n können wir sehen, dass es auch für jede Kombination der beiden Einflussfaktoren im Datensatz eine beruhigend hohe Anzahl an n &gt; 30 Fällen gibt. Wir können deshalb nach dem zentralen Grenzwerttheorem davon ausgehen, dass sich Stichprobenmittelwerte unterschiedlicher Stichproben normal verteilen würden, selbst in den jetzt sechs Untergruppen.</p>
 <p>Zur visuellen Analyse lässt sich der Boxplot über die <code>ggplot</code>-Funktion <code>facet_wrap</code> leicht so aufsplitten, dass alle sechs Gruppen sichtbar werden:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="varianzanalyse.html#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="varianzanalyse.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> Highscore, <span class="at">color =</span> Schwierigkeitsgrad)) <span class="sc">+</span></span>
-<span id="cb31-3"><a href="varianzanalyse.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a href="varianzanalyse.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb31-5"><a href="varianzanalyse.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Wettkampfpraeferenz))</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="varianzanalyse.html#cb324-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb324-2"><a href="varianzanalyse.html#cb324-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> Highscore, <span class="at">color =</span> Schwierigkeitsgrad)) <span class="sc">+</span></span>
+<span id="cb324-3"><a href="varianzanalyse.html#cb324-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb324-4"><a href="varianzanalyse.html#cb324-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb324-5"><a href="varianzanalyse.html#cb324-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Wettkampfpraeferenz))</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 <p>Augenscheinlich hat sich die Lage durch die Aufteilung in nun sechs Gruppen nicht wesentlich verschlimmert, denn die jeweils gleichfarbigen Box-Plots weisen immer die höchste Ähnlichkeit zueinander auf und sind von den andersfarbigen immer deutlich verschieden.</p>
 </div>
 <div id="levene-test-1" class="section level3" number="12.4.2">
 <h3><span class="header-section-number">12.4.2</span> Levene-Test</h3>
 <p>Wir wissen bereits aus dem vorigen Abschnitt, dass wir es hinsichtlich der Gruppenvariable Schwierigkeit mit heterogenen Varianzen bei der Variable Highscore zu tun haben. Außerdem existiert für die Mehrfaktorielle Varianzanalyse leider keine Welch-Korrektur. Der Vollständigkeit halber, wird hier dennoch demonstriert, wie eine Analyse der unterschiedlichen Streuung bei einer Zweifaktoriellen Varianzanalyse aussieht.</p>
 <p>Zuerst der Levene-Test für den Einflussfaktor Wettkampfpräferenz:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="varianzanalyse.html#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb32-2"><a href="varianzanalyse.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Wettkampfpraeferenz)</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="varianzanalyse.html#cb325-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb325-2"><a href="varianzanalyse.html#cb325-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Wettkampfpraeferenz)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##     df1   df2 statistic       p
 ##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
 ## 1     1   246      8.03 0.00499</code></pre>
 <p>Ergebnis: Ebenfalls signifikant, also ungleiche Varianzen.</p>
 <p>Und da wir uns in H3 auch für den Interaktionseffekt interessieren folgt noch ein multifaktorieller Levene-Test. Die Interaktion wird eingebracht über den Operator <code>*</code> (Asterisk/Sternchen) in der Formel. Der Asterisk bedeutet soviel wie “interagiert mit.”</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="varianzanalyse.html#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="varianzanalyse.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz)</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="varianzanalyse.html#cb327-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb327-2"><a href="varianzanalyse.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##     df1   df2 statistic        p
 ##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -718,33 +740,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Coefficient covariances computed by hccm()</code></pre>
 <pre><code>## ANOVA Table (type III tests)
 ## 
-##                                   Effect DFn DFd       F        p p&lt;.05   ges
-## 1                     Schwierigkeitsgrad   2 242 138.255 9.04e-41     * 0.533
-## 2                    Wettkampfpraeferenz   1 242   7.522 7.00e-03     * 0.030
-## 3 Schwierigkeitsgrad:Wettkampfpraeferenz   2 242   9.640 9.37e-05     * 0.074</code></pre>
+##                                   Effect DFn DFd     F       p p&lt;.05   ges
+## 1                     Schwierigkeitsgrad   2 242 138,3 9,0e-41     * 0,533
+## 2                    Wettkampfpraeferenz   1 242   7,5 7,0e-03     * 0,030
+## 3 Schwierigkeitsgrad:Wettkampfpraeferenz   2 242   9,6 9,4e-05     * 0,074</code></pre>
 <p>Die Funktion <code>aov_car</code> aus dem <code>afex</code>-Paket benötigt eine Formel der Form <code>abhängige Variable ~ unabhängige Variable</code>, genau wie beim Levene-Test. Es gibt aber noch eine Besonderheit: Angegeben werden muss außerdem noch ein “Fehlerterm.” Der Fehlerterm stellt in dem Modell die nicht erklärte Varianz dar, die jeder Messpunkt aufweist. Es ist wichtig, dass hier eine Variable eingesetzt wird, die für jeden Fall im Datensatz einen <em>eineindeutigen</em> Wert hat (= kein Wert darf doppelt vorkommen). Hier bietet sich die “laufende Nummer,” also die Variable <code>lfdn</code> an.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="varianzanalyse.html#cb38-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> afex<span class="sc">::</span><span class="fu">aov_car</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">+</span> Wettkampfpraeferenz <span class="sc">+</span> </span>
-<span id="cb38-2"><a href="varianzanalyse.html#cb38-2" aria-hidden="true" tabindex="-1"></a>                                      Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz <span class="sc">+</span></span>
-<span id="cb38-3"><a href="varianzanalyse.html#cb38-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">Error</span>(lfdn), </span>
-<span id="cb38-4"><a href="varianzanalyse.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="varianzanalyse.html#cb331-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> afex<span class="sc">::</span><span class="fu">aov_car</span>(Highscore <span class="sc">~</span> Schwierigkeitsgrad <span class="sc">+</span> Wettkampfpraeferenz <span class="sc">+</span> </span>
+<span id="cb331-2"><a href="varianzanalyse.html#cb331-2" aria-hidden="true" tabindex="-1"></a>                                      Schwierigkeitsgrad <span class="sc">*</span> Wettkampfpraeferenz <span class="sc">+</span></span>
+<span id="cb331-3"><a href="varianzanalyse.html#cb331-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">Error</span>(lfdn), </span>
+<span id="cb331-4"><a href="varianzanalyse.html#cb331-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> df)</span></code></pre></div>
 <pre><code>## Contrasts set to contr.sum for the following variables: Schwierigkeitsgrad, Wettkampfpraeferenz</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="varianzanalyse.html#cb40-1" aria-hidden="true" tabindex="-1"></a>my_model</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="varianzanalyse.html#cb333-1" aria-hidden="true" tabindex="-1"></a>my_model</span></code></pre></div>
 <pre><code>## Anova Table (Type 3 tests)
 ## 
 ## Response: Highscore
 ##                                   Effect     df        MSE          F  ges
-## 1                     Schwierigkeitsgrad 2, 242 2547712.45 138.25 *** .533
-## 2                    Wettkampfpraeferenz 1, 242 2547712.45    7.52 ** .030
-## 3 Schwierigkeitsgrad:Wettkampfpraeferenz 2, 242 2547712.45   9.64 *** .074
+## 1                     Schwierigkeitsgrad 2, 242 2547712,45 138,25 *** ,533
+## 2                    Wettkampfpraeferenz 1, 242 2547712,45    7,52 ** ,030
+## 3 Schwierigkeitsgrad:Wettkampfpraeferenz 2, 242 2547712,45   9,64 *** ,074
 ##   p.value
 ## 1   &lt;.001
-## 2    .007
+## 2    ,007
 ## 3   &lt;.001
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;+&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  0 &#39;***&#39; 0,001 &#39;**&#39; 0,01 &#39;*&#39; 0,05 &#39;+&#39; 0,1 &#39; &#39; 1</code></pre>
 <p>Sehr schön, alle <em>F</em>-Werte sind signifikant! Das spricht für die Hypothesen. Weil die deskriptive Analyse der Haupteffekte auch in die richtige Richtung zeigte, können H1 und H2 jetzt schon als durch die Daten bestätigt angesehen werden. Bei H3, der Interaktionshypothese ist es nicht ganz so klar, aber irgendwas signifikantes scheint es auch hier zu geben, zum Verständnis hilft ein Interaktionsplot.</p>
-<p>Zuvor berechnen wir aber noch schnell die Effektstärken des Modells, das nicht-partielle <span class="math inline">\(\eta^2^\)</span>:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="varianzanalyse.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(my_model, <span class="at">partial =</span> <span class="cn">FALSE</span>, <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<p>Zuvor berechnen wir aber noch schnell die Effektstärken des Modells, das nicht-partielle <span class="math inline">\(\eta^2\)</span>:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="varianzanalyse.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(my_model, <span class="at">partial =</span> <span class="cn">FALSE</span>, <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## Type 3 ANOVAs only give sensible and informative results when covariates are
 ##   mean-centered and factors are coded with orthogonal contrasts (such as those
 ##   produced by &#39;contr.sum&#39;, &#39;contr.poly&#39;, or &#39;contr.helmert&#39;, but *not* by the
@@ -761,8 +783,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualisierung" class="section level3" number="12.4.4">
 <h3><span class="header-section-number">12.4.4</span> Visualisierung</h3>
 <p>Die Visualisierung von Interaktionseffekten hilft erheblich bei der Interpretation. Am einfachsten ist, es, wenn wir als Basis für die Visualisierung die Tabelle benutzen, die wir im Abschnitt <a href="varianzanalyse.html#deskriptive-analyse-1">Deskriptive Analyse</a> erzeugt hatten. Wir brauchen aus dieser Tabelle die beiden Einflussvariablen und die Mittelwerte:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="varianzanalyse.html#cb45-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a href="varianzanalyse.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, M)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="varianzanalyse.html#cb338-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
+<span id="cb338-2"><a href="varianzanalyse.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, M)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ## # Groups:   Schwierigkeitsgrad [3]
 ##   Schwierigkeitsgrad Wettkampfpraeferenz            M
@@ -775,17 +797,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 schwer             hohe Wettkampfpräferenz     2056</code></pre>
 <p>Was im Interaktionsdiagramm dargestellt werden soll, ist genau das, was oben in der Tabelle steht: Die Mittelwerte des Highscores und zwar in Abhängigkeit von den beiden unabhängigen Variablen. Hätten wir nur einen Einflussfaktor, würden wir das mit einem Balkendiagramm machen (siehe oben: Schwierigkeitsgrad auf die x-Achse, Mittelwert des Highscores auf die y-Achse).</p>
 <p>Bei zwei Faktoren bietet sich ein Liniendiagramm an. Der zweite Faktor kann dann durch unterschiedliche Linien (Argument <code>group</code>) dargestellt werden, die zur besseren Übersichtlichkeit auch noch verschieden eingefärbt werden können (Argument <code>color</code>).</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="varianzanalyse.html#cb47-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="varianzanalyse.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> M, </span>
-<span id="cb47-3"><a href="varianzanalyse.html#cb47-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">group =</span> Wettkampfpraeferenz, <span class="at">color =</span> Wettkampfpraeferenz)) <span class="sc">+</span>       </span>
-<span id="cb47-4"><a href="varianzanalyse.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb47-5"><a href="varianzanalyse.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ab hier nur noch &quot;Aufhübschung&quot; des Plots</span></span>
-<span id="cb47-6"><a href="varianzanalyse.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">8000</span>) <span class="sc">+</span></span>
-<span id="cb47-7"><a href="varianzanalyse.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Schwierigkeitsgrad&quot;</span>, </span>
-<span id="cb47-8"><a href="varianzanalyse.html#cb47-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Mittelwert Highscore&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb47-9"><a href="varianzanalyse.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb47-10"><a href="varianzanalyse.html#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;deeppink&quot;</span>))</span></code></pre></div>
-<p><img src="r_book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="varianzanalyse.html#cb340-1" aria-hidden="true" tabindex="-1"></a>desc_table <span class="sc">%&gt;%</span> </span>
+<span id="cb340-2"><a href="varianzanalyse.html#cb340-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Schwierigkeitsgrad, <span class="at">y =</span> M, </span>
+<span id="cb340-3"><a href="varianzanalyse.html#cb340-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">group =</span> Wettkampfpraeferenz, <span class="at">color =</span> Wettkampfpraeferenz)) <span class="sc">+</span>       </span>
+<span id="cb340-4"><a href="varianzanalyse.html#cb340-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb340-5"><a href="varianzanalyse.html#cb340-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ab hier nur noch &quot;Aufhübschung&quot; des Plots</span></span>
+<span id="cb340-6"><a href="varianzanalyse.html#cb340-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">8000</span>) <span class="sc">+</span></span>
+<span id="cb340-7"><a href="varianzanalyse.html#cb340-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Schwierigkeitsgrad&quot;</span>, </span>
+<span id="cb340-8"><a href="varianzanalyse.html#cb340-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Mittelwert Highscore&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb340-9"><a href="varianzanalyse.html#cb340-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb340-10"><a href="varianzanalyse.html#cb340-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;deeppink&quot;</span>))</span></code></pre></div>
+<p><img src="r_book_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>In dem Interaktionsdiagramm zeigt sich, dass die von mir Prognostizierte Interaktion vor allem im einfachen Schwierigkeitsgrad zum Tragen kommt. Hier ist es tatsächlich so, dass Probandinnen mit hoher Wettkampfpräferenz deutlich besser abschneiden als solche mit niedriger. Auf mittlerem Schwierigkeitsgrad ist die Tendenz jedoch umgedreht. Hier sind Personen mit niedriger Wettkampfpräferenz etwas besser. Der Mittelwertunterschied ist jedoch gering. Bei schweren Schwierigkeitsgrad dreht es sich wieder, aber auch hier ist die Mittelwertdifferenz gering. Es ist also kompliziert. Möglicherweise gibt es einen zusätzlichen Effekt, bei dem Personen mit hoher Wettkampfpräferenz durch einen besonders schweren Schwierigkeitsgrad zusätzlich angespornt werden einen hohen Highscore zu erzielen. Um das zu untersuchen sind unsere Daten aber leider nicht differenziert genug. Festzuhalten ist aber, dass sich die H3 (A-Version) bestätigen lässt (das zeigt der <em>F</em>-Wert oben) und dass zumindest die visuellen Ergebnisse für Gruppe “leicht” für die präzisierte B-Version der H3 sprechen.</p>
 <p>Es stellt sich jetzt natürlich die Frage, welche der beobachteten Mittelwertunterschiede sind signifikant?</p>
 </div>
@@ -797,17 +819,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Für H3 (Interaktion) wäre ein Posthoc-Test natürlich interessant. Es wäre wichtig zu wissen, ob sich die Personen mit hoher vs. niedriger Wettkampfpräferenz in der Gruppe leichter Schwierigkeitsgrad tatsächlich signifikant unterscheiden. Und natürlich auch, ob in den anderen Schwierigkeitsgraden signifikante Unterschiede vorliegen.</p>
 <p>Ich habe leider noch keine elegante Version gefunden, mit der man in R einen Posthoc-Test für Interaktionseffekte rechnen kann – für Hinweise wäre ich dankbar. Bis ich diesen Hinweis erhalten habe, behelfe ich mich damit, dass ich aus den beiden Faktoren einen neue, kombinierte Gruppenvariable bilde und diese dann in den Posthoc-Test gebe.</p>
 <p>Der folgende Code ist advanced, der Vollständigkeit halber zeige ich ihn hier dennoch:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="varianzanalyse.html#cb48-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb48-2"><a href="varianzanalyse.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#eine neue Gruppenvariable erstellen</span></span>
-<span id="cb48-3"><a href="varianzanalyse.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">str_c</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-4"><a href="varianzanalyse.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Posthoc-Test durchführen</span></span>
-<span id="cb48-5"><a href="varianzanalyse.html#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">games_howell_test</span>(<span class="at">formula =</span> Highscore <span class="sc">~</span> Gruppe) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-6"><a href="varianzanalyse.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Zur Übersichtlichkeit Zahlenwerte runden</span></span>
-<span id="cb48-7"><a href="varianzanalyse.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;estimate&quot;</span>, <span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;conf.high&quot;</span>), format, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">nsmall =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-8"><a href="varianzanalyse.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Zur Übersichtlichkeit nur relevante Variablen auswählen</span></span>
-<span id="cb48-9"><a href="varianzanalyse.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, p.adj.signif) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-10"><a href="varianzanalyse.html#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Nur die Mittelwertunterschiede herausfiltern die mich tatsächlich interessieren </span></span>
-<span id="cb48-11"><a href="varianzanalyse.html#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_extract</span>(group1, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>) <span class="sc">==</span> <span class="fu">str_extract</span>(group2, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="varianzanalyse.html#cb341-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb341-2"><a href="varianzanalyse.html#cb341-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#eine neue Gruppenvariable erstellen</span></span>
+<span id="cb341-3"><a href="varianzanalyse.html#cb341-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">str_c</span>(Schwierigkeitsgrad, Wettkampfpraeferenz, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb341-4"><a href="varianzanalyse.html#cb341-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Posthoc-Test durchführen</span></span>
+<span id="cb341-5"><a href="varianzanalyse.html#cb341-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">games_howell_test</span>(<span class="at">formula =</span> Highscore <span class="sc">~</span> Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb341-6"><a href="varianzanalyse.html#cb341-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Zur Übersichtlichkeit Zahlenwerte runden</span></span>
+<span id="cb341-7"><a href="varianzanalyse.html#cb341-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;estimate&quot;</span>, <span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;conf.high&quot;</span>), format, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">nsmall =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb341-8"><a href="varianzanalyse.html#cb341-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Zur Übersichtlichkeit nur relevante Variablen auswählen</span></span>
+<span id="cb341-9"><a href="varianzanalyse.html#cb341-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, p.adj.signif) <span class="sc">%&gt;%</span> </span>
+<span id="cb341-10"><a href="varianzanalyse.html#cb341-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Nur die Mittelwertunterschiede herausfiltern die mich tatsächlich interessieren </span></span>
+<span id="cb341-11"><a href="varianzanalyse.html#cb341-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_extract</span>(group1, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>) <span class="sc">==</span> <span class="fu">str_extract</span>(group2, <span class="st">&quot;^[einfach|mittel|schwer]&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 4
 ##   group1                        group2                     estimate p.adj.signif
 ##   &lt;chr&gt;                         &lt;chr&gt;                      &lt;chr&gt;    &lt;chr&gt;       

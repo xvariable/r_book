@@ -372,7 +372,7 @@ Bevor es losgeht, eine Anmerkung vorab: Es gibt bei der mehrfaktoriellen Varianz
 
 
 ```{r echo=FALSE}
-# hier ein Versuch mit dem rstatix-paket. ICh habe allerdings gemerkt das eta hier falsch ausgegeben wird. Es ist immer das partielle Eta.
+# hier ein Versuch mit dem rstatix-paket. Ich habe allerdings gemerkt das eta hier falsch ausgegeben wird. Es ist immer das partielle Eta.
 df %>% 
   anova_test(Highscore ~ Schwierigkeitsgrad + Wettkampfpraeferenz + 
                                       Schwierigkeitsgrad * Wettkampfpraeferenz,
@@ -394,7 +394,7 @@ my_model
 
 Sehr schön, alle *F*-Werte sind signifikant! Das spricht für die Hypothesen. Weil die deskriptive Analyse der Haupteffekte auch in die richtige Richtung zeigte, können H1 und H2 jetzt schon als durch die Daten bestätigt angesehen werden. Bei H3, der Interaktionshypothese ist es nicht ganz so klar, aber irgendwas signifikantes scheint es auch hier zu geben, zum Verständnis hilft ein Interaktionsplot.
 
-Zuvor berechnen wir aber noch schnell die Effektstärken des Modells, das  nicht-partielle $\eta^2^$:
+Zuvor berechnen wir aber noch schnell die Effektstärken des Modells, das  nicht-partielle $\eta^2$:
 
 ```{r}
 eta_squared(my_model, partial = FALSE, ci = 0.95)
