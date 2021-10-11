@@ -2,14 +2,14 @@
 
 *Die Erarbeitung dieses Kapitels erfolgte auf Basis eines Skripts, welches Daniel Possler 2021 für die Veranstaltung SDA2 erstellt hat. Dieser wiederum nutzte Vorarbeiten von Jule Scheper, Sophie Bruns und Anna Freytag.*
 
-Im letzten Kapitel haben wir mit dem T-Test ein Verfahren kennengelernt, mit dem wir Unterschiedshypothesen prüfen können, indem die Mittelwerte von zwei Gruppen verglichen werden. Was aber, wenn wir nicht zwei sondern mehr Gruppen haben? Hier kommt die Varianzanalyse ins Spiel. Mit der Varianzanalyse (englisch ANOVA = **an**alysis **o**f **va**riance) ist dies möglich. Genau wie der im letzten Kapitel angewendete T-Test hat die abhängige Variable der Varianzanalyse metrisches Datenniveau und die unabhängige mindestens nominales^[Selbstverständlich ist auch ein höheres Datenniveau möglich. Wegen der Stichprobengröße in den einzelnen Gruppen und der Übersichtlichkeit sollte die unabhängige Variable aber nicht sehr viele Ausprägungen haben, weshalb metrische Variablen kaum als Faktoren in der Varianzanalyse eingesetzt werden.]. Ein Unterschied ist, dass die unabhängige Variable mehr als zwei Ausprägungen haben darf. -- Sie muss also nicht zwingend dichotom sein. Ein anderer Unterschied ist, dass als Prüfgröße nicht die T-Verteilung verwendet wird, sondern die von Ronald a. Fisher entwickelte F-Verteilung. Die Prüfgröße heißt deshalb *F*.
+Im letzten Kapitel haben wir mit dem T-Test ein Verfahren kennengelernt, mit dem wir Unterschiedshypothesen prüfen können, indem die Mittelwerte von zwei Gruppen verglichen werden. Was aber, wenn wir nicht zwei, sondern mehrere Gruppen haben? Hier kommt die Varianzanalyse ins Spiel. Mit der Varianzanalyse (englisch ANOVA = **an**alysis **o**f **va**riance) ist dies möglich. Genau wie der im letzten Kapitel angewendete T-Test, hat die abhängige Variable der Varianzanalyse metrisches Datenniveau und die unabhängige mindestens nominales^[Selbstverständlich ist auch ein höheres Datenniveau möglich. Wegen der Stichprobengröße in den einzelnen Gruppen und der Übersichtlichkeit sollte die unabhängige Variable aber nicht sehr viele Ausprägungen haben, weshalb metrische Variablen kaum als Faktoren in der Varianzanalyse eingesetzt werden.]. Ein Unterschied ist, dass die unabhängige Variable mehr als zwei Ausprägungen haben darf. -- Sie muss also nicht zwingend dichotom sein. Ein anderer Unterschied ist, dass als Prüfgröße nicht die T-Verteilung verwendet wird, sondern die von Ronald a. Fisher entwickelte F-Verteilung. Die Prüfgröße heißt deshalb *F*.
 
-Mit der Varianzanalyse können auch komplexe experimentelle Designs ausgewertet werden, bei denen es z. B. mehr als ein Einflussfaktor berücksichtigt wird. Nimmt man nur einen Einflussfaktor auf, handelt es sich um eine *einfaktorielle* Varianzanalyse (One-way Anova), bei zwei Faktoren spricht man von einer *zweifaktoriellen* Varianzanalyse (Two-way Anova) und bei noch mehr Faktoren von einer mehrfaktoriellen Varianzanalyse.
+Mit der Varianzanalyse können auch komplexe experimentelle Designs ausgewertet werden, bei denen z. B. mehr als ein Einflussfaktor berücksichtigt wird. Nimmt man nur einen Einflussfaktor auf, handelt es sich um eine *einfaktorielle* Varianzanalyse (One-way Anova), bei zwei Faktoren spricht man von einer *zweifaktoriellen* Varianzanalyse (Two-way Anova) und bei noch mehr Faktoren von einer mehrfaktoriellen Varianzanalyse.
 
 
 ## Datenbeispiel
 
-Die Daten für dieses Kapitel liefert die BA-Arbeit von Carsten Reichelt (2019). Vielen Dank an dieser Stelle! Carsten Reichelt hat in seiner BA-Arbeit untersucht, ob der Schwierigkeitsgrad eines Videospiels eine Rolle für die Performance und das Erleben von Unterhaltung der Spieler:innen spielt. Um diese Frage zu klären hat er ein Online-Experiment designed in dem N = 248 nutzten Proband:innen vier Minuten lang das Spiel Pac-Man spielen mussten (= Stimulus). Der Stimulus wurde dabei über die drei Schwierigkeitsgrade "einfach" (n = 79), "mittel" (n = 90) und schwer (n = 79) variiert. Die Gruppenzugehörigkeit bildet also die zentrale unabhängige Variable und sie ist dreistufig (einfach, mittel oder schwer). Nach dem Spielen füllten die Proband:innen einen Online-Fragebogen aus, in dem verschiedene weitere, abhängige und unabhängige Variablen erhoben wurden. Außerdem wurde der Highsore, den die Proband:innen erzielten erfasst.
+Die Daten für dieses Kapitel liefert die BA-Arbeit von Carsten Reichelt (2019). Vielen Dank an dieser Stelle! Carsten Reichelt hat in seiner BA-Arbeit untersucht, ob der Schwierigkeitsgrad eines Videospiels eine Rolle für die Performance und das Erleben von Unterhaltung der Spieler:innen spielt. Um diese Frage zu klären, hat er ein Online-Experiment designed, in dem N = 248 Proband:innen vier Minuten lang das Spiel Pac-Man spielen mussten (= Stimulus). Der Stimulus wurde dabei über die drei Schwierigkeitsgrade "einfach" (n = 79), "mittel" (n = 90) und "schwer" (n = 79) variiert. Die Gruppenzugehörigkeit bildet also die zentrale unabhängige Variable und sie ist dreistufig (einfach, mittel oder schwer). Nach dem Spielen füllten die Proband:innen einen Online-Fragebogen aus, in dem verschiedene weitere, abhängige und unabhängige Variablen erhoben wurden. Außerdem wurde der Highscore, den die Proband:innen erzielten, erfasst.
 
 
 ## Prerequisits
@@ -25,7 +25,7 @@ library(afex)      # zur Berechnung der mehrfaktoriellen Anova
 
 ```
 
-Die Die Daten der Abschlussarbeit von Herrn Reichelt liegen im SPSS-Format .sav. vor. Sie können über das Paket `haven` geladen werden. Da wir die unabhängigen Variablen für die Varianzanalyse in R als *Faktoren* benötigen, wandeln wir diese gleich im Anschluss an den Ladevorgang direkt in das benötigte Format um.
+Die Daten der Abschlussarbeit von Herrn Reichelt liegen im SPSS-Format .sav. vor. Sie können über das Paket `haven` geladen werden. Da wir die unabhängigen Variablen für die Varianzanalyse in R als *Faktoren* benötigen, wandeln wir diese gleich im Anschluss an den Ladevorgang direkt in das benötigte Format um.
 
 ```{r loaddata, warning=FALSE}
 
@@ -44,7 +44,7 @@ df
 
 ## Einfaktorielle Varianzanalyse
 
-Bevor wir uns an komplexere Designs wagen, testen wir ersteinmal eine ganz basale Hypothese, die quasi Voraussetzung für die weiteren Analysen in der BA-Arbeit von Herrn Reichelt ist. Im Experiment wird davon ausgagangen, dass die Gruppenzuteilung und der in der jeweiligen Gruppe angewendete Stimulus ursächlich verantwortlich ist für die Varianz zwischen den Gruppen.
+Bevor wir uns an komplexere Designs wagen, testen wir erst einmal eine ganz basale Hypothese, die quasi Voraussetzung für die weiteren Analysen in der BA-Arbeit von Herrn Reichelt ist. Im Experiment wird davon ausgagangen, dass die Gruppenzuteilung und der in der jeweiligen Gruppe angewendete Stimulus ursächlich verantwortlich ist für die Varianz zwischen den Gruppen.
 
 Die Hypothese, die zuerst betrachtet wird, ist quasi der Test, ob die Variation durch den Stimulus funktioniert hat (*Treatmentcheck*). Es sollte so sein, dass der Schwierigkeitsgrad den High-Score beeinflusst, und zwar in "gegenläufiger" (anti-proportionaler) Richtung. Salopp gesagt: Je schwerer das Spiel, desto geringer der Highscore. Anders formuliert könnte die Hypothese so lauten:
 
@@ -53,7 +53,7 @@ Die Hypothese, die zuerst betrachtet wird, ist quasi der Test, ob die Variation 
 
 ### Deskriptive Analyse
 
-Bevor es an die tatsächliche Prüfung der aufgestellten Hypothese geht, empfiehlt es sie wie immer, sich mit den Mitteln der deskriptiven Statistik und mit Grafiken einen Überblick über die Datenlage zu verschaffen.
+Bevor es an die tatsächliche Prüfung der aufgestellten Hypothese geht, empfiehlt es sich wie immer, sich mit den Mitteln der deskriptiven Statistik und mit Grafiken einen Überblick über die Datenlage zu verschaffen.
 
 Schauen wir uns zunächst die Verteilung der abhängigen Variablen an. Da es sich um eine nominale Variable handelt, interessiert hier vor allem die Häufigkeitsverteilung (und nicht etwa Lage und Streuungsmaße). Zur Anzeige der Häufigkeitsberteilung gibt es viele Wege, etwa `table()`oder `summary()`. Damit ich hier auch die realtiven Häufigkeiten erhalte, nutze ich `tabyl()`aus dem `janitor`-Paket.
 
@@ -66,7 +66,7 @@ df %>%
 
 Wir können an dieser Verteilung sehen, dass die Gruppen alle ausreichend groß und ungefähr gleich besetzt sind. Lediglich in Gruppe zwei sind ein paar mehr Versuchspersonen gelandet. Das stört nicht weiter.
 
-Nun schauen wir uns die abhängige Variable, also den Schwierigeitsgrad an. Es ist eine Voraussetzung für die sinnhafte Anwendung der Varianzanalyse, dass die Verteilung dieser Variablen tatsächlich auch im Sample variiert. -- Das die Proband:innen also unterschiedliche Scores erzielt haben und nicht etwa alle den gleichen oder einen ähnlichen. Außerdem ist es interessant zu wissen, auf welchem Niveau die Proband:innen Packman spielen. Lassen wir uns also die interessierenden Kennzahlen ausgeben:
+Nun schauen wir uns die abhängige Variable, also den Schwierigkeitsgrad an. Es ist eine Voraussetzung für die sinnhafte Anwendung der Varianzanalyse, dass die Verteilung dieser Variablen tatsächlich auch im Sample variiert. -- Dass die Proband:innen also unterschiedliche Scores erzielt haben und nicht etwa alle den gleichen oder einen ähnlichen. Außerdem ist es interessant zu wissen, auf welchem Niveau die Proband:innen Pacman spielen. Lassen wir uns also die interessierenden Kennzahlen ausgeben:
 
 ```{r descav}
 summary(df$Highscore)
@@ -74,7 +74,7 @@ summary(df$Highscore)
 sd(df$Highscore)
 ```
 
-Das sieht prima aus! Der Highscore schwankt zwischen einem Minimum von `r min(df$Highscore)` und einem Maximum von `r max(df$Highscore)`. Im Mittel haben die Proband:innen *M* = `r mean(df$Highscore) %>% round(0)` Punkte erzielt, wobei die Verteilung rechtsschief zu sein scheint, da der Medien etwas kleiner als das arithmetische Mittel ist. Auch die Standardabweichung (= Wurzel der Varianz) ist mit `r sd(df$Highscore)` angemessen hoch. Man kann also sagen, dass der Highscore variiert.
+Das sieht prima aus! Der Highscore schwankt zwischen einem Minimum von `r min(df$Highscore)` und einem Maximum von `r max(df$Highscore)`. Im Mittel haben die Proband:innen *M* = `r mean(df$Highscore) %>% round(0)` Punkte erzielt, wobei die Verteilung rechtsschief zu sein scheint, da der Median etwas kleiner als das arithmetische Mittel ist. Auch die Standardabweichung (= Wurzel der Varianz) ist mit `r sd(df$Highscore)` angemessen hoch. Man kann also sagen, dass der Highscore variiert.
 
 Nützlich ist an dieser Stelle auch ein Histogramm, da man darüber die Verteilung der aV noch detaillierter veranschaulichen kann:
 
@@ -87,7 +87,7 @@ df %>%
 
 Es zeigt tatsächlich eine rechtsschiefe Verteilung, die eine deutliche Spitze im unteren Viertel der Bandbreite an Highscores aufweist.
 
-Mit Hilfe eines Boxplots können wir außerdem die Lage der Mittelwerte und die Variation der Highscores in den einzelnen Gruppen überblicksartig beurteilen. Das ist dann schon ein erster Vorgeschmack auf das zu erwartende Ergebnis des folgenden Hypothesentests -- ohne das jedoch geprüft wird, ob die Mittelwerte tatsächlich signifikant von einander abweichen. Zusätzlich lasse ich über `stat_summary()`noch die arithmetischen Mittel in schwarz in die Grafik einzeichnen, da der Boxplot lediglich die Mediane darstellt.
+Mit Hilfe eines Boxplots können wir außerdem die Lage der Mittelwerte und die Variation der Highscores in den einzelnen Gruppen überblicksartig beurteilen. Das ist dann schon ein erster Vorgeschmack auf das zu erwartende Ergebnis des folgenden Hypothesentests -- ohne, dass jedoch geprüft wird, ob die Mittelwerte tatsächlich signifikant voneinander abweichen. Zusätzlich lasse ich über `stat_summary()`noch die arithmetischen Mittel in schwarz in die Grafik einzeichnen, da der Boxplot lediglich die Mediane darstellt.
 
 ```{r, message=FALSE, warning=FALSE}
 df %>% 
@@ -100,14 +100,14 @@ df %>%
 
 Tatsächlich, die Mittelwerte in den Gruppen reihen sich genau wie erwartet: Die Personen in der Gruppe "einfach" haben den höchsten Highscore erzielt, die in der Gruppe "schwer" den niedrigsten. Das ist schon einmal vielversprechend für den Hypothesentest, denn diese Reihung hatten wir ja in der Hypothese prognostiziert. Würde sie hier nicht wie erwartet auftreten, könnten wir den Hypothesentest gleich abbrechen.
 
-Noch etwas wird in dem Boxplot ersichtlich: Die Bandbreite an Highscores ist in der Gruppe "einfach" am höchsten: hier liegt sowohl der Minimalwert, als auch der Maximalwert -- und zwar über alle Gruppen hinweg! Das sieht man am der senkrechten violetten Linie, die länger ist, als die Linien der anderen beiden Gruppen. Auch die Quartielgrenzen sind recht weit auseinander (das sieht man an der "Box"). In dieser Gruppe scheint also die Streuung relativ groß zu sein. In der gelben Gruppe "schwierig" ist sie hingegen gering. Das erkannt man an der niedriegen "Box" und daran, dass alle Fälle, die außerhalb der Box liegen, noch nicht einmal in Form einer Linie, sondern als Punkte (=Einzelfälle/Ausreißer) dargestellt werden. Die Spieler:innen aus der Gruppe "schwer liegen also viel dichter bei einander als die Spieler:innen der anderen Gruppen. 
+Noch etwas wird in dem Boxplot ersichtlich: Die Bandbreite an Highscores ist in der Gruppe "einfach" am höchsten: hier liegt sowohl der Minimalwert, als auch der Maximalwert -- und zwar über alle Gruppen hinweg! Das sieht man am der senkrechten violetten Linie, die länger ist, als die Linien der anderen beiden Gruppen. Auch die Quartilgrenzen sind recht weit auseinander (das sieht man an der "Box"). In dieser Gruppe scheint also die Streuung relativ groß zu sein. In der gelben Gruppe "schwierig" ist sie hingegen gering. Das erkannt man an der niedriegen "Box" und daran, dass alle Fälle, die außerhalb der Box liegen, noch nicht einmal in Form einer Linie, sondern als Punkte (=Einzelfälle/Ausreißer) dargestellt werden. Die Spieler:innen aus der Gruppe "schwer liegen also viel dichter beieinander als die Spieler:innen der anderen Gruppen. 
 
-Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: *fehlende Varianzhomogenität*. Aus dem letzten Kapitel [T-Test][Anwendungsvoraussetzungen] wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse^[Die übrigen Voraussetzungen für die Varianzanalyse sind vom Prinzip her ähnlich zum T-Test. Deshalb wird an dieser Stelle nicht erneut darauf eingegangen]. Hier kommen wieder der **Levene-Test** und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova schieben wir den Levene-Test ein um sicherzugehen ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.  
+Der Boxplot prognostiziert folglich eine stark unterschiedliche Varianz oder anders ausgedrückt: *fehlende Varianzhomogenität*. Aus dem letzten Kapitel [T-Test][Anwendungsvoraussetzungen] wissen Sie bereits, dass dies ein Problem sein kann, denn (annähernd) gleiche Varianzen sind eine Anwendungsvoraussetzung, auch für die Varianzanalyse^[Die übrigen Voraussetzungen für die Varianzanalyse sind vom Prinzip her ähnlich zum T-Test. Deshalb wird an dieser Stelle nicht erneut darauf eingegangen]. Hier kommen wieder der **Levene-Test** und ein korrigierendes Verfahren ins Spiel. Bevor wir also loslegen können mit der eigentlichen Anova, schieben wir den Levene-Test ein, um sicherzugehen, ob die Anwendungsvoraussetzung Varianzhomogenität erfüllt ist oder nicht.  
 
 
 ### Levene-Test
 
-Der Levene-Test prüft -- wie im letzten Kapitel beschreiben -- ob sich die Varianz in den einzelnen Gruppen unterscheidet (was schlecht wäre) oder nicht (dann wäre die Anwendungsvoraussetzung erfüllt). Bevor wir den Test durchführen, lasse ich mir hier einmal arithmetisches Mittel und die Standardabweichung als standardisiertes Maß der Varianz ausgeben:
+Der Levene-Test prüft -- wie im letzten Kapitel beschrieben -- ob sich die Varianz in den einzelnen Gruppen unterscheidet (was schlecht wäre) oder nicht (dann wäre die Anwendungsvoraussetzung erfüllt). Bevor wir den Test durchführen, lasse ich mir hier einmal arithmetisches Mittel und die Standardabweichung als standardisiertes Maß der Varianz ausgeben:
 
 ```{r}
 df %>% 
@@ -140,15 +140,15 @@ Der Prüfwert des Levene-Tests ist auch ein F-Wert, genau wie der Testwert, der 
 
 ### Durchführung der Varianzanalyse
 
-Nun wissen wir schon eine ganze Menge: Wir haben gesehen, dass sich die mittleren Highscores je nach Schwierigkeitsgrad deutlich unterschieden. Und wir wissen, dass wegen der Varianzhomogenität ein korrigierter Test angewendet werden sollte. Als nächstes prüfen wir die Hypothese mit einem Signifikanztest. Erreicht die Profgröße *F* einen gewissen Wert sinkt der p-Wert unter die Grenze von p < .05 und man würde in dem experimentellen Setting der BA-Arbeit von Herrn Reichelt davon ausgehen, dass der Schwierigkeitsgrad tatsächlich ursächlich für den erzielten Highscore ist (was ja eine völlig plausible Annahme ist).
+Nun wissen wir schon eine ganze Menge: Wir haben gesehen, dass sich die mittleren Highscores je nach Schwierigkeitsgrad deutlich unterschieden. Und wir wissen, dass wegen der Varianzhomogenität ein korrigierter Test angewendet werden sollte. Als nächstes prüfen wir die Hypothese mit einem Signifikanztest. Erreicht die Prüfgröße *F* einen gewissen Wert, sinkt der p-Wert unter die Grenze von p < .05 und man würde in dem experimentellen Setting der BA-Arbeit von Herrn Reichelt davon ausgehen, dass der Schwierigkeitsgrad tatsächlich ursächlich für den erzielten Highscore ist (was ja eine völlig plausible Annahme ist).
 
-Die Standard-Funktion aus `base-R` zur Berechnung von Varianzanalysen ist `aov()`. Die Funktion kann jedoch keine Korrektur bei Varianzheterogenität vornehmen, weshalb man lieber auf die Funktion `oneway.test()`, ebenfalls aus base-R zurückgreifen sollte, die dies ermöglicht. Diese Funktion benötigt zwei Argumente. Das dritte hier angegebene Argument ist optional, es sollte dennoch angegeben werden, damit der mögliche Einsatz der Korrektur bewusst und explizit geschieht. Hier die Argumente von `oneway.test()`:
+Die Standard-Funktion aus `base-R` zur Berechnung von Varianzanalysen ist `aov()`. Die Funktion kann jedoch keine Korrektur bei Varianzheterogenität vornehmen, weshalb man lieber auf die Funktion `oneway.test()`, ebenfalls aus base-R, zurückgreifen sollte, die dies ermöglicht. Diese Funktion benötigt zwei Argumente. Das dritte hier angegebene Argument ist optional, es sollte dennoch angegeben werden, damit der mögliche Einsatz der Korrektur bewusst und explizit geschieht. Hier die Argumente von `oneway.test()`:
 
 1. Eine Formel `formula`, die wie folgt aufgebaut ist: `abhängige Variable ~ unabhängige Variable` (genau wie bei der Regression). Die Tilde `~` bedeutet soviel wie "wird beeinflusst durch".
 
 2. Ein Datenobjekt `data` in dem die Variablen und Messwerte zu finden sind, also unser Datensatz.
 
-3. Mit dem Argument `var.equal` lässt sich ein korrigierter Test anfordern. Es steht standardmäßig auf `FALSE`, so dass nicht von Varianzhomogenität ausgegangen wird und eine s.g. Welch-Korrektur durchgeführt wird. MAn kann es aber auch auf `TRUE` setzen, wenn der Levene-Test mal auf Varianzhomogenität hinweisen sollte.
+3. Mit dem Argument `var.equal` lässt sich ein korrigierter Test anfordern. Es steht standardmäßig auf `FALSE`, so dass nicht von Varianzhomogenität ausgegangen wird und eine sogenannte Welch-Korrektur durchgeführt wird. Man kann es aber auch auf `TRUE` setzen, wenn der Levene-Test mal auf Varianzhomogenität hinweisen sollte.
 
 Der Output des erzeugten Modells lässt sich mit `summary()` ausgeben. Mit `tidy()` aus dem `broom()`-Paket erhält man allerdings eine hübschere Tabelle:
 
@@ -165,7 +165,7 @@ Ah sehr schön, ausgegeben werden die Freiheitsgrade (df), der F-Wert (statistic
 
 ### Effektstärke
 
-Als Maß für die Stärke des beobachteten Effekts dient bei der Varianzanalyse $\eta$^2^ (Eta-Quadrat). Es berechnet sich aus dem Verhältnis der erklärten Varianz (Quadratsummen zwischen den Gruppen) und der Gesamtvariation. Man kann es mit dem Befehl `eta_squared()` aus dem `effectsize`-Paket ausgeben. Um ein Gesamt-Eta (und kein parteilles) zu erhalten sollte man die Option `partial` auf `FALSE` setzen und das Konfidenzintervall auf die für uns üblichen 95% (Argument `ci = 95`):
+Als Maß für die Stärke des beobachteten Effekts dient bei der Varianzanalyse $\eta$^2^ (Eta-Quadrat). Es berechnet sich aus dem Verhältnis der erklärten Varianz (Quadratsummen zwischen den Gruppen) und der Gesamtvariation. Man kann es mit dem Befehl `eta_squared()` aus dem `effectsize`-Paket ausgeben. Um ein Gesamt-Eta (und kein partielles) zu erhalten, sollte man die Option `partial` auf `FALSE` setzen und das Konfidenzintervall auf die für uns üblichen 95% (Argument `ci = 95`):
 
 ```{r warning=FALSE, message=FALSE}
 effectsize::eta_squared(my_model, 
@@ -181,7 +181,7 @@ Eine genau gleich benannte Funktion `eta_squared()` gibt es auch im Paket `rstat
 
 :::
 
-Zusammenfassend lässt sich sagen, dass die bisherigen Ergebnisse für die H1 sprechen: Der F-Wert ist mit p < .001 signifikant und $\eta$^2^ = `r effectsize::eta_squared(my_model, partial = FALSE, ci = 0.95)$Eta2 %>% round(2)` steht für einen starken Zusammenhang. Worüber wir jedoch noch keine Aussage machen können ist, ob sich wirklich alle Gruppen jeweils signifikant von einander unterschieden. Dazu werden Posthoc-Test benötigt.
+Zusammenfassend lässt sich sagen, dass die bisherigen Ergebnisse für die H1 sprechen: Der F-Wert ist mit p < .001 signifikant und $\eta$^2^ = `r effectsize::eta_squared(my_model, partial = FALSE, ci = 0.95)$Eta2 %>% round(2)` steht für einen starken Zusammenhang. Worüber wir jedoch noch keine Aussage machen können ist, ob sich wirklich alle Gruppen jeweils signifikant voneinander unterschieden. Dazu werden Posthoc-Tests benötigt.
 
 
 ### Posthoc-Test
@@ -193,9 +193,9 @@ Der F-Wert repräsentiert die die kombinierte Signifikanz aller Parameter in der
 
 **Achtung Alphafehler-Kummulation!**
 
-Theoretisch könnte man jetzt einfach hergehen und einen Filter vor die Anova setzen, in dem jeweils eine Gruppe ausgeschlossen wird und nur zwei Gruppen zum Vergleich zugelassen werden. Oder man könnte gleich T-Test mit diesen beiden Gruppen berechnen. Das ist allerdings eine schlechte Idee.
+Theoretisch könnte man jetzt einfach hergehen und einen Filter vor die Anova setzen, in dem jeweils eine Gruppe ausgeschlossen wird und nur zwei Gruppen zum Vergleich zugelassen werden. Oder man könnte gleich einen T-Test mit diesen beiden Gruppen berechnen. Das ist allerdings eine schlechte Idee.
 
-Aus der Inferenzsstatistik-Vorlesung wissen Sie, dass wir bei den hier durchgeführten Nullhypothesentests vorab eine Fehlerwahrscheinlichkeit festlegen, die üblicherweise bei 5 Prozent bzw. bei  $\alpha$ = .05 liegt. Das bedeutet wiederum, das wir in 5 Prozemnt der Fälle eine Fehlentscheidung für ein Signifikantes Ergebnis bewusst einkalkulieren. Das wäre rein statistisch jedes zwanzigste Mal. Gerade wenn viele Signifikanztests durchgeführt werden kann es deshalb vermehrt zu solchen Fehlentscheidungen, den so genannten Alpha-Fehlern kommen. Deshalb muss der kummulierte Alpha-Fehler reduziert werden.
+Aus der Inferenzsstatistik-Vorlesung wissen Sie, dass wir bei den hier durchgeführten Nullhypothesentests vorab eine Fehlerwahrscheinlichkeit festlegen, die üblicherweise bei 5 Prozent bzw. bei  $\alpha$ = .05 liegt. Das bedeutet wiederum, dass wir in 5 Prozent der Fälle eine Fehlentscheidung für ein signifikantes Ergebnis bewusst einkalkulieren. Das wäre rein statistisch jedes zwanzigste Mal. Gerade wenn viele Signifikanztests durchgeführt werden, kann es deshalb vermehrt zu solchen Fehlentscheidungen, den sogenannten Alpha-Fehlern kommen. Deshalb muss der kummulierte Alpha-Fehler reduziert werden.
 
 Posthoc-Tests machen genau das: (1) Sie testen sehr viele Mittelwertunterschiede -- nämlich jeweils einzeln die zwischen jeder Gruppe und jeder anderen Gruppe -- und (2) sie korrigieren das Alpha-Fehler-Niveau, so dass es Fehlentscheidungen weniger wahrscheinlich werden und nicht inflationär auftreten. Es gibt viele verschiedene Verfahren für die Alphafehler-Korrektur, die nach ihren jeweiligen Entwicklern benannt sind. Ohne Anspruch auf Vollständigkeit z.B. Bonferoni, Games-Howell, Tamhane und Scheffé. Die Verfahren haben unterschiedliche Anwendungsvoraussetzungen (z.B. Varianzhomogenität) und Vor- und Nachteile. Eine ausführliche Diskussion führt aber an dieser Stelle zu weit.
 
@@ -203,7 +203,7 @@ Posthoc-Tests machen genau das: (1) Sie testen sehr viele Mittelwertunterschiede
 
 Selbstverständlich finden sich Posthoc-Tests wieder in unterschiedlichen R-Paketen. Ich mag das `rstatix`-Paket, weil es pipeable ist und wir es ohnehin schon geladen haben. Darin finden sich verschiedene Funktionen für Posthoc-Tests:
 
-- Falls Varianzhomogenität besteht, kann man die Funktion `emmeans_test()` verwenden. "eenmeans" steht dabei für "estimated marginal means". Die Funktion benötigtdas Datenobjekt als erstes Argument (eine Tidyverse-Konvention), dann die Formel für die Varianzanalyse und schließlich muss man über `p.adjust.method` die zu verwendende Korrektur angeben, bspw. `"bonferroni"`
+- Falls Varianzhomogenität besteht, kann man die Funktion `emmeans_test()` verwenden. "eenmeans" steht dabei für "estimated marginal means". Die Funktion benötigt das Datenobjekt als erstes Argument (eine Tidyverse-Konvention), dann die Formel für die Varianzanalyse und schließlich muss man über `p.adjust.method` die zu verwendende Korrektur angeben, bspw. `"bonferroni"`
 - Der Games-Howell-Test berücksichtigt die Welch-Korrektur und ist über die Funktion `games_howell_test()` nutzbar. Sie benötigt nur das Datenobjekt und die Formel.
 
 In unserem Fall brauchen wir natürlich wegen des signifikanten Levene-Tests und der Welch-Korrektur den Games-Howell-Test:
@@ -215,7 +215,7 @@ games_howell_test(data = df,
 
 Die Output-Tabelle zeigt drei Zeilen für die drei paarweisen Mittelwertvergleiche. In den beiden "group"-Spalten steht, welche Gruppen miteinander verglichen werden. Die Spalte "estimate" gibt die Differenz zwischen den Gruppenmittelwerten an und dahinter folgen zwei Spalten für das Konfidenzintervall dieser Differenz. Wenn sich die Grenzen der Konfidenzintervalle nicht überschneiden, spricht dies für einen signifikanten Unterschied. Ob eine Mittelwertdifferenz signifikant ist, kann man aber noch leichter in den letzten beiden Spalten sehen. Dort sind der korrigierte p-Wert bzw. das Siginifikanzlevel angegeben.
 
-Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen. Wir benötigen dazu einen Datensatz, in dem die Mittelwerte, und die Grenzen der Konfidenzintervalle nach Gruppen aufgesplitztet werden. Zur Berechnung der Grenzen des Konfidenzintervalls wird im folgenden Code die Funktion `mean_se()` aus dem Paket `ggplot2` verwendet.
+Das sich die Konfidenzintervalle nicht in ihrem Wertebereich überschneiden, lässt sich übrigens auch sehr schön in einem Balkendiagramm mit zusätzlich eingeblendeten Konfidenzintervallgrenzen visuell darstellen. Wir benötigen dazu einen Datensatz, in dem die Mittelwerte, und die Grenzen der Konfidenzintervalle nach Gruppen aufgesplittet werden. Zur Berechnung der Grenzen des Konfidenzintervalls wird im folgenden Code die Funktion `mean_se()` aus dem Paket `ggplot2` verwendet.
 
 ```{r}
 tab_mean_ci <- df %>% 
@@ -227,7 +227,7 @@ tab_mean_ci
 ```
 
 
-Aus diesem Datensatz können wir jekt unseren Plot mit zwei Geomen erstellen. Ein Geom für die Balken und eines für die Konfidenzintervalle.
+Aus diesem Datensatz können wir jetzt unseren Plot mit zwei Geomen erstellen. Ein Geom für die Balken und eines für die Konfidenzintervalle.
 
 ```{r}
 tab_mean_ci %>%
@@ -241,9 +241,9 @@ tab_mean_ci %>%
 
 ### Ergebnisdarstellung
 
-Selbstverständlich kann man die Ergebnisse einer Varianzanalyse auch in einer Tabelle darstellen. Macht man jedoch nur eine einzelne Analyse, noch dazu wie in diesem Fall "bloß" einen Treatment-Check, Ist auch die Darstellung im Text möglich. Für unsere Auswertung sieht dass Ergebnis wie folgt aus: 
+Selbstverständlich kann man die Ergebnisse einer Varianzanalyse auch in einer Tabelle darstellen. Macht man jedoch nur eine einzelne Analyse, noch dazu wie in diesem Fall "bloß" einen Treatment-Check, ist auch die Darstellung im Text möglich. Für unsere Auswertung sieht das Ergebnis wie folgt aus: 
 
-Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit $F_{korrigiert}$ = `r my_model$statistic %>% round(0)` ein höchst signifikantes Ergebnis (p < .001).  Der beobachtete Effekt ist mit $\eta$^2^ = `r effectsize::eta_squared(my_model, partial = FALSE, ci = 0.95)$Eta2 %>% round(2)` als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore von einander. Der Mittelwert des Highscores der Gruppe "einfach" ist mit *M* = `r df %>% filter(Schwierigkeitsgrad == "einfach") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* =  `r df %>% filter(Schwierigkeitsgrad == "einfach") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) der höchste. Der Mittelwert *M* = `r df %>% filter(Schwierigkeitsgrad == "mittel") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* = `r df %>% filter(Schwierigkeitsgrad == "mittel") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) der Gruppe "mittel" ist signifikant geringer, und der Mittelwert der Gruppe "schwer" ist mit *M* = `r df %>% filter(Schwierigkeitsgrad == "schwer") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* = `r df %>% filter(Schwierigkeitsgrad == "schwer") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.
+Die Hypothese wird durch die Varianzanalyse mit Welch-Korrektur gestützt, denn sie zeigt mit $F_{korrigiert}$ = `r my_model$statistic %>% round(0)` ein höchst signifikantes Ergebnis (p < .001).  Der beobachtete Effekt ist mit $\eta$^2^ = `r effectsize::eta_squared(my_model, partial = FALSE, ci = 0.95)$Eta2 %>% round(2)` als stark zu bezeichnen. Der Posthc-Test nach Games-Howell zeigt: Alle drei Schwierigkeitsgruppen unterscheiden sich in dem erzielten Highscore voneinander. Der Mittelwert des Highscores der Gruppe "einfach" ist mit *M* = `r df %>% filter(Schwierigkeitsgrad == "einfach") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* =  `r df %>% filter(Schwierigkeitsgrad == "einfach") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) der höchste. Der Mittelwert *M* = `r df %>% filter(Schwierigkeitsgrad == "mittel") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* = `r df %>% filter(Schwierigkeitsgrad == "mittel") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) der Gruppe "mittel" ist signifikant geringer, und der Mittelwert der Gruppe "schwer" ist mit *M* = `r df %>% filter(Schwierigkeitsgrad == "schwer") %>% summarize(mean(Highscore, na.rm=TRUE)) %>% round(0)` (*SD* = `r df %>% filter(Schwierigkeitsgrad == "schwer") %>% summarize(sd(Highscore, na.rm=TRUE)) %>% round(0)`) wiederum signifikant geringer als dieser. Wenig überraschend führte also ein höherer Schwierigkeitsgrad dazu, dass die Proband:innen einen geringeren Highscore erzielen.
 
 
 ## Zweifaktorielle Varianzanalyse
@@ -299,9 +299,9 @@ Außerdem können wir die Effekte beider Einflussfaktoren miteinander vergleiche
 
 ### Deskriptive Analyse 
 
-Wie immer: Vor dem Signifikanztest wird deskriptiv ausgewertet. Es muss festgestellt werden, ob die Mittelwerte in die Prognostizierte Richtung weisen. Für H1 und den Schwierigkeitsgrad haben wir dies im letzten Abschnitt bereits bestätigt.
+Wie immer: Vor dem Signifikanztest wird deskriptiv ausgewertet. Es muss festgestellt werden, ob die Mittelwerte in die prognostizierte Richtung weisen. Für H1 und den Schwierigkeitsgrad haben wir dies im letzten Abschnitt bereits bestätigt.
 
-Aber auch für den zweiten Haupteffekt und die Wettkampfpräferenz (H2) sieht es gut aus, denn tatsächlich ist der Highscore der Probanden höher, wenn die Wettkampfpräferenz höher ist.
+Aber auch für den zweiten Haupteffekt und die Wettkampfpräferenz (H2) sieht es gut aus, denn tatsächlich ist der Highscore der Proband:innen höher, wenn die Wettkampfpräferenz höher ist.
 
 ```{r}
 df %>% 
@@ -311,7 +311,7 @@ df %>%
             SD = round(sd(Highscore)))
 ```
 
-Nun zum Interaktionseffekt. Um die Werte zu veranschaulichen, gruppieren wir nicht nur nach einer unabhängigen Variablen, sondern nach beiden. Weil wir diese Tabelle später noch einmal benötigen, wird sie als Objekt `desc_table` abgespeichert.
+Nun zum Interaktionseffekt. Um die Werte zu veranschaulichen, gruppieren wir nicht nur nach einer unabhängigen Variable, sondern nach beiden. Weil wir diese Tabelle später noch einmal benötigen, wird sie als Objekt `desc_table` abgespeichert.
 
 ```{r message=FALSE}
 desc_table <- df %>% 
@@ -342,7 +342,7 @@ Augenscheinlich hat sich die Lage durch die Aufteilung in nun sechs Gruppen nich
 
 ### Levene-Test
 
-Wir wissen bereits aus dem vorigen  Abschnitt, dass wir es hinsichtlich der Gruppenvariable Schwierigkeit mit heterogenen Varianzen bei der Variable Highscore zu tun haben. Außerdem existiert für die Mehrfaktorielle Varianzanalyse leider keine Welch-Korrektur. Der Vollständigkeit halber, wird hier dennoch demonstriert, wie eine Analyse der unterschiedlichen Streuung bei einer Zweifaktoriellen Varianzanalyse aussieht.
+Wir wissen bereits aus dem vorigen  Abschnitt, dass wir es hinsichtlich der Gruppenvariable Schwierigkeit mit heterogenen Varianzen bei der Variable Highscore zu tun haben. Außerdem existiert für die mehrfaktorielle Varianzanalyse leider keine Welch-Korrektur. Der Vollständigkeit halber, wird hier dennoch demonstriert, wie eine Analyse der unterschiedlichen Streuung bei einer zweifaktoriellen Varianzanalyse aussieht.
 
 Zuerst der Levene-Test für den Einflussfaktor Wettkampfpräferenz:
 
@@ -353,7 +353,7 @@ df %>%
 
 Ergebnis: Ebenfalls signifikant, also ungleiche Varianzen.
 
-Und da wir uns in H3 auch für den Interaktionseffekt interessieren folgt noch ein multifaktorieller Levene-Test. Die Interaktion wird eingebracht über den Operator `*` (Asterisk/Sternchen) in der Formel. Der Asterisk bedeutet soviel wie "interagiert mit".
+Und da wir uns in H3 auch für den Interaktionseffekt interessieren, folgt noch ein multifaktorieller Levene-Test. Die Interaktion wird eingebracht über den Operator `*` (Asterisk/Sternchen) in der Formel. Der Asterisk bedeutet soviel wie "interagiert mit".
 
 ```{r}
 df %>% 
@@ -361,7 +361,7 @@ df %>%
 
 ```
 
-Wie zu erwarten, ein drittes signifikantes Ergebnis. Wir können also auf keinen Fall von Varianzhomogenität ausgehen. Dieses Wissen bleibt insofern ohne Konsequenzen, als dass wir hier eine ganz normale zweifaktorielle Varianzanalyse berechnen werden, weil die Welch-Korrektur für dieses Verfahren fehlt. Wir behalten aber im Hinterkopf, dass das Ergebnis der nun folgenden Analyse möglicherweise verzerrt ist, weil die Anwendungsvoraussetzung der Varianzhomogenität verletzt wird.
+Wie zu erwarten; ein drittes signifikantes Ergebnis. Wir können also auf keinen Fall von Varianzhomogenität ausgehen. Dieses Wissen bleibt insofern ohne Konsequenzen, als dass wir hier eine ganz normale zweifaktorielle Varianzanalyse berechnen werden, weil die Welch-Korrektur für dieses Verfahren fehlt. Wir behalten aber im Hinterkopf, dass das Ergebnis der nun folgenden Analyse möglicherweise verzerrt ist, weil die Anwendungsvoraussetzung der Varianzhomogenität verletzt wird.
 
 
 ### Durchführung einer mehrfaktoriellen Varianzanalyse
@@ -401,12 +401,12 @@ eta_squared(my_model, partial = FALSE, ci = 0.95)
 ```
 
 
-Eindeutig die größte Effektstärke zeigt der Haupteffekt des Schwierigkeitsgrades (H1). -- Gegenüber dem Test mit der einfaktoriellen Varianzanalyse fällt es jedoch geringfügig kleiner aus. Die anderen beiden Effekte sind irgendwie existent, aber vergleichsweise gering.
+Eindeutig die größte Effektstärke zeigt der Haupteffekt des Schwierigkeitsgrades (H1). -- Gegenüber dem Test mit der einfaktoriellen Varianzanalyse, fällt es jedoch geringfügig kleiner aus. Die anderen beiden Effekte sind irgendwie existent, aber vergleichsweise gering.
 
 
 ### Visualisierung
 
-Die Visualisierung von Interaktionseffekten hilft erheblich bei der Interpretation. Am einfachsten ist, es, wenn wir als Basis für die Visualisierung die Tabelle benutzen, die wir im Abschnitt [Deskriptive Analyse]  erzeugt hatten. Wir brauchen aus dieser Tabelle die beiden Einflussvariablen und die Mittelwerte:
+Die Visualisierung von Interaktionseffekten hilft erheblich bei der Interpretation. Am einfachsten ist, es, wenn wir als Basis für die Visualisierung die Tabelle benutzen, die wir im Abschnitt [Deskriptive Analyse] erzeugt hatten. Wir brauchen aus dieser Tabelle die beiden Einflussvariablen und die Mittelwerte:
 
 ```{r}
 desc_table %>% 
@@ -432,7 +432,7 @@ desc_table %>%
 
 ```
 
-In dem Interaktionsdiagramm zeigt sich, dass die von mir Prognostizierte Interaktion vor allem im einfachen Schwierigkeitsgrad zum Tragen kommt. Hier ist es tatsächlich so, dass Probandinnen mit hoher Wettkampfpräferenz deutlich besser abschneiden als solche mit niedriger. Auf mittlerem Schwierigkeitsgrad ist die Tendenz jedoch umgedreht. Hier sind Personen mit niedriger Wettkampfpräferenz etwas besser. Der Mittelwertunterschied ist jedoch gering. Bei schweren Schwierigkeitsgrad dreht es sich wieder, aber auch hier ist die Mittelwertdifferenz gering. Es ist also kompliziert. Möglicherweise gibt es einen zusätzlichen Effekt, bei dem Personen mit hoher Wettkampfpräferenz durch einen besonders schweren Schwierigkeitsgrad zusätzlich angespornt werden einen hohen Highscore zu erzielen. Um das zu untersuchen sind unsere Daten aber leider nicht differenziert genug. Festzuhalten ist aber, dass sich die  H3 (A-Version) bestätigen lässt (das zeigt der *F*-Wert oben) und dass zumindest die visuellen Ergebnisse für Gruppe "leicht" für die präzisierte B-Version der H3 sprechen.
+In dem Interaktionsdiagramm zeigt sich, dass die von mir prognostizierte Interaktion vor allem im einfachen Schwierigkeitsgrad zum Tragen kommt. Hier ist es tatsächlich so, dass Probandinnen mit hoher Wettkampfpräferenz deutlich besser abschneiden als solche mit niedriger. Auf mittlerem Schwierigkeitsgrad ist die Tendenz jedoch umgedreht. Hier sind Personen mit niedriger Wettkampfpräferenz etwas besser. Der Mittelwertunterschied ist jedoch gering. Bei schweren Schwierigkeitsgrad dreht es sich wieder, aber auch hier ist die Mittelwertdifferenz gering. Es ist also kompliziert. Möglicherweise gibt es einen zusätzlichen Effekt, bei dem Personen mit hoher Wettkampfpräferenz durch einen besonders schweren Schwierigkeitsgrad zusätzlich angespornt werden einen hohen Highscore zu erzielen. Um das zu untersuchen sind unsere Daten aber leider nicht differenziert genug. Festzuhalten ist aber, dass sich die  H3 (A-Version) bestätigen lässt (das zeigt der *F*-Wert oben) und dass zumindest die visuellen Ergebnisse für Gruppe "leicht" für die präzisierte B-Version der H3 sprechen.
 
 Es stellt sich jetzt natürlich die Frage, welche der beobachteten Mittelwertunterschiede sind signifikant?
 
@@ -442,7 +442,7 @@ Bis hierhin haben wir festgestellt, dass sich wohl alle drei Hypothesen bestäti
 
 Für H1 (Haupteffekt des Schwierigkeitsgrades) haben wir den Posthoc-Test bereits im ersten Abschnitt bei der einfaktoriellen Varianzanalyse ausgeführt. Das ERgebnis würde hier nicht anders ausfallen.
 
-Für H2 (Haupteffekt der Wettkampfpräferenz) brauchen wir keinen Posthoc-Test, denn der Faktor Wettkampfpräferenz hat nur zwei Ausprägungen. Die Varianzanalyse hat einen signifikanten Haupteffekt ergeben, es ist klar das sich nur diese beiden unterschieden können (um beim Bild des Omnibustests zu bleiben: Es sitzt nur ein Mittelwertunterschied im Bus).
+Für H2 (Haupteffekt der Wettkampfpräferenz) brauchen wir keinen Posthoc-Test, denn der Faktor Wettkampfpräferenz hat nur zwei Ausprägungen. Die Varianzanalyse hat einen signifikanten Haupteffekt ergeben, es ist klar, dass sich nur diese beiden unterschieden können (um beim Bild des Omnibustests zu bleiben: Es sitzt nur ein Mittelwertunterschied im Bus).
 
 Für H3 (Interaktion) wäre ein Posthoc-Test natürlich interessant. Es wäre wichtig zu wissen, ob sich die Personen mit hoher vs. niedriger Wettkampfpräferenz in der Gruppe leichter Schwierigkeitsgrad tatsächlich signifikant unterscheiden. Und natürlich auch, ob in den anderen Schwierigkeitsgraden signifikante Unterschiede vorliegen.
 
@@ -465,7 +465,7 @@ df %>%
   
 ```
 
-Ich interessiere mich vor allem für die Mittelwertunterschiede innerhalb jedes Schwierigkeitsgerades., deshalb habe ich durch einen Filter, der mit "Regular Expressions" arbeitet hier nur die herausgefiltert. Schaut man sich die Signifikanzniveaus drei Mittelwertunterschiede an, bestätigt sich, was auch schon anhand der Interaktionsgrafik zu vermuten war: Ein Signifikanter Mittelwertunterschied der Wettkampfpräferenz besteht lediglich in der Gruppe "leichter Schwierigkeitsgrad".
+Ich interessiere mich vor allem für die Mittelwertunterschiede innerhalb jedes Schwierigkeitsgerades., deshalb habe ich durch einen Filter, der mit "Regular Expressions" arbeitet hier nur die herausgefiltert. Schaut man sich die Signifikanzniveaus der drei Mittelwertunterschiede an, bestätigt sich, was auch schon anhand der Interaktionsgrafik zu vermuten war: Ein signifikanter Mittelwertunterschied der Wettkampfpräferenz besteht lediglich in der Gruppe "leichter Schwierigkeitsgrad".
 
 ### Abschließende Beurteilung des Hypothesentests
 
